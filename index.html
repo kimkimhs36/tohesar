@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="TOHEŞAR — 노래와 장소를 자동차로 번역합니다. Cars built from songs, not for them." />
+  <title>TOHEŞAR</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: #0b0b0b;
+      --line: rgba(255,255,255,.14);
+      --text: #f5f2eb;
+      --muted: rgba(245,242,235,.62);
+      --accent: #8f1823;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(143,24,35,.16), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+      letter-spacing: -.02em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      letter-spacing: .08em;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: calc(100vh - 86px);
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 48px;
+      align-items: end;
+      padding: 9vh 0 8vh;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .72rem;
+      margin-bottom: 26px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: clamp(3.9rem, 10vw, 9rem);
+      line-height: .88;
+      letter-spacing: -.065em;
+    }
+
+    .hero-copy {
+      border-left: 1px solid var(--line);
+      padding-left: 28px;
+      padding-bottom: 8px;
+    }
+
+    .hero-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    .hero-copy strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 13px 17px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .85rem;
+      transition: .2s ease;
+    }
+
+    .cta:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    section {
+      padding: 110px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .section-head span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .work {
+      min-height: 360px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.045), transparent 55%),
+        var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .work:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.28);
+    }
+
+    .num {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 4.6rem;
+      line-height: 1;
+      color: rgba(245,242,235,.18);
+    }
+
+    .work h3 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .work p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .manifesto {
+      max-width: 900px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+    }
+
+    .manifesto em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    footer {
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      header { height: 72px; }
+      nav { gap: 14px; font-size: .68rem; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 56px;
+        padding: 12vh 0 9vh;
+      }
+      h1 { font-size: clamp(4rem, 22vw, 7rem); }
+      .hero-copy { border-left: 0; border-top: 1px solid var(--line); padding: 24px 0 0; }
+      section { padding: 78px 0; }
+      .works { grid-template-columns: 1fr; }
+      .work { min-height: 310px; }
+      footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="wordmark" href="#top" aria-label="TOHEŞAR home">TOHEŞAR</a>
+      <nav aria-label="Primary navigation">
+        <a href="#works">Works</a>
+        <a href="https://www.instagram.com/tohesar/" target="_blank" rel="noreferrer">Instagram</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Automotive visual culture</div>
+          <h1>TOHEŞAR</h1>
+        </div>
+        <div class="hero-copy">
+          <p><strong>노래와 장소를 자동차로 번역합니다.</strong></p>
+          <p>Cars built from songs,<br />not for them.</p>
+          <a class="cta" href="https://www.instagram.com/tohesar/" target="_blank" rel="noreferrer">@tohesar ↗</a>
+        </div>
+      </div>
+
+      <section id="works">
+        <div class="section-head">
+          <h2>Selected works</h2>
+          <span>Track to Machine</span>
+        </div>
+        <div class="works">
+          <article class="work">
+            <div class="num">001</div>
+            <div>
+              <h3>I Really Want to Stay at Your House</h3>
+              <p>Porsche 911 Targa 4S</p>
+            </div>
+          </article>
+
+          <article class="work">
+            <div class="num">002</div>
+            <div>
+              <h3>Hold My Hand</h3>
+              <p>Chevrolet Corvette C8 Z06</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="manifesto">The car stayed.<br />The city kept <em>moving.</em></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 TOHEŞAR</span>
+      <span>tohesar.com</span>
+    </footer>
+  </div>
+</body>
+</html>
