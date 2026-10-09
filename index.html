@@ -37,6 +37,9 @@
   @media(max-width:370px){.nav-links{gap:14px}.opening-under p{font-size:15px}.feature-note{display:block}.feature-note .text-link{margin-top:16px}.interlude p{font-size:58px}}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.visual-card img{transition:none}.text-link{transition:none}}
 
+  
+  /* Journal 001: image opens the complete visual essay; keyboard focus remains visible. */
+  .hero-entry{position:absolute;inset:0;z-index:4;display:block;cursor:pointer}.hero-entry:focus-visible{outline:2px solid var(--ivory);outline-offset:-8px}.hero{cursor:pointer}
   </style>
   <style>
 /* TOHEŞAR — motion direction 01. Small gestures, long breath. */
@@ -152,13 +155,14 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
       <div class="opening-under"><p>For the moments between<br>one place and another.</p><span class="side-note eyebrow">ISSUE 001 &nbsp; / &nbsp; VISUAL NOTES<br>SCROLL TO EXPLORE ↓</span></div>
     </section>
     <section class="hero wrap" aria-label="Featured visual study — Yokohama">
+      <a class="hero-entry" href="journal/yokohama/" aria-label="TOHEŞAR Journal 001 — Yokohama 작품 읽기"></a>
       <picture><source srcset="assets/yokohama-portrait.webp" media="(max-width: 760px)"><img src="assets/yokohama-landscape.webp" width="1500" height="660" alt="해질 무렵 요코하마 항구와 고가도로 아래 주차된 은색 클래식 포르쉐" decoding="async" fetchpriority="high"></picture>
       <div class="hero-edge eyebrow"><span>001 / FEATURED STUDY</span><span>YOKOHAMA, JAPAN</span></div>
-      <div class="hero-bottom eyebrow"><span class="cover-serial">A scene remembered.</span><span>TOHEŞAR / 2026</span></div>
+      <div class="hero-bottom eyebrow"><span class="cover-serial">A scene remembered.</span><span>OPEN THE JOURNAL ↗</span></div>
     </section>
     <section class="feature-caption wrap">
       <div><div class="eyebrow muted">FIELD NOTES &nbsp; / &nbsp; NO. 001</div><h1>Somewhere<br><em>in Yokohama.</em></h1></div>
-      <div class="feature-note"><p>A quiet car beneath the expressway. The last light against the water. An imagined scene, held like a memory.</p><button type="button" class="text-link eyebrow" data-story="yokohama">EXPLORE THE STUDY <span aria-hidden="true">↗</span></button></div>
+      <div class="feature-note"><p>A quiet car beneath the expressway. The last light against the water. An imagined scene, held like a memory.</p><a class="text-link eyebrow" href="journal/yokohama/">READ THE JOURNAL <span aria-hidden="true">↗</span></a></div>
     </section>
     <section id="about" class="about wrap"><div class="eyebrow about-small">WHAT IS TOHEŞAR? &nbsp; / &nbsp; 002</div><div class="about-main"><h2>Not just the car.<br><em>The world</em><br>around it.</h2><p>TOHEŞAR moves between automobiles, cities, sound, time and memory. A visual archive of the scenes, objects and feelings we choose to keep.<br><br>차와 장소, 사람과 음악. 그 사이에 남는 장면들을 기록합니다.</p></div></section>
     <section class="archive wrap" id="journal">
