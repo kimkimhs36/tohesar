@@ -1,28 +1,15 @@
-# TOHEŞAR
+# TOHEŞAR — Digital Flagship
 
-Official website repository for **TOHEŞAR**.
+Fresh static website for https://tohesar.com. No framework, build step, router, or runtime dependencies. Designed for root deployment via GitHub Pages.
 
-- Website: https://tohesar.com
-- Production branch: `main`
-- Custom domain: `tohesar.com` (preserved via `CNAME`)
-- Pages status: deployment configuration currently needs verification
-- Stack: static HTML/CSS — no build step or framework yet
+## Deployment
+- Publish the root of the main branch through GitHub Pages (Settings → Pages → Deploy from a branch → main / root), after review and merge.
+- Keep the CNAME file containing `tohesar.com`.
+- Verify DNS and HTTPS in Pages settings; repository changes alone cannot fix domain DNS.
+- Internal navigation uses anchors to prevent client-side route refresh 404s.
 
-## Repository structure
+## Preview
+Open index.html with a local static server, or deploy the rebuild branch to a preview host. Review responsive layout and external links before merging.
 
-- `index.html` — current website source
-- `CNAME` — custom domain (`tohesar.com`)
-- `.gitignore` — prevents local/editor junk files from being committed
-
-## Simple workflow
-
-Keep `main` as the production branch. Larger redesigns should be prepared separately and merged only after review so the live domain configuration is not disturbed.
-
-For ordinary website edits:
-
-1. Edit the required file.
-2. Preview the change.
-3. Commit it with a short description.
-4. Keep temporary files and editor settings out of the repository.
-
-This repository is intentionally kept small and clean while the next site architecture is prepared.
+## Notes
+This is an original typographic/art-direction prototype using CSS-generated art, not finished photography. Replace abstract hero artwork with properly licensed TOHEŞAR photography later.
