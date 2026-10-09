@@ -37,6 +37,7 @@
   @media(max-width:370px){.nav-links{gap:14px}.opening-under p{font-size:15px}.feature-note{display:block}.feature-note .text-link{margin-top:16px}.interlude p{font-size:58px}}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.visual-card img{transition:none}.text-link{transition:none}}
   </style>
+  <link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <div class="page" id="top">
@@ -85,11 +86,19 @@
     notes:{title:'Scenes in passing.',kicker:'004 / VISUAL NOTES',image:'assets/notes.webp',alt:'Editorial moodboard of visual scenes',copy:'A collection of visual explorations across automobiles, people, cities and places. Some are imagined; all are part of the growing TOHEŞAR visual archive.'}
   };
   const dialog=document.getElementById('story-dialog');const closer=document.getElementById('dialog-close');let prevFocus=null;
-  function openStory(key){const s=stories[key];if(!s||!dialog)return;prevFocus=document.activeElement;document.getElementById('dialog-kicker').textContent=s.kicker;document.getElementById('dialog-title').textContent=s.title;document.getElementById('dialog-copy').textContent=s.copy;const img=document.getElementById('dialog-image');img.src=s.image;img.alt=s.alt;if(typeof dialog.showModal==='function'){dialog.showModal();document.body.classList.add('dialog-open')}else{window.location.href=s.image}}
-  function closeStory(){if(dialog.open)dialog.close()}
+  function openStory(key){const s=stories[key];if(!s||!dialog)return;prevFocus=document.activeElement;dialog.classList.remove('is-closing');document.getElementById('dialog-kicker').textContent=s.kicker;document.getElementById('dialog-title').textContent=s.title;document.getElementById('dialog-copy').textContent=s.copy;const img=document.getElementById('dialog-image');img.src=s.image;img.alt=s.alt;if(typeof dialog.showModal==='function'){dialog.showModal();document.body.classList.add('dialog-open')}else{window.location.href=s.image}}
+  const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let closeTimer=null;
+  function closeStory(){
+    if(!dialog.open||dialog.classList.contains('is-closing'))return;
+    if(prefersReducedMotion.matches){dialog.close();return}
+    dialog.classList.add('is-closing');
+    closeTimer=window.setTimeout(()=>{closeTimer=null;if(dialog.open)dialog.close()},250);
+  }
   document.querySelectorAll('[data-story]').forEach(el=>el.addEventListener('click',()=>openStory(el.dataset.story)));
-  closer.addEventListener('click',closeStory);dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');if(prevFocus&&typeof prevFocus.focus==='function')prevFocus.focus()});dialog.addEventListener('click',e=>{if(e.target===dialog)closeStory()});
+  closer.addEventListener('click',closeStory);dialog.addEventListener('cancel',e=>{e.preventDefault();closeStory()});dialog.addEventListener('close',()=>{dialog.classList.remove('is-closing');if(closeTimer){clearTimeout(closeTimer);closeTimer=null;}document.body.classList.remove('dialog-open');if(prevFocus&&typeof prevFocus.focus==='function')prevFocus.focus()});dialog.addEventListener('click',e=>{if(e.target===dialog)closeStory()});
 })();
 </script>
+<script src="motion.js" defer></script>
 </body>
 </html>
