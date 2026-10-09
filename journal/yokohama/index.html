@@ -39,6 +39,19 @@
 .sound-toggle{pointer-events:auto;display:inline-flex;align-items:center;gap:11px;background:rgba(246,242,236,.94);border:1px solid rgba(55,48,42,.19);border-radius:40px;padding:13px 16px 12px;color:#39332f;box-shadow:0 5px 26px rgba(20,19,18,.09);font:600 10px/1 var(--sans);letter-spacing:.14em;cursor:pointer;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:background .3s,border-color .3s,transform .3s}
 .sound-toggle:hover{transform:translateY(-2px);background:rgba(250,247,242,.99)}.sound-toggle:active{transform:translateY(0)}.sound-toggle .sound-glyph{font-size:15px;line-height:1;color:#ac816d;transition:color .3s}
 @media(prefers-reduced-motion:reduce){.sound-toggle{transition:none}}
+
+/* Camera Study 001 — restrained photographic motion, no WebGL required. */
+.cover[data-camera-study]{cursor:grab;touch-action:pan-y;contain:paint}
+.cover[data-camera-study].camera-dragging{cursor:grabbing}
+.cover[data-camera-study].camera-ready picture img{transform:translate3d(0,0,0) scale(1.115);will-change:transform;backface-visibility:hidden}
+.cover[data-camera-study]:focus-visible{outline:2px solid #e5c5ac;outline-offset:4px}
+.cover .camera-light{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;mix-blend-mode:screen;background:radial-gradient(ellipse 42% 38% at var(--camera-light-x,73%) var(--camera-light-y,31%),rgba(246,216,175,.18) 0%,rgba(235,190,153,.055) 48%,transparent 100%);transition:opacity .8s ease}
+.cover.camera-ready .camera-light{opacity:.65}
+.cover .camera-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(110deg,rgba(31,35,42,.06),transparent 40%,rgba(27,26,25,.045));opacity:.65}
+.story-meta .camera-note{display:inline-flex;align-items:center;gap:9px;color:#7c6559;letter-spacing:.11em}
+.story-meta .camera-note::before{content:'';display:inline-block;width:18px;height:1px;background:#ac8d77;opacity:.85}
+@media(max-width:760px){.story-meta .camera-note{font-size:8px;max-width:145px;text-align:right;justify-content:flex-end}.cover.camera-ready .camera-light{opacity:.5}}
+@media(prefers-reduced-motion:reduce){.cover[data-camera-study]{cursor:auto;touch-action:auto}.cover[data-camera-study].camera-ready picture img{transform:none!important;will-change:auto}.cover .camera-light,.cover .camera-vignette{display:none}.story-meta .camera-note{color:var(--muted)}}
 </style>
 </head>
 <body>
@@ -47,8 +60,8 @@
 <header class="nav margin" aria-label="Journal navigation"><a class="nav-logo" href="../../" aria-label="TOHEŞAR 홈">T.</a><span class="nav-mid eyebrow">TOHEŞAR &nbsp; / &nbsp; VISUAL JOURNAL</span><a class="nav-back" href="../../#journal"><span aria-hidden="true">←</span><span class="eyebrow">BACK TO JOURNAL</span></a></header>
 <main>
 <section class="issue margin" aria-labelledby="story-title"><div class="issue-top"><span class="eyebrow point">TOHEŞAR / JOURNAL NO. 001</span><span class="eyebrow muted">AN IMAGINED PLACE &nbsp; · &nbsp; 2026</span></div><h1 class="issue-title" id="story-title">Yokohama.</h1><div class="issue-desc"><p>For the moments between<br>one place and another.</p><span class="eyebrow">CARS / PLACES / MEMORY<br>SCROLL TO ENTER &nbsp; ↓</span></div></section>
-<section class="cover margin" aria-label="Yokohama opening visual"><picture><source media="(max-width:760px)" srcset="../../assets/yokohama-portrait.webp"><img src="../../assets/yokohama-landscape.webp" width="1500" height="660" alt="노을빛 항구의 고가도로 아래, 은색 포르쉐 911과 물가가 함께 놓인 상상의 요코하마 장면" fetchpriority="high" decoding="async"></picture><div class="cover-inner"><div class="upper"><span class="eyebrow">001 &nbsp; / &nbsp; THE SCENE</span><span class="eyebrow">YOKOHAMA, JAPAN<br>VISUAL FICTION</span></div><div class="lower"><span class="serif">A scene<br>remembered.</span><span class="eyebrow">TOHEŞAR / 2026<span class="line2">STUDY 001 — 01</span></span></div></div></section>
-<div class="story-meta margin eyebrow"><span>FRAME 01 &nbsp; / &nbsp; THE HARBOR</span><span>AN IMAGINED ENCOUNTER</span></div>
+<section class="cover margin" data-camera-study tabindex="0" aria-label="요코하마 대표 사진. 마우스를 움직이거나 손가락을 좌우로 움직여 카메라 시점을 조금 바꿀 수 있습니다."><picture><source media="(max-width:760px)" srcset="../../assets/yokohama-portrait.webp"><img src="../../assets/yokohama-landscape.webp" width="1500" height="660" alt="노을빛 항구의 고가도로 아래, 은색 포르쉐 911과 물가가 함께 놓인 상상의 요코하마 장면" fetchpriority="high" decoding="async"></picture><div class="camera-light" aria-hidden="true"></div><div class="camera-vignette" aria-hidden="true"></div><div class="cover-inner"><div class="upper"><span class="eyebrow">001 &nbsp; / &nbsp; THE SCENE</span><span class="eyebrow">YOKOHAMA, JAPAN<br>VISUAL FICTION</span></div><div class="lower"><span class="serif">A scene<br>remembered.</span><span class="eyebrow">TOHEŞAR / 2026<span class="line2">STUDY 001 — 01</span></span></div></div></section>
+<div class="story-meta margin eyebrow"><span>FRAME 01 &nbsp; / &nbsp; THE HARBOR</span><span class="camera-note" data-camera-instruction>AN IMAGINED ENCOUNTER</span></div>
 <section class="chapter margin"><div class="chapter-label eyebrow reveal">01 / THE ARRIVAL</div><div class="chapter-copy"><h2 class="reveal">A place that<br>feels <em>familiar.</em></h2><div class="chapter-body reveal"><span class="eyebrow muted">NOTES FROM A PLACE<br>NOT YET VISITED</span><div><p>처음 가 본 적 없는 장소인데, 이상하게 오래된 기억처럼 느껴지는 풍경이 있다.</p><p>항구를 가로지르는 도로, 물 위로 번지는 저녁빛, 그리고 그 아래 잠시 멈춰 선 자동차 한 대. TOHEŞAR의 첫 번째 저널은 그런 장면을 상상하는 데서 시작한다.</p><p class="mini">A fictional visual study of a city, a car, and the hour before night.</p></div></div></div></section>
 <section class="gallery margin" aria-label="Yokohama visual fragments"><div class="gallery-top eyebrow"><span>02 / FRAGMENTS OF A SCENE</span><span>LIGHT &nbsp; / &nbsp; FORM</span></div><div class="gallery-grid"><figure class="frame frame-main reveal"><div class="frame-photo"><img src="../../assets/yokohama-drive.webp" width="853" height="1052" alt="요코하마 항구의 고가도로 아래 주행하는 은색 포르쉐를 담은 독립 화보" loading="lazy" decoding="async"></div><figcaption class="frame-caption eyebrow"><span>01 / THE CITY IN MOTION</span><span>DRIVING STUDY</span></figcaption></figure><figure class="frame frame-side reveal" style="--reveal-delay:120ms"><div class="frame-photo"><img src="../../assets/yokohama-interior.webp" width="1428" height="532" alt="포르쉐의 실내에서 노을빛 항구를 바라보는 단독 사진" loading="lazy" decoding="async"></div><figcaption class="frame-caption eyebrow"><span>02 / THE LIGHT INSIDE</span><span>INTERIOR STUDY</span></figcaption></figure></div></section>
 <section class="dark-interlude" aria-label="Yokohama editorial quote"><picture><source media="(max-width:760px)" srcset="../../assets/yokohama-bluehour.webp"><img src="../../assets/yokohama-bluehour.webp" width="1500" height="660" alt="푸른 저녁빛의 요코하마 항구에 주차된 은색 클래식 포르쉐" loading="lazy" decoding="async"></picture><span class="eyebrow reveal">03 &nbsp; / &nbsp; AN HOUR IN BETWEEN</span><blockquote class="reveal">The car stays still.<br>Everything else<br><em>keeps moving.</em></blockquote><div class="interlude-foot eyebrow reveal"><span>AN IMAGE ABOUT BEING SOMEWHERE</span><span>TOHEŞAR<br>YOKOHAMA / 001</span></div></section>
@@ -61,10 +74,9 @@
 (()=>{
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const progress=document.querySelector('.reading-progress');
- const cover=document.querySelector('.cover picture img');
  const dark=document.querySelector('.dark-interlude picture img');
  let ticking=false;
- function update(){ticking=false;const y=window.scrollY;const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);progress.style.transform='scaleX('+Math.min(1,y/max)+')';if(reduced.matches)return;for(const el of [cover,dark]){if(!el)continue;const section=el.closest('section');const box=section.getBoundingClientRect();if(box.bottom<0||box.top>innerHeight)continue;const ratio=Math.max(-1,Math.min(1,(box.top+box.height/2-innerHeight/2)/(innerHeight+box.height)));el.style.transform='translate3d(0,'+(-ratio*13).toFixed(1)+'px,0) scale(1.055)';}}
+ function update(){ticking=false;const y=window.scrollY;const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);progress.style.transform='scaleX('+Math.min(1,y/max)+')';if(reduced.matches)return;for(const el of [dark]){if(!el)continue;const section=el.closest('section');const box=section.getBoundingClientRect();if(box.bottom<0||box.top>innerHeight)continue;const ratio=Math.max(-1,Math.min(1,(box.top+box.height/2-innerHeight/2)/(innerHeight+box.height)));el.style.transform='translate3d(0,'+(-ratio*13).toFixed(1)+'px,0) scale(1.055)';}}
  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll,{passive:true});onScroll();
  if(reduced.matches||!('IntersectionObserver' in window))return;
@@ -107,4 +119,5 @@
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&!audio.paused){cancelAnimationFrame(frame);audio.pause();showState(false)}});
 })();
 </script>
+<script src="../../assets/camera-study.js" defer></script>
 </body></html>
