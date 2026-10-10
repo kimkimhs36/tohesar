@@ -51,6 +51,14 @@
 .archive .visual-card img{filter:saturate(.78) contrast(.97)}
 .archive .visual-card:hover img{filter:saturate(.88) contrast(.99)}
 @media(prefers-reduced-motion:reduce){.sound-toggle{transition:none}}
+
+.nav-mark{display:inline-flex;align-items:center;justify-content:center;width:31px;min-width:31px;height:36px}
+.nav-mark img{display:block;width:29px;height:29px;filter:brightness(0)}
+.object-invite{padding-top:clamp(70px,9vw,145px);padding-bottom:clamp(65px,8vw,125px)}
+.object-invite-link{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:end;gap:35px;padding:clamp(27px,4vw,65px) 0;transition:opacity .2s}
+.object-invite-link:hover{opacity:.68}.object-invite h2{font:400 clamp(59px,7.3vw,117px)/.9 var(--serif);margin:30px 0 20px;letter-spacing:-.047em}
+.object-invite p{font:400 13px/1.8 var(--sans);max-width:440px;color:var(--muted);margin:0}.object-invite-cta{white-space:nowrap;padding-bottom:5px;color:var(--ink)}
+@media(max-width:760px){.object-invite-link{align-items:start;flex-direction:column;gap:27px}.object-invite h2{margin:24px 0 16px}.object-invite p{font-size:12px}.nav-mark img{width:26px;height:26px}}
 </style>
   <style>
 /* TOHEŞAR — motion direction 01. Small gestures, long breath. */
@@ -151,13 +159,14 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
 }
 
   </style>
+<link rel="icon" type="image/svg+xml" href="assets/cedilla-favicon.svg">
 </head>
 <body>
 <div class="page" id="top">
   <header class="site-nav wrap" aria-label="주 탐색">
-    <a class="nav-mark" href="#top" aria-label="TOHEŞAR 처음으로">T.</a>
+    <a class="nav-mark" href="#top" aria-label="TOHEŞAR 처음으로"><img src="assets/cedilla-icon.svg" alt="" width="29" height="29"></a>
     <span class="eyebrow nav-center">INDEPENDENT VISUAL CULTURE JOURNAL &nbsp;·&nbsp; SEOUL / EVERYWHERE</span>
-    <nav class="nav-links eyebrow"><a href="#journal">JOURNAL</a><a href="#about">ABOUT</a><a href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></nav>
+    <nav class="nav-links eyebrow"><a href="#journal">JOURNAL</a><a href="#about">ABOUT</a><a href="symbol/">SYMBOL</a><a href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></nav>
   </header>
   <main>
     <section class="opening wrap" aria-label="TOHEŞAR Magazine Masthead">
@@ -187,6 +196,7 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
       </div>
     </section>
     <section class="interlude" aria-label="Editorial statement"><div class="eyebrow">TOHEŞAR &nbsp; / &nbsp; A VISUAL CULTURE JOURNAL</div><p>There is more<br>to every road<br><em>than the road.</em></p><div class="interlude-bottom"><span class="eyebrow">ALWAYS IN MOTION &nbsp; ↗</span><span class="eyebrow micro-caption">CARS · CITIES · SOUND · PEOPLE<br>PLACES · MEMORY · CULTURE</span></div></section>
+    <section class="object-invite wrap" aria-label="Interactive cedilla exhibition"><a class="object-invite-link" href="symbol/"><div><span class="eyebrow muted">TOHEŞAR &nbsp; / &nbsp; OBJECT STUDY 001</span><h2>The Cedilla.</h2><p>A small mark. A new form. Explore the rotating metal emblem in our interactive gallery.</p></div><span class="eyebrow object-invite-cta">EXPLORE THE 3D OBJECT &nbsp; ↗</span></a></section>
     <section class="closing wrap"><div class="closing-top"><div><span class="eyebrow muted">CONTINUE THE JOURNAL</span><p>TOHEŞAR is an ongoing experiment in image-making and visual storytelling. Follow the next scene.</p></div><a href="https://www.instagram.com/tohesar/" class="text-link eyebrow closing-cta" target="_blank" rel="noopener noreferrer">FOLLOW @TOHESAR <span aria-hidden="true">↗</span></a></div><img class="footer-mark" src="assets/wordmark-hd.png" width="3386" height="797" alt="TOHEŞAR"><div class="footer-line eyebrow"><span>© 2026 TOHEŞAR</span><span>INDEPENDENT BY DESIGN</span><a href="#top">BACK TO TOP ↑</a></div></section>
   </main>
 </div>
