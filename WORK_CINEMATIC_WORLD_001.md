@@ -10,12 +10,13 @@ Current live production branch: main — DO NOT TOUCH
 
 The experience must feel like entering a place rather than scrolling a conventional site: physically grounded camera travel through an evocative road / urban dusk setting into the evolving TOHEŞAR editorial universe. No generic rotating car in an empty showroom, no neon cyberpunk, no card-grid landing page with superficial parallax.
 
-## ABSOLUTE PRIORITY: iPHONE ONLY, THIS RUN
-- Design and optimize only **portrait iPhone** during this first experiment. The key real-world entry is an Instagram profile link opening in the **iPhone Instagram in-app browser** (WKWebView), with Safari as second verification target.
-- Target meaningful first visual rapidly, scene progress without user confusion, and engaging coherent interaction on touch. Mobile Safari / Instagram autoplay restrictions: begin muted; use an explicit sound-enable gesture. Render usable content even if WebGL fails.
-- **Do not spend creative-production time on iPad, desktop, Android or Galaxy Tab layouts.** Ensure they do not intentionally crash / remain inaccessible, but do not build dedicated experiences or polish them this run. iPad Safari landscape adaptation is a *future phase*.
-- Test responsive iPhone-like viewports, dynamic viewport height, safe areas, tall/narrow device dimensions, orientation handling, pause / resume, context loss, shader compile issues, loading states and reduced-motion mode.
-- Do not claim Instagram in-app browser or physical iPhone testing unless actually run there. Report simulator vs actual hardware explicitly.
+## ABSOLUTE PRIORITY: iPHONE SAFARI FIRST — CINEMATIC FIDELITY
+- The **visual master target is iPhone Safari in portrait orientation**. Push the highest *sustainable real-world visual quality* achievable on modern iPhone Safari: scene scale, lighting, material behavior, motion, atmosphere, cinematic composition and tasteful effects. This is an ambitious cinematic art experiment, NOT a low-graphics Instagram-browser compromise.
+- **Instagram in-app browser is a secondary compatibility environment**, not the standard that limits the artistic ambition. It must open the same site coherently, without fatal black screens, inaccessible navigation, or misleading promises. Where an effect is truly unsupported or unstable, apply *measured runtime graceful degradation* only to that effect. Don't globally downgrade the core Safari scene or preemptively remove fine details for speculative WebView limitations.
+- Optimize intelligently: dynamic rendering resolution or performance tiers may protect frame pacing, but avoid reducing artistic quality just to hit an arbitrary FPS benchmark; prioritize perceived visual fidelity and stable interactions. Document actual measured performance if possible, never invent benchmarks.
+- If Instagram's small/in-app view interrupts the intended experience, provide a tasteful **Open in Safari** suggestion or instructions when technically appropriate. Do not assume a web page can silently force Safari or bypass iOS browser restrictions.
+- For this first experiment, focus all development, art direction and verification on portrait iPhone Safari. Verify iPhone-like viewport, dynamic viewport/safe areas, touch, progressive loading, context-loss resilience, audio gesture, and reduced-motion support. Test Instagram in-app compatibility only when feasible; clearly distinguish tested, simulated, and unverified claims.
+- **Do not spend creative-production time on iPad, desktop, Android or Galaxy Tab layouts.** Ensure baseline fallback / navigation on other devices without specific cinematic polish. iPad Safari landscape is a future phase.
 
 ## CREATIVE DIRECTION
 TOHEŞAR is an automotive culture and art archive spanning automobiles, people, music, city, place, design, fashion, time and memory. The site is itself a short advertisement / spatial artwork that can eventually become a portal into real editorial works. Avoid inventing or misrepresenting the brand's old or current slogans. Specifically DO NOT use the retired slogan "Cars built from songs, not for them." Use official assets where accessible, do not fabricate publication history or claim automatic POSTS 010–013 are published; LAUNCH 001 assets are LOCKED and remain untouched.
@@ -57,8 +58,8 @@ Demonstrate at least 4 visibly perceptible, performance-bounded physical details
 5. Provide honest compact delivery report: branch and commit SHA, changed files, functioning details, measured performance if actually measured, what was visually verified vs not verified, blockers, next incremental improvement.
 
 ## PASS/FAIL
-PASS = real rendered spatial movement and at least 4 genuinely visible micro-realism effects in a functional portrait-iPhone preview; navigation or touch action works; no black-screen crash in tested environment; changes committed; live site unchanged.
-PARTIAL = functioning scene exists but some tests/effects or physical Instagram verification couldn't be completed. Give evidence and precise remaining gaps.
+PASS = real rendered spatial movement and at least 4 genuinely visible micro-realism effects in a functional portrait-iPhone Safari-targeted preview; navigation or touch action works; no black-screen crash in tested environment; changes committed; live site unchanged.
+PARTIAL = functioning scene exists but some tests/effects or physical iPhone Safari / Instagram verification couldn't be completed. Give evidence and precise remaining gaps.
 FAIL = only prose/mockup/static picture or unverified claims of implementation. A compelling prototype is better than a 40-page plan.
 
 **Start implementing immediately. Do not ask for permission to experiment within this isolated branch.**
