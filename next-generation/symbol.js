@@ -165,8 +165,8 @@ async function init() {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#e1e7e5');
-    scene.fog = new THREE.Fog('#e1e7e5', 18, 40);
+    scene.background = new THREE.Color('#151310');
+    scene.fog = new THREE.Fog('#151310', 18, 40);
     environment = studioEnvironment(); scene.environment = environment.texture;
     const camera = new THREE.PerspectiveCamera(32, 1, .08, 60);
     camera.position.set(.85, 1.25, 8.1);
@@ -192,11 +192,11 @@ async function init() {
     sculpture.rotation.set(-.035, -.10, -.018);
     sculpture.castShadow = true; sculpture.receiveShadow = true;
     scene.add(sculpture);
-    const limestone = keep(new THREE.MeshStandardMaterial({ color: '#d0cbbd', roughness: .92, metalness: 0 }));
-    const plaster = keep(new THREE.MeshStandardMaterial({ color: '#efece0', roughness: .97 }));
-    const warmPlaster = keep(new THREE.MeshStandardMaterial({ color: '#d9d4c8', roughness: .96 }));
-    const blue = keep(new THREE.MeshStandardMaterial({ color: '#204cdb', roughness: .8 }));
-    const clay = keep(new THREE.MeshStandardMaterial({ color: '#e76a45', roughness: .93 }));
+    const limestone = keep(new THREE.MeshStandardMaterial({ color: '#24201b', roughness: .38, metalness: 0 }));
+    const plaster = keep(new THREE.MeshStandardMaterial({ color: '#25211d', roughness: .72 }));
+    const warmPlaster = keep(new THREE.MeshStandardMaterial({ color: '#191917', roughness: .96 }));
+    const blue = keep(new THREE.MeshStandardMaterial({ color: '#343b42', roughness: .8 }));
+    const clay = keep(new THREE.MeshStandardMaterial({ color: '#423225', roughness: .93 }));
     const box = (x, y, z, width, height, depth, material, cast = true) => {
       const mesh = new THREE.Mesh(keep(new THREE.BoxGeometry(width, height, depth)), material);
       mesh.position.set(x, y, z); mesh.castShadow = cast; mesh.receiveShadow = true; scene.add(mesh); return mesh;
@@ -218,13 +218,13 @@ async function init() {
     box(4.9, -.1, -10.5, .42, 4.0, 8, warmPlaster);
     for (let i = 0; i < 4; i++) box(-3.2, 4.9, -3.1 + i * 1.48, 8, .18, .13, plaster);
     // Quiet stone joints, far thinner than the sculpture's smallest edge.
-    const jointMaterial = keep(new THREE.MeshStandardMaterial({ color: '#b7b3a9', roughness: 1 }));
+    const jointMaterial = keep(new THREE.MeshStandardMaterial({ color: '#191713', roughness: 1 }));
     for (let i = -4; i <= 4; i++) {
       box(i * 3.2, -2.048, 0, .008, .002, 35, jointMaterial, false);
       box(0, -2.048, i * 3.2, 35, .002, .008, jointMaterial, false);
     }
-    scene.add(new THREE.HemisphereLight('#d5e4f3', '#b8a98b', 1.35));
-    const sunlight = new THREE.DirectionalLight('#fff1d6', 4.1);
+    scene.add(new THREE.HemisphereLight('#8998b0', '#332419', .28));
+    const sunlight = new THREE.DirectionalLight('#ffe5c4', 2.3);
     sunlight.position.set(-4.5, 8.5, 6); sunlight.target.position.set(0, -1, -1);
     sunlight.castShadow = true;
     const shadowSize = innerWidth < 700 ? 1024 : 2048;
@@ -235,7 +235,13 @@ async function init() {
     sunlight.shadow.normalBias = .018; sunlight.shadow.bias = -.00012;
     sunlight.shadow.radius = 3;
     scene.add(sunlight, sunlight.target);
-    const fill = new THREE.DirectionalLight('#c8ddff', .85);
+    // Narrow museum pool of light: the metal retains its full studio reflections.
+    const pool = new THREE.SpotLight('#e9bd87', 48, 20, .49, .85, 2);
+    pool.position.set(-2, 5, 3); pool.target.position.set(0, -1.8, 0);
+    scene.add(pool, pool.target);
+    // Close the former sky aperture with a recessed charcoal wall.
+    box(1.5, 1.8, -5.2, 4.6, 7.7, .3, warmPlaster);
+    const fill = new THREE.DirectionalLight('#c8ddff', .5);
     fill.position.set(5, 1, 2); scene.add(fill);
 
     let currentView = 'sculpture';
@@ -243,7 +249,7 @@ async function init() {
     const viewButtons = [...document.querySelectorAll('[data-sculpture-view]')];
     const views = {
       front: { position: [.18, .8, 8.0], target: [0, -.24, 0], rotation: [0, 0, 0], label: 'Front view. The original silhouette.' },
-      sculpture: { position: [.85, 1.25, 8.1], target: [0, -.32, 0], rotation: [-.035, -.10, -.018], label: 'Sculpture view. Brushed aluminium in daylight.' },
+      sculpture: { position: [.85, 1.25, 8.1], target: [0, -.32, 0], rotation: [-.035, -.10, -.018], label: 'Sculpture view. Brushed aluminium in the evening gallery.' },
       detail: { position: [2.45, .82, 2.45], target: [1.1, .12, .08], rotation: [-.035, -.10, -.018], label: 'Detail view. Explore the bevel and the brushed surface.' },
     };
     function markView(name) {
@@ -390,7 +396,7 @@ async function init() {
     stage.dataset.state = 'ready'; stage.classList.add('is-ready'); stage.setAttribute('aria-busy', 'false');
     canvas.tabIndex = 0; canvas.removeAttribute('aria-hidden');
     sceneButtons.forEach(button => button.disabled = false);
-    status.textContent = 'Sculpture view. Brushed aluminium in daylight.';
+    status.textContent = 'Sculpture view. Brushed aluminium in the evening gallery.';
   } catch (error) {
     console.warn('TOHEŞAR sculpture gallery could not start:', error.message);
     if (renderer) renderer.dispose();

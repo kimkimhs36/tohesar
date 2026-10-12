@@ -110,3 +110,12 @@ python3 -m http.server 8080
 - Final local review captures confirm all three routes after the real preview integration. No remaining feature work or uncommitted implementation is intended.
 - Optional local recovery bundle: `/workspace/tohesar-recovery.bundle`; GitHub branch remains the primary durable recovery source.
 - To review: `docs/next-generation/REVIEW.md`. To recover: fetch/switch/pull the experiment branch and run the static server commands above.
+
+
+## Focused art-direction correction — 2026-10-12
+- Starting checkpoint: 388e0aa; confirmed origin/main still 6c5ec18. Working only on PR #4 branch.
+- Compared committed actual before/after desktop screenshots directly. The new white arcade loses the original wet-road reflections, layered skyline and sunset composition. Rejected that direction instead of claiming an improvement.
+- Restored Astra World entrypoint and its unchanged original renderer/materials/camera sequence. Only local Three.js imports, an Index link and current colophon differ. The rejected implementation remains recoverable in Git and next-generation/world.js.
+- Kept homepage layout/code unchanged. Symbol retains all 67 contour points, precise bevel and brushed metal; revised gallery to charcoal/brown stone and focused warm light.
+- Next: one desktop/mobile capture pass, basic interactions/errors and original asset integrity; update entry posters with actual renders and record comparison. Do not iterate into a new rebuild.
+- Recovery: git checkout 388e0aa for pre-correction state; current branch checkpoints are pushed to origin. Never merge/push main.

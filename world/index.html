@@ -1,48 +1,34 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f2f0e9">
-<title>Cinematic World — TOHEŞAR</title><link rel="canonical" href="https://tohesar.com/world/"><meta property="og:type" content="website"><meta property="og:title" content="Cinematic World — TOHEŞAR"><meta property="og:image" content="https://tohesar.com/next-generation/images/world-poster.webp"><meta name="description" content="차와 도시 사이, 잠시 머무는 곳. TOHEŞAR의 실시간 3D 항구를 탐험하세요.">
-<link rel="icon" href="/world/assets/cedilla-icon.svg"><link rel="stylesheet" href="/next-generation/shared.css"><link rel="stylesheet" href="/next-generation/world.css">
-<link rel="preload" href="/world/assets/wordmark-hd.png" as="image"><link rel="preload" href="/next-generation/images/world-poster.webp" as="image">
-<script type="importmap">{"imports":{"three":"/next-generation/vendor/three/build/three.module.js","three/addons/":"/next-generation/vendor/three/examples/jsm/"}}</script>
-</head>
-<body class="world-page">
-<a class="ng-skip" href="#world-notes">공간에 관한 글과 사진으로 바로 가기</a>
-<header class="ng-header"><a class="ng-brand" href="/" aria-label="TOHEŞAR 홈"><img src="/world/assets/wordmark-hd.png" alt="TOHEŞAR" width="3386" height="797"></a><nav class="ng-nav" aria-label="주요 메뉴"><a href="/" class="ng-back">Index</a><a href="/world/" aria-current="page">World</a><a href="/symbol/">Se-diyu ↗</a></nav></header>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#181c20"><meta name="description" content="TOHEŞAR — a spatial study of Yokohama, light and memory. Cinematic World 001, an isolated experiment."><meta name="robots" content="noindex,nofollow"><title>TOHEŞAR — Last light, a place to stay.</title><link rel="icon" href="/world/assets/cedilla-icon.svg"><link rel="preload" href="/world/assets/yokohama-portrait.webp" as="image"><link rel="stylesheet" href="/world/styles-cinema-008.css">
+<script type="importmap">
+{"imports":{"three":"/next-generation/vendor/three/build/three.module.js","three/addons/":"/next-generation/vendor/three/examples/jsm/"}}
+</script></head>
+<body>
+<a class="skip" href="#archive">아카이브로 바로 가기</a>
 <main>
-<section class="world-stage" id="world-stage" data-state="loading" aria-label="실시간 3D 해안 갤러리">
-<div class="world-fallback" aria-hidden="true"></div>
-<canvas id="world-canvas" aria-label="밝은 석조 갤러리, 실버 911과 푸른 항구의 실시간 3D 공간. 드래그 또는 방향키로 회전, 스크롤 또는 더하기·빼기 키로 확대하세요."></canvas>
-<div class="world-caption"><p class="ng-kicker"><span class="world-live-dot" aria-hidden="true"></span> CINEMATIC WORLD / 001</p><h1>Somewhere,<br><em>by the sea.</em></h1><p class="world-caption-note">도시와 바다 사이, 잠시 머무는 곳.</p></div>
-<div class="world-coordinate ng-kicker" aria-hidden="true"><span>AN IMAGINED HARBOUR</span><span>LIGHT / SPACE / MEMORY</span></div>
-<div class="world-shot-label" aria-live="polite"><span id="world-shot-number">01</span><span id="world-shot-name">The arrival</span></div>
-<p id="world-status" class="world-status" role="status" aria-live="polite">빛과 공간을 준비하고 있습니다.</p>
-<p id="world-fallback-note" class="world-fallback-note" hidden>3D 대신 이 공간의 정지 장면을 표시합니다. 아래에서 사진과 이야기를 감상하세요.</p>
-<div class="world-controls" aria-label="공간 탐험 도구">
-<div class="world-shots" role="group" aria-label="카메라 구도 선택">
-<button type="button" data-world-shot="0" aria-pressed="true"><span class="world-shot-index">01</span><span>Arrival</span><span class="world-shot-glyph" aria-hidden="true">↗</span></button>
-<button type="button" data-world-shot="1" aria-pressed="false"><span class="world-shot-index">02</span><span>Waterline</span><span class="world-shot-glyph" aria-hidden="true">↗</span></button>
-<button type="button" data-world-shot="2" aria-pressed="false"><span class="world-shot-index">03</span><span>Architecture</span><span class="world-shot-glyph" aria-hidden="true">↗</span></button>
+<section class="experience" aria-label="요코하마 황혼의 시네마틱 3D 공간">
+<div class="fallback" aria-hidden="true"></div><canvas id="world" aria-label="젖은 항구 노면, 실버 쿠페, 노을과 다리로 이어지는 3D 장면"></canvas><div class="shade" aria-hidden="true"></div>
+<header class="masthead"><a href="#" id="home" aria-label="TOHEŞAR 처음 장면"><img src="/world/assets/wordmark-hd.png" alt="TOHEŞAR" width="3386" height="797"></a><div class="masthead-actions"><a class="text-button" href="/" aria-label="메인 홈페이지">INDEX ↗</a><button id="share-scene" class="text-button" type="button" aria-label="현재 장면 공유">SHARE ↗</button><button id="focus" class="text-button" type="button" aria-pressed="false" aria-label="화면에 3D 장면만 보기">FRAME ◱</button><button id="archive-open" class="text-button">ARCHIVE <span>↗</span></button></div></header>
+<div class="location"><span class="light-dot"></span> YOKOHAMA <span class="location-divider">/</span> LAST LIGHT</div>
+<div class="chapter-copy"><p id="chapter-label">01 — THE ARRIVAL</p><h1 id="chapter-title">Somewhere,<br><em>between.</em></h1><p id="chapter-subtitle">하루가 끝나기 전, 잠시 머무는 곳.</p></div>
+
+<div class="shot-index" role="group" aria-label="시네마틱 장면 바로 이동">
+ <div class="shot-index-heading"><span>THE SEQUENCE</span><span>01 — 03</span></div>
+ <button type="button" class="shot-choice is-selected" data-shot="0" aria-pressed="true" aria-label="첫 번째 장면 Arrival로 이동">
+  <span class="shot-photo" aria-hidden="true"></span><span class="shot-copy"><span>01 / ARRIVAL</span><small>FIRST LIGHT</small></span><span class="shot-arrow" aria-hidden="true">↗</span>
+ </button>
+ <button type="button" class="shot-choice" data-shot="1" aria-pressed="false" aria-label="두 번째 장면 Afterglow로 이동">
+  <span class="shot-photo" aria-hidden="true"></span><span class="shot-copy"><span>02 / AFTERGLOW</span><small>LAST SUN</small></span><span class="shot-arrow" aria-hidden="true">↗</span>
+ </button>
+ <button type="button" class="shot-choice" data-shot="2" aria-pressed="false" aria-label="세 번째 장면 Memory로 이동">
+  <span class="shot-photo" aria-hidden="true"></span><span class="shot-copy"><span>03 / MEMORY</span><small>BLUE HOUR</small></span><span class="shot-arrow" aria-hidden="true">↗</span>
+ </button>
 </div>
-<div class="world-actions"><button type="button" id="world-tour" aria-pressed="false" data-playing="false"><i aria-hidden="true"></i><span>Take a slow tour</span></button><button type="button" id="world-reset" aria-label="첫 구도로 돌아가기" title="첫 구도로 돌아가기"><span aria-hidden="true">↺</span></button></div>
-</div>
-<div class="world-bottom-note"><span>DRAG TO EXPLORE · PINCH TO ZOOM</span><a class="world-field-link" href="#world-notes">FIELD NOTES ↓</a><button type="button" id="world-credits">ABOUT THE WORLD ↗</button></div>
+<p id="browser-hint" hidden>더 넓은 장면은 메뉴에서 ‘Safari로 열기’로 감상해 주세요.</p>
+<div class="transport"><div class="transport-top"><button id="sound" class="text-button" aria-pressed="false" aria-label="공간 사운드 켜기"><span class="sound-bars" aria-hidden="true">ııı</span> SOUND OFF</button><span id="sequence-label">A SPATIAL STUDY / 001</span><button id="pause" class="text-button" aria-label="카메라 이동 일시정지" hidden>PAUSE Ⅱ</button></div><button id="enter" class="enter" disabled><span id="enter-label">공간을 불러오는 중</span><span aria-hidden="true">↗</span></button><div class="timeline" id="timeline"><label for="journey">장면 이동</label><input id="journey" type="range" min="0" max="1000" value="0" aria-label="카메라 여정 진행률"><div class="marks"><button data-stop="0">ARRIVAL</button><button data-stop="0.48">AFTERGLOW</button><button data-stop="1">MEMORY</button></div></div></div>
+<p id="status" role="status" aria-live="polite">빛과 공간을 준비하고 있습니다.</p>
+<div class="edge-index" aria-hidden="true">TOHEŞAR — CINEMATIC WORLD</div>
 </section>
-<section class="world-notes" id="world-notes" aria-labelledby="world-note-title">
-<div class="world-note-heading"><p class="ng-kicker">A PLACE TO PAUSE / SPATIAL STUDY 001</p><h2 id="world-note-title">A machine.<br>A place.<br><em>A little time.</em></h2><p>차가 멈추면 도시가 보인다.<br>바다에서 온 바람, 돌 위에 남은 빛.<br>어딘가에 도착하는 대신,<br>잠시 그곳에 머문다.</p><a href="/symbol/" class="world-note-link">다음 작품 — Se-diyu <span class="ng-arrow" aria-hidden="true">↗</span></a></div>
-<figure class="world-note-photo"><img src="/world/assets/yokohama-arrival.webp" alt="노을 아래 요코하마 항구와 클래식 실버 쿠페. 기존 TOHEŞAR AI 비주얼 스터디." width="1122" height="1402" loading="lazy"><figcaption><span>FROM THE VISUAL JOURNAL / YOKOHAMA</span><span>TOHEŞAR · EXISTING VISUAL STUDY</span></figcaption></figure>
-</section>
-</main>
-<footer class="ng-footer"><span>TOHEŞAR © 2026 · CINEMATIC WORLD</span><span>공간은 요코하마에서 영감을 받은 가상의 건축적 해안입니다.</span><a href="/">Back to index ↗</a></footer>
-<dialog id="world-credit-dialog" class="world-credit-dialog" aria-labelledby="world-credit-title"><div class="world-credit-inner"><button id="world-credit-close" type="button" aria-label="작품 설명 닫기">Close ×</button><p class="ng-kicker">CINEMATIC WORLD / COLOPHON</p><h2 id="world-credit-title">An imagined<br><em>harbour.</em></h2><p>TOHEŞAR의 자동차, 도시, 장소와 기억을 탐험하는 실시간 공간. 석조 아케이드와 테라코타 파빌리온, 수면과 빛은 이번 작업을 위해 새로 만든 절차적 조형입니다. 항구는 실제 지형이나 건축물을 그대로 재현한 곳이 아닙니다.</p><p>드래그하여 시점을 바꾸고, 스크롤하거나 두 손가락으로 확대하세요. 방향키는 회전, + / − 는 확대·축소, Home은 첫 구도, Space는 투어를 제어합니다. ‘동작 줄이기’ 설정에서는 자동 움직임을 멈추고 한 장면씩 감상합니다.</p><p id="world-model-note" hidden>911 모델 로딩에 실패하여 원래 저장소에 보존된 무상표 절차적 쿠페를 대체 표시하고 있습니다.</p><hr><p class="ng-kicker">ASSETS & ATTRIBUTION</p><p>3D vehicle: Porsche 911 Carrera 4S by <strong>Lionsharp Studios</strong>. <a href="https://sketchfab.com/3d-models/free-porsche-911-carrera-4s-d01b254483794de3819786d93e0e1ebf" target="_blank" rel="noopener noreferrer">Original model ↗</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0 ↗</a>. Web LOD transformation: <a href="https://github.com/webtrackerxy/3d-city-million-cars" target="_blank" rel="noopener noreferrer">webtrackerxy / 3d-city-million-cars ↗</a>. Silver material adapted for this work. The modified vehicle asset remains under CC BY-SA 4.0. No manufacturer endorsement.</p><p>사진은 기존 TOHEŞAR AI 비주얼 스터디입니다. 사진 속 클래식 911과 실시간 공간의 Carrera 4S는 다른 세대·모델입니다. 기존 Car Concept 에셋과 모든 원저작권 기록은 저장소에 보존되어 있습니다.</p><p>Three.js r180 · MIT. DM Sans / Instrument Serif · SIL Open Font License. <a href="/world/ASSET_PROVENANCE.md">Original asset provenance ↗</a> · <a href="/next-generation/ASSET_PROVENANCE.md">Next generation provenance ↗</a></p></div></dialog>
-<noscript><p class="world-noscript">이 공간의 3D 탐험은 JavaScript를 사용합니다. 아래의 사진과 작품 설명은 그대로 감상할 수 있습니다.</p></noscript>
-<script>
-(function(){
-var dialog=document.getElementById('world-credit-dialog'),open=document.getElementById('world-credits'),close=document.getElementById('world-credit-close');
-open.addEventListener('click',function(){dialog.showModal();close.focus();});close.addEventListener('click',function(){dialog.close();open.focus();});dialog.addEventListener('click',function(e){if(e.target===dialog){var r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-import('/next-generation/world.js').then(function(module){return module.mountWorld();}).catch(function(error){var stage=document.getElementById('world-stage');stage.dataset.state='fallback';document.getElementById('world-status').textContent='3D를 불러올 수 없어 사진으로 공간을 이어갑니다.';document.getElementById('world-fallback-note').hidden=false;console.error('World initialization failed:',error);});
-})();
-</script>
-</body>
-</html>
+<dialog id="archive" aria-labelledby="archive-title"><div class="archive-head"><a href="/" aria-label="TOHEŞAR 메인 저널로 돌아가기">← JOURNAL</a><span>TOHEŞAR / FIELD NOTES</span><button id="archive-close" aria-label="아카이브 닫기">CLOSE ×</button></div><div class="archive-content"><p class="eyebrow">YOKOHAMA · AN IMAGINED VISUAL JOURNAL</p><h2 id="archive-title">The light<br><em>we leave behind.</em></h2><figure><img src="/world/assets/yokohama-arrival.webp" alt="실버 클래식 쿠페와 노을 속 요코하마 항구 다리" width="1122" height="1402" loading="lazy"><figcaption>01 / ARRIVAL — 기존 TOHEŞAR 비주얼 저널 이미지</figcaption></figure><p class="editorial">차가 멈추면 도시가 보인다.<br>물 위의 빛, 사람을 기다리는 자리,<br>그리고 집으로 돌아가는 길.</p><p class="note">기존 요코하마 저널의 이미지와 이번 실험의 3D 공간을 연결했습니다. 실시간 장면의 911 Carrera 4S와 사진 속 클래식 911은 서로 다른 세대·모델입니다. 항구는 요코하마에서 영감을 받은 가상의 공간입니다.</p><div class="diptych"><figure><img src="/world/assets/yokohama-interior.webp" alt="요코하마 저널의 차량 실내와 창밖 풍경" width="1122" height="1402" loading="lazy"><figcaption>02 / A HUMAN TRACE</figcaption></figure><figure><img src="/world/assets/yokohama-bluehour.webp" alt="블루아워의 자동차와 도시" width="1122" height="1402" loading="lazy"><figcaption>03 / BLUE HOUR</figcaption></figure></div><a class="journal-link" href="/symbol/">THE CEDILLA — INTERACTIVE OBJECT HALL <span>↗</span></a><a class="journal-link" href="https://tohesar.com/journal/yokohama/" target="_blank" rel="noopener noreferrer">기존 요코하마 저널 읽기 <span>↗</span></a><a class="journal-link" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">TOHEŞAR ON INSTAGRAM <span>↗</span></a><p class="colophon">CINEMATIC WORLD 001 / EXPERIMENT<br>사진: 기존 TOHEŞAR AI 비주얼 스터디<br>공간·사운드: 이번 실험의 절차적 제작<br>3D 차량: Porsche 911 Carrera 4S — Lionsharp Studios.<br><a href="https://sketchfab.com/3d-models/free-porsche-911-carrera-4s-d01b254483794de3819786d93e0e1ebf" target="_blank" rel="noopener noreferrer">원본 모델 ↗</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a><br>웹용 모델: webtrackerxy / 3d-city-million-cars, LOD 단순화·meshopt 최적화. 실버 재질 변경. 파생 차량 에셋은 CC BY-SA 4.0 조건을 따릅니다. 자동차 제조사와 공식 관련이 없습니다.<br>기존 Car Concept 실험 에셋과 원저작권 표기는 저장소에 보존되어 있습니다.<br>Astra의 황혼 장면을 보존한 Cinematic World. TOHEŞAR의 새 저널과 세디유 전시로 이어집니다.</p></div></dialog>
+<noscript><div class="no-script">이 공간은 JavaScript를 사용합니다. <a href="https://tohesar.com/journal/yokohama/">요코하마 저널 읽기 ↗</a></div></noscript>
+</main><script type="module" src="/world/src/main-911-cinema-008.js"></script></body></html>

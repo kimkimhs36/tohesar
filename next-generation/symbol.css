@@ -140,3 +140,20 @@
   .sculpture-finishes { gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .sculpture-stage canvas, .sculpture-stage.is-ready .sculpture-fallback { transition: none; } }
+
+/* Evening gallery: preserve the new contour and controls, restore dramatic space. */
+.sculpture-hero { background: #151310; color: #f1e8dc; }
+.sculpture-intro .sculpture-eyebrow, .sculpture-intro p,
+.sculpture-hint, .sculpture-object-note, .sculpture-number { color: #c7bcad; }
+.sculpture-intro h1 em { color: #dcc19c; }
+.sculpture-console { background: #181613ed; border-color: #bfa78940; }
+.sculpture-views button { color: #c7bcad; }
+.sculpture-views button[aria-pressed='true'] { background: #dec9ad; color: #211d18; }
+.sculpture-finish-selector .sculpture-eyebrow { color: #baad9d; }
+.sculpture-finishes button[aria-pressed='true'] { border-color: #dec9ad; }
+.sculpture-zoom { background: #181613dd; border-color: #bfa78970; }
+.sculpture-zoom button { color: #e6d8c6; }
+.sculpture-console button:focus-visible, .sculpture-zoom button:focus-visible,
+.sculpture-stage canvas:focus-visible { outline-color: #dec9ad; }
+.sculpture-fallback { background: radial-gradient(ellipse at 65% 55%, #433528, #151310 70%); }
+.sculpture-fallback img { filter: invert(1); }
