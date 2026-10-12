@@ -74,3 +74,11 @@ python3 -m http.server 8080
 - Symbol working visual state is saved before further precise face-surface refinement; improving balanced metallic shading and plinth visibility, with 44px touch controls.
 - Playwright WebKit 26.5 runs WebGL2 in this Linux environment. It supplements Chromium checks; it is not a physical Safari device test.
 - README documents static preview, verification, credits and recovery. Vendor files marked for clearer code review.
+
+## Checkpoint 7 — settled sculpture and final engine checks
+- Final Symbol surface retains the exact planar source silhouette and a precisely beveled inward edge. Removed experimental crown after screenshots exposed triangulation shading artifacts; physical studio reflections now produce continuous silver-to-graphite and clear brushing.
+- Independent visual review confirms original 67 outline coordinates unchanged, plinth and contact visible, fan artifact removed, and mobile World vehicle clear of controls.
+- Added detail-mode copy suppression so macro study is unobstructed, 44px touch controls, real context restoration environment regeneration and explicit GPU shadow-map release.
+- World desktop/mobile interaction checks pass, WebGL0 and no failed resources. World cleanup records zero retained geometry/textures.
+- Final 18-check Chromium and 18-check WebKit runs launched; screenshot evidence and reports will be retained in review documentation.
+- Capturing actual new canvas images for homepage previews and stable loading/fallback art.

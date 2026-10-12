@@ -42,40 +42,14 @@ function sculptureGeometry() {
   const push = (p, normal, uv) => { positions.push(...p); normals.push(...normal); uvs.push(...uv); };
   const face = inset(bevel);
   const triangles = THREE.ShapeUtils.triangulateShape(face, []);
-  // A shallow, physically modelled crown lets a machined face hold a broad
-  // reflection. The perimeter stays at z=halfDepth and the XY outline is exact.
-  function crown(x, y) {
-    let inverseDistance = 0;
-    for (let i = 0; i < n; i++) {
-      const a = face[i], b = face[(i + 1) % n];
-      const dx = b.x - a.x, dy = b.y - a.y;
-      const t = Math.max(0, Math.min(1, ((x - a.x) * dx + (y - a.y) * dy) / (dx * dx + dy * dy)));
-      const distanceSquared = (x - a.x - dx * t) ** 2 + (y - a.y - dy * t) ** 2;
-      inverseDistance += Math.hypot(dx, dy) / Math.max(1e-10, distanceSquared) ** 2;
-    }
-    // A length-weighted harmonic distance blends neighbouring edges smoothly;
-    // using the closest edge alone would leave creases at the medial axis.
-    const distanceSquared = 1 / Math.sqrt(inverseDistance);
-    return .027 * (1 - Math.exp(-distanceSquared / .05));
-  }
-  function surfacePoint(p, sign) {
-    const e = .001;
-    const dx = (crown(p.x + e, p.y) - crown(p.x - e, p.y)) / (2 * e);
-    const dy = (crown(p.x, p.y + e) - crown(p.x, p.y - e)) / (2 * e);
-    const normal = new THREE.Vector3(-dx, -dy, 1).normalize().multiplyScalar(sign);
-    push([p.x, p.y, (halfDepth + crown(p.x, p.y)) * sign], normal.toArray(), [(p.x + 1.61) / 3.22, (p.y + 1.43) / 2.86]);
-  }
-  function surfaceTriangle(a, b, c, sign, depth) {
-    if (!depth) { for (const p of sign > 0 ? [a, b, c] : [c, b, a]) surfacePoint(p, sign); return; }
-    const ab = a.clone().lerp(b, .5), bc = b.clone().lerp(c, .5), ca = c.clone().lerp(a, .5);
-    surfaceTriangle(a, ab, ca, sign, depth - 1);
-    surfaceTriangle(ab, b, bc, sign, depth - 1);
-    surfaceTriangle(ca, bc, c, sign, depth - 1);
-    surfaceTriangle(ab, bc, ca, sign, depth - 1);
-  }
+  // Precision-planar faces. The studio flags and actual perspective supply
+  // gradients in the metal; the source surface is never artificially warped.
   for (const sign of [1, -1]) {
     for (const tri of triangles) {
-      surfaceTriangle(face[tri[0]], face[tri[1]], face[tri[2]], sign, 4);
+      for (const index of sign > 0 ? tri : [...tri].reverse()) {
+        const p = face[index];
+        push([p.x, p.y, halfDepth * sign], [0, 0, sign], [(p.x + 1.61) / 3.22, (p.y + 1.43) / 2.86]);
+      }
     }
   }
   const faceCount = positions.length / 3;
@@ -214,7 +188,7 @@ async function init() {
     }));
     const edges = keep(new THREE.MeshPhysicalMaterial({ color: '#c6cbcb', metalness: 1, roughness: .225, envMapIntensity: 1.05, roughnessMap: texture, bumpMap: texture, bumpScale: .00035 }));
     const sculpture = new THREE.Mesh(sculptureGeometry(), [front, edges]);
-    sculpture.rotation.set(-.035, -.23, -.018);
+    sculpture.rotation.set(-.035, -.10, -.018);
     sculpture.castShadow = true; sculpture.receiveShadow = true;
     scene.add(sculpture);
     const limestone = keep(new THREE.MeshStandardMaterial({ color: '#d0cbbd', roughness: .92, metalness: 0 }));
@@ -268,8 +242,8 @@ async function init() {
     const viewButtons = [...document.querySelectorAll('[data-sculpture-view]')];
     const views = {
       front: { position: [.18, .8, 8.0], target: [0, -.24, 0], rotation: [0, 0, 0], label: 'Front view. The original silhouette.' },
-      sculpture: { position: [.85, 1.25, 8.1], target: [0, -.32, 0], rotation: [-.035, -.23, -.018], label: 'Sculpture view. Brushed aluminium in daylight.' },
-      detail: { position: [2.45, .82, 2.45], target: [1.1, .12, .08], rotation: [-.035, -.23, -.018], label: 'Detail view. Explore the bevel and the brushed surface.' },
+      sculpture: { position: [.85, 1.25, 8.1], target: [0, -.32, 0], rotation: [-.035, -.10, -.018], label: 'Sculpture view. Brushed aluminium in daylight.' },
+      detail: { position: [2.45, .82, 2.45], target: [1.1, .12, .08], rotation: [-.035, -.10, -.018], label: 'Detail view. Explore the bevel and the brushed surface.' },
     };
     function markView(name) {
       viewButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.sculptureView === name)));
@@ -286,6 +260,7 @@ async function init() {
     function setView(name, immediate = false) {
       const view = views[name]; if (!view || lost) return;
       currentView = name; markView(name); status.textContent = view.label;
+      document.querySelector('.sculpture-hero').dataset.view = name;
       const position = fitPosition(view.position, name);
       const target = new THREE.Vector3(...view.target);
       const rotation = new THREE.Euler(...view.rotation);
@@ -400,7 +375,7 @@ async function init() {
       if (event.persisted) return;
       disposed = true; cancelAnimationFrame(frame);
       resizeObserver.disconnect(); intersectionObserver.disconnect(); controls.dispose();
-      resources.forEach(resource => resource.dispose()); environment.dispose(); renderer.dispose();
+      resources.forEach(resource => resource.dispose()); environment.dispose(); sunlight.shadow.dispose(); renderer.dispose();
     });
     // Explicit scene diagnostics support reproducible WebGL / interaction QA.
     window.__TOHESAR_SYMBOL = { renderer, scene, camera, controls, sculpture, points: CEDILLA_POINTS, get view() { return currentView; }, get animating() { return Boolean(frame || transition); } };

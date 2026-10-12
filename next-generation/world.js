@@ -59,6 +59,7 @@ export async function mountWorld() {
   canvas.tabIndex = 0;
   const stoneTexture = makeStoneTexture();
   const limestone = new THREE.MeshStandardMaterial({ color: 0xe4dfce, map: stoneTexture, roughness: .89 });
+  const archReveal = new THREE.MeshStandardMaterial({ color: 0xa8b4ae, roughness: .91 });
   const pale = new THREE.MeshStandardMaterial({ color: 0xeae5d6, roughness: .77 });
   const concrete = new THREE.MeshStandardMaterial({ color: 0xd4d1c3, map: stoneTexture, roughness: .95 });
   const seams = new THREE.MeshStandardMaterial({ color: 0xa8aaa0, roughness: .95 });
@@ -88,11 +89,11 @@ export async function mountWorld() {
   const fill = new THREE.DirectionalLight(0x9bbecf,.48); fill.position.set(15,8,-20); scene.add(fill);
   // A deliberately composed environment supplies broad sky and architectural reflections.
   const environmentScene = new THREE.Scene(); environmentScene.add(sky.clone());
-  for (const [p, s, color] of [[[8,5,-7],[6,10,30],0xe5e0d0],[[-20,12,8],[18,6,7],0xfff5dc],[[0,20,0],[35,.5,35],0xe8f2f5],[[-8,2,-8],[10,4,2],0x1e343d]]) {
+  for (const [p, s, color] of [[[12,6,-7],[.4,12,30],0xe5e0d0],[[-20,12,8],[18,6,7],0xfff5dc],[[0,20,0],[35,.5,35],0xe8f2f5],[[5,4,-8],[8,6,.4],0x24363d]]) {
     const panel = new THREE.Mesh(new THREE.BoxGeometry(...s),new THREE.MeshBasicMaterial({color})); panel.position.set(...p); environmentScene.add(panel);
   }
-  const pmrem = new THREE.PMREMGenerator(renderer); const environment = pmrem.fromScene(environmentScene,.08,.1,500); scene.environment=environment.texture; scene.environmentIntensity=1; disposables.add(environment); pmrem.dispose();
-  environmentScene.traverse(o=>{if(o!==environmentScene && o!==environmentScene.children[0]) {o.geometry?.dispose();o.material?.dispose();}});
+  const pmrem = new THREE.PMREMGenerator(renderer); let environment = pmrem.fromScene(environmentScene,.08,.1,500); scene.environment=environment.texture; scene.environmentIntensity=1; disposables.add(environment); pmrem.dispose();
+  // Retain the tiny procedural environment source for exact context-loss recovery.
   // Main quay: broad, pale stone, rather than an unbounded featureless plane.
   box(40,.72,75,concrete,10,-.37,-18);
   box(44,.85,14,limestone,-8,-.44,-44);
@@ -113,7 +114,7 @@ export async function mountWorld() {
   archShape.absarc(0,spring,radius,0,Math.PI,false);archShape.lineTo(-radius,0);archShape.closePath();
   const archGeometry=new THREE.ExtrudeGeometry(archShape,{depth:1.05,bevelEnabled:true,bevelThickness:.07,bevelSize:.055,bevelSegments:3,curveSegments:36,steps:1});
   for(let z=-7;z>=-43;z-=6) {
-    const arch=mesh(archGeometry.clone(),limestone,11.4,0,z); arch.rotation.y=Math.PI/2;
+    for(const group of archGeometry.groups){const part=new THREE.BufferGeometry();for(const [name,attribute]of Object.entries(archGeometry.attributes)){part.setAttribute(name,new THREE.BufferAttribute(attribute.array.slice(group.start*attribute.itemSize,(group.start+group.count)*attribute.itemSize),attribute.itemSize,attribute.normalized));}const arch=mesh(part,group.materialIndex===1?archReveal:limestone,11.4,0,z);arch.rotation.y=Math.PI/2;}
     box(7.4,.15,.08,seams,11.4,7.65,z+.55,false);
   }
   box(8.4,.52,44,pale,11.2,8.37,-25);
@@ -224,8 +225,8 @@ export async function mountWorld() {
   listen(document,'visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;lastFrame=0;}else requestRender();});
   listen(reduced,'change',()=>{playing=false;transition=null;diagnostics.reducedMotion=reduced.matches;syncTour();requestRender();});
   listen(canvas,'webglcontextlost',event=>{event.preventDefault();lost=true;diagnostics.contextLosses++;fail('WebGL context lost');});
-  listen(canvas,'webglcontextrestored',()=>{lost=false;lastFrame=0;renderer.shadowMap.needsUpdate=true;stage.dataset.state='ready';status.textContent='그래픽 연결이 복구되었습니다.';document.querySelector('#world-fallback-note').hidden=true;requestRender();});
-  function dispose(){dead=true;if(raf)cancelAnimationFrame(raf);cleanups.forEach(fn=>fn());controls.dispose();const geometries=new Set(),materials=new Set(),textures=new Set();scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const mat of(Array.isArray(o.material)?o.material:[o.material]))materials.add(mat);});for(const mat of materials){for(const value of Object.values(mat))if(value?.isTexture)textures.add(value);if(mat.uniforms)for(const u of Object.values(mat.uniforms))if(u.value?.isTexture)textures.add(u.value);mat.dispose();}geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());disposables.forEach(d=>d.dispose());renderer.dispose();}
+  listen(canvas,'webglcontextrestored',()=>{lost=false;lastFrame=0;const recoveryPMREM=new THREE.PMREMGenerator(renderer);const recovered=recoveryPMREM.fromScene(environmentScene,.08,.1,500);recoveryPMREM.dispose();disposables.delete(environment);environment.dispose();environment=recovered;disposables.add(environment);scene.environment=environment.texture;renderer.shadowMap.needsUpdate=true;stage.dataset.state='ready';status.textContent='그래픽 연결이 복구되었습니다.';document.querySelector('#world-fallback-note').hidden=true;requestRender();});
+  function dispose(){dead=true;if(raf)cancelAnimationFrame(raf);cleanups.forEach(fn=>fn());controls.dispose();const geometries=new Set(),materials=new Set(),textures=new Set();const collect=o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const mat of(Array.isArray(o.material)?o.material:[o.material]))materials.add(mat);};scene.traverse(collect);environmentScene.traverse(collect);for(const mat of materials){for(const value of Object.values(mat))if(value?.isTexture)textures.add(value);if(mat.uniforms)for(const u of Object.values(mat.uniforms))if(u.value?.isTexture)textures.add(u.value);mat.dispose();}geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());disposables.forEach(d=>d.dispose());sun.shadow.dispose();renderer.dispose();}
   listen(window,'pagehide',event=>{if(!event.persisted)dispose();});
   window.__TOHESAR_WORLD={scene,camera,renderer,controls,diagnostics,selectShot,dispose,get playing(){return playing;}};
   resize();selectShot(0,false);renderer.compile(scene,camera);renderer.render(scene,camera);stage.dataset.state='ready';status.textContent='공간이 열렸습니다. 드래그해서 시점을 바꿔 보세요.';requestRender();
@@ -233,4 +234,4 @@ export async function mountWorld() {
 
 function makeStoneTexture(){const canvas=document.createElement('canvas');canvas.width=256;canvas.height=256;const ctx=canvas.getContext('2d');const pixels=ctx.createImageData(256,256);let seed=71;for(let i=0;i<pixels.data.length;i+=4){seed=(seed*1664525+1013904223)>>>0;const v=242+Math.floor(seed/4294967296*12);pixels.data[i]=v;pixels.data[i+1]=v;pixels.data[i+2]=v;pixels.data[i+3]=255;}ctx.putImageData(pixels,0,0);const texture=new THREE.CanvasTexture(canvas);texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.repeat.set(2,2);texture.colorSpace=THREE.SRGBColorSpace;return texture;}
 function makeContactTexture(){const canvas=document.createElement('canvas');canvas.width=128;canvas.height=128;const ctx=canvas.getContext('2d'),gradient=ctx.createRadialGradient(64,64,5,64,64,64);gradient.addColorStop(0,'rgba(20,27,20,.78)');gradient.addColorStop(.43,'rgba(20,27,20,.64)');gradient.addColorStop(.75,'rgba(20,27,20,.2)');gradient.addColorStop(1,'rgba(20,27,20,0)');ctx.fillStyle=gradient;ctx.fillRect(0,0,128,128);return new THREE.CanvasTexture(canvas);}
-function makeWaterNormal(){const n=128,data=new Uint8Array(n*n*4);for(let y=0;y<n;y++)for(let x=0;x<n;x++){const i=(y*n+x)*4,dx=Math.cos(x/n*Math.PI*8+y/n*Math.PI*4)*.11+Math.cos(x/n*Math.PI*22-y/n*Math.PI*12)*.045,dy=Math.cos(y/n*Math.PI*10+x/n*Math.PI*6)*.09+Math.cos(y/n*Math.PI*24)*.035;const v=new THREE.Vector3(dx,dy,1).normalize();data[i]=(v.x*.5+.5)*255;data[i+1]=(v.y*.5+.5)*255;data[i+2]=(v.z*.5+.5)*255;data[i+3]=255;}const texture=new THREE.DataTexture(data,n,n);texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.needsUpdate=true;return texture;}
+function makeWaterNormal(){const n=128,data=new Uint8Array(n*n*4);for(let y=0;y<n;y++)for(let x=0;x<n;x++){const i=(y*n+x)*4,dx=Math.cos(x/n*Math.PI*8+y/n*Math.PI*4)*.11+Math.cos(x/n*Math.PI*22-y/n*Math.PI*12)*.045,dy=Math.cos(y/n*Math.PI*10+x/n*Math.PI*6)*.09+Math.cos(y/n*Math.PI*24)*.035;const v=new THREE.Vector3(dx,dy,1).normalize();data[i]=(v.x*.5+.5)*255;data[i+1]=(v.y*.5+.5)*255;data[i+2]=(v.z*.5+.5)*255;data[i+3]=255;}const texture=new THREE.DataTexture(data,n,n);texture.wrapS=texture.wrapT=THREE.RepeatWrapping;texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearMipmapLinearFilter;texture.generateMipmaps=true;texture.needsUpdate=true;return texture;}

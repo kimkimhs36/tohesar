@@ -20,6 +20,8 @@
 .sculpture-object-note { position: absolute; bottom: 153px; left: var(--page-gutter, 44px); z-index: 2; pointer-events: none; }
 .sculpture-object-note p { margin: 0 0 8px; font: 400 24px/1.1 'Instrument Serif', Georgia, serif; }
 .sculpture-object-note span { font-size: 9px; color: #536053; }
+.sculpture-intro, .sculpture-object-note { transition: opacity .35s ease; }
+.sculpture-hero[data-view='detail'] .sculpture-intro, .sculpture-hero[data-view='detail'] .sculpture-object-note { opacity: 0; visibility: hidden; }
 .sculpture-interaction { position: absolute; z-index: 3; bottom: 111px; left: var(--page-gutter, 44px); right: var(--page-gutter, 44px); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .sculpture-hint { display: flex; align-items: center; gap: 10px; color: #566256; pointer-events: none; font: 400 10px/1.5 'DM Sans', Arial, sans-serif; }
 .sculpture-hint svg { width: 22px; height: 22px; }
