@@ -13,3 +13,7 @@ New generated editorial study provenance will be recorded here before the final 
 ## New coastal editorial study
 
 `images/coastal-study.webp` is a new AI-assisted fictional editorial image generated for this rebuild with `image_gen.imagegen`. The untouched generated PNG is preserved at `images/coastal-study.png`; the deployed WebP is a format/compression export. It is visibly captioned as an AI-assisted study. This is not documentary photography, a surveyed location or a claim of manufacturer endorsement. Exact prompt and known tool metadata limits: `images/coastal-study.provenance.md`.
+
+## Real-time exhibition previews
+
+`images/world-poster.webp` and `images/symbol-poster.webp` are browser captures of the actual new WebGL canvases (Chromium, 1440px viewport, reduced motion) exported to WebP. These are not generated substitutes for the live geometry. World includes the existing credited CC BY-SA 4.0 Porsche derivative by Lionsharp Studios / webtrackerxy; its original provenance remains linked above. The World poster is offered under CC BY-SA 4.0, with this attribution preserved. Symbol shows the approved original TOHEŞAR silhouette rendered in the new procedural gallery.

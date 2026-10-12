@@ -82,3 +82,11 @@ python3 -m http.server 8080
 - World desktop/mobile interaction checks pass, WebGL0 and no failed resources. World cleanup records zero retained geometry/textures.
 - Final 18-check Chromium and 18-check WebKit runs launched; screenshot evidence and reports will be retained in review documentation.
 - Capturing actual new canvas images for homepage previews and stable loading/fallback art.
+
+## Checkpoint 8 — integrated real previews and compact mobile fit
+- Homepage portals now use captures of the actual new WebGL scenes, exported to small WebP previews. World loading/fallback uses a matching static render; source and ShareAlike attribution recorded.
+- Improved heading contrast and readable AI image disclosure; added canonical/social metadata and clear archive restoration documentation.
+- Both World and Symbol fit 375×667 screens with all primary controls visible. Safe-area spacing and 44px sculpture touch controls preserved.
+- Normal desktop/mobile WebKit scenes, touch/pointer/keyboard controls, fallback and GPU departure cleanup pass.
+- A genuine WebKit context restoration fault was identified: deleting a previous PMREM target after native context reset tries to delete objects belonging to the prior context. Both engines now dispose targets during context loss and regenerate them after restore. Fresh rerun underway; no error draining or masking.
+- Final screenshots/report packaging and PR creation remain.

@@ -358,13 +358,17 @@ async function init() {
     motionQuery.addEventListener?.('change', () => { if (transition && motionQuery.matches) setView(currentView, true); });
     canvas.addEventListener('webglcontextlost', event => {
       event.preventDefault(); lost = true;
+      // Release render targets while this context is lost. Deferring deletion
+      // until a restored WebKit context can submit stale GPU handles to it.
+      scene.environment = null; environment?.dispose(); environment = null;
+      sunlight.shadow.dispose(); sunlight.shadow.map = null; sunlight.shadow.mapPass = null;
       fallback('The gallery is resting. The original silhouette remains on view.');
     });
     canvas.addEventListener('webglcontextrestored', () => {
       try {
         // Render-target textures have no CPU image to restore. Rebuild the
         // studio capture after the renderer has recreated its GPU resources.
-        environment.dispose(); environment = studioEnvironment(); scene.environment = environment.texture;
+        environment = studioEnvironment(); scene.environment = environment.texture;
         renderer.shadowMap.needsUpdate = true;
         lost = false; stage.dataset.state = 'ready'; stage.classList.add('is-ready');
         sceneButtons.forEach(button => button.disabled = false);
@@ -375,7 +379,7 @@ async function init() {
       if (event.persisted) return;
       disposed = true; cancelAnimationFrame(frame);
       resizeObserver.disconnect(); intersectionObserver.disconnect(); controls.dispose();
-      resources.forEach(resource => resource.dispose()); environment.dispose(); sunlight.shadow.dispose(); renderer.dispose();
+      resources.forEach(resource => resource.dispose()); environment?.dispose(); sunlight.shadow.dispose(); renderer.dispose();
     });
     // Explicit scene diagnostics support reproducible WebGL / interaction QA.
     window.__TOHESAR_SYMBOL = { renderer, scene, camera, controls, sculpture, points: CEDILLA_POINTS, get view() { return currentView; }, get animating() { return Boolean(frame || transition); } };

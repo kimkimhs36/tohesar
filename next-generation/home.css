@@ -7,3 +7,8 @@
 /* The new opening begins inside the photograph; the printed masthead follows it. */
 .home-brand{display:flex;align-items:center;min-height:44px}.home-brand img{width:140px;height:auto}.cover{margin-top:16px;height:calc(100svh - 110px);min-height:660px;max-height:1100px}.cover-title{padding-top:96px}.opening{padding-top:38px;padding-bottom:28px}.opening-line{padding-bottom:10px}.opening-scroll span{display:none}.opening-scroll{font-size:9px}.introduction{padding-top:90px}
 @media(max-width:600px){.home-brand img{width:104px}.home-nav .ng-nav{gap:13px;font-size:9px}.cover{margin-top:12px;height:calc(100svh - 88px);min-height:620px;max-height:900px}.cover-title{padding-top:76px}.cover-title h1{font-size:clamp(48px,13vw,70px)}.cover>img{object-position:65% center}.opening{padding-top:28px}.opening-scroll{font-size:7px}.introduction{padding-top:70px}}
+/* Legible editorial source notes and a quiet photographic heading scrim. */
+.cover::after{background:linear-gradient(90deg,rgba(228,237,233,.23),transparent 56%),linear-gradient(180deg,rgba(194,216,225,.18),transparent 60%,rgba(23,31,29,.28))}.cover-caption{font-size:9px;letter-spacing:.07em}.sound-control{min-width:44px}
+@media(max-width:600px){.cover::after{background:linear-gradient(180deg,rgba(187,213,227,.64),transparent 55%,rgba(23,31,29,.38))}.cover-caption{font-size:9px}.sound-control{min-width:36px}}
+/* These previews are photographed from the actual new WebGL scenes. */
+.symbol-preview.has-render>img{object-position:68% center}.world-preview>img{object-position:58% center}

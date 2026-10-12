@@ -17,7 +17,7 @@ export async function mountWorld() {
   const shotButtons = [...document.querySelectorAll('[data-world-shot]')];
   const tourButton = document.querySelector('#world-tour');
   const diagnostics = { frames: 0, contextLosses: 0, errors: [], vehicle: 'loading', quality: compact.matches ? 'mobile' : 'desktop', reducedMotion: reduced.matches };
-  let renderer, controls, raf = 0, dead = false, lost = false, playing = false, transition = null, tourIntro = null, elapsed = 0, tourTime = 0, activeShot = 0, slowFrames = 0, lastFrame = 0, inView = true, slowTime = 0;
+  let renderer, controls, raf = 0, dead = false, lost = false, playing = false, transition = null, tourIntro = null, elapsed = 0, tourTime = 0, activeShot = 0, lastFrame = 0, inView = true, slowTime = 0;
   const disposables = new Set();
   const cleanups = [];
   const listen = (target, type, fn, options) => { target.addEventListener(type, fn, options); cleanups.push(() => target.removeEventListener(type, fn, options)); };
@@ -43,7 +43,7 @@ export async function mountWorld() {
   const camera = new THREE.PerspectiveCamera(43, 1, .12, 600);
   scene.fog = new THREE.Fog(0xc0d6d5, 95, 300);
   controls = new OrbitControls(camera, canvas);
-  controls.enableDamping = true;
+  controls.enableDamping = !reduced.matches;
   controls.dampingFactor = .075;
   controls.minDistance = 3.8;
   controls.maxDistance = 35;
@@ -109,7 +109,7 @@ export async function mountWorld() {
   for(let z=5;z>-45;z-=10) { cylinder(.105,.42,dark,-9.4,.22,z,20); cylinder(.18,.12,steel,-9.4,.47,z,24); }
   // Arcaded gallery. Open arches are genuine extruded shapes, not painted textures.
   // Their 1.1m deep reveals and repeated piers create clear spatial parallax.
-  const archShape = new THREE.Shape(); const archWidth=6.2, archHeight=8.1, radius=2.4, spring=3.6;
+  const archShape = new THREE.Shape(); const archWidth=5.85, archHeight=8.1, radius=2.4, spring=3.6;
   archShape.moveTo(-archWidth/2,0);archShape.lineTo(-archWidth/2,archHeight);archShape.lineTo(archWidth/2,archHeight);archShape.lineTo(archWidth/2,0);archShape.lineTo(radius,0);archShape.lineTo(radius,spring);
   archShape.absarc(0,spring,radius,0,Math.PI,false);archShape.lineTo(-radius,0);archShape.closePath();
   const archGeometry=new THREE.ExtrudeGeometry(archShape,{depth:1.05,bevelEnabled:true,bevelThickness:.07,bevelSize:.055,bevelSegments:3,curveSegments:36,steps:1});
@@ -188,7 +188,7 @@ export async function mountWorld() {
   const shots=()=>compact.matches?mobileShots:desktopShots;
   function selectShot(index,animate=true) {
     activeShot=index;playing=false;syncTour();tourTime=index/3*48;
-    const shot=shots()[index];const p=new THREE.Vector3(...shot.position),t=new THREE.Vector3(...shot.target);
+    const shot=shots()[index];const p=new THREE.Vector3(...shot.position),t=new THREE.Vector3(...shot.target);if(compact.matches&&stage.clientHeight<650&&index===0)t.y=1.15;
     transition=animate&&!reduced.matches?{from:camera.position.clone(),look:controls.target.clone(),to:p,target:t,time:0}:null;
     if(!transition){camera.position.copy(p);controls.target.copy(t);controls.update();}
     shotButtons.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
@@ -209,7 +209,7 @@ export async function mountWorld() {
     if(rawDt>.075&&!transition){slowTime+=rawDt;if(slowTime>5&&renderer.getPixelRatio()>1){renderer.setPixelRatio(Math.max(1,renderer.getPixelRatio()-.2));resize();slowTime=0;}}else slowTime=Math.max(0,slowTime-dt);
     if(!reduced.matches||playing||transition)requestRender();
   }
-  function resize(){const width=stage.clientWidth,height=stage.clientHeight;renderer.setSize(width,height,false);camera.aspect=width/height;camera.fov=compact.matches?51:43;camera.updateProjectionMatrix();requestRender();}
+  function resize(){const width=stage.clientWidth,height=stage.clientHeight;renderer.setSize(width,height,false);camera.aspect=width/height;camera.fov=compact.matches?(stage.clientHeight<650?55:51):43;camera.updateProjectionMatrix();requestRender();}
   listen(controls,'start',()=>{playing=false;transition=null;syncTour();});listen(controls,'change',()=>requestRender());
   shotButtons.forEach(button=>listen(button,'click',()=>selectShot(Number(button.dataset.worldShot))));
   listen(tourButton,'click',()=>{if(reduced.matches){selectShot((activeShot+1)%3,false);return;}transition=null;playing=!playing;tourIntro=playing?{from:camera.position.clone(),look:controls.target.clone(),time:0}:null;syncTour();requestRender();});
@@ -223,9 +223,9 @@ export async function mountWorld() {
   const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(inView){lastFrame=0;requestRender();}else{if(raf)cancelAnimationFrame(raf);raf=0;}},{threshold:0});observer.observe(stage);cleanups.push(()=>observer.disconnect());
   listen(window,'resize',resize);if(window.visualViewport)listen(window.visualViewport,'resize',resize);
   listen(document,'visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;lastFrame=0;}else requestRender();});
-  listen(reduced,'change',()=>{playing=false;transition=null;diagnostics.reducedMotion=reduced.matches;syncTour();requestRender();});
-  listen(canvas,'webglcontextlost',event=>{event.preventDefault();lost=true;diagnostics.contextLosses++;fail('WebGL context lost');});
-  listen(canvas,'webglcontextrestored',()=>{lost=false;lastFrame=0;const recoveryPMREM=new THREE.PMREMGenerator(renderer);const recovered=recoveryPMREM.fromScene(environmentScene,.08,.1,500);recoveryPMREM.dispose();disposables.delete(environment);environment.dispose();environment=recovered;disposables.add(environment);scene.environment=environment.texture;renderer.shadowMap.needsUpdate=true;stage.dataset.state='ready';status.textContent='그래픽 연결이 복구되었습니다.';document.querySelector('#world-fallback-note').hidden=true;requestRender();});
+  listen(reduced,'change',()=>{playing=false;transition=null;controls.enableDamping=!reduced.matches;diagnostics.reducedMotion=reduced.matches;syncTour();requestRender();});
+  listen(canvas,'webglcontextlost',event=>{event.preventDefault();lost=true;diagnostics.contextLosses++;if(environment){disposables.delete(environment);environment.dispose();environment=null;scene.environment=null;}fail('WebGL context lost');});
+  listen(canvas,'webglcontextrestored',()=>{try{lost=false;lastFrame=0;const recoveryPMREM=new THREE.PMREMGenerator(renderer);environment=recoveryPMREM.fromScene(environmentScene,.08,.1,500);recoveryPMREM.dispose();disposables.add(environment);scene.environment=environment.texture;renderer.shadowMap.needsUpdate=true;stage.dataset.state='ready';status.textContent='그래픽 연결이 복구되었습니다.';document.querySelector('#world-fallback-note').hidden=true;requestRender();}catch(error){fail(error);}});
   function dispose(){dead=true;if(raf)cancelAnimationFrame(raf);cleanups.forEach(fn=>fn());controls.dispose();const geometries=new Set(),materials=new Set(),textures=new Set();const collect=o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const mat of(Array.isArray(o.material)?o.material:[o.material]))materials.add(mat);};scene.traverse(collect);environmentScene.traverse(collect);for(const mat of materials){for(const value of Object.values(mat))if(value?.isTexture)textures.add(value);if(mat.uniforms)for(const u of Object.values(mat.uniforms))if(u.value?.isTexture)textures.add(u.value);mat.dispose();}geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());disposables.forEach(d=>d.dispose());sun.shadow.dispose();renderer.dispose();}
   listen(window,'pagehide',event=>{if(!event.persisted)dispose();});
   window.__TOHESAR_WORLD={scene,camera,renderer,controls,diagnostics,selectShot,dispose,get playing(){return playing;}};
