@@ -19,10 +19,13 @@ export async function createWorld(canvas,onProgress){
  // Shadow overlay preserves rough planar reflection below it.
  const shadow=new T.Mesh(new T.PlaneGeometry(45,50),new T.ShadowMaterial({opacity:.43}));shadow.rotation.x=-Math.PI/2;shadow.position.set(0,-.017,-6);shadow.receiveShadow=true;scene.add(shadow);
  const water=makeWater();water.rotation.x=-Math.PI/2;water.position.set(0,-.23,-149);scene.add(water);
- let vehicle;let vehicleSource='Khronos Car Concept / Eric Chadwick, DGG / CC BY 4.0';
- try{onProgress('차체의 표면과 디테일을 불러오는 중');const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('/world/assets/car-concept-silver.glb');vehicle=gltf.scene;
+ let vehicle;let vehicleSource='Porsche 911 Carrera 4S / Lionsharp Studios / CC BY-SA 4.0';
+ try{onProgress('차체의 표면과 디테일을 불러오는 중');const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('/world/assets/car-911-carrera-4s-lod1.glb');vehicle=gltf.scene;
  const bounds=new T.Box3().setFromObject(vehicle),size=bounds.getSize(new T.Vector3());vehicle.scale.setScalar(4.65/size.z);const scaled=new T.Box3().setFromObject(vehicle),centre=scaled.getCenter(new T.Vector3());vehicle.position.set(-centre.x,-scaled.min.y,-centre.z);
- const mount=new T.Group();mount.add(vehicle);vehicle=mount;vehicle.traverse(m=>{if(m.isMesh){m.castShadow=true;m.receiveShadow=true;if(m.material){m.material.envMapIntensity=.9;}}});
+ const mount=new T.Group();mount.add(vehicle);vehicle=mount;vehicle.traverse(m=>{if(m.isMesh){m.castShadow=true;m.receiveShadow=true;if(m.material){m.material.envMapIntensity=.9;
+  // This LOD comes with named materials. Keep a muted silver body under sunset light.
+  if(m.material.name==='paint'){m.material.color.setHex(0xadb4bb);m.material.metalness=.75;m.material.roughness=.26;m.material.envMapIntensity=1.05;}
+  if(m.material.name==='window'||m.material.name==='glass'){m.material.color.setHex(0x283037);m.material.roughness=.13;}}}});
  }catch(error){vehicle=makeVehicle();vehicleSource='Procedural coupe fallback';console.warn('Detailed model unavailable; procedural fallback used.',String(error));}
  vehicle.position.add(new T.Vector3(.6,0,-.8));vehicle.rotation.y=-.16;scene.add(vehicle);
  const concrete=new T.MeshStandardMaterial({color:0x797776,roughness:.9});

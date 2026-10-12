@@ -41,3 +41,11 @@ Harbour, overpass, bridge approximation, skyline, bench, cup, bicycle, mooring f
 - Noto Sans KR subsets: SIL Open Font License 1.1. Full license in `public/assets/fonts/OFL.txt`. The packaged subsets cover Korean copy used by the experiment; native Apple system fonts remain preferred.
 
 No generated-image API, paid generation credits or external audio files were used.
+
+
+## Deployed vehicle swap — 2026-10-12
+- Visible vehicle: Porsche 911 Carrera 4S, originally created by **Lionsharp Studios**, original model [Sketchfab](https://sketchfab.com/3d-models/free-porsche-911-carrera-4s-d01b254483794de3819786d93e0e1ebf).
+- **Licensing correction:** The original Sketchfab model page currently says **CC Attribution-ShareAlike** (CC BY-SA), not CC BY as claimed by the source rehosting project. See [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). TOHEŞAR uses the stronger ShareAlike terms and attributes both the original author and the LOD transformer. No official manufacturer endorsement.
+- Optimized derivative from [webtrackerxy/3d-city-million-cars](https://github.com/webtrackerxy/3d-city-million-cars), `assets/generated/porsche/car_lod1.opt.glb` pinned to source revision `310e9ec6e8f71cabd04e45eb8761a097f26acb60`. Its source project reports 33,052 triangles, meshopt compression, 314,340 bytes, and nominal dimensions 4.46 x 2.03 x 1.29 m. Attribution to the source author is provided above; this deployment changes the material colors. This modified car derivative is offered on CC BY-SA 4.0 terms; attribution and further modifications require ShareAlike compliance.
+- Source copyright may include Porsche trademarks distinct from 3D geometry copyright; no brand sponsorship or manufacturer permission is implied.
+- Original Car Concept GLB remains stored as `/world/assets/car-concept-silver.glb` for reversible testing.
