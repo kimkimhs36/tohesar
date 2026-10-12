@@ -102,3 +102,11 @@ python3 -m http.server 8080
 - Durable before/after images, consolidated reports and review instructions are committed under `docs/next-generation/`.
 - Remaining release limitation: physical iPhone/macOS/iOS Safari device testing and device performance benchmarks are unavailable; emulated/mobile Chromium and Linux WebKit verification do not establish those results.
 - Next: push this checkpoint, open PR against main and record the PR link. No further feature work planned.
+
+## Completed handoff
+- Pull Request: https://github.com/kimkimhs36/tohesar/pull/4
+- PR base: `main`; head: `experiment/tohesar-next-generation`. Open for review, not merged.
+- All authored code, original-source preservation, final visual comparisons, provenance and verification evidence are committed and pushed.
+- Final local review captures confirm all three routes after the real preview integration. No remaining feature work or uncommitted implementation is intended.
+- Optional local recovery bundle: `/workspace/tohesar-recovery.bundle`; GitHub branch remains the primary durable recovery source.
+- To review: `docs/next-generation/REVIEW.md`. To recover: fetch/switch/pull the experiment branch and run the static server commands above.
