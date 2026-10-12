@@ -67,6 +67,12 @@
 .object-invite p{font:400 13px/1.8 var(--sans);max-width:440px;color:var(--muted);margin:0}.object-invite-cta{white-space:nowrap;padding-bottom:5px;color:var(--ink)}
 @media(max-width:760px){.object-invite-link{align-items:start;flex-direction:column;gap:27px}.object-invite h2{margin:24px 0 16px}.object-invite p{font-size:12px}.nav-mark img{width:26px;height:26px}}
 
+/* CINEMATIC BRIDGE: the real journal image opens either an essay or its living 3D space. */
+.feature-journeys{display:flex;align-items:flex-start;flex-direction:column;gap:12px}
+.feature-journeys .text-link{min-height:31px;align-items:center}
+.feature-world-link{border-bottom-color:#b89d89;color:#845e4c}
+.feature-world-link:hover{border-bottom-color:#704632}
+@media(max-width:760px){.feature-journeys{gap:8px}.feature-journeys .text-link{font-size:9px;white-space:normal;gap:9px}}
 /* TOHEŞAR / SPACE INDEX 001. The journal remains editorial; two immersive entrances. */
 .world-portals{padding-top:clamp(30px,5vw,90px);padding-bottom:clamp(118px,12vw,195px)}
 .portal-intro{border-top:1px solid var(--line);padding-top:21px;padding-bottom:clamp(35px,5vw,78px)}
@@ -240,7 +246,7 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
     </section>
     <section class="feature-caption wrap">
       <div><div class="eyebrow muted">FIELD NOTES &nbsp; / &nbsp; NO. 001</div><h1>Somewhere<br><em>in Yokohama.</em></h1></div>
-      <div class="feature-note"><p>A quiet car beneath the expressway. The last light against the water. An imagined scene, held like a memory.</p><a class="text-link eyebrow" href="journal/yokohama/">READ THE JOURNAL <span aria-hidden="true">↗</span></a></div>
+      <div class="feature-note"><p>A quiet car beneath the expressway. The last light against the water. An imagined scene, held like a memory.</p><div class="feature-journeys"><a class="text-link eyebrow" href="journal/yokohama/">READ THE JOURNAL <span aria-hidden="true">↗</span></a><a class="text-link eyebrow feature-world-link" href="world/">EXPLORE THE 3D WORLD <span aria-hidden="true">↗</span></a></div></div>
     </section>
     <section id="about" class="about wrap"><div class="eyebrow about-small">WHAT IS TOHEŞAR? &nbsp; / &nbsp; 002</div><div class="about-main"><h2>Not just the car.<br><em>The world</em><br>around it.</h2><p>TOHEŞAR moves between automobiles, cities, sound, time and memory. A visual archive of the scenes, objects and feelings we choose to keep.<br><br>TOHEŞAR(토헤샤)는 자동차와 도시, 사람과 음악, 그 사이에 남는 장면들을 기록하는 독립 비주얼 저널입니다.</p></div></section>
     <section class="archive wrap" id="journal">
