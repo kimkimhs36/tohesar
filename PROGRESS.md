@@ -43,3 +43,12 @@ python3 -m http.server 8080
 - Downloaded local DM Sans/Instrument Serif fonts and preserved both SIL OFL licenses.
 - Generated and visually inspected a new bright coastal editorial study; preserved PNG source plus optimized 270KB WebP and generation provenance.
 - Baseline browser captures underway in `/workspace/tohesar-evidence/before/`; independent World and Symbol implementations developing in parallel.
+
+## Checkpoint 3 — editorial homepage and live harbour source
+- Replaced home composition completely: established image wordmark, new bright coastal cover, substantial introduction, asymmetric visual journal, blue immersive entrance, sculpture entrance and large closing spread.
+- Added responsive home styles, accessible opt-in sound control using preserved music, and progressive reveal effects respecting reduced motion.
+- Converted local fonts to WOFF2 and retained SIL OFL licenses.
+- New harbour scene source created: architecture, procedural materials, water and existing licensed car, shot presets/tour and exploration controls; entry integration in progress.
+- Captured all six before desktop/mobile views and baseline reports in `/workspace/tohesar-evidence/before/`. Live site comparison screenshots also captured.
+- Important baseline finding: existing World had font 404s; rebuild uses local complete fonts rather than those failing URLs.
+- Recovery checkpoint includes in-progress new files; visual QA is next, not yet a final quality assertion.
