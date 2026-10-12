@@ -228,6 +228,7 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
 }
 
   </style>
+<link rel="stylesheet" href="assets/film-stage-v1.css">
 <link rel="icon" type="image/svg+xml" href="assets/cedilla-favicon.svg">
 </head>
 <body>
@@ -261,6 +262,40 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
         <div class="archive-side">
           <button class="visual-card" data-story="detail" type="button" aria-label="Small Details 비주얼 스터디 보기"><div class="visual"><img src="assets/detail.webp" width="1260" height="840" loading="lazy" decoding="async" alt="따뜻한 황혼 속 자동차 금속 표면과 작은 TOHEŞAR 엠블럼"></div><div class="card-info"><div><span class="eyebrow muted">003 &nbsp; / &nbsp; CLOSE STUDY</span><h3>The small things.</h3></div><span class="eyebrow muted">VIEW ↗</span></div></button>
           <button class="visual-card" data-story="bluehour" type="button" aria-label="After the Light 야경 비주얼 스터디 보기"><div class="visual"><img src="assets/yokohama-bluehour.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="요코하마 항구의 블루아워와 물가에 멈춘 은색 포르쉐 단독 화보"></div><div class="card-info"><div><span class="eyebrow muted">004 &nbsp; / &nbsp; EVENING STUDY</span><h3>After the light.</h3></div><span class="eyebrow muted">VIEW ↗</span></div></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="film-stage" id="film-stage" aria-labelledby="film-heading" data-frame="0">
+      <div class="film-visuals" aria-hidden="true">
+        <picture class="film-frame is-active" data-film-frame="0">
+          <source media="(max-width: 760px)" srcset="assets/yokohama-portrait.webp">
+          <img src="assets/yokohama-landscape.webp" alt="" width="1500" height="660" loading="lazy" decoding="async">
+        </picture>
+        <picture class="film-frame" data-film-frame="1">
+          <source media="(max-width: 760px)" srcset="assets/yokohama-afterglow.webp">
+          <img src="assets/yokohama-secondlight.webp" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+        </picture>
+        <picture class="film-frame" data-film-frame="2">
+          <img src="assets/yokohama-bluehour.webp" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="film-tint" aria-hidden="true"></div>
+      <div class="film-ui">
+        <div class="film-header eyebrow"><span>TOHEŞAR &nbsp; / &nbsp; MOVING IMAGE STUDIES</span><span>AN IMAGINED YOKOHAMA</span></div>
+        <div class="film-editorial">
+          <span class="film-eyebrow eyebrow">FROM THE JOURNAL INTO THE WORLD &nbsp; / &nbsp; 001</span>
+          <h2 id="film-heading">Where the<br><em>light stays.</em></h2>
+          <p>빛이 지나간 자리에도, 이야기는 남는다.</p>
+          <a class="film-enter eyebrow" href="world/">ENTER CINEMATIC WORLD <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="film-footer">
+          <div class="film-readout"><span class="film-count" data-film-count>01 / 03</span><span data-film-description aria-live="polite" aria-atomic="true">ARRIVAL — THE FIRST LIGHT</span></div>
+          <div class="film-controls" role="group" aria-label="사진 장면 선택">
+            <button class="is-active" type="button" data-film-select="0" aria-pressed="true"><span>01</span> ARRIVAL</button>
+            <button type="button" data-film-select="1" aria-pressed="false"><span>02</span> AFTERGLOW</button>
+            <button type="button" data-film-select="2" aria-pressed="false"><span>03</span> BLUE HOUR</button>
+          </div>
         </div>
       </div>
     </section>
@@ -403,5 +438,6 @@ html.motion-ready .section-title.line-visible::before,html.motion-ready .about.l
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&!audio.paused){cancelAnimationFrame(frame);audio.pause();showState(false)}});
 })();
 </script>
+<script defer src="assets/film-stage-v1.js"></script>
 </body>
 </html>
