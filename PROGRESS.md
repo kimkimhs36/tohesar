@@ -36,3 +36,10 @@ python3 -m http.server 8080
 
 ## Verification limits
 - Physical iPhone Safari is not available. Browser WebKit emulation and mobile Chromium can check compatibility but do not establish physical-device verification.
+
+## Checkpoint 2 — shared foundation
+- Added unified ivory/blue/vermilion design tokens, responsive navigation, focus/skip-link and reduced-motion rules.
+- Vendored Three.js r180 and used addon dependency closure with original MIT license; no CDN runtime requirement in the rebuild.
+- Downloaded local DM Sans/Instrument Serif fonts and preserved both SIL OFL licenses.
+- Generated and visually inspected a new bright coastal editorial study; preserved PNG source plus optimized 270KB WebP and generation provenance.
+- Baseline browser captures underway in `/workspace/tohesar-evidence/before/`; independent World and Symbol implementations developing in parallel.
