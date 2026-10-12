@@ -34,14 +34,14 @@ export async function mountWorld() {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance', alpha: false });
   } catch (error) { fail(error); return; }
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.AgXToneMapping;
-  renderer.toneMappingExposure = 1.12;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = .92;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.setPixelRatio(Math.min(devicePixelRatio, compact.matches ? 1.35 : 1.8));
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(43, 1, .12, 600);
-  scene.fog = new THREE.Fog(0xc4d4d4, 65, 265);
+  scene.fog = new THREE.Fog(0xc0d6d5, 95, 300);
   controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
   controls.dampingFactor = .075;
@@ -77,21 +77,21 @@ export async function mountWorld() {
     const A = new THREE.Vector3(...a), B = new THREE.Vector3(...b), mid = A.clone().add(B).multiplyScalar(.5);
     const m = cylinder(r,A.distanceTo(B),mat,...mid.toArray(),8); m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),B.sub(A).normalize()); return m;
   }
-  const skyMaterial = new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: false, uniforms: { zenith: { value: new THREE.Color('#89b3c6') }, horizon: { value: new THREE.Color('#e1e2d1') } }, vertexShader: 'varying vec3 vWorld; void main(){vWorld=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*viewMatrix*vec4(vWorld,1.);}', fragmentShader: 'varying vec3 vWorld;uniform vec3 zenith;uniform vec3 horizon;void main(){vec3 d=normalize(vWorld);float h=pow(max(d.y,0.),.45);vec3 c=mix(horizon,zenith,h);float cloud=sin(d.x*18.+d.z*5.)*.5+.5;float veil=pow(max(0.,1.-abs(d.y-.24)*6.),4.)*.035*cloud;c+=veil;gl_FragColor=vec4(c,1.);#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}' });
+  const skyMaterial = new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: false, uniforms: { zenith: { value: new THREE.Color('#61a6cf') }, horizon: { value: new THREE.Color('#d9e4df') } }, vertexShader: 'varying vec3 vWorld; void main(){vWorld=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*viewMatrix*vec4(vWorld,1.);}', fragmentShader: 'varying vec3 vWorld;uniform vec3 zenith;uniform vec3 horizon;void main(){vec3 d=normalize(vWorld);float h=pow(max(d.y,0.),.45);vec3 c=mix(horizon,zenith,h);float cloud=sin(d.x*18.+d.z*5.)*.5+.5;float veil=pow(max(0.,1.-abs(d.y-.24)*6.),4.)*.035*cloud;c+=veil;gl_FragColor=vec4(c,1.);#include <tonemapping_fragment>\n#include <colorspace_fragment>\n}' });
   // Keep shader includes on separate lines for browser GLSL preprocessors.
   skyMaterial.fragmentShader = skyMaterial.fragmentShader.replace(';#include',';\n#include');
   const sky = new THREE.Mesh(new THREE.SphereGeometry(450,32,16),skyMaterial); scene.add(sky);
-  scene.add(new THREE.HemisphereLight(0xdbe8f0,0x7b735a,2.1));
-  const sun = new THREE.DirectionalLight(0xffe7c2,3.7); sun.position.set(-22,34,17); sun.target.position.set(0,0,-10); sun.castShadow=true;
+  scene.add(new THREE.HemisphereLight(0xdbe8f0,0x6c6952,1.1));
+  const sun = new THREE.DirectionalLight(0xffe7c2,4.1); sun.position.set(-22,34,17); sun.target.position.set(0,0,-10); sun.castShadow=true;
   sun.shadow.mapSize.set(compact.matches?1024:2048,compact.matches?1024:2048);
   Object.assign(sun.shadow.camera,{left:-28,right:28,top:28,bottom:-28,near:1,far:100}); sun.shadow.bias=-.00015; sun.shadow.normalBias=.035; scene.add(sun,sun.target);
-  const fill = new THREE.DirectionalLight(0x9bbecf,.9); fill.position.set(15,8,-20); scene.add(fill);
+  const fill = new THREE.DirectionalLight(0x9bbecf,.48); fill.position.set(15,8,-20); scene.add(fill);
   // A deliberately composed environment supplies broad sky and architectural reflections.
   const environmentScene = new THREE.Scene(); environmentScene.add(sky.clone());
   for (const [p, s, color] of [[[8,5,-7],[6,10,30],0xe5e0d0],[[-20,12,8],[18,6,7],0xfff5dc],[[0,20,0],[35,.5,35],0xe8f2f5]]) {
     const panel = new THREE.Mesh(new THREE.BoxGeometry(...s),new THREE.MeshBasicMaterial({color})); panel.position.set(...p); environmentScene.add(panel);
   }
-  const pmrem = new THREE.PMREMGenerator(renderer); const environment = pmrem.fromScene(environmentScene,.08,.1,500); scene.environment=environment.texture; scene.environmentIntensity=.95; disposables.add(environment); pmrem.dispose();
+  const pmrem = new THREE.PMREMGenerator(renderer); const environment = pmrem.fromScene(environmentScene,.08,.1,500); scene.environment=environment.texture; scene.environmentIntensity=.85; disposables.add(environment); pmrem.dispose();
   environmentScene.traverse(o=>{if(o!==environmentScene && o!==environmentScene.children[0]) {o.geometry?.dispose();o.material?.dispose();}});
   // Main quay: broad, pale stone, rather than an unbounded featureless plane.
   box(40,.72,75,concrete,10,-.37,-18);
@@ -156,13 +156,13 @@ export async function mountWorld() {
     for(let i=1;i<=10;i++)for(const side of[-1,1])bar([x,27,-130],[x+side*i*4.4,10.95,-130],.03,steel);
   }
   // Merge all immobile construction by material and shadow state: fewer draw calls.
-  const batches=new Map();for(const m of staticMeshes){m.updateMatrix();const key=m.material.uuid+String(m.castShadow);if(!batches.has(key))batches.set(key,{material:m.material,cast:m.castShadow,geometries:[]});batches.get(key).geometries.push(m.geometry.clone().applyMatrix4(m.matrix));m.geometry.dispose();}
+  const batches=new Map();for(const m of staticMeshes){m.updateMatrix();const key=m.material.uuid+String(m.castShadow);if(!batches.has(key))batches.set(key,{material:m.material,cast:m.castShadow,geometries:[]});batches.get(key).geometries.push((m.geometry.index?m.geometry.toNonIndexed():m.geometry.clone()).applyMatrix4(m.matrix));m.geometry.dispose();}
   for(const batch of batches.values()){const geometry=mergeGeometries(batch.geometries);if(geometry){const merged=new THREE.Mesh(geometry,batch.material);merged.castShadow=batch.cast;merged.receiveShadow=true;scene.add(merged);}for(const g of batch.geometries)g.dispose();}archGeometry.dispose();
   const waterNormal=makeWaterNormal();
-  const sea=new Water(new THREE.PlaneGeometry(420,320),{textureWidth:compact.matches?128:256,textureHeight:compact.matches?128:256,waterNormals:waterNormal,sunDirection:sun.position.clone().normalize(),sunColor:0xffefd9,waterColor:0x327b89,distortionScale:1.25,alpha:1,fog:true});
+  const sea=new Water(new THREE.PlaneGeometry(420,320),{textureWidth:compact.matches?128:256,textureHeight:compact.matches?128:256,waterNormals:waterNormal,sunDirection:sun.position.clone().normalize(),sunColor:0xffefd9,waterColor:0x14667d,distortionScale:1.25,alpha:1,fog:true});
   sea.rotation.x=-Math.PI/2;sea.position.set(-150,-.59,-131);sea.material.uniforms.size.value=5.5;scene.add(sea);
-  // The gap at the front-right is land. The sea continues behind the quay.
-  const rearSea=new THREE.Mesh(new THREE.PlaneGeometry(260,200),sea.material);rearSea.rotation.x=-Math.PI/2;rearSea.position.set(35,-.6,-155);scene.add(rearSea);
+  // Capture Water's privately allocated reflection target once for complete disposal.
+  const waterRender=sea.onBeforeRender;let capturedWaterTarget=false;sea.onBeforeRender=function(r,...args){if(capturedWaterTarget)return waterRender.call(this,r,...args);const setTarget=r.setRenderTarget;r.setRenderTarget=function(target,...rest){if(target&&!capturedWaterTarget){disposables.add(target);capturedWaterTarget=true;}return setTarget.call(this,target,...rest);};try{return waterRender.call(this,r,...args);}finally{r.setRenderTarget=setTarget;}};
   const foam=new THREE.Mesh(new THREE.PlaneGeometry(.12,75),new THREE.MeshBasicMaterial({color:0xc2d8d1,transparent:true,opacity:.35}));foam.rotation.x=-Math.PI/2;foam.position.set(-10.34,-.565,-18);scene.add(foam);
   status.textContent='차체의 곡면과 반사를 준비하고 있습니다.';
   let vehicle;
@@ -182,8 +182,8 @@ export async function mountWorld() {
   // Tight underbody occlusion is separate from the directional shadow.
   const contactTexture=makeContactTexture();const contact=new THREE.Mesh(new THREE.PlaneGeometry(3.05,5.5),new THREE.MeshBasicMaterial({map:contactTexture,transparent:true,depthWrite:false,opacity:.84}));contact.rotation.x=-Math.PI/2;contact.rotation.z=.28;contact.position.set(.2,.013,1.7);scene.add(contact);
   for(const x of[-.82,.82])for(const z of[-1.37,1.37]){const patch=new THREE.Mesh(new THREE.PlaneGeometry(.62,.85),new THREE.MeshBasicMaterial({map:contactTexture,transparent:true,depthWrite:false,opacity:.8}));patch.rotation.x=-Math.PI/2;const point=new THREE.Vector3(x,.019,z).applyAxisAngle(new THREE.Vector3(0,1,0),-.28);patch.position.copy(point).add(car.position);scene.add(patch);}
-  const desktopShots=[{position:[-7.15,2.75,12.2],target:[1.25,2,-5],title:'The arrival',number:'01'},{position:[-6.9,1.85,-6.7],target:[1,.95,1.4],title:'At the waterline',number:'02'},{position:[14,6.6,15.5],target:[2.3,2.25,-7.2],title:'A place to stay',number:'03'}];
-  const mobileShots=[{position:[-6.25,3.1,11.8],target:[.35,2.6,-.8],title:'The arrival',number:'01'},{position:[-6.6,2,-6.7],target:[.2,1.7,1.2],title:'At the waterline',number:'02'},{position:[13.8,7.5,17],target:[4.3,3,-10],title:'A place to stay',number:'03'}];
+  const desktopShots=[{position:[-6.3,2.25,9.1],target:[1.1,1.45,-1.5],title:'The arrival',number:'01'},{position:[-6.9,1.85,-6.7],target:[1,.95,1.4],title:'At the waterline',number:'02'},{position:[14,6.6,15.5],target:[2.3,2.25,-7.2],title:'A place to stay',number:'03'}];
+  const mobileShots=[{position:[-6.2,2.9,10.4],target:[.3,2.1,.1],title:'The arrival',number:'01'},{position:[-6.6,2,-6.7],target:[.2,1.7,1.2],title:'At the waterline',number:'02'},{position:[13.8,7.5,17],target:[4.3,3,-10],title:'A place to stay',number:'03'}];
   const shots=()=>compact.matches?mobileShots:desktopShots;
   function selectShot(index,animate=true) {
     activeShot=index;playing=false;syncTour();tourTime=index/3*48;
@@ -195,8 +195,8 @@ export async function mountWorld() {
     requestRender();
   }
   function syncTour(){tourButton.setAttribute('aria-pressed',String(playing));tourButton.querySelector('span').textContent=playing?'Pause tour':'Take a slow tour';tourButton.dataset.playing=String(playing);}
-  const route=new THREE.CatmullRomCurve3([new THREE.Vector3(-7.15,2.75,12.2),new THREE.Vector3(-8,2.2,3),new THREE.Vector3(-6.9,1.85,-6.7),new THREE.Vector3(3,3.8,-9),new THREE.Vector3(14,6.6,15.5),new THREE.Vector3(2.5,4.5,17)],true,'catmullrom',.18);
-  const looks=new THREE.CatmullRomCurve3([new THREE.Vector3(1.25,2,-5),new THREE.Vector3(.2,1.2,1.7),new THREE.Vector3(1,.95,1.4),new THREE.Vector3(1.5,1.4,1.5),new THREE.Vector3(2.3,2.25,-7.2),new THREE.Vector3(.5,1.5,-2)],true,'catmullrom',.18);
+  const route=new THREE.CatmullRomCurve3([new THREE.Vector3(-6.3,2.25,9.1),new THREE.Vector3(-8,2.2,3),new THREE.Vector3(-6.9,1.85,-6.7),new THREE.Vector3(3,3.8,-9),new THREE.Vector3(14,6.6,15.5),new THREE.Vector3(2.5,4.5,17)],true,'catmullrom',.18);
+  const looks=new THREE.CatmullRomCurve3([new THREE.Vector3(1.1,1.45,-1.5),new THREE.Vector3(.2,1.2,1.7),new THREE.Vector3(1,.95,1.4),new THREE.Vector3(1.5,1.4,1.5),new THREE.Vector3(2.3,2.25,-7.2),new THREE.Vector3(.5,1.5,-2)],true,'catmullrom',.18);
   function requestRender(){if(!raf&&!dead&&!lost&&!document.hidden){clock.start();raf=requestAnimationFrame(frame);}}
   function frame(){raf=0;if(dead||lost||document.hidden)return;const dt=Math.min(clock.getDelta(),.075);elapsed+=dt;
     if(transition){transition.time+=dt;const a=Math.min(1,transition.time/2.2),e=a*a*(3-2*a);camera.position.lerpVectors(transition.from,transition.to,e);controls.target.lerpVectors(transition.look,transition.target,e);if(a===1)transition=null;}

@@ -59,3 +59,10 @@ python3 -m http.server 8080
 - Both spatial works expose composition presets, drag/touch exploration, keyboard input, zoom, reduced motion and graceful fallback.
 - First home browser verification passed resource, image, overflow and keyboard checks. Visual comparison prompted a stronger revision: begin inside the full-height coastal photograph; move the large printed masthead below the cover so the vehicle is present in the first viewport.
 - Continuous progress preserved; full cross-route checks and visual refinement are underway.
+
+## Checkpoint 5 — before visual/material refinement
+- Real browser QA identified two World rendering faults: mixed indexed/nonindexed construction geometry and water reflection framebuffer feedback. Agent corrected batches to a single geometry representation and removed shared secondary water material.
+- First Symbol composition rendered successfully, but its face is visually too uniformly pale. Preserve this working version before refining studio reflections and the shallow face crown within the exact outer contour.
+- Fixing finish-control CSS stacking and examining mobile stage fit.
+- Homepage's previously nonexistent journal fragment has been removed.
+- No visual completion claim yet: screenshots are driving these corrections.

@@ -29,15 +29,16 @@ const report = { date: new Date().toISOString(), base, engine, tests: [], notes:
   'Mobile emulation is not verification on a physical iPhone or iOS Safari.',
 ] };
 
+let currentDetail = {};
 async function check(name, run) {
   if (process.env.TOHESAR_TEST_FILTER && !new RegExp(process.env.TOHESAR_TEST_FILTER).test(name)) return;
-  const started = Date.now();
+  const started = Date.now(); currentDetail = {};
   try {
     const detail = await run();
     report.tests.push({ name, passed: true, durationMs: Date.now() - started, ...detail });
     console.log(`PASS ${name}`);
   } catch (error) {
-    report.tests.push({ name, passed: false, durationMs: Date.now() - started, error: error.stack });
+    report.tests.push({ name, passed: false, durationMs: Date.now() - started, error: error.stack, ...currentDetail });
     console.error(`FAIL ${name}: ${error.message}`);
   }
   fs.writeFileSync(path.join(evidence, 'report.json'), JSON.stringify(report, null, 2));
@@ -59,7 +60,7 @@ function observe(page) {
   });
   page.on('requestfailed', request => failedRequests.push({ url: request.url(), error: request.failure()?.errorText }));
   page.on('response', response => { if (response.status() >= 400) responses.push({ url: response.url(), status: response.status() }); });
-  return { errors, failedRequests, responses };
+  const events = { errors, failedRequests, responses }; currentDetail.events = events; return events;
 }
 
 async function instrument(page) {
@@ -137,7 +138,14 @@ for (const device of ['desktop', 'mobile']) {
       await instrument(page); await load(page, route); await page.waitForTimeout(500);
       await page.screenshot({ path: path.join(evidence, `${route}-${device}.png`), animations: 'disabled' });
       if (route === 'home') {
-        await page.screenshot({ path: path.join(evidence, `${route}-${device}-full.png`), fullPage: true, animations: 'disabled' });
+        await page.evaluate(async () => {
+          for (let y = 0; y < document.body.scrollHeight; y += innerHeight * .85) {
+            scrollTo(0, y); await new Promise(resolve => setTimeout(resolve, 100));
+          }
+          scrollTo(0, 0);
+        });
+        await page.waitForFunction(() => [...document.images].every(img => img.complete), null, {timeout:15000});
+        await page.screenshot({ path: path.join(evidence, `${route}-${device}-full.png`), fullPage: true, animations: 'disabled', timeout:60000 });
         assert.ok(await page.locator('a[href="/world/"]').count(), 'Home must link to World');
         assert.ok(await page.locator('a[href="/symbol/"]').count(), 'Home must link to Sculpture');
         const images = await page.evaluate(() => [...document.images].filter(i => i.getBoundingClientRect().top < innerHeight).map(i => ({src:i.currentSrc,complete:i.complete,width:i.naturalWidth})));
@@ -148,9 +156,19 @@ for (const device of ['desktop', 'mobile']) {
         assert.ok(await page.evaluate(() => document.activeElement?.matches('a,button,input')), 'Keyboard focus must reach an interactive control');
         assert.equal(events.errors.length, 0, JSON.stringify(events.errors));
         assert.equal(events.responses.length, 0, JSON.stringify(events.responses));
-        return { ...events, images, links };
+        const journalLinks = await page.locator('a[href^="/journal/"]').evaluateAll(els => [...new Set(els.map(a => a.getAttribute('href')))]);
+        for (const target of journalLinks) {
+          const url = new URL(target, base);
+          const response = await page.request.get(url.href);
+          assert.equal(response.status(), 200, `Journal target must load: ${target}`);
+          if (url.hash) {
+            const html = await response.text();
+            assert.ok(html.includes(`id="${url.hash.slice(1)}"`), `Journal fragment must exist: ${target}`);
+          }
+        }
+        return { ...events, images, links, journalLinks };
       }
-      const rendering = await renderDetail(page, route);
+      const rendering = await renderDetail(page, route); currentDetail.rendering = rendering;
       assert.ok(rendering.canvas?.width > 0 && rendering.canvas?.height > 0, 'Canvas drawing buffer must have dimensions');
       assert.ok(rendering.webglContexts > 0, 'A real WebGL context must initialize');
       assert.equal(rendering.contextLost, false, 'WebGL context must remain valid');
