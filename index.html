@@ -80,8 +80,8 @@
 .portal-heading-row h2{font:400 clamp(67px,8vw,135px)/.89 var(--serif);letter-spacing:-.052em;margin:20px 0 0}
 .portal-heading-row h2 em{font-weight:400;color:#a98371}
 .portal-heading-row p{font:400 13px/1.9 var(--sans);max-width:288px;margin:0 0 6px;color:var(--muted)}
-.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2.5vw,34px)}
-.portal-card{position:relative;isolation:isolate;overflow:hidden;display:flex;min-height:clamp(490px,49vw,750px);flex-direction:column;justify-content:space-between;color:#fff5e9;background:#22201e;padding:clamp(23px,3vw,43px);transition:box-shadow .7s cubic-bezier(.22,1,.36,1)}
+.portal-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);gap:clamp(12px,2.5vw,34px)}
+.portal-world{order:-1}.portal-card{position:relative;isolation:isolate;overflow:hidden;display:flex;min-height:clamp(490px,49vw,750px);flex-direction:column;justify-content:space-between;color:#fff5e9;background:#22201e;padding:clamp(23px,3vw,43px);transition:box-shadow .7s cubic-bezier(.22,1,.36,1)}
 .portal-card:focus-visible{outline:3px solid #a16b52;outline-offset:5px}
 .portal-image{position:absolute;inset:0;z-index:-2;background-position:center;background-size:cover;transition:transform 1.3s cubic-bezier(.22,1,.36,1),filter 1.3s}
 .portal-card:hover .portal-image{transform:scale(1.045)}
@@ -90,6 +90,8 @@
 @media(hover:hover) and (pointer:fine){.portal-card:hover::after{border-color:rgba(255,226,193,.31)}}
 .portal-symbol .portal-image{background-image:linear-gradient(145deg,rgba(22,16,14,.28),rgba(21,16,16,.08)),url('assets/gallery-desktop.webp');background-position:center;background-size:cover;filter:saturate(.8)}
 .portal-world .portal-image{background-image:url('assets/yokohama-bluehour.webp');background-position:center 47%;filter:saturate(.82) contrast(1.03)}
+.portal-world .portal-image::after{content:"";position:absolute;inset:0;background:url('assets/yokohama-afterglow.webp') center/cover no-repeat;opacity:0;transition:opacity 1.55s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover){.portal-world:hover .portal-image::after{opacity:.83}}
 .portal-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(10,9,9,.42),transparent 34%,rgba(10,9,9,.08) 49%,rgba(6,7,9,.68) 100%)}
 .portal-symbol::before{background:radial-gradient(ellipse 65% 55% at 60% 44%,rgba(225,182,132,.18),transparent 70%),linear-gradient(180deg,rgba(9,8,7,.52),transparent 30%,rgba(9,7,6,.70) 100%)}
 .portal-glyph{position:absolute;z-index:-1;inset:13% 6% 18%;display:flex;justify-content:center;align-items:center;pointer-events:none;opacity:.87}
@@ -99,7 +101,7 @@
 .portal-top span:last-child{text-align:right}
 .portal-bottom{display:flex;justify-content:space-between;gap:26px;align-items:end}
 .portal-title{font:400 clamp(53px,6.3vw,105px)/.86 var(--serif);letter-spacing:-.048em;text-shadow:0 3px 23px rgba(0,0,0,.19)}
-.portal-title em{font-weight:400;color:#f3cba9}
+.portal-title em{font-weight:400;color:#f3cba9}.portal-world .portal-title{font-size:clamp(53px,7.25vw,123px)}
 .portal-world .portal-title em{color:#e9d5ca}
 .portal-enter{display:inline-flex;align-items:center;gap:15px;white-space:nowrap;border-bottom:1px solid rgba(255,249,242,.55);padding-bottom:10px;margin-bottom:3px;letter-spacing:.13em}
 .portal-enter span{font-size:15px}
@@ -112,7 +114,7 @@
  .portal-heading-row p{max-width:440px;font-size:12px}
  .portal-grid{grid-template-columns:1fr;gap:16px}
  .portal-card{min-height:clamp(470px,117vw,670px);padding:24px}
- .portal-title{font-size:clamp(65px,13vw,96px)}
+ .portal-title,.portal-world .portal-title{font-size:clamp(65px,13vw,96px)}
  .portal-glyph img{width:min(54%,270px)}
  .portal-bottom{gap:22px}
  .portal-enter{font-size:9px}
@@ -121,7 +123,7 @@
 @media(max-width:380px){
  .nav-links{gap:9px}
  .nav-links a{font-size:8px}
- .portal-title{font-size:60px}
+ .portal-title,.portal-world .portal-title{font-size:60px}
  .portal-bottom{align-items:start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){.portal-image,.portal-glyph img{transition:none!important}}
