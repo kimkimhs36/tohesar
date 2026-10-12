@@ -119,3 +119,4 @@ python3 -m http.server 8080
 - Kept homepage layout/code unchanged. Symbol retains all 67 contour points, precise bevel and brushed metal; revised gallery to charcoal/brown stone and focused warm light.
 - Next: one desktop/mobile capture pass, basic interactions/errors and original asset integrity; update entry posters with actual renders and record comparison. Do not iterate into a new rebuild.
 - Recovery: git checkout 388e0aa for pre-correction state; current branch checkpoints are pushed to origin. Never merge/push main.
+- Capture pass exposed a pre-existing Astra font URL defect: Korean CSS requested `/assets/fonts/` while binaries lived under `/world/assets/fonts/`. Added identical licensed font copies at the requested URLs; original CSS and files remain untouched. Added the original renderer's MIT Three.js r180 Reflector module to the local vendor closure.
