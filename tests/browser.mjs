@@ -139,8 +139,9 @@ for (const device of ['desktop', 'mobile']) {
       await page.screenshot({ path: path.join(evidence, `${route}-${device}.png`), animations: 'disabled' });
       if (route === 'home') {
         await page.evaluate(async () => {
+          document.documentElement.style.scrollBehavior = 'auto';
           for (let y = 0; y < document.body.scrollHeight; y += innerHeight * .85) {
-            scrollTo(0, y); await new Promise(resolve => setTimeout(resolve, 100));
+            scrollTo(0, y); await new Promise(resolve => setTimeout(resolve, 180));
           }
           scrollTo(0, 0);
         });
@@ -237,7 +238,7 @@ for (const route of ['world', 'symbol']) {
         };
       });
       await load(page, route, 'fallback');
-      assert.ok(await page.locator('a[href="/"]').count(), 'Fallback must preserve navigation');
+      assert.ok(await page.locator('a').evaluateAll(els => els.some(a => new URL(a.href).pathname === '/')), 'Fallback must preserve navigation');
       assert.ok(await page.locator(stage(route)).innerText().then(t => t.length > 0) || await page.locator(`${stage(route)} img`).count(), 'Fallback offers content');
       assert.equal(events.errors.filter(e => e.kind === 'exception').length, 0, 'No uncaught exception in fallback');
       await page.screenshot({path:path.join(evidence,`${route}-mobile-no-webgl.png`),animations:'disabled'});
@@ -250,7 +251,7 @@ for (const route of ['world', 'symbol']) {
       // Leave HTML/CSS/photos available while emulating an unavailable Three dependency.
       await page.route(/(?:three(?:\.module|\.core|\.webgpu)?(?:\.min)?\.js|three@[^/]+\/build)/, r => r.abort('failed'));
       await load(page, route, 'fallback');
-      assert.ok(await page.locator('a[href="/"]').count(), 'Fallback navigation is available');
+      assert.ok(await page.locator('a').evaluateAll(els => els.some(a => new URL(a.href).pathname === '/')), 'Fallback navigation is available');
       assert.equal(events.errors.filter(e => e.kind === 'exception').length, 0, 'Module rejection must be handled');
       await page.screenshot({path:path.join(evidence,`${route}-desktop-dependency-failure.png`),animations:'disabled'});
       return events;
@@ -265,12 +266,39 @@ for (const route of ['world', 'symbol']) {
         const gl = window.__testGL.find(context => context.canvas === art);
         const extension = gl?.getExtension('WEBGL_lose_context');
         if (!extension) return false;
-        extension.loseContext(); return true;
+        window.__testLoss = extension; extension.loseContext(); return true;
       }, canvas(route));
       assert.ok(lost, 'Test browser must provide WEBGL_lose_context');
       await page.waitForFunction(selector => document.querySelector(selector)?.dataset.state === 'fallback', stage(route), {timeout:10000});
       assert.equal(events.errors.filter(e => e.kind === 'exception').length, 0, 'Context loss must not throw');
-      return events;
+      await page.waitForTimeout(300);
+      await page.evaluate(() => window.__testLoss.restoreContext());
+      await page.waitForFunction(selector => document.querySelector(selector)?.dataset.state === 'ready', stage(route), {timeout:15000});
+      await page.waitForTimeout(300);
+      const restored = await renderDetail(page, route); currentDetail.rendering = restored;
+      assert.equal(restored.contextLost, false, 'Context must restore');
+      assert.equal(restored.glError, 0, 'Restored context must render without WebGL errors');
+      await page.screenshot({path:path.join(evidence,`${route}-desktop-context-restored.png`),animations:'disabled',timeout:60000});
+      return { ...events, restored };
+
+    } finally { await ctx.close(); }
+  });
+  await check(`${route}: GPU resources released on departure`, async () => {
+    const ctx = await context(); const page = await ctx.newPage(); const events = observe(page);
+    try {
+      await load(page, route);
+      const memory = await page.evaluate(key => {
+        const renderer = window[key]?.renderer;
+        if (!renderer) return null;
+        const before = { ...renderer.info.memory };
+        window.dispatchEvent(new PageTransitionEvent('pagehide', { persisted: false }));
+        return { before, after: { ...renderer.info.memory } };
+      }, stateGlobal(route));
+      assert.ok(memory && memory.before.geometries > 0, 'Scene must allocate GPU resources');
+      assert.equal(memory.after.geometries, 0, 'Geometry resources must be released');
+      assert.equal(memory.after.textures, 0, 'Texture resources must be released');
+      assert.equal(events.errors.length, 0, JSON.stringify(events.errors));
+      return { ...events, memory };
     } finally { await ctx.close(); }
   });
 }

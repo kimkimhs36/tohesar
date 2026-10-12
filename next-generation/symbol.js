@@ -42,12 +42,40 @@ function sculptureGeometry() {
   const push = (p, normal, uv) => { positions.push(...p); normals.push(...normal); uvs.push(...uv); };
   const face = inset(bevel);
   const triangles = THREE.ShapeUtils.triangulateShape(face, []);
+  // A shallow, physically modelled crown lets a machined face hold a broad
+  // reflection. The perimeter stays at z=halfDepth and the XY outline is exact.
+  function crown(x, y) {
+    let inverseDistance = 0;
+    for (let i = 0; i < n; i++) {
+      const a = face[i], b = face[(i + 1) % n];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const t = Math.max(0, Math.min(1, ((x - a.x) * dx + (y - a.y) * dy) / (dx * dx + dy * dy)));
+      const distanceSquared = (x - a.x - dx * t) ** 2 + (y - a.y - dy * t) ** 2;
+      inverseDistance += Math.hypot(dx, dy) / Math.max(1e-10, distanceSquared) ** 2;
+    }
+    // A length-weighted harmonic distance blends neighbouring edges smoothly;
+    // using the closest edge alone would leave creases at the medial axis.
+    const distanceSquared = 1 / Math.sqrt(inverseDistance);
+    return .027 * (1 - Math.exp(-distanceSquared / .05));
+  }
+  function surfacePoint(p, sign) {
+    const e = .001;
+    const dx = (crown(p.x + e, p.y) - crown(p.x - e, p.y)) / (2 * e);
+    const dy = (crown(p.x, p.y + e) - crown(p.x, p.y - e)) / (2 * e);
+    const normal = new THREE.Vector3(-dx, -dy, 1).normalize().multiplyScalar(sign);
+    push([p.x, p.y, (halfDepth + crown(p.x, p.y)) * sign], normal.toArray(), [(p.x + 1.61) / 3.22, (p.y + 1.43) / 2.86]);
+  }
+  function surfaceTriangle(a, b, c, sign, depth) {
+    if (!depth) { for (const p of sign > 0 ? [a, b, c] : [c, b, a]) surfacePoint(p, sign); return; }
+    const ab = a.clone().lerp(b, .5), bc = b.clone().lerp(c, .5), ca = c.clone().lerp(a, .5);
+    surfaceTriangle(a, ab, ca, sign, depth - 1);
+    surfaceTriangle(ab, b, bc, sign, depth - 1);
+    surfaceTriangle(ca, bc, c, sign, depth - 1);
+    surfaceTriangle(ab, bc, ca, sign, depth - 1);
+  }
   for (const sign of [1, -1]) {
     for (const tri of triangles) {
-      for (const index of sign > 0 ? tri : [...tri].reverse()) {
-        const p = face[index];
-        push([p.x, p.y, halfDepth * sign], [0, 0, sign], [(p.x + 1.61) / 3.22, (p.y + 1.43) / 2.86]);
-      }
+      surfaceTriangle(face[tri[0]], face[tri[1]], face[tri[2]], sign, 4);
     }
   }
   const faceCount = positions.length / 3;
@@ -123,16 +151,17 @@ function studioEnvironment() {
     mesh.position.set(...position); mesh.lookAt(0, 0, 0);
     studio.add(mesh); objects.push(mesh);
   };
-  card([-4, 2, 5], 3.2, 8, new THREE.Color(4.8, 4.5, 4.0));
-  card([3.7, 1, 4], 1.15, 8, new THREE.Color(3.1, 3.5, 4.1));
-  card([.5, 1, 5.5], .7, 8, new THREE.Color(.045, .05, .05));
-  card([0, 6, 0], 8, 5, new THREE.Color(4.2, 4.0, 3.5));
+  card([-4, 2, 5], 2.8, 8, new THREE.Color(2.4, 2.25, 2.0));
+  card([3.7, 1, 4], .85, 8, new THREE.Color(2.3, 2.6, 3.1));
+  card([.2, 1, 5.5], 1.0, 8, new THREE.Color(.018, .025, .026));
+  card([-1.8, .6, 5.8], .55, 8, new THREE.Color(.055, .065, .07));
+  card([0, 6, 0], 8, 5, new THREE.Color(2.2, 2.1, 1.85));
   card([4, 0, -3], 3, 6, new THREE.Color(.2, .3, .5));
   card([0, -4, 0], 10, 10, new THREE.Color(.22, .19, .15));
   card([-5, 0, -1], 2, 7, new THREE.Color(.12, .12, .11));
   const generator = new THREE.PMREMGenerator(renderer);
   generator.compileCubemapShader();
-  const result = generator.fromScene(studio, .06, .1, 50);
+  const result = generator.fromScene(studio, .025, .1, 50);
   objects.forEach(mesh => { mesh.geometry.dispose(); mesh.material.dispose(); });
   generator.dispose();
   return result;
@@ -165,9 +194,9 @@ async function init() {
     scene.fog = new THREE.Fog('#e1e7e5', 18, 40);
     environment = studioEnvironment(); scene.environment = environment.texture;
     const camera = new THREE.PerspectiveCamera(32, 1, .08, 60);
-    camera.position.set(.75, .95, 7.9);
+    camera.position.set(.85, 1.25, 8.1);
     controls = new OrbitControls(camera, canvas);
-    controls.target.set(0, -.07, 0);
+    controls.target.set(0, -.32, 0);
     controls.enableDamping = false;
     controls.enablePan = false;
     controls.minDistance = 1.6; controls.maxDistance = 13;
@@ -178,10 +207,10 @@ async function init() {
 
     const texture = brushedTexture();
     const front = keep(new THREE.MeshPhysicalMaterial({
-      color: '#b8bdbe', metalness: 1, roughness: .3,
+      color: '#99a6ac', metalness: 1, roughness: .27,
       roughnessMap: texture, bumpMap: texture, bumpScale: .0007,
       anisotropy: .55, anisotropyRotation: Math.PI / 2,
-      envMapIntensity: 1.15, clearcoat: .08, clearcoatRoughness: .35,
+      envMapIntensity: .58, clearcoat: .06, clearcoatRoughness: .35,
     }));
     const edges = keep(new THREE.MeshPhysicalMaterial({ color: '#c6cbcb', metalness: 1, roughness: .225, envMapIntensity: 1.05, roughnessMap: texture, bumpMap: texture, bumpScale: .00035 }));
     const sculpture = new THREE.Mesh(sculptureGeometry(), [front, edges]);
@@ -207,7 +236,7 @@ async function init() {
     box(-4.65, 1.8, -4.5, 7.4, 7.7, .42, plaster);
     box(5.5, 1.8, -4.5, 3.4, 7.7, .42, plaster);
     box(1.5, 5.5, -4.5, 4.6, .34, .65, plaster);
-    box(4.03, .2, -4.02, .45, 4.5, .8, blue);
+    box(3.35, .2, -4.02, .55, 4.5, .8, blue);
     box(-6.15, .45, .1, .64, 5, 8, plaster);
     box(-3.9, -1.74, -2.7, 1.65, .56, 1.65, clay);
     box(-2.9, -1.74, -8.2, 5.9, .6, 3.5, warmPlaster);
@@ -238,8 +267,8 @@ async function init() {
     let userInteracting = false;
     const viewButtons = [...document.querySelectorAll('[data-sculpture-view]')];
     const views = {
-      front: { position: [.18, .5, 8.0], target: [0, -.06, 0], rotation: [0, 0, 0], label: 'Front view. The original silhouette.' },
-      sculpture: { position: [.75, .95, 7.9], target: [0, -.07, 0], rotation: [-.035, -.23, -.018], label: 'Sculpture view. Brushed aluminium in daylight.' },
+      front: { position: [.18, .8, 8.0], target: [0, -.24, 0], rotation: [0, 0, 0], label: 'Front view. The original silhouette.' },
+      sculpture: { position: [.85, 1.25, 8.1], target: [0, -.32, 0], rotation: [-.035, -.23, -.018], label: 'Sculpture view. Brushed aluminium in daylight.' },
       detail: { position: [2.45, .82, 2.45], target: [1.1, .12, .08], rotation: [-.035, -.23, -.018], label: 'Detail view. Explore the bevel and the brushed surface.' },
     };
     function markView(name) {
@@ -321,7 +350,7 @@ async function init() {
     });
     viewButtons.forEach(button => button.addEventListener('click', () => { userInteracting = false; setView(button.dataset.sculptureView); }));
     const finishes = {
-      aluminium: { color: '#b8bdbe', edge: '#c6cbcb', roughness: .3, label: 'Brushed aluminium' },
+      aluminium: { color: '#99a6ac', edge: '#c6cbcb', roughness: .27, label: 'Brushed aluminium' },
       champagne: { color: '#c7a773', edge: '#ddc393', roughness: .32, label: 'Champagne alloy' },
       titanium: { color: '#707b80', edge: '#9ca8ad', roughness: .34, label: 'Satin titanium' },
     };
@@ -357,16 +386,22 @@ async function init() {
       fallback('The gallery is resting. The original silhouette remains on view.');
     });
     canvas.addEventListener('webglcontextrestored', () => {
-      lost = false; stage.dataset.state = 'ready'; stage.classList.add('is-ready');
-      sceneButtons.forEach(button => button.disabled = false);
-      status.textContent = 'Gallery restored. Explore the sculpture.'; requestRender();
+      try {
+        // Render-target textures have no CPU image to restore. Rebuild the
+        // studio capture after the renderer has recreated its GPU resources.
+        environment.dispose(); environment = studioEnvironment(); scene.environment = environment.texture;
+        renderer.shadowMap.needsUpdate = true;
+        lost = false; stage.dataset.state = 'ready'; stage.classList.add('is-ready');
+        sceneButtons.forEach(button => button.disabled = false);
+        status.textContent = 'Gallery restored. Explore the sculpture.'; requestRender();
+      } catch { fallback('The original silhouette remains on view. Reload to reopen the sculpture room.'); }
     });
     window.addEventListener('pagehide', event => {
       if (event.persisted) return;
       disposed = true; cancelAnimationFrame(frame);
       resizeObserver.disconnect(); intersectionObserver.disconnect(); controls.dispose();
       resources.forEach(resource => resource.dispose()); environment.dispose(); renderer.dispose();
-    }, { once: true });
+    });
     // Explicit scene diagnostics support reproducible WebGL / interaction QA.
     window.__TOHESAR_SYMBOL = { renderer, scene, camera, controls, sculpture, points: CEDILLA_POINTS, get view() { return currentView; }, get animating() { return Boolean(frame || transition); } };
     resize(); setView('sculpture', true);

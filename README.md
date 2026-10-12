@@ -26,3 +26,15 @@ For ordinary website edits:
 4. Keep temporary files and editor settings out of the repository.
 
 This repository is intentionally kept small and clean while the next site architecture is prepared.
+
+## Next Generation rebuild
+
+Review branch: `experiment/tohesar-next-generation`. Production `main` and `CNAME` are unchanged until a reviewed merge.
+
+The three static routes `/`, `/world/`, and `/symbol/` load the new `next-generation/` sources. Previous entrypoints are preserved verbatim under `archive/next-generation-baseline/`; all previous versioned renderers/styles/assets remain in their original locations.
+
+Run locally with `python3 -m http.server 8080` and visit `http://localhost:8080`. No build, npm install or external CDN is required to view the new experiences. Serve through HTTP; native module imports do not work via `file://`.
+
+Browser checks: with Playwright and Chromium available, run `node tests/browser.mjs`. Optional configuration: `TOHESAR_BASE_URL`, `TOHESAR_EVIDENCE_DIR`, `TOHESAR_CHROMIUM_PATH`, `TOHESAR_BROWSER=webkit`. The test writes screenshots and a JSON report outside the repository by default. Mobile emulation does not establish physical iPhone verification.
+
+Recovery and checkpoints: see `PROGRESS.md`. Credits: `next-generation/ASSET_PROVENANCE.md` and `world/ASSET_PROVENANCE.md`. Do not directly push, merge or deploy this experiment to production main without review.

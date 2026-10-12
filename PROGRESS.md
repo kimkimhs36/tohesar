@@ -66,3 +66,11 @@ python3 -m http.server 8080
 - Fixing finish-control CSS stacking and examining mobile stage fit.
 - Homepage's previously nonexistent journal fragment has been removed.
 - No visual completion claim yet: screenshots are driving these corrections.
+
+## Checkpoint 6 — evidence-led polish
+- World rebuilt geometry and water now render with `gl.getError() === 0`. Refined first shots, environment/car contrast and open gallery depth.
+- Added offscreen rendering suspension, static shadow-map reuse and 30fps water updates with frame-timestamp adaptive resolution.
+- Homepage revised browser screenshots confirm full photo/vehicle presence in the first viewport on desktop/mobile; full-page content and lazy image loading verified.
+- Symbol working visual state is saved before further precise face-surface refinement; improving balanced metallic shading and plinth visibility, with 44px touch controls.
+- Playwright WebKit 26.5 runs WebGL2 in this Linux environment. It supplements Chromium checks; it is not a physical Safari device test.
+- README documents static preview, verification, credits and recovery. Vendor files marked for clearer code review.

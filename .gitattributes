@@ -1,0 +1,4 @@
+# Keep review focused on authored experience sources, while preserving licenses.
+next-generation/vendor/** linguist-vendored=true
+next-generation/fonts/** linguist-vendored=true
+archive/next-generation-baseline/** linguist-generated=true
