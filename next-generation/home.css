@@ -12,3 +12,5 @@
 @media(max-width:600px){.cover::after{background:linear-gradient(180deg,rgba(187,213,227,.64),transparent 55%,rgba(23,31,29,.38))}.cover-caption{font-size:9px}.sound-control{min-width:36px}}
 /* These previews are photographed from the actual new WebGL scenes. */
 .symbol-preview.has-render>img{object-position:68% center}.world-preview>img{object-position:58% center}
+@media(max-width:600px){.sound-control{min-width:44px}}
+@media(max-width:360px){.home-brand img{width:88px}.home-nav .ng-nav{gap:10px;font-size:8px}}

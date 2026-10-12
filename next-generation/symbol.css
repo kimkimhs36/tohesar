@@ -1,8 +1,8 @@
 .sculpture-page { background: #f2f0e9; color: #20251f; }
 .sculpture-hero { position: relative; height: min(890px, calc(100svh - 76px)); min-height: 680px; overflow: hidden; background: #e1e7e5; }
 .sculpture-stage { position: absolute; inset: 0; overflow: hidden; }
-.sculpture-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; cursor: grab; touch-action: none; transition: opacity .65s ease; }
-.sculpture-stage.is-ready canvas { opacity: 1; }
+.sculpture-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; pointer-events: none; cursor: grab; touch-action: none; transition: opacity .65s ease; }
+.sculpture-stage.is-ready canvas { opacity: 1; pointer-events: auto; }
 .sculpture-stage canvas:active { cursor: grabbing; }
 .sculpture-stage canvas:focus-visible { outline: 2px solid #204cdb; outline-offset: -8px; }
 .sculpture-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 5% 8% 9% 34%; background: linear-gradient(125deg, #e8e7df 40%, #d0d9d7 100%); }
@@ -119,4 +119,24 @@
   .sculpture-footer { padding: 26px 24px; flex-direction: column; align-items: flex-start; gap: 15px; font-size: 9px; }
 }
 @media (max-width: 390px) { .sculpture-hint { max-width: 160px; } .sculpture-views button span { display: none; } }
+@media (min-width: 600px) and (max-width: 1100px) and (max-height: 600px) {
+  .sculpture-hero { height: calc(100svh - 76px); min-height: 0; max-height: none; }
+  .sculpture-stage { inset: 0; }
+  .sculpture-intro { top: 18px; left: 24px; width: 34%; }
+  .sculpture-intro .sculpture-eyebrow { font-size: 8px; }
+  .sculpture-intro h1 { margin: 17px 0 0; font-size: 48px; line-height: .95; }
+  .sculpture-intro h1 br { display: none; }
+  .sculpture-intro p, .sculpture-object-note { display: none; }
+  .sculpture-number { top: 18px; right: 24px; }
+  .sculpture-number > span:first-child { font-size: 24px; }
+  .sculpture-number .sculpture-eyebrow { display: none; }
+  .sculpture-interaction { left: 24px; right: 24px; bottom: calc(71px + env(safe-area-inset-bottom, 0px)); }
+  .sculpture-hint { font-size: 8px; max-width: 210px; }
+  .sculpture-console { flex-direction: row; align-items: center; gap: 15px; padding: 8px 24px calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .sculpture-views { flex-shrink: 0; }
+  .sculpture-views button { min-height: 44px; padding: 10px 13px; }
+  .sculpture-finish-selector { gap: 10px; }
+  .sculpture-finish-selector > div:first-child { flex-direction: column; align-items: flex-end; gap: 3px; text-align: right; }
+  .sculpture-finishes { gap: 0; }
+}
 @media (prefers-reduced-motion: reduce) { .sculpture-stage canvas, .sculpture-stage.is-ready .sculpture-fallback { transition: none; } }

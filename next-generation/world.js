@@ -23,7 +23,7 @@ export async function mountWorld() {
   const listen = (target, type, fn, options) => { target.addEventListener(type, fn, options); cleanups.push(() => target.removeEventListener(type, fn, options)); };
   const fail = (error) => {
     diagnostics.errors.push(String(error));
-    stage.dataset.state = 'fallback';
+    stage.dataset.state = 'fallback';canvas.tabIndex=-1;
     status.textContent = '이 기기에서는 사진으로 공간을 감상할 수 있습니다.';
     playing = false; syncTour();
     document.querySelector('#world-fallback-note').hidden = false;
@@ -188,7 +188,7 @@ export async function mountWorld() {
   const shots=()=>compact.matches?mobileShots:desktopShots;
   function selectShot(index,animate=true) {
     activeShot=index;playing=false;syncTour();tourTime=index/3*48;
-    const shot=shots()[index];const p=new THREE.Vector3(...shot.position),t=new THREE.Vector3(...shot.target);if(compact.matches&&stage.clientHeight<650&&index===0)t.y=1.15;
+    const shot=shots()[index];const p=new THREE.Vector3(...shot.position),t=new THREE.Vector3(...shot.target);if(compact.matches&&stage.clientHeight<650&&index===0)t.y=1.15;if(stage.clientHeight<400&&index===0)t.y=.55;
     transition=animate&&!reduced.matches?{from:camera.position.clone(),look:controls.target.clone(),to:p,target:t,time:0}:null;
     if(!transition){camera.position.copy(p);controls.target.copy(t);controls.update();}
     shotButtons.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
@@ -225,7 +225,7 @@ export async function mountWorld() {
   listen(document,'visibilitychange',()=>{if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;lastFrame=0;}else requestRender();});
   listen(reduced,'change',()=>{playing=false;transition=null;controls.enableDamping=!reduced.matches;diagnostics.reducedMotion=reduced.matches;syncTour();requestRender();});
   listen(canvas,'webglcontextlost',event=>{event.preventDefault();lost=true;diagnostics.contextLosses++;if(environment){disposables.delete(environment);environment.dispose();environment=null;scene.environment=null;}fail('WebGL context lost');});
-  listen(canvas,'webglcontextrestored',()=>{try{lost=false;lastFrame=0;const recoveryPMREM=new THREE.PMREMGenerator(renderer);environment=recoveryPMREM.fromScene(environmentScene,.08,.1,500);recoveryPMREM.dispose();disposables.add(environment);scene.environment=environment.texture;renderer.shadowMap.needsUpdate=true;stage.dataset.state='ready';status.textContent='그래픽 연결이 복구되었습니다.';document.querySelector('#world-fallback-note').hidden=true;requestRender();}catch(error){fail(error);}});
+  listen(canvas,'webglcontextrestored',()=>{try{lost=false;lastFrame=0;const recoveryPMREM=new THREE.PMREMGenerator(renderer);environment=recoveryPMREM.fromScene(environmentScene,.08,.1,500);recoveryPMREM.dispose();disposables.add(environment);scene.environment=environment.texture;renderer.shadowMap.needsUpdate=true;stage.dataset.state='ready';canvas.tabIndex=0;status.textContent='그래픽 연결이 복구되었습니다.';document.querySelector('#world-fallback-note').hidden=true;requestRender();}catch(error){fail(error);}});
   function dispose(){dead=true;if(raf)cancelAnimationFrame(raf);cleanups.forEach(fn=>fn());controls.dispose();const geometries=new Set(),materials=new Set(),textures=new Set();const collect=o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const mat of(Array.isArray(o.material)?o.material:[o.material]))materials.add(mat);};scene.traverse(collect);environmentScene.traverse(collect);for(const mat of materials){for(const value of Object.values(mat))if(value?.isTexture)textures.add(value);if(mat.uniforms)for(const u of Object.values(mat.uniforms))if(u.value?.isTexture)textures.add(u.value);mat.dispose();}geometries.forEach(g=>g.dispose());textures.forEach(t=>t.dispose());disposables.forEach(d=>d.dispose());sun.shadow.dispose();renderer.dispose();}
   listen(window,'pagehide',event=>{if(!event.persisted)dispose();});
   window.__TOHESAR_WORLD={scene,camera,renderer,controls,diagnostics,selectShot,dispose,get playing(){return playing;}};

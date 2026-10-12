@@ -19,6 +19,7 @@ function fallback(message = 'The original form. A quiet study in silhouette.') {
   stage.dataset.state = 'fallback';
   stage.classList.remove('is-ready');
   stage.setAttribute('aria-busy', 'false');
+  canvas.tabIndex = -1; canvas.setAttribute('aria-hidden', 'true');
   status.textContent = message;
   sceneButtons.forEach(button => button.disabled = true);
   cancelAnimationFrame(frame); frame = 0;
@@ -371,6 +372,7 @@ async function init() {
         environment = studioEnvironment(); scene.environment = environment.texture;
         renderer.shadowMap.needsUpdate = true;
         lost = false; stage.dataset.state = 'ready'; stage.classList.add('is-ready');
+        canvas.tabIndex = 0; canvas.removeAttribute('aria-hidden');
         sceneButtons.forEach(button => button.disabled = false);
         status.textContent = 'Gallery restored. Explore the sculpture.'; requestRender();
       } catch { fallback('The original silhouette remains on view. Reload to reopen the sculpture room.'); }
@@ -386,6 +388,7 @@ async function init() {
     resize(); setView('sculpture', true);
     renderer.render(scene, camera);
     stage.dataset.state = 'ready'; stage.classList.add('is-ready'); stage.setAttribute('aria-busy', 'false');
+    canvas.tabIndex = 0; canvas.removeAttribute('aria-hidden');
     sceneButtons.forEach(button => button.disabled = false);
     status.textContent = 'Sculpture view. Brushed aluminium in daylight.';
   } catch (error) {

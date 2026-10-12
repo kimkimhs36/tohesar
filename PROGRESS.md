@@ -80,7 +80,7 @@ python3 -m http.server 8080
 - Independent visual review confirms original 67 outline coordinates unchanged, plinth and contact visible, fan artifact removed, and mobile World vehicle clear of controls.
 - Added detail-mode copy suppression so macro study is unobstructed, 44px touch controls, real context restoration environment regeneration and explicit GPU shadow-map release.
 - World desktop/mobile interaction checks pass, WebGL0 and no failed resources. World cleanup records zero retained geometry/textures.
-- Final 18-check Chromium and 18-check WebKit runs launched; screenshot evidence and reports will be retained in review documentation.
+- Final 16-check Chromium and 16-check WebKit runs launched; screenshot evidence and reports will be retained in review documentation.
 - Capturing actual new canvas images for homepage previews and stable loading/fallback art.
 
 ## Checkpoint 8 — integrated real previews and compact mobile fit
@@ -90,3 +90,15 @@ python3 -m http.server 8080
 - Normal desktop/mobile WebKit scenes, touch/pointer/keyboard controls, fallback and GPU departure cleanup pass.
 - A genuine WebKit context restoration fault was identified: deleting a previous PMREM target after native context reset tries to delete objects belonging to the prior context. Both engines now dispose targets during context loss and regenerate them after restore. Fresh rerun underway; no error draining or masking.
 - Final screenshots/report packaging and PR creation remain.
+
+## Final verification and handoff checkpoint
+- Chromium: 16/16 browser acceptance checks passed.
+- WebKit 26.5: all 16 acceptance cases have passing evidence, including fresh reruns of both corrected context restoration cases. Original failing and corrected reports are retained for traceability.
+- Final six desktop/mobile review captures inspected after preview integration; no console exceptions/errors or horizontal overflow. Native World field-notes navigation also verified.
+- Additional 375×667 portrait and 844×390 landscape captures confirm accessible controls and artwork fit.
+- `node tests/source-integrity.mjs` passes: 3 exact original entrypoint archives, all 67 silhouette coordinates exact, 117 original files unchanged.
+- Source JS syntax and `git diff --check` pass.
+- Verified GitHub Pages is still built from main at `/`; remote main still `6c5ec183992332d1d44b35edc8f86ea14f1ce1a5`. No production merge or deployment performed.
+- Durable before/after images, consolidated reports and review instructions are committed under `docs/next-generation/`.
+- Remaining release limitation: physical iPhone/macOS/iOS Safari device testing and device performance benchmarks are unavailable; emulated/mobile Chromium and Linux WebKit verification do not establish those results.
+- Next: push this checkpoint, open PR against main and record the PR link. No further feature work planned.

@@ -1,0 +1,465 @@
+{
+  "date": "2026-10-12T11:41:09.361Z",
+  "base": "http://127.0.0.1:8080",
+  "engine": "chromium",
+  "tests": [
+    {
+      "name": "home/desktop: render and interaction",
+      "passed": true,
+      "durationMs": 6581,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:8080/assets/wordmark-hd.png",
+          "complete": true,
+          "width": 3386
+        },
+        {
+          "src": "http://127.0.0.1:8080/next-generation/images/coastal-study.webp",
+          "complete": true,
+          "width": 1672
+        }
+      ],
+      "links": [
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        },
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        },
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        },
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        }
+      ],
+      "journalLinks": [
+        "/journal/yokohama/"
+      ]
+    },
+    {
+      "name": "world/desktop: render and interaction",
+      "passed": true,
+      "durationMs": 224976,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "rendering": {
+        "canvas": {
+          "width": 1440,
+          "height": 924,
+          "cssWidth": 1440,
+          "cssHeight": 924
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 40,
+          "triangles": 86426,
+          "geometries": 35,
+          "textures": 6,
+          "pixelRatio": 1
+        },
+        "camera": [
+          -6.294809607823998,
+          2.385069607895392,
+          9.09256511391005
+        ],
+        "overflow": false,
+        "missingImages": []
+      },
+      "keyboardCamera": {
+        "before": [
+          -6.403897136135488,
+          2.286884573402401,
+          6.247806161775056
+        ],
+        "after": [
+          -5.182931945226859,
+          2.203458703830047,
+          6.120881930712307
+        ]
+      },
+      "touchDrag": null
+    },
+    {
+      "name": "symbol/desktop: render and interaction",
+      "passed": true,
+      "durationMs": 91019,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "rendering": {
+        "canvas": {
+          "width": 1440,
+          "height": 890,
+          "cssWidth": 1440,
+          "cssHeight": 890
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 34,
+          "triangles": 3754,
+          "geometries": 34,
+          "textures": 3,
+          "pixelRatio": 1
+        },
+        "camera": [
+          0.8500000000000002,
+          1.2499999999999993,
+          8.1
+        ],
+        "overflow": false,
+        "missingImages": []
+      },
+      "keyboardCamera": {
+        "before": [
+          0.8500000000000004,
+          1.2499999999999993,
+          8.1
+        ],
+        "after": [
+          1.4889637937930678,
+          1.0929999999999995,
+          7.177207801141985
+        ]
+      },
+      "touchDrag": null
+    },
+    {
+      "name": "home/mobile: render and interaction",
+      "passed": true,
+      "durationMs": 22085,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:8080/assets/wordmark-hd.png",
+          "complete": true,
+          "width": 3386
+        },
+        {
+          "src": "http://127.0.0.1:8080/next-generation/images/coastal-study.webp",
+          "complete": true,
+          "width": 1672
+        }
+      ],
+      "links": [
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        },
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        },
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        },
+        {
+          "href": "http://127.0.0.1:8080/world/",
+          "visible": true
+        }
+      ],
+      "journalLinks": [
+        "/journal/yokohama/"
+      ]
+    },
+    {
+      "name": "world/mobile: render and interaction",
+      "passed": true,
+      "durationMs": 87898,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "rendering": {
+        "canvas": {
+          "width": 390,
+          "height": 780,
+          "cssWidth": 390,
+          "cssHeight": 780
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 40,
+          "triangles": 86426,
+          "geometries": 35,
+          "textures": 6,
+          "pixelRatio": 1
+        },
+        "camera": [
+          -6.1999999999999975,
+          2.900000000000001,
+          10.399999999999999
+        ],
+        "overflow": false,
+        "missingImages": []
+      },
+      "keyboardCamera": {
+        "before": [
+          -6.218669297565161,
+          2.857994080478382,
+          9.601887529089234
+        ],
+        "after": [
+          -4.92618427368167,
+          2.740904702028152,
+          9.197546655590143
+        ]
+      },
+      "touchDrag": true
+    },
+    {
+      "name": "symbol/mobile: render and interaction",
+      "passed": true,
+      "durationMs": 17506,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "rendering": {
+        "canvas": {
+          "width": 390,
+          "height": 455,
+          "cssWidth": 390,
+          "cssHeight": 455
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 34,
+          "triangles": 3754,
+          "geometries": 34,
+          "textures": 3,
+          "pixelRatio": 1
+        },
+        "camera": [
+          0.85,
+          1.2500000000000007,
+          8.210830191573223
+        ],
+        "overflow": false,
+        "missingImages": []
+      },
+      "keyboardCamera": {
+        "before": [
+          0.8512453657955589,
+          1.2496653079424433,
+          8.206346228526595
+        ],
+        "after": [
+          1.499718113867468,
+          1.0927330247075768,
+          7.272412786690192
+        ]
+      },
+      "touchDrag": true
+    },
+    {
+      "name": "world: reduced motion",
+      "passed": true,
+      "durationMs": 11550,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "animations": []
+    },
+    {
+      "name": "world: WebGL unavailable",
+      "passed": true,
+      "durationMs": 3941,
+      "errors": [
+        {
+          "kind": "console",
+          "text": "THREE.WebGLRenderer: Error creating WebGL context."
+        }
+      ],
+      "failedRequests": [],
+      "responses": []
+    },
+    {
+      "name": "world: dependency load failure",
+      "passed": true,
+      "durationMs": 2813,
+      "errors": [
+        {
+          "kind": "console",
+          "text": "Failed to load resource: net::ERR_FAILED"
+        },
+        {
+          "kind": "console",
+          "text": "World initialization failed: TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:8080/next-generation/world.js"
+        }
+      ],
+      "failedRequests": [
+        {
+          "url": "http://127.0.0.1:8080/next-generation/vendor/three/build/three.module.js",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "responses": []
+    },
+    {
+      "name": "world: context loss",
+      "passed": true,
+      "durationMs": 60169,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "restored": {
+        "canvas": {
+          "width": 1440,
+          "height": 924,
+          "cssWidth": 1440,
+          "cssHeight": 924
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 40,
+          "triangles": 86426,
+          "geometries": 35,
+          "textures": 6,
+          "pixelRatio": 1
+        },
+        "camera": [
+          -6.294809607823998,
+          2.385069607895392,
+          9.09256511391005
+        ],
+        "overflow": false,
+        "missingImages": []
+      }
+    },
+    {
+      "name": "world: GPU resources released on departure",
+      "passed": true,
+      "durationMs": 13033,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "memory": {
+        "before": {
+          "geometries": 35,
+          "textures": 6
+        },
+        "after": {
+          "geometries": 0,
+          "textures": 0
+        }
+      }
+    },
+    {
+      "name": "symbol: reduced motion",
+      "passed": true,
+      "durationMs": 10160,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "animations": []
+    },
+    {
+      "name": "symbol: WebGL unavailable",
+      "passed": true,
+      "durationMs": 1406,
+      "errors": [
+        {
+          "kind": "console",
+          "text": "THREE.WebGLRenderer: Error creating WebGL context."
+        }
+      ],
+      "failedRequests": [],
+      "responses": []
+    },
+    {
+      "name": "symbol: dependency load failure",
+      "passed": true,
+      "durationMs": 2024,
+      "errors": [
+        {
+          "kind": "console",
+          "text": "Failed to load resource: net::ERR_FAILED"
+        }
+      ],
+      "failedRequests": [
+        {
+          "url": "http://127.0.0.1:8080/next-generation/vendor/three/build/three.module.js",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "responses": []
+    },
+    {
+      "name": "symbol: context loss",
+      "passed": true,
+      "durationMs": 14985,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "restored": {
+        "canvas": {
+          "width": 1440,
+          "height": 890,
+          "cssWidth": 1440,
+          "cssHeight": 890
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 34,
+          "triangles": 3754,
+          "geometries": 34,
+          "textures": 3,
+          "pixelRatio": 1
+        },
+        "camera": [
+          0.8500000000000002,
+          1.2499999999999993,
+          8.1
+        ],
+        "overflow": false,
+        "missingImages": []
+      }
+    },
+    {
+      "name": "symbol: GPU resources released on departure",
+      "passed": true,
+      "durationMs": 3902,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "memory": {
+        "before": {
+          "geometries": 34,
+          "textures": 3
+        },
+        "after": {
+          "geometries": 0,
+          "textures": 0
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Chromium uses software WebGL in this environment; frame rate is not a device benchmark.",
+    "Mobile emulation is not verification on a physical iPhone or iOS Safari."
+  ],
+  "passed": true,
+  "summary": "16/16 checks passed"
+}
