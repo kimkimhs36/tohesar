@@ -2,7 +2,7 @@
  * TOHEŞAR browser acceptance checks.
  * Run a static server first, then: node tests/browser.mjs
  * Optional: TOHESAR_BASE_URL, TOHESAR_EVIDENCE_DIR, TOHESAR_BROWSER=webkit,
- * TOHESAR_CHROMIUM_PATH. Playwright can be installed locally or provided by Codex.
+ * TOHESAR_CHROMIUM_PATH, TOHESAR_TEST_FILTER (regular expression). Playwright can be installed locally or provided by Codex.
  * Screenshots and JSON evidence are generated outside the source tree by default.
  * These checks exercise rendered experiences; they do not establish artistic quality.
  */
@@ -30,6 +30,7 @@ const report = { date: new Date().toISOString(), base, engine, tests: [], notes:
 ] };
 
 async function check(name, run) {
+  if (process.env.TOHESAR_TEST_FILTER && !new RegExp(process.env.TOHESAR_TEST_FILTER).test(name)) return;
   const started = Date.now();
   try {
     const detail = await run();

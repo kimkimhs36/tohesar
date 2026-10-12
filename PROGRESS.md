@@ -52,3 +52,10 @@ python3 -m http.server 8080
 - Captured all six before desktop/mobile views and baseline reports in `/workspace/tohesar-evidence/before/`. Live site comparison screenshots also captured.
 - Important baseline finding: existing World had font 404s; rebuild uses local complete fonts rather than those failing URLs.
 - Recovery checkpoint includes in-progress new files; visual QA is next, not yet a final quality assertion.
+
+## Checkpoint 4 — all three routes integrated
+- New World and Symbol entrypoints connected to local Three.js modules and new standalone sources. All previous source files stay preserved.
+- Symbol implements exact source contour with inward precision bevels, physically based anisotropic brushed finishes, studio environment reflections and a complete sunlit architectural exhibition.
+- Both spatial works expose composition presets, drag/touch exploration, keyboard input, zoom, reduced motion and graceful fallback.
+- First home browser verification passed resource, image, overflow and keyboard checks. Visual comparison prompted a stronger revision: begin inside the full-height coastal photograph; move the large printed masthead below the cover so the vehicle is present in the first viewport.
+- Continuous progress preserved; full cross-route checks and visual refinement are underway.

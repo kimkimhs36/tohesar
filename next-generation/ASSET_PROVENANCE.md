@@ -9,3 +9,7 @@ All original photographs/AI-assisted visual studies, wordmark, approved cedilla 
 - New harbour and exhibition geometry, environments, studio reflection arrangements and brushed material maps are procedural work for this rebuild; no third-party HDR environment is used.
 
 New generated editorial study provenance will be recorded here before the final checkpoint.
+
+## New coastal editorial study
+
+`images/coastal-study.webp` is a new AI-assisted fictional editorial image generated for this rebuild with `image_gen.imagegen`. The untouched generated PNG is preserved at `images/coastal-study.png`; the deployed WebP is a format/compression export. It is visibly captioned as an AI-assisted study. This is not documentary photography, a surveyed location or a claim of manufacturer endorsement. Exact prompt and known tool metadata limits: `images/coastal-study.provenance.md`.
