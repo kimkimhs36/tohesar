@@ -1,0 +1,159 @@
+.sculpture-page { background: #f2f0e9; color: #20251f; }
+.sculpture-hero { position: relative; height: min(890px, calc(100svh - 76px)); min-height: 680px; overflow: hidden; background: #e1e7e5; }
+.sculpture-stage { position: absolute; inset: 0; overflow: hidden; }
+.sculpture-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; pointer-events: none; cursor: grab; touch-action: none; transition: opacity .65s ease; }
+.sculpture-stage.is-ready canvas { opacity: 1; pointer-events: auto; }
+.sculpture-stage canvas:active { cursor: grabbing; }
+.sculpture-stage canvas:focus-visible { outline: 2px solid #204cdb; outline-offset: -8px; }
+.sculpture-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 5% 8% 9% 34%; background: linear-gradient(125deg, #e8e7df 40%, #d0d9d7 100%); }
+.sculpture-fallback img { width: 100%; max-width: 580px; max-height: 72%; object-fit: contain; }
+.sculpture-stage.is-ready .sculpture-fallback { opacity: 0; visibility: hidden; transition: opacity .65s, visibility .65s; }
+.sculpture-intro { position: absolute; top: 48px; left: var(--page-gutter, 44px); z-index: 2; pointer-events: none; width: 33%; }
+.sculpture-eyebrow { font: 500 10px/1.6 'DM Sans', Arial, sans-serif; text-transform: uppercase; letter-spacing: .14em; }
+.sculpture-intro .sculpture-eyebrow { color: #4e5d52; }
+.sculpture-intro h1 { font: 400 clamp(74px, 8.2vw, 126px)/.85 'Instrument Serif', Georgia, serif; letter-spacing: -.055em; margin: 38px 0 25px; }
+.sculpture-intro h1 em { font-weight: 400; color: #204cdb; }
+.sculpture-intro p { font: 400 13px/1.65 'DM Sans', Arial, sans-serif; max-width: 225px; margin: 0; color: #596157; }
+.sculpture-number { position: absolute; z-index: 2; right: var(--page-gutter, 44px); top: 49px; display: flex; flex-direction: column; align-items: flex-end; gap: 9px; pointer-events: none; }
+.sculpture-number > span:first-child { font: 400 38px/1 'Instrument Serif', Georgia, serif; letter-spacing: -.035em; }
+.sculpture-number .sculpture-eyebrow { font-size: 9px; color: #596157; }
+.sculpture-object-note { position: absolute; bottom: 153px; left: var(--page-gutter, 44px); z-index: 2; pointer-events: none; }
+.sculpture-object-note p { margin: 0 0 8px; font: 400 24px/1.1 'Instrument Serif', Georgia, serif; }
+.sculpture-object-note span { font-size: 9px; color: #536053; }
+.sculpture-intro, .sculpture-object-note { transition: opacity .35s ease; }
+.sculpture-hero[data-view='detail'] .sculpture-intro, .sculpture-hero[data-view='detail'] .sculpture-object-note { opacity: 0; visibility: hidden; }
+.sculpture-interaction { position: absolute; z-index: 3; bottom: 111px; left: var(--page-gutter, 44px); right: var(--page-gutter, 44px); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.sculpture-hint { display: flex; align-items: center; gap: 10px; color: #566256; pointer-events: none; font: 400 10px/1.5 'DM Sans', Arial, sans-serif; }
+.sculpture-hint svg { width: 22px; height: 22px; }
+.sculpture-zoom { display: flex; flex-shrink: 0; border: 1px solid #7f8a7970; background: #f2f0e9cc; backdrop-filter: blur(8px); }
+.sculpture-zoom button { display: grid; place-items: center; height: 44px; min-width: 44px; padding: 0 10px; background: none; border: 0; font: 400 16px/1 'DM Sans', Arial, sans-serif; color: #20251f; cursor: pointer; }
+.sculpture-zoom button + button { border-left: 1px solid #7f8a7950; }
+.sculpture-zoom #sculpture-reset { min-width: 70px; font-size: 10px; padding: 0 15px; white-space: nowrap; }
+.sculpture-console { position: absolute; z-index: 3; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px var(--page-gutter, 44px) 24px; background: #f2f0e9ed; border-top: 1px solid #adb4a870; }
+.sculpture-views { display: flex; gap: 5px; }
+.sculpture-views button { min-height: 45px; border: 1px solid transparent; padding: 11px 19px; background: none; color: #687164; font: 500 10px/1.2 'DM Sans', Arial, sans-serif; cursor: pointer; }
+.sculpture-views button[aria-pressed='true'] { color: #f2f0e9; background: #20251f; }
+.sculpture-views button span { margin-right: 11px; opacity: .6; font-size: 9px; }
+.sculpture-finish-selector { display: flex; align-items: center; gap: 16px; }
+.sculpture-finish-selector > div:first-child { display: flex; flex-direction: column; gap: 4px; text-align: right; }
+.sculpture-finish-selector .sculpture-eyebrow { font-size: 8px; color: #757a6d; }
+#sculpture-material { font: 400 11px/1.3 'DM Sans', Arial, sans-serif; }
+.sculpture-finishes { display: flex; gap: 2px; }
+.sculpture-finishes button { width: 44px; height: 44px; padding: 10px; background: transparent; border: 1px solid transparent; border-radius: 50%; cursor: pointer; }
+.sculpture-finishes button[aria-pressed='true'] { border-color: #20251f; }
+.sculpture-finishes button::after { content: ''; display: block; width: 100%; height: 100%; border-radius: 50%; border: 1px solid #20251f33; background: var(--finish); }
+.sculpture-views button:hover, .sculpture-zoom button:hover { background: #d8ddcf; color: #20251f; }
+.sculpture-console button:focus-visible, .sculpture-zoom button:focus-visible { outline: 2px solid #204cdb; outline-offset: 4px; }
+.sculpture-console button:disabled, .sculpture-zoom button:disabled { opacity: .38; cursor: default; }
+.sculpture-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.sculpture-story { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9vw; padding: clamp(80px, 10vw, 155px) var(--page-gutter, 44px); }
+.sculpture-story h2 { margin: 29px 0 30px; font: 400 clamp(57px, 6.6vw, 101px)/.95 'Instrument Serif', Georgia, serif; letter-spacing: -.045em; }
+.sculpture-story h2 em { color: #204cdb; font-weight: 400; }
+.sculpture-story p { max-width: 410px; font: 400 13px/1.9 'DM Sans', Arial, sans-serif; color: #64695d; word-break: keep-all; }
+.sculpture-story .sculpture-korean { font-size: 12px; color: #7c8074; margin-top: 25px; }
+.sculpture-origin { position: relative; background: #204cdb; margin: 0; min-height: 440px; display: flex; flex-direction: column; justify-content: space-between; padding: 30px; color: #f2f0e9; overflow: hidden; }
+.sculpture-origin img { width: 68%; height: 270px; object-fit: contain; align-self: center; filter: invert(1); }
+.sculpture-origin figcaption { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #ffffff40; padding-top: 18px; font-size: 9px; }
+.sculpture-origin figcaption span:last-child { opacity: .65; text-align: right; }
+.sculpture-colophon { padding: 0 var(--page-gutter, 44px) 88px; }
+.sculpture-colophon-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid #d0d1c6; padding-top: 28px; gap: 35px; }
+.sculpture-colophon h3 { font: 400 32px/1.1 'Instrument Serif', Georgia, serif; margin: 15px 0; }
+.sculpture-colophon p { font: 400 12px/1.8 'DM Sans', Arial, sans-serif; color: #777a6e; max-width: 320px; margin: 0; }
+.sculpture-next { padding: 62px var(--page-gutter, 44px); background: #e76a45; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.sculpture-next > div { max-width: 650px; }
+.sculpture-next h2 { font: 400 clamp(55px, 6.2vw, 93px)/.95 'Instrument Serif', Georgia, serif; letter-spacing: -.04em; margin: 22px 0 0; }
+.sculpture-next a { display: flex; align-items: center; gap: 35px; padding: 15px 0; border-bottom: 1px solid #20251f80; font: 500 11px/1.5 'DM Sans', Arial, sans-serif; white-space: nowrap; }
+.sculpture-next a span { font-size: 30px; line-height: 1; }
+.sculpture-footer { padding: 30px var(--page-gutter, 44px); display: flex; align-items: center; justify-content: space-between; gap: 24px; font: 400 10px/1.6 'DM Sans', Arial, sans-serif; color: #73796e; }
+.sculpture-footer div { display: flex; gap: 26px; }
+.sculpture-footer a:hover { color: #204cdb; }
+@media (min-width: 1800px) { .sculpture-hero { height: 940px; } }
+@media (max-width: 1100px) {
+  .sculpture-intro h1 { font-size: 88px; }
+  .sculpture-intro { width: 30%; }
+  .sculpture-console { gap: 12px; }
+  .sculpture-views button { padding-inline: 13px; }
+  .sculpture-views button span { margin-right: 5px; }
+  .sculpture-story { gap: 6vw; }
+}
+@media (max-width: 760px) {
+  .sculpture-hero { height: calc(100svh - 64px); min-height: 600px; max-height: 950px; }
+  .sculpture-stage { top: 144px; bottom: calc(181px + env(safe-area-inset-bottom, 0px)); }
+  .sculpture-intro { top: 27px; left: 24px; width: 80%; }
+  .sculpture-intro h1 { font-size: clamp(60px, 13vw, 82px); line-height: .94; margin: 20px 0 13px; }
+  .sculpture-intro h1 br { display: none; }
+  .sculpture-intro p { max-width: 100%; font-size: 11px; }
+  .sculpture-intro p br { display: none; }
+  .sculpture-intro .sculpture-eyebrow { font-size: 8px; }
+  .sculpture-number { top: 32px; right: 24px; }
+  .sculpture-number > span:first-child { font-size: 25px; }
+  .sculpture-number .sculpture-eyebrow { display: none; }
+  .sculpture-fallback { padding: 10% 12%; }
+  .sculpture-fallback img { max-height: 90%; }
+  .sculpture-object-note { left: 24px; bottom: calc(197px + env(safe-area-inset-bottom, 0px)); }
+  .sculpture-object-note p { font-size: 20px; }
+  .sculpture-object-note span { font-size: 8px; }
+  .sculpture-interaction { bottom: calc(143px + env(safe-area-inset-bottom, 0px)); left: 24px; right: 24px; }
+  .sculpture-hint { font-size: 9px; gap: 6px; }
+  .sculpture-hint svg { width: 18px; height: 18px; }
+  .sculpture-zoom button { height: 44px; min-width: 44px; }
+  .sculpture-console { flex-direction: column; align-items: stretch; padding: 15px 24px calc(19px + env(safe-area-inset-bottom, 0px)); gap: 16px; }
+  .sculpture-views { justify-content: stretch; }
+  .sculpture-views button { flex: 1; padding: 11px 10px; font-size: 10px; min-height: 44px; }
+  .sculpture-finish-selector { justify-content: space-between; }
+  .sculpture-finish-selector > div:first-child { text-align: left; flex-direction: row; align-items: center; gap: 12px; }
+  #sculpture-material { font-size: 10px; }
+  .sculpture-story { grid-template-columns: 1fr; padding: 77px 24px; gap: 39px; }
+  .sculpture-story h2 { font-size: clamp(60px, 13vw, 91px); margin: 24px 0; }
+  .sculpture-story p { max-width: 440px; font-size: 12px; }
+  .sculpture-origin { min-height: 400px; padding: 25px; }
+  .sculpture-origin img { height: 260px; }
+  .sculpture-colophon { padding: 0 24px 70px; }
+  .sculpture-colophon-inner { grid-template-columns: 1fr; gap: 27px; }
+  .sculpture-colophon-inner > div + div { border-top: 1px solid #d0d1c6; padding-top: 22px; }
+  .sculpture-colophon h3 { font-size: 29px; margin: 12px 0; }
+  .sculpture-colophon p { max-width: 420px; }
+  .sculpture-next { flex-direction: column; align-items: flex-start; padding: 43px 24px 50px; gap: 31px; }
+  .sculpture-next h2 { font-size: 60px; }
+  .sculpture-next a { width: 100%; justify-content: space-between; }
+  .sculpture-footer { padding: 26px 24px; flex-direction: column; align-items: flex-start; gap: 15px; font-size: 9px; }
+}
+@media (max-width: 390px) { .sculpture-hint { max-width: 160px; } .sculpture-views button span { display: none; } }
+@media (min-width: 600px) and (max-width: 1100px) and (max-height: 600px) {
+  .sculpture-hero { height: calc(100svh - 76px); min-height: 0; max-height: none; }
+  .sculpture-stage { inset: 0; }
+  .sculpture-intro { top: 18px; left: 24px; width: 34%; }
+  .sculpture-intro .sculpture-eyebrow { font-size: 8px; }
+  .sculpture-intro h1 { margin: 17px 0 0; font-size: 48px; line-height: .95; }
+  .sculpture-intro h1 br { display: none; }
+  .sculpture-intro p, .sculpture-object-note { display: none; }
+  .sculpture-number { top: 18px; right: 24px; }
+  .sculpture-number > span:first-child { font-size: 24px; }
+  .sculpture-number .sculpture-eyebrow { display: none; }
+  .sculpture-interaction { left: 24px; right: 24px; bottom: calc(71px + env(safe-area-inset-bottom, 0px)); }
+  .sculpture-hint { font-size: 8px; max-width: 210px; }
+  .sculpture-console { flex-direction: row; align-items: center; gap: 15px; padding: 8px 24px calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .sculpture-views { flex-shrink: 0; }
+  .sculpture-views button { min-height: 44px; padding: 10px 13px; }
+  .sculpture-finish-selector { gap: 10px; }
+  .sculpture-finish-selector > div:first-child { flex-direction: column; align-items: flex-end; gap: 3px; text-align: right; }
+  .sculpture-finishes { gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .sculpture-stage canvas, .sculpture-stage.is-ready .sculpture-fallback { transition: none; } }
+
+/* Evening gallery: preserve the new contour and controls, restore dramatic space. */
+.sculpture-hero { background: #151310; color: #f1e8dc; }
+.sculpture-intro .sculpture-eyebrow, .sculpture-intro p,
+.sculpture-hint, .sculpture-object-note, .sculpture-number { color: #c7bcad; }
+.sculpture-intro h1 em { color: #dcc19c; }
+.sculpture-console { background: #181613ed; border-color: #bfa78940; }
+.sculpture-views button { color: #c7bcad; }
+.sculpture-views button[aria-pressed='true'] { background: #dec9ad; color: #211d18; }
+.sculpture-finish-selector .sculpture-eyebrow { color: #baad9d; }
+.sculpture-finishes button[aria-pressed='true'] { border-color: #dec9ad; }
+.sculpture-zoom { background: #181613dd; border-color: #bfa78970; }
+.sculpture-zoom button { color: #e6d8c6; }
+.sculpture-console button:focus-visible, .sculpture-zoom button:focus-visible,
+.sculpture-stage canvas:focus-visible { outline-color: #dec9ad; }
+.sculpture-fallback { background: radial-gradient(ellipse at 65% 55%, #433528, #151310 70%); }
+.sculpture-fallback img { filter: invert(1); }

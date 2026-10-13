@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-12T11:47:54.861Z",
+  "base": "http://127.0.0.1:8080",
+  "engine": "webkit",
+  "tests": [
+    {
+      "name": "world: context loss",
+      "passed": true,
+      "durationMs": 13849,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "restored": {
+        "canvas": {
+          "width": 1440,
+          "height": 924,
+          "cssWidth": 1440,
+          "cssHeight": 924
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 40,
+          "triangles": 86426,
+          "geometries": 35,
+          "textures": 6,
+          "pixelRatio": 1
+        },
+        "camera": [
+          -6.294809607823998,
+          2.385069607895392,
+          9.09256511391005
+        ],
+        "overflow": false,
+        "missingImages": []
+      }
+    },
+    {
+      "name": "symbol: context loss",
+      "passed": true,
+      "durationMs": 9647,
+      "errors": [],
+      "failedRequests": [],
+      "responses": [],
+      "restored": {
+        "canvas": {
+          "width": 1440,
+          "height": 890,
+          "cssWidth": 1440,
+          "cssHeight": 890
+        },
+        "webglContexts": 1,
+        "contextLost": false,
+        "glError": 0,
+        "renderer": {
+          "calls": 34,
+          "triangles": 3754,
+          "geometries": 34,
+          "textures": 3,
+          "pixelRatio": 1
+        },
+        "camera": [
+          0.8500000000000002,
+          1.2499999999999993,
+          8.1
+        ],
+        "overflow": false,
+        "missingImages": []
+      }
+    }
+  ],
+  "notes": [
+    "Chromium uses software WebGL in this environment; frame rate is not a device benchmark.",
+    "Mobile emulation is not verification on a physical iPhone or iOS Safari."
+  ],
+  "passed": true,
+  "summary": "2/2 checks passed"
+}
