@@ -14,3 +14,11 @@
 .symbol-preview.has-render>img{object-position:68% center}.world-preview>img{object-position:58% center}
 @media(max-width:600px){.sound-control{min-width:44px}}
 @media(max-width:360px){.home-brand img{width:88px}.home-nav .ng-nav{gap:10px;font-size:8px}}
+
+/* Astra twilight continuity. Retain the original 3D experience. */
+.world-preview{background:#242831}
+.world-preview>img{object-position:55% 50%;filter:saturate(.89) contrast(1.07);transition:transform 1.2s var(--ease),filter .6s ease}
+.world-preview::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(18,21,29,.035) 12%,transparent 48%,rgba(10,14,21,.28) 100%)}
+.world-preview .preview-note,.world-preview .world-preview-symbol{z-index:2}
+.world-preview:hover>img{transform:scale(1.035);filter:saturate(1.02) contrast(1.06)}
+@media(prefers-reduced-motion:reduce){.world-preview>img{transition:none!important}.world-preview:hover>img{transform:none}}

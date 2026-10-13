@@ -1,5 +1,8 @@
 # TOHEŞAR — Next Generation
 
+> **Current review status (2026-10-13):** The current PR restores the original Astra twilight World instead of the rejected sunlit arcade. The `after-world-*.webp` images below are historical screenshots **captured before that correction**, not the current branch. The earlier `before-world-*.webp` screenshots show the restored World composition. The symbol presentation was also revised to an evening gallery, so its old `after-symbol` screenshots are historical. The previously reported Chromium/WebKit 16/16 passes cover the **pre-restoration implementation**; they are not fresh end-to-end tests of the subsequent commits. Re-capture and verify the latest World and symbol before merging. Production `main` remains untouched.
+
+
 The homepage, Cinematic World and Se-diyu exhibition have been rebuilt as three connected experiences. The first homepage viewport now opens inside a bright coastal photograph. A new sunlit architectural harbour replaces the previous 3D environment, and a precisely beveled brushed-metal sculpture replaces the previous symbol presentation.
 
 The established wordmark and all 67 approved silhouette coordinates are preserved. The three original entrypoints are archived verbatim; 117 original source, asset and license files remain unchanged. Production main is not modified or merged.

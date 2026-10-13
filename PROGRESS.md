@@ -120,3 +120,10 @@ python3 -m http.server 8080
 - Next: one desktop/mobile capture pass, basic interactions/errors and original asset integrity; update entry posters with actual renders and record comparison. Do not iterate into a new rebuild.
 - Recovery: git checkout 388e0aa for pre-correction state; current branch checkpoints are pushed to origin. Never merge/push main.
 - Capture pass exposed a pre-existing Astra font URL defect: Korean CSS requested `/assets/fonts/` while binaries lived under `/world/assets/fonts/`. Added identical licensed font copies at the requested URLs; original CSS and files remain untouched. Added the original renderer's MIT Three.js r180 Reflector module to the local vendor closure.
+
+## Follow-up — continuity and accurate preview (2026-10-13)
+- Kept the original Astra twilight renderer and all symbol geometry/approved coordinates unchanged.
+- Replaced the homepage's obsolete sunlit-arcade World poster with the archived real Astra World browser capture; updated alt text, invitation copy and display contrast to reflect the actual destination. No AI substitute was generated.
+- Fixed World metadata left over from the isolated experiment: canonical/OG fields describe the restored gallery and removed an obsolete `noindex,nofollow` directive for the intended public route.
+- Marked historical before/after review images and old browser-test report as **pre-restoration evidence**, not validation of the current branch.
+- Remaining before merge: current-branch real desktop/mobile World and symbol capture, browser interactions, physical iPhone Safari check when available, and owner visual approval. Do not auto-merge main.
