@@ -25,9 +25,9 @@
           0
         ],
         "calls": 24,
-        "triangles": 85506,
-        "geometries": 10,
-        "textures": 17,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
         "reduced": false
       }
     },
@@ -53,9 +53,9 @@
           0
         ],
         "calls": 24,
-        "triangles": 85506,
-        "geometries": 10,
-        "textures": 17,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
         "reduced": false
       }
     },
@@ -65,8 +65,8 @@
         "progress": 0.3,
         "target": 0.3,
         "camera": [
-          0.82,
-          1,
+          0.66,
+          0.62,
           -0.8500000000000014
         ],
         "morph": [
@@ -81,9 +81,9 @@
           1
         ],
         "calls": 23,
-        "triangles": 85504,
-        "geometries": 9,
-        "textures": 16,
+        "triangles": 75264,
+        "geometries": 14,
+        "textures": 22,
         "reduced": false
       }
     }
