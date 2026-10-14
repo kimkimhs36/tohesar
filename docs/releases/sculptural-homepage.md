@@ -18,3 +18,10 @@ Checkpoint 01: `8cbf43a` (initial direction).
 - Homepage fonts and module paths work at a GitHub Pages project base path.
 - Checkpoint 01 was deployed READY to an isolated Vercel preview before the user requested GitHub-only previews. No further Vercel deployments will be made.
 - GitHub-only preview blocker: creating `kimkimhs36/tohesar-homepage-preview` returns `GraphQL: Resource not accessible by integration (createRepository)`. Production Pages settings remain untouched; awaiting a separately provisioned preview repository.
+
+## Checkpoint 03 — Cinematic rhythm
+- Typographic opening reveal, staggered full-screen menu, gallery entrances and slow photographic parallax.
+- Magnetic circular links, page reading progress, fine paper grain, and deeper chrome reflection contrast.
+- Reduced-motion preferences respected; native scrolling preserved. No automatic sound.
+- Existing imagery and copy identify imagined/generated visual studies; no fabricated published stories added.
+- Preview hosting remains blocked on separate GitHub repository creation permission. No production configuration changes made.
