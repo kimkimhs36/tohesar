@@ -259,3 +259,31 @@ button:focus-visible,a:focus-visible{outline:2px solid #464f53;outline-offset:5p
 .motion-toggle{font-size:0;display:grid;place-items:center}
 .motion-toggle:before{content:"";display:block;width:8px;height:10px;border-left:2px solid currentColor;border-right:2px solid currentColor}
 .motion-toggle[aria-pressed=true]:before{width:0;height:0;border:5px solid transparent;border-left:8px solid currentColor;border-right:0;margin-left:3px}
+
+/* V3 continuation / archival aperture: metal acts as the foreground shutter.
+   The memory image lives behind it, rather than as a detached UI card. */
+.artwork{z-index:2}
+.record-window{
+  z-index:1;
+  background:rgba(247,245,240,.92);
+  border:1px solid rgba(89,101,105,.28);
+  padding:7px 7px 13px;
+  box-shadow:0 16px 42px rgba(55,64,69,.10),0 0 0 1px rgba(250,247,238,.5) inset;
+  transform-origin:center center;
+}
+.record-window::before{
+  content:"";position:absolute;inset:-16px;z-index:-1;pointer-events:none;
+  border:1px solid rgba(238,243,244,.18);
+  background:radial-gradient(ellipse at 49% 50%,rgba(191,215,224,.42),rgba(233,184,160,.16) 44%,transparent 75%);
+  opacity:var(--aperture-light,0);
+}
+.record-image{background:#d7dad6}
+.record-details,.record-action{color:#384044}
+@media(max-width:650px){
+ .record-window{top:22%;width:79vw;max-width:360px;padding:6px 6px 12px}
+ .record-image{height:min(41svh,370px)}
+ .record-window::before{inset:-11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .record-window{box-shadow:0 10px 28px rgba(55,64,69,.09)}
+}

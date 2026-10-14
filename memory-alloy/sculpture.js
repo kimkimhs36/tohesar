@@ -54,7 +54,11 @@
     // Three choreographed visual states rather than one enlarging chrome surface.
     const leave=ease(.08,.38,p);
     const revealIn=ease(.30,.49,p), revealOut=ease(.53,.67,p);
-    const journalIn=ease(.55,.94,p);
+    // The photograph is the inner surface of the sculpture, not a floating card.
+    // Expose it first as an optical slit; resolve it only after the metal opens.
+    const journalIn=ease(.48,.87,p);
+    const aperture=ease(.48,.81,p);
+    const resolve=ease(.66,.96,p);
     cover.style.opacity=String(1-leave);
     cover.style.visibility=leave>.997?'hidden':'visible';
     cover.setAttribute('aria-hidden',String(leave>.99));
@@ -62,26 +66,30 @@
     reveal.style.opacity=String(revealOpacity);
     reveal.style.transform=`translateY(${(1-revealIn)*26-revealOut*15}px)`;
     reveal.setAttribute('aria-hidden',String(revealOpacity<.7));
-    // A real labelled journal still emerges from the space between two wings.
+    // The image is behind the transparent WebGL canvas. As the two wings split,
+    // they occlude its edges; the slit becomes a legible archival print.
+    const slit=(1-aperture)*49.6;
     record.style.opacity=String(journalIn);
-    record.style.transform=`translate3d(-50%,0,0) scale(${.70+.30*journalIn})`;
-    record.querySelector('.record-image').style.clipPath=`inset(0 ${(1-journalIn)*45}% 0 ${(1-journalIn)*45}%)`;
+    record.style.transform=`translate3d(-50%,${(1-resolve)*28}px,0) perspective(1100px) rotateY(${(1-resolve)*-11}deg) scale(${.77+.23*resolve})`;
+    record.style.setProperty('--aperture-light',String(aperture));
+    record.querySelector('.record-image').style.clipPath=`polygon(${slit}% 0,${100-slit}% 0,${100-slit}% 100%,${slit}% 100%)`;
     for(const label of record.querySelectorAll('.record-details,.record-action')){
-      label.style.opacity=String(ease(.80,.94,p));
-      label.style.visibility=p>.80?'visible':'hidden';
+      const visible=ease(.81,.96,p);
+      label.style.opacity=String(visible);
+      label.style.visibility=visible>.01?'visible':'hidden';
     }
     cover.style.clipPath=`inset(0 ${leave*100}% 0 0)`;
-    const recordActive=journalIn>.95;
+    const recordActive=p>.92;
     record.style.pointerEvents=recordActive?'auto':'none';
     record.tabIndex=recordActive?0:-1;
     record.setAttribute('aria-hidden',String(!recordActive));
-    artwork.style.opacity=String(1-ease(.78,1,p));
+    artwork.style.opacity=String(1-ease(.87,1,p));
     const shift=ease(.12,.93,p);
     sky.style.filter=`saturate(${1+shift*.08}) hue-rotate(${shift*-5}deg)`;
     sky.style.transform=`scale(${1+shift*.025}) translateX(${-shift*.7}%)`;
     shadow.style.opacity=String((.52-shift*.35)*(1-journalIn));
     indicator.style.width=(100*p).toFixed(1)+'%';
-    phaseLabel.textContent=p>.77?'03':p>.3?'02':'01';
+    phaseLabel.textContent=p>.83?'03':p>.3?'02':'01';
     scrollLabel.textContent=p>.83?'THE JOURNAL OPENS':p>.3?'FOLLOW THE FOLD':'SCROLL TO UNFOLD';
     stage.dataset.progress=p.toFixed(4);
   }
@@ -313,12 +321,13 @@
     gl.viewport(0,0,physicalW,physicalH);start();
   }
   const camera=(p)=>{
-    const open=ease(.15,.44,p),pass=ease(.42,.78,p);
+    const open=ease(.13,.48,p),pass=ease(.42,.88,p);
     const portrait=aspect<.8;
-    const eye=[-.65+open*1.5-pass*.45,.38+open*.27-pass*.35,
-      (portrait?15.6:8.9)-open*.6-pass*1.4];
-    // Portrait sculpture sits above the typography; desktop sits to its right.
-    const target=[portrait?.02:-1.25,portrait?-1.20:-.12,pass*.25];
+    // A modest lateral dolly peers into the opening, without enlarging the
+    // sculpture until it overwhelms portrait typography.
+    const eye=[-.65+open*(portrait?.85:1.3)+pass*.26,.38+open*.22-pass*.18,
+      (portrait?15.6:8.9)-open*(portrait?.72:.52)-pass*(portrait?1.45:1.15)];
+    const target=[portrait?.02:-1.25,portrait?-1.20:-.12,pass*.60];
     const forward=normalized(sub(target,eye));
     const right=normalized(cross(forward,[0,1,0]));
     const up=normalized(cross(right,forward));
