@@ -1,6 +1,7 @@
 /* CHROME ATMOSPHERE / original parametric artwork. No symbol geometry or imagery.
    A continuous liquid loop, physical chrome, optical glass, and a procedural HDR studio. */
 import * as THREE from "three";
+import { createKineticType } from "./kinetic-type.js";
 const canvas = document.querySelector("#chrome-canvas");
 const artwork = document.querySelector("#artwork");
 const motionButton = document.querySelector("#motion");
@@ -139,6 +140,8 @@ try {
   );
   satellite.position.set(-1.65, -1.15, 0.6);
   scene.add(satellite);
+  // Actual bevelled 3D typography: individual letters scatter, twist and reassemble.
+  const kineticType = createKineticType(THREE, scene, environment.texture);
   const shadow = new THREE.Mesh(
     new THREE.PlaneGeometry(7, 2),
     new THREE.ShaderMaterial({
@@ -182,8 +185,9 @@ try {
   }
   window.addEventListener("scroll", readScroll, { passive: true });
   function choreography() {
-    const p = progress,
-      travel = smooth(0.06, 0.94, p),
+    const p = progress;
+    kineticType.update(p, time, 0, reduced.matches);
+    const travel = smooth(0.06, 0.94, p),
       morph = smooth(0.12, 0.88, p);
     if (Math.abs(morph - lastMorph) > 0.0008) {
       shape(morph);
@@ -261,6 +265,7 @@ try {
     camera.updateProjectionMatrix();
     baseDistance = w < 600 ? 13.4 : w / h < 1.2 ? 10.4 : 8.8;
     sculpture.scale.setScalar(w < 600 ? 0.93 : 1);
+    kineticType.resize(w, h);
     render(performance.now());
   }
   function render(now) {
