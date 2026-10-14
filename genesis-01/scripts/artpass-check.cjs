@@ -19,6 +19,10 @@ const assert=require('node:assert/strict');
    const row={viewport:item.name,size:item.w+'x'+item.h,frames:[]};
    for(const p of item.frames){
     await page.evaluate(p=>window.__genesis.seek(p),p);
+    // seek() sets progress synchronously, BEFORE the next WebGL draw.
+    // Wait for two real animation frames and for pose() to update the DOM.
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    await page.waitForFunction(p=>document.querySelector('#percent').textContent.startsWith(String(Math.round(p*100)).padStart(2,'0')),p);
     await page.waitForFunction(p=>Math.abs(window.__genesis.state.progress-p)<.00002,p);
     // On-demand rendering may upload the asynchronous image after the exact
     // 30% crossing; record the frame first, then gate on the resolved 43% image.
