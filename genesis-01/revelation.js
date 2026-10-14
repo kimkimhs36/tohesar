@@ -29,6 +29,12 @@ export function createRevelation(scene,request){
   const width=mobile?halfW*1.64:halfH*1.05;
   const height=width*1050/850;
   let error=0,minZ=Infinity,maxZ=-Infinity;
+  // Measure the optical closure as a verifiable scene state.
+  const align=smooth(.401,.429,p);
+  const gutter=mix(.987,1.002,align);
+  const edgeOpacity=.48*(1-smooth(.397,.429,p));
+  inspection.opticalGutter=gutter;
+  inspection.edgeOpacity=edgeOpacity;
   camera.updateMatrixWorld();
   for(let i=0;i<fragments.length;i++){
    const {tile,region:r,depth}=fragments[i], [x,y,w,h]=r;
@@ -41,11 +47,10 @@ export function createRevelation(scene,request){
    // The photographic fragments retain their separate spatial depth.
    // Only their projected edges close as the camera reaches alignment;
    // a tiny overlap prevents antialiased hairline gaps.
-   const align=smooth(.401,.429,p);
-   const gutter=mix(.987,1.002,align);
    tile.scale.set(width*w*ratio*(.55+.45*spread)*gutter,height*h*ratio*(.55+.45*spread)*gutter,1);
    // Registration boundaries dissolve at the optical climax.
-   edge.material.opacity=.48*(1-smooth(.397,.429,p));
+   edge.material.opacity=edgeOpacity;
+   edge.visible=edgeOpacity>.006;
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
    tile.material.opacity=reveal;
    tile.updateMatrixWorld();
