@@ -179,6 +179,30 @@ export function createKineticType(THREE, scene, environment) {
     second.scale.setScalar(scale2);
   }
 
+  // Scroll does not merely move the type: it changes each letter's geometry.
+  // This produces a liquid sculptural distortion while the word is dismantled.
+  function liquefy(mesh, amount, phase) {
+    if (!mesh.geometry) return;
+    if (Math.abs(amount - (mesh.userData.lastMelt ?? -1)) < 0.008) return;
+    mesh.userData.lastMelt = amount;
+    const attribute = mesh.geometry.attributes.position;
+    const output = attribute.array;
+    if (!mesh.userData.originalVertices) {
+      mesh.userData.originalVertices = new Float32Array(output);
+    }
+    const original = mesh.userData.originalVertices;
+    for (let i=0;i<output.length;i+=3) {
+      const x=original[i], y=original[i+1], z=original[i+2];
+      const ripple=Math.sin(y*2.8+phase*1.7)*Math.cos(x*1.5+phase);
+      output[i]   = x + amount*(Math.sin(y*2.1+phase)*.26 + z*.33);
+      output[i+1] = y + amount*(Math.sin(x*2.5+phase*.5)*.34 + ripple*.16);
+      output[i+2] = z + amount*(Math.sin(x*3.1+y*1.1+phase)*.64);
+    }
+    attribute.needsUpdate = true;
+    mesh.geometry.computeVertexNormals();
+    mesh.geometry.computeBoundingSphere();
+  }
+
   function update(p, t, dt, reducedMotion=false) {
     if(!ready)return;
     const clamp=(v)=>Math.max(0,Math.min(1,v));
@@ -188,8 +212,8 @@ export function createKineticType(THREE, scene, environment) {
     const spread=fracture*(1-reunion);
     first.visible=p<.65;
     second.visible=p>.39;
-    first.position.set(0,viewH*.285-0.48,1.85);
-    second.position.set(0,viewH*.24-0.4,1.8);
+    first.position.set(0,viewH*(aspect<.8?.285:.18)-.48,1.85);
+    second.position.set(0,(aspect<.8?-.02:-.12)*viewH,1.8);
     first.rotation.set(-.04-fracture*.38,Math.sin(t*.22)*.075+fracture*.44,-.035);
     second.rotation.set(-.12+(1-reunion)*.55,.08+(1-reunion)*.8,.015);
     first.children.forEach((mesh,i)=>{
@@ -202,6 +226,7 @@ export function createKineticType(THREE, scene, environment) {
       mesh.rotation.z=spread*k*.27;
       const s=1-fracture*.28;
       mesh.scale.setScalar(s);
+      liquefy(mesh, spread*.87, i*.9);
     });
     second.children.forEach((mesh,i)=>{
       const k=i-(second.children.length-1)/2;
@@ -212,6 +237,7 @@ export function createKineticType(THREE, scene, environment) {
       mesh.rotation.y=(1-reunion)*Math.PI*.95;
       mesh.rotation.z=(1-reunion)*k*.4;
       mesh.scale.setScalar(.25+.75*reunion);
+      liquefy(mesh, (1-reunion)*.76, i*.75);
     });
     shared.roughness=.12+spread*.11;
     warm.roughness=.16+(1-reunion)*.06;
