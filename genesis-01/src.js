@@ -168,7 +168,7 @@ reduced.addEventListener('change',measure);document.addEventListener('visibility
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
 // Explicit read-only inspection for repeatable browser verification.
-window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=target;}},get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,revelation:revelation.inspection,mediaReady:revelation.ready};}};
+window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=target;pose(progress);renderer.render(scene,camera);}},get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,revelation:revelation.inspection,mediaReady:revelation.ready};}};
 measure();
-if(forced!==null){progress=target;}
+if(forced!==null){progress=target;pose(progress);renderer.render(scene,camera);}
 }
