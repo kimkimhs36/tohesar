@@ -22,6 +22,7 @@
   const indicator = document.querySelector('.progress span');
   const sky = document.querySelector('.sky-layer');
   const shadow = document.querySelector('.sculpture-shadow');
+  const record = document.getElementById('record-window');
   const errorNotice = document.getElementById('error-notice');
   const clamp = (a, min=0, max=1) => Math.min(max,Math.max(min,a));
   const ease = (a,b,x) => { const t=clamp((x-a)/(b-a)); return t*t*(3-2*t); };
@@ -49,27 +50,39 @@
   }
   let target=0,current=0,lastTime=0,clock=0,motionPaused=reduce.matches,frame=0,visible=true;
   function updateDom(p){
-    const out=ease(.1,.54,p),incoming=ease(.56,.84,p);
-    cover.style.opacity=String(1-out);
-    cover.style.visibility=out>.998?'hidden':'visible';
-    reveal.style.opacity=String(incoming);
-    reveal.style.transform=`translateY(${(1-incoming)*25}px)`;
-    reveal.setAttribute('aria-hidden',String(incoming<.8));
+    // Three choreographed visual states rather than one enlarging chrome surface.
+    const leave=ease(.08,.38,p);
+    const revealIn=ease(.30,.49,p), revealOut=ease(.63,.77,p);
+    const journalIn=ease(.72,.94,p);
+    cover.style.opacity=String(1-leave);
+    cover.style.visibility=leave>.997?'hidden':'visible';
+    cover.setAttribute('aria-hidden',String(leave>.99));
+    const revealOpacity=revealIn*(1-revealOut);
+    reveal.style.opacity=String(revealOpacity);
+    reveal.style.transform=`translateY(${(1-revealIn)*26-revealOut*15}px)`;
+    reveal.setAttribute('aria-hidden',String(revealOpacity<.7));
+    // A real labelled journal still emerges from the space between two wings.
+    record.style.opacity=String(journalIn);
+    record.style.transform=`translate3d(-50%,${(1-journalIn)*44}px,0) scale(${.90+.1*journalIn})`;
+    const recordActive=journalIn>.95;
+    record.style.pointerEvents=recordActive?'auto':'none';
+    record.tabIndex=recordActive?0:-1;
+    record.setAttribute('aria-hidden',String(!recordActive));
+    artwork.style.opacity=String(1-ease(.71,.97,p)*.94);
     const shift=ease(.12,.93,p);
     sky.style.filter=`saturate(${1+shift*.08}) hue-rotate(${shift*-5}deg)`;
     sky.style.transform=`scale(${1+shift*.025}) translateX(${-shift*.7}%)`;
-    shadow.style.opacity=String(.58-shift*.35);
+    shadow.style.opacity=String((.52-shift*.35)*(1-journalIn));
     indicator.style.width=(100*p).toFixed(1)+'%';
-    phaseLabel.textContent=p>.6?'02':'01';
-    scrollLabel.textContent=p>.83?'THE RECORD OPENS': 'SCROLL TO UNFOLD';
-    // Expose a normalized state to the outside test harness; not a global API.
+    phaseLabel.textContent=p>.77?'03':p>.3?'02':'01';
+    scrollLabel.textContent=p>.83?'THE JOURNAL OPENS':p>.3?'FOLLOW THE FOLD':'SCROLL TO UNFOLD';
     stage.dataset.progress=p.toFixed(4);
   }
   let gl;
   try { gl=canvas.getContext('webgl2',{alpha:true,antialias:true,depth:true,premultipliedAlpha:false,powerPreference:'high-performance'}); }
   catch(e) { gl=null; }
   function startFallback(){
-    errorNotice.hidden=false;
+    errorNotice.hidden=true;
     pauseButton.hidden=true;
     const updateFallback = () => {
       const bounds = sequence.getBoundingClientRect();
@@ -215,27 +228,27 @@
       const x=center+u*width;
       const y=2.22-t*4.48+.1*Math.sin(u*2.8+t*4.6);
       const z=-.22+.44*Math.sin((u+.45*t)*2.8)+.22*u*u+.15*v+.13*Math.sin(t*8+u*2);
-      return [x+.08*Math.sin(t*3),y,z];
+      return [x+.08*Math.sin(t*3)-open*.96,y+open*.13*v,z-open*.44];
     }
     if(type==='wing'){
       const width=xscale*(.64+.17*Math.sin(t*4));
       const local=u*width;
       const center=.06+.22*Math.sin(t*3+.9)-.10*v;
       // A turning fold anchored along its right-hand spine.
-      const a=.11+open*.92;
+      const a=.11+open*1.42;
       const pivot=center+width*.76;
       const xx=center+local;
-      const x=pivot+(xx-pivot)*Math.cos(a)-open*.45;
-      const z=.61+.36*Math.cos(u*2.7+t*6.2)+.36*(xx-pivot)*Math.sin(a)+open*.52;
+      const x=pivot+(xx-pivot)*Math.cos(a)+open*1.18;
+      const z=.61+.36*Math.cos(u*2.7+t*6.2)+.52*(xx-pivot)*Math.sin(a)+open*.26;
       const y=1.98-t*4.08+.11*Math.sin(t*5+u*.7)+.14*open*(.5-u);
       return [x,y,z];
     }
     const layer=k,spread=layer-1;
     const width=xscale*(.52+.07*Math.cos(t*8+layer))*(.9+.15*open);
-    const center=.21+.12*Math.sin(t*4+layer*.36)-.15*v+.19*spread*open;
+    const center=.21+.12*Math.sin(t*4+layer*.36)-.15*v+.48*spread*open;
     const x=center+u*width+.07*Math.cos(4*t);
     const y=1.72-t*3.58+.08*Math.sin(t*5+layer)+.07*open*spread;
-    const z=-.15-layer*.22+.11*Math.sin(u*3.2+t*5)+open*(.23+layer*.18)-drift*.3;
+    const z=-.15-layer*.22+.11*Math.sin(u*3.2+t*5)+open*(.19+layer*.12)-drift*.25;
     return [x,y,z];
   }
   const addToVertex=(dst,k,pos,n,uv)=>{const a=k*8;dst[a]=pos[0];dst[a+1]=pos[1];dst[a+2]=pos[2];dst[a+3]=n[0];dst[a+4]=n[1];dst[a+5]=n[2];dst[a+6]=uv[0];dst[a+7]=uv[1];};
@@ -270,11 +283,16 @@
     gl.viewport(0,0,physicalW,physicalH);start();
   }
   const camera=(p)=>{
-    const move=ease(.15,.88,p),pass=ease(.67,1,p);
+    const move=ease(.16,.69,p),settle=ease(.72,.94,p);
     const isPortrait=aspect<.8;
-    // Camera does not orbit around a logo; it aims into the emerging gap.
-    const eye=[-.3+move*.62+pass*.4,.04+move*.19,8.4-move*2.4-pass*1.55];
-    const target=[(isPortrait?-.09:.35)+move*(isPortrait?-.25:.1),move*.02,0];
+    // Keep the entire unfolding sculpture in frame on portrait iPhone.
+    // The previous dolly to z≈4.5 enlarged the surface beyond the viewport.
+    const eye=isPortrait
+      ? [0.05+move*.36,.13+move*.22,10.85-move*.73+settle*.75]
+      : [-.1+move*1.04,.04+move*.32,8.6-move*.85+settle*.55];
+    const target=isPortrait
+      ? [ -.12+move*.24, .01+move*.12, 0]
+      : [ .2+move*.36, move*.12, 0];
     const forward=normalized(sub(target,eye));
     const right=normalized(cross(forward,[0,1,0]));
     const up=normalized(cross(right,forward));

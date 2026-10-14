@@ -1,109 +1,96 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#eeeae3" />
-    <meta
-      name="description"
-      content="TOHEŞAR — an independent visual culture journal. Chrome Atmosphere: an interactive artwork of 3D typography, liquid metal, light and space."
-    />
-    <title>CHROME ATMOSPHERE — TOHEŞAR</title>
-    <link rel="icon" href="/assets/cedilla-favicon.svg" />
-    <link rel="canonical" href="https://tohesar.com/" />
-    <link rel="stylesheet" href="/assets/experience/fonts.css" />
-    <link rel="stylesheet" href="/assets/chrome-atmosphere/atmosphere.css" />
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "/next-generation/vendor/three/build/three.module.js"
-        }
-      }
-    </script>
-    <script
-      type="module"
-      src="/assets/chrome-atmosphere/atmosphere.js"
-    ></script>
-  </head>
-  <body>
-    <a class="skip" href="#experience">Skip to experience</a>
-    <header class="masthead">
-      <a href="/" class="brand" aria-label="TOHEŞAR official homepage"
-        >TOHEŞAR<span>®</span></a
-      ><span class="masthead-note">AN EXPERIMENT IN PERCEPTION</span
-      ><a href="/journal/yokohama/" class="index-link">JOURNAL <span>↗</span></a>
-    </header>
-    <main id="experience">
-      <section
-        class="sequence"
-        aria-label="Chrome Atmosphere, a two-scene artwork"
-      >
-        <div class="stage">
-          <div id="artwork" class="artwork">
-            <canvas
-              id="chrome-canvas"
-              aria-label="Original liquid chrome sculpture suspended between peach and blue light"
-              role="img"
-            ></canvas>
-            <div class="fallback" aria-hidden="true">
-              <div class="fallback-loop"></div>
-            </div>
-          </div>
-          <div class="chapter chapter-one">
-            <div class="edition">
-              <span class="pin"></span> TOHEŞAR — CHROME ATMOSPHERE
-              <span class="edition-number">STUDY 001</span>
-            </div>
-            <h1>
-              <span class="title-chrome">Chrome</span
-              ><span class="title-atmosphere">atmosphere.</span>
-            </h1>
-            <div class="opening-note">
-              Liquid metal.<br />Light. Space.<br /><span
-                >Nothing stays still.</span
-              >
-            </div>
-            <div class="object-label">
-              <span class="label-cross">+</span> FORM WITHOUT A FIXED STATE
-            </div>
-          </div>
-          <div class="chapter chapter-two" aria-hidden="true">
-            <div class="edition">
-              <span class="pin"></span> THE SAME MATTER. ANOTHER FEELING.
-            </div>
-            <h2>Between<br /><em>states.</em></h2>
-            <p>Surface becomes space.<br />Light becomes form.</p>
-            <span class="second-coordinate"
-              >02 / A CONTINUOUS TRANSFORMATION</span
-            >
-          </div>
-          <div class="scene-footer">
-            <div class="scroll-cue">
-              <span class="scroll-line"></span
-              ><span id="scroll-label">SCROLL TO ALTER THE ATMOSPHERE</span>
-            </div>
-            <div class="scene-count">
-              <span id="scene-number">01</span><i></i>02
-            </div>
-            <button
-              id="motion"
-              aria-label="Pause ambient motion"
-              aria-pressed="false"
-            >
-              Ⅱ
-            </button>
-          </div>
-          <div class="progress-track" aria-hidden="true"><i></i></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f2f0ea">
+  <meta name="description" content="TOHEŞAR — independent visual culture. Cars, cities, photography, moving images, objects, people, and the moments between them.">
+  <title>TOHEŞAR — Independent Visual Culture</title>
+  <link rel="icon" href="/assets/cedilla-favicon.svg">
+  <link rel="preload" as="image" href="/assets/wordmark-hd.png">
+  <link rel="stylesheet" href="/memory-alloy/style.css">
+  <script defer src="/memory-alloy/sculpture.js"></script>
+</head>
+<body>
+  <a class="skip" href="#culture">Skip to content</a>
+  <main id="work">
+    <div class="sequence" id="sequence">
+      <div class="stage" id="stage">
+        <div class="sky-layer" aria-hidden="true"></div>
+        <div class="horizon" aria-hidden="true"></div>
+        <div class="sculpture-shadow" aria-hidden="true"></div>
+        <div class="artwork" id="artwork" aria-hidden="true">
+          <canvas id="alloy" aria-label="Folded titanium and translucent memory films opening into a spatial passage"></canvas>
+          <div class="fallback-sculpture" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
-      </section>
-      <footer class="endnote">
-        <span>TOHEŞAR / CHROME ATMOSPHERE</span
-        ><span>A STUDY IN BECOMING. © 2026</span
-        ><a href="/journal/yokohama/">OPEN THE JOURNAL ↗</a>
-      </footer>
-    </main>
-  </body>
+        <a class="record-window" id="record-window" href="/journal/yokohama/" aria-label="Explore the Yokohama visual journal" tabindex="-1" aria-hidden="true">
+          <div class="record-image"><img src="/assets/yokohama-arrival.webp" alt="TOHEŞAR Yokohama visual study: a silver classic car by a harbour at sunset" decoding="async"></div>
+          <div class="record-details"><span>01 / YOKOHAMA</span><span>VISUAL STUDY</span></div>
+          <span class="record-action">ENTER THE JOURNAL <span aria-hidden="true">→</span></span>
+        </a>
+        <header class="masthead">
+          <a class="identity" href="/" aria-label="TOHEŞAR main website"><span class="wordmark"></span><span class="sr-only">TOHEŞAR</span></a>
+          <button id="index-toggle" class="index-toggle" aria-label="Open index" aria-expanded="false" aria-controls="site-index"><span>INDEX</span><span class="index-glyph"><i></i><i></i></span></button>
+          <nav id="site-index" class="site-index" hidden aria-label="TOHEŞAR navigation">
+            <a href="/journal/yokohama/">Journal <span>→</span></a>
+            <a href="/world/">TOHEŞAR World <span>→</span></a>
+            <a href="/symbol/">Se-diyu / Symbol <span>→</span></a>
+            <a href="/history/">History <span>→</span></a>
+            <a href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">Instagram <span>→</span></a>
+          </nav>
+        </header>
+        <div class="editorial" id="editorial">
+          <div class="micro"><span class="micro-line"></span>INDEPENDENT VISUAL CULTURE</div>
+          <p class="edition">TOHEŞAR <span class="separator">/</span> VISUAL CULTURE</p>
+          <h1><span class="headline-first">Memory</span><em>alloy.</em></h1>
+          <div class="caption-grid">
+            <p class="caption-serial">ART<br>IN MOTION<br>& MEMORY</p>
+            <p class="caption-note">A folded record.<br>Opening in space.</p>
+          </div>
+        </div>
+        <div class="revelation" id="revelation" aria-hidden="true">
+          <span class="chapter-line">02 <i></i> THE FOLDS OPEN</span>
+          <h2>The space<br><em>between.</em></h2>
+          <p>Light finds a surface.<br>A surface holds a moment.</p>
+        </div>
+        <div class="interface-bottom">
+          <span class="location-label">TOHEŞAR <b>—</b> AN OPEN VISUAL ARCHIVE</span>
+          <span class="scroll-guide"><i></i><span id="scroll-label">SCROLL TO UNFOLD</span></span>
+          <span class="counter"><b id="sequence-count">01</b><i></i>03</span>
+        </div>
+        <div class="progress" aria-hidden="true"><span></span></div>
+        <button class="motion-toggle" id="motion-toggle" aria-pressed="false" aria-label="Pause sculpture movement">Ⅱ</button>
+        <div class="error-notice" id="error-notice" role="status" hidden>The artwork is displayed in still mode on this device.</div>
+      </div>
+    </div>
+
+    <section class="culture-passage" id="culture" aria-labelledby="culture-title">
+      <div class="culture-topline"><span>03 / ABOUT THE CULTURE</span><span>TOHEŞAR © 2026</span></div>
+      <div class="culture-copy">
+        <span class="culture-kicker">MORE THAN THE MACHINE</span>
+        <h2 id="culture-title">What we see.<br><em>What stays.</em></h2>
+        <p>TOHEŞAR begins with cars, and moves through cities, photographs, music, people, design and the passing of time. An independent visual culture, built through what we choose to notice.</p>
+      </div>
+      <a class="featured-journal" href="/journal/yokohama/" aria-label="Open the Yokohama journal">
+        <div class="featured-photo"><img src="/assets/yokohama-arrival.webp" alt="A silver car beside the waterfront in a Yokohama-inspired editorial visual study" loading="lazy" decoding="async"></div>
+        <div class="photo-meta"><span>01 — YOKOHAMA / VISUAL STUDY</span><span>EXPLORE THE JOURNAL <span aria-hidden="true" class="inline-arrow"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M7 5h12v12" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+      </a>
+      <p class="culture-after">TOHEŞAR visual study · An artwork, not documentary photography.</p>
+    </section>
+
+    <section class="gateway" id="index" aria-labelledby="gateway-title">
+      <div class="gateway-head"><span>04 / THE INDEX</span><span>FIVE WAYS TO ENTER</span></div>
+      <h2 id="gateway-title">The<br><em>index.</em></h2>
+      <nav class="gateway-nav" aria-label="Explore TOHEŞAR">
+        <a href="/journal/yokohama/"><span class="gate-no">01</span><span class="gate-name">Journal</span><span class="gate-desc">Places, images &amp; moments</span><span class="gate-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M7 5h12v12" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="/world/"><span class="gate-no">02</span><span class="gate-name">World</span><span class="gate-desc">A separate cinematic space</span><span class="gate-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M7 5h12v12" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="/symbol/"><span class="gate-no">03</span><span class="gate-name">Se-diyu</span><span class="gate-desc">An independent symbol study</span><span class="gate-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M7 5h12v12" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="/history/"><span class="gate-no">04</span><span class="gate-name">History</span><span class="gate-desc">The roots of a name</span><span class="gate-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M7 5h12v12" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer"><span class="gate-no">05</span><span class="gate-name">Instagram</span><span class="gate-desc">The ongoing visual record</span><span class="gate-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M7 5h12v12" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </nav>
+    </section>
+    <footer class="home-end"><span>TOHEŞAR / INDEPENDENT VISUAL CULTURE</span><span>SEOUL · 2026</span><a href="#work">BACK TO THE BEGINNING ↑</a></footer>
+
+  </main>
+</body>
 </html>
