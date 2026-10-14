@@ -1,0 +1,91 @@
+{
+  "browser": "Chromium / SwiftShader; not real iPhone Safari",
+  "viewport": "390 × 844 @1x",
+  "errors": [],
+  "frames": [
+    {
+      "p": "0",
+      "state": {
+        "progress": 0,
+        "target": 0,
+        "camera": [
+          0,
+          0.12,
+          10.2
+        ],
+        "morph": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 24,
+        "triangles": 85506,
+        "geometries": 10,
+        "textures": 17,
+        "reduced": false
+      }
+    },
+    {
+      "p": ".23",
+      "state": {
+        "progress": 0.23,
+        "target": 0.23,
+        "camera": [
+          0,
+          0.12,
+          8.649999999999999
+        ],
+        "morph": [
+          0.9831588529813382,
+          0.9831588529813382,
+          0.9831588529813382,
+          0.9831588529813382,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 24,
+        "triangles": 85506,
+        "geometries": 10,
+        "textures": 17,
+        "reduced": false
+      }
+    },
+    {
+      "p": ".30",
+      "state": {
+        "progress": 0.3,
+        "target": 0.3,
+        "camera": [
+          0.82,
+          1,
+          -0.8500000000000014
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 85504,
+        "geometries": 9,
+        "textures": 16,
+        "reduced": false
+      }
+    }
+  ]
+}
