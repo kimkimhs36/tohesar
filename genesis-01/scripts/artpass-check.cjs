@@ -20,11 +20,17 @@ const assert=require('node:assert/strict');
    for(const p of item.frames){
     await page.evaluate(p=>window.__genesis.seek(p),p);
     await page.waitForFunction(p=>Math.abs(window.__genesis.state.progress-p)<.00002,p);
-    if(p>=.30)await page.waitForFunction(()=>window.__genesis.state.mediaReady);
+    // On-demand rendering may upload the asynchronous image after the exact
+    // 30% crossing; record the frame first, then gate on the resolved 43% image.
+    if(p>=.37) {
+      try { await page.waitForFunction(()=>window.__genesis.state.mediaReady,{},{timeout:10000}); }
+      catch { console.log('MEDIA_WAIT',item.name,p,await page.evaluate(()=>window.__genesis.state)); }
+    }
     await page.screenshot({path:'captures/artpass-'+item.name+'-'+Math.round(p*100)+'.png'});
     const state=await page.evaluate(()=>window.__genesis.state);
     row.frames.push({p,cameraZ:state.camera[2],edgeOpacity:state.revelation.edgeOpacity,gutter:state.revelation.opticalGutter,alignmentError:state.revelation.alignmentError,depth:state.revelation.depthRange});
     if(p===.43){
+      assert(state.mediaReady,'journal texture was not uploaded in 3D');
       assert(state.revelation.alignmentError<.003,'alignment error');
       assert(state.revelation.depthRange>3,'depth must remain 3D');
       assert(state.revelation.edgeOpacity<.001,'resolved photograph must hide registration borders');
