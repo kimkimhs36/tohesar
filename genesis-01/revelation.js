@@ -38,7 +38,14 @@ export function createRevelation(scene,request){
    const scatterY=Math.cos(i*1.8)*.62*spread*(1-arrange);
    // Back-project each crop from the same reference camera, at unequal depths.
    tile.position.set(anchor.x+cx*ratio+scatterX,anchor.y+cy*ratio+scatterY,-5-distance);
-   tile.scale.set(width*w*ratio*(.55+.45*spread)*.993,height*h*ratio*(.55+.45*spread)*.993,1);
+   // The photographic fragments retain their separate spatial depth.
+   // Only their projected edges close as the camera reaches alignment;
+   // a tiny overlap prevents antialiased hairline gaps.
+   const align=smooth(.401,.429,p);
+   const gutter=mix(.987,1.002,align);
+   tile.scale.set(width*w*ratio*(.55+.45*spread)*gutter,height*h*ratio*(.55+.45*spread)*gutter,1);
+   // Registration boundaries dissolve at the optical climax.
+   edge.material.opacity=.48*(1-smooth(.397,.429,p));
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
    tile.material.opacity=reveal;
    tile.updateMatrixWorld();

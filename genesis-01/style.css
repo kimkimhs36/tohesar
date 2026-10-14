@@ -9,3 +9,9 @@
  .caption p{font-size:7px}.revelation-copy{bottom:28%}.revelation-copy h2{font-size:44px;margin:12px 0}
  .source-note{bottom:49px;font-size:8px;left:8vw}.annotation,.scroll-hint{bottom:20px}
 }
+
+/* Art pass 2026-10-15: keep the official mark legible at the fold opening. */
+header{isolation:isolate}
+header::before{content:"";position:absolute;z-index:-1;left:0;top:0;width:min(320px,76vw);height:135px;pointer-events:none;background:radial-gradient(ellipse 89% 84% at 19% 16%,rgba(241,238,231,.91) 0%,rgba(241,238,231,.61) 45%,rgba(241,238,231,0) 83%)}
+header img{position:relative;z-index:1}
+@media(max-width:600px){header::before{width:min(265px,78vw);height:123px}}

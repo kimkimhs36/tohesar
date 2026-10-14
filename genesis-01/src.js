@@ -140,7 +140,11 @@ function pose(p){
  sculpture.rotation.y=THREE.MathUtils.lerp(-.32,0,split);
  sculpture.rotation.z=THREE.MathUtils.lerp(-.18,-.035,split);
  const startZ=mobile?10.2:9.5;
- camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-ease(.12,.23,p)*1.55-ease(.23,.27,p)*3.4-pass*(startZ-4.1));
+ // Hold a composed portrait while the fold opens, before the camera enters.
+ const approach=ease(.12,.23,p)*.72;
+ const threshold=ease(.23,.27,p)*4.13;
+ const penetration=pass*(startZ-4.0);
+ camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-approach-threshold-penetration);
  camera.lookAt(camera.position.x,camera.position.y,-8);
  const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
  if(p>.30){
@@ -159,7 +163,7 @@ function pose(p){
 }
 let lastFrame=0;
 function draw(now){raf=0;const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):1/60;lastFrame=now;progress=reduced.matches?target:progress+(target-progress)*(1-Math.exp(-12*dt));if(Math.abs(target-progress)<.00002)progress=target;pose(progress);renderer.render(scene,camera);if(progress!==target)request();}
-addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',measure);visualViewport?.addEventListener('resize',measure);
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',measure);window.visualViewport?.addEventListener('resize',measure);
 reduced.addEventListener('change',measure);document.addEventListener('visibilitychange',request);
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
