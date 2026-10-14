@@ -1,9 +1,9 @@
 /*
  * TOHEŞAR / MEMORY ALLOY — FOLDED RECORD
- * Experimental art-direction proof, 2026-10-14.
+ * V3 reconstruction candidate, 2026-10-14. Render validation required.
  * An original, standalone WebGL2 surface renderer. No third-party models, symbol
  * geometry or fake editorial content. Existing wordmark is displayed separately.
- * The sequence deliberately covers only the first 0–30% of the proposed homepage.
+ * Scroll-driven sculptural aperture leading into the existing visual journal.
  */
 (() => {
   'use strict';
@@ -43,17 +43,18 @@
 
   function readScroll() {
     const rect = sequence.getBoundingClientRect();
-    target = clamp(-rect.top / Math.max(1,sequence.offsetHeight-innerHeight));
+    target = clamp(-rect.top / Math.max(1,sequence.offsetHeight-stage.clientHeight));
     // reduced-motion preserves the information hierarchy without camera passage.
     if(reduce.matches) current = target;
+    ambientUntil=performance.now()+700;
     start();
   }
   let target=0,current=0,lastTime=0,clock=0,motionPaused=reduce.matches,frame=0,visible=true;
   function updateDom(p){
     // Three choreographed visual states rather than one enlarging chrome surface.
     const leave=ease(.08,.38,p);
-    const revealIn=ease(.30,.49,p), revealOut=ease(.63,.77,p);
-    const journalIn=ease(.72,.94,p);
+    const revealIn=ease(.30,.49,p), revealOut=ease(.53,.67,p);
+    const journalIn=ease(.55,.94,p);
     cover.style.opacity=String(1-leave);
     cover.style.visibility=leave>.997?'hidden':'visible';
     cover.setAttribute('aria-hidden',String(leave>.99));
@@ -63,12 +64,14 @@
     reveal.setAttribute('aria-hidden',String(revealOpacity<.7));
     // A real labelled journal still emerges from the space between two wings.
     record.style.opacity=String(journalIn);
-    record.style.transform=`translate3d(-50%,${(1-journalIn)*44}px,0) scale(${.90+.1*journalIn})`;
+    record.style.transform=`translate3d(-50%,0,0) scale(${.70+.30*journalIn})`;
+    record.style.clipPath=`inset(0 ${(1-journalIn)*45}% 0 ${(1-journalIn)*45}%)`;
+    cover.style.clipPath=`inset(0 ${leave*100}% 0 0)`;
     const recordActive=journalIn>.95;
     record.style.pointerEvents=recordActive?'auto':'none';
     record.tabIndex=recordActive?0:-1;
     record.setAttribute('aria-hidden',String(!recordActive));
-    artwork.style.opacity=String(1-ease(.71,.97,p)*.94);
+    artwork.style.opacity=String(1-ease(.78,1,p));
     const shift=ease(.12,.93,p);
     sky.style.filter=`saturate(${1+shift*.08}) hue-rotate(${shift*-5}deg)`;
     sky.style.transform=`scale(${1+shift*.025}) translateX(${-shift*.7}%)`;
@@ -79,14 +82,14 @@
     stage.dataset.progress=p.toFixed(4);
   }
   let gl;
-  try { gl=canvas.getContext('webgl2',{alpha:true,antialias:true,depth:true,premultipliedAlpha:false,powerPreference:'high-performance'}); }
+  try { gl=canvas.getContext('webgl2',{alpha:true,antialias:true,depth:true,premultipliedAlpha:false,powerPreference:'low-power'}); }
   catch(e) { gl=null; }
   function startFallback(){
     errorNotice.hidden=true;
     pauseButton.hidden=true;
     const updateFallback = () => {
       const bounds = sequence.getBoundingClientRect();
-      target = clamp(-bounds.top / Math.max(1,sequence.offsetHeight-innerHeight));
+      target = clamp(-bounds.top / Math.max(1,sequence.offsetHeight-stage.clientHeight));
       current = target;
       updateDom(current);
     };
@@ -126,8 +129,8 @@
   vec3 studio(vec3 r) {
     float sky=smoothstep(-.75,.95,r.y);
     vec3 c=mix(vec3(.14,.19,.23),vec3(.73,.78,.82),sky);
-    c+=vec3(1.30,1.27,1.20)*g(r.x,-.65,.18)*(.4+.6*g(r.y,.22,.8));
-    c+=vec3(1.50,1.17,.96)*g(r.x,.55,.13)*(.5+.5*g(r.y,.15,.78));
+    c+=vec3(1.30,1.27,1.20)*g(r.x,-.65,.12)*(.4+.6*g(r.y,.22,.8));
+    c+=vec3(1.50,1.17,.96)*g(r.x,.55,.075)*(.5+.5*g(r.y,.15,.78));
     c+=vec3(.53,.77,.98)*g(r.x,.9,.23)*(.6+.4*g(r.y,-.38,.85));
     c+=vec3(.82,.88,.98)*g(r.y,.84,.14)*.25;
     c*=1.-g(r.x,-.23,.078)*.79;
@@ -146,7 +149,7 @@
     vec3 col;
     if(uMat<.5){
       col=mix(vec3(.22,.25,.27),env*.88, .86);
-      col=col*.91+vec3(.18,.17,.15);
+      col=col*.96+vec3(.08,.075,.065);
       col+=vec3(.09,.10,.105)*fres+brushed;
       col+=edge*vec3(.36,.36,.34);
     }else if(uMat<1.5){
@@ -189,7 +192,7 @@
   gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);
   gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
   gl.disable(gl.CULL_FACE);
-  const cols=35,rows=102,triangles=[];
+  const cols=28,rows=80,triangles=[];
   for(let j=0;j<rows;j++) for(let i=0;i<cols;i++){
     const a=j*(cols+1)+i,b=a+cols+1;
     triangles.push(a,b,a+1,a+1,b,b+1);
@@ -206,7 +209,7 @@
     const ibo=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ibo);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,indices,gl.STATIC_DRAW);
     gl.bindVertexArray(null);
     const vertices=new Float32Array((cols+1)*(rows+1)*8);
-    return {type,index,vao,buffer,vertices,mat:type==='outer'?0:type==='wing'?1:2};
+    return {type,index,vao,buffer,ibo,vertices,positions:new Float32Array((cols+1)*(rows+1)*3),mat:type==='outer'?0:type==='wing'?1:2};
   }
   const surfaces=[createSurface('film',2),createSurface('film',1),createSurface('film',0),createSurface('outer'),createSurface('wing')];
   const N=cols+1;
@@ -218,38 +221,31 @@
   // Independent sheets with stable topology: one central folded folio, an
   // overlapping wing which opens, and three staggered light-transmitting films.
   function surfacePoint(type,k,u,t,p){
-    const v=t*2-1;
-    const xscale=(.12+Math.pow(Math.max(0,Math.sin(Math.PI*t)),.55)*.9);
-    const open=ease(.22,.73,p);
-    const drift=ease(.46,1,p);
-    if(type==='outer'){
-      const width=xscale*(.84+.06*Math.sin(t*7));
-      const center=.34+.23*Math.sin(2.8*t-.8)+.25*v;
-      const x=center+u*width;
-      const y=2.22-t*4.48+.1*Math.sin(u*2.8+t*4.6);
-      const z=-.22+.44*Math.sin((u+.45*t)*2.8)+.22*u*u+.15*v+.13*Math.sin(t*8+u*2);
-      return [x+.08*Math.sin(t*3)-open*.96,y+open*.13*v,z-open*.44];
-    }
-    if(type==='wing'){
-      const width=xscale*(.64+.17*Math.sin(t*4));
-      const local=u*width;
-      const center=.06+.22*Math.sin(t*3+.9)-.10*v;
-      // A turning fold anchored along its right-hand spine.
-      const a=.11+open*1.42;
-      const pivot=center+width*.76;
-      const xx=center+local;
-      const x=pivot+(xx-pivot)*Math.cos(a)+open*1.18;
-      const z=.61+.36*Math.cos(u*2.7+t*6.2)+.52*(xx-pivot)*Math.sin(a)+open*.26;
-      const y=1.98-t*4.08+.11*Math.sin(t*5+u*.7)+.14*open*(.5-u);
-      return [x,y,z];
-    }
-    const layer=k,spread=layer-1;
-    const width=xscale*(.52+.07*Math.cos(t*8+layer))*(.9+.15*open);
-    const center=.21+.12*Math.sin(t*4+layer*.36)-.15*v+.48*spread*open;
-    const x=center+u*width+.07*Math.cos(4*t);
-    const y=1.72-t*3.58+.08*Math.sin(t*5+layer)+.07*open*spread;
-    const z=-.15-layer*.22+.11*Math.sin(u*3.2+t*5)+open*(.19+layer*.12)-drift*.25;
-    return [x,y,z];
+    // A tapered, asymmetric ribbon curls around a void. Opening changes both
+    // the sweep and cross-section; no rigid idle rotation.
+    const open=ease(.13,.48,p), passage=ease(.42,.78,p);
+    const film=type==='film', wing=type==='wing';
+    const phase=wing?2.54:film?.34+k*.26:0;
+    const theta=(-1.2+t*4.65)+phase;
+    const taper=Math.pow(Math.sin(Math.PI*t),.65);
+    const width=(film?.19:wing?.30:.40)*(.18+.82*taper);
+    const radius=1.02+.16*Math.sin(t*5+phase)+u*width;
+    const twist=.65*Math.sin(theta*1.2)+open*(wing?-.65:.38);
+    let x=radius*Math.cos(theta);
+    let y=radius*Math.sin(theta)*1.27;
+    let z=.38*Math.sin(theta*1.7+phase)+u*width*Math.sin(twist)*1.8;
+    z+=film?-.22-k*.16:wing?.48:0;
+    // Curl the lip sharply enough to catch a thin highlight.
+    z+=.11*Math.pow(Math.abs(u),6)*(film?.3:1);
+    x+=open*(wing?.64:film?(k-1)*.19:-.52);
+    y+=open*(wing?.16:-.08)*Math.sin(theta);
+    z+=open*(wing?.52:-.28);
+    x+=passage*(wing?1.5:film?(k-1)*.8:-1.4);
+    z+=passage*(wing?.7:-.5);
+    // The diagonal silhouette gives the upper mobile composition room to breathe.
+    const angle=-.28, xx=x*Math.cos(angle)-y*Math.sin(angle);
+    y=x*Math.sin(angle)+y*Math.cos(angle);
+    return [xx,y,z];
   }
   const addToVertex=(dst,k,pos,n,uv)=>{const a=k*8;dst[a]=pos[0];dst[a+1]=pos[1];dst[a+2]=pos[2];dst[a+3]=n[0];dst[a+4]=n[1];dst[a+5]=n[2];dst[a+6]=uv[0];dst[a+7]=uv[1];};
   let lastUpdated=-9;
@@ -257,7 +253,7 @@
     if(Math.abs(p-lastUpdated)<.0012) return;
     lastUpdated=p;
     for(const s of surfaces){
-      const positions=new Float32Array(N*V*3);
+      const positions=s.positions;
       for(let j=0;j<V;j++)for(let i=0;i<N;i++){
         const v=j/rows,u=i/cols*2-1,pt=surfacePoint(s.type,s.index,u,v,p),a=(j*N+i)*3;
         positions[a]=pt[0];positions[a+1]=pt[1];positions[a+2]=pt[2];
@@ -283,16 +279,12 @@
     gl.viewport(0,0,physicalW,physicalH);start();
   }
   const camera=(p)=>{
-    const move=ease(.16,.69,p),settle=ease(.72,.94,p);
-    const isPortrait=aspect<.8;
-    // Keep the entire unfolding sculpture in frame on portrait iPhone.
-    // The previous dolly to z≈4.5 enlarged the surface beyond the viewport.
-    const eye=isPortrait
-      ? [0.05+move*.36,.13+move*.22,10.85-move*.73+settle*.75]
-      : [-.1+move*1.04,.04+move*.32,8.6-move*.85+settle*.55];
-    const target=isPortrait
-      ? [ -.12+move*.24, .01+move*.12, 0]
-      : [ .2+move*.36, move*.12, 0];
+    const open=ease(.15,.44,p),pass=ease(.42,.78,p);
+    const portrait=aspect<.8;
+    const eye=[-.65+open*1.5-pass*.45,.38+open*.27-pass*.35,
+      (portrait?10.7:8.4)-open*.6-pass*1.4];
+    // Portrait sculpture sits above the typography; desktop sits to its right.
+    const target=[portrait?.02:-1.25,portrait?-.85:-.12,pass*.25];
     const forward=normalized(sub(target,eye));
     const right=normalized(cross(forward,[0,1,0]));
     const up=normalized(cross(right,forward));
@@ -320,6 +312,7 @@
     gl.bindVertexArray(null);
   }
   const needMotion=()=>!motionPaused&&!reduce.matches;
+  let ambientUntil=0;
   function loop(now){
     frame=0;
     const dt=Math.min(.065,(now-(lastTime||now))/1000);
@@ -329,10 +322,15 @@
     current=(Math.abs(target-next)<.0002)?target:next;
     updateDom(current);
     draw(current);
-    if(Math.abs(current-target)>.0003||(needMotion()&&visible&&!document.hidden))start();
+    if(Math.abs(current-target)>.0003||(needMotion()&&now<ambientUntil&&visible&&!document.hidden))start();
   }
   function start(){if(!frame&&visible&&!document.hidden)frame=requestAnimationFrame(loop);}
-  function lost(e){e.preventDefault();visible=false;artwork.classList.remove('ready');errorNotice.hidden=false;}
+  function lost(e){
+    e.preventDefault();visible=false;cancelAnimationFrame(frame);frame=0;
+    artwork.classList.remove('ready');errorNotice.hidden=false;
+    // Keep narrative and links responsive while GPU rendering is unavailable.
+    startFallback();
+  }
   function recovered(){window.location.reload();}
   canvas.addEventListener('webglcontextlost',lost);
   canvas.addEventListener('webglcontextrestored',recovered);
@@ -349,6 +347,14 @@
   document.addEventListener('visibilitychange',start);
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)start();}, {threshold:0,rootMargin:'100px'});
   observer.observe(stage);
+  window.addEventListener('pagehide',e=>{
+    cancelAnimationFrame(frame);frame=0;
+    if(e.persisted)return;
+    observer.disconnect();
+    for(const s of surfaces){gl.deleteBuffer(s.buffer);gl.deleteBuffer(s.ibo);gl.deleteVertexArray(s.vao);}
+    gl.deleteProgram(program);
+  });
+  window.addEventListener('pageshow',()=>{readScroll();start();});
   resize();readScroll();
   artwork.classList.add('ready');
   start();
