@@ -43,7 +43,7 @@ try {
    const tube=.45+.13*Math.sin(t+.8)+.07*Math.cos(3*t);
    const taper=1-morph*(1-Math.pow(Math.max(0,Math.sin(Math.PI*u)),.25))*.97;
    for(let j=0;j<=V;j++){
-    const v=j/V*Math.PI*2,twist=t*.7+morph*.7;
+    const v=j/V*Math.PI*2,twist=t+.35*Math.sin(2*t)+morph*.7;
     const a=Math.cos(v)*tube*taper,b=Math.sin(v)*tube*.74*taper;
     const radial=a*Math.cos(twist)-b*Math.sin(twist),depth=a*Math.sin(twist)+b*Math.cos(twist);
     const k=(i*(V+1)+j)*3;positions[k]=x+Math.cos(t)*radial;positions[k+1]=y+Math.sin(t)*radial;positions[k+2]=z+depth;
@@ -56,15 +56,53 @@ try {
  const glass=new THREE.Mesh(new THREE.SphereGeometry(.67,48,32),new THREE.MeshPhysicalMaterial({color:'#f6faff',metalness:0,roughness:.045,transmission:1,thickness:1.4,ior:1.46,envMapIntensity:1.3,clearcoat:1}));glass.position.set(1.48,1.05,-.45);scene.add(glass);
  const satellite=new THREE.Mesh(new THREE.SphereGeometry(.18,32,24),chrome);satellite.position.set(-1.65,-1.15,.6);scene.add(satellite);
  const shadow=new THREE.Mesh(new THREE.PlaneGeometry(7,2),new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{strength:{value:.16}},vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:`varying vec2 vUv;uniform float strength;void main(){float d=length((vUv-.5)*vec2(2.,5.));gl_FragColor=vec4(.28,.32,.35,exp(-d*d*5.)*strength);}`}));shadow.position.set(0,-2.45,-.4);shadow.rotation.x=-.55;scene.add(shadow);
- let paused=reduced.matches,raf=0,last=0,time=0,active=true,progress=0,targetProgress=0;
+ let paused=reduced.matches,raf=0,last=0,time=0,active=true,progress=0,targetProgress=0,lastMorph=-1;
+ const sequence=document.querySelector('.sequence');
+ const first=document.querySelector('.chapter-one'),second=document.querySelector('.chapter-two');
+ const title=document.querySelector('.title-chrome'),subtitle=document.querySelector('.title-atmosphere');
+ const sceneNumber=document.querySelector('#scene-number'),scrollLabel=document.querySelector('#scroll-label');
+ const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+ const smooth=(a,b,v)=>{const x=clamp((v-a)/(b-a));return x*x*(3-2*x);};
+ let baseDistance=9.6;
+ function readScroll(){const bounds=sequence.getBoundingClientRect();targetProgress=clamp(-bounds.top/Math.max(1,sequence.offsetHeight-innerHeight));if(!raf)resume();}
+ window.addEventListener('scroll',readScroll,{passive:true});
+ function choreography(){
+  const p=progress,travel=smooth(.06,.94,p),morph=smooth(.12,.88,p);
+  if(Math.abs(morph-lastMorph)>.0008){shape(morph);lastMorph=morph;}
+  const portrait=camera.aspect<.8;
+  // The camera passes from frontal still life to an intimate, three-quarter optical study.
+  camera.position.set(travel*(portrait?1.15:2.1),.15+travel*.6,baseDistance*(1-travel*.24));
+  camera.lookAt(travel*(portrait?.15:.6),travel*.05,0);
+  sculpture.position.x=travel*(portrait?.36:1.1);
+  sculpture.position.y=.02-travel*.45+Math.sin(time*.65)*.065;
+  sculpture.rotation.set(.2+travel*.48+Math.sin(time*.25)*.08+smoothPointer.y*.1,-.38+travel*.83+Math.sin(time*.19)*.1+smoothPointer.x*.14,-.52-travel*.57+Math.sin(time*.16)*.035);
+  glass.position.set(1.48-travel*1.6,1.05-travel*.72+Math.sin(time*.45+.7)*.1,-.45+travel*1.7);
+  glass.scale.setScalar(1+travel*.25);
+  satellite.position.set(-1.65+travel*.15,-1.15+travel*2.3+Math.sin(time*.55)*.12,.6+travel*.25);
+  shadow.material.uniforms.strength.value=.16-travel*.07;
+  backdropMaterial.uniforms.shift.value=travel;
+  scene.environmentRotation.y=travel*.6;scene.environmentRotation.z=travel*.18;
+  chrome.roughness=.095-travel*.025;
+  const out=smooth(.06,.43,p),incoming=smooth(.56,.85,p);
+  first.style.opacity=String(1-out);first.style.visibility=out>.999?'hidden':'visible';
+  first.setAttribute('aria-hidden',String(out>.99));
+  if(!reduced.matches){title.style.transform=`translate3d(${-out*16}%,${-out*35}px,0)`;subtitle.style.transform=`translate3d(${out*14}%,${out*35}px,0)`;}
+  second.style.opacity=String(incoming);second.style.visibility=incoming>.001?'visible':'hidden';
+  second.style.transform=reduced.matches?'none':`translate3d(0,${(1-incoming)*35}px,0)`;
+  second.setAttribute('aria-hidden',String(incoming<.5));
+  document.documentElement.style.setProperty('--progress',p);
+  sceneNumber.textContent=p>.55?'02':'01';
+  scrollLabel.textContent=p>.9?'A NEW STATE OF MATTER':p>.35?'MATTER IS NEVER STILL':'SCROLL TO ALTER THE ATMOSPHERE';
+ }
+
  const pointer=new THREE.Vector2(),smoothPointer=new THREE.Vector2();
- function fit(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();camera.position.z=w<600?13.1:w/h<1.2?10.4:8.8;sculpture.scale.setScalar(w<600?.93:1);render(performance.now());}
+ function fit(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();baseDistance=w<600?13.4:w/h<1.2?10.4:8.8;sculpture.scale.setScalar(w<600?.93:1);render(performance.now());}
  function render(now){if(raf)cancelAnimationFrame(raf);raf=0;const dt=Math.min(.04,(now-(last||now))/1000);last=now;if(!paused)time+=dt;
   smoothPointer.lerp(paused?new THREE.Vector2():pointer,.035);
-  sculpture.rotation.set(.2+Math.sin(time*.25)*.08+smoothPointer.y*.1,-.38+Math.sin(time*.19)*.1+smoothPointer.x*.14,-.52+Math.sin(time*.16)*.035);
-  sculpture.position.y=.02+Math.sin(time*.65)*.065;
-  glass.position.y=1.05+Math.sin(time*.45+.7)*.1;satellite.position.y=-1.15+Math.sin(time*.55)*.12;
-  renderer.render(scene,camera);if(active&&!document.hidden&&!paused)raf=requestAnimationFrame(render);
+  progress+=(targetProgress-progress)*(reduced.matches?1:1-Math.exp(-dt*7));
+  if(Math.abs(targetProgress-progress)<.0002)progress=targetProgress;
+  choreography();
+  renderer.render(scene,camera);if(active&&!document.hidden&&(!paused||Math.abs(targetProgress-progress)>.0002))raf=requestAnimationFrame(render);
  }
  function resume(){last=0;if(active&&!document.hidden)render(performance.now());else{cancelAnimationFrame(raf);raf=0;}}
  const syncButton=()=>{motionButton.textContent=paused?'▷':'Ⅱ';motionButton.setAttribute('aria-pressed',String(paused));motionButton.setAttribute('aria-label',paused?'Play ambient motion':'Pause ambient motion');};
@@ -74,5 +112,5 @@ try {
  new ResizeObserver(fit).observe(artwork);document.addEventListener('visibilitychange',resume);
  new IntersectionObserver(entries=>{active=entries[0].isIntersecting;resume();}).observe(artwork);
  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();active=false;cancelAnimationFrame(raf);artwork.classList.remove('ready');motionButton.hidden=true;});
- fit();syncButton();artwork.classList.add('ready');
+ fit();readScroll();syncButton();artwork.classList.add('ready');
 } catch(error){console.warn('Chrome Atmosphere fallback:',error.message);motionButton.hidden=true;}
