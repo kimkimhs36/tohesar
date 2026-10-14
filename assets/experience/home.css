@@ -1203,3 +1203,115 @@ body:before {
     height: clamp(410px, calc(100svh - 36vw), 620px);
   }
 }
+/* The opening is an instrument for light: silver by day, bronze after hours. */
+.header,
+.opening {
+  transition:
+    background-color 1.2s,
+    color 1.2s;
+}
+.header {
+  position: relative;
+  z-index: 6;
+}
+.header:before {
+  content: "";
+  position: absolute;
+  inset: 0 calc(-1 * var(--gutter));
+  background: var(--paper);
+  z-index: -1;
+  transition: background 1.2s;
+}
+.light-controls {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.object-controls .light-controls button {
+  border: 0;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  padding: 8px 0;
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: inherit;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+}
+.object-controls .light-controls button[aria-pressed="true"] {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.light-controls > span {
+  font-size: 8px;
+  opacity: 0.4;
+}
+.object-controls #motion-toggle {
+  flex-shrink: 0;
+}
+.object-caption {
+  bottom: 15%;
+}
+body[data-studio="night"] .opening,
+body[data-studio="night"] .header:before {
+  background: #202724;
+}
+body[data-studio="night"] .header,
+body[data-studio="night"] .opening {
+  color: #eee7d9;
+}
+body[data-studio="night"] .header {
+  border-color: #ffffff30;
+}
+body[data-studio="night"] .brand img {
+  filter: invert(1);
+}
+body[data-studio="night"] .wordmark img {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+body[data-studio="night"] .opening .micro,
+body[data-studio="night"] .hero-intro p,
+body[data-studio="night"] .header-note,
+body[data-studio="night"] .object-controls {
+  color: #a6b0a3;
+}
+body[data-studio="night"] .hero-intro h2 em {
+  color: #da9979;
+}
+body[data-studio="night"] .hero-bottom {
+  border-color: #ffffff30;
+}
+body[data-studio="night"] .object-halo {
+  background: radial-gradient(ellipse at 57% 50%, #99755138, transparent 64%);
+}
+body[data-studio="night"] .object-shadow {
+  background: #000;
+  opacity: 0.5 !important;
+}
+body[data-studio="night"] .object-fallback {
+  filter: invert(1);
+  opacity: 0.6;
+}
+body[data-studio="night"] .object-stage.ready .object-fallback {
+  opacity: 0;
+}
+@media (max-width: 600px) {
+  .object-controls {
+    bottom: auto;
+    top: 279px;
+    left: 0;
+    right: 0;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+  .object-controls .light-controls button {
+    font-size: 7px;
+  }
+  .object-caption {
+    bottom: 19%;
+    font-size: 6px;
+  }
+}

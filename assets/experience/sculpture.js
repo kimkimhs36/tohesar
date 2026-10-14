@@ -136,12 +136,12 @@ try {
   const chrome = (edge = false) =>
     keep(
       new THREE.ShaderMaterial({
-        uniforms: { edgeFinish: { value: edge ? 1 : 0 } },
+        uniforms: { edgeFinish: { value: edge ? 1 : 0 }, warmth: { value: 0 } },
         vertexShader: `varying vec3 vNormal; varying vec3 vPosition;
       void main(){vec4 p=modelViewMatrix*vec4(position,1.);vPosition=p.xyz;
       vNormal=normalize(normalMatrix*normal);gl_Position=projectionMatrix*p;}`,
         fragmentShader: `precision highp float; varying vec3 vNormal; varying vec3 vPosition;
-      uniform float edgeFinish;
+      uniform float edgeFinish; uniform float warmth;
       float band(float x,float center,float width){return exp(-pow((x-center)/width,2.));}
       void main(){vec3 n=normalize(vNormal);vec3 eye=normalize(-vPosition);
       vec3 r=reflect(-eye,n);float fresnel=pow(1.-max(0.,dot(n,eye)),3.);
@@ -158,6 +158,7 @@ try {
       col+=vec3(.76,.61,.45)*band(r.y,-.4,.18)*.22;
       col+=vec3(.79,.84,.88)*fresnel*.55;
       col+=edgeFinish*vec3(.04);
+      col=mix(col,col*vec3(1.34,.83,.57)+vec3(.07,.025,.01),warmth);
       gl_FragColor=vec4(pow(clamp(col,0.,1.),vec3(.85)),1.);}`,
       }),
     );
@@ -279,6 +280,11 @@ try {
   });
   canvas.addEventListener("webglcontextrestored", () => {
     stage.classList.remove("ready");
+  });
+  document.addEventListener("studio-light", (event) => {
+    const value = event.detail === "night" ? 1 : 0;
+    face.uniforms.warmth.value = edge.uniforms.warmth.value = value;
+    resume();
   });
   updateButton();
   resize();

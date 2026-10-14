@@ -172,3 +172,17 @@ if (matchMedia("(hover:hover) and (pointer:fine)").matches) {
     link.addEventListener("pointerleave", () => (circle.style.transform = ""));
   });
 }
+
+// Two studio atmospheres. A material/light change, kept separate from WORLD.
+document.querySelectorAll("[data-light]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const mode = button.dataset.light;
+    document.body.dataset.studio = mode;
+    document
+      .querySelectorAll("[data-light]")
+      .forEach((item) =>
+        item.setAttribute("aria-pressed", String(item === button)),
+      );
+    document.dispatchEvent(new CustomEvent("studio-light", { detail: mode }));
+  });
+});

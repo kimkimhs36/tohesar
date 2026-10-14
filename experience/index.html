@@ -56,7 +56,11 @@
       }
     </script>
     <title>TOHEŞAR — The Experience</title>
-    <link rel="icon" href="../assets/cedilla-favicon.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="../assets/cedilla-favicon.svg"
+      type="image/svg+xml"
+    />
     <link rel="stylesheet" href="../assets/experience/fonts.css" />
     <link
       rel="preload"
@@ -87,7 +91,9 @@
           alt=""
         /><span>TOHEŞAR</span></a
       >
-      <span class="header-note micro">THE EXPERIENCE / AN INDEPENDENT POINT OF VIEW</span>
+      <span class="header-note micro"
+        >THE EXPERIENCE / AN INDEPENDENT POINT OF VIEW</span
+      >
       <nav aria-label="Main navigation">
         <a href="#journal">Journal <span>01</span></a
         ><a href="#about">About <span>02</span></a
@@ -154,8 +160,14 @@
             >
           </div>
           <div class="object-controls">
-            <span class="micro">OBJECT IN MOTION</span
-            ><button
+            <div class="light-controls" aria-label="Studio lighting">
+              <button data-light="day" aria-pressed="true">DAYLIGHT</button>
+              <span aria-hidden="true">/</span>
+              <button data-light="night" aria-pressed="false">
+                AFTER HOURS
+              </button>
+            </div>
+            <button
               id="motion-toggle"
               aria-pressed="false"
               aria-label="Pause sculpture motion"

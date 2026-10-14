@@ -38,3 +38,21 @@ No separate repository will be created. Vercel is no longer used.
 Current review URL after production publication: https://tohesar.com/experience/
 (This is an intended URL, not a claim that the branch is deployed.)
 Local preview: `python3 -m http.server 4173` then `/experience/`.
+
+## Experience finish — two atmospheres
+- Added DAYLIGHT / AFTER HOURS studio controls: ivory + silver or deep olive + bronze, with a real shader uniform changing the reflected metal palette.
+- Final route is `/experience/`; official-home return, assets, font loading, journal links and study dialogs resolve from that nested route.
+- Chromium desktop/mobile smoke review: no uncaught page errors, WebGL ready, menu and story dialogs open, no horizontal mobile overflow.
+- Main remains unmerged. The only proposed existing-page change is one EXPERIENCE navigation link.
+
+## Saved checkpoints
+- `8cbf43a` — initial editorial direction
+- `f6d457c` — original homepage archive and requested branch
+- `9fac69c` — 3D chrome identity
+- `000772f` — cinematic motion
+- `81c6867` — standalone experience and restored homepage
+
+## Remaining notes
+- GitHub Pages publishes only main, so this feature branch has no independent Pages URL. The intended `/experience/` URL is not live yet.
+- Desktop and mobile review images are in `docs/previews/`; they are screenshots, not hosted interactive previews.
+- Broader device/browser QA was intentionally deferred. Unsupported WebGL uses the original vector silhouette.
