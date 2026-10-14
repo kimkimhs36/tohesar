@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta
+      name="google-site-verification"
+      content="ZLe-ad6TwwzSA4YUoEgE-Mbl9Rz72mnJQ5hVmAXA158"
+    />
+    <meta name="theme-color" content="#f2eee8" />
+    <meta
+      name="description"
+      content="TOHEŞAR(토헤샤 / TOHESAR)는 자동차, 도시, 음악, 장소와 기억을 기록하는 독립 자동차 문화·비주얼 저널입니다."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TOHEŞAR — A Visual Culture Journal" />
+    <meta
+      property="og:description"
+      content="An independent journal of cars and everything around them."
+    />
+    <meta
+      property="og:image"
+      content="https://tohesar.com/assets/yokohama-landscape.webp"
+    />
+    <link rel="canonical" href="https://tohesar.com/experience/" />
+    <meta property="og:url" content="https://tohesar.com/experience/" />
+    <meta property="og:site_name" content="TOHEŞAR" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://tohesar.com/#organization",
+            "name": "TOHEŞAR",
+            "alternateName": ["TOHESAR", "토헤샤"],
+            "url": "https://tohesar.com/",
+            "logo": "https://tohesar.com/assets/wordmark-hd.png",
+            "description": "Independent automotive visual culture journal exploring cars, cities, places, music and memory.",
+            "sameAs": ["https://www.instagram.com/tohesar/"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://tohesar.com/#website",
+            "url": "https://tohesar.com/",
+            "name": "TOHEŞAR",
+            "alternateName": ["TOHESAR", "토헤샤"],
+            "description": "자동차와 도시, 음악과 사람의 기억을 기록하는 독립 비주얼 저널",
+            "inLanguage": ["ko", "en"],
+            "publisher": { "@id": "https://tohesar.com/#organization" }
+          }
+        ]
+      }
+    </script>
+    <title>TOHEŞAR — The Experience</title>
+    <link rel="icon" href="../assets/cedilla-favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/experience/fonts.css" />
+    <link
+      rel="preload"
+      href="../next-generation/fonts/instrument-serif-normal-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../assets/experience/home.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../next-generation/vendor/three/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="../assets/experience/sculpture.js"></script>
+    <script defer src="../assets/experience/home.js"></script>
+  </head>
+  <body id="top">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <a class="brand" href="../" aria-label="TOHEŞAR official homepage"
+        ><img
+          src="../assets/cedilla-icon.svg"
+          width="27"
+          height="27"
+          alt=""
+        /><span>TOHEŞAR</span></a
+      >
+      <span class="header-note micro">THE EXPERIENCE / AN INDEPENDENT POINT OF VIEW</span>
+      <nav aria-label="Main navigation">
+        <a href="#journal">Journal <span>01</span></a
+        ><a href="#about">About <span>02</span></a
+        ><a href="../world/">World ↗</a>
+      </nav>
+      <button
+        class="menu-toggle micro"
+        aria-label="Open menu"
+        aria-haspopup="dialog"
+        aria-controls="menu"
+      >
+        MENU <i></i>
+      </button>
+    </header>
+    <main id="main">
+      <section class="opening" aria-labelledby="opening-title">
+        <div class="opening-meta micro">
+          <span
+            ><i class="live-dot"></i> CARS, CULTURE & EVERYTHING BETWEEN</span
+          ><span>SEOUL · EVERYWHERE</span>
+        </div>
+        <h1 id="opening-title" class="wordmark">
+          <img
+            src="../assets/wordmark-hd.png"
+            width="3386"
+            height="797"
+            alt="TOHEŞAR"
+            fetchpriority="high"
+          />
+        </h1>
+        <div class="hero-composition">
+          <div class="hero-intro">
+            <span class="micro edition"
+              >A CONTINUOUS EXPLORATION / EST. 2026</span
+            >
+            <h2>Driven by<br /><em>feeling.</em></h2>
+            <p>
+              Cars. Places. The moments in between.<br />A journal for those who
+              see a little differently.
+            </p>
+            <a class="round-link" href="#journal"
+              ><span class="round-arrow">↘</span
+              ><span class="micro">EXPLORE THE JOURNAL</span></a
+            >
+          </div>
+          <div class="object-stage" id="home-stage">
+            <div class="object-halo"></div>
+            <img
+              class="object-fallback"
+              src="../assets/cedilla-icon.svg"
+              alt=""
+              width="500"
+              height="500"
+            /><canvas
+              id="home-canvas"
+              aria-label="A floating metallic sculpture of the TOHEŞAR Cedilla"
+              role="img"
+            ></canvas>
+            <div class="object-shadow"></div>
+            <span class="object-coordinate micro"
+              >FORM 001<br />THE CEDILLA</span
+            ><span class="object-caption micro"
+              >A SMALL MARK.<br />AN ENTIRE POINT OF VIEW.</span
+            >
+          </div>
+          <div class="object-controls">
+            <span class="micro">OBJECT IN MOTION</span
+            ><button
+              id="motion-toggle"
+              aria-pressed="false"
+              aria-label="Pause sculpture motion"
+            >
+              Ⅱ
+            </button>
+          </div>
+        </div>
+        <div class="hero-bottom micro">
+          <span>INDEPENDENT BY DESIGN.</span
+          ><span class="hero-bottom-middle"
+            >AUTOMOBILES / PLACES / SOUND / MEMORY</span
+          ><a href="#journal">SCROLL TO DISCOVER <span>↓</span></a>
+        </div>
+      </section>
+
+      <section class="featured" id="journal" aria-labelledby="featured-title">
+        <div class="section-line micro">
+          <span>01 / THE JOURNAL</span><span>A SCENE WORTH KEEPING</span>
+        </div>
+        <a class="featured-frame" href="../journal/yokohama/">
+          <picture
+            ><source
+              media="(max-width: 600px)"
+              srcset="../assets/yokohama-portrait.webp" />
+            <img
+              src="../assets/yokohama-landscape.webp"
+              width="1500"
+              height="660"
+              alt="A silver classic Porsche at Yokohama harbor beneath an expressway in the last light of day"
+              loading="lazy"
+          /></picture>
+          <div class="feature-top micro">
+            <span>JOURNAL NO. 001</span><span>35°26′ N / 139°38′ E</span>
+          </div>
+          <div class="feature-title">
+            <span class="micro">YOKOHAMA, JAPAN</span>
+            <h2 id="featured-title">Somewhere<br /><em>in Yokohama.</em></h2>
+          </div>
+          <span class="feature-enter"
+            ><span class="micro">READ THE STORY</span
+            ><span class="round-arrow">↗</span></span
+          >
+        </a>
+        <div class="feature-caption">
+          <span class="micro"
+            >A VISUAL ESSAY<br />LIGHT, STILLNESS & THE CITY</span
+          >
+          <p>
+            A quiet car beneath the expressway.<br />The last light against the
+            water.<br />An imagined scene, held like a memory.
+          </p>
+          <span class="caption-symbol" aria-hidden="true">↗</span>
+        </div>
+      </section>
+
+      <section class="selected" aria-labelledby="selected-title">
+        <div class="section-line micro">
+          <span>SELECTED OBSERVATIONS</span><span>002 — 004</span>
+        </div>
+        <div class="selected-heading">
+          <h2 id="selected-title">Ways of<br /><em>seeing.</em></h2>
+          <p>
+            Not everything needs a destination.<br />Some things simply ask us
+            to look closer.
+          </p>
+          <span class="micro">THE VISUAL ARCHIVE ↓</span>
+        </div>
+        <div class="studies">
+          <button class="study study-coast" data-story="coast">
+            <span class="study-number">02</span
+            ><span class="study-image"
+              ><img
+                src="../assets/coast.webp"
+                width="850"
+                height="1275"
+                loading="lazy"
+                alt="Imagined coastal scenes with a red sports car at sunset"
+              /><span class="study-view micro">VIEW STUDY ↗</span></span
+            ><span class="study-info"
+              ><span
+                ><span class="micro">VISUAL STUDY / THE COAST</span
+                ><span class="study-title">Coastal hours.</span></span
+              ><span class="study-arrow">↗</span></span
+            >
+          </button>
+          <div class="studies-side">
+            <button class="study study-detail" data-story="detail">
+              <span class="study-number">03</span
+              ><span class="study-image"
+                ><img
+                  src="../assets/detail.webp"
+                  width="1260"
+                  height="840"
+                  loading="lazy"
+                  alt="Warm light on a metal automotive surface and TOHEŞAR emblem"
+                /><span class="study-view micro">VIEW STUDY ↗</span></span
+              ><span class="study-info"
+                ><span
+                  ><span class="micro">CLOSE STUDY / MATERIAL & FORM</span
+                  ><span class="study-title">The small things.</span></span
+                ><span class="study-arrow">↗</span></span
+              >
+            </button>
+            <button class="study study-night" data-story="bluehour">
+              <span class="study-number">04</span
+              ><span class="study-image"
+                ><img
+                  src="../assets/yokohama-bluehour.webp"
+                  width="1122"
+                  height="1402"
+                  loading="lazy"
+                  alt="A silver Porsche beside Yokohama harbor at blue hour"
+                /><span class="study-view micro">VIEW STUDY ↗</span></span
+              ><span class="study-info"
+                ><span
+                  ><span class="micro">EVENING STUDY / YOKOHAMA</span
+                  ><span class="study-title">After the light.</span></span
+                ><span class="study-arrow">↗</span></span
+              >
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="manifesto" id="about" aria-labelledby="about-title">
+        <div class="section-line micro">
+          <span>02 / A POINT OF VIEW</span><span>THE TOHEŞAR PERSPECTIVE</span>
+        </div>
+        <div class="manifesto-main">
+          <span class="manifesto-mark" aria-hidden="true">“</span>
+          <h2 id="about-title">
+            Not just the car.<br />The <em>world</em><br />around it.
+          </h2>
+          <img
+            src="../assets/cedilla-icon.svg"
+            width="200"
+            height="200"
+            alt=""
+            class="manifesto-symbol"
+          />
+        </div>
+        <div class="manifesto-bottom">
+          <span class="micro">A JOURNAL OF<br />THINGS THAT MOVE US.</span>
+          <p>
+            TOHEŞAR moves between automobiles, cities, sound, time and memory. A
+            visual archive of the scenes, objects and feelings we choose to
+            keep.
+          </p>
+          <p lang="ko">
+            TOHEŞAR(토헤샤)는 자동차와 도시, 사람과 음악, 그 사이에 남는
+            장면들을 기록하는 독립 비주얼 저널입니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="destinations" aria-labelledby="destinations-title">
+        <div class="section-line micro">
+          <span>03 / BEYOND THE PAGE</span><span>FOLLOW YOUR CURIOSITY</span>
+        </div>
+        <h2 id="destinations-title">
+          There is<br /><em>more to discover.</em>
+        </h2>
+        <a class="destination" href="../symbol/"
+          ><span class="micro">01 / FORM</span
+          ><span class="destination-title">The sculpture room.</span
+          ><span class="destination-description"
+            >Se-diyu. A mark, given presence.</span
+          ><span class="destination-arrow">↗</span></a
+        >
+        <a class="destination" href="../world/"
+          ><span class="micro">02 / EXPERIENCE</span
+          ><span class="destination-title">TOHEŞAR WORLD</span
+          ><span class="destination-description"
+            >Our separate, immersive world.<br />Step inside the scene.</span
+          ><span class="destination-arrow">↗</span></a
+        >
+        <a class="destination" href="../history/"
+          ><span class="micro">03 / ORIGINS</span
+          ><span class="destination-title">Before the journal.</span
+          ><span class="destination-description"
+            >The people. The culture. The beginning.</span
+          ><span class="destination-arrow">↗</span></a
+        >
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <span class="micro">THE JOURNAL CONTINUES</span>
+          <p>Stay <em>curious.</em></p>
+        </div>
+        <a
+          href="https://www.instagram.com/tohesar/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="round-link"
+          ><span class="micro">FOLLOW @TOHESAR</span
+          ><span class="round-arrow">↗</span></a
+        >
+      </div>
+      <a href="#top" class="footer-wordmark" aria-label="TOHEŞAR — back to top"
+        ><img
+          src="../assets/wordmark-hd.png"
+          width="3386"
+          height="797"
+          alt="TOHEŞAR"
+          loading="lazy"
+      /></a>
+      <div class="footer-bottom micro">
+        <span>© 2026 TOHEŞAR</span><span>AN INDEPENDENT POINT OF VIEW.</span
+        ><a href="#top">BACK TO TOP ↑</a>
+      </div>
+    </footer>
+    <dialog id="menu" class="menu">
+      <div class="menu-head">
+        <span class="micro">TOHEŞAR / INDEX</span
+        ><button class="close-button" data-close="menu" aria-label="Close menu">
+          CLOSE ×
+        </button>
+      </div>
+      <nav aria-label="Expanded navigation">
+        <a href="#journal"><span>01</span>Journal <i>↗</i></a
+        ><a href="#about"><span>02</span>Our perspective <i>↗</i></a
+        ><a href="../symbol/"><span>03</span>The sculpture room <i>↗</i></a
+        ><a href="../world/"><span>04</span>TOHEŞAR WORLD <i>↗</i></a
+        ><a href="../history/"><span>05</span>Origins <i>↗</i></a>
+      </nav>
+      <div class="menu-foot micro">
+        <span>INDEPENDENT BY DESIGN.</span
+        ><a
+          href="https://www.instagram.com/tohesar/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >INSTAGRAM ↗</a
+        >
+      </div>
+    </dialog>
+    <dialog
+      id="story-dialog"
+      class="story-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <div class="dialog-head">
+        <span id="dialog-kicker" class="micro"></span
+        ><button
+          class="close-button"
+          data-close="story-dialog"
+          aria-label="Close visual study"
+        >
+          CLOSE ×
+        </button>
+      </div>
+      <img id="dialog-image" class="dialog-image" alt="" />
+      <div class="dialog-body">
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-copy"></p>
+      </div>
+    </dialog>
+  </body>
+</html>

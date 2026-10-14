@@ -25,3 +25,16 @@ Checkpoint 01: `8cbf43a` (initial direction).
 - Reduced-motion preferences respected; native scrolling preserved. No automatic sound.
 - Existing imagery and copy identify imagined/generated visual studies; no fabricated published stories added.
 - Preview hosting remains blocked on separate GitHub repository creation permission. No production configuration changes made.
+
+
+## Revised delivery — standalone /experience/
+The user changed the product scope after checkpoint 03. The new design now lives at
+`experience/index.html`, with its own assets in `assets/experience/`.
+The official root homepage was restored verbatim from main, then given one
+EXPERIENCE navigation link. No shared styles, original imagery, WORLD files,
+existing experiments, Pages settings, or domain files were changed.
+No separate repository will be created. Vercel is no longer used.
+
+Current review URL after production publication: https://tohesar.com/experience/
+(This is an intended URL, not a claim that the branch is deployed.)
+Local preview: `python3 -m http.server 4173` then `/experience/`.
