@@ -131,3 +131,70 @@ button:focus-visible,a:focus-visible{outline:2px solid #464f53;outline-offset:5p
  .home-end{padding:28px 24px;display:grid;justify-content:start;line-height:1.7;gap:8px;font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.featured-photo img{transition:none}}
+
+
+/* STAGE 03 — EXPERIENCE REFINEMENT / 2026-10-14 */
+@font-face{font-family:"TOHEŞAR Instrument";src:url('/next-generation/fonts/instrument-serif-normal-400.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"TOHEŞAR Instrument";src:url('/next-generation/fonts/instrument-serif-italic-400.woff2') format('woff2');font-style:italic;font-weight:400;font-display:swap}
+.editorial h1,.revelation h2,.culture-copy h2,.gateway h2,.gate-name,.site-index a{font-family:"TOHEŞAR Instrument",Georgia,serif}
+.editorial h1{letter-spacing:-.036em;line-height:.88}
+.editorial h1 em{letter-spacing:-.018em}
+.revelation h2{letter-spacing:-.04em}
+.micro{top:24%;}
+.edition{top:49%}
+.caption-note{position:relative;color:#364344;background:rgba(245,242,233,.62);padding:7px 10px;border-radius:2px}
+.masthead{z-index:18}
+.editorial,.revelation{z-index:7}
+.record-window{position:absolute;z-index:9;display:block;left:50%;top:20%;width:min(63vw,650px);opacity:0;transform:translate3d(-50%,44px,0) scale(.90);pointer-events:none;visibility:visible;background:#f5f1e9;padding:11px 11px 16px;box-shadow:0 22px 80px rgba(28,47,57,.18),0 2px 6px rgba(28,47,57,.13);color:#33383a;will-change:transform,opacity;}
+.record-image{height:min(53vh,580px);overflow:hidden;background:#d5ccc1}
+.record-image img{width:100%;height:100%;object-fit:cover;object-position:53% 50%;display:block}
+.record-details{display:flex;justify-content:space-between;margin-top:12px;font-size:9px;font-weight:700;letter-spacing:.17em}
+.record-action{margin-top:16px;padding-top:13px;border-top:1px solid rgba(51,56,58,.25);display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:700;letter-spacing:.16em}
+.record-action span{font-size:21px;font-family:Arial,sans-serif;font-weight:400}
+.artwork{transition:opacity .06s linear}
+.artwork:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,240,233,.24),transparent 72%);pointer-events:none}
+.gate-arrow,.inline-arrow{display:inline-flex;align-items:center;justify-content:center}
+.gate-arrow svg{width:22px;height:22px;display:block;transition:transform .35s ease;fill:none}
+.inline-arrow svg{width:13px;height:13px;display:inline-block;vertical-align:middle}
+.gateway-nav a:hover .gate-arrow svg{transform:translate(3px,-3px)}
+.gateway-nav a{column-gap:24px}
+.gateway-nav .gate-no{font-size:10px}
+.gateway-nav .gate-desc{font-size:12px}
+.gateway h2{font-size:clamp(90px,12vw,180px);letter-spacing:-.04em;margin:100px 0 93px}
+.culture-copy{padding-top:clamp(55px,9vh,135px)}
+.culture-copy h2{font-size:clamp(73px,11vw,180px);line-height:.9;letter-spacing:-.04em}
+@media(max-width:650px){
+ .sequence{height:315svh}
+ .record-window{width:78vw;top:23%;padding:8px 8px 13px}
+ .record-image{height:37vh}
+ .record-details{font-size:8px;letter-spacing:.09em;margin-top:10px}
+ .record-action{font-size:9px;padding-top:10px;margin-top:13px}
+ .record-action span{font-size:17px}
+ .editorial h1{font-size:clamp(52px,13.5vw,76px);top:55%;}
+ .micro{top:25%;font-size:8px;max-width:250px}
+ .edition{top:51%}
+ .caption-grid{bottom:15%;max-width:320px}
+ .caption-note{font-size:12px;line-height:1.2;max-width:145px}
+ .revelation{bottom:24%;max-width:350px}
+ .revelation h2{font-size:clamp(53px,12.8vw,74px);line-height:.94}
+ .revelation p{background:rgba(242,240,233,.74);max-width:250px;padding:8px 7px 8px 0}
+ .gate-name{font-size:clamp(42px,11vw,63px)}
+ .gateway h2{font-size:clamp(82px,19vw,116px);margin:68px 0 56px}
+ .gateway-nav a{grid-template-columns:27px minmax(0,1fr) 24px;grid-template-rows:auto auto;gap:2px 13px;padding:22px 0 24px;min-height:105px}
+ .gateway-nav .gate-no{grid-column:1;grid-row:1/3;align-self:center;color:#97a7aa}
+ .gateway-nav .gate-name{grid-column:2;grid-row:1;align-self:end;line-height:1.05}
+ .gateway-nav .gate-desc{display:block;grid-column:2;grid-row:2;font-size:10px;letter-spacing:.035em;color:#aeb5b1}
+ .gateway-nav .gate-arrow{grid-column:3;grid-row:1/3;align-self:center}
+ .gateway-nav .gate-arrow svg{width:19px;height:19px}
+ .culture-copy{padding-top:73px;padding-bottom:54px}
+ .culture-copy h2{font-size:clamp(70px,15vw,92px);letter-spacing:-.055em;margin:21px 0 31px}
+ .culture-copy p{font-size:15px;line-height:1.55}
+ .featured-photo{height:105vw}
+}
+@media(max-width:360px){
+ .editorial h1{font-size:51px}
+ .record-window{width:82vw}
+ .gateway h2{font-size:78px}
+ .gate-name{font-size:39px}
+}
+@media(prefers-reduced-motion:reduce){.record-window,.artwork,.gate-arrow svg{transition:none!important}}
