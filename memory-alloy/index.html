@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f2f0ea">
+  <meta name="description" content="MEMORY ALLOY — a TOHEŞAR experimental homepage art-direction study. An interactive sculpture of folded metal and translucent records.">
+  <title>MEMORY ALLOY — TOHEŞAR / Studio Study</title>
+  <link rel="icon" href="../assets/cedilla-favicon.svg">
+  <link rel="preload" as="image" href="../assets/wordmark-hd.png">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./sculpture.js"></script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to the artwork</a>
+  <main id="work">
+    <div class="sequence" id="sequence">
+      <div class="stage" id="stage">
+        <div class="sky-layer" aria-hidden="true"></div>
+        <div class="horizon" aria-hidden="true"></div>
+        <div class="sculpture-shadow" aria-hidden="true"></div>
+        <div class="artwork" id="artwork" aria-hidden="true">
+          <canvas id="alloy" aria-label="Folded titanium and translucent memory films opening into a spatial passage"></canvas>
+          <div class="fallback-sculpture" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+        <header class="masthead">
+          <a class="identity" href="/" aria-label="TOHEŞAR main website"><span class="wordmark"></span><span class="sr-only">TOHEŞAR</span></a>
+          <button id="index-toggle" class="index-toggle" aria-label="Open index" aria-expanded="false" aria-controls="site-index"><span>INDEX</span><span class="index-glyph"><i></i><i></i></span></button>
+          <nav id="site-index" class="site-index" hidden aria-label="TOHEŞAR navigation">
+            <a href="/journal/yokohama/">Journal <span>↗</span></a>
+            <a href="/world/">TOHEŞAR World <span>↗</span></a>
+            <a href="/symbol/">Se-diyu / Symbol <span>↗</span></a>
+            <a href="/history/">History <span>↗</span></a>
+            <a href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a>
+          </nav>
+        </header>
+        <div class="editorial" id="editorial">
+          <div class="micro"><span class="micro-line"></span>INDEPENDENT VISUAL CULTURE</div>
+          <p class="edition">TOHEŞAR <span class="separator">/</span> EXPERIMENT NO. 01</p>
+          <h1><span class="headline-first">Memory</span><em>alloy.</em></h1>
+          <div class="caption-grid">
+            <p class="caption-serial">STUDY<br>OF MATERIAL<br>& MEMORY</p>
+            <p class="caption-note">A folded record.<br>Opening in space.</p>
+          </div>
+        </div>
+        <div class="revelation" id="revelation" aria-hidden="true">
+          <span class="chapter-line">02 <i></i> TRANSFORMATION</span>
+          <h2>What remains<br><em>in motion.</em></h2>
+          <p>Not a collection of objects.<br>A way of seeing them.</p>
+        </div>
+        <div class="interface-bottom">
+          <span class="location-label">TOHEŞAR <b>—</b> THE RECORD IS OPEN</span>
+          <span class="scroll-guide"><i></i><span id="scroll-label">SCROLL TO UNFOLD</span></span>
+          <span class="counter"><b id="sequence-count">01</b><i></i>02</span>
+        </div>
+        <div class="progress" aria-hidden="true"><span></span></div>
+        <button class="motion-toggle" id="motion-toggle" aria-pressed="false" aria-label="Pause sculpture movement">Ⅱ</button>
+        <div class="error-notice" id="error-notice" role="status" hidden>The artwork is displayed in still mode on this device.</div>
+      </div>
+    </div>
+    <footer class="prototype-end">
+      <span>MEMORY ALLOY / ART DIRECTION PROOF</span>
+      <span>EXPERIMENTAL · NOT THE LIVE HOMEPAGE</span>
+      <a href="/journal/yokohama/">OPEN THE JOURNAL ↗</a>
+    </footer>
+  </main>
+</body>
+</html>
