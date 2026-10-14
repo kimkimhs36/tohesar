@@ -255,3 +255,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #464f53;outline-offset:5p
  .location-label{display:none}.interface-bottom{bottom:12px}
 }
 @media(prefers-reduced-motion:reduce){.gateway-nav a{transition:none}}
+
+.motion-toggle{font-size:0;display:grid;place-items:center}
+.motion-toggle:before{content:"";display:block;width:8px;height:10px;border-left:2px solid currentColor;border-right:2px solid currentColor}
+.motion-toggle[aria-pressed=true]:before{width:0;height:0;border:5px solid transparent;border-left:8px solid currentColor;border-right:0;margin-left:3px}

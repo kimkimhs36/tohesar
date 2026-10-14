@@ -65,7 +65,11 @@
     // A real labelled journal still emerges from the space between two wings.
     record.style.opacity=String(journalIn);
     record.style.transform=`translate3d(-50%,0,0) scale(${.70+.30*journalIn})`;
-    record.style.clipPath=`inset(0 ${(1-journalIn)*45}% 0 ${(1-journalIn)*45}%)`;
+    record.querySelector('.record-image').style.clipPath=`inset(0 ${(1-journalIn)*45}% 0 ${(1-journalIn)*45}%)`;
+    for(const label of record.querySelectorAll('.record-details,.record-action')){
+      label.style.opacity=String(ease(.80,.94,p));
+      label.style.visibility=p>.80?'visible':'hidden';
+    }
     cover.style.clipPath=`inset(0 ${leave*100}% 0 0)`;
     const recordActive=journalIn>.95;
     record.style.pointerEvents=recordActive?'auto':'none';
@@ -138,6 +142,8 @@
     c+=vec3(.82,.88,.98)*g(r.y,.84,.14)*.25;
     c*=1.-g(r.x,-.23,.078)*.79;
     c*=1.-g(r.x,.15,.055)*.48;
+    c*=1.-g(r.y,-.18,.12)*.66;
+    c+=vec3(1.1,1.15,1.2)*g(r.y,.43,.07)*g(r.z,.65,.7);
     return c;
   }
   void main(){
@@ -147,7 +153,8 @@
     float fres=pow(1.-max(0.,dot(n,v)),4.);
     vec3 env=studio(r+vec3(sin(uTime*.18)*.007,0.,0.));
     float edge=smoothstep(.83,.998,abs(vUv.x-.5)*2.);
-    float ystripe=sin(vUv.y*975.+vUv.x*21.)*.5+.5;
+    float grainPhase=vUv.y*975.+vUv.x*21.;
+    float ystripe=sin(grainPhase)*.5/(1.+fwidth(grainPhase))+.5;
     float brushed=(ystripe-.5)*.026;
     vec3 col;
     if(uMat<.5){
@@ -180,8 +187,9 @@
   let program;
   try {
     program=gl.createProgram();
-    gl.attachShader(program,shader(gl.VERTEX_SHADER,vertexSource));
-    gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fragmentSource));
+    const vertex=shader(gl.VERTEX_SHADER,vertexSource),fragment=shader(gl.FRAGMENT_SHADER,fragmentSource);
+    gl.attachShader(program,vertex);gl.attachShader(program,fragment);
+    gl.deleteShader(vertex);gl.deleteShader(fragment);
     gl.linkProgram(program);
     if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));
   } catch(err) {
@@ -218,7 +226,7 @@
   const N=cols+1;
   const V=rows+1;
   const norm=(v)=>Math.sqrt(v.reduce((a,x)=>a+x*x,0))||1;
-  const normalized=(v)=>v.map(x=>x/norm(v));
+  const normalized=(v)=>{const length=norm(v);return v.map(x=>x/length);};
   const sub=(a,b)=>a.map((v,i)=>v-b[i]);
   const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
   // Independent sheets with stable topology: one central folded folio, an
@@ -248,11 +256,11 @@
     const phase=wing?2.54:film?.34+k*.26:0;
     const theta=(-1.2+t*4.65)+phase;
     const taper=Math.pow(Math.sin(Math.PI*t),.65);
-    const width=(film?.19:wing?.30:.40)*(.18+.82*taper);
+    const width=(film?.16:wing?.23:.31)*(.18+.82*taper);
     const radius=1.02+.16*Math.sin(t*5+phase)+u*width;
     const twist=.65*Math.sin(theta*1.2)+open*(wing?-.65:.38);
-    let x=radius*Math.cos(theta);
-    let y=radius*Math.sin(theta)*1.27;
+    let x=radius*Math.cos(theta)*(.84+.12*t);
+    let y=radius*Math.sin(theta)*1.27+.13*Math.sin(t*8);
     let z=.38*Math.sin(theta*1.7+phase)+u*width*Math.sin(twist)*1.8;
     z+=film?-.22-k*.16:wing?.48:0;
     // Curl the lip sharply enough to catch a thin highlight.
@@ -278,11 +286,17 @@
         const v=j/rows,u=i/cols*2-1,pt=surfacePoint(s.type,s.index,u,v,p),a=(j*N+i)*3;
         positions[a]=pt[0];positions[a+1]=pt[1];positions[a+2]=pt[2];
       }
-      const at=(i,j)=>{const a=(Math.max(0,Math.min(rows,j))*N+Math.max(0,Math.min(cols,i)))*3;return [positions[a],positions[a+1],positions[a+2]];};
       for(let j=0;j<V;j++)for(let i=0;i<N;i++){
-        const tangentU=sub(at(i+1,j),at(i-1,j)),tangentV=sub(at(i,j+1),at(i,j-1));
-        const n=normalized(cross(tangentU,tangentV));
-        addToVertex(s.vertices,j*N+i,at(i,j),n,[i/cols,j/rows]);
+        const index=j*N+i,offset=index*3,out=index*8;
+        const l=(j*N+Math.max(0,i-1))*3,r=(j*N+Math.min(cols,i+1))*3;
+        const d=(Math.max(0,j-1)*N+i)*3,h=(Math.min(rows,j+1)*N+i)*3;
+        const ax=positions[r]-positions[l],ay=positions[r+1]-positions[l+1],az=positions[r+2]-positions[l+2];
+        const bx=positions[h]-positions[d],by=positions[h+1]-positions[d+1],bz=positions[h+2]-positions[d+2];
+        const nx=ay*bz-az*by,ny=az*bx-ax*bz,nz=ax*by-ay*bx;
+        const length=Math.hypot(nx,ny,nz)||1;
+        s.vertices[out]=positions[offset];s.vertices[out+1]=positions[offset+1];s.vertices[out+2]=positions[offset+2];
+        s.vertices[out+3]=nx/length;s.vertices[out+4]=ny/length;s.vertices[out+5]=nz/length;
+        s.vertices[out+6]=i/cols;s.vertices[out+7]=j/rows;
       }
       gl.bindBuffer(gl.ARRAY_BUFFER,s.buffer);gl.bufferSubData(gl.ARRAY_BUFFER,0,s.vertices);
     }
@@ -302,9 +316,9 @@
     const open=ease(.15,.44,p),pass=ease(.42,.78,p);
     const portrait=aspect<.8;
     const eye=[-.65+open*1.5-pass*.45,.38+open*.27-pass*.35,
-      (portrait?10.7:8.4)-open*.6-pass*1.4];
+      (portrait?15.6:8.9)-open*.6-pass*1.4];
     // Portrait sculpture sits above the typography; desktop sits to its right.
-    const target=[portrait?.02:-1.25,portrait?-.85:-.12,pass*.25];
+    const target=[portrait?.02:-1.25,portrait?-1.20:-.12,pass*.25];
     const forward=normalized(sub(target,eye));
     const right=normalized(cross(forward,[0,1,0]));
     const up=normalized(cross(right,forward));
@@ -336,7 +350,7 @@
   let ambientUntil=0;
   function loop(now){
     frame=0;
-    const dt=Math.min(.065,(now-(lastTime||now))/1000);
+    const dt=Math.min(.2,(now-(lastTime||now))/1000);
     lastTime=now;
     if(needMotion()) clock+=dt;
     const next=reduce.matches?target:current+(target-current)*(1-Math.exp(-dt*9));
@@ -376,6 +390,9 @@
     gl.deleteProgram(program);
   });
   window.addEventListener('pageshow',()=>{readScroll();start();});
+  pauseButton.setAttribute('aria-pressed',String(motionPaused));
+  pauseButton.setAttribute('aria-label',motionPaused?'Play sculpture movement':'Pause sculpture movement');
+  pauseButton.textContent=motionPaused?'▶':'Ⅱ';
   resize();readScroll();
   artwork.classList.add('ready');
   start();
