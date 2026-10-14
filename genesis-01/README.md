@@ -33,6 +33,8 @@ node scripts/capture.cjs
 node scripts/verify.cjs
 ```
 
+Verified in Chromium: native scroll reaches the interior with all morph targets open; reverse scroll returns all morph targets to zero; reduced-motion stays on the first composition; no horizontal overflow at 390×844; simulated WebGL context loss displays the captured poster; no JavaScript errors. Production build passes (Vite reports its standard >500 kB chunk advisory; JavaScript is approximately 128 kB gzip).
+
 `captures/` contains mobile 390×844 and desktop 1440×1000 screenshots plus raw reports. Chromium uses software WebGL; screenshots are **not iPhone Safari certification or device performance measurements**. No 60fps, thermal, Safari toolbar, or iOS GPU memory claim is made. Real iPhone portrait is the next gate. Film artwork is intentionally abstract and contains no invented journal entries or history.
 
 ## Provenance / preservation

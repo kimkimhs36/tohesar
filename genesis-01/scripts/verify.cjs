@@ -17,7 +17,8 @@ await page.waitForTimeout(300);const reduced=await page.evaluate(()=>window.__ge
 const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);if(overflow)throw Error('Horizontal overflow');
 await page.evaluate(()=>document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
 await page.waitForFunction(()=>!document.querySelector('#fallback').hidden);
-const poster=await page.locator('#fallback img').evaluate(i=>i.complete&&i.naturalWidth>0);if(!poster)throw Error('Fallback image missing');
+await page.waitForFunction(()=>{const i=document.querySelector('#fallback img');return i.complete&&i.naturalWidth>0;});
+const poster=true;
 const report={browser:'Chromium software WebGL, not real Safari',nativeScrollPassage:true,reversible:true,reducedMotion:true,noHorizontalOverflow:!overflow,contextLossPoster:poster,errors,end,reverse,reduced};
 fs.writeFileSync('captures/interaction-report.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(errors.length)throw Error('Browser errors');
 }finally{await browser.close()}

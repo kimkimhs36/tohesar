@@ -1,0 +1,84 @@
+{
+  "browser": "Chromium software WebGL, not real Safari",
+  "nativeScrollPassage": true,
+  "reversible": true,
+  "reducedMotion": true,
+  "noHorizontalOverflow": true,
+  "contextLossPoster": true,
+  "errors": [],
+  "end": {
+    "progress": 0.29992458001075323,
+    "target": 0.3,
+    "camera": [
+      0.82,
+      1,
+      -0.8498201763557187
+    ],
+    "morph": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "calls": 23,
+    "triangles": 85504,
+    "geometries": 10,
+    "textures": 17,
+    "reduced": false
+  },
+  "reverse": {
+    "progress": 0.00008870709254605303,
+    "target": 0,
+    "camera": [
+      0,
+      0.12,
+      10.2
+    ],
+    "morph": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "calls": 24,
+    "triangles": 85506,
+    "geometries": 10,
+    "textures": 17,
+    "reduced": false
+  },
+  "reduced": {
+    "progress": 0.00007540102866414508,
+    "target": 0,
+    "camera": [
+      0,
+      0.12,
+      10.2
+    ],
+    "morph": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "calls": 24,
+    "triangles": 85506,
+    "geometries": 10,
+    "textures": 17,
+    "reduced": true
+  }
+}
