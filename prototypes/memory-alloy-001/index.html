@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f1eee7">
+  <meta name="description" content="TOHEŞAR — Memory Alloy. An experimental first scene for the next-generation homepage.">
+  <title>MEMORY ALLOY / TOHEŞAR — Prototype 001</title>
+  <link rel="icon" href="/assets/cedilla-favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"/next-generation/vendor/three/build/three.module.js"}}</script>
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#art">Skip to artwork</a>
+  <header class="masthead">
+    <a class="signature" href="/" aria-label="TOHEŞAR official homepage">
+      <img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255">
+    </a>
+    <button class="index-button" id="index-toggle" aria-expanded="false" aria-controls="index-panel">INDEX <span class="plus" aria-hidden="true">+</span></button>
+  </header>
+
+  <nav class="index-panel" id="index-panel" aria-label="TOHEŞAR destinations" hidden>
+    <button class="index-close" id="index-close" aria-label="Close index">CLOSE ×</button>
+    <a href="/">MAIN SITE <small>01</small></a>
+    <a href="/journal/yokohama/">JOURNAL <small>02</small></a>
+    <a href="/world/">WORLD <small>03</small></a>
+    <a href="/symbol/">SE-DIYU / SYMBOL <small>04</small></a>
+    <a href="/history/">HISTORY <small>05</small></a>
+    <a href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM <small>↗</small></a>
+  </nav>
+
+  <main id="art">
+    <section class="scroll-sequence" id="sequence" aria-label="Memory Alloy, a continuous first transformation">
+      <div class="viewport" id="viewport">
+        <div class="atmosphere" aria-hidden="true"></div>
+        <div class="plinth-shadow" aria-hidden="true"></div>
+        <div class="fallback-sculpture" id="fallback-art" aria-hidden="true">
+          <i class="foil foil-back"></i><i class="foil foil-film"></i><i class="foil foil-front"></i>
+        </div>
+        <canvas id="scene" aria-label="A folded titanium and translucent film sculpture opening with the scroll" role="img"></canvas>
+
+        <div class="editorial editorial-first" id="editorial-first">
+          <span class="eyebrow">TOHEŞAR <i></i> EXPERIMENT 001</span>
+          <p class="editorial-note">A STUDY OF<br>FORM, LIGHT & MEMORY.</p>
+          <span class="vertical-index">01 — FOLDED RECORD</span>
+        </div>
+        <div class="editorial editorial-second" id="editorial-second" aria-hidden="true">
+          <span class="eyebrow">THE FOLD OPENS</span>
+          <p class="revelation">One surface.<br><em>Many layers.</em></p>
+          <span class="revelation-note">THE FIRST TRANSFORMATION / STUDY 001</span>
+        </div>
+
+        <div class="stage-footer">
+          <span class="scroll-prompt" id="scroll-prompt"><span class="scroll-line"></span> SCROLL TO UNFOLD</span>
+          <span class="page-count"><span id="page-index">00</span><b>/</b>30</span>
+          <button id="motion-control" class="motion-control" aria-label="Pause ambient motion" aria-pressed="false">Ⅱ</button>
+        </div>
+        <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+      </div>
+    </section>
+    <footer class="prototype-footer">
+      <span>TOHEŞAR / ART DIRECTION PROOF</span>
+      <span>SCENE 01–02 ONLY. NOT A PUBLISHED BRAND WORK.</span>
+      <a href="/journal/yokohama/">JOURNAL ↗</a>
+    </footer>
+  </main>
+</body>
+</html>
