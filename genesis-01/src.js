@@ -25,6 +25,7 @@ const pmrem=new THREE.PMREMGenerator(renderer);
 const room=new RoomEnvironment();
 // Large reflected light cards, with restrained blue/peach chromatic separation.
 const card=(color,x,y,z,sx,sy)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(sx,sy),new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);room.add(m);};
+card(0x20282b,-1.8,0,4,1.2,6);card(0xfff5e7,1.8,2,3,.8,6);
 card(0xc1e4ff,-3,2,2,3,7);card(0xf3c9ac,4,-1,1,2,6);card(0x252a30,1,1,-3,1.8,7);
 const env=pmrem.fromScene(room,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
 scene.add(new THREE.HemisphereLight(0xdceefa,0xd7b7a2,.75));
@@ -127,7 +128,7 @@ function measure(){
  scrollRange=Math.max(1,document.documentElement.scrollHeight-innerHeight);
  onScroll();
 }
-function onScroll(){target=reduced.matches?0:forced!==null?clamp(Number(forced)||0,0,.48):clamp(scrollY/scrollRange,0,1)*.48;request();}
+function onScroll(){target=reduced.matches?(scrollY/scrollRange>.45?.48:0):forced!==null?clamp(Number(forced)||0,0,.48):clamp(scrollY/scrollRange,0,1)*.48;request();}
 function request(){if(!raf&&!document.hidden&&!contextLost)raf=requestAnimationFrame(draw);}
 function pose(p){
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
@@ -139,12 +140,11 @@ function pose(p){
  sculpture.rotation.y=THREE.MathUtils.lerp(-.32,0,split);
  sculpture.rotation.z=THREE.MathUtils.lerp(-.18,-.035,split);
  const startZ=mobile?10.2:9.5;
- camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-ease(.12,.23,p)*1.55-pass*(startZ-.7));
+ camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-ease(.12,.23,p)*1.55-ease(.23,.27,p)*3.4-pass*(startZ-4.1));
  camera.lookAt(camera.position.x,camera.position.y,-8);
  const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
  if(p>.30){
   camera.position.set(sculpture.position.x+Math.sin(Math.PI*scatter)*.4+(1-arrive)*scatter*(mobile?.45:.9),sculpture.position.y+.18*scatter*(1-arrive),THREE.MathUtils.lerp(-.85,-3.3,scatter)-arrive*1.7);
-  camera.position.x+=ease(.445,.48,p)*.09;
   camera.lookAt(camera.position.x,camera.position.y,-16);
  }
  films.forEach((film,i)=>{const side=i%2?-1:1;film.position.set(side*scatter*(1.1+i*.17),scatter*(i-2)*.3,-scatter*.5);filmEdges[i].position.copy(film.position);});
@@ -158,9 +158,9 @@ function pose(p){
  document.querySelector('#percent').textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 48`;
 }
 let lastFrame=0;
-function draw(now){raf=0;const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):1/60;lastFrame=now;progress+= (target-progress)*(1-Math.exp(-12*dt));if(Math.abs(target-progress)<.00002)progress=target;pose(progress);renderer.render(scene,camera);if(progress!==target)request();}
+function draw(now){raf=0;const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):1/60;lastFrame=now;progress=reduced.matches?target:progress+(target-progress)*(1-Math.exp(-12*dt));if(Math.abs(target-progress)<.00002)progress=target;pose(progress);renderer.render(scene,camera);if(progress!==target)request();}
 addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',measure);visualViewport?.addEventListener('resize',measure);
-reduced.addEventListener('change',onScroll);document.addEventListener('visibilitychange',request);
+reduced.addEventListener('change',measure);document.addEventListener('visibilitychange',request);
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
 // Explicit read-only inspection for repeatable browser verification.

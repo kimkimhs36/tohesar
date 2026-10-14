@@ -4,84 +4,84 @@
   "errors": [],
   "frames": [
     {
-      "p": 0.37,
+      "p": 0,
       "state": {
-        "progress": 0.37,
-        "target": 0.37,
+        "progress": 0,
+        "target": 0,
         "camera": [
-          1.11,
-          0.8,
-          -3.3
+          0,
+          0.12,
+          10.2
         ],
         "morph": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
         ],
-        "calls": 26,
-        "triangles": 28800,
-        "geometries": 29,
-        "textures": 24,
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
         "reduced": false,
         "revelation": {
-          "alignmentError": 1.0299034664470885,
+          "alignmentError": 0.705074299605005,
           "depthRange": 3.5999999999999996,
           "fragmentCount": 7,
           "geometryLocked": false
         },
-        "mediaReady": true
+        "mediaReady": false
       }
     },
     {
-      "p": 0.4,
+      "p": 0.23,
       "state": {
-        "progress": 0.4,
-        "target": 0.4,
+        "progress": 0.23,
+        "target": 0.23,
         "camera": [
-          0.8849999999999998,
-          0.7099999999999999,
-          -4.150000000000001
+          0,
+          0.12,
+          8.649999999999999
         ],
         "morph": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
+          0.9831588529813382,
+          0.9831588529813382,
+          0.9831588529813382,
+          0.9831588529813382,
+          0,
+          0,
+          0,
+          0,
+          0
         ],
-        "calls": 23,
-        "triangles": 22272,
-        "geometries": 29,
-        "textures": 24,
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
         "reduced": false,
         "revelation": {
-          "alignmentError": 0.45433607737154563,
+          "alignmentError": 0.7145826818389438,
           "depthRange": 3.5999999999999996,
           "fragmentCount": 7,
-          "geometryLocked": true
+          "geometryLocked": false
         },
-        "mediaReady": true
+        "mediaReady": false
       }
     },
     {
-      "p": 0.43,
+      "p": 0.3,
       "state": {
-        "progress": 0.43,
-        "target": 0.43,
+        "progress": 0.3,
+        "target": 0.3,
         "camera": [
           0.66,
           0.62,
-          -5
+          -0.8500000000000014
         ],
         "morph": [
           1,
@@ -94,49 +94,14 @@
           1,
           1
         ],
-        "calls": 23,
-        "triangles": 22272,
+        "calls": 37,
+        "triangles": 77952,
         "geometries": 29,
         "textures": 24,
         "reduced": false,
         "revelation": {
-          "alignmentError": 2.0014830212433607e-16,
+          "alignmentError": 0.34818193127821156,
           "depthRange": 3.5999999999999996,
-          "fragmentCount": 7,
-          "geometryLocked": true
-        },
-        "mediaReady": true
-      }
-    },
-    {
-      "p": 0.48,
-      "state": {
-        "progress": 0.48,
-        "target": 0.48,
-        "camera": [
-          0.75,
-          0.62,
-          -5
-        ],
-        "morph": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
-        "calls": 23,
-        "triangles": 22272,
-        "geometries": 29,
-        "textures": 24,
-        "reduced": false,
-        "revelation": {
-          "alignmentError": 0.12578537566674056,
-          "depthRange": 0,
           "fragmentCount": 7,
           "geometryLocked": false
         },

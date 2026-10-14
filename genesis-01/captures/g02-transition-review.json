@@ -1,0 +1,182 @@
+{
+  "browser": "Chromium SwiftShader; NOT real iPhone Safari",
+  "viewport": "390×844",
+  "errors": [],
+  "frames": [
+    {
+      "p": 0.25,
+      "state": {
+        "progress": 0.25,
+        "target": 0.25,
+        "camera": [
+          0.32999999999999974,
+          0.3699999999999998,
+          6.95
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          0.49999999999999956,
+          0.49999999999999956,
+          0.49999999999999956,
+          0.49999999999999956,
+          0.49999999999999956
+        ],
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.5991823738505052,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": false
+      }
+    },
+    {
+      "p": 0.27,
+      "state": {
+        "progress": 0.27,
+        "target": 0.27,
+        "camera": [
+          0.66,
+          0.62,
+          5.249999999999998
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.4866007824899586,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": false
+      }
+    },
+    {
+      "p": 0.33,
+      "state": {
+        "progress": 0.33,
+        "target": 0.33,
+        "camera": [
+          1.214968552652493,
+          0.6908454810495628,
+          -1.8142857142857156
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 33,
+        "triangles": 56640,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.8696486950804603,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.41,
+      "state": {
+        "progress": 0.41,
+        "target": 0.41,
+        "camera": [
+          0.7766666666666668,
+          0.6666666666666667,
+          -4.5592592592592585
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.25681476477853327,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": true
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.445,
+      "state": {
+        "progress": 0.445,
+        "target": 0.445,
+        "camera": [
+          0.66,
+          0.62,
+          -5
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 2.0014830212433607e-16,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": true
+        },
+        "mediaReady": true
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-# TOHEŞAR — NEXT GENERATION / GENESIS 01
+# TOHEŞAR — GENESIS 02
 
-Independent, unpublished Scene 01–02 prototype. Run from this directory:
+Scene 01–03 / **0–48%**, continued in the original independent `genesis-01/` directory. Same branch, same artifact, no production deployment.
 
 ```sh
 npm ci
@@ -8,43 +8,44 @@ npm run dev
 npm run build
 ```
 
-A new procedural **folded folio**: two unequal pressed titanium surfaces, polished cut edges and five translucent registration films. No existing V2/V3 design, mesh, scene or animation code was used. Ivory, pale sky and peach light describe the surface; there is no bloom, grain or chromatic aberration. The study title is not a new brand slogan.
+## Experience
 
-## Scope and timeline
+- **0–12% / Fold.** Unequal titanium folios, satin hairline finish, polished perimeter, translucent memory films. A still portrait composition in ivory, sky and peach light.
+- **12–23% / Opening.** Position and normal morph targets open the outer shell. Its opening direction keeps the shell in front of the inner film instead of intersecting it.
+- **23–30% / Separation and passage.** Five films become a corridor. A staged dolly crosses the exterior; the existing visual record becomes visible ahead.
+- **30–37% / Fragments.** Seven UV crops of the existing YOKOHAMA visual study separate at different depths.
+- **37–43% / Anamorphosis.** Fragment transforms settle by 40%. From 40–43%, **only the camera moves**. At 43% their perspective projections reconstruct one image while their depths still span 3.6 world units. This is not a flat image fading over the scene.
+- **43–48% / Revelation.** A short held viewpoint lets the image register. Layers then converge into a quiet editorial plane and existing journal metadata appears. No Scene 04 or Journal UI is built.
 
-One persistent Three.js WebGL2 canvas, native scroll, plain DOM, Vite. The complete local scroll span maps to **0–30% of the proposed homepage**, then stops. There are no later scenes.
+One Three.js WebGL2 canvas + native scroll + Vite + DOM type. Scroll maps the entire local document to 0–48%, then stops. Mobile has its own composition. Rendering is on demand; settling is time-based, DPR capped at 1.65. Reduced motion provides the first and final compositions as two static scroll states. WebGL failure/context loss shows the captured poster.
 
-- 0–12%: folded exterior, portrait crop, restrained stillness.
-- 12–17%: camera approaches.
-- 17–23%: position and normal morph targets open both folios.
-- 23–27%: five film geometries separate into depth.
-- 27–30%: camera crosses the outer shell into the films.
+## Sources
 
-All positions derive from the same reversible progress value. Rendering stops after scroll settles and pauses while hidden. DPR capped at 1.65. Reduced motion retains the static composition. WebGL creation/context failure shows a captured still. Recovery requests a new render; real device recovery remains unverified.
+Top art direction: the supplied *TOHEŞAR — THE NEXT GENERATION HOMEPAGE.docx*, especially Scene 01–03 and quality gates.
 
-Direct inspection frames: `?p=0`, `?p=.23`, `?p=.30`. These freeze the study progress and are for review only. `window.__genesis.state` exposes camera/morph/render statistics.
+See `provenance.json`. The official wordmark and `/assets/yokohama-portrait.webp` are byte-for-byte copies. The image is from the existing `/journal/yokohama/` publication, **AI-assisted visual fiction, not documentary photography**. Its title, year (2026), imagined setting and categories come from that page. This distinction remains visible in the experience. No new brand history, photograph, project or publication date was invented.
 
-## Verification
+All code, geometry and texture effects extend Genesis 01. V2/V3 scene/design code was not reused. Main, WORLD, SYMBOL, HISTORY, JOURNAL, original assets and deployment configuration remain untouched.
+
+## Review and verification
 
 ```sh
 npx playwright install chromium
-# With npm run dev on port 5173:
-node scripts/capture.cjs
-node scripts/verify.cjs
+# Keep the dev server running on port 5173:
+node scripts/review.cjs
+WIDTH=1440 HEIGHT=1000 LABEL=desktop FRAMES=0,.30,.43,.48 node scripts/review.cjs
+WIDTH=844 HEIGHT=390 LABEL=landscape FRAMES=0,.43,.48 node scripts/review.cjs
+node scripts/integration.cjs
 ```
 
-Verified in Chromium: native scroll reaches the interior with all morph targets open; reverse scroll returns all morph targets to zero; reduced-motion stays on the first composition; no horizontal overflow at 390×844; simulated WebGL context loss displays the captured poster; no JavaScript errors. Production build passes (Vite reports its standard >500 kB chunk advisory; JavaScript is approximately 128 kB gzip).
+Review frames: `?p=0`, `?p=.23`, `?p=.30`, `?p=.37`, `?p=.40`, `?p=.43`, `?p=.48`. The query freezes progress. `window.__genesis.seek(p)` is active only in this review mode; `state` exposes actual camera, morph and projection measurements. Normal visits use native scroll.
 
-`captures/` contains mobile 390×844 and desktop 1440×1000 screenshots plus raw reports. Chromium uses software WebGL; screenshots are **not iPhone Safari certification or device performance measurements**. No 60fps, thermal, Safari toolbar, or iOS GPU memory claim is made. Real iPhone portrait is the next gate. Film artwork is intentionally abstract and contains no invented journal entries or history.
+`captures/g02-mobile-review.json`, `g02-desktop-review.json`, `g02-landscape-review.json`, `g02-transition-review.json` and `g02-integration.json` hold the latest review. `g02-review.json` is an intermediate checkpoint.
 
-## Provenance / preservation
+Verified: native 0–48% scrolling and reverse traversal, camera-only optical alignment with nonzero physical depth, reduced-motion access to both endpoints, absence of horizontal overflow at 390×844, and simulated context-loss poster. No JavaScript errors were observed. Production build passes; Vite reports a 516.8 kB minified chunk advisory (132.4 kB gzip). Genesis 01 baselines are preserved in `captures/genesis-01-baseline/`. Older `mobile-*`, `render-report.json`, `interaction-report.json` and `scripts/capture.cjs` / `verify.cjs` document the earlier milestone; use the GENESIS 02 commands above for the current timeline.
 
-- Art direction: user-supplied *TOHEŞAR — THE NEXT GENERATION HOMEPAGE.docx*, Executive Summary, recommended MEMORY ALLOY direction, Scene 01/02, quality gates and handoff.
-- `public/assets/wordmark.svg`: byte-for-byte copy of repository `/assets/wordmark.svg`. CSS darkens its display; its paths and source remain unchanged.
-- Geometry, film registration textures, lights and timeline: newly authored procedural study. No external model, generated photograph or invented official archive content.
-- `public/assets/poster.png`: screenshot of this new renderer, used only for fallback.
-- All changes confined to `genesis-01/`. Main homepage, V2/V3, WORLD, SYMBOL, HISTORY, JOURNAL and original assets are untouched. No deployment configuration or production publish was performed.
+Chromium uses software WebGL. **Physical iPhone Safari, thermal behavior, touch latency and device FPS are unverified.** Playwright WebKit was downloaded but cannot run in this host: required GTK/GLES and related system libraries are missing, and `sudo` is unavailable. Do not present Chromium emulation as a Safari test. Context restoration after loss still needs physical-device testing.
 
-## Handoff
+## Next developer
 
-Run on a physical iPhone Safari in portrait, check slow/fast/reverse scroll and 3–5 minutes of heat/performance, then refine material depth and the 23–30% framing. Confirm artistic approval before expanding scope. Add approved photographic fragments only after source/provenance approval; do not invent brand history. Do not build Scene 03, Journal, gateways or footer as part of this milestone.
+Start with real iPhone portrait: slow/fast/reverse scroll, toolbar resize, background/foreground, context loss, and 3–5 minutes of repeated playback. Compare 0/23/30/37/43/48 to the saved captures. Continue art-direction refinement only within Scene 01–03 until approved. The final editorial plane is the spatial handoff for a later Scene 04; expanding or deploying is a separate task.

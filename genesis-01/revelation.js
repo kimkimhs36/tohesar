@@ -20,25 +20,25 @@ export function createRevelation(scene,request){
  let ready=false;texture.onUpdate=()=>{ready=true;};
  const inspection={alignmentError:null,depthRange:0,fragmentCount:7};
  function update(p,camera,anchor,mobile){
-  group.visible=p>.285;
-  const reveal=smooth(.295,.35,p),spread=smooth(.30,.37,p);
+  group.visible=p>.27;
+  const reveal=smooth(.27,.33,p),spread=smooth(.30,.37,p);
   // Geometry locks at 40%. Only the camera resolves the projection from 40–43%.
   const arrange=smooth(.37,.40,p),settle=smooth(.445,.48,p);
   const halfH=Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*6;
   const halfW=halfH*camera.aspect;
-  const width=mobile?halfW*1.64:halfH*1.2;
+  const width=mobile?halfW*1.64:halfH*1.05;
   const height=width*1050/850;
   let error=0,minZ=Infinity,maxZ=-Infinity;
   camera.updateMatrixWorld();
   for(let i=0;i<fragments.length;i++){
    const {tile,region:r,depth}=fragments[i], [x,y,w,h]=r;
-   const cx=(x+w/2-.5)*width,cy=(.5-y-h/2)*height+halfH*.14;
+   const cx=(x+w/2-.5)*width+(mobile?0:halfW*.35),cy=(.5-y-h/2)*height+halfH*.14;
    const distance=mix(depth,5.4,settle),ratio=distance/6;
    const scatterX=Math.sin(i*2.4)*(mobile?.46:.9)*spread*(1-arrange);
    const scatterY=Math.cos(i*1.8)*.62*spread*(1-arrange);
    // Back-project each crop from the same reference camera, at unequal depths.
    tile.position.set(anchor.x+cx*ratio+scatterX,anchor.y+cy*ratio+scatterY,-5-distance);
-   tile.scale.set(width*w*ratio*(.22+.78*spread)*.993,height*h*ratio*(.22+.78*spread)*.993,1);
+   tile.scale.set(width*w*ratio*(.55+.45*spread)*.993,height*h*ratio*(.55+.45*spread)*.993,1);
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
    tile.material.opacity=reveal;
    tile.updateMatrixWorld();

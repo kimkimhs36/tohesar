@@ -1,0 +1,291 @@
+{
+  "browser": "Chromium software WebGL (not physical iPhone)",
+  "errors": [],
+  "nativeScrollAndReverse": true,
+  "alignmentVerified": true,
+  "reducedMotionShowsBothScenes": true,
+  "contextLossPoster": true,
+  "noHorizontalOverflow": true,
+  "points": [
+    {
+      "p": 0,
+      "state": {
+        "progress": 0,
+        "target": 0,
+        "camera": [
+          0,
+          0.12,
+          10.2
+        ],
+        "morph": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.705074299605005,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": false
+      }
+    },
+    {
+      "p": 0.23,
+      "state": {
+        "progress": 0.22994142691896916,
+        "target": 0.2299931647300068,
+        "camera": [
+          0,
+          0.12,
+          8.650001317982136
+        ],
+        "morph": [
+          0.9827728821960481,
+          0.9827728821960481,
+          0.9827728821960481,
+          0.9827728821960481,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.7145826729968855,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": false
+      }
+    },
+    {
+      "p": 0.3,
+      "state": {
+        "progress": 0.2998440644223631,
+        "target": 0.2999863294600137,
+        "camera": [
+          0.66,
+          0.62,
+          -0.8495072899043459
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 37,
+        "triangles": 77952,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.34820168910378935,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.4,
+      "state": {
+        "progress": 0.3998062848731032,
+        "target": 0.40005468215994533,
+        "camera": [
+          0.8871792648889774,
+          0.7108717059555909,
+          -4.14176722153053
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.4579834664090597,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.43,
+      "state": {
+        "progress": 0.4299456122440659,
+        "target": 0.43002050580997947,
+        "camera": [
+          0.6600011085901629,
+          0.6200004434360652,
+          -4.999995811992718
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.0000027026301985780757,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": true
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.48,
+      "state": {
+        "progress": 0.4798483969717379,
+        "target": 0.48,
+        "camera": [
+          0.66,
+          0.62,
+          -5
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 2.2887833992611187e-16,
+          "depthRange": 0.0002020447189288177,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.3,
+      "state": {
+        "progress": 0.3001206119270832,
+        "target": 0.2999863294600137,
+        "camera": [
+          0.6600151826543823,
+          0.6200016013233574,
+          -0.8500217957901424
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 37,
+        "triangles": 77952,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.34816957610538435,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0,
+      "state": {
+        "progress": 0.00008246217576221191,
+        "target": 0,
+        "camera": [
+          0,
+          0.12,
+          10.2
+        ],
+        "morph": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.705074299605005,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "browser": "Chromium SwiftShader; NOT real iPhone Safari",
+  "viewport": "844×390",
+  "errors": [],
+  "frames": [
+    {
+      "p": 0,
+      "state": {
+        "progress": 0,
+        "target": 0,
+        "camera": [
+          0,
+          0.12,
+          9.5
+        ],
+        "morph": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "calls": 24,
+        "triangles": 75266,
+        "geometries": 15,
+        "textures": 23,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 0.5011942599047942,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": false
+      }
+    },
+    {
+      "p": 0.43,
+      "state": {
+        "progress": 0.43,
+        "target": 0.43,
+        "camera": [
+          1.22,
+          0.05,
+          -5
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 1.6653345369377348e-16,
+          "depthRange": 3.5999999999999996,
+          "fragmentCount": 7,
+          "geometryLocked": true
+        },
+        "mediaReady": true
+      }
+    },
+    {
+      "p": 0.48,
+      "state": {
+        "progress": 0.48,
+        "target": 0.48,
+        "camera": [
+          1.22,
+          0.05,
+          -5
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 23,
+        "triangles": 22272,
+        "geometries": 29,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": 1.1443916996305594e-16,
+          "depthRange": 0,
+          "fragmentCount": 7,
+          "geometryLocked": false
+        },
+        "mediaReady": true
+      }
+    }
+  ]
+}
