@@ -143,7 +143,8 @@ function pose(p){
  camera.lookAt(camera.position.x,camera.position.y,-8);
  const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
  if(p>.30){
-  camera.position.set(sculpture.position.x+Math.sin(Math.PI*scatter)*.7+(1-arrive)*scatter*.9,sculpture.position.y+.18*scatter*(1-arrive),THREE.MathUtils.lerp(-.85,-3.3,scatter)-arrive*1.7);
+  camera.position.set(sculpture.position.x+Math.sin(Math.PI*scatter)*.4+(1-arrive)*scatter*(mobile?.45:.9),sculpture.position.y+.18*scatter*(1-arrive),THREE.MathUtils.lerp(-.85,-3.3,scatter)-arrive*1.7);
+  camera.position.x+=ease(.445,.48,p)*.09;
   camera.lookAt(camera.position.x,camera.position.y,-16);
  }
  films.forEach((film,i)=>{const side=i%2?-1:1;film.position.set(side*scatter*(1.1+i*.17),scatter*(i-2)*.3,-scatter*.5);filmEdges[i].position.copy(film.position);});
