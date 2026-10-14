@@ -1,0 +1,41 @@
+{
+  "browser": "Chromium SwiftShader; NOT real iPhone Safari",
+  "viewport": "390×844",
+  "errors": [],
+  "frames": [
+    {
+      "p": 0.37,
+      "state": {
+        "progress": 0.37,
+        "target": 0.37,
+        "camera": [
+          1.56,
+          0.8,
+          -3.3
+        ],
+        "morph": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "calls": 21,
+        "triangles": 21888,
+        "geometries": 27,
+        "textures": 24,
+        "reduced": false,
+        "revelation": {
+          "alignmentError": null,
+          "depthRange": 3.6000000000000005,
+          "fragmentCount": 7
+        },
+        "mediaReady": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+import * as THREE from 'three';
+const mix=THREE.MathUtils.lerp;
+const smooth=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
+// One existing published visual fiction; UV fragments never invent new archive material.
+export function createRevelation(scene,request){
+ const group=new THREE.Group();scene.add(group);
+ const texture=new THREE.TextureLoader().load('./assets/yokohama-portrait.webp',()=>request());
+ texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=4;
+ const regions=[[0,0,.42,.3],[.42,0,.58,.3],[0,.3,.28,.4],[.28,.3,.45,.4],[.73,.3,.27,.4],[0,.7,.55,.3],[.55,.7,.45,.3]];
+ const depths=[3.8,5.4,4.6,6.3,4.1,5.9,7.4];
+ const fragments=regions.map((r,i)=>{
+  const [x,y,w,h]=r,g=new THREE.PlaneGeometry(1,1,12,16),uv=g.attributes.uv;
+  for(let j=0;j<uv.count;j++)uv.setXY(j,x+uv.getX(j)*w,1-y-h+uv.getY(j)*h);
+  const material=new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide,transparent:true,opacity:0,toneMapped:false});
+  material.forceSinglePass=true;
+  const tile=new THREE.Mesh(g,material);group.add(tile);
+  const edge=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(1.018,1.018)),new THREE.LineBasicMaterial({color:i%2?0x987967:0x8da7b3,transparent:true,opacity:.55}));tile.add(edge);
+  return {tile,edge,region:r,depth:depths[i]};
+ });
+ let ready=false;texture.onUpdate=()=>{ready=true;};
+ const inspection={alignmentError:null,depthRange:0,fragmentCount:7};
+ function update(p,camera,anchor,mobile){
+  group.visible=p>.285;
+  const reveal=smooth(.295,.35,p),spread=smooth(.30,.37,p);
+  const halfH=Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*6;
+  const width=mobile?halfH*camera.aspect*1.64:halfH*1.2;
+  const height=width*1050/850;
+  for(let i=0;i<fragments.length;i++){
+   const {tile,region:r,depth}=fragments[i], [x,y,w,h]=r;
+   const cx=(x+w/2-.5)*width,cy=(.5-y-h/2)*height+halfH*.14;
+   const d=depth/6;
+   tile.position.set(anchor.x+cx*d+Math.sin(i*2.4)*.9*spread,anchor.y+cy*d+Math.cos(i*1.8)*.7*spread,-5-depth);
+   tile.scale.set(width*w*d*(.22+.78*spread),height*h*d*(.22+.78*spread),1);
+   tile.rotation.set(.14*Math.sin(i*2)*spread,.45*Math.cos(i*2.3)*spread,.13*Math.sin(i)*spread);
+   tile.material.opacity=reveal*.94;
+  }
+  inspection.depthRange=Math.max(...depths)-Math.min(...depths);
+ }
+ return {update,inspection,fragments,get ready(){return ready;}};
+}

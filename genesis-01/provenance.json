@@ -1,0 +1,8 @@
+{
+  "direction": "User-supplied TOHEŞAR — THE NEXT GENERATION HOMEPAGE.docx; Scene 01–03",
+  "assets": [
+    {"file":"public/assets/wordmark.svg","source":"/assets/wordmark.svg","status":"existing official wordmark; byte-for-byte copy"},
+    {"file":"public/assets/yokohama-portrait.webp","source":"/assets/yokohama-portrait.webp","sourcePage":"/journal/yokohama/","title":"001 / Somewhere in Yokohama","year":"2026","setting":"Imagined Yokohama waterfront","medium":"AI-assisted imagery / editorial direction","status":"existing published visual fiction; not documentary photography","sourceModified":false}
+  ],
+  "restrictions": "No invented dates, documentary claims, projects or history. No WORLD/SYMBOL/HISTORY modifications. No deployment."
+}

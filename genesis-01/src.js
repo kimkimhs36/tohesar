@@ -1,8 +1,9 @@
 import * as THREE from 'three';
+import { createRevelation } from './revelation.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 // A new procedural artifact: two unequal folded folios, never a swept ribbon.
-// All deformation and camera motion share one reversible 0–0.30 timeline.
+// All deformation and camera motion share one reversible 0–0.48 timeline.
 const stage = document.querySelector('#stage');
 const fallback = document.querySelector('#fallback');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -40,7 +41,7 @@ for(let y=0;y<256;y++)for(let x=0;x<256;x++){
  finish[i]=finish[i+1]=finish[i+2]=n;finish[i+3]=255;
 }
 const brushed=new THREE.DataTexture(finish,256,256);brushed.wrapS=brushed.wrapT=THREE.RepeatWrapping;brushed.repeat.set(3,1);brushed.needsUpdate=true;
-titanium.bumpMap=brushed;titanium.bumpScale=.008;
+titanium.bumpMap=brushed;titanium.bumpScale=.004;
 const films=[];const morphs=[];const filmEdges=[];
 
 // s: left/right folio, u: spine→cut edge, v: foot→crown, open: authored morph target.
@@ -57,7 +58,7 @@ function folio(s,u,v,open=0,layer=-1){
  z+=s<0 ? .18*u : -.19*u;
  z+=.14*Math.tanh((u-.65)*9)+.32*Math.pow(v,5)*u;
  if(s<0){y=y*.85+.13;x-=.13*Math.pow(v,4);}
- x+=s*open*(.24+u*.88);z-=open*(u*.85);y+=open*s*u*.14;
+ x+=s*open*(.5+u*.9);z+=open*(u*.4);y+=open*s*u*.14;
  if(layer>=0){
   x=seam+(x-seam)*(.86-layer*.045);
   y=y*(.91-layer*.025)+layer*.045;
@@ -118,14 +119,15 @@ const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shado
 const sc=shadowCanvas.getContext('2d'),sg=sc.createRadialGradient(64,64,0,64,64,64);sg.addColorStop(0,'rgba(56,65,65,.18)');sg.addColorStop(1,'rgba(56,65,65,0)');sc.fillStyle=sg;sc.fillRect(0,0,128,128);
 const shadow=new THREE.Mesh(new THREE.PlaneGeometry(5,2),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}));shadow.position.set(.4,-2.65,-.5);shadow.rotation.x=-Math.PI/2;scene.add(shadow);
 let progress=0,target=0,raf=0,scrollRange=1,mobile=false,contextLost=false;
-const forced=new URLSearchParams(location.search).get('p');
+const revelation=createRevelation(scene,request);
+let forced=new URLSearchParams(location.search).get('p');
 function measure(){
  const w=stage.clientWidth,h=stage.clientHeight;mobile=w/h<.8;
  renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
  scrollRange=Math.max(1,document.documentElement.scrollHeight-innerHeight);
  onScroll();
 }
-function onScroll(){target=reduced.matches?0:forced!==null?clamp(Number(forced)||0,0,.3):clamp(scrollY/scrollRange,0,1)*.3;request();}
+function onScroll(){target=reduced.matches?0:forced!==null?clamp(Number(forced)||0,0,.48):clamp(scrollY/scrollRange,0,1)*.48;request();}
 function request(){if(!raf&&!document.hidden&&!contextLost)raf=requestAnimationFrame(draw);}
 function pose(p){
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
@@ -139,11 +141,20 @@ function pose(p){
  const startZ=mobile?10.2:9.5;
  camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-ease(.12,.23,p)*1.55-pass*(startZ-.7));
  camera.lookAt(camera.position.x,camera.position.y,-8);
+ const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
+ if(p>.30){
+  camera.position.set(sculpture.position.x+Math.sin(Math.PI*scatter)*.7+(1-arrive)*scatter*.9,sculpture.position.y+.18*scatter*(1-arrive),THREE.MathUtils.lerp(-.85,-3.3,scatter)-arrive*1.7);
+  camera.lookAt(camera.position.x,camera.position.y,-16);
+ }
+ films.forEach((film,i)=>{const side=i%2?-1:1;film.position.set(side*scatter*(1.1+i*.17),scatter*(i-2)*.3,-scatter*.5);filmEdges[i].position.copy(film.position);});
+ revelation.update(p,camera,sculpture.position,mobile);
+ document.documentElement.style.setProperty('--revelation',ease(.43,.46,p));
+ document.documentElement.style.setProperty('--source',ease(.31,.35,p));
  shadow.material.opacity=1-split;
  document.documentElement.style.setProperty('--caption',1-ease(.12,.19,p));
  document.documentElement.style.setProperty('--hint',1-ease(.01,.08,p));
- document.querySelector('#phase').textContent=p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':'WITHIN THE LAYERS';
- document.querySelector('#percent').textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 30`;
+ document.querySelector('#phase').textContent=p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
+ document.querySelector('#percent').textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 48`;
 }
 let lastFrame=0;
 function draw(now){raf=0;const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):1/60;lastFrame=now;progress+= (target-progress)*(1-Math.exp(-12*dt));if(Math.abs(target-progress)<.00002)progress=target;pose(progress);renderer.render(scene,camera);if(progress!==target)request();}
@@ -152,7 +163,7 @@ reduced.addEventListener('change',onScroll);document.addEventListener('visibilit
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
 // Explicit read-only inspection for repeatable browser verification.
-window.__genesis={get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches};}};
+window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=target;}},get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,revelation:revelation.inspection,mediaReady:revelation.ready};}};
 measure();
 if(forced!==null){progress=target;}
 }
