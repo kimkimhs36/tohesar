@@ -198,3 +198,60 @@ button:focus-visible,a:focus-visible{outline:2px solid #464f53;outline-offset:5p
  .gate-name{font-size:39px}
 }
 @media(prefers-reduced-motion:reduce){.record-window,.artwork,.gate-arrow svg{transition:none!important}}
+/* MEMORY ALLOY V3 — an aperture, then a place. */
+.sequence{height:360svh}
+.stage{height:100svh;min-height:0}
+.sky-layer{background:radial-gradient(ellipse 40% 42% at 71% 38%,#cbdde566,transparent 95%),radial-gradient(ellipse 40% 36% at 85% 64%,#edc6b366,transparent 90%),linear-gradient(120deg,#f5f2eb,#eeeee8 62%,#eee4da)}
+.artwork:after{display:none}
+.micro{top:20%}
+.edition{top:42%}
+.editorial h1{top:47%;font-size:clamp(72px,9.4vw,145px)}
+.caption-grid{bottom:16%;max-width:480px}
+.caption-note{background:none;padding:0}
+.sculpture-shadow{width:42vw;left:46%;bottom:20%;height:8%;filter:blur(20px)}
+.revelation{bottom:18%}
+.revelation p{background:none}
+.record-window{top:17%;width:min(68vw,820px);padding:0;background:none;box-shadow:none}
+.record-image{height:56svh;position:relative}
+.record-image:after{content:"";position:absolute;inset:0;border:1px solid #ffffff60;box-shadow:inset 0 0 45px #322b2414;pointer-events:none}
+.record-details{margin-top:16px}
+.record-action{margin-top:14px;min-height:44px}
+.culture-passage{background:linear-gradient(#f2f0e9,#f5f2eb)}
+.gateway{background:linear-gradient(130deg,#e3e7e4,#e9dfd3);color:#2d3537}
+.gateway-head,.gateway-nav{border-color:#8c969155}
+.gateway-head,.gateway .gate-desc,.gateway .gate-no{color:#576660}
+.gateway-nav a{border-color:#8c969155;transition:padding .3s,background .3s}
+.gateway-nav a:hover{padding-left:18px;background:#f7f5ee66}
+.home-end{background:#e9dfd3;color:#35413e;border-color:#8c969155}
+@media(max-width:650px){
+ .sequence{height:340svh}
+ .micro{top:16%;font-size:8px}
+ .edition{top:59%;font-size:8px}
+ .editorial h1{top:63%;font-size:clamp(60px,18vw,85px);line-height:.84}
+ .editorial h1 em{margin-left:24%}
+ .caption-grid{bottom:10%;max-width:none}
+ .caption-serial{font-size:8px}
+ .caption-note{font-size:12px}
+ .sculpture-shadow{left:24%;width:60%;bottom:44%;height:6%}
+ .revelation{bottom:15%;max-width:calc(100% - 48px)}
+ .revelation h2{font-size:clamp(55px,16vw,80px)}
+ .record-window{top:21%;width:calc(100% - 48px)}
+ .record-image{height:48svh}
+ .record-details{font-size:8px}
+ .motion-toggle{bottom:calc(env(safe-area-inset-bottom) + 18px);right:92px;width:36px;height:36px}
+ .counter{min-height:36px}
+ .scroll-guide{min-height:36px;font-size:8px;letter-spacing:.12em}
+ .scroll-guide i{height:26px}
+ .gateway .gate-desc,.gateway .gate-no{color:#576660}
+ .photo-meta{flex-wrap:wrap;line-height:1.6}
+}
+@media(max-height:520px) and (min-aspect-ratio:1/1){
+ .identity{width:160px;height:42px}.masthead{padding-top:12px}
+ .micro{top:24%}.edition{display:none}.editorial h1{top:36%;font-size:65px}
+ .caption-grid{bottom:16%;max-width:300px}.caption-serial{font-size:7px}
+ .revelation{bottom:17%}.revelation h2{font-size:52px;margin:12px 0}
+ .record-window{top:19%;width:44vw}.record-image{height:45svh}
+ .record-details{font-size:7px}.record-action{margin-top:4px;padding-top:4px;font-size:8px;min-height:30px}
+ .location-label{display:none}.interface-bottom{bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){.gateway-nav a{transition:none}}

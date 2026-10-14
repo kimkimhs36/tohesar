@@ -84,8 +84,11 @@
   let gl;
   try { gl=canvas.getContext('webgl2',{alpha:true,antialias:true,depth:true,premultipliedAlpha:false,powerPreference:'low-power'}); }
   catch(e) { gl=null; }
+  let fallbackActive=false;
   function startFallback(){
-    errorNotice.hidden=true;
+    if(fallbackActive)return;
+    fallbackActive=true;
+    errorNotice.hidden=false;
     pauseButton.hidden=true;
     const updateFallback = () => {
       const bounds = sequence.getBoundingClientRect();
@@ -209,9 +212,9 @@
     const ibo=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ibo);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,indices,gl.STATIC_DRAW);
     gl.bindVertexArray(null);
     const vertices=new Float32Array((cols+1)*(rows+1)*8);
-    return {type,index,vao,buffer,ibo,vertices,positions:new Float32Array((cols+1)*(rows+1)*3),mat:type==='outer'?0:type==='wing'?1:2};
+    return {type,index,vao,buffer,ibo,vertices,positions:new Float32Array((cols+1)*(rows+1)*3),mat:type==='film'?2:type==='outer'||(type==='back'&&index===0)?0:1};
   }
-  const surfaces=[createSurface('film',2),createSurface('film',1),createSurface('film',0),createSurface('outer'),createSurface('wing')];
+  const surfaces=[createSurface('film',2),createSurface('film',1),createSurface('film',0),createSurface('outer'),createSurface('wing'),createSurface('back',0),createSurface('back',1),createSurface('rim',0),createSurface('rim',1)];
   const N=cols+1;
   const V=rows+1;
   const norm=(v)=>Math.sqrt(v.reduce((a,x)=>a+x*x,0))||1;
@@ -221,6 +224,23 @@
   // Independent sheets with stable topology: one central folded folio, an
   // overlapping wing which opens, and three staggered light-transmitting films.
   function surfacePoint(type,k,u,t,p){
+    if(type==='back'){
+      const point=surfacePoint(k?'wing':'outer',0,u,t,p);
+      point[2]-=.035;
+      return point;
+    }
+    if(type==='rim'){
+      // Close the perimeter of the front/back skins with a real metal edge.
+      const q=t*4;
+      let edgeU,edgeT;
+      if(q<1){edgeU=-1+q*2;edgeT=0;}
+      else if(q<2){edgeU=1;edgeT=q-1;}
+      else if(q<3){edgeU=1-(q-2)*2;edgeT=1;}
+      else{edgeU=-1;edgeT=4-q;}
+      const point=surfacePoint(k?'wing':'outer',0,edgeU,edgeT,p);
+      point[2]-=(u+1)*.0175;
+      return point;
+    }
     // A tapered, asymmetric ribbon curls around a void. Opening changes both
     // the sweep and cross-section; no rigid idle rotation.
     const open=ease(.13,.48,p), passage=ease(.42,.78,p);
@@ -304,11 +324,12 @@
     gl.uniform1f(uniforms.uTime,clock);
     gl.uniform1f(uniforms.uOpen,p);
     updateGeometry(reduce.matches?Math.min(.57,p):p);
-    // Semi-transparent film volumes behind the individually shading metal sheets.
+    // Opaque depth first: films can then pass in front of and behind metal.
+    gl.depthMask(true);
+    for(const s of surfaces.filter(s=>s.type!=='film')){ gl.uniform1f(uniforms.uMat,s.mat);gl.bindVertexArray(s.vao);gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0); }
     gl.depthMask(false);
     for(const s of surfaces.filter(s=>s.type==='film')){ gl.uniform1f(uniforms.uMat,s.mat);gl.bindVertexArray(s.vao);gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0); }
     gl.depthMask(true);
-    for(const s of surfaces.filter(s=>s.type!=='film')){ gl.uniform1f(uniforms.uMat,s.mat);gl.bindVertexArray(s.vao);gl.drawElements(gl.TRIANGLES,indices.length,gl.UNSIGNED_SHORT,0); }
     gl.bindVertexArray(null);
   }
   const needMotion=()=>!motionPaused&&!reduce.matches;
@@ -336,7 +357,7 @@
   canvas.addEventListener('webglcontextrestored',recovered);
   pauseButton.addEventListener('click',()=>{
     motionPaused=!motionPaused;
-    pauseButton.textContent=motionPaused?'▷':'Ⅱ';
+    pauseButton.textContent=motionPaused?'▶':'Ⅱ';
     pauseButton.setAttribute('aria-pressed',String(motionPaused));
     pauseButton.setAttribute('aria-label',motionPaused?'Play sculpture movement':'Pause sculpture movement');
     start();
