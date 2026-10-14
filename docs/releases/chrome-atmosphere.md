@@ -20,3 +20,14 @@ geometry is used. All rendering dependencies are served locally.
 - Native touch scrolling; scroll progress is smoothed with frame-time damping.
   Reduced-motion removes inertia/ambient movement. Ambient motion can be paused.
 - Official main is unchanged; no production deployment or Pages changes.
+
+## Saved result
+- First scene: `eca968d` (remote push verified).
+- First scroll transition: `df35515` (remote push verified).
+- Source formatting and visual captures saved in the final review commit.
+- Chromium portrait rendering confirmed: WebGL ready, no uncaught page errors,
+  scroll reaches scene 02. Landscape composition captured at iPad dimensions.
+- Actual iPhone Safari hardware verification remains pending; no extensive QA run.
+- GitHub Pages serves main; this independent branch has not been published.
+  No Vercel deployment or separate repository creation was attempted this session.
+- Review images: `docs/previews/chrome-atmosphere/`.
