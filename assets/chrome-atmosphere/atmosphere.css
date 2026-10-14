@@ -535,3 +535,38 @@ h1 {
     translate: 0 0;
   }
 }
+
+
+/* KINETIC TYPE — once real 3D glyphs exist, the planar headings retire.
+   Their positions remain semantic and serve as a WebGL fallback. */
+html.has-kinetic-type .title-chrome,
+html.has-kinetic-type .chapter-two h2 em {
+  opacity: 0;
+}
+.title-chrome, .chapter-two h2 em {
+  transition: opacity 650ms cubic-bezier(.2,.7,.2,1);
+}
+html.has-kinetic-type .title-atmosphere {
+  text-shadow: 0 1px 1px rgba(255,255,255,.36);
+}
+
+/* A soft travelling caustic makes the stage spatial before scroll begins. */
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 35% 24% at 70% 29%, rgba(255,220,191,.45), transparent 90%),
+    radial-gradient(ellipse 44% 45% at 15% 79%, rgba(158,199,227,.27), transparent 95%);
+  mix-blend-mode: screen;
+  animation: caustic-drift 17s ease-in-out infinite alternate;
+}
+@keyframes caustic-drift {
+  0% {transform:translate3d(-2%,2%,0) rotate(-2deg) scale(1)}
+  100% {transform:translate3d(3%,-3%,0) rotate(3deg) scale(1.08)}
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage::before { animation:none }
+}
