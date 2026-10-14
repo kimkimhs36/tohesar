@@ -37,7 +37,7 @@ export function createRevelation(scene,request){
   inspection.edgeOpacity=edgeOpacity;
   camera.updateMatrixWorld();
   for(let i=0;i<fragments.length;i++){
-   const {tile,region:r,depth}=fragments[i], [x,y,w,h]=r;
+   const {tile,edge,region:r,depth}=fragments[i], [x,y,w,h]=r;
    const cx=(x+w/2-.5)*width+(mobile?0:halfW*.35),cy=(.5-y-h/2)*height+halfH*.14;
    const distance=mix(depth,5.4,settle),ratio=distance/6;
    const scatterX=Math.sin(i*2.4)*(mobile?.46:.9)*spread*(1-arrange);
