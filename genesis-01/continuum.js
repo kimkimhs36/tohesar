@@ -3,7 +3,7 @@ import { opticalFilm, carrierGeometry } from './optics.js';
 const mix=THREE.MathUtils.lerp;
 const ease=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*t*(t*(t*6-15)+10);};
 const destinations=[
- ['JOURNAL','Yokohama · Visual journal','/journal/yokohama/'],
+ ['JOURNAL','Visual journal collection','/journal/'],
  ['WORLD','Cinematic World 001','/world/'],
  ['SYMBOL','Se-diyu','/symbol/'],
  ['HISTORY','Before the Name','/history/'],
