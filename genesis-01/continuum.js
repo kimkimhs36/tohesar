@@ -1,104 +1,126 @@
 import * as THREE from 'three';
+import { opticalFilm, carrierGeometry } from './optics.js';
 const mix=THREE.MathUtils.lerp;
-const ease=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
+const ease=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*t*(t*(t*6-15)+10);};
 const destinations=[
  ['JOURNAL','Yokohama · Visual journal','/journal/yokohama/'],
  ['WORLD','Cinematic World 001','/world/'],
  ['SYMBOL','Se-diyu','/symbol/'],
  ['HISTORY','Before the Name','/history/'],
- ['INSTAGRAM','TOHEŞAR ↗︎','https://www.instagram.com/tohesar/']
+ ['INSTAGRAM','TOHEŞAR / External','https://www.instagram.com/tohesar/']
 ];
 
-// Five carriers: photographic emulsion becomes architectural film, then a
-// single compressed memory. Geometry, edge and link share the same transform.
 export function createContinuum(scene,request){
  const root=new THREE.Group();scene.add(root);
  const nav=document.querySelector('#spatial-navigation');
  const editorial=document.querySelector('#archive-entry');
- const title=editorial.querySelector('h2');
- const index=editorial.querySelector('.eyebrow');
+ const title=editorial.querySelector('h2'),index=editorial.querySelector('.eyebrow');
  const end=document.querySelector('#imprint');
  const loader=new THREE.TextureLoader();
  const textures=['./assets/yokohama-interior.webp','./assets/yokohama-bluehour.webp'].map(url=>{
-  const texture=loader.load(url,request);texture.colorSpace=THREE.SRGBColorSpace;return texture;
+  const texture=loader.load(url,request);texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=4;return texture;
  });
+ const geometry=carrierGeometry();
  const panels=destinations.map(([name,description,href],i)=>{
   const group=new THREE.Group();root.add(group);
-  const geometry=new THREE.PlaneGeometry(1,1,20,32);
-  const uniforms={bend:{value:0},reveal:{value:0},media:{value:i<2?textures[i]:textures[0]},ink:{value:i<2?1:0},warm:{value:i/4}};
-  const material=new THREE.ShaderMaterial({uniforms,transparent:true,side:THREE.DoubleSide,depthWrite:false,
-   vertexShader:`uniform float bend; varying vec2 vUv; varying float vFold;
-    void main(){vUv=uv;vec3 p=position;float fold=sin(uv.y*3.14159265)*sin(uv.x*3.14159265);p.z+=bend*(fold*.32+pow(uv.x,3.)*.18);vFold=fold;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
-   fragmentShader:`uniform sampler2D media;uniform float reveal;uniform float ink;uniform float warm;varying vec2 vUv;varying float vFold;
-    void main(){vec3 cold=vec3(.65,.80,.84),peach=vec3(.91,.74,.62);vec3 film=mix(cold,peach,clamp(vUv.y*.45+warm*.45,0.,1.));
-     float edge=pow(abs(vUv.x-.5)*2.,16.);float shine=pow(max(0.,1.-abs(vUv.x+vUv.y*.24-.57)*5.),12.);
-     film+=.16*vFold+shine*.19+edge*.14;
-     vec3 photograph=texture2D(media,vUv).rgb;vec3 color=mix(film,photograph,ink);
-     float grain=fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453)-.5;
-     gl_FragColor=vec4(color+grain*.006,reveal*mix(.56+edge*.3,1.,ink));
-     #include <colorspace_fragment>
-    }`
-  });
-  const mesh=new THREE.Mesh(geometry,material);group.add(mesh);
-  const frame=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(1,1)),new THREE.LineBasicMaterial({color:i%2?0xb5967f:0x758d98,transparent:true,opacity:0}));group.add(frame);
-  // A thin physical cut section catches the environment behind the optical face.
-  const spine=new THREE.Mesh(new THREE.BoxGeometry(.007,1,.022),new THREE.MeshStandardMaterial({color:0xbdc5c5,metalness:.93,roughness:.24,transparent:true}));spine.position.x=-.5;group.add(spine);
-  const link=document.createElement('a');link.href=href;link.innerHTML=`<span class="portal-index">0${i+1}</span><strong>${name}</strong><small>${description}</small><span class="portal-arrow">↗︎</span>`;
+  const material=opticalFilm({map:textures[i%2],warm:[.2,.06,.88,.46,.65][i],ink:i<2?1:0});
+  const mesh=new THREE.Mesh(geometry.surface,material);group.add(mesh);
+  const edge=new THREE.Mesh(geometry.edge,new THREE.MeshStandardMaterial({color:i%2?0xc9b8a1:0x9eafb4,metalness:.96,roughness:.22,transparent:true,opacity:0}));group.add(edge);
+  const link=document.createElement('a');link.href=href;
+  link.innerHTML=`<span class="portal-index">0${i+1}</span><strong>${name}</strong><small>${description}</small><span class="portal-arrow" aria-hidden="true"><svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 10 10 2M3 2h7v7" fill="none" stroke="currentColor" stroke-width="1"/></svg></span>`;
   if(i===4){link.target='_blank';link.rel='noopener noreferrer';}
   link.className='spatial-link';link.hidden=true;nav.append(link);
-  const focus=()=>{group.userData.focus=true;request();};
-  const blur=()=>{group.userData.focus=false;request();};
-  link.addEventListener('pointerenter',focus);link.addEventListener('pointerleave',blur);link.addEventListener('focus',focus);link.addEventListener('blur',blur);
-  return {group,mesh,frame,spine,uniforms,link};
+  let hovered=false,focused=false;
+  const highlight=()=>{material.uniforms.focus.value=hovered||focused?1:0;request();};
+  link.addEventListener('pointerenter',()=>{hovered=true;highlight();});link.addEventListener('pointerleave',()=>{hovered=false;highlight();});
+  link.addEventListener('focus',()=>{focused=true;highlight();});link.addEventListener('blur',()=>{focused=false;highlight();});
+  return {group,mesh,edge,material,link};
  });
- const point=new THREE.Vector3();
+ // A single curved datum carries the photographic emulsion into the leaves.
+ // The two fine rails are actual world-space curves, not screen decorations.
+ const rails=[-1,1].map(side=>{
+  const points=Array.from({length:65},(_,i)=>new THREE.Vector3(i/64*6.5-.8,side*1.08+.15*Math.sin(i/64*Math.PI),-.17*Math.sin(i/64*Math.PI)));
+  const rail=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points),96,.004,4,false),new THREE.MeshStandardMaterial({color:0xbabbb1,metalness:.92,roughness:.3,transparent:true}));
+  scene.add(rail);return rail;
+ });
+ const point=new THREE.Vector3(),finalPosition=new THREE.Vector3();
+ const inspection={architecture:0,reassembly:0,visibleLinks:0};
  function update(p,camera,anchor,mobile,width,height){
-  root.visible=p>.485;
-  const travel=ease(.49,.64,p),architecture=ease(.65,.75,p),close=ease(.90,.985,p);
+  const first=ease(.485,.552,p),second=ease(.577,.639,p);
+  const architecture=ease(.65,.765,p),close=ease(.905,.989,p);
+  const travel=(first+second)*.5,orbit=Math.sin(ease(.765,.905,p)*Math.PI);
+  root.visible=p>.48;
   if(p>.48){
-   camera.position.set(anchor.x+5.2*travel*(1-architecture),anchor.y-.12*Math.sin(travel*Math.PI),-5-.8*travel-2.2*architecture);
-   camera.lookAt(camera.position.x,camera.position.y,-24);
+   // Approach → quiet photographic hold → lateral passage → a wide reveal.
+   // Camera velocity is zero at the intentional holds; no timeline jumps.
+   camera.position.set(anchor.x+(1.95*first+1.9*second)*(1-architecture)+.10*orbit*(1-close),anchor.y+.07*Math.sin(travel*Math.PI)*(1-architecture)+.06*orbit,-5-.9*travel-1.9*architecture+1.15*close);
+   const yaw=.20*Math.sin(travel*Math.PI*2)*(1-architecture)+.18*orbit*(1-close);
+   camera.lookAt(camera.position.x+yaw,camera.position.y+.08*close,-18);
    camera.updateMatrixWorld();
   }
-  const distance=6.5;
-  const halfH=Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*distance,halfW=halfH*camera.aspect;
-  panels.forEach(({group,uniforms,frame,spine,link},i)=>{
-   const arrival=ease(.485+i*.012,.535+i*.014,p);
-   const railX=anchor.x+2.6+i*2.6, railY=anchor.y+.24;
-   // Portrait: five overlapping thresholds climb through depth, leaving
-   // generous 44px+ labels. Landscape expands the same arrangement laterally.
-   const gx=mobile?Math.sin(i*.9)*.25*halfW:(i-2)*halfW*.36;
-   const gy=mobile?(2-i)*halfH*.30:Math.sin(i*.9)*halfH*.18;
-   const gz=-14.5-(mobile?i*.09:Math.abs(i-2)*.14);
-   group.position.set(mix(railX,anchor.x+gx,architecture),mix(railY,anchor.y+gy,architecture),mix(-10.4,gz,architecture));
-   group.position.lerp(new THREE.Vector3(anchor.x+(i-2)*.045,anchor.y+.28,-14.7-i*.10),close);
-   const w=mix(mobile?1.48:1.8,mobile?halfW*1.47:halfW*.31,architecture);
-   const h=mix(mobile?1.85:2.25,mobile?halfH*.65:halfH*1.55,architecture);
-   group.scale.set(mix(w,1.1,close),mix(h,2.45,close),1);
-   group.rotation.set(mix(0,-.12,close),mix(-.12*(1-architecture),mobile?-.36+i*.14:(i-2)*-.12,architecture)+close*.32,mix(0,-.2,close));
-   uniforms.bend.value=.25+.5*architecture+.7*close;
-   uniforms.ink.value=(i<2?1:0)*(1-ease(.64,.72,p));
-   uniforms.reveal.value=arrival*(1-.46*close);
-   frame.material.opacity=arrival*(.35+.24*architecture);
-   spine.material.opacity=arrival;
-   spine.visible=arrival>.01;
-   if(group.userData.focus){uniforms.reveal.value=1;frame.material.opacity=1;}
+  const halfH=Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*7,halfW=halfH*camera.aspect;
+  const gxPortrait=[-.43,.38,-.36,.41,-.16],gyPortrait=[.67,.34,.015,-.32,-.64];
+  panels.forEach(({group,mesh,edge,material,link},i)=>{
+   const emergence=i<2?ease(.48+i*.025,.522+i*.025,p):ease(.634,.70,p);
+   const individual=ease(.651+i*.006,.744+i*.005,p);
+   // Three unprinted layers originate immediately behind the last photograph.
+   // Their silhouettes inherit its dimensions before opening into thresholds.
+   const railX=anchor.x+(i===0?1.95:3.85)+(i>1?(i-1)*.045:0);
+   const railZ=-10.4-(i>1?(i-1)*.085:0);
+   const gx=mobile?gxPortrait[i]*halfW:(i-2)*halfW*.36;
+   const gy=mobile?gyPortrait[i]*halfH:Math.sin(i*1.5)*halfH*.13;
+   const gz=-14.8-[.1,.55,0,.65,.3][i];
+   group.position.set(mix(railX,anchor.x+gx,architecture),mix(anchor.y+.24,anchor.y+gy,architecture),mix(railZ,gz,architecture));
+   finalPosition.set(anchor.x+(i-2)*.043,anchor.y+.65+(i-2)*.018,-14.35-i*.095);
+   // A brief outward breath precedes compression into a single lenticular fold.
+   group.position.x+=Math.sin(close*Math.PI)*(i-2)*.12;
+   group.position.lerp(finalPosition,close);
+   const w=mix(mobile?1.64:1.94,mobile?halfW*1.07:halfW*.30,individual);
+   const h=mix(mobile?2.05:2.425,mobile?halfH*.80:halfH*1.30,individual);
+   group.scale.set(mix(w,.82,close),mix(h,2.08,close),mix(1,.73,close));
+   const yaw=[-.44,.54,-.29,.46,-.34][i];
+   group.rotation.set(mix(0,.055*Math.sin(i*2),architecture)*(1-close),mix(-.055,yaw,individual)*(1-close)+close*(.27+(i-2)*.045),mix(0,mobile?[.065,-.07,.025,-.05,.08][i]:-.06,architecture)*(1-close)-.23*close);
+   const shape=individual*(1-close);
+   mesh.morphTargetInfluences[0]=edge.morphTargetInfluences[0]=shape;
+   mesh.morphTargetInfluences[1]=edge.morphTargetInfluences[1]=close;
+   const u=material.uniforms;
+   u.ink.value=(i<2?1:0)*(1-ease(.648,.716,p));
+   u.opacity.value=emergence*mix(1,.87,individual)*(1-.18*close);
+   u.metal.value=[.18,.64,.50,.28,.15][i]*individual*(1-close)+.52*close;
+   u.lightPhase.value=p+.5*close;
+   // A narrow remnant of the existing blue-hour image remains inside WORLD,
+   // preserving the connection from photographic memory to a destination.
+   u.aperture.value=(i===1?.78:0)*ease(.72,.78,p)*(1-close);
+   edge.material.opacity=emergence*mix(.32,.76,individual);
+   edge.material.roughness=.21+.08*(1-close);
+   group.visible=emergence>.001;
    group.updateMatrixWorld();
-   const active=p>=.755&&p<=.905;
+   const active=p>=.765&&p<=.907;
    link.hidden=!active;link.tabIndex=active?0:-1;
    if(active){
-    point.set(0,0,.05).applyMatrix4(group.matrixWorld).project(camera);
-    link.style.left=`${(point.x*.5+.5)*width}px`;
+    point.set(mobile?[.15,-.12,.12,-.12,.03][i]:0,mobile?-.015:-.20,.10).applyMatrix4(group.matrixWorld).project(camera);
+    const labelWidth=mobile?Math.min(width*.36,164):Math.min(width*.16,205);
+    link.style.left=`${THREE.MathUtils.clamp((point.x*.5+.5)*width,labelWidth/2+18,width-labelWidth/2-18)}px`;
     link.style.top=`${(-point.y*.5+.5)*height}px`;
-    link.style.width=`${mobile?Math.min(width*.67,330):Math.min(width*.16,220)}px`;
+    link.style.width=`${mobile?Math.min(width*.36,164):Math.min(width*.16,205)}px`;
+    link.style.setProperty('--portal-presence',ease(.765,.785,p)*(1-ease(.89,.907,p)));
    }
   });
-  const entry=p>.525&&p<.65;
-  editorial.hidden=!entry;
-  if(entry){title.textContent=p<.59?'A human trace.':'Blue hour.';index.textContent=p<.59?'YOKOHAMA / 02':'YOKOHAMA / 03';}
-  end.hidden=p<.977;
+  rails.forEach(rail=>{rail.visible=p>.48&&p<.735;rail.position.set(anchor.x,anchor.y+.24,-10.48);rail.material.opacity=.38*ease(.48,.53,p)*(1-ease(.65,.735,p));});
+  const titleA=ease(.532,.548,p)*(1-ease(.571,.587,p));
+  const titleB=ease(.606,.625,p)*(1-ease(.65,.674,p));
+  const entryOpacity=Math.max(titleA,titleB);
+  editorial.hidden=entryOpacity<.005;
+  if(!editorial.hidden){
+   title.textContent=titleA>titleB?'A human trace.':'Blue hour.';index.textContent=titleA>titleB?'YOKOHAMA / 02':'YOKOHAMA / 03';
+   editorial.style.opacity=entryOpacity;editorial.style.transform=`translate3d(0,${(1-entryOpacity)*9}px,0)`;
+  }
+  end.hidden=p<.968;end.style.opacity=ease(.968,.995,p);
   document.documentElement.style.setProperty('--continuum',architecture*(1-close));
+  document.documentElement.style.setProperty('--final-light',ease(.905,.99,p));
+  document.documentElement.style.setProperty('--archive-light',ease(.48,.55,p)*(1-ease(.665,.75,p)));
+  inspection.architecture=architecture;inspection.reassembly=close;inspection.visibleLinks=p>=.765&&p<=.907?5:0;
   return {travel,architecture,close};
  }
- return {update};
+ return {update,inspection};
 }

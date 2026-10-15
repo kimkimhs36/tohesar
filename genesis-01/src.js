@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createContinuum } from './continuum.js';
+import { opticalFilm } from './optics.js';
 import { createRevelation } from './revelation.js';
 import { stepSpring, openingAir } from './motion.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -22,7 +23,7 @@ function init(){
 renderer.setPixelRatio(Math.min(devicePixelRatio,Math.min(innerWidth,innerHeight)<650?1.5:1.65));
 renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=1.02;
+renderer.toneMappingExposure=1.06;
 stage.append(renderer.domElement);
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(32,1,.035,70);
@@ -30,7 +31,7 @@ const pmrem=new THREE.PMREMGenerator(renderer);
 const room=new RoomEnvironment();
 // Large reflected light cards, with restrained blue/peach chromatic separation.
 const card=(color,x,y,z,sx,sy)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(sx,sy),new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);room.add(m);};
-card(0x20282b,-1.8,0,4,1.2,6);card(0xfff5e7,1.8,2,3,.8,6);
+card(0x18242c,-1.65,.2,4,.62,7);card(0xfff5e7,1.8,2,3,.65,6);
 card(0xc1e4ff,-3,2,2,3,7);card(0xf3c9ac,4,-1,1,2,6);card(0x252a30,1,1,-3,1.8,7);
 const env=pmrem.fromScene(room,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
 scene.add(new THREE.HemisphereLight(0xdceefa,0xd7b7a2,.75));
@@ -38,8 +39,9 @@ const key=new THREE.DirectionalLight(0xfff5e6,2.2);key.position.set(-3,5,6);scen
 const sky=new THREE.DirectionalLight(0xb9d8ef,1.4);sky.position.set(4,2,-1);scene.add(sky);
 const peach=new THREE.DirectionalLight(0xf6baa0,.8);peach.position.set(-2,-3,3);scene.add(peach);
 const sculpture=new THREE.Group();scene.add(sculpture);sculpture.rotation.set(-.09,-.32,-.18);
-const titanium=new THREE.MeshPhysicalMaterial({color:0x8a9ba5,metalness:.94,roughness:.38,anisotropy:.55,clearcoat:.2,clearcoatRoughness:.3,side:THREE.DoubleSide});
-const edgeMaterial=new THREE.MeshStandardMaterial({color:0xdde3e4,metalness:1,roughness:.12});
+const titanium=new THREE.MeshPhysicalMaterial({color:0x91a0a7,metalness:.96,roughness:.34,anisotropy:.42,clearcoat:.16,clearcoatRoughness:.26,side:THREE.DoubleSide});
+const edgeMaterial=new THREE.MeshStandardMaterial({color:0xdde3e4,metalness:1,roughness:.12,transparent:true});
+titanium.transparent=true;titanium.forceSinglePass=true;
 // Deterministic hairline finish; no external texture or noise animation.
 const finish=new Uint8Array(256*256*4);
 for(let y=0;y<256;y++)for(let x=0;x<256;x++){
@@ -61,7 +63,7 @@ const films=[];const morphs=[];const filmEdges=[];
 // s: left/right folio, u: spine→cut edge, v: foot→crown, open: authored morph target.
 function folio(s,u,v,open=0,layer=-1){
  const t=v*2-1;
- const w=s<0 ? .98 : 1.65;
+ const w=s<0 ? .92 : 1.58;
  const crown=s<0 ? .12 : -.30;
  const width=w*(.42+.64*Math.sin(v*Math.PI*.92)+.12*Math.sin(v*7));
  const seam=.25*Math.sin(t*2.1)+.10*t;
@@ -70,7 +72,11 @@ function folio(s,u,v,open=0,layer=-1){
  // A pressed ridge and broad concave face: a folio with material memory.
  let z=.64*Math.sin(u*Math.PI*1.12)+.48*u*u+.32*Math.sin(v*4+u*2)-.12*t;
  z+=s<0 ? .18*u : -.19*u;
- z+=.14*Math.tanh((u-.65)*9)+.32*Math.pow(v,5)*u;
+ z+=.19*Math.tanh((u-.65)*9)+.32*Math.pow(v,5)*u;
+ // Pressed shoulder, shallow concavity and a rolled cut edge. The crease
+ // remains deliberately asymmetric, like a hand-formed body panel.
+ z+=.055*Math.exp(-Math.pow((u-.965)*24,2))*Math.sin(v*Math.PI);
+ z-=.07*Math.sin(u*Math.PI)*Math.sin(v*Math.PI*1.2);
  if(s<0){y=y*.85+.13;x-=.13*Math.pow(v,4);}
  x+=s*open*(.5+u*.9);z+=open*(u*.4);y+=open*s*u*.14;
  if(layer>=0){
@@ -102,19 +108,29 @@ for(const s of [-1,1]){
  morphMesh(grid((u,v)=>folio(s,u,v)),grid((u,v)=>folio(s,u,v,1)),titanium);
  morphMesh(border(s,0),border(s,1),edgeMaterial);
 }
-// Procedural registration lines encode the idea of a record, not fictional archives.
+// A narrow opalescent seam is physically caught between the two metal lips.
+const seamPoint=(u,v,open)=>{
+ const left=folio(-1,0,v,open),right=folio(1,0,v,open);
+ const point=left.lerp(right,u);point.z-=.055+.09*Math.sin(v*Math.PI);return point;
+};
+const seamGeometry=grid((u,v)=>seamPoint(u,v,0),4,80);
+const seamOpen=grid((u,v)=>seamPoint(u,v,1),4,80);
+seamGeometry.morphAttributes.position=[seamOpen.attributes.position];
+const seamMaterial=opticalFilm({warm:.32,opacity:.68});
+const seam=new THREE.Mesh(seamGeometry,seamMaterial);sculpture.add(seam);
+// Quiet registration marks, rather than printed ruled-paper decoration.
 function filmTexture(n){
  const c=document.createElement('canvas');c.width=512;c.height=1024;const ctx=c.getContext('2d');
  const g=ctx.createLinearGradient(0,0,512,1024);g.addColorStop(0,'#8faebf');g.addColorStop(.48,'#e2d6c4');g.addColorStop(1,'#c58e78');ctx.fillStyle=g;ctx.fillRect(0,0,512,1024);
- ctx.strokeStyle='rgba(45,67,75,.43)';ctx.lineWidth=1;
- for(let i=0;i<34;i++){const y=130+i*23;ctx.beginPath();ctx.moveTo(35,y);ctx.lineTo(470-(i%5)*13,y);ctx.stroke();}
+ ctx.strokeStyle='rgba(45,67,75,.16)';ctx.lineWidth=1;
+ for(let i=0;i<3;i++){const y=140+i*340;ctx.beginPath();ctx.moveTo(35,y);ctx.lineTo(80,y);ctx.stroke();}
  ctx.strokeStyle='rgba(255,255,255,.7)';ctx.strokeRect(22,22,468,980);
  ctx.fillStyle='rgba(61,76,80,.65)';ctx.font='14px monospace';ctx.fillText(`TOHEŞAR  /  MATERIAL ${String(n+1).padStart(2,'0')}`,39,75);
  for(let j=0;j<16;j++)ctx.fillRect(35+j*28,951,1,j%4===0?22:8);
  const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.SRGBColorSpace;return tex;
 }
 for(let k=0;k<5;k++){
- const mat=new THREE.MeshPhysicalMaterial({map:filmTexture(k),color:0xb9c5c6,metalness:.08,roughness:.32,envMapIntensity:.45,transmission:.12,thickness:.055,ior:1.33,transparent:true,opacity:.86,side:THREE.DoubleSide,depthWrite:false});
+ const mat=opticalFilm({map:filmTexture(k),warm:k/5,opacity:.84,ink:.07});
  mat.forceSinglePass=true;
  const s=k%2===0?1:-1;
  const closed=grid((u,v)=>folio(s,u,v,0,k),24,56);
@@ -126,7 +142,7 @@ for(let k=0;k<5;k++){
  const perimeter=fn=>{const pts=[];for(let j=0;j<=48;j++)pts.push(fn(0,j/48));for(let i=1;i<=24;i++)pts.push(fn(i/24,1));for(let j=47;j>=0;j--)pts.push(fn(1,j/48));for(let i=23;i>=0;i--)pts.push(fn(i/24,0));return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true),192,.004,3,true);};
  const a=perimeter((u,v)=>folio(s,u,v,0,k)),b=perimeter(openPoint);
  a.morphAttributes.position=[b.attributes.position];a.morphAttributes.normal=[b.attributes.normal];
- const rim=new THREE.Mesh(a,new THREE.MeshBasicMaterial({color:k%2?0x94705e:0x6b8e9f,transparent:true,opacity:.5}));sculpture.add(rim);filmEdges.push(rim);
+ const rim=new THREE.Mesh(a,new THREE.MeshStandardMaterial({color:k%2?0xc5b09a:0xa1b7bf,metalness:.88,roughness:.26,transparent:true,opacity:.55}));sculpture.add(rim);filmEdges.push(rim);
 }
 // Wide, diffuse contact shadow; no expensive realtime shadow pass.
 const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shadowCanvas.height=128;
@@ -181,11 +197,18 @@ function pose(p,air=p){
  atmosphere.style.setProperty('--archive-calm',archive.toFixed(3));
  // Two lights physically glide across the titanium as the CSS color fields
  // cross the viewer. A small reflection gain leaves the approved finish intact.
- sky.intensity=1.38+.18*awake+.25*depth-.18*archive;
- peach.intensity=.84+.16*awake+.38*depth-.23*archive;
+ sky.intensity=1.38+.18*awake+.25*depth-.18*archive+.28*returnLight;
+ peach.intensity=.84+.16*awake+.38*depth-.23*archive+.18*returnLight;
  sky.position.set(4+.75*awake-1.35*depth+.65*archive,2+.5*awake+.8*depth,-1+1.65*archive);
  peach.position.set(-2-.8*awake+1.50*depth-.35*archive,-3+.5*awake+1.1*depth,3+.45*archive);
- titanium.envMapIntensity=1+.11*depth-.06*archive;
+ titanium.envMapIntensity=1.07+.11*depth-.06*archive+.13*returnLight;
+ // Reflection travels across the final plate once, then comes to rest.
+ scene.environmentRotation.set(0,.10*awake+.12*depth-.08*archive+.40*ease(.94,.995,p),0);
+ key.position.set(-3+2.2*returnLight,5,6);
+ seam.morphTargetInfluences[0]=ease(.17,.235,p);
+ seamMaterial.uniforms.opacity.value=.68*(1-ease(.22,.27,p));
+ seamMaterial.uniforms.lightPhase.value=air;
+ films.forEach(film=>{film.material.uniforms.lightPhase.value=air;});
  edgeMaterial.roughness=.12+.025*archive;
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
  // CSS and WebGL receive the same progress rather than drifting independently.
@@ -197,13 +220,14 @@ function pose(p,air=p){
   film.morphTargetInfluences[0]=release;filmEdges[i].morphTargetInfluences[0]=release;
  });
  // The artifact stays in place. The camera crosses its z-depth at the final beat.
- sculpture.position.set(mobile?.66:1.22,mobile?.62:.05,0);
- sculpture.scale.setScalar(mobile?.84:1);
- sculpture.rotation.y=THREE.MathUtils.lerp(-.32,0,split)+.055*Math.sin(awake*Math.PI);
- sculpture.rotation.z=THREE.MathUtils.lerp(-.18,-.035,split);
+ sculpture.position.set(mobile?.48:1.16,mobile?.53:.05,0);
+ sculpture.scale.setScalar(mobile?.78:1);
+ sculpture.rotation.x=-.09+.035*Math.sin(awake*Math.PI);
+ sculpture.rotation.y=THREE.MathUtils.lerp(-.42,0,split)+.095*Math.sin(awake*Math.PI);
+ sculpture.rotation.z=THREE.MathUtils.lerp(-.21,-.035,split);
  const startZ=mobile?10.2:9.5;
  // Hold a composed portrait while the fold opens, before the camera enters.
- const approach=ease(.12,.23,p)*.72;
+ const approach=ease(.12,.23,p)*.66+awake*.06;
  const threshold=ease(.23,.27,p)*4.13;
  const penetration=pass*(startZ-4.0);
  camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-approach-threshold-penetration);
@@ -219,14 +243,19 @@ function pose(p,air=p){
  revelation.update(p,camera,anchor,mobile);
  // Return the original authored metal to the compressed film stack. Its
  // slimmer silhouette records the journey, rather than resetting the scene.
- const reunion=ease(.93,.99,p);
- sculpture.visible=p<.48||p>.93;
- if(p>.93){
-  sculpture.position.set(anchor.x,anchor.y+.2,-14.65);
-  sculpture.scale.set(.45*reunion,.59*reunion,.32*reunion);
-  sculpture.rotation.set(-.09,.22,-.20);
-  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=.12*(1-reunion);
+ const reunion=ease(.925,.989,p);
+ titanium.opacity=edgeMaterial.opacity=p>.90?ease(.925,.949,p):1;
+ sculpture.visible=p<.48||p>.925;
+ seam.visible=p<.27;
+ if(p>.925){
+  // Metal returns from behind the leaves along their common spine; it never
+  // scales up from a zero-sized object in the middle of the photograph.
+  sculpture.position.set(anchor.x+.08,anchor.y+.65,-16.1+1.95*reunion);
+  sculpture.scale.set(.245,.46,.19);
+  sculpture.rotation.set(-.07,.28,-.23);
+  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=.44*(1-reunion);
  }
+ // Leave the surfaces behind the camera instead of carrying them into the rail.
  films.forEach(film=>film.visible=p<.48);filmEdges.forEach(rim=>rim.visible=p<.48);
  document.documentElement.style.setProperty('--revelation',ease(.43,.46,p)*(1-ease(.485,.525,p)));
  document.documentElement.style.setProperty('--source',ease(.31,.35,p)*(1-ease(.65,.72,p)));
@@ -234,6 +263,7 @@ function pose(p,air=p){
  document.documentElement.style.setProperty('--caption',1-ease(.12,.19,p));
  document.documentElement.style.setProperty('--hint',1-ease(.01,.08,p));
  phaseLabel.textContent=p>.975?'MEMORY ALLOY':p>.90?'REASSEMBLY':p>.72?'FIVE THRESHOLDS':p>.64?'IMAGE INTO MATTER':p>.48?'THE EDITORIAL RAIL':p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
+ document.documentElement.classList.toggle('genesis-complete',p>.998);
  percentLabel.textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 100`;
 }
 let lastFrame=0;
@@ -267,7 +297,7 @@ document.addEventListener('visibilitychange',()=>{
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
 // Explicit read-only inspection for repeatable browser verification.
-window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,1));onScroll();progress=airProgress=target;progressVelocity=airVelocity=0;pose(progress,airProgress);renderer.render(scene,camera);}},get state(){return {progress,target,airProgress,progressVelocity,airVelocity,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,optical:{open:Number(atmosphere.style.getPropertyValue('--optic-open')),align:Number(atmosphere.style.getPropertyValue('--optic-align')),sky:sky.position.toArray(),peach:peach.position.toArray()},revelation:revelation.inspection,mediaReady:revelation.ready};}};
+window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,1));onScroll();progress=airProgress=target;progressVelocity=airVelocity=0;pose(progress,airProgress);renderer.render(scene,camera);}},get state(){return {progress,target,airProgress,progressVelocity,airVelocity,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,optical:{open:Number(atmosphere.style.getPropertyValue('--optic-open')),align:Number(atmosphere.style.getPropertyValue('--optic-align')),sky:sky.position.toArray(),peach:peach.position.toArray()},revelation:revelation.inspection,mediaReady:revelation.ready,continuum:continuum.inspection};}};
 measure();
 if(forced!==null){progress=airProgress=target;progressVelocity=airVelocity=0;pose(progress,airProgress);renderer.render(scene,camera);}
 }

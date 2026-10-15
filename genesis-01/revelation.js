@@ -15,13 +15,15 @@ export function createRevelation(scene,request){
   material.forceSinglePass=true;
   const tile=new THREE.Mesh(g,material);group.add(tile);
   const edge=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(1.018,1.018)),new THREE.LineBasicMaterial({color:i%2?0x987967:0x8da7b3,transparent:true,opacity:.55}));tile.add(edge);
-  return {tile,edge,region:r,depth:depths[i]};
+  const backing=new THREE.Mesh(new THREE.PlaneGeometry(1.012,1.012),new THREE.MeshStandardMaterial({color:i%2?0xc8b39c:0xa9bbc4,metalness:.82,roughness:.29,side:THREE.DoubleSide,transparent:true,opacity:0}));
+  backing.position.z=-.008;tile.add(backing);
+  return {tile,edge,backing,region:r,depth:depths[i]};
  });
  let ready=false;texture.onUpdate=()=>{ready=true;};
  const inspection={alignmentError:null,depthRange:0,fragmentCount:7};
  function update(p,camera,anchor,mobile){
   group.visible=p>.27&&p<.665;
-  group.position.x=-smooth(.60,.665,p)*2;
+  group.position.x=0;
   const reveal=smooth(.27,.33,p),spread=smooth(.30,.37,p);
   // Geometry locks at 40%. Only the camera resolves the projection from 40–43%.
   const arrange=smooth(.37,.40,p),settle=smooth(.445,.48,p);
@@ -38,7 +40,7 @@ export function createRevelation(scene,request){
   inspection.edgeOpacity=edgeOpacity;
   camera.updateMatrixWorld();
   for(let i=0;i<fragments.length;i++){
-   const {tile,edge,region:r,depth}=fragments[i], [x,y,w,h]=r;
+   const {tile,edge,backing,region:r,depth}=fragments[i], [x,y,w,h]=r;
    const cx=(x+w/2-.5)*width+(mobile?0:halfW*.35),cy=(.5-y-h/2)*height+halfH*.14;
    const distance=mix(depth,5.4,settle),ratio=distance/6;
    const scatterX=Math.sin(i*2.4)*(mobile?.46:.9)*spread*(1-arrange);
@@ -52,7 +54,14 @@ export function createRevelation(scene,request){
    // Registration boundaries dissolve at the optical climax.
    edge.material.opacity=edgeOpacity;
    edge.visible=edgeOpacity>.006;
+   backing.material.opacity=reveal*.8*(1-smooth(.39,.43,p));
+   backing.visible=backing.material.opacity>.005;
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
+   const departure=smooth(.485,.555,p)*-.12;
+   const dx=tile.position.x-anchor.x,dz=tile.position.z+10.4;
+   tile.position.x=anchor.x+dx*Math.cos(departure)+dz*Math.sin(departure);
+   tile.position.z=-10.4-dx*Math.sin(departure)+dz*Math.cos(departure);
+   tile.rotation.y+=departure;
    tile.material.opacity=reveal*(1-smooth(.625,.665,p));
    tile.updateMatrixWorld();
    const screen=tile.position.clone().project(camera);
