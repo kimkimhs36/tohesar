@@ -68,3 +68,6 @@ header img{position:relative;z-index:1}
  .atmosphere-shape--glass{left:7vw;top:36dvh;width:117vw;height:47dvh;filter:blur(4px)}
 }
 @media(prefers-reduced-motion:reduce){.atmosphere-shape{animation:none!important}.atmosphere-well{transform:none!important}}
+
+/* Keep the editorial heading legible when silver folios move nearby. */
+.caption{z-index:2}

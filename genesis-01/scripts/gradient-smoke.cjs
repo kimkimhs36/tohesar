@@ -22,7 +22,11 @@ const assert=require('node:assert/strict');
     assert(s.animation.includes('skyOrbit'));assert(!s.overflow);
     assert(Math.abs(s.progress-p)<.001);assert.equal(s.percent.slice(0,2),String(Math.round(p*100)).padStart(2,'0'));
     if(p===0)x0=s.x;if(p===.23)x23=s.x;
-    await page.screenshot({path:'captures/gradient-'+vp.name+'-'+Math.round(p*100)+'.png'});
+    // Avoid repeated expensive software-GPU screenshot readbacks; all poses
+    // remain asserted via DOM/CSS transforms and WebGL runtime checks.
+    if(p===0 && vp.name==='iphone') {
+      await page.screenshot({path:'captures/gradient-iphone-0.png',timeout:45000});
+    }
    }
    assert(Math.abs(x23-x0)>vp.width*.12,'Scroll gradient not visibly moving: '+x0+' -> '+x23);
    assert.deepEqual(errors,[]);console.log('ATMOSPHERE PASS',vp.name,'scroll delta',Math.round(x23-x0)+'px');
