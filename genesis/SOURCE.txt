@@ -1,5 +1,5 @@
 TOHEŞAR Genesis gradient preview
 Source branch: experiment/next-generation-genesis-gradient-20261015
-Source SHA: cd4c4cb1c2621e7b4471ea82e8719225ed506bf1
+Source SHA: 1c2af0b9c749cf087f50f73be8552605a6c92395
 Preview scope: /genesis/ only
 Not the official homepage
