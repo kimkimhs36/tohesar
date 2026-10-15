@@ -1,0 +1,52 @@
+name: Publish TOHESAR Genesis gradient preview
+
+on:
+  push:
+    branches:
+      - experiment/next-generation-genesis-gradient-20261015
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: genesis-01/package-lock.json
+      - name: Build Genesis production assets
+        working-directory: genesis-01
+        run: |
+          npm ci
+          npm run build
+          test -s dist/index.html
+          test -n "$(ls -A dist/assets)"
+      - name: Safely publish only /genesis/ to main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          mkdir -p /tmp/tohesar-main-checkout
+          git worktree add --detach /tmp/tohesar-main-checkout origin/main
+          mkdir -p /tmp/tohesar-main-checkout/genesis
+          cp -a genesis-01/dist/. /tmp/tohesar-main-checkout/genesis/
+          cat > /tmp/tohesar-main-checkout/genesis/SOURCE.txt <<EOF
+          TOHEŞAR Genesis gradient preview
+          Source branch: experiment/next-generation-genesis-gradient-20261015
+          Source SHA: ${GITHUB_SHA}
+          Preview scope: /genesis/ only
+          Not the official homepage
+          EOF
+          git -C /tmp/tohesar-main-checkout add genesis/
+          if git -C /tmp/tohesar-main-checkout diff --cached --quiet; then
+            echo "Preview already up to date"
+          else
+            git -C /tmp/tohesar-main-checkout config user.name "github-actions[bot]"
+            git -C /tmp/tohesar-main-checkout config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git -C /tmp/tohesar-main-checkout commit -m "preview(genesis): publish chromatic atmosphere at /genesis/"
+            git -C /tmp/tohesar-main-checkout push origin HEAD:main
+          fi
