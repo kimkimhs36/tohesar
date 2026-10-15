@@ -1,0 +1,32 @@
+name: Package GENESIS gradient preview
+on:
+  push:
+    branches: [experiment/next-generation-genesis-gradient-preview-20261015]
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: genesis-01/package-lock.json
+      - name: Install dependencies and build
+        working-directory: genesis-01
+        run: |
+          npm ci
+          npm run build
+      - name: Preserve packaged site in test branch
+        run: |
+          mkdir -p genesis-static
+          cp -a genesis-01/dist/. genesis-static/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f genesis-static
+          git diff --cached --quiet && exit 0
+          git commit -m "build: package TOHEŞAR chromatic gradient preview [skip ci]"
+          git push origin HEAD:refs/heads/experiment/next-generation-genesis-gradient-preview-20261015
