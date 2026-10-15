@@ -1,0 +1,59 @@
+name: Genesis gradient visual QA and release build
+on:
+  push:
+    branches: [experiment/next-generation-genesis-gradient-20261015]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    defaults:
+      run:
+        working-directory: genesis-01
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: genesis-01/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Start local test server
+        run: npm run dev -- --host 127.0.0.1 > /tmp/tohesar-genesis-vite.log 2>&1 &
+      - name: Wait for server
+        run: |
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:5173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/tohesar-genesis-vite.log
+          exit 1
+      - name: Validate 16 keyframes, optical alignment and mobile crop
+        run: node scripts/artpass-check.cjs
+      - name: Save visual QA frames
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: genesis-gradient-mobile-render
+          path: |
+            genesis-01/captures/artpass-*.png
+            genesis-01/captures/artpass-report.json
+          retention-days: 7
+      - name: Publish tested static site into branch
+        if: success()
+        working-directory: .
+        run: |
+          mkdir -p genesis-static
+          cp -a genesis-01/dist/. genesis-static/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f genesis-static
+          if git diff --cached --quiet; then
+            echo "No build changes"
+          else
+            git commit -m "build(genesis): validated static preview [skip ci]"
+            git push origin HEAD:refs/heads/experiment/next-generation-genesis-gradient-20261015
+          fi
