@@ -30,8 +30,11 @@ jobs:
         working-directory: genesis-01
         run: |
           node --check src.js
+          node --check motion.js
           node --check revelation.js
           node --check scripts/gradient-smoke.cjs
+          node --check scripts/optical-qa.cjs
+          node scripts/motion-qa.mjs
           grep -q 'animation:skyOrbit' style.css
           grep -q -- '--sky-shift-x' src.js
           echo "Production build and static scene checks passed"
