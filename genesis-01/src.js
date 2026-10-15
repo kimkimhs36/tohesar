@@ -123,11 +123,24 @@ const shadow=new THREE.Mesh(new THREE.PlaneGeometry(5,2),new THREE.MeshBasicMate
 let progress=0,target=0,raf=0,scrollRange=1,mobile=false,contextLost=false;
 const revelation=createRevelation(scene,request);
 let forced=new URLSearchParams(location.search).get('p');
+let measuredWidth=0,measuredHeight=0,resizeQueued=false;
 function measure(){
- const w=stage.clientWidth,h=stage.clientHeight;mobile=w/h<.8;
- renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+ const w=stage.clientWidth,h=stage.clientHeight;
+ if(w<1||h<1)return;
+ mobile=w/h<.8;
+ // Dynamic Safari browser chrome can fire multiple VisualViewport events;
+ // avoid reallocating the WebGL backbuffer unless the actual stage changed.
+ if(w!==measuredWidth||h!==measuredHeight){
+  measuredWidth=w;measuredHeight=h;
+  renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();
+ }
  scrollRange=Math.max(1,document.documentElement.scrollHeight-innerHeight);
  onScroll();
+}
+function queueMeasure(){
+ if(resizeQueued)return;
+ resizeQueued=true;
+ requestAnimationFrame(()=>{resizeQueued=false;measure();});
 }
 function onScroll(){target=reduced.matches?(scrollY/scrollRange>.45?.48:0):forced!==null?clamp(Number(forced)||0,0,.48):clamp(scrollY/scrollRange,0,1)*.48;request();}
 function request(){if(!raf&&!document.hidden&&!contextLost)raf=requestAnimationFrame(draw);}
@@ -144,9 +157,18 @@ function pose(p){
  atmosphere.style.setProperty('--glass-shift-x',(8-27*depth+23*archive).toFixed(2)+'vw');
  atmosphere.style.setProperty('--glass-shift-y',(-2+14*depth-21*archive).toFixed(2)+'dvh');
  atmosphere.style.setProperty('--archive-calm',archive.toFixed(3));
+ // Two lights physically glide across the titanium as the CSS color fields
+ // cross the viewer. A small reflection gain leaves the approved finish intact.
  sky.intensity=1.38+.25*depth-.18*archive;
  peach.intensity=.84+.38*depth-.23*archive;
+ sky.position.set(4-1.35*depth+.65*archive,2+.8*depth,-1+1.65*archive);
+ peach.position.set(-2+1.50*depth-.35*archive,-3+1.1*depth,3+.45*archive);
+ titanium.envMapIntensity=1+.11*depth-.06*archive;
+ edgeMaterial.roughness=.12+.025*archive;
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
+ // CSS and WebGL receive the same progress rather than drifting independently.
+ atmosphere.style.setProperty('--optic-open',ease(.16,.28,p).toFixed(3));
+ atmosphere.style.setProperty('--optic-align',ease(.37,.43,p).toFixed(3));
  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=opening;
  for(const mesh of [...films,...filmEdges])mesh.morphTargetInfluences[0]=split;
  // The artifact stays in place. The camera crosses its z-depth at the final beat.
@@ -178,12 +200,18 @@ function pose(p){
 }
 let lastFrame=0;
 function draw(now){raf=0;const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):1/60;lastFrame=now;progress=reduced.matches?target:progress+(target-progress)*(1-Math.exp(-12*dt));if(Math.abs(target-progress)<.00002)progress=target;pose(progress);renderer.render(scene,camera);if(progress!==target)request();}
-addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',measure);window.visualViewport?.addEventListener('resize',measure);
-reduced.addEventListener('change',measure);document.addEventListener('visibilitychange',request);
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('resize',queueMeasure);
+window.visualViewport?.addEventListener('resize',queueMeasure);
+reduced.addEventListener('change',queueMeasure);
+document.addEventListener('visibilitychange',()=>{
+ document.documentElement.classList.toggle('page-hidden',document.hidden);
+ if(!document.hidden){lastFrame=0;queueMeasure();request();}
+});
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
 // Explicit read-only inspection for repeatable browser verification.
-window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=target;pose(progress);renderer.render(scene,camera);}},get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,revelation:revelation.inspection,mediaReady:revelation.ready};}};
+window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=target;pose(progress);renderer.render(scene,camera);}},get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,optical:{open:Number(atmosphere.style.getPropertyValue('--optic-open')),align:Number(atmosphere.style.getPropertyValue('--optic-align')),sky:sky.position.toArray(),peach:peach.position.toArray()},revelation:revelation.inspection,mediaReady:revelation.ready};}};
 measure();
 if(forced!==null){progress=target;pose(progress);renderer.render(scene,camera);}
 }
