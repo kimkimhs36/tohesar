@@ -7,9 +7,9 @@ const assert=require('node:assert/strict');
  const report={engine:'Chromium SwiftShader; not iPhone Safari',errors:[],viewports:[]};
  try{
   for(const item of [
-   {name:'portrait',w:390,h:844,frames:[0,.23,.25,.27,.30,.40,.41,.43,.48]},
-   {name:'landscape',w:844,h:390,frames:[0,.23,.43,.48]},
-   {name:'desktop',w:1440,h:900,frames:[0,.43,.48]}
+   {name:'portrait',w:390,h:844,frames:[0,.23,.25,.27,.30,.40,.41,.43,.48,.55,.61,.70,.8,.95,1]},
+   {name:'landscape',w:844,h:390,frames:[0,.23,.43,.48,.61,.8,1]},
+   {name:'desktop',w:1440,h:900,frames:[0,.43,.48,.61,.8,1]}
   ]){
    const page=await browser.newPage({viewport:{width:item.w,height:item.h},hasTouch:item.w<900,isMobile:item.w<900,deviceScaleFactor:1});
    page.on('pageerror',e=>report.errors.push(item.name+': '+e.message));

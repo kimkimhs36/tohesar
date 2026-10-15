@@ -20,7 +20,8 @@ export function createRevelation(scene,request){
  let ready=false;texture.onUpdate=()=>{ready=true;};
  const inspection={alignmentError:null,depthRange:0,fragmentCount:7};
  function update(p,camera,anchor,mobile){
-  group.visible=p>.27;
+  group.visible=p>.27&&p<.665;
+  group.position.x=-smooth(.60,.665,p)*2;
   const reveal=smooth(.27,.33,p),spread=smooth(.30,.37,p);
   // Geometry locks at 40%. Only the camera resolves the projection from 40–43%.
   const arrange=smooth(.37,.40,p),settle=smooth(.445,.48,p);
@@ -52,7 +53,7 @@ export function createRevelation(scene,request){
    edge.material.opacity=edgeOpacity;
    edge.visible=edgeOpacity>.006;
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
-   tile.material.opacity=reveal;
+   tile.material.opacity=reveal*(1-smooth(.625,.665,p));
    tile.updateMatrixWorld();
    const screen=tile.position.clone().project(camera);
    error=Math.max(error,Math.hypot(screen.x-cx/halfW,screen.y-cy/halfH));

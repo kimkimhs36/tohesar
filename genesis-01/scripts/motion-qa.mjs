@@ -38,6 +38,6 @@ const source=readFileSync(new URL('../src.js',import.meta.url),'utf8');
 assert(source.includes("stepSpring(progress,progressVelocity,target,dt,17,1)"));
 assert(source.includes("stepSpring(airProgress,airVelocity,target,dt,11,.8)"));
 assert(source.includes("22*awake")&&source.includes("-27*awake"));
-assert(source.includes("revelation.update(p,camera,sculpture.position,mobile)"));
+assert(source.includes("revelation.update(p,camera,anchor,mobile)"));
 assert(source.includes("progress=airProgress=target"),'Deterministic visual QA poses must stay intact');
 console.log('SOFT SCROLL PASS: instant color response, 30/120fps equivalence, elastic settle, reverse, 43% scene preserved');
