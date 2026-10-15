@@ -15,3 +15,74 @@ header{isolation:isolate}
 header::before{content:"";position:absolute;z-index:-1;left:0;top:0;width:min(320px,76vw);height:135px;pointer-events:none;background:radial-gradient(ellipse 89% 84% at 19% 16%,rgba(241,238,231,.91) 0%,rgba(241,238,231,.61) 45%,rgba(241,238,231,0) 83%)}
 header img{position:relative;z-index:1}
 @media(max-width:600px){header::before{width:min(265px,78vw);height:123px}}
+
+
+/* GENESIS CHROMATIC ATMOSPHERE — dynamic gallery light, not a static wallpaper.
+   The four separable color volumes can be driven by scroll without expensive
+   WebGL passes. GPU-composited drift remains subtle at rest. */
+#atmosphere{
+ position:fixed;inset:0;width:100%;height:100dvh;overflow:hidden;
+ z-index:0;pointer-events:none;isolation:isolate;
+ background:linear-gradient(152deg,#e4eef1 0%,#edf2ef 31%,#f4ebe4 58%,#f5e0d2 100%);
+}
+#stage{z-index:1;background:transparent}
+.atmosphere-tint,.atmosphere-haze,.atmosphere-well{position:absolute;inset:0;pointer-events:none}
+.atmosphere-tint{
+ background:
+ radial-gradient(ellipse 92% 74% at 88% -10%,rgba(164,207,233,.82),transparent 72%),
+ radial-gradient(ellipse 88% 68% at -14% 93%,rgba(251,183,146,.67),transparent 73%),
+ radial-gradient(ellipse 85% 64% at 34% 54%,rgba(250,253,243,.36),transparent 85%);
+ opacity:calc(1 - var(--archive-calm,0) * .25);
+}
+.atmosphere-well{will-change:transform}
+.atmosphere-well--sky{transform:translate3d(var(--sky-shift-x,0px),var(--sky-shift-y,0px),0)}
+.atmosphere-well--peach{transform:translate3d(var(--peach-shift-x,0px),var(--peach-shift-y,0px),0)}
+.atmosphere-well--glass{transform:translate3d(var(--glass-shift-x,0px),var(--glass-shift-y,0px),0)}
+.atmosphere-shape{position:absolute;will-change:transform;filter:blur(11px)}
+.atmosphere-shape--sky{
+ top:-31%;right:-51%;width:143vw;height:94vh;
+ border-radius:48% 52% 59% 41% / 50% 42% 58% 50%;
+ transform:rotate(-23deg);
+ background:
+ radial-gradient(ellipse 48% 43% at 32% 28%,rgba(255,255,255,.88),transparent 83%),
+ radial-gradient(ellipse 87% 90% at 60% 64%,rgba(116,185,215,.30) 0%,rgba(179,218,224,.36) 49%,rgba(217,241,235,.07) 72%,transparent 89%),
+ linear-gradient(135deg,rgba(182,228,230,.15),rgba(80,158,192,.32) 56%,rgba(244,242,227,.22));
+ box-shadow:inset 3vw 4vh 10vw rgba(255,255,255,.56),inset -4vw -6vh 9vw rgba(103,160,198,.13);
+ animation:airSky 31s ease-in-out infinite alternate;
+}
+.atmosphere-shape--peach{
+ left:-56%;bottom:-47%;width:147vw;height:105vh;
+ border-radius:58% 42% 47% 53% / 53% 61% 39% 47%;
+ background:
+ radial-gradient(ellipse at 51% 16%,rgba(255,249,223,.85),transparent 62%),
+ radial-gradient(ellipse at 69% 53%,rgba(250,191,154,.82),rgba(243,188,171,.40) 49%,rgba(230,174,157,.07) 75%,transparent 91%),
+ linear-gradient(35deg,rgba(248,172,135,.68),rgba(247,232,210,.22) 67%);
+ box-shadow:inset -6vw 8vh 13vw rgba(255,254,240,.50);
+ filter:blur(19px);
+ animation:airPeach 39s ease-in-out infinite alternate;
+}
+.atmosphere-shape--glass{
+ left:23%;top:19%;width:89vw;height:70vh;
+ border-radius:43% 57% 65% 35% / 62% 34% 66% 38%;
+ background:
+ radial-gradient(ellipse at 31% 33%,rgba(239,251,248,.72),transparent 64%),
+ radial-gradient(ellipse at 66% 68%,rgba(138,202,205,.32),rgba(225,243,235,.14) 64%,transparent 86%);
+ filter:blur(35px);opacity:.58;
+ animation:airGlass 28s ease-in-out infinite alternate;
+}
+.atmosphere-haze{
+ background:linear-gradient(100deg,rgba(253,250,241,.18),transparent 41%,rgba(255,251,245,.18));
+ opacity:calc(.15 + var(--archive-calm,0) * .55);
+}
+@keyframes airSky{0%{transform:translate3d(-1%,-2%,0) rotate(-19deg) scale(1)}100%{transform:translate3d(4%,4%,0) rotate(-29deg) scale(1.09)}}
+@keyframes airPeach{0%{transform:translate3d(-2%,1%,0) rotate(8deg) scale(1.05)}100%{transform:translate3d(5%,-5%,0) rotate(-5deg) scale(.97)}}
+@keyframes airGlass{0%{transform:translate3d(2%,-3%,0) rotate(-8deg) scale(1.02)}100%{transform:translate3d(-5%,4%,0) rotate(13deg) scale(.95)}}
+@media(max-width:650px){
+ .atmosphere-shape--sky{width:180vw;height:87vh;top:-21%;right:-87%;filter:blur(9px)}
+ .atmosphere-shape--peach{width:195vw;height:78vh;left:-81%;bottom:-28%;filter:blur(15px)}
+ .atmosphere-shape--glass{left:8%;top:14%;width:124vw;height:62vh;filter:blur(27px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .atmosphere-shape{animation:none!important}
+ .atmosphere-well{transform:none!important}
+}

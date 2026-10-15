@@ -6,6 +6,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 // All deformation and camera motion share one reversible 0–0.48 timeline.
 const stage = document.querySelector('#stage');
 const fallback = document.querySelector('#fallback');
+const atmosphere = document.querySelector('#atmosphere');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = THREE.MathUtils.clamp;
 const ease = (a,b,p) => {const t=clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
@@ -131,6 +132,19 @@ function measure(){
 function onScroll(){target=reduced.matches?(scrollY/scrollRange>.45?.48:0):forced!==null?clamp(Number(forced)||0,0,.48):clamp(scrollY/scrollRange,0,1)*.48;request();}
 function request(){if(!raf&&!document.hidden&&!contextLost)raf=requestAnimationFrame(draw);}
 function pose(p){
+ // The colored air is a material environment, not a looping video.
+ // The backdrop's motion is time-driven by GPU-composited CSS animations
+ // while these offsets connect its spatial phase to the physical sculpture.
+ const depth=ease(.12,.30,p),archive=ease(.30,.43,p);
+ atmosphere.style.setProperty('--sky-shift-x',`${Math.round((-10-45*depth+22*archive)*(mobile?1:.75))}px`);
+ atmosphere.style.setProperty('--sky-shift-y',`${Math.round(17*depth-31*archive)}px`);
+ atmosphere.style.setProperty('--peach-shift-x',`${Math.round(29*depth-52*archive)}px`);
+ atmosphere.style.setProperty('--peach-shift-y',`${Math.round(-23*depth+11*archive)}px`);
+ atmosphere.style.setProperty('--glass-shift-x',`${Math.round(-40*depth+12*archive)}px`);
+ atmosphere.style.setProperty('--glass-shift-y',`${Math.round(15*depth-16*archive)}px`);
+ atmosphere.style.setProperty('--archive-calm',archive.toFixed(3));
+ sky.intensity=1.38+.25*depth-.18*archive;
+ peach.intensity=.84+.38*depth-.23*archive;
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=opening;
  for(const mesh of [...films,...filmEdges])mesh.morphTargetInfluences[0]=split;
