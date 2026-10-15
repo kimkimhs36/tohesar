@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createRevelation } from './revelation.js';
+import { stepSpring, openingAir } from './motion.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 // A new procedural artifact: two unequal folded folios, never a swept ribbon.
@@ -15,7 +16,8 @@ try { renderer = new THREE.WebGLRenderer({antialias:true,alpha:true,powerPrefere
 catch { fallback.hidden=false; }
 if(renderer) init();
 function init(){
-renderer.setPixelRatio(Math.min(devicePixelRatio,1.65));
+// On narrow iPhone viewports, reduce expensive fill-rate without losing the 3D artwork.
+renderer.setPixelRatio(Math.min(devicePixelRatio,Math.min(innerWidth,innerHeight)<650?1.5:1.65));
 renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure=1.02;
@@ -121,6 +123,10 @@ const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shado
 const sc=shadowCanvas.getContext('2d'),sg=sc.createRadialGradient(64,64,0,64,64,64);sg.addColorStop(0,'rgba(56,65,65,.18)');sg.addColorStop(1,'rgba(56,65,65,0)');sc.fillStyle=sg;sc.fillRect(0,0,128,128);
 const shadow=new THREE.Mesh(new THREE.PlaneGeometry(5,2),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}));shadow.position.set(.4,-2.65,-.5);shadow.rotation.x=-Math.PI/2;scene.add(shadow);
 let progress=0,target=0,raf=0,scrollRange=1,mobile=false,contextLost=false;
+let progressVelocity=0,airProgress=0,airVelocity=0;
+// Cached labels: avoid querying the live DOM on each WebGL animation frame.
+const phaseLabel=document.querySelector('#phase');
+const percentLabel=document.querySelector('#percent');
 const revelation=createRevelation(scene,request);
 let forced=new URLSearchParams(location.search).get('p');
 let measuredWidth=0,measuredHeight=0,resizeQueued=false;
@@ -144,31 +150,35 @@ function queueMeasure(){
 }
 function onScroll(){target=reduced.matches?(scrollY/scrollRange>.45?.48:0):forced!==null?clamp(Number(forced)||0,0,.48):clamp(scrollY/scrollRange,0,1)*.48;request();}
 function request(){if(!raf&&!document.hidden&&!contextLost)raf=requestAnimationFrame(draw);}
-function pose(p){
+function pose(p,air=p){
  // The colored air is a material environment, not a looping video.
  // The backdrop's motion is time-driven by GPU-composited CSS animations
  // while these offsets connect its spatial phase to the physical sculpture.
- const depth=ease(.12,.30,p),archive=ease(.30,.43,p);
- // Responsive, high-amplitude orbital parallax (vw/dvh rather than tiny px).
- atmosphere.style.setProperty('--sky-shift-x',(-4-24*depth+35*archive).toFixed(2)+'vw');
- atmosphere.style.setProperty('--sky-shift-y',(-4+17*depth-13*archive).toFixed(2)+'dvh');
- atmosphere.style.setProperty('--peach-shift-x',(-7+33*depth-34*archive).toFixed(2)+'vw');
- atmosphere.style.setProperty('--peach-shift-y',(4-18*depth+14*archive).toFixed(2)+'dvh');
- atmosphere.style.setProperty('--glass-shift-x',(8-27*depth+23*archive).toFixed(2)+'vw');
- atmosphere.style.setProperty('--glass-shift-y',(-2+14*depth-21*archive).toFixed(2)+'dvh');
+ // The first 0–10.5% used to appear frozen. A separate spring-driven color
+ // timeline now opens the atmosphere immediately, ahead of the metal morph.
+ const awake=openingAir(air);
+ const depth=ease(.12,.30,air),archive=ease(.30,.43,air);
+ // Counter-moving luminous volumes create a visible soft folding motion.
+ // Their existing palette, dimensions and autonomous CSS cycles stay intact.
+ atmosphere.style.setProperty('--sky-shift-x',(-4+22*awake-24*depth+35*archive).toFixed(3)+'vw');
+ atmosphere.style.setProperty('--sky-shift-y',(-4+12*awake+17*depth-13*archive).toFixed(3)+'dvh');
+ atmosphere.style.setProperty('--peach-shift-x',(-7-27*awake+33*depth-34*archive).toFixed(3)+'vw');
+ atmosphere.style.setProperty('--peach-shift-y',(4-11*awake-18*depth+14*archive).toFixed(3)+'dvh');
+ atmosphere.style.setProperty('--glass-shift-x',(8+19*awake-27*depth+23*archive).toFixed(3)+'vw');
+ atmosphere.style.setProperty('--glass-shift-y',(-2-14*awake+14*depth-21*archive).toFixed(3)+'dvh');
  atmosphere.style.setProperty('--archive-calm',archive.toFixed(3));
  // Two lights physically glide across the titanium as the CSS color fields
  // cross the viewer. A small reflection gain leaves the approved finish intact.
- sky.intensity=1.38+.25*depth-.18*archive;
- peach.intensity=.84+.38*depth-.23*archive;
- sky.position.set(4-1.35*depth+.65*archive,2+.8*depth,-1+1.65*archive);
- peach.position.set(-2+1.50*depth-.35*archive,-3+1.1*depth,3+.45*archive);
+ sky.intensity=1.38+.18*awake+.25*depth-.18*archive;
+ peach.intensity=.84+.16*awake+.38*depth-.23*archive;
+ sky.position.set(4+.75*awake-1.35*depth+.65*archive,2+.5*awake+.8*depth,-1+1.65*archive);
+ peach.position.set(-2-.8*awake+1.50*depth-.35*archive,-3+.5*awake+1.1*depth,3+.45*archive);
  titanium.envMapIntensity=1+.11*depth-.06*archive;
  edgeMaterial.roughness=.12+.025*archive;
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
  // CSS and WebGL receive the same progress rather than drifting independently.
- atmosphere.style.setProperty('--optic-open',ease(.16,.28,p).toFixed(3));
- atmosphere.style.setProperty('--optic-align',ease(.37,.43,p).toFixed(3));
+ atmosphere.style.setProperty('--optic-open',Math.min(1,.45*awake+.55*ease(.16,.28,air)).toFixed(3));
+ atmosphere.style.setProperty('--optic-align',ease(.37,.43,air).toFixed(3));
  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=opening;
  for(const mesh of [...films,...filmEdges])mesh.morphTargetInfluences[0]=split;
  // The artifact stays in place. The camera crosses its z-depth at the final beat.
@@ -195,11 +205,29 @@ function pose(p){
  shadow.material.opacity=1-split;
  document.documentElement.style.setProperty('--caption',1-ease(.12,.19,p));
  document.documentElement.style.setProperty('--hint',1-ease(.01,.08,p));
- document.querySelector('#phase').textContent=p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
- document.querySelector('#percent').textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 48`;
+ phaseLabel.textContent=p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
+ percentLabel.textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 48`;
 }
 let lastFrame=0;
-function draw(now){raf=0;const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):1/60;lastFrame=now;progress=reduced.matches?target:progress+(target-progress)*(1-Math.exp(-12*dt));if(Math.abs(target-progress)<.00002)progress=target;pose(progress);renderer.render(scene,camera);if(progress!==target)request();}
+function draw(now){
+ raf=0;
+ const dt=lastFrame?Math.min(Math.max((now-lastFrame)/1000,0),.1):1/60;
+ lastFrame=now;
+ if(reduced.matches){
+  progress=airProgress=target;
+  progressVelocity=airVelocity=0;
+ }else{
+  // Critically damped camera + gently elastic atmosphere. Exact time-based
+  // springs avoid the staircase / draggy sensation of direct scroll mapping.
+  const cameraStep=stepSpring(progress,progressVelocity,target,dt,17,1);
+  const airStep=stepSpring(airProgress,airVelocity,target,dt,11,.8);
+  progress=cameraStep.position;progressVelocity=cameraStep.velocity;
+  airProgress=airStep.position;airVelocity=airStep.velocity;
+ }
+ pose(progress,airProgress);
+ renderer.render(scene,camera);
+ if(progress!==target||airProgress!==target)request();
+}
 addEventListener('scroll',onScroll,{passive:true});
 addEventListener('resize',queueMeasure);
 window.visualViewport?.addEventListener('resize',queueMeasure);
@@ -211,7 +239,7 @@ document.addEventListener('visibilitychange',()=>{
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;fallback.hidden=false;});
 renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;fallback.hidden=true;request();});
 // Explicit read-only inspection for repeatable browser verification.
-window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=target;pose(progress);renderer.render(scene,camera);}},get state(){return {progress,target,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,optical:{open:Number(atmosphere.style.getPropertyValue('--optic-open')),align:Number(atmosphere.style.getPropertyValue('--optic-align')),sky:sky.position.toArray(),peach:peach.position.toArray()},revelation:revelation.inspection,mediaReady:revelation.ready};}};
+window.__genesis={seek(p){if(forced!==null){forced=String(clamp(p,0,.48));onScroll();progress=airProgress=target;progressVelocity=airVelocity=0;pose(progress,airProgress);renderer.render(scene,camera);}},get state(){return {progress,target,airProgress,progressVelocity,airVelocity,camera:camera.position.toArray(),morph:morphs.map(m=>m.morphTargetInfluences[0]),calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,reduced:reduced.matches,optical:{open:Number(atmosphere.style.getPropertyValue('--optic-open')),align:Number(atmosphere.style.getPropertyValue('--optic-align')),sky:sky.position.toArray(),peach:peach.position.toArray()},revelation:revelation.inspection,mediaReady:revelation.ready};}};
 measure();
-if(forced!==null){progress=target;pose(progress);renderer.render(scene,camera);}
+if(forced!==null){progress=airProgress=target;progressVelocity=airVelocity=0;pose(progress,airProgress);renderer.render(scene,camera);}
 }
