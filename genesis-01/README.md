@@ -17,6 +17,16 @@ npm run build
 - **37–43% / Anamorphosis.** Fragment transforms settle by 40%. From 40–43%, **only the camera moves**. At 43% their perspective projections reconstruct one image while their depths still span 3.6 world units. This is not a flat image fading over the scene.
 - **43–48% / Revelation.** A short held viewpoint lets the image register. Layers then converge into a quiet editorial plane and existing journal metadata appears. No Scene 04 or Journal UI is built.
 
+## Soft Scroll V4 / 2026-10-15
+
+- The original 0–10.5% scene phase now visibly unfolds the existing sky, peach and glass color volumes on **the first touch scroll**, while preserving the original first-frame composition.
+- The Three.js camera follows a critically damped frame-rate-independent scroll spring (natural omega 17); the atmosphere follows an independently, gently elastic spring (omega 11, damping 0.8). Both settle and stop rendering when at rest. Reverse scrolling uses the same deterministic model.
+- Chromatic shapes travel in opposite directions: sky +22vw/+12dvh, peach −27vw/−11dvh, glass +19vw/−14dvh across the opening. All offsets are continuous through the unchanged 12–30% physical morph and 30–48% image reveal.
+- The original image projection and seven fragment geometry remain **untouched**. Forced seek and reduced motion still jump directly to the requested key frame.
+- Narrow device DPR is capped at 1.5 for lower WebGL fill cost, with desktop cap 1.65 retained.
+- `node scripts/motion-qa.mjs` checks step/reverse physics at 30 and 120 FPS, spring settling, soft overshoot limits, first-1% response and original photo pose references. It is a required build gate before publishing `/genesis/`.
+- `scripts/optical-qa.cjs` additionally checks a visibly different 5% early-scroll atmosphere and 43% perspective alignment in Chromium (optional separate visual QA). Physical iPhone Safari still requires real-device confirmation.
+
 ## Optical Cohesion V3 / 2026-10-15
 
 This is an incremental art pass **on top of approved Chromatic Atmosphere V2**, not a homepage redesign. Original sky, peach and glass gradients, approved layout, titanium folios, five films, seven Yokohama image pieces and all 0–48% key poses remain intact.
