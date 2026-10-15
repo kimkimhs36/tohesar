@@ -209,6 +209,9 @@ main{position:relative}
 #destinations a{flex:1;min-width:0;text-align:center;font-size:7px;letter-spacing:.08em;padding:14px 2px;white-space:nowrap}
 
 
+
+/* Tablet and desktop only. Phones inherit the exact previous Astra High CSS. */
+@media (min-width:651px) and (min-height:541px){
 /* GATEWAY GALLERY / USER REVIEW — only 75–91%, no changes to original fold.
    Five physically curved leaves sit in a balanced exhibition composition.
    Labels are projected from each leaf's lower edge in continuum.js. */
@@ -263,22 +266,4 @@ main{position:relative}
  background:linear-gradient(180deg,rgba(249,251,244,.95),rgba(247,250,242,.55));
  outline:1px solid rgba(47,83,84,.48);outline-offset:4px;
 }
-@media(max-width:650px) and (orientation:portrait){
- .gateway-heading{top:113px;}
- .gateway-heading .eyebrow{font-size:8px;letter-spacing:.16em}
- .gateway-heading h2{display:none}
- .spatial-link{padding:8px 2px 5px;min-height:54px;grid-template-columns:15px minmax(0,1fr) 13px;row-gap:4px}
- .spatial-link strong{font-size:10px;letter-spacing:.07em}
- .spatial-link small{font-size:8px;line-height:1.25}
-}
-@media(max-height:540px) and (orientation:landscape){
- .gateway-heading{top:17%;}
- .gateway-heading h2{font-size:34px;margin-top:5px}
- .gateway-heading .eyebrow{font-size:7px}
- .spatial-link{min-height:52px;padding:7px 3px 5px}
- .spatial-link strong{font-size:9px}
- .spatial-link small{font-size:7px}
-}
-@media(prefers-reduced-motion:reduce){
- .gateway-heading{transition:none}
 }
