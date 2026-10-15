@@ -26,6 +26,26 @@ jobs:
           npm run build
           test -s dist/index.html
           test -n "$(ls -A dist/assets)"
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+        working-directory: genesis-01
+      - name: Start gradient preview server
+        run: npm run dev -- --host 127.0.0.1 > /tmp/genesis-gradient.log 2>&1 &
+        working-directory: genesis-01
+      - name: Wait for preview
+        run: |
+          for i in {1..50}; do if curl -fsS http://127.0.0.1:5173/ >/dev/null; then exit 0; fi; sleep 1; done
+          cat /tmp/genesis-gradient.log; exit 1
+      - name: Verify visible motion and keyframes
+        run: node scripts/gradient-smoke.cjs
+        working-directory: genesis-01
+      - name: Upload preview captures
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: genesis-gradient-v2-render
+          path: genesis-01/captures/gradient-*.png
+          retention-days: 7
       - name: Safely publish only /genesis/ to main
         run: |
           set -euo pipefail

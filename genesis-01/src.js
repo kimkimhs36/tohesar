@@ -136,12 +136,13 @@ function pose(p){
  // The backdrop's motion is time-driven by GPU-composited CSS animations
  // while these offsets connect its spatial phase to the physical sculpture.
  const depth=ease(.12,.30,p),archive=ease(.30,.43,p);
- atmosphere.style.setProperty('--sky-shift-x',`${Math.round((-10-45*depth+22*archive)*(mobile?1:.75))}px`);
- atmosphere.style.setProperty('--sky-shift-y',`${Math.round(17*depth-31*archive)}px`);
- atmosphere.style.setProperty('--peach-shift-x',`${Math.round(29*depth-52*archive)}px`);
- atmosphere.style.setProperty('--peach-shift-y',`${Math.round(-23*depth+11*archive)}px`);
- atmosphere.style.setProperty('--glass-shift-x',`${Math.round(-40*depth+12*archive)}px`);
- atmosphere.style.setProperty('--glass-shift-y',`${Math.round(15*depth-16*archive)}px`);
+ // Responsive, high-amplitude orbital parallax (vw/dvh rather than tiny px).
+ atmosphere.style.setProperty('--sky-shift-x',(-4-24*depth+35*archive).toFixed(2)+'vw');
+ atmosphere.style.setProperty('--sky-shift-y',(-4+17*depth-13*archive).toFixed(2)+'dvh');
+ atmosphere.style.setProperty('--peach-shift-x',(-7+33*depth-34*archive).toFixed(2)+'vw');
+ atmosphere.style.setProperty('--peach-shift-y',(4-18*depth+14*archive).toFixed(2)+'dvh');
+ atmosphere.style.setProperty('--glass-shift-x',(8-27*depth+23*archive).toFixed(2)+'vw');
+ atmosphere.style.setProperty('--glass-shift-y',(-2+14*depth-21*archive).toFixed(2)+'dvh');
  atmosphere.style.setProperty('--archive-calm',archive.toFixed(3));
  sky.intensity=1.38+.25*depth-.18*archive;
  peach.intensity=.84+.38*depth-.23*archive;
