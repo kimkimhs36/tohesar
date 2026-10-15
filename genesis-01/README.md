@@ -17,6 +17,18 @@ npm run build
 - **37–43% / Anamorphosis.** Fragment transforms settle by 40%. From 40–43%, **only the camera moves**. At 43% their perspective projections reconstruct one image while their depths still span 3.6 world units. This is not a flat image fading over the scene.
 - **43–48% / Revelation.** A short held viewpoint lets the image register. Layers then converge into a quiet editorial plane and existing journal metadata appears. No Scene 04 or Journal UI is built.
 
+## Optical Cohesion V3 / 2026-10-15
+
+This is an incremental art pass **on top of approved Chromatic Atmosphere V2**, not a homepage redesign. Original sky, peach and glass gradients, approved layout, titanium folios, five films, seven Yokohama image pieces and all 0–48% key poses remain intact.
+
+- Specular fold overlays add luminous curved surfaces without new image assets, postprocessing, backdrop-filter, or extra WebGL canvases.
+- A shared scroll phase ties the CSS optical layers to moving sky/peach 3D directional lights and subtle titanium environment-map gain.
+- VisualViewport/resize events are coalesced so Safari toolbar transitions do not needlessly recreate the WebGL backbuffer.
+- CSS specular animations pause while the document is hidden. Reduced-motion turns the new autonomous glints off.
+- `scripts/optical-qa.cjs` checks 390×844 portrait, 844×390 landscape, 43% perspective alignment, preserved nonzero fragment depth, hidden-page pause, and reduced-motion glints. Run from the Vite dev server with `node scripts/optical-qa.cjs`. This is Chromium software-WebGL verification only; **physical iPhone Safari remains untested**.
+
+Previous approved V2 commit: `6794ea1b5b5ce84b04aa5206d71285b3159e03e4`. Preview deployment is scoped to `/genesis/`, never to the official homepage root.
+
 One Three.js WebGL2 canvas + native scroll + Vite + DOM type. Scroll maps the entire local document to 0–48%, then stops. Mobile has its own composition. Rendering is on demand; settling is time-based, DPR capped at 1.65. Reduced motion provides the first and final compositions as two static scroll states. WebGL failure/context loss shows the captured poster.
 
 ## Sources
