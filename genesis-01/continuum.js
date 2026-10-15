@@ -71,8 +71,11 @@ export function createContinuum(scene,request){
  // Portrait uses a two-column descending rhythm; landscape keeps one quiet row.
  const gxPortrait=[-.54,.52,-.51,.54,-.53],gyPortrait=[.55,.28,.01,-.26,-.53];
  const gyLandscape=[.06,.025,.065,-.025,.045];
- const exhibition=ease(.711,.793,p);
- const headingActive=p>=.752&&p<=.914;
+ // Restore the previous gallery geometry on phone-sized viewports only.
+ // iPad and desktop keep the redesigned five-threshold exhibition.
+ const legacyPhone=width<=650||height<=540;
+ const exhibition=legacyPhone?0:ease(.711,.793,p);
+ const headingActive=!legacyPhone&&p>=.752&&p<=.914;
  gatewayHeading.hidden=!headingActive;
  if(headingActive)gatewayHeading.style.opacity=ease(.752,.795,p)*(1-ease(.88,.914,p));
   panels.forEach(({group,mesh,edge,material,link},i)=>{
@@ -113,12 +116,12 @@ export function createContinuum(scene,request){
    u.ink.value=(i<2?1:0)*(1-ease(.648,.716,p));
    // Let blue/peach reflections articulate the edge while showing through the
    // surface. The first two leaves retain a real existing visual-journal crop.
-   u.opacity.value=emergence*mix(1,.77,individual)*(1-.18*close);
-   u.metal.value=[.24,.53,.43,.36,.26][i]*individual*(1-close)+.52*close;
+   u.opacity.value=emergence*mix(1,legacyPhone?.87:.77,individual)*(1-.18*close);
+   u.metal.value=(legacyPhone?[.18,.64,.50,.28,.15]:[.24,.53,.43,.36,.26])[i]*individual*(1-close)+.52*close;
    u.lightPhase.value=p+.5*close;
    // A narrow remnant of the existing blue-hour image remains inside WORLD,
    // preserving the connection from photographic memory to a destination.
-   u.aperture.value=(i===0?.38:i===1?.62:0)*ease(.72,.78,p)*(1-close);
+   u.aperture.value=(legacyPhone?(i===1?.78:0):(i===0?.38:i===1?.62:0))*ease(.72,.78,p)*(1-close);
    edge.material.opacity=emergence*mix(.32,.76,individual);
    edge.material.roughness=.21+.08*(1-close);
    group.visible=emergence>.001;
@@ -126,17 +129,26 @@ export function createContinuum(scene,request){
    const active=p>=.765&&p<=.907;
    link.hidden=!active;link.tabIndex=active?0:-1;
    if(active){
-    // Project the *actual lower edge* of each curved plate: the caption now
-    // belongs to the object, instead of floating mid-air at an arbitrary x/y.
-    point.set(0,0,.08).applyMatrix4(group.matrixWorld).project(camera);
-    labelPoint.set(0,-.55,.08).applyMatrix4(group.matrixWorld).project(camera);
-    const labelWidth=mobile?Math.min(width*.385,154):Math.min(width*.119,178);
-    const px=(point.x*.5+.5)*width;
-    const py=(-labelPoint.y*.5+.5)*height+10;
-    link.style.left=`${THREE.MathUtils.clamp(px,labelWidth/2+14,width-labelWidth/2-14)}px`;
-    link.style.top=`${THREE.MathUtils.clamp(py,105,height-91)}px`;
-    link.style.width=`${labelWidth}px`;
-    link.style.setProperty('--portal-presence',ease(.765,.795,p)*(1-ease(.883,.907,p)));
+    if(legacyPhone){
+     // Original mobile card registration (Astra High, before gallery revision).
+     point.set(mobile?[.15,-.12,.12,-.12,.03][i]:0,mobile?-.015:-.20,.10).applyMatrix4(group.matrixWorld).project(camera);
+     const labelWidth=mobile?Math.min(width*.36,164):Math.min(width*.16,205);
+     link.style.left=`${THREE.MathUtils.clamp((point.x*.5+.5)*width,labelWidth/2+18,width-labelWidth/2-18)}px`;
+     link.style.top=`${(-point.y*.5+.5)*height}px`;
+     link.style.width=`${labelWidth}px`;
+     link.style.setProperty('--portal-presence',ease(.765,.785,p)*(1-ease(.89,.907,p)));
+    }else{
+     // Redesigned lower-edge registration retained for iPad/desktop only.
+     point.set(0,0,.08).applyMatrix4(group.matrixWorld).project(camera);
+     labelPoint.set(0,-.55,.08).applyMatrix4(group.matrixWorld).project(camera);
+     const labelWidth=mobile?Math.min(width*.385,154):Math.min(width*.119,178);
+     const px=(point.x*.5+.5)*width;
+     const py=(-labelPoint.y*.5+.5)*height+10;
+     link.style.left=`${THREE.MathUtils.clamp(px,labelWidth/2+14,width-labelWidth/2-14)}px`;
+     link.style.top=`${THREE.MathUtils.clamp(py,105,height-91)}px`;
+     link.style.width=`${labelWidth}px`;
+     link.style.setProperty('--portal-presence',ease(.765,.795,p)*(1-ease(.883,.907,p)));
+    }
    }
   });
   rails.forEach(rail=>{rail.visible=p>.48&&p<.735;rail.position.set(anchor.x,anchor.y+.24,-10.48);rail.material.opacity=.38*ease(.48,.53,p)*(1-ease(.65,.735,p));});
