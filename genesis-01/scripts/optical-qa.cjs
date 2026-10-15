@@ -15,19 +15,22 @@ const assert = require('node:assert/strict');
       await page.goto('http://127.0.0.1:5173/?p=0');
       await page.waitForFunction(() => !!window.__genesis);
       const states = [];
-      for (const p of [0,.23,.30,.40,.43,.48]) {
+      for (const p of [0,.05,.23,.30,.40,.43,.48]) {
         await page.evaluate(v => window.__genesis.seek(v),p);
         states.push(await page.evaluate(() => {
           const s=window.__genesis.state;
           return {
             progress:s.progress, optical:s.optical, revelation:s.revelation,
             overflow:document.documentElement.scrollWidth>innerWidth,
+            skyOffset:new DOMMatrix(getComputedStyle(document.querySelector('.atmosphere-well--sky')).transform).m41,
             skyGlint:getComputedStyle(document.querySelector('.atmosphere-shape--sky'),'::before').animationName
           };
         }));
       }
-      const [first,open,pass,lock,aligned,final]=states;
+      const [first,early,open,pass,lock,aligned,final]=states;
       assert.equal(first.optical.open,0);
+      assert(Math.abs(early.skyOffset-first.skyOffset)>vp.width*.13,'First 5% of the scene must noticeably unfold the sky');
+      assert(early.optical.open>.2,'Specular light should respond immediately');
       assert(open.optical.open>.1,'Light should open with geometry');
       assert.notDeepEqual(open.optical.sky,first.optical.sky,'Sky light should respond to scroll');
       assert(pass.optical.open>.99);
