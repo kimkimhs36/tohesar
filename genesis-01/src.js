@@ -189,18 +189,27 @@ function pose(p,air=p){
  titanium.envMapRotation.copy(scene.environmentRotation);
  edgeMaterial.envMapRotation.copy(scene.environmentRotation);
  key.position.set(-3+2.2*returnLight,5,6);
- seam.morphTargetInfluences[0]=ease(.17,.235,p);
- seamMaterial.uniforms.opacity.value=.52*(1-ease(.178,.22,p));
+ // 12–17%: a thin illuminated shut-line. 17–23%: a measured 12 cm
+ // separation, not the entire leaf instantly flying open. 23–28%:
+ // both coach-built shells finally release before the camera crosses.
+ const firstSeam=ease(.115,.17,p);
+ const pilotOpening=ease(.17,.23,p);
+ const deepOpening=ease(.23,.278,p);
+ const opening=.13*pilotOpening+.87*deepOpening;
+ const split=ease(.23,.27,p),pass=ease(.27,.30,p);
+ seam.morphTargetInfluences[0]=opening;
+ seamMaterial.uniforms.opacity.value=(.11+.49*firstSeam)*(1-ease(.25,.285,p));
  seamMaterial.uniforms.lightPhase.value=air;
- films.forEach(film=>{film.material.uniforms.lightPhase.value=air;film.material.uniforms.opacity.value=.84*ease(.165,.225,p);});
- edgeMaterial.roughness=.12+.025*archive;
- const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
+ // Internal emulsion emerges *after* the slit is discovered, never through
+ // an unopened metal panel. The light first traces its physical polished lip.
+ films.forEach(film=>{film.material.uniforms.lightPhase.value=air;film.material.uniforms.opacity.value=.84*ease(.226,.278,p);});
+ edgeMaterial.roughness=.12-.027*firstSeam*(1-deepOpening)+.025*archive;
  // CSS and WebGL receive the same progress rather than drifting independently.
  atmosphere.style.setProperty('--optic-open',Math.min(1,.45*awake+.55*ease(.16,.28,air)).toFixed(3));
  atmosphere.style.setProperty('--optic-align',ease(.37,.43,air).toFixed(3));
  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=opening;
  films.forEach((film,i)=>{
-  const release=ease(.205+i*.002,.267+i*.001,p);
+  const release=ease(.229+i*.003,.277+i*.002,p);
   film.morphTargetInfluences[0]=release;filmEdges[i].morphTargetInfluences[0]=release;
  });
  // The artifact stays in place. The camera crosses its z-depth at the final beat.
@@ -213,11 +222,17 @@ function pose(p,air=p){
  sculpture.rotation.y=THREE.MathUtils.lerp(-.48,-.04,split)+.22*ease(0,.16,p)*(1-split);
  sculpture.rotation.z=THREE.MathUtils.lerp(-.23,-.035,split);
  const startZ=mobile?9.65:9.5;
- // Hold a composed portrait while the fold opens, before the camera enters.
- const approach=ease(.12,.23,p)*(mobile?.26:.66)+awake*.06;
+ // A restrained tracking shot reveals the changing surface highlight;
+ // at the threshold the camera centers on the drawn seam before crossing.
+ const track=ease(.12,.208,p)*(1-ease(.238,.275,p));
+ const approach=ease(.12,.235,p)*(mobile?.29:.63)+awake*.06;
  const threshold=ease(.23,.27,p)*4.13;
- camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),THREE.MathUtils.lerp(startZ-approach-threshold,-.85,pass));
- camera.lookAt(camera.position.x,camera.position.y,-8);
+ camera.position.set(
+  THREE.MathUtils.lerp(0,sculpture.position.x,split)-(mobile?.12:.22)*track,
+  THREE.MathUtils.lerp(.12,sculpture.position.y,split)+.065*track,
+  THREE.MathUtils.lerp(startZ-approach-threshold,-.85,pass)
+ );
+ camera.lookAt(camera.position.x+(mobile?.045:.08)*track,camera.position.y,-8);
  const handoff=ease(.27,.30,p);
  sculpture.position.x=THREE.MathUtils.lerp(sculpture.position.x,mobile?.48:1.16,handoff);
  sculpture.position.y=THREE.MathUtils.lerp(sculpture.position.y,mobile?.53:.05,handoff);
@@ -239,7 +254,7 @@ function pose(p,air=p){
  const reunion=ease(.925,.989,p);
  titanium.opacity=edgeMaterial.opacity=p>.90?ease(.925,.949,p):1;
  sculpture.visible=p<.48||p>.925;
- seam.visible=p<.22;
+ seam.visible=p<.285;
  if(p>.925){
   // Metal returns from behind the leaves along their common spine; it never
   // scales up from a zero-sized object in the middle of the photograph.
