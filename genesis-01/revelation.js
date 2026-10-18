@@ -6,6 +6,28 @@ export function createRevelation(scene,request){
  const group=new THREE.Group();scene.add(group);
  const texture=new THREE.TextureLoader().load('./assets/yokohama-portrait.webp',()=>request());
  texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=4;
+ // The fragment study resolves into a genuine editorial print at optical closure.
+ // It uses the already-published TOHEŞAR artwork, never invented archive imagery.
+ const photoPlate=document.createElement('section');
+ photoPlate.className='yokohama-photo-plate';
+ photoPlate.hidden=true;
+ photoPlate.setAttribute('aria-label','Yokohama visual journal — the complete image');
+ photoPlate.innerHTML=`
+  <div class="photo-plate-ground" aria-hidden="true"></div>
+  <figure class="photo-plate-frame">
+   <img src="./assets/yokohama-portrait.webp" alt="TOHEŞAR의 가상 요코하마 항구와 자동차 비주얼 스터디" decoding="async">
+   <figcaption>TOHEŞAR / VISUAL FICTION 001</figcaption>
+  </figure>
+  <div class="photo-plate-copy">
+   <span class="photo-plate-index">001 &nbsp;/&nbsp; THE IMAGE</span>
+   <h2>Yoko<em>hama.</em></h2>
+   <p>A CITY IMAGINED. A MOMENT REMEMBERED.</p>
+   <a href="/journal/yokohama/" aria-label="Read Yokohama visual journal">EXPLORE THE JOURNAL <span aria-hidden="true">↗</span></a>
+  </div>
+  <span class="photo-plate-footnote">AI-ASSISTED VISUAL STUDY / 2026</span>
+ `;
+ document.querySelector('main').append(photoPlate);
+ const photoLink=photoPlate.querySelector('a');
  const regions=[[0,0,.42,.3],[.42,0,.58,.3],[0,.3,.28,.4],[.28,.3,.45,.4],[.73,.3,.27,.4],[0,.7,.55,.3],[.55,.7,.45,.3]];
  const depths=[3.8,5.4,4.6,6.3,4.1,5.9,7.4];
  const fragments=regions.map((r,i)=>{
@@ -22,6 +44,18 @@ export function createRevelation(scene,request){
  let ready=false;texture.onUpdate=()=>{ready=true;};
  const inspection={alignmentError:null,depthRange:0,fragmentCount:7};
  function update(p,camera,anchor,mobile){
+  // The image settles at 43%, holds as a real editorial plate, then dissolves
+  // into the existing architectural leaves from 48%. No abrupt object swap.
+  const plateIn=smooth(.416,.446,p);
+  const plateOut=1-smooth(.486,.516,p);
+  const plateOpacity=plateIn*plateOut;
+  const plateInteractive=plateOpacity>.91&&p<.492;
+  photoPlate.hidden=plateOpacity<.006;
+  photoPlate.inert=!plateInteractive;
+  photoPlate.setAttribute('aria-hidden',String(!plateInteractive));
+  if(!photoPlate.hidden)photoPlate.style.opacity=plateOpacity.toFixed(3);
+  photoLink.tabIndex=plateInteractive?0:-1;
+  document.documentElement.style.setProperty('--photo-plate',plateOpacity.toFixed(3));
   group.visible=p>.27&&p<.665;
   group.position.x=0;
   const reveal=smooth(.27,.33,p),spread=smooth(.30,.37,p);
@@ -52,8 +86,8 @@ export function createRevelation(scene,request){
    // a tiny overlap prevents antialiased hairline gaps.
    tile.scale.set(width*w*ratio*(.55+.45*spread)*gutter,height*h*ratio*(.55+.45*spread)*gutter,1);
    // Registration boundaries dissolve at the optical climax.
-   edge.material.opacity=edgeOpacity;
-   edge.visible=edgeOpacity>.006;
+   edge.material.opacity=edgeOpacity*(1-plateIn);
+   edge.visible=edge.material.opacity>.006;
    backing.material.opacity=reveal*.8*(1-smooth(.39,.43,p));
    backing.visible=backing.material.opacity>.005;
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
@@ -62,7 +96,9 @@ export function createRevelation(scene,request){
    tile.position.x=anchor.x+dx*Math.cos(departure)+dz*Math.sin(departure);
    tile.position.z=-10.4-dx*Math.sin(departure)+dz*Math.cos(departure);
    tile.rotation.y+=departure;
-   tile.material.opacity=reveal*(1-smooth(.625,.665,p));
+   // Once the full print resolves, fragmented geometry stays dissolved.
+   // The next scene takes over; we never resurrect split tiles on the way out.
+   tile.material.opacity=reveal*(1-smooth(.422,.446,p));
    tile.updateMatrixWorld();
    const screen=tile.position.clone().project(camera);
    error=Math.max(error,Math.hypot(screen.x-cx/halfW,screen.y-cy/halfH));
