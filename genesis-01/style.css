@@ -578,6 +578,12 @@ header img{width:clamp(142px,12vw,180px);height:auto}
 .photo-plate-frame img{
  width:100%;height:100%;display:block;object-fit:cover;object-position:center 48%;
 }
+/* Present the entire 850×1050 published print where space permits,
+   not an arbitrarily cropped viewport-filling image. */
+@media(min-width:701px) and (min-height:541px){
+ .photo-plate-frame{width:auto;aspect-ratio:850/1050}
+ .photo-plate-frame img{object-fit:contain}
+}
 .photo-plate-frame figcaption{
  position:absolute;z-index:1;bottom:19px;left:22px;right:15px;
  color:#f8faf6;text-shadow:0 1px 14px rgba(5,22,31,.65);
