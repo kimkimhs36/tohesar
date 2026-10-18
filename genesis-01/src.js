@@ -220,7 +220,10 @@ function pose(p,air=p){
  scene.environmentRotation.set(0,.10*awake+.12*depth-.08*archive+.40*ease(.94,.995,p),0);
  titanium.envMapRotation.copy(scene.environmentRotation);
  edgeMaterial.envMapRotation.copy(scene.environmentRotation);
- key.position.set(-3+2.2*returnLight,5,6);
+ // The physical studio key sweeps the drawn metal edge exactly as the
+ // shut-line is discovered. No artificial glow drawn over the sculpture.
+ const edgeSweep=ease(.12,.216,p)*(1-ease(.235,.289,p));
+ key.position.set(-3+1.85*edgeSweep+2.2*returnLight,5-.95*edgeSweep,6-1.35*edgeSweep);
  // 12–17%: a thin illuminated shut-line. 17–23%: a measured ~15 cm
  // *total* gap, not the entire leaf instantly flying open. 23–28%:
  // both coach-built shells finally release before the camera crosses.
