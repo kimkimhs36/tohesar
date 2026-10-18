@@ -91,8 +91,13 @@ export function createArchiveExperience(){
   ];
   const chapter=phases.indexOf(Math.max(...phases));
   state.chapter=chapter;
-  host.style.setProperty('--room-travel',smooth(.497,.693,p).toFixed(4));
+  const journey=smooth(.497,.693,p);
+  host.style.setProperty('--room-travel',journey.toFixed(4));
   host.style.setProperty('--room-temperature',smooth(.60,.67,p).toFixed(4));
+  // A restrained virtual dolly move: the photograph, laminated aperture and
+  // editorial caption occupy different depths without scripted autoplay.
+  host.style.setProperty('--room-dolly',Math.sin(journey*Math.PI).toFixed(4));
+  host.style.setProperty('--room-bearing',(journey*2-1).toFixed(4));
   // Architectural media planes move in depth, not vertically as feed cards.
   // A slight perspective shift makes each published photograph an actual
   // wall within the same room; the next wall becomes visible behind it.
