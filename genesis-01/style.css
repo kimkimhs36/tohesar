@@ -667,3 +667,196 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .photo-plate-footnote{bottom:4%;left:7%;font-size:7px}
 }
 @media(prefers-reduced-motion:reduce){.photo-plate-copy a{transition:none}}
+
+
+/* MEMORY ROOMS / RESEARCH BLUEPRINT — SCENE 04
+   Original research: a rail of real visual culture, then matter again.
+   One master scroll, one photograph in focus, no invented campaigns.
+   Written for the iPhone portrait before desktop adaptations. */
+.memory-rooms{
+ position:fixed;inset:0;z-index:2;width:100%;height:100dvh;
+ color:#253d43;background:#f2f1e9;isolation:isolate;
+ overflow:hidden;-webkit-font-smoothing:antialiased;
+ pointer-events:none;
+}
+.memory-rooms[hidden]{display:none!important}
+.memory-rooms[aria-hidden="false"]{pointer-events:auto}
+.memory-rooms__architecture{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.memory-rooms__architecture::before{
+ content:"";position:absolute;inset:0;
+ background:
+  radial-gradient(ellipse 68% 71% at 88% 8%,rgba(151,196,214,.42),transparent 86%),
+  radial-gradient(ellipse 73% 54% at -13% 96%,rgba(240,183,152,.44),transparent 83%),
+  linear-gradient(112deg,#f4f3ec 17%,#dfe8e7 57%,#ede3da 100%);
+}
+.memory-rooms__vertical{
+ position:absolute;left:50.6%;top:-18%;height:130%;width:1px;
+ background:linear-gradient(0deg,transparent,rgba(35,73,75,.19) 40%,transparent);
+ transform:translate3d(calc(var(--room-travel,0)*-28vw),0,0) rotate(16deg);
+ transform-origin:center;
+}
+.memory-rooms__glow{
+ position:absolute;top:-22%;left:44%;width:80vw;height:92dvh;
+ border-radius:50%;filter:blur(72px);
+ background:radial-gradient(ellipse,rgba(234,249,242,.78),rgba(215,238,239,.15) 61%,transparent 79%);
+ transform:translate3d(calc(var(--room-travel,0)*12vw),0,0);
+}
+.memory-rooms__cut{
+ position:absolute;right:-9%;top:9%;width:55%;height:83%;
+ border-left:1px solid rgba(255,255,251,.72);
+ border-right:1px solid rgba(55,89,91,.13);
+ border-radius:54% 16% 43% 22% / 21% 42% 39% 45%;
+ transform:rotate(-15deg) translate3d(calc(var(--room-travel,0)*-4vw),0,0);
+ background:linear-gradient(102deg,rgba(254,255,250,.21),transparent 45%);
+}
+.memory-rooms__upper,.memory-rooms__lower{
+ position:absolute;left:7.4%;right:7.4%;
+ display:flex;align-items:center;justify-content:space-between;gap:18px;
+ color:#486970;font:400 9px/1.5 Arial,Helvetica,sans-serif;
+ letter-spacing:.17em;
+}
+.memory-rooms__upper{top:15.5%}
+.memory-rooms__lower{bottom:5.4%;letter-spacing:.13em;color:#5c7578;font-size:8px}
+.memory-rooms__composition{position:absolute;inset:0}
+.memory-rooms__gallery{
+ position:absolute;top:19%;right:10.3%;width:41%;height:66.5%;
+ isolation:isolate;perspective:1300px;overflow:visible;
+}
+.memory-rooms__gallery::before{
+ content:"";position:absolute;inset:2.4% -4% -2.4% 3%;
+ border:1px solid rgba(87,111,113,.26);
+ transform:translate3d(14px,11px,-15px);
+}
+.memory-rooms__image{
+ position:absolute;inset:0;margin:0;overflow:hidden;
+ background:#bbd5d4;box-shadow:0 25px 75px rgba(52,83,86,.19);
+ backface-visibility:hidden;
+}
+.memory-rooms__image img{
+ display:block;width:100%;height:100%;object-fit:cover;
+ object-position:center center;
+}
+.memory-rooms__image--1 img{object-position:center 43%}
+.memory-rooms__image--2 img{object-position:center 50%}
+.memory-rooms__image--3 img{object-position:center 43%}
+.memory-rooms__image::after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(180deg,transparent 70%,rgba(17,31,39,.49));
+ border:1px solid rgba(244,252,249,.33);pointer-events:none;
+}
+.memory-rooms__image figcaption{
+ position:absolute;bottom:18px;left:20px;z-index:2;
+ color:#f4f9f7;text-shadow:0 1px 18px #182d36;
+ font:400 8px/1.6 Arial,Helvetica,sans-serif;letter-spacing:.16em;
+}
+.memory-rooms__hairline{
+ position:absolute;display:block;width:25%;height:1px;left:-16%;
+ background:rgba(68,107,113,.5);z-index:4;pointer-events:none;
+}
+.memory-rooms__hairline--a{top:25%}
+.memory-rooms__hairline--b{top:77%;width:13%}
+.memory-rooms__editorial{
+ position:absolute;left:8%;top:29%;width:41%;z-index:4;
+}
+.memory-rooms__edition{
+ font:400 10px/1.55 Arial,Helvetica,sans-serif;
+ letter-spacing:.24em;color:#597077;
+}
+.memory-rooms__titles{
+ position:relative;height:clamp(162px,24dvh,300px);
+ margin:clamp(28px,4vw,75px) 0 13px;
+}
+.memory-rooms__title{
+ position:absolute;inset:0;width:125%;pointer-events:none;
+ text-shadow:0 3px 45px rgba(248,251,245,.8);
+}
+.memory-rooms__chapter{
+ font:400 10px/1.4 Arial,Helvetica,sans-serif;
+ letter-spacing:.21em;color:#45646b;
+}
+.memory-rooms__title h2{
+ font:italic 400 clamp(78px,10.1vw,157px)/.87 Baskerville,"Iowan Old Style",Georgia,serif;
+ letter-spacing:-.09em;color:#253b43;
+ margin:22px 0 20px;
+}
+.memory-rooms__title p{
+ font:400 11px/1.55 Arial,Helvetica,sans-serif;
+ letter-spacing:.04em;color:#446269;margin:0;
+}
+.memory-rooms__read{
+ color:#2b4b53;text-decoration:none;display:flex;align-items:center;justify-content:space-between;
+ width:min(340px,86%);
+ padding:21px 0 17px;
+ border-top:1px solid rgba(47,85,90,.50);
+ border-bottom:1px solid rgba(47,85,90,.50);
+ font:400 10px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.14em;
+}
+.memory-rooms__read:hover,.memory-rooms__read:focus-visible{
+ color:#142c30;border-color:currentColor;
+}
+.memory-rooms__read span:last-child{font-size:19px}
+.memory-rooms__progress{
+ display:flex;gap:7px;align-items:center;margin-top:23px;
+}
+.memory-rooms__progress span{width:17px;height:2px;background:rgba(58,98,104,.20);transition:background .18s,width .18s}
+.memory-rooms__progress span.is-active{background:#4b777e;width:43px}
+@media(max-width:700px) and (orientation:portrait){
+ .memory-rooms__architecture::before{
+  background:
+   radial-gradient(ellipse 84% 63% at 88% 9%,rgba(163,205,221,.37),transparent 84%),
+   radial-gradient(ellipse 93% 70% at -13% 93%,rgba(236,188,163,.4),transparent 82%),
+   linear-gradient(145deg,#f4f4ed,#e5edeb 59%,#efe7df);
+ }
+ .memory-rooms__cut{right:-45%;top:11%;width:115%;height:70%}
+ .memory-rooms__vertical{left:58%}
+ .memory-rooms__upper{top:13.1%;left:7%;right:7%;font-size:7px;letter-spacing:.11em}
+ .memory-rooms__gallery{
+  top:17.5%;left:17%;right:8%;width:auto;
+  height:auto;aspect-ratio:850/1050;
+ }
+ .memory-rooms__gallery::before{inset:2% -3.2% -2.2% 3%}
+ .memory-rooms__image{box-shadow:0 16px 44px rgba(47,76,80,.17)}
+ .memory-rooms__image figcaption{bottom:10px;left:12px;font-size:7px;letter-spacing:.08em}
+ .memory-rooms__hairline--a{left:-19%;top:23%}
+ .memory-rooms__hairline--b{left:-11%}
+ .memory-rooms__editorial{left:8%;top:65.2%;width:86%}
+ .memory-rooms__edition{font-size:8px;letter-spacing:.15em}
+ .memory-rooms__titles{height:clamp(96px,15dvh,142px);margin:10px 0 8px}
+ .memory-rooms__title{width:100%}
+ .memory-rooms__chapter{font-size:8px;letter-spacing:.1em}
+ .memory-rooms__title h2{
+  font-size:clamp(57px,15vw,82px);
+  margin:7px 0 8px;line-height:.89;letter-spacing:-.087em;
+ }
+ .memory-rooms__title p{font-size:9px;letter-spacing:0}
+ .memory-rooms__read{
+  font-size:9px;width:100%;padding:12px 1px 10px;
+  background:rgba(244,248,241,.19);
+ }
+ .memory-rooms__read span:last-child{font-size:17px}
+ .memory-rooms__progress{margin-top:12px}
+ .memory-rooms__lower{left:8%;right:8%;bottom:2.2%;font-size:6px;letter-spacing:.035em}
+ .memory-rooms__lower span:last-child{max-width:60%;text-align:right}
+}
+@media(max-width:390px) and (max-height:760px) and (orientation:portrait){
+ .memory-rooms__gallery{top:17%;left:21%;right:9%}
+ .memory-rooms__editorial{top:63.2%}
+ .memory-rooms__title h2{font-size:clamp(52px,14vw,69px)}
+ .memory-rooms__titles{height:17dvh}
+ .memory-rooms__read{padding:8px 1px}
+ .memory-rooms__upper{top:12%}
+}
+@media(max-height:540px) and (orientation:landscape){
+ .memory-rooms__upper{top:13%;font-size:8px}
+ .memory-rooms__gallery{top:12%;right:8%;width:36%;height:77%}
+ .memory-rooms__editorial{left:8%;top:29%;width:45%}
+ .memory-rooms__titles{height:35dvh;margin:8px 0 8px}
+ .memory-rooms__title h2{font-size:clamp(42px,8.2vw,82px);margin:7px 0}
+ .memory-rooms__chapter,.memory-rooms__edition,.memory-rooms__read{font-size:8px}
+ .memory-rooms__read{padding:8px 0}
+ .memory-rooms__progress{margin-top:8px}
+ .memory-rooms__lower{bottom:3%;font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){
+ .memory-rooms__progress span{transition:none}
+}
