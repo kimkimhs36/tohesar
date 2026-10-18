@@ -1190,3 +1190,22 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  #fallback .fallback-collection p{font-size:9px;margin-bottom:7px}
  #fallback .fallback-collection a{font-size:8px}
 }
+
+
+/* DIRECTION: STILLNESS BEFORE MOTION
+   The research calls for material light, not self-running gradient toys.
+   Atmosphere still responds to scroll, spring and real 3D light; repetitive
+   orbit cycles are removed. Lower CPU/GPU work when the visitor stops. */
+.atmosphere-shape--sky,
+.atmosphere-shape--peach,
+.atmosphere-shape--glass,
+.atmosphere-shape--sky::before,
+.atmosphere-shape--peach::before,
+.atmosphere-shape--glass::before{
+ animation:none!important;
+}
+.atmosphere-shape--sky{transform:rotate(-7deg) scale(1.035)}
+.atmosphere-shape--peach{transform:rotate(6deg) scale(1.045)}
+.atmosphere-shape--glass{transform:rotate(-4deg) scale(1.02)}
+/* Physical contrast is created by the metal's actual light-card reflections.
+   Do not add bloom, film grain or chromatic glitches to disguise weak geometry. */
