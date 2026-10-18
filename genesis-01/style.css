@@ -545,3 +545,119 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .header-index>a{transition:none}
  .collections-anchor{top:69.4%}
 }
+
+
+/* TOHEŞAR / YOKOHAMA PHOTO PLATE 01
+   Seven optical shards arrive at a complete visual journal image.
+   The 3D exists to reveal an authored photograph, not compete with it. */
+.yokohama-photo-plate{
+ position:fixed;inset:0;width:100%;height:100dvh;
+ z-index:2;isolation:isolate;overflow:hidden;
+ color:#2b4247;-webkit-font-smoothing:antialiased;
+ pointer-events:none;
+}
+.yokohama-photo-plate[hidden]{display:none!important}
+.yokohama-photo-plate[aria-hidden="false"]{pointer-events:auto}
+.photo-plate-ground{
+ position:absolute;inset:0;z-index:-1;
+ background:
+ radial-gradient(ellipse 90% 75% at 94% 6%,rgba(177,222,230,.5),transparent 78%),
+ radial-gradient(ellipse 61% 59% at 5% 96%,rgba(239,184,156,.37),transparent 80%),
+ #eff1ec;
+}
+.photo-plate-frame{
+ position:absolute;right:7.6%;top:12.5%;width:45%;height:74%;
+ overflow:hidden;margin:0;background:#b5c9c9;
+ box-shadow:0 23px 65px rgba(47,68,68,.15);
+}
+.photo-plate-frame::after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ border:1px solid rgba(248,251,245,.64);
+ background:linear-gradient(180deg,transparent 72%,rgba(19,43,48,.35));
+}
+.photo-plate-frame img{
+ width:100%;height:100%;display:block;object-fit:cover;object-position:center 48%;
+}
+.photo-plate-frame figcaption{
+ position:absolute;z-index:1;bottom:19px;left:22px;right:15px;
+ color:#f8faf6;text-shadow:0 1px 14px rgba(5,22,31,.65);
+ font:400 9px/1.6 Arial,Helvetica,sans-serif;letter-spacing:.19em;
+}
+.photo-plate-copy{
+ position:absolute;z-index:1;left:8%;top:29%;width:50%;
+}
+.photo-plate-index{
+ font:400 10px/1.6 Arial,Helvetica,sans-serif;
+ letter-spacing:.22em;color:#41666c;
+}
+.photo-plate-copy h2{
+ font:400 clamp(79px,11vw,170px)/.80 Baskerville,"Iowan Old Style",Georgia,serif;
+ letter-spacing:-.09em;margin:29px 0 26px;color:#253b41;
+ text-shadow:0 3px 28px rgba(245,247,241,.64);
+}
+.photo-plate-copy h2 em{display:block;font-weight:400;padding-left:.13em}
+.photo-plate-copy p{
+ color:#435f65;font:400 10px/1.6 Arial,Helvetica,sans-serif;
+ letter-spacing:.17em;margin:0 0 35px;
+}
+.photo-plate-copy a{
+ font:500 10px/1.6 Arial,Helvetica,sans-serif;
+ letter-spacing:.14em;color:#294d53;text-decoration:none;
+ border-top:1px solid rgba(45,82,90,.55);border-bottom:1px solid rgba(45,82,90,.55);
+ padding:17px 0;display:flex;align-items:center;justify-content:space-between;
+ width:min(300px,90%);transition:padding .22s ease,background-color .22s ease;
+}
+.photo-plate-copy a:hover,.photo-plate-copy a:focus-visible{
+ padding-left:10px;padding-right:10px;
+ background:rgba(243,247,240,.78);
+}
+.photo-plate-copy a span{font-size:17px;letter-spacing:0}
+.photo-plate-footnote{
+ position:absolute;left:8%;bottom:6.8%;
+ font:400 9px/1.5 Arial,Helvetica,sans-serif;
+ letter-spacing:.13em;color:#61767a;
+}
+@media(max-width:700px) and (orientation:portrait){
+ .photo-plate-ground{
+  background:radial-gradient(ellipse 90% 66% at 90% 2%,rgba(190,225,231,.5),transparent 78%),
+  radial-gradient(ellipse 87% 71% at -8% 95%,rgba(240,186,160,.4),transparent 85%),#eff1ea;
+ }
+ .photo-plate-frame{
+  top:14.2%;left:8%;right:8%;width:auto;height:53.5%;
+  box-shadow:0 15px 42px rgba(40,65,67,.13);
+ }
+ .photo-plate-frame img{object-position:center 44%}
+ .photo-plate-frame figcaption{
+  bottom:12px;left:14px;font-size:7px;letter-spacing:.11em;
+ }
+ .photo-plate-copy{top:69.5%;left:8%;width:85%}
+ .photo-plate-index{font-size:8px;letter-spacing:.17em}
+ .photo-plate-copy h2{
+  font-size:clamp(52px,14.6vw,74px);
+  line-height:.72;margin:11px 0 14px;letter-spacing:-.078em;
+ }
+ .photo-plate-copy h2 em{display:inline;padding-left:.11em}
+ .photo-plate-copy p{font-size:8px;letter-spacing:.10em;margin:0 0 14px}
+ .photo-plate-copy a{
+  font-size:9px;padding:10px 0;width:min(280px,95%);
+ }
+ .photo-plate-copy a span{font-size:15px}
+ .photo-plate-footnote{font-size:7px;letter-spacing:.09em;bottom:3.9%;left:8%}
+}
+@media(max-height:710px) and (orientation:portrait){
+ .photo-plate-frame{top:13.5%;height:49.5%}
+ .photo-plate-copy{top:66%}
+ .photo-plate-copy h2{font-size:clamp(48px,13vw,65px);margin:9px 0 10px}
+ .photo-plate-copy p{margin-bottom:9px}
+ .photo-plate-copy a{padding:7px 0}
+ .photo-plate-footnote{bottom:2.5%}
+}
+@media(max-height:540px) and (orientation:landscape){
+ .photo-plate-frame{top:12%;height:75%;right:7%;width:38%}
+ .photo-plate-copy{top:23%;left:7%;width:53%}
+ .photo-plate-copy h2{font-size:clamp(49px,9vw,90px);margin:13px 0 15px}
+ .photo-plate-copy p{font-size:8px;margin-bottom:16px}
+ .photo-plate-copy a{padding:9px 0;font-size:9px}
+ .photo-plate-footnote{bottom:4%;left:7%;font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){.photo-plate-copy a{transition:none}}
