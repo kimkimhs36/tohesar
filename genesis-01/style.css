@@ -902,6 +902,15 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  transform:scale(1.035) translate3d(0,calc((var(--threshold-travel,0) - .5)*-1.2%),0);
  transform-origin:center;
 }
+/* The large serif title remains readable even across the photographic
+   doorway: soft reflected ivory, not an opaque rectangular text sticker. */
+.threshold-heading{isolation:isolate}
+.threshold-heading::before{
+ content:"";position:absolute;z-index:-1;
+ top:-13%;left:-8%;width:114%;height:116%;
+ background:linear-gradient(93deg,rgba(241,246,239,.67),rgba(241,246,239,.62) 45%,rgba(241,246,239,.29) 75%,transparent);
+ filter:blur(14px);pointer-events:none;
+}
 .threshold-image__frame{
  position:absolute;inset:4%;z-index:1;
  border:1px solid rgba(248,250,245,.48);
