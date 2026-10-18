@@ -30,7 +30,7 @@ export function createArchiveExperience(){
    <div class="memory-rooms__gallery" role="img" aria-label="Three published, AI-assisted visual-fiction frames of Yokohama, shown in sequence">
     ${chapters.map((chapter,i)=>`
       <figure class="memory-rooms__image memory-rooms__image--${i+1}" data-frame="${i}">
-       <img src="${chapter.src}" alt="" decoding="async" loading="lazy">
+       <img src="${chapter.src}" alt="" decoding="async" loading="eager" fetchpriority="low">
        <figcaption>${chapter.caption}</figcaption>
       </figure>`).join('')}
     <span class="memory-rooms__hairline memory-rooms__hairline--a" aria-hidden="true"></span>
