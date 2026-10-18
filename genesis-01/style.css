@@ -1259,3 +1259,43 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .threshold-heading{z-index:5}
  .threshold-image{z-index:2}
 }
+
+
+/* AMBIENCE CONTROL / DELIBERATELY OPT-IN
+   The independent TOHEŞAR soundtrack never starts without a tap. */
+#ambience-toggle{
+ display:inline-flex;align-items:center;gap:9px;
+ border:0;border-bottom:1px solid rgba(58,88,90,.27);
+ background:transparent;color:#3b5960;
+ font:500 9px/1.4 "Helvetica Neue",Arial,sans-serif;
+ letter-spacing:.12em;white-space:nowrap;
+ cursor:pointer;touch-action:manipulation;
+ padding:9px 0;
+ transition:color .2s,border-color .2s;
+}
+#ambience-toggle::before{
+ content:"";display:inline-block;flex:none;
+ width:6px;height:6px;border-radius:50%;
+ border:1px solid #78969b;background:transparent;
+}
+#ambience-toggle.is-playing{color:#204e55;border-color:rgba(41,82,88,.65)}
+#ambience-toggle.is-playing::before{background:#628e89;border-color:#628e89}
+#ambience-toggle:hover,#ambience-toggle:focus-visible{
+ color:#173f47;border-color:currentColor;
+}
+#ambience-toggle:disabled{cursor:progress;opacity:.68}
+@media(max-width:700px) and (orientation:portrait){
+ /* The GENESIS label is redundant beside the artwork but sound and index
+    must remain reachable without crushing the approved wordmark. */
+ .header-index>span{display:none}
+ .header-index{gap:clamp(10px,3vw,15px)}
+ #ambience-toggle{font-size:8px;letter-spacing:.07em;gap:6px}
+ #ambience-toggle::before{width:5px;height:5px}
+}
+@media(max-width:355px) and (orientation:portrait){
+ header img{width:120px}
+ .header-index{gap:8px}
+ #ambience-toggle{font-size:7px}
+ .header-index>a{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){#ambience-toggle{transition:none}}
