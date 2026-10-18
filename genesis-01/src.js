@@ -98,7 +98,10 @@ const seamMaterial=opticalFilm({warm:.32,opacity:.68});
 const seam=new THREE.Mesh(seamGeometry,seamMaterial);sculpture.add(seam);
 // Quiet registration marks, rather than printed ruled-paper decoration.
 function filmTexture(n){
- const c=document.createElement('canvas');c.width=512;c.height=1024;const ctx=c.getContext('2d');
+ const c=document.createElement('canvas');c.width=256;c.height=512;const ctx=c.getContext('2d');
+ // Half-resolution raster keeps original authored UV layout, reducing five
+ // film texture surfaces from ~10 MB to ~2.5 MB of RGBA base pixels.
+ ctx.scale(.5,.5);
  const g=ctx.createLinearGradient(0,0,512,1024);g.addColorStop(0,'#8faebf');g.addColorStop(.48,'#e2d6c4');g.addColorStop(1,'#c58e78');ctx.fillStyle=g;ctx.fillRect(0,0,512,1024);
  ctx.strokeStyle='rgba(45,67,75,.16)';ctx.lineWidth=1;
  for(let i=0;i<3;i++){const y=140+i*340;ctx.beginPath();ctx.moveTo(35,y);ctx.lineTo(80,y);ctx.stroke();}
