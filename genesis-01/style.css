@@ -1126,3 +1126,67 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  #destinations{bottom:max(1svh,env(safe-area-inset-bottom))}
  #destinations a{padding:5px 1px;font-size:7px}
 }
+
+
+/* ACCESSIBLE FALLBACK / SCENE CONTINUITY
+   A failed WebGL context never traps a visitor outside the brand. */
+#fallback{
+ z-index:5;isolation:isolate;color:#243b41;
+ background:linear-gradient(140deg,#e8efeb,#f2e9dd);
+}
+#fallback[hidden]{display:none!important}
+#fallback .fallback-poster{
+ position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;object-position:center;
+ opacity:.32;filter:saturate(.57);
+}
+#fallback::before{
+ content:"";position:absolute;inset:0;z-index:1;
+ background:linear-gradient(0deg,rgba(247,247,240,.97) 8%,rgba(244,246,240,.70) 48%,rgba(230,240,239,.18));
+}
+#fallback .fallback-collection{
+ position:absolute;z-index:2;left:8%;right:8%;bottom:12%;
+ width:min(620px,84%);
+}
+#fallback .fallback-collection>span{
+ font:400 10px/1.6 Arial,Helvetica,sans-serif;
+ letter-spacing:.21em;color:#547178;
+}
+#fallback .fallback-collection h2{
+ font:italic 400 clamp(69px,12vw,150px)/.84 Baskerville,Georgia,serif;
+ letter-spacing:-.075em;margin:27px 0 22px;
+}
+#fallback .fallback-collection h2 em{display:block;margin-left:9%}
+#fallback .fallback-collection p{
+ position:static;max-width:340px;font:400 12px/1.8 Arial,Helvetica,sans-serif;
+ margin:0 0 26px;color:#496268;
+}
+#fallback .fallback-collection nav{
+ display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid rgba(48,78,81,.42);
+ padding-top:14px;
+}
+#fallback .fallback-collection a{
+ padding:12px 8px 12px 0;margin-right:10px;
+ font:400 10px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.12em;
+ color:#324f54;text-decoration:underline;text-underline-offset:6px;
+}
+.no-js{
+ z-index:7;left:7%;right:7%;width:86%;max-width:550px;
+ padding:22px;background:rgba(246,248,240,.94);
+ box-shadow:0 9px 40px rgba(55,82,82,.08);
+}
+.no-js p{margin:0 0 12px}
+.no-js a{color:#29444a;text-underline-offset:4px}
+@media(max-width:700px) and (orientation:portrait){
+ #fallback .fallback-collection{left:7%;right:7%;bottom:9%;width:86%}
+ #fallback .fallback-collection h2{font-size:clamp(63px,17vw,100px);margin:19px 0}
+ #fallback .fallback-collection p{font-size:11px}
+ #fallback .fallback-collection nav{gap:3px}
+ #fallback .fallback-collection a{font-size:9px;margin-right:3px}
+}
+@media(max-height:540px) and (orientation:landscape){
+ #fallback .fallback-collection{bottom:7%;left:8%}
+ #fallback .fallback-collection h2{font-size:60px;margin:9px 0}
+ #fallback .fallback-collection p{font-size:9px;margin-bottom:7px}
+ #fallback .fallback-collection a{font-size:8px}
+}
