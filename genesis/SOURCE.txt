@@ -1,4 +1,4 @@
 TOHEŞAR Genesis 03 - Memory Alloy
 Source branch: experiment/next-generation-genesis-gradient-20261015
-Source SHA: 423bec0874923588d0e11fc9e75386c490251932
+Source SHA: 05fa1feeb36a4550bf5000f8c073cde7665b1278
 Release scope: /genesis/ and official homepage index.html
