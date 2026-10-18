@@ -899,7 +899,7 @@ header img{width:clamp(142px,12vw,180px);height:auto}
 }
 .threshold-image img{
  filter:saturate(.89) contrast(1.06);
- transform:scale(1.035) translate3d(0,calc((var(--threshold-travel,0) - .5)*-1.2%),0);
+ transform:scale(1.035) translate3d(0,var(--threshold-photo-shift,0%),0);
  transform-origin:center;
 }
 /* The large serif title remains readable even across the photographic
@@ -1308,7 +1308,7 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  content:"";position:absolute;inset:0;
  background:radial-gradient(ellipse 81% 71% at 85% 16%,rgba(90,150,174,.24),transparent 82%),
  linear-gradient(120deg,rgba(151,186,193,.15),rgba(133,165,179,.10) 73%,rgba(210,162,147,.09));
- opacity:calc(var(--room-temperature,0) * .75);
+ opacity:var(--room-blue-opacity,0);
  pointer-events:none;
 }
 .memory-rooms__gallery{
