@@ -200,12 +200,14 @@ function pose(p,air=p){
  });
  // The artifact stays in place. The camera crosses its z-depth at the final beat.
  const portraitRoom=clamp((measuredHeight-667)/177,0,1);
- sculpture.position.set(mobile?-.06:1.30,mobile?THREE.MathUtils.lerp(.86,1.02,portraitRoom)-.12*opening:.10,0);
- sculpture.scale.setScalar(mobile?THREE.MathUtils.lerp(.56,.71,portraitRoom)*(1-.08*opening):1);
+ // First frame: a deliberately cropped, full-height automotive surface.
+ // The camera sees only part of the object, like entering a real sculpture room.
+ sculpture.position.set(mobile?.50:1.30,mobile?THREE.MathUtils.lerp(.86,1.02,portraitRoom)-.12*opening:.10,0);
+ sculpture.scale.setScalar(mobile?THREE.MathUtils.lerp(.70,.84,portraitRoom)*(1-.065*opening):1);
  sculpture.rotation.x=-.10+.07*Math.sin(awake*Math.PI);
  sculpture.rotation.y=THREE.MathUtils.lerp(-.48,-.04,split)+.22*ease(0,.16,p)*(1-split);
  sculpture.rotation.z=THREE.MathUtils.lerp(-.23,-.035,split);
- const startZ=mobile?10.2:9.5;
+ const startZ=mobile?9.65:9.5;
  // Hold a composed portrait while the fold opens, before the camera enters.
  const approach=ease(.12,.23,p)*(mobile?.26:.66)+awake*.06;
  const threshold=ease(.23,.27,p)*4.13;
