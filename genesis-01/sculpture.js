@@ -67,10 +67,17 @@ export function shellEdge(side, open) {
   const pos = [], uv = [], indices = [];
   const n = boundary.length;
   for (let k = 0; k <= 4; k++) {
-    const theta = k / 4 * Math.PI;
+    const depth = k / 4;
+    const theta = depth * Math.PI;
     for (const [u, v] of boundary) {
       const p = folio(side, u, v, open);
-      p.z -= .016 * (1 - Math.cos(theta));
+      // Connect the actual front and 32 mm back skin. Previously the bevel
+      // looped back to the *front* at its last ring, leaving an open border
+      // and hiding the intended automotive panel thickness.
+      p.z -= .032 * depth;
+      // A four-millimetre lateral roll gives the lip a restrained polished
+      // highlight without inflating the silhouette into a decorative tube.
+      p.x += side * .004 * Math.sin(theta);
       pos.push(p.x, p.y, p.z);
       uv.push(u, v);
     }
