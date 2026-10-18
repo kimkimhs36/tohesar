@@ -93,7 +93,9 @@ export function createArchiveExperience(){
   state.chapter=chapter;
   const journey=smooth(.497,.693,p);
   host.style.setProperty('--room-travel',journey.toFixed(4));
-  host.style.setProperty('--room-temperature',smooth(.60,.67,p).toFixed(4));
+  const dusk=smooth(.60,.67,p);
+  host.style.setProperty('--room-temperature',dusk.toFixed(4));
+  host.style.setProperty('--room-blue-opacity',(dusk*.75).toFixed(4));
   // A restrained virtual dolly move: the photograph, laminated aperture and
   // editorial caption occupy different depths without scripted autoplay.
   host.style.setProperty('--room-dolly',Math.sin(journey*Math.PI).toFixed(4));
