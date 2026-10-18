@@ -1336,3 +1336,39 @@ header img{width:clamp(142px,12vw,180px);height:auto}
 @media(prefers-reduced-motion:reduce){
  .memory-rooms__image{will-change:auto}
 }
+
+
+/* MEMORY ROOMS / ACTUAL CAMERA PARALLAX
+   Distinct spatial depths move at different rates, controlled entirely by
+   the visitor's scroll position. No hover-only tricks or synthetic noise. */
+.memory-rooms__gallery{
+ transform-origin:50% 48%;
+ transform:perspective(1200px)
+  translate3d(calc(var(--room-bearing,0)*-9px),calc(var(--room-dolly,0)*-4px),0)
+  rotateY(calc(var(--room-bearing,0)*2.6deg))
+  rotateX(calc(var(--room-dolly,0)*-.65deg));
+}
+.memory-rooms__editorial{
+ transform:translate3d(calc(var(--room-bearing,0)*10px),calc(var(--room-dolly,0)*3px),0);
+}
+.memory-rooms__cut{
+ transform:rotate(-15deg)
+  translate3d(calc(var(--room-travel,0)*-4vw),calc(var(--room-bearing,0)*-1.4vw),0);
+}
+.memory-rooms__hairline{
+ transform:translate3d(calc(var(--room-bearing,0)*-3px),0,0);
+}
+@media(max-width:700px) and (orientation:portrait){
+ .memory-rooms__gallery{
+  transform:perspective(900px)
+   translate3d(calc(var(--room-bearing,0)*-4px),calc(var(--room-dolly,0)*-2px),0)
+   rotateY(calc(var(--room-bearing,0)*1.3deg));
+ }
+ .memory-rooms__editorial{
+  transform:translate3d(calc(var(--room-bearing,0)*3px),0,0);
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .memory-rooms__gallery,.memory-rooms__editorial,.memory-rooms__cut,
+ .memory-rooms__hairline{transform:none!important}
+}
