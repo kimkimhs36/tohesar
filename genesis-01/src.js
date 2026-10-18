@@ -245,7 +245,7 @@ function pose(p,air=p){
  shadow.material.opacity=(1-split)*(1-ease(.46,.48,p));
  document.documentElement.style.setProperty('--caption',1-ease(.12,.19,p));
  document.documentElement.style.setProperty('--hint',1-ease(.01,.08,p));
- phaseLabel.textContent=p>.975?'MEMORY ALLOY':p>.90?'REASSEMBLY':p>.72?'FIVE THRESHOLDS':p>.64?'IMAGE INTO MATTER':p>.48?'THE EDITORIAL RAIL':p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
+ phaseLabel.textContent=p>.975?'MEMORY ALLOY':p>.90?'REASSEMBLY':p>.72?'COLLECTIONS':p>.64?'IMAGE INTO MATTER':p>.48?'THE EDITORIAL RAIL':p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
  document.documentElement.classList.toggle('genesis-complete',p>.998);
  percentLabel.textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 100`;
 }
