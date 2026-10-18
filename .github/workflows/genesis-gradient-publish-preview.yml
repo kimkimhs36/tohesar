@@ -1,9 +1,13 @@
-name: Publish TOHESAR Genesis gradient preview
+name: Publish TOHESAR Genesis 03 homepage
 
 on:
   push:
     branches:
       - experiment/next-generation-genesis-gradient-20261015
+
+concurrency:
+  group: genesis-homepage-release
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -38,7 +42,7 @@ jobs:
           grep -q 'animation:skyOrbit' style.css
           grep -q -- '--sky-shift-x' src.js
           echo "Production build and static scene checks passed"
-      - name: Safely publish only /genesis/ to main
+      - name: Publish /genesis/ and update the homepage asset references
         run: |
           set -euo pipefail
           git fetch origin main
@@ -46,19 +50,29 @@ jobs:
           git worktree add --detach /tmp/tohesar-main-checkout origin/main
           mkdir -p /tmp/tohesar-main-checkout/genesis
           cp -a genesis-01/dist/. /tmp/tohesar-main-checkout/genesis/
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('/tmp/tohesar-main-checkout')
+          old = (root / 'index.html').read_text()
+          html = Path('genesis-01/dist/index.html').read_text()
+          # Preserve the official metadata while installing the tested build.
+          metadata = re.findall(r'<meta name="description"[^>]*>|<link rel="icon"[^>]*>', old)
+          html = html.replace('<head>', '<head>\n<base href="/genesis/">\n' + '\n'.join(metadata), 1)
+          (root / 'index.html').write_text(html)
+          PY
           cat > /tmp/tohesar-main-checkout/genesis/SOURCE.txt <<EOF
-          TOHEŞAR Genesis gradient preview
+          TOHEŞAR Genesis 03 - Memory Alloy
           Source branch: experiment/next-generation-genesis-gradient-20261015
           Source SHA: ${GITHUB_SHA}
-          Preview scope: /genesis/ only
-          Not the official homepage
+          Release scope: /genesis/ and official homepage index.html
           EOF
-          git -C /tmp/tohesar-main-checkout add genesis/
+          git -C /tmp/tohesar-main-checkout add genesis/ index.html
           if git -C /tmp/tohesar-main-checkout diff --cached --quiet; then
-            echo "Preview already up to date"
+            echo "Homepage already up to date"
           else
             git -C /tmp/tohesar-main-checkout config user.name "github-actions[bot]"
             git -C /tmp/tohesar-main-checkout config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git -C /tmp/tohesar-main-checkout commit -m "preview(genesis): publish chromatic atmosphere at /genesis/"
+            git -C /tmp/tohesar-main-checkout commit -m "release(genesis): publish sculpted titanium Genesis 03 homepage"
             git -C /tmp/tohesar-main-checkout push origin HEAD:main
           fi

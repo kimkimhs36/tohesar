@@ -396,3 +396,6 @@ main{position:relative}
  .threshold-external{right:5%;bottom:7%;font-size:8px}
 }
 @media(prefers-reduced-motion:reduce){.threshold-links a{transition:none}}
+
+/* GENESIS 03: leave a quiet interval between the floating metal and its title. */
+@media(max-width:1000px) and (orientation:portrait){.caption{top:auto;bottom:12%}}

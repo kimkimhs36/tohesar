@@ -3,9 +3,10 @@ import { createContinuum } from './continuum.js';
 import { opticalFilm } from './optics.js';
 import { createRevelation } from './revelation.js';
 import { stepSpring, openingAir } from './motion.js';
+import { folio, shellSkin, shellEdge } from './sculpture.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
-// A new procedural artifact: two unequal folded folios, never a swept ribbon.
+// GENESIS 03: two drawn titanium shells around one rising shut-line.
 // All deformation and camera motion share one reversible 0–1 timeline.
 const stage = document.querySelector('#stage');
 const fallback = document.querySelector('#fallback');
@@ -33,14 +34,22 @@ const room=new RoomEnvironment();
 const card=(color,x,y,z,sx,sy)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(sx,sy),new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide}));m.position.set(x,y,z);m.lookAt(0,0,0);room.add(m);};
 card(0x18242c,-1.65,.2,4,.62,7);card(0xfff5e7,1.8,2,3,.65,6);
 card(0xc1e4ff,-3,2,2,3,7);card(0xf3c9ac,4,-1,1,2,6);card(0x252a30,1,1,-3,1.8,7);
-const env=pmrem.fromScene(room,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
+const env=pmrem.fromScene(room,.04);scene.environment=env.texture;
+// Only the opening sculpture receives this coachwork studio. The archive,
+// editorial rail and collection gateway keep their existing environment.
+for(const child of [...room.children]) if(child.geometry?.type==='PlaneGeometry'){
+ child.geometry.scale(1.45,1.12,1);
+}
+const sculptureEnvironment=pmrem.fromScene(room,.035).texture;
+room.dispose();pmrem.dispose();
 scene.add(new THREE.HemisphereLight(0xdceefa,0xd7b7a2,.75));
 const key=new THREE.DirectionalLight(0xfff5e6,2.2);key.position.set(-3,5,6);scene.add(key);
 const sky=new THREE.DirectionalLight(0xb9d8ef,1.4);sky.position.set(4,2,-1);scene.add(sky);
 const peach=new THREE.DirectionalLight(0xf6baa0,.8);peach.position.set(-2,-3,3);scene.add(peach);
 const sculpture=new THREE.Group();scene.add(sculpture);sculpture.rotation.set(-.09,-.32,-.18);
-const titanium=new THREE.MeshPhysicalMaterial({color:0x91a0a7,metalness:.96,roughness:.34,anisotropy:.42,clearcoat:.16,clearcoatRoughness:.26,side:THREE.DoubleSide});
+const titanium=new THREE.MeshPhysicalMaterial({color:0xc1cbd0,metalness:.94,roughness:.24,anisotropy:.28,clearcoat:.24,clearcoatRoughness:.20,side:THREE.DoubleSide});
 const edgeMaterial=new THREE.MeshStandardMaterial({color:0xdde3e4,metalness:1,roughness:.12,transparent:true});
+titanium.envMap=edgeMaterial.envMap=sculptureEnvironment;
 titanium.transparent=true;titanium.forceSinglePass=true;
 // Deterministic hairline finish; no external texture or noise animation.
 const finish=new Uint8Array(256*256*4);
@@ -49,44 +58,18 @@ for(let y=0;y<256;y++)for(let x=0;x<256;x++){
  finish[i]=finish[i+1]=finish[i+2]=n;finish[i+3]=255;
 }
 const brushed=new THREE.DataTexture(finish,256,256);brushed.wrapS=brushed.wrapT=THREE.RepeatWrapping;brushed.repeat.set(3,1);brushed.needsUpdate=true;
-titanium.bumpMap=brushed;titanium.bumpScale=.004;
+titanium.bumpMap=brushed;titanium.bumpScale=.00065;
 // Broad satin faces and a finer pressed crest respond differently to the
 // same light card; the finish stays attached to the authored surface UVs.
 titanium.onBeforeCompile=shader=>{
  shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
   float pressed = smoothstep(.55,.70,vBumpMapUv.x) * (1.0-smoothstep(.70,.86,vBumpMapUv.x));
-  roughnessFactor = clamp(roughnessFactor + .045*sin(vBumpMapUv.y*8.0) - .11*pressed,.23,.46);
+  roughnessFactor = clamp(roughnessFactor + .018*sin(vBumpMapUv.y*3.14159) - .035*pressed,.19,.29);
  `);
 };
 const films=[];const morphs=[];const filmEdges=[];
 
-// s: left/right folio, u: spine→cut edge, v: foot→crown, open: authored morph target.
-function folio(s,u,v,open=0,layer=-1){
- const t=v*2-1;
- const w=s<0 ? .92 : 1.58;
- const crown=s<0 ? .12 : -.30;
- const width=w*(.42+.64*Math.sin(v*Math.PI*.92)+.12*Math.sin(v*7));
- const seam=.25*Math.sin(t*2.1)+.10*t;
- let x=seam+s*(.085+width*u);
- let y=t*2.26 + crown*u + .20*Math.sin(u*Math.PI)*Math.sin(v*2.4) - .38*u*u*(1-v) - .42*u*u*Math.pow(v,5);
- // A pressed ridge and broad concave face: a folio with material memory.
- let z=.64*Math.sin(u*Math.PI*1.12)+.48*u*u+.32*Math.sin(v*4+u*2)-.12*t;
- z+=s<0 ? .18*u : -.19*u;
- z+=.19*Math.tanh((u-.65)*9)+.32*Math.pow(v,5)*u;
- // Pressed shoulder, shallow concavity and a rolled cut edge. The crease
- // remains deliberately asymmetric, like a hand-formed body panel.
- z+=.055*Math.exp(-Math.pow((u-.965)*24,2))*Math.sin(v*Math.PI);
- z-=.07*Math.sin(u*Math.PI)*Math.sin(v*Math.PI*1.2);
- if(s<0){y=y*.85+.13;x-=.13*Math.pow(v,4);}
- x+=s*open*(.5+u*.9);z+=open*(u*.4);y+=open*s*u*.14;
- if(layer>=0){
-  x=seam+(x-seam)*(.86-layer*.045);
-  y=y*(.91-layer*.025)+layer*.045;
-  z-=.65+layer*.18;
- }
- return new THREE.Vector3(x,y,z);
-}
-function grid(fn,nu=44,nv=92){
+function grid(fn,nu=56,nv=128){
  const points=[],uv=[],idx=[];
  for(let j=0;j<=nv;j++)for(let i=0;i<=nu;i++){points.push(...fn(i/nu,j/nv).toArray());uv.push(i/nu,j/nv);}
  for(let j=0;j<nv;j++)for(let i=0;i<nu;i++){const a=j*(nu+1)+i,b=a+nu+1;idx.push(a,b,a+1,b,b+1,a+1);}
@@ -96,17 +79,9 @@ function morphMesh(closed,opened,material){
  closed.morphAttributes.position=[opened.attributes.position];closed.morphAttributes.normal=[opened.attributes.normal];
  const mesh=new THREE.Mesh(closed,material);sculpture.add(mesh);morphs.push(mesh);return mesh;
 }
-function border(s,open){
- const pts=[];
- for(let j=0;j<=92;j++)pts.push(folio(s,0,j/92,open));
- for(let i=1;i<=44;i++)pts.push(folio(s,i/44,1,open));
- for(let j=91;j>=0;j--)pts.push(folio(s,1,j/92,open));
- for(let i=43;i>=0;i--)pts.push(folio(s,i/44,0,open));
- return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true),256,.009,5,true);
-}
 for(const s of [-1,1]){
- morphMesh(grid((u,v)=>folio(s,u,v)),grid((u,v)=>folio(s,u,v,1)),titanium);
- morphMesh(border(s,0),border(s,1),edgeMaterial);
+ morphMesh(shellSkin(s,0),shellSkin(s,1),titanium);
+ morphMesh(shellEdge(s,0),shellEdge(s,1),edgeMaterial);
 }
 // A narrow opalescent seam is physically caught between the two metal lips.
 const seamPoint=(u,v,open)=>{
@@ -204,11 +179,13 @@ function pose(p,air=p){
  titanium.envMapIntensity=1.07+.11*depth-.06*archive+.13*returnLight;
  // Reflection travels across the final plate once, then comes to rest.
  scene.environmentRotation.set(0,.10*awake+.12*depth-.08*archive+.40*ease(.94,.995,p),0);
+ titanium.envMapRotation.copy(scene.environmentRotation);
+ edgeMaterial.envMapRotation.copy(scene.environmentRotation);
  key.position.set(-3+2.2*returnLight,5,6);
  seam.morphTargetInfluences[0]=ease(.17,.235,p);
- seamMaterial.uniforms.opacity.value=.68*(1-ease(.22,.27,p));
+ seamMaterial.uniforms.opacity.value=.52*(1-ease(.178,.22,p));
  seamMaterial.uniforms.lightPhase.value=air;
- films.forEach(film=>{film.material.uniforms.lightPhase.value=air;});
+ films.forEach(film=>{film.material.uniforms.lightPhase.value=air;film.material.uniforms.opacity.value=.84*ease(.165,.225,p);});
  edgeMaterial.roughness=.12+.025*archive;
  const opening=ease(.17,.235,p),split=ease(.23,.27,p),pass=ease(.27,.30,p);
  // CSS and WebGL receive the same progress rather than drifting independently.
@@ -216,21 +193,27 @@ function pose(p,air=p){
  atmosphere.style.setProperty('--optic-align',ease(.37,.43,air).toFixed(3));
  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=opening;
  films.forEach((film,i)=>{
-  const release=ease(.23+i*.0015,.264+i*.0015,p);
+  const release=ease(.205+i*.002,.267+i*.001,p);
   film.morphTargetInfluences[0]=release;filmEdges[i].morphTargetInfluences[0]=release;
  });
  // The artifact stays in place. The camera crosses its z-depth at the final beat.
- sculpture.position.set(mobile?.48:1.16,mobile?.53:.05,0);
- sculpture.scale.setScalar(mobile?.78:1);
- sculpture.rotation.x=-.09+.035*Math.sin(awake*Math.PI);
- sculpture.rotation.y=THREE.MathUtils.lerp(-.42,0,split)+.095*Math.sin(awake*Math.PI);
- sculpture.rotation.z=THREE.MathUtils.lerp(-.21,-.035,split);
+ const portraitRoom=clamp((measuredHeight-667)/177,0,1);
+ sculpture.position.set(mobile?-.06:1.30,mobile?THREE.MathUtils.lerp(.86,1.02,portraitRoom)-.12*opening:.10,0);
+ sculpture.scale.setScalar(mobile?THREE.MathUtils.lerp(.56,.71,portraitRoom)*(1-.08*opening):1);
+ sculpture.rotation.x=-.10+.07*Math.sin(awake*Math.PI);
+ sculpture.rotation.y=THREE.MathUtils.lerp(-.48,-.04,split)+.22*ease(0,.16,p)*(1-split);
+ sculpture.rotation.z=THREE.MathUtils.lerp(-.23,-.035,split);
  const startZ=mobile?10.2:9.5;
  // Hold a composed portrait while the fold opens, before the camera enters.
- const approach=ease(.12,.23,p)*.66+awake*.06;
+ const approach=ease(.12,.23,p)*(mobile?.26:.66)+awake*.06;
  const threshold=ease(.23,.27,p)*4.13;
- const penetration=pass*(startZ-4.0);
- camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),startZ-approach-threshold-penetration);
+ camera.position.set(THREE.MathUtils.lerp(0,sculpture.position.x,split),THREE.MathUtils.lerp(.12,sculpture.position.y,split),THREE.MathUtils.lerp(startZ-approach-threshold,-.85,pass));
+ camera.lookAt(camera.position.x,camera.position.y,-8);
+ const handoff=ease(.27,.30,p);
+ sculpture.position.x=THREE.MathUtils.lerp(sculpture.position.x,mobile?.48:1.16,handoff);
+ sculpture.position.y=THREE.MathUtils.lerp(sculpture.position.y,mobile?.53:.05,handoff);
+ camera.position.x=THREE.MathUtils.lerp(camera.position.x,sculpture.position.x,handoff);
+ camera.position.y=THREE.MathUtils.lerp(camera.position.y,sculpture.position.y,handoff);
  camera.lookAt(camera.position.x,camera.position.y,-8);
  const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
  if(p>.30){
@@ -246,7 +229,7 @@ function pose(p,air=p){
  const reunion=ease(.925,.989,p);
  titanium.opacity=edgeMaterial.opacity=p>.90?ease(.925,.949,p):1;
  sculpture.visible=p<.48||p>.925;
- seam.visible=p<.27;
+ seam.visible=p<.22;
  if(p>.925){
   // Metal returns from behind the leaves along their common spine; it never
   // scales up from a zero-sized object in the middle of the photograph.
@@ -256,7 +239,7 @@ function pose(p,air=p){
   for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=.44*(1-reunion);
  }
  // Leave the surfaces behind the camera instead of carrying them into the rail.
- films.forEach(film=>film.visible=p<.48);filmEdges.forEach(rim=>rim.visible=p<.48);
+ films.forEach(film=>film.visible=p<.48);filmEdges.forEach(rim=>{rim.visible=p<.48;rim.material.opacity=.42*ease(.18,.23,p);});
  document.documentElement.style.setProperty('--revelation',ease(.43,.46,p)*(1-ease(.485,.525,p)));
  document.documentElement.style.setProperty('--source',ease(.31,.35,p)*(1-ease(.65,.72,p)));
  shadow.material.opacity=(1-split)*(1-ease(.46,.48,p));
