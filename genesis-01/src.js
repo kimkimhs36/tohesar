@@ -221,16 +221,18 @@ function pose(p,air=p){
  titanium.envMapRotation.copy(scene.environmentRotation);
  edgeMaterial.envMapRotation.copy(scene.environmentRotation);
  key.position.set(-3+2.2*returnLight,5,6);
- // 12–17%: a thin illuminated shut-line. 17–23%: a measured 12 cm
- // separation, not the entire leaf instantly flying open. 23–28%:
+ // 12–17%: a thin illuminated shut-line. 17–23%: a measured ~15 cm
+ // *total* gap, not the entire leaf instantly flying open. 23–28%:
  // both coach-built shells finally release before the camera crosses.
  const firstSeam=ease(.115,.17,p);
  const pilotOpening=ease(.17,.23,p);
  const deepOpening=ease(.23,.278,p);
- const opening=.13*pilotOpening+.87*deepOpening;
+ const opening=.055*pilotOpening+.945*deepOpening;
  const split=ease(.23,.27,p),pass=ease(.27,.30,p);
  apertureLight.scale.x=.25+.85*deepOpening;
- apertureMaterial.opacity=.38*ease(.225,.272,p)*(1-ease(.30,.345,p));
+ // Fade the light card *before* the camera reaches its depth, avoiding a
+ // fullscreen translucent flash at 30% during the actual passage.
+ apertureMaterial.opacity=.38*ease(.225,.272,p)*(1-ease(.278,.298,p));
  apertureLight.visible=apertureMaterial.opacity>.002&&p<.345;
  seam.morphTargetInfluences[0]=opening;
  seamMaterial.uniforms.opacity.value=(.11+.49*firstSeam)*(1-ease(.25,.285,p));
