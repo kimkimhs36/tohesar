@@ -24,6 +24,33 @@ export function createContinuum(scene,request){
  gatewayHeading.innerHTML='<span class="eyebrow">TOHEŞAR / FIVE THRESHOLDS</span><h2>Explore.</h2>';
  gatewayHeading.hidden=true;
  nav.after(gatewayHeading);
+ // The architectural leaves now resolve into an authored editorial index.
+ // Existing 3D geometry remains for the entrance and reassembly transitions.
+ const indexRoom=document.createElement('section');
+ indexRoom.id='threshold-index';
+ indexRoom.className='threshold-index';
+ indexRoom.hidden=true;
+ indexRoom.setAttribute('aria-label','Explore TOHEŞAR collections');
+ indexRoom.innerHTML=`
+  <figure class="threshold-image" aria-hidden="true">
+   <img src="./assets/yokohama-bluehour.webp" alt="" decoding="async">
+   <figcaption>VISUAL JOURNAL 001 / YOKOHAMA · VISUAL FICTION</figcaption>
+  </figure>
+  <div class="threshold-heading">
+   <span class="threshold-overline">TOHEŞAR / COLLECTIONS</span>
+   <h2>Explore<span>.</span></h2>
+   <p>Automobiles · Places · Memory</p>
+  </div>
+  <nav class="threshold-links" aria-label="Explore the collections">
+   <a href="/journal/"><span class="threshold-no">01</span><strong>Journal</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/world/"><span class="threshold-no">02</span><strong>World</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/symbol/"><span class="threshold-no">03</span><strong>Symbol</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/history/"><span class="threshold-no">04</span><strong>History</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+  </nav>
+  <a class="threshold-external" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM <span aria-hidden="true">↗</span></a>
+ `;
+ gatewayHeading.after(indexRoom);
+ const indexLinks=[...indexRoom.querySelectorAll('a')];
  const loader=new THREE.TextureLoader();
  const textures=['./assets/yokohama-interior.webp','./assets/yokohama-bluehour.webp'].map(url=>{
   const texture=loader.load(url,request);texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=4;return texture;
@@ -75,7 +102,16 @@ export function createContinuum(scene,request){
  // iPad and desktop keep the redesigned five-threshold exhibition.
  const legacyPhone=width<=650||height<=540;
  const exhibition=legacyPhone?0:ease(.711,.793,p);
- const headingActive=!legacyPhone&&p>=.752&&p<=.914;
+ // An editorial photograph and clear navigation replace the visual clutter
+ // between 79–90%; film structures fade back for the existing final assembly.
+ const galleryBlend=ease(.741,.793,p)*(1-ease(.889,.939,p));
+ const roomInteractive=galleryBlend>.64&&p<.916;
+ indexRoom.hidden=galleryBlend<.014;
+ indexRoom.inert=!roomInteractive;
+ indexRoom.setAttribute('aria-hidden',String(!roomInteractive));
+ if(!indexRoom.hidden)indexRoom.style.opacity=galleryBlend.toFixed(3);
+ indexLinks.forEach(link=>{link.tabIndex=roomInteractive?0:-1;});
+ const headingActive=!legacyPhone&&p>=.752&&p<=.914&&galleryBlend<.2;
  gatewayHeading.hidden=!headingActive;
  if(headingActive)gatewayHeading.style.opacity=ease(.752,.795,p)*(1-ease(.88,.914,p));
   panels.forEach(({group,mesh,edge,material,link},i)=>{
@@ -116,17 +152,17 @@ export function createContinuum(scene,request){
    u.ink.value=(i<2?1:0)*(1-ease(.648,.716,p));
    // Let blue/peach reflections articulate the edge while showing through the
    // surface. The first two leaves retain a real existing visual-journal crop.
-   u.opacity.value=emergence*mix(1,legacyPhone?.87:.77,individual)*(1-.18*close);
+   u.opacity.value=emergence*mix(1,legacyPhone?.87:.77,individual)*(1-.18*close)*(1-galleryBlend*.999);
    u.metal.value=(legacyPhone?[.18,.64,.50,.28,.15]:[.24,.53,.43,.36,.26])[i]*individual*(1-close)+.52*close;
    u.lightPhase.value=p+.5*close;
    // A narrow remnant of the existing blue-hour image remains inside WORLD,
    // preserving the connection from photographic memory to a destination.
    u.aperture.value=(legacyPhone?(i===1?.78:0):(i===0?.38:i===1?.62:0))*ease(.72,.78,p)*(1-close);
-   edge.material.opacity=emergence*mix(.32,.76,individual);
+   edge.material.opacity=emergence*mix(.32,.76,individual)*(1-galleryBlend*.999);
    edge.material.roughness=.21+.08*(1-close);
    group.visible=emergence>.001;
    group.updateMatrixWorld();
-   const active=p>=.765&&p<=.907;
+   const active=p>=.765&&p<=.907&&galleryBlend<.35;
    link.hidden=!active;link.tabIndex=active?0:-1;
    if(active){
     if(legacyPhone){
@@ -164,7 +200,7 @@ export function createContinuum(scene,request){
   document.documentElement.style.setProperty('--continuum',architecture*(1-close));
   document.documentElement.style.setProperty('--final-light',ease(.905,.99,p));
   document.documentElement.style.setProperty('--archive-light',ease(.48,.55,p)*(1-ease(.665,.75,p)));
-  inspection.architecture=architecture;inspection.reassembly=close;inspection.visibleLinks=p>=.765&&p<=.907?5:0;
+  inspection.architecture=architecture;inspection.reassembly=close;inspection.visibleLinks=roomInteractive?5:(p>=.765&&p<=.907&&galleryBlend<.35?5:0);
   return {travel,architecture,close};
  }
  return {update,inspection};
