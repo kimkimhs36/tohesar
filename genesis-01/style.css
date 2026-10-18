@@ -975,3 +975,113 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .threshold-link-body small{font-size:6px}
  .threshold-image figcaption{font-size:7px}
 }
+
+
+/* THE RETURN / GENESIS FINAL — SCENE 06
+   The same material becomes a still and legible brand memory.
+   Real Three.js titanium remains visible under the ivory optical air. */
+#imprint{
+ position:fixed;inset:0;bottom:auto;z-index:4;
+ height:100dvh;width:100%;
+ color:#263c41;pointer-events:none;text-align:left;
+ isolation:isolate;
+}
+#imprint[hidden]{display:none!important}
+.imprint-space{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.imprint-space::before{
+ content:"";position:absolute;inset:0;
+ background:
+  radial-gradient(ellipse 56% 49% at 50% 14%,rgba(244,247,241,.10),rgba(246,247,238,.42) 72%,rgba(246,244,234,.68)),
+  linear-gradient(125deg,rgba(245,247,239,.55),rgba(226,239,237,.09) 43%,rgba(238,220,206,.35));
+}
+.imprint-space__laminate{
+ position:absolute;top:-13%;height:117%;
+ width:35%;left:21%;border-left:1px solid rgba(83,121,123,.24);
+ border-right:1px solid rgba(252,255,247,.56);
+ background:linear-gradient(91deg,rgba(247,251,243,.04),rgba(251,253,248,.13) 51%,rgba(209,228,221,.05));
+ border-radius:45% 14% 37% 30% / 23% 55% 34% 24%;
+ transform:rotate(-14deg);opacity:.6;
+}
+.imprint-space__laminate--two{
+ left:65%;width:23%;height:123%;top:-16%;
+ transform:rotate(12deg);opacity:.52;
+}
+.imprint-space__light{
+ position:absolute;top:-20%;left:12%;height:74%;width:89%;
+ background:radial-gradient(ellipse,rgba(248,255,249,.35),transparent 70%);
+}
+#imprint .imprint-topline{
+ position:absolute;top:calc(env(safe-area-inset-top) + 145px);
+ left:8%;right:8%;font:400 10px/1.4 Arial,Helvetica,sans-serif;
+ letter-spacing:.20em;color:#4d6c70;
+}
+.imprint-topline span{margin:0 9px;color:#9cb2b5}
+#imprint .imprint-signature{
+ position:absolute;bottom:23%;left:8%;right:8%;z-index:2;
+}
+#imprint .imprint-signature img{
+ width:min(740px,83vw);height:auto;max-height:none;
+ display:block;margin:0;opacity:.92;filter:brightness(0);
+}
+#imprint .imprint-signature .eyebrow{
+ display:block;margin:24px 0 0;
+ font:400 10px/1.6 Arial,Helvetica,sans-serif;
+ letter-spacing:.21em;color:#45646b;
+}
+#imprint .imprint-actions{
+ position:absolute;bottom:13%;left:8%;right:8%;z-index:2;
+ display:flex;align-items:center;justify-content:space-between;gap:22px;
+ border-top:1px solid rgba(50,81,82,.45);
+}
+#imprint .imprint-actions button,
+#imprint .imprint-actions a{
+ display:inline-flex;align-items:center;justify-content:space-between;
+ gap:20px;min-width:205px;padding:20px 0 14px;
+ font:400 10px/1.4 Arial,Helvetica,sans-serif;
+ letter-spacing:.16em;
+ text-decoration:none;color:#29464d;background:transparent;
+ border:0;border-bottom:1px solid transparent;
+ cursor:pointer;pointer-events:auto;
+}
+#imprint .imprint-actions button:hover,
+#imprint .imprint-actions a:hover,
+#imprint .imprint-actions button:focus-visible,
+#imprint .imprint-actions a:focus-visible{
+ color:#172b32;border-bottom-color:#385963;
+}
+#imprint .imprint-actions span{font-size:19px;letter-spacing:0}
+#imprint .imprint-legal{
+ position:absolute;bottom:max(3%,env(safe-area-inset-bottom));left:8%;right:8%;
+ font:400 8px/1.6 Arial,Helvetica,sans-serif;
+ letter-spacing:.16em;color:#738284;
+}
+@media(max-width:700px) and (orientation:portrait){
+ .imprint-space__laminate{left:4%;width:60%;opacity:.42}
+ .imprint-space__laminate--two{left:69%;width:55%;opacity:.35}
+ #imprint .imprint-topline{top:calc(env(safe-area-inset-top) + 113px);left:7%;font-size:8px;letter-spacing:.12em}
+ #imprint .imprint-signature{bottom:28.5%;left:7%;right:7%}
+ #imprint .imprint-signature img{width:86vw;max-width:100%;margin:0;opacity:.9}
+ #imprint .imprint-signature .eyebrow{margin:18px 0 0;font-size:8px;letter-spacing:.11em}
+ #imprint .imprint-actions{bottom:13%;left:7%;right:7%;gap:10px;flex-direction:column;align-items:stretch}
+ #imprint .imprint-actions button,
+ #imprint .imprint-actions a{
+  font-size:9px;padding:11px 2px 9px;min-width:0;width:100%;
+ }
+ #imprint .imprint-actions button{border-bottom:1px solid rgba(69,104,108,.17)}
+ #imprint .imprint-actions span{font-size:16px}
+ #imprint .imprint-legal{bottom:max(3%,env(safe-area-inset-bottom));left:7%;right:7%;font-size:7px;letter-spacing:.07em}
+}
+@media(max-height:710px) and (orientation:portrait){
+ #imprint .imprint-signature{bottom:31%}
+ #imprint .imprint-actions{bottom:13%}
+ #imprint .imprint-topline{top:calc(env(safe-area-inset-top) + 93px)}
+}
+@media(max-height:540px) and (orientation:landscape){
+ #imprint .imprint-topline{top:calc(env(safe-area-inset-top) + 70px);font-size:8px}
+ #imprint .imprint-signature{bottom:37%}
+ #imprint .imprint-signature img{width:min(460px,56vw)}
+ #imprint .imprint-signature .eyebrow{font-size:7px;margin:9px 0 0}
+ #imprint .imprint-actions{bottom:16%}
+ #imprint .imprint-actions a,#imprint .imprint-actions button{font-size:8px;padding:9px 0;min-width:150px}
+ #imprint .imprint-legal{bottom:5%;font-size:7px}
+}
