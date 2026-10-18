@@ -238,7 +238,9 @@ function pose(p,air=p){
  sculpture.position.y=THREE.MathUtils.lerp(sculpture.position.y,mobile?.53:.05,handoff);
  camera.position.x=THREE.MathUtils.lerp(camera.position.x,sculpture.position.x,handoff);
  camera.position.y=THREE.MathUtils.lerp(camera.position.y,sculpture.position.y,handoff);
- camera.lookAt(camera.position.x,camera.position.y,-8);
+ // Keep the tracked focal line through the slit; do not erase the subtle
+ // orbit in a second lookAt immediately after moving the camera.
+ camera.lookAt(camera.position.x+(mobile?.045:.08)*track,camera.position.y,-8);
  const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
  if(p>.30){
   camera.position.set(sculpture.position.x+Math.sin(Math.PI*scatter)*.4+(1-arrive)*scatter*(mobile?.45:.9),sculpture.position.y+.18*scatter*(1-arrive),THREE.MathUtils.lerp(-.85,-3.3,scatter)-arrive*1.7);
