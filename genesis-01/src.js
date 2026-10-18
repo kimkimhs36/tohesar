@@ -96,6 +96,38 @@ const seamOpen=grid((u,v)=>seamPoint(u,v,1),4,80);
 seamGeometry.morphAttributes.position=[seamOpen.attributes.position];
 const seamMaterial=opticalFilm({warm:.32,opacity:.68});
 const seam=new THREE.Mesh(seamGeometry,seamMaterial);sculpture.add(seam);
+// The slit has a real depth: a soft reflected-light card sits *behind* the
+// opened titanium and ahead of the archival laminates. It is not an overlay,
+// bloom pass or random floating object, and is invisible until the metal parts.
+const apertureCanvas=document.createElement('canvas');
+apertureCanvas.width=64;apertureCanvas.height=192;
+const apertureContext=apertureCanvas.getContext('2d');
+const apertureX=apertureContext.createLinearGradient(0,0,64,0);
+apertureX.addColorStop(0,'rgba(226,245,241,0)');
+apertureX.addColorStop(.35,'rgba(214,231,226,.65)');
+apertureX.addColorStop(.52,'rgba(255,249,224,.79)');
+apertureX.addColorStop(.72,'rgba(210,228,233,.59)');
+apertureX.addColorStop(1,'rgba(219,240,243,0)');
+apertureContext.fillStyle=apertureX;
+apertureContext.fillRect(0,0,64,192);
+const apertureFade=apertureContext.createLinearGradient(0,0,0,192);
+apertureFade.addColorStop(0,'rgba(242,248,244,.98)');
+apertureFade.addColorStop(.12,'rgba(242,248,244,.08)');
+apertureFade.addColorStop(.88,'rgba(242,248,244,.08)');
+apertureFade.addColorStop(1,'rgba(242,248,244,.98)');
+apertureContext.fillStyle=apertureFade;
+apertureContext.globalCompositeOperation='destination-out';
+apertureContext.fillRect(0,0,64,192);
+apertureContext.globalCompositeOperation='source-over';
+const apertureTexture=new THREE.CanvasTexture(apertureCanvas);
+apertureTexture.colorSpace=THREE.SRGBColorSpace;
+const apertureMaterial=new THREE.MeshBasicMaterial({
+ map:apertureTexture,transparent:true,opacity:0,
+ depthWrite:false,side:THREE.DoubleSide,toneMapped:false
+});
+const apertureLight=new THREE.Mesh(new THREE.PlaneGeometry(1,4.05),apertureMaterial);
+apertureLight.position.set(0,0,-.92);
+sculpture.add(apertureLight);
 // Quiet registration marks, rather than printed ruled-paper decoration.
 function filmTexture(n){
  const c=document.createElement('canvas');c.width=256;c.height=512;const ctx=c.getContext('2d');
@@ -197,6 +229,9 @@ function pose(p,air=p){
  const deepOpening=ease(.23,.278,p);
  const opening=.13*pilotOpening+.87*deepOpening;
  const split=ease(.23,.27,p),pass=ease(.27,.30,p);
+ apertureLight.scale.x=.25+.85*deepOpening;
+ apertureMaterial.opacity=.38*ease(.225,.272,p)*(1-ease(.30,.345,p));
+ apertureLight.visible=apertureMaterial.opacity>.002&&p<.345;
  seam.morphTargetInfluences[0]=opening;
  seamMaterial.uniforms.opacity.value=(.11+.49*firstSeam)*(1-ease(.25,.285,p));
  seamMaterial.uniforms.lightPhase.value=air;
