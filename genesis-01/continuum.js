@@ -111,7 +111,9 @@ export function createContinuum(scene,request){
  indexRoom.setAttribute('aria-hidden',String(!roomInteractive));
  if(!indexRoom.hidden){
   indexRoom.style.opacity=galleryBlend.toFixed(3);
-  indexRoom.style.setProperty('--threshold-travel',ease(.75,.893,p).toFixed(4));
+  const editorialTravel=ease(.75,.893,p);
+  indexRoom.style.setProperty('--threshold-travel',editorialTravel.toFixed(4));
+  indexRoom.style.setProperty('--threshold-photo-shift',((editorialTravel-.5)*-1.2).toFixed(3)+'%');
   // The last photographic plane unfolds into the navigable architecture.
   // The exit folds inward toward the reassembled titanium silhouette.
   const unfolding=ease(.741,.793,p),refolding=ease(.889,.939,p);
