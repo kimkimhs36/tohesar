@@ -1219,3 +1219,43 @@ header img{width:clamp(142px,12vw,180px);height:auto}
 .atmosphere-shape--glass{transform:rotate(-4deg) scale(1.02)}
 /* Physical contrast is created by the metal's actual light-card reflections.
    Do not add bloom, film grain or chromatic glitches to disguise weak geometry. */
+
+
+/* PORTRAIT GATEWAY / TYPOGRAPHY MUST NOT BE CROPPED
+   Optical artwork and the letterforms each have an authored frame.
+   No random accidental image-over-type occlusion on narrow iPhone screens. */
+@media(max-width:700px) and (orientation:portrait){
+ .threshold-heading{
+  z-index:5;top:20.8%;left:7%;width:48%;max-width:48%;
+ }
+ .threshold-heading h2{
+  font-size:clamp(54px,16vw,71px);
+  white-space:nowrap;letter-spacing:-.09em;
+  text-shadow:0 2px 26px rgba(249,251,245,.62);
+ }
+ .threshold-heading p{
+  font-size:8px;letter-spacing:.04em;
+  max-width:132px;line-height:1.8;
+ }
+ .threshold-heading::before{
+  top:-10%;left:-10%;width:120%;height:125%;
+  background:radial-gradient(ellipse at 35% 42%,rgba(245,249,241,.77),rgba(245,249,241,.51) 60%,transparent 88%);
+  filter:blur(12px);
+ }
+ .threshold-image{
+  z-index:2;top:17%;left:54%;right:7.2%;width:auto;height:31%;
+ }
+ .threshold-image img{object-position:54% center}
+ .threshold-image figcaption{font-size:6px;letter-spacing:.08em}
+ .threshold-overline{font-size:7px;letter-spacing:.105em}
+}
+@media(max-width:390px) and (max-height:735px) and (orientation:portrait){
+ .threshold-heading{top:19.7%}
+ .threshold-links{top:50%}
+ .threshold-links a{min-height:52px}
+ .threshold-image{top:17.3%;height:30%}
+}
+@media(min-width:701px){
+ .threshold-heading{z-index:5}
+ .threshold-image{z-index:2}
+}
