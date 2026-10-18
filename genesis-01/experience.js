@@ -72,6 +72,12 @@ export function createArchiveExperience(){
   const show=presence>.006;
   host.hidden=!show;
   host.style.opacity=presence.toFixed(4);
+  // A drawn slit opens into the photographic room, rather than fading to a
+  // different fullscreen page. The final narrowing leads into the thresholds.
+  const leaving=smooth(.693,.744,p);
+  const revealLeft=(1-arrival)*38+leaving*18;
+  const revealRight=(1-arrival)*12+leaving*12;
+  host.style.clipPath=`inset(0 ${revealRight.toFixed(2)}% 0 ${revealLeft.toFixed(2)}%)`;
   const interactive=presence>.9&&p<.704;
   host.inert=!interactive;
   host.setAttribute('aria-hidden',String(!interactive));
