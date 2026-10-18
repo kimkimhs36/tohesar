@@ -118,6 +118,10 @@ export function createContinuum(scene,request){
  if(!indexRoom.hidden){
   indexRoom.style.opacity=galleryBlend.toFixed(3);
   indexRoom.style.setProperty('--threshold-travel',ease(.75,.893,p).toFixed(4));
+  // The last photographic plane unfolds into the navigable architecture.
+  // The exit folds inward toward the reassembled titanium silhouette.
+  const unfolding=ease(.741,.793,p),refolding=ease(.889,.939,p);
+  indexRoom.style.clipPath=`inset(0 ${((1-unfolding)*14+refolding*20).toFixed(2)}% 0 ${((1-unfolding)*31+refolding*21).toFixed(2)}%)`;
  }
  indexLinks.forEach(link=>{link.tabIndex=roomInteractive?0:-1;});
  const headingActive=!legacyPhone&&p>=.752&&p<=.914&&galleryBlend<.2;
