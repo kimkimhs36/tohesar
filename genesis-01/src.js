@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createContinuum } from './continuum.js';
+import { createArchiveExperience } from './experience.js';
 import { opticalFilm } from './optics.js';
 import { createRevelation } from './revelation.js';
 import { stepSpring, openingAir } from './motion.js';
@@ -130,6 +131,7 @@ const phaseLabel=document.querySelector('#phase');
 const percentLabel=document.querySelector('#percent');
 const revelation=createRevelation(scene,request);
 const continuum=createContinuum(scene,request);
+const memoryRooms=createArchiveExperience();
 let forced=new URLSearchParams(location.search).get('p');
 let measuredWidth=0,measuredHeight=0,resizeQueued=false;
 function measure(){
@@ -224,6 +226,7 @@ function pose(p,air=p){
  const anchor=sculpture.position.clone();
  const late=continuum.update(p,camera,anchor,mobile,measuredWidth,measuredHeight);
  revelation.update(p,camera,anchor,mobile);
+ memoryRooms.update(p);
  // Return the original authored metal to the compressed film stack. Its
  // slimmer silhouette records the journey, rather than resetting the scene.
  const reunion=ease(.925,.989,p);
