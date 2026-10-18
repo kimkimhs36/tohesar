@@ -93,11 +93,19 @@ export function createArchiveExperience(){
   state.chapter=chapter;
   host.style.setProperty('--room-travel',smooth(.497,.693,p).toFixed(4));
   host.style.setProperty('--room-temperature',smooth(.60,.67,p).toFixed(4));
+  // Architectural media planes move in depth, not vertically as feed cards.
+  // A slight perspective shift makes each published photograph an actual
+  // wall within the same room; the next wall becomes visible behind it.
+  const roomDepth=smooth(.50,.692,p);
   images.forEach((figure,i)=>{
-   const alpha=phases[i];
+   const alpha=phases[i],distance=Math.abs(i-chapter);
+   const offsetX=(i-1)*11+(roomDepth-.5)*31;
+   const offsetY=(i-1)*6-(roomDepth-.5)*17;
+   const offsetZ=-distance*36;
+   const yaw=(i-1)*2.2+(1-alpha)*(i<chapter?-2.2:2.2);
    figure.style.opacity=alpha.toFixed(4);
    figure.style.zIndex=alpha>.5?'2':'1';
-   figure.style.transform=`translate3d(${((i-1)*8+(p-.55)*21).toFixed(2)}px, ${((i-1)*7-(p-.55)*45).toFixed(2)}px, 0) scale(${(1.025+(p-.48)*.075).toFixed(4)})`;
+   figure.style.transform=`translate3d(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px, ${offsetZ.toFixed(2)}px) rotateY(${yaw.toFixed(2)}deg) scale(${(1.023+roomDepth*.052).toFixed(4)})`;
   });
   titles.forEach((title,i)=>{
    const alpha=phases[i];
