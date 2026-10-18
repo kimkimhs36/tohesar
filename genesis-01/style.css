@@ -1299,3 +1299,40 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .header-index>a{font-size:8px}
 }
 @media(prefers-reduced-motion:reduce){#ambience-toggle{transition:none}}
+
+
+/* PHYSICAL LIGHT / MEMORY ROOM PROGRESSION
+   The third memory arrives at blue hour; walls and metal pick up its light.
+   Motion stays tied to the user's scroll, never an autonomous decoration. */
+.memory-rooms__architecture::after{
+ content:"";position:absolute;inset:0;
+ background:radial-gradient(ellipse 81% 71% at 85% 16%,rgba(90,150,174,.24),transparent 82%),
+ linear-gradient(120deg,rgba(151,186,193,.15),rgba(133,165,179,.10) 73%,rgba(210,162,147,.09));
+ opacity:calc(var(--room-temperature,0) * .75);
+ pointer-events:none;
+}
+.memory-rooms__gallery{
+ transform-style:preserve-3d;
+ perspective:1150px;
+}
+.memory-rooms__image{
+ transform-style:preserve-3d;
+ backface-visibility:hidden;
+ will-change:transform,opacity;
+}
+.memory-rooms__image img{
+ filter:saturate(.88) contrast(1.045);
+}
+.memory-rooms__image::before{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(104deg,rgba(237,248,239,.16),transparent 47%,rgba(24,49,59,.12));
+}
+.memory-rooms__image::after{
+ background:linear-gradient(180deg,rgba(255,250,230,.07),transparent 62%,rgba(17,33,41,.46));
+}
+.memory-rooms__hairline{
+ box-shadow:0 1px 3px rgba(255,255,253,.65);
+}
+@media(prefers-reduced-motion:reduce){
+ .memory-rooms__image{will-change:auto}
+}
