@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { initAmbience } from './ambient.js';
 import { createContinuum } from './continuum.js';
 import { createArchiveExperience } from './experience.js';
 import { opticalFilm } from './optics.js';
@@ -18,6 +19,7 @@ const ease = (a,b,p) => {const t=clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
 let renderer;
 try { renderer = new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'}); }
 catch { fallback.hidden=false; }
+initAmbience();
 if(renderer) init();
 document.querySelector('#return-start').addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'}));
 function init(){
