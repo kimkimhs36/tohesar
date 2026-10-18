@@ -399,3 +399,149 @@ main{position:relative}
 
 /* GENESIS 03: leave a quiet interval between the floating metal and its title. */
 @media(max-width:1000px) and (orientation:portrait){.caption{top:auto;bottom:12%}}
+
+
+/* TOHEŞAR ART DIRECTION / EDITORIAL UNITY 01
+   Fewer competing effects, a composed first frame and deliberate navigation.
+   Existing GENESIS 03 titanium geometry and its authored animation are intact. */
+:root{
+ color:#293d42;
+ background:#f1efe8;
+ font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;
+ -webkit-font-smoothing:antialiased;
+}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+#atmosphere{
+ background:
+  linear-gradient(146deg,#dceaf0 0%,#e5eeeb 30%,#f6f1e8 57%,#f0d5c7 100%);
+}
+.atmosphere-tint{opacity:.73}
+.atmosphere-well--sky{opacity:.85}
+.atmosphere-well--peach{opacity:.80}
+.atmosphere-well--glass{opacity:.70}
+.atmosphere-haze{opacity:calc(.28 + var(--archive-calm,0) * .18)}
+header{
+ padding-top:calc(29px + env(safe-area-inset-top));
+ gap:24px;
+}
+header::before{
+ width:min(480px,85vw);height:144px;
+ background:linear-gradient(108deg,rgba(248,247,240,.68),rgba(248,247,240,.24) 60%,transparent 100%);
+}
+header img{width:clamp(142px,12vw,180px);height:auto}
+.header-index{
+ display:flex;align-items:center;justify-content:flex-end;gap:clamp(18px,2.7vw,40px);
+ margin-left:auto;white-space:nowrap;
+}
+.header-index span{
+ font:400 9px/1.4 "Helvetica Neue",Arial,sans-serif;
+ letter-spacing:.2em;color:#53696c;
+}
+.header-index>a{
+ text-decoration:none;color:#273e43;letter-spacing:.15em;
+ font:500 10px/1.3 "Helvetica Neue",Arial,sans-serif;
+ border-bottom:1px solid rgba(46,79,82,.46);
+ padding:9px 0;transition:border-color .2s ease;
+}
+.header-index>a:hover,.header-index>a:focus-visible{
+ border-color:currentColor;
+}
+.header-index>a span{font-size:14px;letter-spacing:0;padding-left:12px;color:inherit}
+.collections-anchor{
+ position:absolute;z-index:-1;top:75.5%;left:0;
+ width:1px;height:1px;pointer-events:none;scroll-margin-top:0;
+}
+.caption{
+ left:max(6.4vw,32px);bottom:clamp(80px,12dvh,156px);
+ max-width:77vw;color:#293b3e;
+}
+.caption::before{
+ content:"";display:block;width:48px;height:1px;
+ background:#527378;margin:0 0 clamp(19px,3dvh,31px);
+}
+.caption .eyebrow{
+ font:400 9px/1.5 "Helvetica Neue",Arial,Helvetica,sans-serif;
+ letter-spacing:.22em;color:#4e6e72;
+}
+.caption h1{
+ font-family:Baskerville,"Iowan Old Style","Times New Roman",Georgia,serif;
+ font-size:clamp(72px,9.5vw,150px);font-weight:400;
+ line-height:.88;letter-spacing:-.073em;
+ margin:18px 0 20px;
+}
+.caption h1 em{font-weight:400;font-style:italic}
+.caption p{
+ font:400 9px/1.5 "Helvetica Neue",Arial,Helvetica,sans-serif;
+ letter-spacing:.19em;color:#4b6569;
+}
+.revelation-copy h2,#archive-entry h2,
+.threshold-heading h2,#imprint h2{
+ font-family:Baskerville,"Iowan Old Style","Times New Roman",Georgia,serif;
+}
+.revelation-copy h2{
+ letter-spacing:-.071em;
+ text-shadow:0 2px 22px rgba(250,249,242,.65);
+}
+.annotation{letter-spacing:.15em;color:#53686a}
+.annotation i{background:rgba(64,90,94,.49)}
+.scroll-hint{color:#3a585e;letter-spacing:.18em}
+/* Let the Yokohama photograph own the collections stage, not an imitation
+   of another floating screen or a pile of transparent slabs. */
+.threshold-index{
+ background:#edece5;
+}
+.threshold-index::before{
+ background:
+  radial-gradient(ellipse 78% 85% at 100% 4%,rgba(179,215,221,.34),transparent 76%),
+  radial-gradient(ellipse 66% 76% at 0% 94%,rgba(235,186,165,.31),transparent 80%),
+  linear-gradient(118deg,#f1f3ec,#ebeeea 57%,#f0e6dd);
+}
+.threshold-image{
+ box-shadow:0 14px 45px rgba(36,63,66,.10);
+}
+.threshold-heading h2{color:#273d43}
+.threshold-links a{
+ border-top-color:rgba(53,82,84,.32);
+ background:linear-gradient(90deg,rgba(245,247,240,.55),transparent);
+}
+.threshold-links a:last-child{border-bottom-color:rgba(53,82,84,.32)}
+@media(max-width:700px) and (orientation:portrait){
+ header{
+  padding:calc(env(safe-area-inset-top) + 26px) 25px 0;
+  gap:12px;
+ }
+ header img{width:clamp(126px,35vw,154px)}
+ header::before{width:81vw;height:128px}
+ .header-index{gap:14px}
+ .header-index span{font-size:7px;letter-spacing:.105em}
+ .header-index>a{font-size:9px;letter-spacing:.09em}
+ .header-index>a span{font-size:12px;padding-left:5px}
+ .caption{left:7%;right:7%;bottom:clamp(83px,13.5dvh,135px);max-width:86%}
+ .caption::before{width:37px;margin-bottom:17px}
+ .caption .eyebrow{font-size:8px;letter-spacing:.17em}
+ .caption h1{
+  font-size:clamp(66px,17.5vw,95px);
+  letter-spacing:-.078em;margin:16px 0 15px;
+ }
+ .caption p{font-size:8px;letter-spacing:.11em}
+ .revelation-copy h2{font-size:clamp(55px,15.3vw,80px)}
+ .threshold-heading h2{font-size:clamp(70px,19.5vw,104px)}
+ .threshold-links strong{font-family:Baskerville,"Iowan Old Style",Georgia,serif}
+}
+@media(max-width:355px) and (orientation:portrait){
+ .header-index span{display:none}
+ .caption h1{font-size:62px}
+}
+@media(max-height:540px) and (orientation:landscape){
+ header{padding-top:calc(15px + env(safe-area-inset-top))}
+ header img{width:126px}
+ .header-index span{font-size:8px}
+ .caption{bottom:19%;left:7vw}
+ .caption h1{font-size:clamp(44px,6vw,65px);margin:10px 0}
+ .caption::before{margin-bottom:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ .header-index>a{transition:none}
+ .collections-anchor{top:69.4%}
+}
