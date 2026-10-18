@@ -839,12 +839,13 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .memory-rooms__lower span:last-child{max-width:60%;text-align:right}
 }
 @media(max-width:390px) and (max-height:760px) and (orientation:portrait){
- .memory-rooms__gallery{top:17%;left:21%;right:9%}
- .memory-rooms__editorial{top:63.2%}
+ /* Small, short iPhones: preserve a clean gap between the print and title. */
+ .memory-rooms__gallery{top:18.1%;left:21%;right:9%}
+ .memory-rooms__editorial{top:66.8%}
  .memory-rooms__title h2{font-size:clamp(52px,14vw,69px)}
- .memory-rooms__titles{height:17dvh}
+ .memory-rooms__titles{height:14dvh}
  .memory-rooms__read{padding:8px 1px}
- .memory-rooms__upper{top:12%}
+ .memory-rooms__upper{top:15.5%}
 }
 @media(max-height:540px) and (orientation:landscape){
  .memory-rooms__upper{top:13%;font-size:8px}
