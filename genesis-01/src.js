@@ -259,7 +259,7 @@ function pose(p,air=p){
  document.documentElement.classList.toggle('genesis-complete',p>.998);
  percentLabel.textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 100`;
 }
-let lastFrame=0;
+let lastFrame=0,entranceInitialized=false;
 function draw(now){
  raf=0;
  const dt=lastFrame?Math.min(Math.max((now-lastFrame)/1000,0),.1):1/60;
@@ -277,6 +277,12 @@ function draw(now){
  }
  pose(progress,airProgress);
  renderer.render(scene,camera);
+ if(!entranceInitialized){
+  entranceInitialized=true;
+  // A single soft-light reveal after the first *real rendered frame*.
+  // No loading splash, blank screen, WebGL postprocessing, or infinite loop.
+  if(progress<.095&&!reduced.matches)stage.classList.add('first-light');
+ }
  if(progress!==target||airProgress!==target)request();
 }
 addEventListener('scroll',onScroll,{passive:true});
