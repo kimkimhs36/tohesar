@@ -1085,3 +1085,44 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  #imprint .imprint-actions a,#imprint .imprint-actions button{font-size:8px;padding:9px 0;min-width:150px}
  #imprint .imprint-legal{bottom:5%;font-size:7px}
 }
+
+
+/* FINAL FOOTER / SAFE AREA — all destinations survive the ending.
+   Keep the legal text and navigation away from the iPhone gesture area. */
+#destinations{
+ left:7%;right:7%;bottom:max(2svh,env(safe-area-inset-bottom));
+ z-index:6;align-items:stretch;gap:0;
+ border-top:1px solid rgba(59,89,93,.25);
+ background:linear-gradient(180deg,rgba(250,251,246,.7),rgba(250,249,242,.45));
+}
+#destinations a{
+ color:#324e54;text-decoration:none;font-size:8px;
+ letter-spacing:.075em;padding:14px 2px;
+}
+#destinations a:focus-visible,#destinations a:hover{
+ background:rgba(226,239,233,.62);outline:1px solid rgba(39,75,76,.55);
+ outline-offset:0;
+}
+#imprint .imprint-signature{bottom:38%}
+#imprint .imprint-actions{bottom:23%}
+#imprint .imprint-legal{bottom:15%}
+@media(max-width:700px) and (orientation:portrait){
+ #imprint .imprint-signature{bottom:38%;left:7%}
+ #imprint .imprint-actions{bottom:21.5%}
+ #imprint .imprint-legal{bottom:13.3%}
+ #destinations{bottom:max(1.6svh,env(safe-area-inset-bottom));}
+ #destinations a{font-size:7px;letter-spacing:.04em;padding:13px 1px}
+}
+@media(max-height:710px) and (orientation:portrait){
+ #imprint .imprint-signature{bottom:41%}
+ #imprint .imprint-actions{bottom:23%}
+ #imprint .imprint-legal{bottom:14%}
+ #destinations a{padding:9px 1px}
+}
+@media(max-height:540px) and (orientation:landscape){
+ #imprint .imprint-signature{bottom:38%}
+ #imprint .imprint-actions{bottom:20%}
+ #imprint .imprint-legal{bottom:11%}
+ #destinations{bottom:max(1svh,env(safe-area-inset-bottom))}
+ #destinations a{padding:5px 1px;font-size:7px}
+}
