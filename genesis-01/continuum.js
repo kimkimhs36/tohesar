@@ -16,14 +16,8 @@ export function createContinuum(scene,request){
  const editorial=document.querySelector('#archive-entry');
  const title=editorial.querySelector('h2'),index=editorial.querySelector('.eyebrow');
  const end=document.querySelector('#imprint');
- // A restrained exhibition heading belongs to the 75–90% thresholds only.
- // This is a navigation title, not a new brand slogan.
- const gatewayHeading=document.createElement('section');
- gatewayHeading.className='gateway-heading';
- gatewayHeading.setAttribute('aria-label','Explore TOHEŞAR');
- gatewayHeading.innerHTML='<span class="eyebrow">TOHEŞAR / FIVE THRESHOLDS</span><h2>Explore.</h2>';
- gatewayHeading.hidden=true;
- nav.after(gatewayHeading);
+ // There is only one Explore heading, authored inside the collection scene.
+ // Removing the competing intermediate heading prevents a duplicated flash.
  // The architectural leaves now resolve into an authored editorial index.
  // Existing 3D geometry remains for the entrance and reassembly transitions.
  const indexRoom=document.createElement('section');
@@ -55,7 +49,7 @@ export function createContinuum(scene,request){
   </nav>
   <a class="threshold-external" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM <span aria-hidden="true">↗</span></a>
  `;
- gatewayHeading.after(indexRoom);
+ nav.after(indexRoom);
  const indexLinks=[...indexRoom.querySelectorAll('a')];
  const loader=new THREE.TextureLoader();
  const textures=['./assets/yokohama-interior.webp','./assets/yokohama-bluehour.webp'].map(url=>{
@@ -124,9 +118,6 @@ export function createContinuum(scene,request){
   indexRoom.style.clipPath=`inset(0 ${((1-unfolding)*14+refolding*20).toFixed(2)}% 0 ${((1-unfolding)*31+refolding*21).toFixed(2)}%)`;
  }
  indexLinks.forEach(link=>{link.tabIndex=roomInteractive?0:-1;});
- const headingActive=!legacyPhone&&p>=.752&&p<=.914&&galleryBlend<.2;
- gatewayHeading.hidden=!headingActive;
- if(headingActive)gatewayHeading.style.opacity=ease(.752,.795,p)*(1-ease(.88,.914,p));
   panels.forEach(({group,mesh,edge,material,link},i)=>{
    const emergence=i<2?ease(.48+i*.025,.522+i*.025,p):ease(.634,.70,p);
    const individual=ease(.651+i*.006,.744+i*.005,p);
@@ -173,7 +164,9 @@ export function createContinuum(scene,request){
    u.aperture.value=(legacyPhone?(i===1?.78:0):(i===0?.38:i===1?.62:0))*ease(.72,.78,p)*(1-close);
    edge.material.opacity=emergence*mix(.32,.76,individual)*(1-galleryBlend*.999);
    edge.material.roughness=.21+.08*(1-close);
-   group.visible=emergence>.001;
+   // Five expensive coated surfaces are culled while an opaque editorial room
+   // owns the entire frame; they return only for material reassembly.
+   group.visible=emergence>.001&&(galleryBlend<.985||close>.04);
    group.updateMatrixWorld();
    const active=p>=.765&&p<=.907&&galleryBlend<.35;
    link.hidden=!active;link.tabIndex=active?0:-1;
