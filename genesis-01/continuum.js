@@ -32,9 +32,15 @@ export function createContinuum(scene,request){
  indexRoom.hidden=true;
  indexRoom.setAttribute('aria-label','Explore TOHEŞAR collections');
  indexRoom.innerHTML=`
+  <div class="threshold-architecture" aria-hidden="true">
+   <div class="threshold-architecture__fold threshold-architecture__fold--one"></div>
+   <div class="threshold-architecture__fold threshold-architecture__fold--two"></div>
+   <div class="threshold-architecture__highlight"></div>
+  </div>
   <figure class="threshold-image" aria-hidden="true">
    <img src="./assets/yokohama-bluehour.webp" alt="" decoding="async">
-   <figcaption>VISUAL JOURNAL 001 / YOKOHAMA · VISUAL FICTION</figcaption>
+   <span class="threshold-image__frame"></span>
+   <figcaption><span>VISUAL JOURNAL / 001</span><span>YOKOHAMA — BLUE HOUR</span></figcaption>
   </figure>
   <div class="threshold-heading">
    <span class="threshold-overline">TOHEŞAR / COLLECTIONS</span>
@@ -42,10 +48,10 @@ export function createContinuum(scene,request){
    <p>Automobiles · Places · Memory</p>
   </div>
   <nav class="threshold-links" aria-label="Explore the collections">
-   <a href="/journal/"><span class="threshold-no">01</span><strong>Journal</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
-   <a href="/world/"><span class="threshold-no">02</span><strong>World</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
-   <a href="/symbol/"><span class="threshold-no">03</span><strong>Symbol</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
-   <a href="/history/"><span class="threshold-no">04</span><strong>History</strong><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/journal/" class="threshold-link--journal"><span class="threshold-no">01</span><span class="threshold-link-body"><strong>Journal</strong><small>VISUAL CULTURE / YOKOHAMA 001</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/world/" class="threshold-link--world"><span class="threshold-no">02</span><span class="threshold-link-body"><strong>World</strong><small>SPATIAL STUDY / 001</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/symbol/" class="threshold-link--symbol"><span class="threshold-no">03</span><span class="threshold-link-body"><strong>Symbol</strong><small>SE-DIYU / THE SCULPTURE ROOM</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/history/" class="threshold-link--history"><span class="threshold-no">04</span><span class="threshold-link-body"><strong>History</strong><small>THE ORIGIN / 2018—2026</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
   </nav>
   <a class="threshold-external" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM <span aria-hidden="true">↗</span></a>
  `;
@@ -109,7 +115,10 @@ export function createContinuum(scene,request){
  indexRoom.hidden=galleryBlend<.014;
  indexRoom.inert=!roomInteractive;
  indexRoom.setAttribute('aria-hidden',String(!roomInteractive));
- if(!indexRoom.hidden)indexRoom.style.opacity=galleryBlend.toFixed(3);
+ if(!indexRoom.hidden){
+  indexRoom.style.opacity=galleryBlend.toFixed(3);
+  indexRoom.style.setProperty('--threshold-travel',ease(.75,.893,p).toFixed(4));
+ }
  indexLinks.forEach(link=>{link.tabIndex=roomInteractive?0:-1;});
  const headingActive=!legacyPhone&&p>=.752&&p<=.914&&galleryBlend<.2;
  gatewayHeading.hidden=!headingActive;
