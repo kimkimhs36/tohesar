@@ -1372,3 +1372,28 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  .memory-rooms__gallery,.memory-rooms__editorial,.memory-rooms__cut,
  .memory-rooms__hairline{transform:none!important}
 }
+
+
+/* FIRST LIGHT / RESEARCH ENTRANCE 0.2–1.3s
+   The light unveils an already-rendered titanium surface. The ivory space
+   never becomes a black loading screen and the movement happens only once. */
+#stage.first-light::after{
+ content:"";position:absolute;inset:0;z-index:2;
+ pointer-events:none;
+ background:
+  radial-gradient(ellipse 69% 74% at 58% 37%,rgba(255,255,250,.77),rgba(253,255,250,.28) 59%,transparent 92%),
+  linear-gradient(95deg,rgba(249,250,245,.33),transparent 74%);
+ opacity:0;
+ animation:first-sculpture-light 1.35s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes first-sculpture-light{
+ 0%{opacity:.88}16%{opacity:.72}46%{opacity:.36}100%{opacity:0}
+}
+.scroll-hint{animation:first-scroll-hint 1.8s ease-out both}
+@keyframes first-scroll-hint{
+ 0%,60%{opacity:0}100%{opacity:var(--hint,1)}
+}
+@media(prefers-reduced-motion:reduce){
+ #stage.first-light::after{animation:none;display:none}
+ .scroll-hint{animation:none}
+}
