@@ -82,7 +82,7 @@ export function createSlitPassage(scene){
  label.innerHTML='<span>INSIDE THE MEMORY</span><span>YOKOHAMA / 001 &nbsp; — &nbsp; VISUAL FICTION</span>';
  document.querySelector('main').append(label);
  const state={presence:0,progress:0};
- function update(p,anchor){
+ function update(p,anchor,camera){
   const entry=smooth(.265,.306,p);
   const exit=1-smooth(.365,.413,p);
   const presence=entry*exit;
@@ -92,6 +92,9 @@ export function createSlitPassage(scene){
   // archival tiles in world space; no sudden fullscreen scenery swap.
   if(root.visible){
    root.position.set(anchor.x,anchor.y,0);
+   // The corridor occupies the same percentage of the real iPhone camera
+   // frustum rather than disappearing outside a narrow portrait viewport.
+   root.scale.x=THREE.MathUtils.clamp(camera.aspect*.95,.40,1.22);
    metal.opacity=.46*presence;
    cool.opacity=.38*presence;
    warm.opacity=.33*presence;
