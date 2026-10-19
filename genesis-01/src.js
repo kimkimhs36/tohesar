@@ -292,7 +292,7 @@ function pose(p,air=p){
  const anchor=sculpture.position.clone();
  const late=continuum.update(p,camera,anchor,mobile,measuredWidth,measuredHeight);
  revelation.update(p,camera,anchor,mobile);
- passage.update(p,anchor);
+ passage.update(p,anchor,camera);
  memoryRooms.update(p);
  // Return the original authored metal to the compressed film stack. Its
  // slimmer silhouette records the journey, rather than resetting the scene.
