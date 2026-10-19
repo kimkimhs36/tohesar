@@ -2,9 +2,11 @@ import * as THREE from 'three';
 const mix=THREE.MathUtils.lerp;
 const smooth=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
 // One existing published visual fiction; UV fragments never invent new archive material.
-export function createRevelation(scene,request){
+export function createRevelation(scene,request,sharedTexture=null){
  const group=new THREE.Group();scene.add(group);
- const texture=new THREE.TextureLoader().load('./assets/yokohama-portrait.webp',()=>request());
+ // The earlier translucent internal film and the assembled fragments must
+ // reference the *same* published image, not two GPU copies or new AI imagery.
+ const texture=sharedTexture||new THREE.TextureLoader().load('./assets/yokohama-portrait.webp',request);
  texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=4;
  // The fragment study resolves into a genuine editorial print at optical closure.
  // It uses the already-published TOHEŞAR artwork, never invented archive imagery.
