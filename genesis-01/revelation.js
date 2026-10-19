@@ -56,7 +56,9 @@ export function createRevelation(scene,request){
   if(!photoPlate.hidden)photoPlate.style.opacity=plateOpacity.toFixed(3);
   photoLink.tabIndex=plateInteractive?0:-1;
   document.documentElement.style.setProperty('--photo-plate',plateOpacity.toFixed(3));
-  group.visible=p>.27&&p<.665;
+  // Render the seven separate surfaces only while they contribute visible
+  // pixels. Once the completed print has taken over they stay culled.
+  group.visible=p>.27&&p<.449;
   group.position.x=0;
   const reveal=smooth(.27,.33,p),spread=smooth(.30,.37,p);
   // Geometry locks at 40%. Only the camera resolves the projection from 40–43%.
@@ -98,7 +100,9 @@ export function createRevelation(scene,request){
    tile.rotation.y+=departure;
    // Once the full print resolves, fragmented geometry stays dissolved.
    // The next scene takes over; we never resurrect split tiles on the way out.
-   tile.material.opacity=reveal*(1-smooth(.422,.446,p));
+   // Complementary opacity envelopes keep the same artwork at a steady
+   // perceived exposure as seven fragments become one complete print.
+   tile.material.opacity=reveal*(1-plateIn);
    tile.updateMatrixWorld();
    const screen=tile.position.clone().project(camera);
    error=Math.max(error,Math.hypot(screen.x-cx/halfW,screen.y-cy/halfH));
