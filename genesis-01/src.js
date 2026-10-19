@@ -17,6 +17,9 @@ const atmosphere = document.querySelector('#atmosphere');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = THREE.MathUtils.clamp;
 const ease = (a,b,p) => {const t=clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
+// A camera must enter/exit its optical alignment without an acceleration
+// discontinuity. Used specifically for the seven-fragment anamorphic shot.
+const cameraEase=(a,b,p)=>{const t=clamp((p-a)/(b-a),0,1);return t*t*t*(t*(t*6-15)+10);};
 let renderer;
 try { renderer = new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'}); }
 catch { fallback.hidden=false; }
@@ -259,7 +262,7 @@ function pose(p,air=p){
  edgeMaterial.roughness=.12-.027*firstSeam*(1-deepOpening)+.025*archive;
  // CSS and WebGL receive the same progress rather than drifting independently.
  atmosphere.style.setProperty('--optic-open',Math.min(1,.45*awake+.55*ease(.16,.28,air)).toFixed(3));
- atmosphere.style.setProperty('--optic-align',ease(.37,.43,air).toFixed(3));
+ atmosphere.style.setProperty('--optic-align',cameraEase(.334,.454,air).toFixed(3));
  for(let i=0;i<4;i++)morphs[i].morphTargetInfluences[0]=opening;
  films.forEach((film,i)=>{
   const release=ease(.229+i*.003,.277+i*.002,p);
@@ -294,7 +297,9 @@ function pose(p,air=p){
  // Keep the tracked focal line through the slit; do not erase the subtle
  // orbit in a second lookAt immediately after moving the camera.
  camera.lookAt(camera.position.x+(mobile?.045:.08)*track,camera.position.y,-8);
- const scatter=ease(.30,.37,p),arrive=ease(.37,.43,p);
+ // Extend the camera's perspective alignment from a 6%-scroll snap to a
+ // deliberate 11.4%-scroll movement, synchronized with seven photographs.
+ const scatter=cameraEase(.30,.386,p),arrive=cameraEase(.334,.448,p);
  if(p>.30){
   camera.position.set(sculpture.position.x+Math.sin(Math.PI*scatter)*.4+(1-arrive)*scatter*(mobile?.45:.9),sculpture.position.y+.18*scatter*(1-arrive),THREE.MathUtils.lerp(-.85,-3.3,scatter)-arrive*1.7);
   camera.lookAt(camera.position.x,camera.position.y,-16);
@@ -321,12 +326,12 @@ function pose(p,air=p){
  }
  // Leave the surfaces behind the camera instead of carrying them into the rail.
  films.forEach(film=>film.visible=p<.48);filmEdges.forEach(rim=>{rim.visible=p<.48;rim.material.opacity=.42*ease(.18,.23,p);});
- document.documentElement.style.setProperty('--revelation',ease(.43,.46,p)*(1-ease(.485,.525,p)));
+ document.documentElement.style.setProperty('--revelation',ease(.448,.475,p)*(1-ease(.495,.530,p)));
  document.documentElement.style.setProperty('--source',ease(.31,.35,p)*(1-ease(.65,.72,p)));
  shadow.material.opacity=(1-split)*(1-ease(.46,.48,p));
  document.documentElement.style.setProperty('--caption',1-ease(.12,.19,p));
  document.documentElement.style.setProperty('--hint',1-ease(.01,.08,p));
- phaseLabel.textContent=p>.975?'MEMORY ALLOY':p>.90?'REASSEMBLY':p>.72?'COLLECTIONS':p>.64?'IMAGE INTO MATTER':p>.48?'THE EDITORIAL RAIL':p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.43?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
+ phaseLabel.textContent=p>.975?'MEMORY ALLOY':p>.90?'REASSEMBLY':p>.72?'COLLECTIONS':p>.64?'IMAGE INTO MATTER':p>.48?'THE EDITORIAL RAIL':p<.17?'FOLDED MEMORY':p<.23?'OPENING':p<.27?'LAYER SEPARATION':p<.30?'WITHIN THE LAYERS':p<.37?'MEMORY FRAGMENTS':p<.455?'FINDING A PERSPECTIVE':'A SCENE, REMEMBERED';
  document.documentElement.classList.toggle('genesis-complete',p>.998);
  percentLabel.textContent=`${String(Math.round(p*100)).padStart(2,'0')} / 100`;
 }
