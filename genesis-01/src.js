@@ -4,6 +4,7 @@ import { createContinuum } from './continuum.js';
 import { createArchiveExperience } from './experience.js';
 import { opticalFilm } from './optics.js';
 import { createRevelation } from './revelation.js';
+import { createSlitPassage } from './passage.js';
 import { stepSpring, openingAir } from './motion.js';
 import { folio, shellSkin, shellEdge } from './sculpture.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -169,6 +170,7 @@ const percentLabel=document.querySelector('#percent');
 const revelation=createRevelation(scene,request);
 const continuum=createContinuum(scene,request);
 const memoryRooms=createArchiveExperience();
+const passage=createSlitPassage(scene);
 let forced=new URLSearchParams(location.search).get('p');
 let measuredWidth=0,measuredHeight=0,resizeQueued=false;
 function measure(){
@@ -290,6 +292,7 @@ function pose(p,air=p){
  const anchor=sculpture.position.clone();
  const late=continuum.update(p,camera,anchor,mobile,measuredWidth,measuredHeight);
  revelation.update(p,camera,anchor,mobile);
+ passage.update(p,anchor);
  memoryRooms.update(p);
  // Return the original authored metal to the compressed film stack. Its
  // slimmer silhouette records the journey, rather than resetting the scene.
