@@ -143,8 +143,19 @@ function filmTexture(n){
  for(let j=0;j<16;j++)ctx.fillRect(35+j*28,951,1,j%4===0?22:8);
  const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.SRGBColorSpace;return tex;
 }
+// Reuse the genuine published visual-fiction print across the internal
+// emulsion and the seven perspective fragments. The image has one GPU owner.
+const journalTexture=new THREE.TextureLoader().load('./assets/yokohama-portrait.webp',request);
+journalTexture.colorSpace=THREE.SRGBColorSpace;
+journalTexture.anisotropy=4;
 for(let k=0;k<5;k++){
- const mat=opticalFilm({map:filmTexture(k),warm:k/5,opacity:.84,ink:.07});
+ // On only one inner laminate, a trace of Yokohama becomes visible when the
+ // titanium first separates. This is the first clue to what the space holds.
+ // The surrounding films stay milky/metallic and do not impersonate photos.
+ const mat=opticalFilm({
+  map:k===2?journalTexture:filmTexture(k),
+  warm:k/5,opacity:.84,ink:k===2?.18:.025
+ });
  mat.forceSinglePass=true;
  const s=k%2===0?1:-1;
  const closed=grid((u,v)=>folio(s,u,v,0,k),24,56);
@@ -167,7 +178,7 @@ let progressVelocity=0,airProgress=0,airVelocity=0;
 // Cached labels: avoid querying the live DOM on each WebGL animation frame.
 const phaseLabel=document.querySelector('#phase');
 const percentLabel=document.querySelector('#percent');
-const revelation=createRevelation(scene,request);
+const revelation=createRevelation(scene,request,journalTexture);
 const continuum=createContinuum(scene,request);
 const memoryRooms=createArchiveExperience();
 const passage=createSlitPassage(scene);
