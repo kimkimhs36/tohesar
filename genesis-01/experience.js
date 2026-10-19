@@ -114,11 +114,21 @@ export function createArchiveExperience(){
    figure.style.zIndex=alpha>.5?'2':'1';
    figure.style.transform=`translate3d(${offsetX.toFixed(2)}px, ${offsetY.toFixed(2)}px, ${offsetZ.toFixed(2)}px) rotateY(${yaw.toFixed(2)}deg) scale(${(1.023+roomDepth*.052).toFixed(4)})`;
   });
+  // Unlike photographs, typography must NEVER cross-dissolve over the
+  // same coordinates. End one title before introducing the next.
+  // Video QA (iPad Safari): previous overlapping titles produced illegible
+  // "Arrival / Human trace" and "Human trace / Blue hour" collisions.
+  const copyPhases=[
+   1-smooth(.546,.565,p),
+   smooth(.568,.584,p)*(1-smooth(.614,.633,p)),
+   smooth(.636,.654,p)
+  ];
   titles.forEach((title,i)=>{
-   const alpha=phases[i];
+   const alpha=copyPhases[i];
    title.style.opacity=alpha.toFixed(4);
+   title.style.visibility=alpha>.005?'visible':'hidden';
    title.style.transform=`translate3d(0,${((1-alpha)*11).toFixed(2)}px,0)`;
-   title.setAttribute('aria-hidden',String(i!==chapter));
+   title.setAttribute('aria-hidden',String(alpha<=.005));
   });
   ticks.forEach((tick,i)=>tick.classList.toggle('is-active',i===chapter));
  }
