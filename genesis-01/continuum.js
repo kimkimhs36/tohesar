@@ -42,12 +42,12 @@ export function createContinuum(scene,request){
    <p>Automobiles · Places · Memory</p>
   </div>
   <nav class="threshold-links" aria-label="Explore the collections">
-   <a href="/journal/" class="threshold-link--journal"><span class="threshold-no">01</span><span class="threshold-link-body"><strong>Journal</strong><small>VISUAL CULTURE / YOKOHAMA 001</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
-   <a href="/world/" class="threshold-link--world"><span class="threshold-no">02</span><span class="threshold-link-body"><strong>World</strong><small>SPATIAL STUDY / 001</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
-   <a href="/symbol/" class="threshold-link--symbol"><span class="threshold-no">03</span><span class="threshold-link-body"><strong>Symbol</strong><small>SE-DIYU / THE SCULPTURE ROOM</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
-   <a href="/history/" class="threshold-link--history"><span class="threshold-no">04</span><span class="threshold-link-body"><strong>History</strong><small>THE ORIGIN / 2018—2026</small></span><span class="threshold-arrow" aria-hidden="true">↗</span></a>
+   <a href="/journal/" class="threshold-link--journal"><span class="threshold-no">01</span><span class="threshold-link-body"><strong>Journal</strong><small>VISUAL CULTURE / YOKOHAMA 001</small></span><span class="threshold-arrow" aria-hidden="true">↗︎</span></a>
+   <a href="/world/" class="threshold-link--world"><span class="threshold-no">02</span><span class="threshold-link-body"><strong>World</strong><small>SPATIAL STUDY / 001</small></span><span class="threshold-arrow" aria-hidden="true">↗︎</span></a>
+   <a href="/symbol/" class="threshold-link--symbol"><span class="threshold-no">03</span><span class="threshold-link-body"><strong>Symbol</strong><small>SE-DIYU / THE SCULPTURE ROOM</small></span><span class="threshold-arrow" aria-hidden="true">↗︎</span></a>
+   <a href="/history/" class="threshold-link--history"><span class="threshold-no">04</span><span class="threshold-link-body"><strong>History</strong><small>THE ORIGIN / 2018—2026</small></span><span class="threshold-arrow" aria-hidden="true">↗︎</span></a>
   </nav>
-  <a class="threshold-external" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM <span aria-hidden="true">↗</span></a>
+  <a class="threshold-external" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">INSTAGRAM <span aria-hidden="true">↗︎</span></a>
  `;
  nav.after(indexRoom);
  const indexLinks=[...indexRoom.querySelectorAll('a')];
@@ -105,6 +105,10 @@ export function createContinuum(scene,request){
  // An editorial photograph and clear navigation replace the visual clutter
  // between 79–90%; film structures fade back for the existing final assembly.
  const galleryBlend=ease(.741,.793,p)*(1-ease(.889,.939,p));
+ // The film installation must not wash over already resolved journalism.
+ // Fade architectural laminates before the collection room appears and
+ // return them only *after* the room has folded away into the finale.
+ const filmPresence=Math.max(1-ease(.677,.726,p),ease(.935,.968,p));
  const roomInteractive=galleryBlend>.64&&p<.916;
  indexRoom.hidden=galleryBlend<.014;
  indexRoom.inert=!roomInteractive;
@@ -158,17 +162,17 @@ export function createContinuum(scene,request){
    u.ink.value=(i<2?1:0)*(1-ease(.648,.716,p));
    // Let blue/peach reflections articulate the edge while showing through the
    // surface. The first two leaves retain a real existing visual-journal crop.
-   u.opacity.value=emergence*mix(1,legacyPhone?.87:.77,individual)*(1-.18*close)*(1-galleryBlend*.999);
+   u.opacity.value=emergence*mix(1,legacyPhone?.87:.77,individual)*(1-.18*close)*(1-galleryBlend*.999)*filmPresence;
    u.metal.value=(legacyPhone?[.18,.64,.50,.28,.15]:[.24,.53,.43,.36,.26])[i]*individual*(1-close)+.52*close;
    u.lightPhase.value=p+.5*close;
    // A narrow remnant of the existing blue-hour image remains inside WORLD,
    // preserving the connection from photographic memory to a destination.
    u.aperture.value=(legacyPhone?(i===1?.78:0):(i===0?.38:i===1?.62:0))*ease(.72,.78,p)*(1-close);
-   edge.material.opacity=emergence*mix(.32,.76,individual)*(1-galleryBlend*.999);
+   edge.material.opacity=emergence*mix(.32,.76,individual)*(1-galleryBlend*.999)*filmPresence;
    edge.material.roughness=.21+.08*(1-close);
    // Five expensive coated surfaces are culled while an opaque editorial room
    // owns the entire frame; they return only for material reassembly.
-   group.visible=emergence>.001&&(galleryBlend<.985||close>.04);
+   group.visible=emergence>.001&&filmPresence>.016;
    group.updateMatrixWorld();
    const active=p>=.765&&p<=.907&&galleryBlend<.35;
    link.hidden=!active;link.tabIndex=active?0:-1;
@@ -196,14 +200,10 @@ export function createContinuum(scene,request){
    }
   });
   rails.forEach(rail=>{rail.visible=p>.48&&p<.735;rail.position.set(anchor.x,anchor.y+.24,-10.48);rail.material.opacity=.38*ease(.48,.53,p)*(1-ease(.65,.735,p));});
-  const titleA=ease(.532,.548,p)*(1-ease(.571,.587,p));
-  const titleB=ease(.606,.625,p)*(1-ease(.65,.674,p));
-  const entryOpacity=Math.max(titleA,titleB);
-  editorial.hidden=entryOpacity<.005;
-  if(!editorial.hidden){
-   title.textContent=titleA>titleB?'A human trace.':'Blue hour.';index.textContent=titleA>titleB?'YOKOHAMA / 02':'YOKOHAMA / 03';
-   editorial.style.opacity=entryOpacity;editorial.style.transform=`translate3d(0,${(1-entryOpacity)*9}px,0)`;
-  }
+  // The new three-chapter Memory Rooms are the ONLY editorial voice from
+  // 48–72%. The old "A human trace" / "Blue hour" DOM overlay produced
+  // a second title over the primary one in actual iPad Safari recordings.
+  editorial.hidden=true;
   end.hidden=p<.968;end.style.opacity=ease(.968,.995,p);
   document.documentElement.style.setProperty('--continuum',architecture*(1-close));
   document.documentElement.style.setProperty('--final-light',ease(.905,.99,p));
