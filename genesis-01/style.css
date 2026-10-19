@@ -1397,3 +1397,39 @@ header img{width:clamp(142px,12vw,180px);height:auto}
  #stage.first-light::after{animation:none;display:none}
  .scroll-hint{animation:none}
 }
+
+
+/* INNER PASSAGE / 27–40%
+   Material becomes navigation architecture *through* the camera, not
+   by fading to an unrelated scene. Caption is dimensional annotation. */
+.passage-index{
+ position:fixed;z-index:2;
+ top:24%;left:8%;right:8%;
+ display:flex;align-items:flex-start;justify-content:space-between;gap:24px;
+ color:#425f65;pointer-events:none;
+ font:400 9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.20em;
+ text-shadow:0 1px 15px rgba(247,251,245,.94);
+}
+.passage-index[hidden]{display:none!important}
+.passage-index span:first-child{
+ display:flex;align-items:center;gap:14px;white-space:nowrap;
+}
+.passage-index span:first-child::before{
+ content:"";width:30px;height:1px;background:rgba(69,111,116,.48);
+}
+.passage-index span:last-child{text-align:right;letter-spacing:.12em;color:#5e8188}
+@media(max-width:700px) and (orientation:portrait){
+ .passage-index{
+  top:24%;left:7%;right:7%;
+  flex-direction:column;gap:6px;
+  font-size:8px;letter-spacing:.11em;
+ }
+ .passage-index span:first-child::before{width:21px}
+ .passage-index span:last-child{
+  margin-left:36px;text-align:left;
+  font-size:7px;letter-spacing:.085em;
+ }
+}
+@media(max-height:540px) and (orientation:landscape){
+ .passage-index{top:22%;font-size:7px}
+}
