@@ -1,6 +1,10 @@
 import * as THREE from 'three';
 const mix=THREE.MathUtils.lerp;
 const smooth=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*(3-2*t);};
+// Quintic ease has zero initial/final velocity AND acceleration. Reserve it
+// for the perspective lock: the geometry should settle like a film camera,
+// not snap into a mosaic when two independent transitions meet.
+const cinematic=(a,b,p)=>{const t=THREE.MathUtils.clamp((p-a)/(b-a),0,1);return t*t*t*(t*(t*6-15)+10);};
 // One existing published visual fiction; UV fragments never invent new archive material.
 export function createRevelation(scene,request,sharedTexture=null){
  const group=new THREE.Group();scene.add(group);
@@ -46,10 +50,11 @@ export function createRevelation(scene,request,sharedTexture=null){
  let ready=false;texture.onUpdate=()=>{ready=true;};
  const inspection={alignmentError:null,depthRange:0,fragmentCount:7};
  function update(p,camera,anchor,mobile){
-  // The image settles at 43%, holds as a real editorial plate, then dissolves
-  // into the existing architectural leaves from 48%. No abrupt object swap.
-  const plateIn=smooth(.416,.446,p);
-  const plateOut=1-smooth(.486,.516,p);
+  // Let the seven fragments earn their optical closure. The reconstruction
+  // takes ~11% of scroll rather than snapping in 3%. Only when perspective
+  // has nearly aligned does the complete photographic print appear.
+  const plateIn=cinematic(.441,.471,p);
+  const plateOut=1-smooth(.489,.520,p);
   const plateOpacity=plateIn*plateOut;
   const plateInteractive=plateOpacity>.91&&p<.492;
   photoPlate.hidden=plateOpacity<.006;
@@ -60,20 +65,21 @@ export function createRevelation(scene,request,sharedTexture=null){
   document.documentElement.style.setProperty('--photo-plate',plateOpacity.toFixed(3));
   // Render the seven separate surfaces only while they contribute visible
   // pixels. Once the completed print has taken over they stay culled.
-  group.visible=p>.27&&p<.449;
+  group.visible=p>.27&&p<.475;
   group.position.x=0;
-  const reveal=smooth(.27,.33,p),spread=smooth(.30,.37,p);
-  // Geometry locks at 40%. Only the camera resolves the projection from 40–43%.
-  const arrange=smooth(.37,.40,p),settle=smooth(.445,.48,p);
+  const reveal=smooth(.27,.33,p),spread=cinematic(.293,.380,p);
+  // Slowly resolve the perspective before the full print takes over.
+  // Arrangement: ~33–45% rather than 37–40%; controlled depth settle follows.
+  const arrange=cinematic(.334,.448,p),settle=cinematic(.428,.467,p);
   const halfH=Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*6;
   const halfW=halfH*camera.aspect;
   const width=mobile?halfW*1.64:halfH*1.05;
   const height=width*1050/850;
   let error=0,minZ=Infinity,maxZ=-Infinity;
   // Measure the optical closure as a verifiable scene state.
-  const align=smooth(.401,.429,p);
+  const align=cinematic(.397,.454,p);
   const gutter=mix(.987,1.002,align);
-  const edgeOpacity=.48*(1-smooth(.397,.429,p));
+  const edgeOpacity=.48*(1-cinematic(.399,.460,p));
   inspection.opticalGutter=gutter;
   inspection.edgeOpacity=edgeOpacity;
   camera.updateMatrixWorld();
@@ -92,7 +98,7 @@ export function createRevelation(scene,request,sharedTexture=null){
    // Registration boundaries dissolve at the optical climax.
    edge.material.opacity=edgeOpacity*(1-plateIn);
    edge.visible=edge.material.opacity>.006;
-   backing.material.opacity=reveal*.8*(1-smooth(.39,.43,p));
+   backing.material.opacity=reveal*.8*(1-cinematic(.392,.459,p));
    backing.visible=backing.material.opacity>.005;
    tile.rotation.set(.14*Math.sin(i*2)*spread*(1-arrange),.45*Math.cos(i*2.3)*spread*(1-arrange),.13*Math.sin(i)*spread*(1-arrange));
    const departure=smooth(.485,.555,p)*-.12;
@@ -111,7 +117,9 @@ export function createRevelation(scene,request,sharedTexture=null){
    minZ=Math.min(minZ,tile.position.z);maxZ=Math.max(maxZ,tile.position.z);
   }
   inspection.alignmentError=error;inspection.depthRange=maxZ-minZ;
-  inspection.geometryLocked=p>=.40&&p<=.445;
+  inspection.geometryLocked=p>=.448&&p<=.475;
+  inspection.alignmentProgress=arrange;
+  inspection.photographicHandoff=plateIn;
  }
 
  return {update,inspection,fragments,get ready(){return ready;}};
