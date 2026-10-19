@@ -14,7 +14,9 @@ const points=(side)=>{
  for(let i=0;i<=36;i++){
   const t=i/36;
   positions.push(new THREE.Vector3(
-   side*(.62+1.31*Math.pow(t,.82)+.075*Math.sin(Math.PI*t)),
+   // The material corridor bends through the *same* lateral path
+   // as the controlled camera drift, then returns to the photo axis.
+   .45*Math.sin(Math.PI*t)+side*(.62+1.31*Math.pow(t,.82)+.075*Math.sin(Math.PI*t)),
    -.09+.24*t+.14*Math.sin(Math.PI*t),
    -.93-10.1*t
   ));
