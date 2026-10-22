@@ -1,0 +1,8 @@
+{
+  "product": "BKIT STUDY OS \u00b7 First Move Micro Polish",
+  "sourceCommit": "d710df0d73e1b62182762fa3fc494f1eb8992979",
+  "sourceRepository": "kimkimhs36/BKIT-QWEN",
+  "publishedAt": "2026-10-22T09:03:30.651182+00:00",
+  "rollbackCommit": "2e218123ab187614a52fa4d4fbc97f795cf386f5",
+  "validation": "typecheck and root Vite build passed; iPhone/iPad subpath E2E 4 passed; root iPhone E2E 2 passed"
+}
