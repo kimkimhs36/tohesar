@@ -1,0 +1,166 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import StoryRow from '../components/StoryRow.astro';
+import { visibleArticles, href, subjects } from '../lib/publication';
+const stories = (await visibleArticles()).map((e) => e.data);
+const lead = stories.find((a) => a.slug === 'f40') || stories[0];
+const secondary = stories.find((a) => a.slug === 'porsche-911');
+const archive = stories.find((a) => a.slug === 'ducati-916');
+---
+
+<Base title="자동차를 읽는 시간">
+  <div class="wrap">
+    {lead ? (
+      <section class="front-page" aria-labelledby="lead-title">
+        <div class="lead-story">
+          <div class="section-label">
+            <span>THE DESIGN FILE</span>
+            <span>
+              {lead.marque?.toUpperCase()} {lead.model} <span class="meta-divider">/</span>{' '}
+              {lead.era}
+            </span>
+          </div>
+          <header class="lead-heading">
+            <h1 id="lead-title">
+              <a href={href(lead)}>{lead.title}</a>
+            </h1>
+            <p class="lead-kicker">FORM FOLLOWS PURPOSE.</p>
+          </header>
+          <Photo id={lead.hero} href={href(lead)} priority transition />
+          <div class="lead-deck">
+            <p>
+              낮은 차체, 깊게 파인 흡기구, 거대한 리어윙.
+              <br class="desktop-break" /> 1987년의 F40에서 목적이 만든 아름다움을 읽는다.
+            </p>
+            <a class="text-link" href={href(lead)}>
+              이야기 읽기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <aside class="latest-column" aria-label="최근 편집">
+          <div class="section-heading">
+            <h2>
+              최근의 이야기 <em>Latest</em>
+            </h2>
+            <a href="/latest/" aria-label="최근 이야기 모두 보기">
+              ↗
+            </a>
+          </div>
+          <p class="section-intro">지금 읽어 볼 세 편의 편집 샘플.</p>
+          {stories.map((a, i) => (
+            <StoryRow story={a} index={i} />
+          ))}
+          <div class="editor-note">
+            <span class="eyebrow">FROM THE EDITORS</span>
+            <p>
+              새로운 것의 속도보다,
+              <br />
+              오래 남는 것의 이유를.
+            </p>
+            <a class="text-link" href="/about/">
+              TOHEŞAR의 편집 원칙 ↗
+            </a>
+          </div>
+        </aside>
+      </section>
+    ) : (
+      <section class="page-intro">
+        <span class="eyebrow">THE JOURNAL</span>
+        <h1>첫 번째 발행을 준비합니다.</h1>
+        <p>검토가 끝난 이야기부터 차례로 소개하겠습니다.</p>
+      </section>
+    )}
+    {secondary && (
+      <section class="feature-spread" aria-labelledby="feature-title">
+        <div class="section-heading full">
+          <h2>
+            깊이 읽기 <em>Features</em>
+          </h2>
+          <a class="text-link" href="/features/">
+            모든 피처 ↗
+          </a>
+        </div>
+        <Photo
+          id={secondary.hero}
+          href={href(secondary)}
+          sizes="(max-width:767px) calc(100vw - 40px), 60vw"
+        />
+        <div class="feature-copy">
+          <span class="eyebrow">
+            PORSCHE <span class="meta-divider">/</span> DESIGN & HISTORY
+          </span>
+          <h2 id="feature-title">
+            <a href={href(secondary)}>
+              변하는 자동차,
+              <br />
+              <em>남아 있는 실루엣.</em>
+            </a>
+          </h2>
+          <p>{secondary.deck}</p>
+          <a class="text-link" href={href(secondary)}>
+            911의 이야기 읽기 ↗
+          </a>
+          <span class="reading-note">미발행 샘플 · {secondary.reading_minutes}분 읽기</span>
+        </div>
+      </section>
+    )}
+    {archive && (
+      <section class="journal-spread" aria-labelledby="journal-title">
+        <div class="journal-copy">
+          <div class="section-heading">
+            <h2 id="journal-title">
+              시간의 기록 <em>Archive</em>
+            </h2>
+          </div>
+          <span class="eyebrow">
+            MOTORCYCLES <span class="meta-divider">/</span> 1994
+          </span>
+          <h3>
+            <a href={href(archive)}>
+              두카티 916,
+              <br />
+              기능이 만들어 낸 우아함
+            </a>
+          </h3>
+          <p>{archive.deck}</p>
+          <a href={href(archive)} class="text-link">
+            아카이브에서 읽기 ↗
+          </a>
+        </div>
+        <Photo
+          id={archive.hero}
+          href={href(archive)}
+          sizes="(max-width:767px) calc(100vw - 40px), 45vw"
+        />
+      </section>
+    )}
+    <section class="subjects-strip" aria-labelledby="subjects-title">
+      <div>
+        <span class="eyebrow">THE SUBJECT INDEX</span>
+        <h2 id="subjects-title">바퀴 너머의 세계</h2>
+        <p>자동차에서 출발해, 기계가 만든 문화를 따라갑니다.</p>
+      </div>
+      <nav aria-label="분야별 읽기">
+        {subjects.map(([key, name, ko], i) => (
+          <a href={`/subjects/${key}/`}>
+            <span class="index-no">0{i + 1}</span>
+            <span>
+              {name}
+              <small>{ko}</small>
+            </span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </nav>
+    </section>
+    <section class="film-note">
+      <span class="eyebrow">PHOTO ESSAYS & FILM</span>
+      <h2>사진과 영상으로 읽는 기계.</h2>
+      <p>출처와 사용 권리를 확인한 작업을 준비하고 있습니다.</p>
+      <a class="text-link" href="/subjects/film-machines/">
+        영화와 기계 살펴보기 ↗
+      </a>
+    </section>
+  </div>
+</Base>

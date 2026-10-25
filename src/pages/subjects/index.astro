@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { visibleArticles, subjects } from '../../lib/publication';
+const articles = (await visibleArticles()).map((e) => e.data);
+---
+
+<Base title="Subjects · 분야별 읽기">
+  <div class="wrap listing-page">
+    <header class="page-intro">
+      <span class="eyebrow">THE SUBJECT INDEX</span>
+      <h1>
+        <em>Subjects</em>바퀴 너머의 세계
+      </h1>
+      <p>
+        콘텐츠의 형식과 주제는 다릅니다. 관심 있는 분야에서 뉴스와 피처, 기록을 함께 찾아보세요.
+      </p>
+    </header>
+    <div class="subject-index">
+      {subjects.map(([key, name, ko], i) => (
+        <a href={`/subjects/${key}/`}>
+          <span class="index-no">0{i + 1}</span>
+          <div>
+            <h2>{name}</h2>
+            <p>{ko}</p>
+          </div>
+          <span class="subject-count">
+            {articles.filter((a) => a.subjects.includes(key)).length}편
+          </span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,56 @@
+{
+  "slug": "porsche-911",
+  "title": "911의 실루엣은 왜 남아 있는가",
+  "deck": "1963년의 901에서 오늘까지. 포르쉐가 바꾸지 않으려 했던 것은 무엇일까.",
+  "content_type": "Feature",
+  "subjects": ["automobiles", "design-history"],
+  "marque": "Porsche",
+  "model": "911",
+  "era": "1963—",
+  "status": "review",
+  "demo": true,
+  "published_at": null,
+  "modified_at": "2026-10-25T00:00:00Z",
+  "author": null,
+  "editor": null,
+  "hero": "porsche-911",
+  "source_documents": [
+    {
+      "title": "Porsche Newsroom — First generation 911",
+      "url": "https://newsroom.porsche.com/en/press-kits/60-Years-Porsche-911/1.-Generation-Porsche-911-%28Ur-Elfer%29%2C-1963-1973.html",
+      "verification": "pending"
+    }
+  ],
+  "correction_log": [
+    {
+      "date": "2026-10-25",
+      "note": "V2.4 편집 샘플을 이전했습니다. 발행일·집필자 표기를 제거하고, 사진 설명을 출처 기록과 일치시켰습니다."
+    }
+  ],
+  "canonical": null,
+  "social_image": null,
+  "related_articles": ["f40", "ducati-916"],
+  "reading_minutes": 4,
+  "lead": "한 세대의 자동차가 다음 세대로 넘어갈 때, 대부분의 것은 변한다. 엔진과 규정, 크기와 안전 구조가 달라지기 때문이다. 그런데 포르쉐 911은 여러 변화를 거치고도 옆모습만으로 이름을 떠올릴 수 있는 드문 자동차다.",
+  "sections": [
+    {
+      "title": "처음의 이름은 901이었다",
+      "paragraphs": [
+        "911은 1963년 프랑크푸르트 모터쇼에서 901이라는 이름으로 처음 공개됐다. 356의 뒤를 잇는 2+2 스포츠카로, 뒤쪽에 놓인 수평대향 6기통 엔진과 낮은 루프, 둥글게 솟아오른 앞 펜더를 갖췄다. 생산이 시작된 1964년에는 911이라는 이름으로 바뀌었다."
+      ]
+    },
+    {
+      "title": "같은 선, 다른 자동차",
+      "paragraphs": [
+        "이 자동차가 처음부터 지금과 같았던 것은 아니다. 공기역학과 조명, 냉각 방식, 차체 강성, 편의 장비는 세대를 거듭하며 계속 발전했다. 중요한 것은 새로운 요구를 받아들이면서도 기본적인 비례와 이미지의 연결을 놓치지 않았다는 점이다.",
+        "측면을 따라 매끈하게 내려오는 지붕선과 도드라진 앞 펜더, 뒤쪽에 배치된 기계적 무게중심은 911의 독특한 성격을 이루는 요소다."
+      ]
+    },
+    {
+      "title": "정통성은 정지 상태가 아니다",
+      "paragraphs": [
+        "좋은 전통은 옛날 그림을 똑같이 그리는 일이 아니다. 익숙한 형태가 만들어진 이유를 이해하고, 새로운 조건에서도 그것을 설득력 있게 이어 가는 일에 가깝다. 포르쉐 911은 자동차 디자인에서 그 어려운 문제를 오랫동안 다뤄온 사례다."
+      ]
+    }
+  ]
+}

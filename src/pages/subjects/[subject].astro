@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import StoryRow from '../../components/StoryRow.astro';
+import { visibleArticles, subjects } from '../../lib/publication';
+export function getStaticPaths() {
+  return subjects.map(([key, name, ko]) => ({
+    params: { subject: key },
+    props: { name, ko, key },
+  }));
+}
+const { name, ko, key } = Astro.props;
+const articles = (await visibleArticles())
+  .map((e) => e.data)
+  .filter((a) => a.subjects.includes(key));
+---
+
+<Base title={`${name} · ${ko}`}>
+  <div class="wrap listing-page">
+    <header class="page-intro">
+      <a class="eyebrow" href="/subjects/">
+        ← ALL SUBJECTS
+      </a>
+      <h1>
+        <em>{name}</em>
+        {ko}
+      </h1>
+      <p>이 분야의 이야기 {articles.length}편.</p>
+    </header>
+    <nav class="filters" aria-label="분야 선택">
+      {subjects.map(([slug, label]) => (
+        <a href={`/subjects/${slug}/`} aria-current={key === slug ? 'page' : undefined}>
+          {label}
+        </a>
+      ))}
+    </nav>
+    {articles.length ? (
+      <div class="article-list">
+        {articles.map((a) => (
+          <StoryRow story={a} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state">
+        <h2>아직 이 분야의 글이 없습니다.</h2>
+        <p>
+          출처와 사진 사용 권리를 확인한 이야기를 준비하겠습니다. 기다리는 동안 자동차와 디자인의
+          기록을 읽어 보세요.
+        </p>
+        <a href="/archive/" class="text-link">
+          아카이브 둘러보기 ↗
+        </a>
+      </div>
+    )}
+  </div>
+</Base>

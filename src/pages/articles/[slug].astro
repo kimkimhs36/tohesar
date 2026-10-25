@@ -1,0 +1,214 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import StoryRow from '../../components/StoryRow.astro';
+import { visibleArticles, subjectName } from '../../lib/publication';
+import registry from '../../../content-assets.json';
+export async function getStaticPaths() {
+  return (await visibleArticles()).map((e) => ({
+    params: { slug: e.data.slug },
+    props: { story: e.data },
+  }));
+}
+const { story: a } = Astro.props;
+const asset = registry.find((r) => r.id === a.hero)!;
+const all = (await visibleArticles()).map((e) => e.data);
+const related = all.filter((s) => a.related_articles.includes(s.slug));
+const structured =
+  a.status === 'published' && !a.demo
+    ? {
+        '@context': 'https://schema.org',
+        '@type': a.content_type === 'News' ? 'NewsArticle' : 'Article',
+        headline: a.title,
+        description: a.deck,
+        datePublished: a.published_at,
+        dateModified: a.modified_at,
+        author: { '@type': 'Person', name: a.author },
+        publisher: { '@type': 'Organization', name: 'TOHEŞAR' },
+        mainEntityOfPage: a.canonical,
+      }
+    : null;
+---
+
+<Base title={a.title.replace(/\n/g, ' ')} description={a.deck} canonical={a.canonical} article>
+  {structured && (
+    <script
+      slot="head"
+      type="application/ld+json"
+      set:html={JSON.stringify(structured).replace(/</g, '\\u003c')}
+    />
+  )}
+  <article
+    class={`wrap article-${a.content_type.toLowerCase().replace(/ /g, '-')}`}
+    data-article={a.slug}
+  >
+    <header class="article-header">
+      <nav class="breadcrumbs" aria-label="현재 위치">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href={`/subjects/${a.subjects[0]}/`}>{subjectName(a.subjects[0])}</a>
+        <span>/</span>
+        <span>{a.content_type}</span>
+      </nav>
+      <span class="eyebrow">
+        {a.content_type.toUpperCase()} <span class="meta-divider">/</span> {a.marque?.toUpperCase()}{' '}
+        {a.model} <span class="meta-divider">/</span> {a.era}
+      </span>
+      <h1>{a.title}</h1>
+      <p class="article-deck">{a.deck}</p>
+      <div class="byline">
+        <span>{a.author || '편집 샘플 · 집필자 미지정'}</span>
+        <span>
+          {a.published_at ? `발행 ${a.published_at.slice(0, 10)}` : '미발행 · 발행일 없음'}
+        </span>
+        <span>{a.reading_minutes}분 읽기</span>
+      </div>
+      {a.demo && (
+        <p class="review-note">
+          본문·출처 검토 중인 샘플입니다. 취재 기사 또는 발행된 뉴스가 아닙니다.
+        </p>
+      )}
+    </header>
+    <div class="article-hero">
+      <Photo
+        id={a.hero}
+        priority
+        transition
+        zoom
+        sizes="(max-width:767px) calc(100vw - 40px), (max-width:1056px) calc(100vw - 56px), 1000px"
+      />
+    </div>
+    <div class="article-grid">
+      <aside class="article-aside">
+        <span class="eyebrow">IN THIS STORY</span>
+        <details>
+          <summary>기사 목차</summary>
+          <nav aria-label="기사 목차">
+            {a.sections.map((s, i) => (
+              <a href={`#section-${i + 1}`}>
+                0{i + 1} <span class="meta-divider">/</span> {s.title}
+              </a>
+            ))}
+            <a href="#sources">출처와 편집 기록</a>
+          </nav>
+        </details>
+        <noscript>
+          <a href="#sources">출처와 편집 기록 ↓</a>
+        </noscript>
+      </aside>
+      <div class="article-copy">
+        <div class="reader-tools" hidden data-reader-tools>
+          <div>
+            <span>본문 크기</span>
+            <button type="button" data-font="-1" aria-label="A− 본문 글자 작게">
+              A−
+            </button>
+            <output data-font-size aria-live="polite">
+              기본
+            </output>
+            <button type="button" data-font="1" aria-label="A+ 본문 글자 크게">
+              A+
+            </button>
+          </div>
+          <div>
+            <button type="button" data-save={a.slug} aria-pressed="false">
+              나중에 읽기 ＋
+            </button>
+          </div>
+        </div>
+        <p class="article-lead">{a.lead}</p>
+        {a.sections.map((s, i) => (
+          <>
+            <section id={`section-${i + 1}`}>
+              <span class="chapter-index">
+                0{i + 1} <span class="meta-divider">/</span> 0{a.sections.length}
+              </span>
+              <h2>{s.title}</h2>
+              {s.paragraphs.map((p) => (
+                <p>{p}</p>
+              ))}
+            </section>
+            {i === 0 && a.quote && <blockquote class="pullquote">{a.quote}</blockquote>}
+          </>
+        ))}
+        <img
+          class="article-endmark"
+          src="/identity/cedilla.svg"
+          alt="TOHEŞAR 기사 끝"
+          width="26"
+          height="26"
+          loading="lazy"
+        />
+        <section class="source-box" id="sources">
+          <h2>출처와 편집 기록</h2>
+          <p>
+            {a.demo
+              ? 'V2.4에서 이전한 미발행 샘플입니다. 아래는 검토 대상 원문이며, 이번 실행에서 본문 사실 전체를 재검증한 것으로 표시하지 않습니다.'
+              : '아래의 원문 자료를 확인해 작성했습니다.'}
+          </p>
+          <ul>
+            {a.source_documents.map((s) => (
+              <li>
+                <a href={s.url}>{s.title} ↗</a> ·{' '}
+                {s.verification === 'verified' ? '검토 완료' : '검토 대기'}
+              </li>
+            ))}
+          </ul>
+          <p>
+            사진: <a href={asset.source}>{asset.credit} / Wikimedia Commons</a> ·{' '}
+            <a href={asset.licence_url}>{asset.licence}</a>
+            <br />
+            원본 비례 유지. 크기 조정 및 포맷 변환, 색상·내용 변경 없음.
+          </p>
+          <details>
+            <summary>편집·정정 이력</summary>
+            {a.correction_log.map((c) => (
+              <p>
+                <time datetime={c.date}>{c.date}</time> — {c.note}
+              </p>
+            ))}
+            <p>
+              정정 제안은 <a href="https://www.instagram.com/tohesar/">TOHEŞAR 공식 계정</a>으로
+              전달해 주세요. 이 사이트는 메시지를 자동 전송하지 않습니다.
+            </p>
+          </details>
+        </section>
+        <div class="article-actions">
+          <button type="button" data-share hidden>
+            링크 공유 ↗
+          </button>
+          <a href="/archive/">아카이브로 돌아가기 →</a>
+        </div>
+        <p class="article-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </article>
+  <section class="related wrap">
+    <div class="section-heading">
+      <h2>
+        이어 읽기 <em>Further Reading</em>
+      </h2>
+      <a href="/archive/" aria-label="전체 아카이브">
+        ↗
+      </a>
+    </div>
+    <div class="related-list">
+      {related.map((s) => (
+        <StoryRow story={s} />
+      ))}
+    </div>
+  </section>
+  <div class="read-progress" aria-hidden="true"></div>
+  <dialog class="photo-dialog" aria-label="사진 크게 보기">
+    <header>
+      <span>
+        TOHEŞAR <span class="meta-divider">/</span> PHOTOGRAPHY
+      </span>
+      <button type="button" data-close-photo>
+        닫기 ×
+      </button>
+    </header>
+    <img alt="" />
+    <p></p>
+  </dialog>
+</Base>

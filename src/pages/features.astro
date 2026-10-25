@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import { visibleArticles, href } from '../lib/publication';
+const articles = (await visibleArticles())
+  .map((e) => e.data)
+  .filter((a) => ['Feature', 'Design File', 'Photo Essay'].includes(a.content_type));
+---
+
+<Base title="Features · 깊이 읽기">
+  <div class="wrap listing-page">
+    <header class="page-intro">
+      <span class="eyebrow">LONGER READS, LASTING IDEAS</span>
+      <h1>
+        <em>Features</em>깊이 읽기
+      </h1>
+      <p>한 대의 자동차를 넘어, 형태와 시대를 함께 읽는 긴 이야기.</p>
+    </header>
+    <div class="feature-list">
+      {articles.map((a, i) => (
+        <article>
+          <Photo
+            id={a.hero}
+            href={href(a)}
+            priority={i === 0}
+            sizes="(max-width:767px) calc(100vw - 40px), 45vw"
+          />
+          <span class="eyebrow">
+            {a.content_type.toUpperCase()} <span class="meta-divider">/</span> {a.marque}
+          </span>
+          <h2>
+            <a href={href(a)}>{a.title}</a>
+          </h2>
+          <p>{a.deck}</p>
+          <a class="text-link" href={href(a)}>
+            이야기 읽기 ↗
+          </a>
+        </article>
+      ))}
+    </div>
+    {!articles.length && (
+      <div class="empty-state">
+        <h2>피처를 준비하고 있습니다.</h2>
+        <p>발행 검토가 끝난 글이 이곳에 모입니다.</p>
+      </div>
+    )}
+  </div>
+</Base>

@@ -1,0 +1,155 @@
+---
+import '../styles/global.css';
+import { isPreview } from '../lib/publication';
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string | null;
+  image?: string;
+  article?: boolean;
+}
+const {
+  title,
+  description = '자동차를 중심으로 디자인과 기계 문화의 오래 남는 이야기를 읽습니다. TOHEŞAR 디지털 저널.',
+  canonical,
+  image,
+  article = false,
+} = Astro.props;
+const pageURL = new URL(Astro.url.pathname, Astro.site);
+const nav = [
+  ['/latest/', 'Latest'],
+  ['/features/', 'Features'],
+  ['/subjects/', 'Subjects'],
+  ['/archive/', 'Archive'],
+  ['/search/', 'Search'],
+];
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title} — TOHEŞAR</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#F1EEE5" />
+    <meta name="robots" content={isPreview ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonical || pageURL} />
+    <link rel="icon" type="image/svg+xml" href="/identity/favicon.svg" />
+    <link rel="apple-touch-icon" href="/identity/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="TOHEŞAR RSS" href="/rss.xml" />
+    <meta property="og:title" content={`${title} — TOHEŞAR`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="TOHEŞAR" />
+    <meta property="og:url" content={canonical || pageURL} />
+    <meta property="og:image" content={new URL(image || '/identity/social.jpg', Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="apple-mobile-web-app-title" content="TOHEŞAR" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      본문 바로가기
+    </a>
+    {isPreview && (
+      <div class="preview-notice">
+        <span>V3 PREVIEW</span>
+        <p>미발행 편집 샘플입니다. 실제 뉴스 발행 전 검토 중입니다.</p>
+        <a href="/about/#preview">안내 ↗</a>
+      </div>
+    )}
+    <header class="site-header wrap">
+      <div class="edition-line">
+        <span>INDEPENDENT MOTORING JOURNAL</span>
+        <span>
+          SEOUL <span class="edition-separator">/</span> VOLUME 03
+        </span>
+      </div>
+      <div class="masthead">
+        <a href="/" class="brand" aria-label="TOHEŞAR 홈">
+          <img
+            src="/identity/wordmark.svg"
+            alt="TOHEŞAR"
+            width="1109"
+            height="255"
+            fetchpriority="high"
+          />
+        </a>
+        <p class="masthead-note">
+          자동차, 디자인,
+          <br />
+          그리고 기계 문화의 기록.
+        </p>
+        <a class="masthead-index" href="/archive/">
+          THE READING ROOM <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="주 메뉴">
+        {nav.map(([url, label]) => (
+          <a href={url} aria-current={Astro.url.pathname.startsWith(url) ? 'page' : undefined}>
+            {label}
+            {label === 'Search' && (
+              <svg
+                aria-hidden="true"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              >
+                <circle cx="10" cy="10" r="6.5" />
+                <path d="m15 15 6 6" />
+              </svg>
+            )}
+          </a>
+        ))}
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer wrap">
+      <div class="footer-upper">
+        <a href="/" class="brand footer-brand" aria-label="TOHEŞAR 홈">
+          <img
+            src="/identity/wordmark.svg"
+            alt="TOHEŞAR"
+            width="1109"
+            height="255"
+            loading="lazy"
+          />
+        </a>
+        <p>
+          자동차를 읽는 또 하나의 방식.
+          <br />
+          <span>Automobiles, design & mechanical culture.</span>
+        </p>
+        <img
+          class="publisher-symbol"
+          src="/identity/cedilla.svg"
+          alt="Se-diyu, TOHEŞAR 출판사 심볼"
+          width="56"
+          height="56"
+          loading="lazy"
+        />
+      </div>
+      <div class="footer-links">
+        <nav aria-label="출판 정보">
+          <a href="/about/">About & Editorial</a>
+          <a href="/about/#photography">사진과 출처</a>
+          <a href="/saved/">저장한 글</a>
+          <a href="/rss.xml">RSS</a>
+        </nav>
+        <span>
+          © 2026 TOHEŞAR <span class="edition-separator">/</span>{' '}
+          {isPreview ? 'UNPUBLISHED PREVIEW' : 'THE JOURNAL'}
+        </span>
+      </div>
+    </footer>
+    <script src="../lib/reader.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+---
+import { Picture, getImage } from 'astro:assets';
+import f40 from '../assets/photos/f40.jpg';
+import porsche from '../assets/photos/porsche-911.jpg';
+import ducati from '../assets/photos/ducati-916.jpg';
+import registry from '../../content-assets.json';
+interface Props {
+  id: string;
+  href?: string;
+  priority?: boolean;
+  caption?: boolean;
+  transition?: boolean;
+  zoom?: boolean;
+  sizes?: string;
+}
+const {
+  id,
+  href,
+  priority = false,
+  caption = true,
+  transition = false,
+  zoom = false,
+  sizes = '(max-width: 767px) calc(100vw - 40px), (max-width: 1199px) 62vw, 880px',
+} = Astro.props;
+const photos: Record<string, ImageMetadata> = { f40, 'porsche-911': porsche, 'ducati-916': ducati };
+const asset = registry.find((a) => a.id === id)!;
+const image = photos[id];
+const full = zoom ? await getImage({ src: image, width: 1920, format: 'jpg', quality: 90 }) : null;
+---
+
+<figure class="editorial-photo">
+  {href || zoom ? (
+    <a
+      class="photo-link"
+      href={href || full?.src}
+      data-lightbox={zoom || undefined}
+      aria-label={zoom ? `${asset.caption} 사진 크게 보기` : `${asset.caption} 이야기 읽기`}
+      style={transition ? `view-transition-name: photo-${id}` : undefined}
+    >
+      <Picture
+        src={image}
+        formats={['webp']}
+        widths={[480, 800, 1200, 1920]}
+        sizes={sizes}
+        alt={asset.alt}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        decoding="async"
+      />
+      <span class="photo-corner" aria-hidden="true">
+        {zoom ? '＋' : '↗'}
+      </span>
+    </a>
+  ) : (
+    <Picture
+      src={image}
+      formats={['webp']}
+      widths={[480, 800, 1200, 1920]}
+      sizes={sizes}
+      alt={asset.alt}
+      loading={priority ? 'eager' : 'lazy'}
+    />
+  )}
+  {caption && (
+    <figcaption>
+      <span>{asset.caption}</span>
+      <span>
+        <a href={asset.source}>{asset.credit}</a> · <a href={asset.licence_url}>{asset.licence}</a>
+      </span>
+    </figcaption>
+  )}
+</figure>

@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import StoryRow from '../components/StoryRow.astro';
+import { visibleArticles } from '../lib/publication';
+const articles = (await visibleArticles()).map((e) => e.data);
+---
+
+<Base title="Saved · 저장한 글">
+  <div class="wrap listing-page" data-saved-page>
+    <header class="page-intro">
+      <span class="eyebrow">YOUR READING ROOM</span>
+      <h1>
+        <em>Saved</em>다시 읽을 이야기
+      </h1>
+      <p>
+        이 브라우저에 기사 링크를 보관합니다. 로그인 없이 사용하며 다른 기기와 동기화하지 않습니다.
+        기사 본문을 오프라인에 저장하는 기능은 아닙니다.
+      </p>
+    </header>
+    <p class="saved-count" role="status"></p>
+    <div class="article-list">
+      {articles.map((a) => (
+        <div data-saved-story={a.slug} hidden>
+          <StoryRow story={a} />
+        </div>
+      ))}
+    </div>
+    <div class="empty-state" data-saved-empty>
+      <h2>아직 저장한 글이 없습니다.</h2>
+      <p>기사에서 ‘나중에 읽기’를 누르면 여기에 모입니다.</p>
+      <a href="/features/" class="text-link">
+        읽을거리 찾아보기 ↗
+      </a>
+    </div>
+    <noscript>
+      <p class="no-js-note">저장 기능은 JavaScript와 브라우저 로컬 저장소가 필요합니다.</p>
+    </noscript>
+  </div>
+</Base>

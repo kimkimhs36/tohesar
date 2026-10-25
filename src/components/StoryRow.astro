@@ -1,0 +1,26 @@
+---
+import type { Story } from '../lib/publication';
+import { href, subjectName } from '../lib/publication';
+interface Props {
+  story: Story;
+  index?: number;
+}
+const { story: a, index } = Astro.props;
+---
+
+<a class="story-row" href={href(a)}>
+  {index !== undefined && <span class="row-number">{String(index + 1).padStart(2, '0')}</span>}
+  <div>
+    <span class="eyebrow">
+      {a.content_type} <span class="meta-divider">/</span> {subjectName(a.subjects[0])}
+    </span>
+    <h3>{a.title}</h3>
+    <p>{a.deck}</p>
+    <span class="reading-note">
+      {a.demo ? '미발행 샘플' : a.published_at?.slice(0, 10)} · {a.reading_minutes}분 읽기
+    </span>
+  </div>
+  <span class="row-arrow" aria-hidden="true">
+    ↗
+  </span>
+</a>

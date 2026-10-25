@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import StoryRow from '../components/StoryRow.astro';
+import { visibleArticles, subjects } from '../lib/publication';
+const articles = (await visibleArticles()).map((e) => e.data);
+---
+
+<Base title="Search · 기사 검색">
+  <div class="wrap listing-page">
+    <header class="page-intro">
+      <span class="eyebrow">SEARCH THE JOURNAL</span>
+      <h1>
+        <em>Search</em>이야기 찾기
+      </h1>
+      <p>제목, 차종, 인물, 본문에서 찾습니다.</p>
+    </header>
+    <form class="search-form" action="/search/" method="get" role="search">
+      <input
+        name="q"
+        type="search"
+        id="query"
+        placeholder="F40, 포르쉐, 탐부리니…"
+        aria-label="검색어"
+        autocomplete="off"
+        maxlength="200"
+      />
+      <button type="submit">검색 ↗</button>
+    </form>
+    <div class="search-filters" hidden data-search-filters>
+      <label for="search-subject">분야</label>
+      <select id="search-subject">
+        <option value="">모든 분야</option>
+        {subjects.map(([key, , ko]) => (
+          <option value={key}>{ko}</option>
+        ))}
+      </select>
+      <label for="search-format">형식</label>
+      <select id="search-format">
+        <option value="">모든 형식</option>
+        {['News', 'Feature', 'Design File', 'Archive', 'Film', 'Photo Essay'].map((f) => (
+          <option>{f}</option>
+        ))}
+      </select>
+    </div>
+    <p class="search-help">
+      예: Ferrari · 911 · 마시모 탐부리니. 이 미리보기의 검색 대상은 미발행 샘플입니다.
+    </p>
+    <p class="search-status" role="status" aria-live="polite">
+      아래에서 모든 편집 샘플을 살펴볼 수 있습니다.
+    </p>
+    <div class="article-list" id="search-results">
+      {articles.map((a) => (
+        <div data-search-story={a.slug}>
+          <StoryRow story={a} />
+        </div>
+      ))}
+    </div>
+    <div class="empty-state" data-search-empty hidden>
+      <h2>일치하는 글이 없습니다.</h2>
+      <p>짧은 차종 이름으로 다시 검색하거나 분야 선택을 바꿔 보세요.</p>
+      <a class="text-link" href="/search/">
+        검색 초기화 ↗
+      </a>
+    </div>
+    <noscript>
+      <p class="no-js-note">
+        실시간 검색에는 JavaScript가 필요합니다. 아래 전체 글 목록과{' '}
+        <a href="/subjects/">분야별 색인</a>은 그대로 이용할 수 있습니다.
+      </p>
+    </noscript>
+  </div>
+  <script src="../lib/search.ts"></script>
+</Base>

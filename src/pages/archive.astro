@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import StoryRow from '../components/StoryRow.astro';
+import { visibleArticles } from '../lib/publication';
+const articles = (await visibleArticles()).map((e) => e.data);
+const published = articles.filter((a) => !a.demo);
+const samples = articles.filter((a) => a.demo);
+const years = [...new Set(published.map((a) => a.published_at!.slice(0, 4)))].sort().reverse();
+---
+
+<Base title="Archive · 시간의 기록">
+  <div class="wrap listing-page">
+    <header class="page-intro">
+      <span class="eyebrow">THE READING ROOM</span>
+      <h1>
+        <em>Archive</em>시간의 기록
+      </h1>
+      <p>다시 읽고 싶은 이야기를 모읍니다. 발행 기록과 편집 샘플을 구분해 보관합니다.</p>
+    </header>
+    <nav class="filters" aria-label="아카이브 탐색">
+      <a href="/search/">제목·본문 검색 ↗</a>
+      <a href="/subjects/">분야별 색인 ↗</a>
+      <a href="/saved/">저장한 글 ↗</a>
+    </nav>
+    {years.map((year) => (
+      <section class="archive-group">
+        <h2 class="archive-year">{year}</h2>
+        {published
+          .filter((a) => a.published_at!.startsWith(year))
+          .map((a) => (
+            <StoryRow story={a} />
+          ))}
+      </section>
+    ))}
+    {samples.length > 0 && (
+      <section>
+        <div class="section-heading">
+          <h2>
+            미발행 편집 샘플 <em>In Review</em>
+          </h2>
+        </div>
+        <p class="listing-note">
+          실제 발행 연혁이 아닙니다. 본문의 연대는 자동차의 시대를 뜻하며 발행일로 사용하지
+          않습니다.
+        </p>
+        <div class="article-list">
+          {samples.map((a, i) => (
+            <StoryRow story={a} index={i} />
+          ))}
+        </div>
+      </section>
+    )}
+    {!articles.length && (
+      <div class="empty-state">
+        <h2>첫 발행을 기다리는 아카이브.</h2>
+        <p>발행된 글이 쌓이면 연도별로 찾아볼 수 있습니다.</p>
+      </div>
+    )}
+  </div>
+</Base>
