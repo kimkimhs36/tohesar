@@ -1,0 +1,105 @@
+{
+  "base": "https://tohesar-v3-run001.vercel.app",
+  "results": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/latest/",
+      "status": 200
+    },
+    {
+      "path": "/features/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/",
+      "status": 200
+    },
+    {
+      "path": "/archive/",
+      "status": 200
+    },
+    {
+      "path": "/search/",
+      "status": 200
+    },
+    {
+      "path": "/saved/",
+      "status": 200
+    },
+    {
+      "path": "/about/",
+      "status": 200
+    },
+    {
+      "path": "/articles/f40/",
+      "status": 200
+    },
+    {
+      "path": "/articles/porsche-911/",
+      "status": 200
+    },
+    {
+      "path": "/articles/ducati-916/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/automobiles/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/motorsport/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/motorcycles/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/bicycles/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/aircraft/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/film-machines/",
+      "status": 200
+    },
+    {
+      "path": "/subjects/design-history/",
+      "status": 200
+    },
+    {
+      "path": "/rss.xml",
+      "status": 200
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "status": 200
+    },
+    {
+      "path": "/fonts/tohesar-serif.woff2",
+      "status": 200
+    },
+    {
+      "path": "/not-a-real-route/",
+      "status": 404
+    },
+    {
+      "path": "/articles/renault-espace-2026/",
+      "status": 404
+    }
+  ]
+}
