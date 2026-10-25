@@ -10,3 +10,7 @@ Noindex preview, not a live news feed. Four original, source-based sample essays
 * 911: Unsplash CDN, photographer attribution **pending** (do not publish without verification)
 * Renault: Charles01, CC BY-SA 3.0 (https://commons.wikimedia.org/wiki/File:Renault_Espace_First_Iteration_Blois_1984.jpg)
 * Ducati: Dan Monsieurle, CC BY 2.0 (https://commons.wikimedia.org/wiki/File:Ducati_916.jpg)
+
+## Version 2.1 editorial updates
+
+See [EDITORIAL_V21.md](./EDITORIAL_V21.md) for changes, photo credits and tested reader controls. No old homepage data or mock AI imagery are reused. Do not publish the protected prototype as current news.
