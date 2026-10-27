@@ -202,4 +202,63 @@ import Base from '../layouts/Base.astro';
 @media(max-width:850px){.radar-hero{padding-inline:25px}.radar-hero-main{grid-template-columns:1fr;gap:20px;padding:55px 0 42px}.radar-hero h1{font-size:clamp(85px,20vw,170px)}.radar-hero-side{display:grid;grid-template-columns:1fr 2fr;column-gap:25px;align-items:start}.radar-hero-side p{margin-top:0}.radar-hero-side .radar-honesty{grid-column:2;margin-top:3px}.radar-hero-foot span:last-child{display:none}.radar-columns{grid-template-columns:1fr;gap:40px}.radar-aside{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-left:0;padding-left:0}.radar-source-list{grid-column:1}.radar-notebook{grid-column:2;grid-row:1/3;margin:0}.radar-aside-title h2{font-size:30px}.radar-controls{flex-direction:column;align-items:stretch;padding-top:12px}.radar-filter-scroller{gap:20px}.radar-search{align-self:flex-end;width:100%;max-width:360px;margin-bottom:12px}.radar-content{padding-inline:25px}}
 @media(max-width:600px){.radar-hero{padding:17px 20px 0}.radar-hero-top{font-size:8px}.radar-hero-top span:last-child{display:none}.radar-hero-main{padding:43px 0 32px;gap:25px}.radar-hero h1{font-size:clamp(73px,21vw,113px);margin:17px 0 24px;letter-spacing:-.09em}.radar-eyebrow{font-size:9px}.radar-hero-korean{font-size:25px}.radar-hero-side{display:block}.radar-live{font-size:10px}.radar-hero-side p{font-size:12px;line-height:1.8;margin-top:11px}.radar-hero-side .radar-honesty{font-size:10px;margin-top:10px}.radar-hero-foot{padding:15px 0;font-size:8px}.radar-content{padding:38px 20px 70px}.radar-topbar{align-items:start;flex-direction:column;gap:18px}.radar-topbar h2{font-size:33px}.radar-sync{width:100%;justify-content:space-between}.radar-filter-scroller{gap:24px}.radar-filter-scroller button{font-size:10px;min-height:51px}.radar-item-link{grid-template-columns:25px minmax(0,1fr) 16px;gap:9px;padding:21px 0}.radar-item-copy h3{font-size:20px}.radar-index{font-size:11px}.radar-item-arrow{font-size:17px}.radar-newsmast{font-size:9px}.radar-aside{display:block}.radar-source-list{margin-bottom:30px}.radar-notebook{margin-top:20px}.radar-ethics{grid-template-columns:1fr;gap:12px}.radar-list-foot{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.radar-experience *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* V3.2: make real headlines prominent; progressively reveal more results. */
+.radar-more{width:100%;padding:18px 20px;margin-top:14px;min-height:52px;border:1px solid #9caea4;background:transparent;color:#243b30;text-align:center;font-size:12px;font-weight:600}
+.radar-more[hidden]{display:none!important}
+.radar-more span{margin-left:16px}
+.radar-notes{border-top:1px solid #acbcb0;margin-top:24px}
+.radar-notes>summary{list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:54px;cursor:pointer;font-size:13px;font-weight:550}
+.radar-notes>summary::-webkit-details-marker{display:none}
+.radar-notes>summary span{font-size:15px}
+.radar-notes[open]>summary span{transform:rotate(180deg)}
+.radar-notebook{margin-top:0!important}
+.radar-hero{background:#273a34}
+.radar-hero h1{font-weight:550;letter-spacing:-.08em}
+.radar-hero-side p{line-height:1.7}
+.radar-aside-title h2{font-size:27px;line-height:1.35;letter-spacing:-.035em}
+.radar-item-copy h3{line-height:1.45}
+.radar-source-list strong{font-weight:550}
+.radar-newsmast{letter-spacing:0}
+@media(max-width:850px){
+ .radar-hero-main{padding:30px 0}
+ .radar-hero-side{display:block}
+ .radar-hero-side p{font-size:12px;margin-top:12px}
+ .radar-hero-side .radar-honesty{margin-top:8px;font-size:10px}
+ .radar-aside{display:block}
+ .radar-source-list{margin:0}
+ .radar-hero h1{font-size:clamp(74px,13vw,105px)}
+}
+@media(max-width:600px){
+ .radar-hero{padding:16px 18px 24px}
+ .radar-hero-main{padding:19px 0 0;gap:18px}
+ .radar-hero h1{font-size:clamp(66px,18vw,82px);line-height:1;margin:11px 0 12px}
+ .radar-hero-korean{font-size:20px;line-height:1.55}
+ .radar-eyebrow{font-size:9px;letter-spacing:.1em}
+ .radar-live{font-size:9px;letter-spacing:.05em}
+ .radar-hero-side p{font-size:11px;line-height:1.65;margin-top:6px}
+ .radar-hero-side .radar-honesty{font-size:9px;margin-top:7px}
+ .radar-content{padding:26px 18px 56px}
+ .radar-topbar{gap:12px;margin-bottom:18px}
+ .radar-topbar h2{font-size:28px;margin-top:8px}
+ .radar-section-id{font-size:9px}
+ .radar-sync{font-size:10px}
+ .radar-controls{border-top:1px solid #82998c;padding-top:0}
+ .radar-filter-scroller{gap:21px}
+ .radar-filter-scroller button{min-height:45px;font-size:12px;font-weight:500}
+ .radar-search{margin-bottom:9px}
+ .radar-columns{margin-top:21px}
+ .radar-newsmast{padding-bottom:11px}
+ .radar-item-link{padding:17px 0;min-height:75px}
+ .radar-item-copy h3{font-size:18px;line-height:1.43}
+ .radar-item-copy p{font-size:10px;margin-top:8px}
+ .radar-item-source{font-size:9px;margin-bottom:8px}
+ .radar-index{font-size:10px}
+ .radar-source-list a{font-size:11px}
+ .radar-aside-title h2{font-size:24px;margin:13px 0}
+ .radar-notebook h3{font-size:22px}
+ .radar-ethics{margin-top:36px}
+ .radar-ethics p{font-size:11px}
+}
+
 </style>
