@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+import '../styles/first-impression-002.css';
+import { Picture } from 'astro:assets';
+import f40 from '../assets/photos/f40.jpg';
+import porsche from '../assets/photos/porsche-911.jpg';
+import registry from '../../content-assets.json';
+const f = registry.find(a=>a.id==='f40')!;
+const p = registry.find(a=>a.id==='porsche-911')!;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#e8e7df" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="TOHEŞAR 시네마틱 첫 화면 실험 002. 실제 자동차 사진과 한국어 자동차 저널, 실시간 뉴스가 만나는 모바일 우선 경험." />
+    <link rel="icon" href="/identity/favicon.svg" type="image/svg+xml" />
+    <title>FIRST IMPRESSION 002 — TOHEŞAR</title>
+  </head>
+  <body class="fi2-body">
+    <a class="fi2-skip" href="#fi2-main">본문 바로가기</a>
+    <div class="fi2-app">
+      <header class="fi2-top">
+        <a class="fi2-brand" href="/" aria-label="TOHEŞAR V3.2 홈페이지"><img src="/identity/wordmark.svg" width="1109" height="255" alt="TOHEŞAR" /></a>
+        <div class="fi2-navigation">
+          <a href="/radar/" class="fi2-news-button"><span class="fi2-live-point" aria-hidden="true"></span>NEWS</a>
+          <details class="fi2-menu">
+            <summary aria-label="전체 메뉴 열기"><span class="fi2-burger"><i></i><i></i></span></summary>
+            <nav aria-label="TOHEŞAR 바로가기" class="fi2-menu-content">
+              <span>EXPLORE TOHEŞAR</span>
+              <a href="/radar/">실시간 자동차 뉴스 <small>01</small></a>
+              <a href="/features/">아름다움을 읽다 <small>02</small></a>
+              <a href="/subjects/">분야별 저널 <small>03</small></a>
+              <a href="/archive/">기록과 아카이브 <small>04</small></a>
+              <a href="/search/">검색 <small>05</small></a>
+              <a href="/first-impression/">이전 시안 비교 <small>↗</small></a>
+            </nav>
+          </details>
+        </div>
+      </header>
+      <main id="fi2-main">
+        <section class="fi2-hero" aria-labelledby="fi2-hero-title">
+          <div class="fi2-light fi2-light-peach" aria-hidden="true"></div>
+          <div class="fi2-light fi2-light-blue" aria-hidden="true"></div>
+          <div class="fi2-hero-intro">
+            <span>AN INDEPENDENT MOTORING JOURNAL</span><span class="fi2-hero-issue">EDITION 001 / EXPERIMENT</span>
+          </div>
+          <div class="fi2-hero-media">
+            <div class="fi2-image-backdrop" aria-hidden="true"></div>
+            <Picture src={f40} formats={['webp']} widths={[480,800,1200,1600,1920]} sizes="(max-width:700px) 100vw, 100vw" alt={f.alt} loading="eager" fetchpriority="high" decoding="async" class="fi2-front-car" />
+            <div class="fi2-cinema-grain" aria-hidden="true"></div>
+            <div class="fi2-camera-top"><span>DESIGN FILE / 001</span><span>ITALY, 1987</span></div>
+            <div class="fi2-hero-copy">
+              <p>FERRARI F40</p>
+              <h1 id="fi2-hero-title">아름다움에는<br /><em>이유가 있다.</em></h1>
+              <a href="/articles/f40/" class="fi2-hero-cta">F40 디자인의 이야기 <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="fi2-photo-credit"><span>실제 촬영 사진 · {f.caption}</span><span><a href={f.source} target="_blank" rel="noopener noreferrer">{f.credit}</a> / <a href={f.licence_url} target="_blank" rel="noopener noreferrer">{f.licence}</a></span></div>
+          <a href="#fi2-discover" class="fi2-scroll-down">DISCOVER <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="fi2-discover" id="fi2-discover" aria-labelledby="fi2-discover-title">
+          <div class="fi2-section-head">
+            <span>01 / THE WORLD TODAY</span>
+            <h2 id="fi2-discover-title">지금, 움직이는 세계.</h2>
+            <p>자동차와 모터스포츠의 현재를 놓치지 않도록. 발행처의 새 소식을 모았습니다.</p>
+          </div>
+          <div class="fi2-stories">
+            <div class="fi2-stories-list" aria-live="polite">
+              <ol id="fi2-live-list">
+                <li><a href="/radar/" class="fi2-story"><span class="fi2-story-index">01</span><span class="fi2-story-main"><strong>최신 자동차 소식을 확인해 보세요.</strong><small>출처가 기록된 실시간 뉴스 연결 중</small></span><span class="fi2-story-arrow" aria-hidden="true">↗</span></a></li>
+              </ol>
+              <a href="/radar/" class="fi2-stories-all">뉴스 전체 보기 <span aria-hidden="true">↗</span></a>
+              <p class="fi2-provenance" id="fi2-source-status">외부 발행처 제목과 날짜를 원문 그대로 표시합니다.</p>
+            </div>
+            <aside class="fi2-editor-pick" aria-label="편집자가 읽어 보는 자동차 디자인">
+              <span class="fi2-pick-no">EDITOR'S NOTE <span>— 01</span></span>
+              <h3>포르쉐의<br /><em>다음 형태.</em></h3>
+              <p>Mission S는 양산 발표가 아닌 비전 모델. 미래의 포르쉐가 어떤 모습을 선택할지 공식 발표로부터 읽어 봅니다.</p>
+              <span class="fi2-pick-source">PORSCHE NEWSROOM · 15.10.2026</span>
+              <a href="/editorial/mission-s/">한국어 디자인 분석 <span aria-hidden="true">↗</span></a>
+            </aside>
+          </div>
+        </section>
+
+        <section class="fi2-essay" aria-labelledby="fi2-essay-title">
+          <div class="fi2-essay-light" aria-hidden="true"></div>
+          <div class="fi2-essay-heading">
+            <span>02 / AN AUTOMOTIVE STORY</span>
+            <h2 id="fi2-essay-title">시간을 지나도<br /><em>사라지지 않는 선.</em></h2>
+            <p>세대가 바뀌어도 남아 있는 형태. 한 대의 자동차가 자기 자신으로 기억되는 방법.</p>
+          </div>
+          <figure class="fi2-essay-visual">
+            <a href="/articles/porsche-911/" class="fi2-essay-link">
+              <Picture src={porsche} formats={['webp']} widths={[480,800,1200,1600]} sizes="(max-width:700px) 100vw, 90vw" alt={p.alt} loading="lazy" decoding="async" class="fi2-essay-image" />
+              <span class="fi2-essay-overlay"><small>PORSCHE 911 / DESIGN & HERITAGE</small><strong>911의 실루엣은 왜 남아 있는가</strong><b aria-hidden="true">↗</b></span>
+            </a>
+            <figcaption>1973 포르쉐 911 Carrera RSR · <a href={p.source} target="_blank" rel="noopener noreferrer">{p.credit}</a> / <a href={p.licence_url} target="_blank" rel="noopener noreferrer">{p.licence}</a></figcaption>
+          </figure>
+        </section>
+
+        <section class="fi2-outro" aria-labelledby="fi2-outro-title">
+          <span>03 / TOHEŞAR JOURNAL</span>
+          <h2 id="fi2-outro-title">기계의 뒤편에는<br /><em>언제나 이야기가 있다.</em></h2>
+          <p>자동차, 모터스포츠, 디자인, 역사. 지금 일어나는 일과 오래 남을 장면을 한곳에서 읽습니다.</p>
+          <div class="fi2-outro-links"><a href="/radar/">뉴스 <span aria-hidden="true">↗</span></a><a href="/features/">저널 <span aria-hidden="true">↗</span></a><a href="/archive/">아카이브 <span aria-hidden="true">↗</span></a></div>
+          <div class="fi2-outro-sign"><img src="/identity/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"/><img src="/identity/cedilla.svg" alt="세디유 심볼" width="50" height="50"/></div>
+          <div class="fi2-outro-last"><span>FIRST IMPRESSION 002 · UNPUBLISHED STUDY</span><a href="/first-impression/">VIEW 001 ↗</a></div>
+        </section>
+      </main>
+    </div>
+    <script>
+      type Item={title:string;url:string;source:string;published_at:string};
+      const list=document.querySelector<HTMLOListElement>('#fi2-live-list');
+      const status=document.querySelector<HTMLElement>('#fi2-source-status');
+      if(list && status)fetch('/api/radar',{headers:{Accept:'application/json'}}).then(res=>res.json()).then(data=>{
+        const items:Item[]=Array.isArray(data.articles)?data.articles:[];
+        if(!items.length) throw new Error('feed empty');
+        const frag=document.createDocumentFragment();
+        for(const [i,item] of items.slice(0,3).entries()){
+          if(!/^https:\/\//.test(item.url)||!item.title)continue;
+          const li=document.createElement('li'),a=document.createElement('a');a.className='fi2-story';a.href=item.url;a.target='_blank';a.rel='noopener noreferrer external';
+          const num=document.createElement('span');num.className='fi2-story-index';num.textContent=String(i+1).padStart(2,'0');
+          const body=document.createElement('span');body.className='fi2-story-main';
+          const title=document.createElement('strong');title.lang='en';title.textContent=item.title;
+          const source=document.createElement('small');source.textContent=item.source+' / '+new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'short',day:'numeric'}).format(new Date(item.published_at));
+          const arrow=document.createElement('span');arrow.className='fi2-story-arrow';arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
+          body.append(title,source);a.append(num,body,arrow);li.append(a);frag.append(li);
+        }
+        if(frag.childNodes.length)list.replaceChildren(frag);
+        status.textContent='원문 출처 '+(data.sources?.filter((s:{status:string})=>s.status==='ok').length ?? '?')+'개 연결 · 자동 수집된 외부 헤드라인';
+      }).catch(()=>{status.textContent='소스 연결 지연 · 뉴스 전체 보기에서 다시 시도';});
+      const menu=document.querySelector<HTMLDetailsElement>('.fi2-menu');
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu)menu.open=false;});
+      document.addEventListener('click',e=>{if(menu?.open && e.target instanceof Node && !menu.contains(e.target))menu.open=false;});
+    </script>
+  </body>
+</html>
