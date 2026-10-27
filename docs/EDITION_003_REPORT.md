@@ -48,3 +48,25 @@ The actual goal is a genuinely beautiful, mobile-first Korean automotive journal
 - Add a reviewable authenticated editorial CMS, unpublished draft state and editorial audit log before allowing any automatic original-story generation.
 - Move headlines from RSS title classifier to structured article entities keyed by canonical IDs, reviewed Korean summaries, fact-check confidence, contradiction checks and linked manufacturer sources.
 - Automate WebKit screenshot comparisons and Lighthouse LCP/CLS on physical-ish emulators; do not infer beautiful real iPhone appearance from code-only tests.
+## 8. Executed revision — 2026-10-28 UTC
+
+The inherited revision is preserved at `backup/edition-003-350704d` (350704d). Repository main was 0e5607d before integration. No root homepage, CNAME, symbol or legacy content has been edited.
+
+### Implemented and visually reviewed
+- Homepage now presents the complete F40 frame at its native proportion, with a smaller caption-like title beneath the photograph. Removed duplicate full-screen blurred photograph and text/photo overlap. Retained quiet blue-green/champagne atmosphere; no generated vehicle imagery.
+- Added a real `/edition/news/` index: dated Korean briefings separate from 45 attributed English headlines; source health, old snapshot and failure labels. Added current BMW factory-automation briefing after opening and comparing the official 2026-10-27 body. This concerns factory logistics, not public-road autonomy.
+- Added `/edition/archive/` and a 911 photo essay, correcting the misleading 911-to-F40 link. The photo essay distinguishes visible observations from interpretation. Motorcycle content is explicitly future scope.
+- Responsive WebP derivatives preserve full image framing; originals and attribution retained. Sources: existing MrWalkr F40 CC BY-SA 4.0 and Calreyn88 RSR CC0. Derivatives are format/size conversions, with no generative alteration or crop.
+- Generated article contents, transform-based reading progress, local save persistence and deletion from saved list, cross-tab updates, storage-failure feedback, share/copy fallback, keyboard Escape/menu behavior. Saved items remain local to this browser/device, with no account sync.
+- Mission S remains an explicitly disclosed editorial draft pending human review and is `noindex,follow`. Published home/news/archive/F40/911 have canonical URLs. No automatic Korean article generation is enabled.
+- RSS entries now record collection time, unverified fact-check status, conservative brand labels and empty model fields rather than guessed entities. Zero-item feeds are distinguished from healthy feeds. Total failure retains previous items and original collection timestamp, adding last-attempt status.
+
+### Evidence and limitations
+- `python3 scripts/test_edition.py`: all six HTML pages' local references and source/date integrity passed, 45 feed records.
+- `python3 -m unittest discover -s scripts -p test_news.py`: 5 tests passed (dates, URL trust boundary, Atom metadata, all-source failure with snapshot, failure without snapshot).
+- `node --check edition/app.js` and `git diff --check`: passed.
+- `python3 scripts/test_browser.py` with local server on port 8000: Chromium, 42 combinations of 320/375/390/430/768/1024/1440px and 6 pages; no horizontal overflow, failed images or uncaught JS errors. Menu/Escape, search, save/reload/delete, TOC/progress, 503 fallback and stale-data labels passed. Screenshots in `docs/verification/` were inspected separately from assertions.
+- Local Lighthouse 13.6.0, Chromium headless, default simulated mobile throttling against Python HTTP server: Performance **90**, Accessibility **100**, Best Practices **100**, SEO **100**; LCP **3.5s**, CLS **0**, TBT **150ms**. This is a lab measurement, not real-user INP. LCP target 2.5s is **not achieved**. Local server has no production cache policy. Full result: `docs/verification/lighthouse-local.json`.
+- WebKit 26.5 downloaded, but launch failed for six missing system libraries (GTK4, Graphene, HarfBuzz ICU, Manette, Hyphen, GLES). System dependency install required unavailable root credentials; package download also lacked package indexes. No WebKit or physical iPhone Safari result is claimed. Dynamic Safari address-bar behavior and physical scroll smoothness remain unverified.
+- Three RSS endpoints successfully returned current items. Official Mission S (15 October), BMW Concept 7 (12 October), Porsche Technologies (21 October), BMW AFW (27 October), and Ferrari F40 archive were opened; titles and relevant body text compared, not merely HTTP status.
+- Initial Pages API: legacy branch build from main `/`, `cname=tohesar.com`, approved certificate, HTTPS enforcement false. Deployment and post-release results follow below; a workflow on a feature branch alone does not activate cron.

@@ -1,13 +1,755 @@
 {
-  "status": "snapshot",
-  "generated_at": "2026-10-28T00:00:00+09:00",
-  "note": "이 데이터는 2026-10-28에 확인한 공식 발표 스냅샷입니다. 실시간 뉴스라고 표시하지 않습니다. 자동 갱신은 GitHub Actions 배포가 성공한 뒤 활성화됩니다.",
+  "status": "live",
+  "generated_at": "2026-10-27T23:55:53.706419+00:00",
+  "note": "외부 발행처의 원문 헤드라인과 날짜·출처 링크만 수집합니다. TOHEŞAR 검증 기사와 별도입니다.",
   "sources": [
-    {"id":"porsche", "name":"Porsche Newsroom", "status":"snapshot"},
-    {"id":"bmw", "name":"BMW Group PressClub", "status":"snapshot"}
+    {
+      "id": "porsche",
+      "name": "Porsche Newsroom",
+      "status": "ok",
+      "count": 20
+    },
+    {
+      "id": "bmw",
+      "name": "BMW Group PressClub",
+      "status": "ok",
+      "count": 18
+    },
+    {
+      "id": "motor1",
+      "name": "Motor1",
+      "status": "ok",
+      "count": 20
+    }
   ],
   "items": [
-    {"id":"porsche-mission-s-20261015", "title":"Porsche Mission S: the essence of the sports car reinterpreted", "source":"Porsche Newsroom", "category":"디자인", "published_at":"2026-10-15T09:00:00+02:00", "url":"https://newsroom.porsche.com/en/2026/products/porsche-mission-s-vision-model-43528.html"},
-    {"id":"bmw-concept-7-protection-20261012", "title":"BMW Concept 7 Protection: Discreet protection in its most sophisticated form", "source":"BMW Group PressClub", "category":"콘셉트", "published_at":"2026-10-12T10:00:00+02:00", "url":"https://www.press.bmwgroup.com/global/article/detail/T0461562EN/bmw-concept-7-protection%3A-discreet-protection-in-its-most-sophisticated-form"}
+    {
+      "id": "motor1-c07cc85eac92a4",
+      "title": "Porsche Says No To US Factories While Audi Pours $4 Billion Into Georgia",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813400/porsche-staying-imported-while-audi/",
+      "published_at": "2026-10-27T23:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Porsche",
+        "Audi"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-302cf8bd87dd34",
+      "title": "Koenigsegg Recalled Every CC850 In America. All Seven Of Them",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813444/koenigsegg-cc850-parking-brake-recall/",
+      "published_at": "2026-10-27T19:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-862a3aafdf5410",
+      "title": "KTM's Lightweight Supercar Is Finally Coming To America",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813415/ktm-x-bow-gt-xr/",
+      "published_at": "2026-10-27T18:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "KTM"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-9c36afac4cc3c1",
+      "title": "Turo Now Lets You Rent A Tesla With Full Self-Driving",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813395/turo-tesla-self-driving-rental/",
+      "published_at": "2026-10-27T15:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-5cc30fa71d4417",
+      "title": "Toyota Put Snow Tracks On Five Of Its Trucks and SUVs. Because Why Not?",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813322/toyota-snowhunter-concepts-sema-2026/",
+      "published_at": "2026-10-27T12:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-faa93d9fca7533",
+      "title": "Mazda Drops The CX-70 For A Two-Row CX-90",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813321/mazda-cx70-dead-two-row-cx90-replacement/",
+      "published_at": "2026-10-27T12:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Mazda"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-923a1bacc9d7fd",
+      "title": "Police Recovered $54,000 Worth Of Hot Wheels After A Train Heist",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813387/54-000-hot-wheels-recovered/",
+      "published_at": "2026-10-27T11:41:02+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-310fa894b8e274",
+      "title": "This Copper Maserati Looks Like Nothing Else On The Road",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813383/maserati-granturismo-one-off-gullwing/",
+      "published_at": "2026-10-27T11:24:24+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-81674a42215a5d",
+      "title": "The Toyota Corolla Is 60. Here's A Look Back At Every Generation",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813375/toyota-corolla-60-year-anniversary/",
+      "published_at": "2026-10-27T11:15:37+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Toyota"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-6ce50d74c13a19",
+      "title": "Audi Q4 E-Tron Recall Affects 9,048 EVs Over Battery Fire Risk",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813371/audi-q4-e-tron-recall/",
+      "published_at": "2026-10-27T10:44:53+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-2bc1f00c8baf3c",
+      "title": "Mitsubishi Is Keeping The Lancer Evo's Spirit Alive... In An SUV Built By Another Company",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813365/mitsubishi-evo-spirit-alive-suv/",
+      "published_at": "2026-10-27T10:23:18+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-45b5bbd02399aa",
+      "title": "One million vehicles moved without drivers: BMW Group successfully scales automated driving in production",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0462233EN?language=en",
+      "published_at": "2026-10-27T09:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-748fda6060d754",
+      "title": "Jeep’s Most Popular Gladiator Upgrade Is Finally Available From The Factory",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813358/jeep-gladiator-35-inch-package/",
+      "published_at": "2026-10-27T08:56:47+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-32150da5a00427",
+      "title": "The Volkswagen Group Reportedly Wants To Put Chinese Software In European Cars To Cut Costs",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813348/vw-report-chinese-software-european-cars/",
+      "published_at": "2026-10-27T08:49:40+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-53570714629f3b",
+      "title": "Chevy Wants The Next Corvette To Stay Affordable, Even With More Power",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813343/gm-c9-corvette-plans-focus/",
+      "published_at": "2026-10-27T07:56:20+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-85e9c4ee345b73",
+      "title": "Audi Reveals Which Models It Plans To Build In America",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813334/audi-reveals-models-made-in-usa/",
+      "published_at": "2026-10-27T07:26:31+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-84d787b143a131",
+      "title": "Tony Stark's Acura NSX Roadster From 'The Avengers' Is For Sale, But There's A Catch",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813333/avengers-acura-nsx-sale-cannot/",
+      "published_at": "2026-10-27T07:02:47+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-f2db5a7e13a21f",
+      "title": "Alpine's Next Four-Seat Sports Car Is Ditching Retro Styling",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813269/alpine-electric-2-2-news/",
+      "published_at": "2026-10-26T18:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-eb2349bc88a31d",
+      "title": "The 15 Best Movie Cars of All Time, Ranked",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/812828/best-movie-cars-all-time-ranked/",
+      "published_at": "2026-10-26T16:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-fabc4e9d608b9e",
+      "title": "2027 Mazda CX-5 Pricing Stays Put, While The SUV Gains More Technology",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813276/2027-mazda-cx-5-price-trims-specs/",
+      "published_at": "2026-10-26T15:06:02+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Mazda"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "motor1-95c6ebc37b9ba8",
+      "title": "Audi CEO's Trump Rally Appearance Leaves Volkswagen Union Boss 'Ashamed' (Update)",
+      "source": "Motor1",
+      "source_id": "motor1",
+      "url": "https://www.motor1.com/news/813229/audi-boss-criticized-appearing-with-trump/",
+      "published_at": "2026-10-26T12:01:48+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Audi"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-a062a2c6fe26f2",
+      "title": "The new BMW X5 – Additional Media Assets.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461953EN?language=en",
+      "published_at": "2026-10-22T19:01:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-cfded551ff0fdb",
+      "title": "MINI celebrates historic Rebelle Rally Debut with Third-Place Podium Finish and Two Team Awards.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0462033EN?language=en",
+      "published_at": "2026-10-21T10:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "MINI"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-57c90e092bf9fe",
+      "title": "BMW M Motorsport thanks Philipp Eng for eleven successful years together.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0462034EN?language=en",
+      "published_at": "2026-10-21T08:04:55+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-840e465934b50b",
+      "title": "Porsche Engineering and Porsche Digital combine their expertise",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/company/porsche-engineering-digital-combine-expertise-porsche-technologies-43556.html",
+      "published_at": "2026-10-21T07:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-5a78fdb42b8e1f",
+      "title": "BMW Group, IONNA and Alpitronic join forces to demonstrate High-Power-Charging: up to 460 kW for the new BMW iX5 60 xDrive",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461971EN?language=en",
+      "published_at": "2026-10-20T15:15:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-b4f2f894aa3152",
+      "title": "Racing technology for the road: The new M Motorsport frame for the BMW M 1000 RR.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461952EN?language=en",
+      "published_at": "2026-10-20T15:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-eec6029d0ffd21",
+      "title": "“The Right Steps at the Right Moment”",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/company/porsche-consulting-from-merck-healthcare-to-dlrg-water-rescue-43479.html",
+      "published_at": "2026-10-19T07:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-61549707da9e0d",
+      "title": "Halfway Round the World in 78 Days",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/scene-passion/porsche-tahiti-stuttgart-911-carrera-gts-43546.html",
+      "published_at": "2026-10-19T07:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-ab6fd47288ceb1",
+      "title": "FIA WEC Barcelona: Difficult Weekend Despite Strong Recovery Drive.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461936EN?language=en",
+      "published_at": "2026-10-18T19:30:08+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-358d614149b37a",
+      "title": "WorldSBK season finale with emotional farewell to “Petrux”.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461934EN?language=en",
+      "published_at": "2026-10-18T18:31:28+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-522a62d83392c8",
+      "title": "Season finale of the GT World Challenge Europe: Team WRT and ROWE Racing secure further titles.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461913EN?language=en",
+      "published_at": "2026-10-17T22:45:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-b23a2cb6f2e099",
+      "title": "Porsche Mission S: the essence of the sports car reinterpreted",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/products/porsche-mission-s-vision-model-43528.html",
+      "published_at": "2026-10-15T20:30:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-f7a8a4c162a69a",
+      "title": "BMW Motorrad Presents the New BMW F 450 RR.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461452EN?language=en",
+      "published_at": "2026-10-15T15:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-7d29142c298374",
+      "title": "“Turning Towards the Sun” at Zeitz MOCAA: AFMAC exhibition marks the culmination of Julie Mehretu's BMW Art Car project following a series of five inter-continental workshops.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461796EN?language=en",
+      "published_at": "2026-10-15T11:30:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-c320db0f37d970",
+      "title": "The ‘Flying Pole’ returns to Argentina",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/scene-passion/porsche-argentina-legendary-rally-driver-zasada-43499.html",
+      "published_at": "2026-10-15T07:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-e1da56ff2fbaa3",
+      "title": "BMW Group begins series production of Gen6 high-voltage batteries in Shenyang",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461769EN?language=en",
+      "published_at": "2026-10-15T06:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-abeb3bb2083196",
+      "title": "The new BMW 7 Series - Additional Media Assets.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461757EN?language=en",
+      "published_at": "2026-10-14T21:59:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-3031c479c65f12",
+      "title": "Software-Defined Vehicles in the Supplier Ecosystem",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/company/porsche-consulting-software-defined-vehicles-supplier-ecosystem-43516.html",
+      "published_at": "2026-10-14T08:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-52860d872ba18f",
+      "title": "Sim vs real racing: what transfers from screen to track",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/motorsports/porsche-sim-vs-real-racing-joshua-rogers-nick-tandy-43511.html",
+      "published_at": "2026-10-14T07:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-c1597d858cead0",
+      "title": "BMW Group records third-quarter growth in Europe and the US",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461724EN?language=en",
+      "published_at": "2026-10-13T09:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-17a109330211e3",
+      "title": "FIA GT World Cup: Three BMW M4 GT3 EVOs compete on the streets of Macau.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461719EN?language=en",
+      "published_at": "2026-10-13T08:02:44+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "porsche-85f9706d8e1c0a",
+      "title": "‘Porsche Vibe Seoul’ opens new chapter in brand experience",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "url": "https://newsroom.porsche.com/en/2026/scene-passion/porsche-vibe-seoul-korea-43505.html",
+      "published_at": "2026-10-13T08:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "Porsche"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-c3758354467f9f",
+      "title": "BMW M Motorsport News, 12th October 2026.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461698EN?language=en",
+      "published_at": "2026-10-12T13:21:10+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    },
+    {
+      "id": "bmw-8b47741b24511f",
+      "title": "BMW Concept 7 Protection: Discreet protection in its most sophisticated form.",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461562EN?language=en",
+      "published_at": "2026-10-12T08:00:00+00:00",
+      "category": "ORIGINAL",
+      "language": "en",
+      "collected_at": "2026-10-27T23:55:53.706419+00:00",
+      "fact_checked": false,
+      "brands": [
+        "BMW"
+      ],
+      "models": [],
+      "kind": "publisher-headline"
+    }
   ]
 }

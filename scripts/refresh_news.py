@@ -65,8 +65,8 @@ def parse_feed(data, source, now):
         raw_date=text_at(node,{'pubdate','published','updated','date'})
         dt=parse_date(raw_date,now)
         if not title or len(title)<7 or not link or dt is None:continue
-        if source['id']=='porsche' and re.search(r'\b(tennis|golf|fashion|watch|esport)\b',title,re.I):continue
-        entries.append(dict(id=source['id']+'-'+hashlib.sha256(link.encode('utf8')).hexdigest()[:14],title=title,source=source['name'],source_id=source['id'],url=link,published_at=dt.isoformat(),category='ORIGINAL',language='en'))
+        if re.search(r'\b(tennis|golf|fashion|watch|esport|LPGA|Ladies Championship)\b',title,re.I):continue
+        entries.append(dict(id=source['id']+'-'+hashlib.sha256(link.encode('utf8')).hexdigest()[:14],title=title,source=source['name'],source_id=source['id'],url=link,published_at=dt.isoformat(),category='ORIGINAL',language='en',collected_at=now.isoformat(),fact_checked=False,brands=[brand for brand in ('Porsche','BMW','MINI','Ferrari','Toyota','Mazda','Audi','KTM') if re.search(r'\b'+brand+r'\b',title,re.I)],models=[],kind='publisher-headline'))
     return entries
 
 def read_source(source, now):
@@ -83,12 +83,16 @@ def refresh(output):
     for src in FEEDS:
         try:
             items=read_source(src,now)
-            states.append(dict(id=src['id'],name=src['name'],status='ok',count=len(items)))
+            states.append(dict(id=src['id'],name=src['name'],status='ok' if items else 'empty',count=len(items)))
             all_items.extend(items)
         except Exception as error:
             states.append(dict(id=src['id'],name=src['name'],status='unavailable',count=0))
             print(f"WARN {src['id']} feed unavailable: {error}",file=sys.stderr)
     if not all_items:
+        if output.exists():
+            previous=json.loads(output.read_text(encoding='utf8'))
+            previous['last_attempt_at']=now.isoformat();previous['sources']=states;previous['status']='unavailable'
+            output.write_text(json.dumps(previous,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
         print('WARN no valid feed items; keeping existing dated snapshot',file=sys.stderr)
         return 0 if output.exists() else 1
     by_link={}
