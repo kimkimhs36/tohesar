@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://tohesar-v3-run001.vercel.app',
+  site: process.env.SITE_URL || 'https://tohesar-live-radar.vercel.app',
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
