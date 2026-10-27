@@ -1,0 +1,42 @@
+name: TOHEŞAR Pages — editorial news refresh
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'edition/**'
+      - 'scripts/**'
+      - '.github/workflows/tohesar-pages-news.yml'
+  schedule:
+    - cron: '37 0,6,12,18 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: tohesar-pages
+  cancel-in-progress: false
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate RSS parsing and failure behavior
+        run: python3 -m unittest discover -s scripts -p "test_news.py"
+      - uses: actions/configure-pages@v5
+      - name: Assemble existing official site without changing its files
+        run: |
+          mkdir -p _site
+          tar --exclude=.git --exclude=_site --exclude=.github --exclude=docs --exclude=scripts -cf - . | (cd _site && tar xf -)
+      - name: Refresh attributed public feeds; retain snapshot on failure
+        run: python3 scripts/refresh_news.py --output _site/edition/data/news.json
+      - name: Validate site and source integrity
+        run: python3 scripts/test_edition.py --root _site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment
