@@ -82,7 +82,8 @@ test('No-JS navigation, body and subject discovery remain usable', async ({ brow
   await page.locator('.lead-heading a').click();
   await expect(page.locator('.article-copy section').first()).toBeVisible();
   await expect(page.locator('[data-reader-tools]')).toBeHidden();
-  await page.getByRole('link', { name: 'Subjects', exact: true }).click();
+  await page.locator('.mobile-nav-more summary').click();
+  await page.getByRole('link', { name: '주제별', exact: true }).click();
   await page.locator('.subject-index a').first().click();
   await expect(page.locator('.story-row')).toHaveCount(2);
   await context.close();
