@@ -1,0 +1,472 @@
+---
+import '../styles/global.css';
+import Photo from '../components/Photo.astro';
+---
+
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#efece6" />
+  <title>ATELIER 04 — TOHEŞAR 디자인 방향 실험실</title>
+  <meta name="description" content="TOHEŞAR V3의 네 가지 독립적인 편집 디자인 방향을 실제 사진과 동일한 기사로 비교하는 미발행 디자인 실험실." />
+  <link rel="icon" type="image/svg+xml" href="/identity/favicon.svg" />
+</head>
+<body class="atelier-body">
+<main id="lab" class="atelier">
+  <a class="lab-skip" href="#lab-stage">시안 비교로 이동</a>
+  <div class="lab-chrome">
+    <div class="lab-chrome-inner">
+      <a class="lab-home" href="/" aria-label="V3 홈페이지로 돌아가기"><span aria-hidden="true">←</span> V3 HOME</a>
+      <div class="lab-identity"><span class="lab-led" aria-hidden="true"></span> TOHEŞAR <span class="lab-divider">/</span> ATELIER 04</div>
+      <span class="lab-private">DESIGN STUDY · NOT PUBLISHED</span>
+    </div>
+  </div>
+
+  <header class="lab-intro">
+    <p class="lab-eyebrow">A VISUAL EDITORIAL STUDY — OCTOBER 2026</p>
+    <h1>Four ways to<br /><em>see the road.</em></h1>
+    <div class="lab-intro-foot">
+      <p>같은 자동차, 같은 이야기. 다른 네 가지 편집의 언어.<br />예쁜 사진을 고르는 게 아니라 <strong>TOHEŞAR의 시선</strong>을 고르는 실험입니다.</p>
+      <div class="lab-number"><b>04</b><small>DIRECTIONS<br />01 PUBLICATION</small></div>
+    </div>
+  </header>
+
+  <nav class="lab-switcher" aria-label="디자인 시안 선택">
+    <div class="lab-tablist" role="tablist" aria-label="네 가지 편집 디자인">
+      <button class="lab-tab" type="button" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true" tabindex="0" data-view="a"><span>01 / A</span><strong>THE PRESS</strong><small>클래식 신문</small></button>
+      <button class="lab-tab" type="button" role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1" data-view="b"><span>02 / B</span><strong>THE FRAME</strong><small>시네마틱 에디토리얼</small></button>
+      <button class="lab-tab" type="button" role="tab" id="tab-c" aria-controls="panel-c" aria-selected="false" tabindex="-1" data-view="c"><span>03 / C</span><strong>THE ARCHIVE</strong><small>자동차 문화 저널</small></button>
+      <button class="lab-tab" type="button" role="tab" id="tab-d" aria-controls="panel-d" aria-selected="false" tabindex="-1" data-view="d"><span>04 / D</span><strong>THE EDITION</strong><small>현대적 통합 저널</small></button>
+    </div>
+  </nav>
+
+  <div id="lab-stage" class="lab-stage">
+    <!-- A: informational authority, compressed press cadence -->
+    <section class="lab-panel art-a" id="panel-a" role="tabpanel" aria-labelledby="tab-a" tabindex="0">
+      <div class="art-frame a-paper">
+        <header class="a-masthead">
+          <div class="a-dateline"><span>INDEPENDENT MOTORING & CULTURE</span><span>VOL. 03 / DESIGN STUDY</span></div>
+          <img class="a-logo" src="/identity/wordmark.svg" alt="TOHEŞAR" width="1109" height="255" />
+          <div class="a-nav"><span>THE LATEST</span><span>FEATURES</span><span>DESIGN FILES</span><span>ARCHIVE</span></div>
+        </header>
+        <div class="a-content">
+          <div class="a-topline"><span>THE FRONT PAGE</span><span>DESIGN FILE / 001</span></div>
+          <div class="a-lead-grid">
+            <article class="a-primary">
+              <Photo id="f40" href="/articles/f40/" priority sizes="(max-width:720px) 94vw, 58vw" />
+              <div class="a-primary-text">
+                <div class="a-category">AUTOMOBILES · 1987</div>
+                <h2><a href="/articles/f40/">페라리 F40,<br />형태가 속도를<br />말할 때</a></h2>
+                <p>낮은 차체와 과감한 흡기구. 하나의 자동차가 시대를 기록하는 방법.</p>
+                <a class="a-link" href="/articles/f40/">READ THE DESIGN FILE <span>↗</span></a>
+              </div>
+            </article>
+            <aside class="a-sidebar" aria-label="함께 읽을 기사">
+              <h3>IN THIS EDITION <span>02 STORIES</span></h3>
+              <article>
+                <span class="a-order">02 / FEATURE</span>
+                <Photo id="porsche-911" href="/articles/porsche-911/" sizes="(max-width:720px) 90vw, 28vw" />
+                <h4><a href="/articles/porsche-911/">911의 실루엣은<br />왜 남아 있는가</a></h4>
+                <p>세대가 바뀌어도 남는 선.</p>
+              </article>
+              <article class="a-brief">
+                <span class="a-order">03 / ARCHIVE</span>
+                <h4><a href="/articles/ducati-916/">두카티 916, 기능이 만들어 낸 우아함 ↗</a></h4>
+                <p>마시모 탐부리니와 1990년대의 수퍼바이크.</p>
+              </article>
+            </aside>
+          </div>
+          <div class="a-bottom-news"><div><span>IN THE JOURNAL</span><h3>시간을 지나도 읽히는 이야기들.</h3></div><div><b>DESIGN</b><b>HERITAGE</b><b>MACHINES</b></div></div>
+        </div>
+      </div>
+      <div class="lab-reading"><div><span>01 — THE PRESS</span><h3>정보의 질서가 아름다움이 되는 지면.</h3></div><p>정보가 빠르게 들어오는 대신 사진의 자유도는 줄어듭니다. 고전적 신문에 가장 가깝고, 예술적 모험은 가장 적은 방향입니다.</p></div>
+    </section>
+
+    <!-- B: photographic cinematic mood, independent of any 3D object -->
+    <section class="lab-panel art-b" id="panel-b" role="tabpanel" aria-labelledby="tab-b" tabindex="0" hidden>
+      <div class="art-frame b-night">
+        <header class="b-header">
+          <img src="/identity/wordmark.svg" alt="TOHEŞAR" width="1109" height="255" />
+          <span>THE MOTORING JOURNAL</span>
+          <span class="b-index">01 — 03</span>
+        </header>
+        <div class="b-hero">
+          <div class="b-photograph"><Photo id="f40" href="/articles/f40/" priority={false} sizes="(max-width:720px) 100vw, 95vw" /></div>
+          <div class="b-overlay" aria-hidden="true"></div>
+          <div class="b-statement">
+            <p>DESIGN FILE <span>—</span> FERRARI F40</p>
+            <h2><a href="/articles/f40/">속도를 위해<br /><em>태어난 형태.</em></a></h2>
+            <div class="b-actions"><span>F40 / 1987 — A STUDY IN PURPOSE</span><a href="/articles/f40/">EXPLORE THE STORY <span>↗</span></a></div>
+          </div>
+        </div>
+        <div class="b-next">
+          <div class="b-next-heading"><span>BEYOND THE FRAME</span><span>SELECTED STORIES / 02</span></div>
+          <div class="b-next-grid">
+            <article><Photo id="porsche-911" href="/articles/porsche-911/" sizes="(max-width:720px) 94vw, 44vw" /><span>FEATURE / DESIGN</span><h3><a href="/articles/porsche-911/">911의 실루엣은<br />왜 남아 있는가</a></h3></article>
+            <article><Photo id="ducati-916" href="/articles/ducati-916/" sizes="(max-width:720px) 94vw, 44vw" /><span>ARCHIVE / MOTORCYCLES</span><h3><a href="/articles/ducati-916/">두카티 916,<br />기능이 만든 우아함</a></h3></article>
+          </div>
+        </div>
+        <div class="b-footer">A CAR IS MORE THAN A SUBJECT. <span>TOHEŞAR / VISUAL CULTURE</span></div>
+      </div>
+      <div class="lab-reading"><div><span>02 — THE FRAME</span><h3>사진이 이야기를 열고, 활자가 뒤따르는 화면.</h3></div><p>몰입과 감정의 강도가 높습니다. 다만 매일 뉴스를 찾는 사람이 불편하지 않도록 별도의 간결한 뉴스 접근 방식이 필요합니다.</p></div>
+    </section>
+
+    <!-- C: archive, culture, editorial museum spread -->
+    <section class="lab-panel art-c" id="panel-c" role="tabpanel" aria-labelledby="tab-c" tabindex="0" hidden>
+      <div class="art-frame c-canvas">
+        <header class="c-header">
+          <div><span class="c-small">AN INDEPENDENT JOURNAL OF MOTION</span><img src="/identity/wordmark.svg" alt="TOHEŞAR" width="1109" height="255" /></div>
+          <span class="c-volume">THE ARCHIVE<br />ISSUE NO. 03</span>
+        </header>
+        <nav class="c-nav" aria-label="에디션 구성"><span>DESIGN</span><span>PEOPLE</span><span>HISTORY</span><span>PHOTOGRAPHY</span></nav>
+        <div class="c-issue"><span>01 / THE SUBJECT</span><span>THE FORM OF TIME</span></div>
+        <article class="c-lead">
+          <div class="c-hero-image"><Photo id="f40" href="/articles/f40/" sizes="(max-width:720px) 92vw, 61vw" /></div>
+          <div class="c-lead-text"><span>THE DESIGN FILE</span><h2><a href="/articles/f40/">형태가<br />속도를<br /><em>기억할 때.</em></a></h2><p>페라리 F40 · 1987</p><a href="/articles/f40/">THE COMPLETE STORY <span>↗</span></a></div>
+        </article>
+        <div class="c-double">
+          <article class="c-small-story"><span class="c-no">02 <span>FEATURE</span></span><Photo id="porsche-911" href="/articles/porsche-911/" sizes="(max-width:720px) 90vw, 43vw" /><h3><a href="/articles/porsche-911/">포르쉐 911.<br />변화를 견디는 선.</a></h3><p>자동차 디자인의 이어짐에 관한 기록.</p></article>
+          <article class="c-small-story"><span class="c-no">03 <span>MOTORCYCLE ARCHIVE</span></span><Photo id="ducati-916" href="/articles/ducati-916/" sizes="(max-width:720px) 90vw, 43vw" /><h3><a href="/articles/ducati-916/">두카티 916.<br />완벽에 가까운 균형.</a></h3><p>한 시대의 기술이 남긴 아름다움.</p></article>
+        </div>
+        <div class="c-footer"><span>ARCHIVE / AUTOMOBILES / MOTORCYCLES</span><span>COLLECTED WITH CARE</span></div>
+      </div>
+      <div class="lab-reading"><div><span>03 — THE ARCHIVE</span><h3>잡지의 지면과 자동차 박물관의 감각.</h3></div><p>사진을 ‘소비’하는 대신 오래 들여다보게 합니다. TOHEŞAR의 문화적 깊이를 강하게 보여주지만 실시간 뉴스성은 별도 동선에서 보완해야 합니다.</p></div>
+    </section>
+
+    <!-- D: contemporary, news+editorial+brand signature, brighter novel grid -->
+    <section class="lab-panel art-d" id="panel-d" role="tabpanel" aria-labelledby="tab-d" tabindex="0" hidden>
+      <div class="art-frame d-edition">
+        <header class="d-header">
+          <div class="d-top"><span>EDITION / 03</span><span>INDEPENDENT MOTORING & CULTURE</span></div>
+          <div class="d-mast"><img src="/identity/wordmark.svg" alt="TOHEŞAR" width="1109" height="255" /><span>THE WORLD<br />IN MOTION.</span></div>
+          <div class="d-nav"><span>LATEST</span><span>JOURNAL</span><span>SUBJECTS</span><span>ARCHIVE</span><span class="d-end">SE-DIYU ↗</span></div>
+        </header>
+        <div class="d-lead">
+          <div class="d-photo"><Photo id="f40" href="/articles/f40/" sizes="(max-width:720px) 95vw, 65vw" /></div>
+          <div class="d-lead-copy"><span>01 <i>DESIGN FILE</i></span><h2><a href="/articles/f40/">목적이<br />만드는<br /><em>아름다움.</em></a></h2><p>페라리 F40은 형태와 기능의 경계에서 탄생했다. 1987년의 기록을 다시 읽는다.</p><a href="/articles/f40/">READ THE STORY <span>↗</span></a></div>
+        </div>
+        <div class="d-newsline"><span>THE STORIES</span><span>SELECTED FOR THE READER, NOT THE ALGORITHM</span></div>
+        <div class="d-grid">
+          <article><span>02 — DESIGN & HISTORY</span><Photo id="porsche-911" href="/articles/porsche-911/" sizes="(max-width:720px) 90vw, 35vw" /><h3><a href="/articles/porsche-911/">911의 실루엣은 왜 남아 있는가</a></h3><p>변화 속에서도 남는 자동차의 언어.</p></article>
+          <article><span>03 — MOTORCYCLES</span><Photo id="ducati-916" href="/articles/ducati-916/" sizes="(max-width:720px) 90vw, 35vw" /><h3><a href="/articles/ducati-916/">두카티 916, 기능이 만든 우아함</a></h3><p>정교한 기계적 아름다움.</p></article>
+          <div class="d-colophon"><img src="/identity/favicon.svg" alt="TOHEŞAR 세디유" width="40" height="40" /><span>THE SE-DIYU</span><p>모든 이야기에 같은 표정을 강요하지 않는다. 하나의 출판물이 만드는 다양한 지면.</p><a href="/about/">ABOUT THE JOURNAL ↗</a></div>
+        </div>
+        <div class="d-footer">TOHEŞAR <span>READ MORE. SEE FURTHER.</span></div>
+      </div>
+      <div class="lab-reading"><div><span>04 — THE EDITION</span><h3>하나의 매체 안에 네 가지 편집의 밀도를.</h3></div><p>밝은 화면, 차분한 모션, 사진과 기사를 결합한 하이브리드. RUN 001의 기능적 장점은 유지하면서 화면의 인상을 새로 설계하는 방향입니다.</p></div>
+    </section>
+  </div>
+
+  <section class="lab-after" aria-labelledby="compare-title">
+    <div><span class="lab-eyebrow">THE EDITOR'S QUESTION</span><h2 id="compare-title">어떤 TOHEŞAR가<br /><em>다시 열어보고 싶은가?</em></h2></div>
+    <p>한 장의 콘셉트 이미지가 아니라 실제 반응형 웹 지면을 비교하는 공간입니다. 모든 시안은 기존 미발행 기사 3편과 출처가 기록된 사진을 공유합니다. 콘텐츠·사진을 새로 만들어 ‘잘 나온 시안’처럼 꾸미지 않았습니다.</p>
+    <div class="lab-next"><button type="button" id="next-view">다음 시안 살펴보기 <span aria-hidden="true">→</span></button><a href="/" class="lab-compare-home">기존 V3 원형 비교 ↗</a></div>
+  </section>
+  <footer class="lab-footer"><span>© TOHEŞAR / DESIGN ATELIER</span><span>EXPERIMENTAL · UNPUBLISHED</span></footer>
+</main>
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.lab-tab'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('.lab-panel'));
+  let selected = 'a';
+  function show(view: string, focus = false) {
+    if (!['a', 'b', 'c', 'd'].includes(view)) return;
+    selected = view;
+    tabs.forEach((tab) => {
+      const active = tab.dataset.view === view;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+    panels.forEach((panel) => { panel.hidden = panel.id !== 'panel-' + view; });
+    history.replaceState(null, '', '#view-' + view);
+    document.querySelector('#lab-stage')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => show(tab.dataset.view || 'a'));
+    tab.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const dest = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+      show(tabs[dest].dataset.view || 'a', true);
+    });
+  });
+  document.getElementById('next-view')?.addEventListener('click', () => show(['a','b','c','d'][(['a','b','c','d'].indexOf(selected) + 1) % 4]));
+  const initial = location.hash.match(/^#view-([abcd])$/)?.[1];
+  if (initial) show(initial);
+  window.addEventListener('hashchange', () => {
+    const current = location.hash.match(/^#view-([abcd])$/)?.[1];
+    if (current && current !== selected) show(current);
+  });
+</script>
+<style is:global>
+.atelier-body { margin:0; background:#e9e7e2; color:#1c2121; }
+.atelier { --line:#c1c2be; --mono:ui-monospace,'SFMono-Regular',monospace; font-family:'TOHESAR Sans',system-ui,sans-serif; font-size:14px; background:#e9e7e2; }
+.atelier * {box-sizing:border-box}
+.atelier a {text-decoration:none}
+.atelier a:hover {color:inherit}
+.atelier :focus-visible {outline:3px solid #b26748;outline-offset:4px}
+.lab-skip {position:absolute;transform:translateY(-200%);top:2px;left:5px;z-index:60;background:white;padding:12px}
+.lab-skip:focus{transform:none}
+.lab-chrome {background:#202929;color:#f3f0e9}
+.lab-chrome-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 32px;gap:12px;font:10px var(--mono);letter-spacing:.07em}
+.lab-home{color:#e8e6e0}.lab-home span{font-size:17px;margin-right:8px}
+.lab-identity{font-weight:600;letter-spacing:.2em}.lab-divider{color:#83928c;margin:0 7px}
+.lab-led {display:inline-block;width:7px;height:7px;border-radius:50%;background:#d6b4a3;margin-right:10px}
+.lab-private{font-size:9px;color:#bec6c0}
+.lab-intro {max-width:1376px;margin:auto;padding:clamp(36px,6vw,86px) 32px 48px;border-bottom:1px solid #b7b9b2}
+.lab-eyebrow{font:10px var(--mono);font-weight:500;letter-spacing:.16em;color:#586463}
+.lab-intro h1{font-family:Georgia,serif;font-size:clamp(45px,8.2vw,118px);font-weight:400;letter-spacing:-.065em;line-height:.94;margin:28px 0 35px}
+.lab-intro h1 em,.lab-after h2 em{font-weight:400;color:#a45d49}
+.lab-intro-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}
+.lab-intro-foot>p{line-height:1.9;color:#4f5552;max-width:590px;font-size:13px}
+.lab-intro-foot strong{font-weight:650;color:#202827}
+.lab-number{display:flex;align-items:center;gap:12px}.lab-number b{font-family:Georgia,serif;font-size:68px;font-weight:400;line-height:.8}
+.lab-number small{font:9px/1.65 var(--mono);letter-spacing:.05em}
+.lab-switcher{position:sticky;top:0;background:#e9e7e2ed;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:20;border-bottom:1px solid #c4c5be}
+.lab-tablist{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:auto;max-width:1376px;padding:0 32px}
+.lab-tab{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:93px;padding:17px 18px 15px;background:transparent;border:0;border-bottom:3px solid transparent;border-right:1px solid #c6c8c1;color:#747d77;cursor:pointer;gap:5px;transition:background-color .2s,color .2s,border-color .2s}
+.lab-tab:first-child{border-left:1px solid #c6c8c1}
+.lab-tab span{font:10px var(--mono);letter-spacing:.08em}
+.lab-tab strong{font-size:14px;letter-spacing:.03em}
+.lab-tab small{font-size:10px}
+.lab-tab[aria-selected="true"]{background:#fffef9;color:#161c1b;border-bottom-color:#9e4d3c}
+.lab-stage{max-width:1460px;margin:0 auto;padding:clamp(20px,4vw,50px) 24px 0;scroll-margin-top:125px}
+.lab-panel[hidden]{display:none!important}
+.art-frame{box-shadow:0 18px 54px #2d33251f;overflow:hidden}
+.lab-panel .editorial-photo{margin:0;min-width:0}
+.lab-panel .editorial-photo .photo-link{position:relative;display:block;overflow:hidden;line-height:0}
+.lab-panel .editorial-photo picture{display:block}
+.lab-panel .editorial-photo img{display:block;width:100%;height:auto}
+.lab-panel .editorial-photo .photo-corner{position:absolute;right:12px;bottom:13px;display:grid;place-items:center;width:31px;height:31px;background:#f6f4ea;color:#202320;font:19px Georgia,serif;opacity:0;transition:opacity .2s}
+.lab-panel .editorial-photo:hover .photo-corner,.lab-panel .editorial-photo:focus-within .photo-corner{opacity:1}
+.lab-panel .editorial-photo figcaption{font:10px/1.6 'TOHESAR Sans',sans-serif;display:flex;justify-content:space-between;gap:12px;padding:9px 0;color:inherit;opacity:.65}
+.lab-panel .editorial-photo figcaption a{text-decoration:underline;text-decoration-thickness:.5px}
+.lab-panel h2,.lab-panel h3,.lab-panel h4{font-family:'TOHESAR Serif',Georgia,serif;font-weight:450}
+.lab-reading{display:grid;grid-template-columns:1fr 1fr;gap:50px;border:1px solid #c1c3bd;border-top:0;padding:28px 32px 31px;background:#e8e7e1}
+.lab-reading span{font:10px var(--mono);letter-spacing:.1em;color:#7c5146}
+.lab-reading h3{font-family:'TOHESAR Serif',Georgia,serif;font-size:clamp(20px,2.3vw,29px);line-height:1.35;font-weight:500;margin-top:12px}
+.lab-reading p{color:#525a55;font-size:13px;line-height:1.9;max-width:480px}
+/* A / INK & PAPER */
+.a-paper{background:#f3f0e9;color:#232724;padding:clamp(20px,4vw,58px)}
+.a-masthead{border-top:2px solid #262925;border-bottom:3px double #303430}
+.a-dateline{display:flex;justify-content:space-between;padding:12px 0;font:10px var(--mono);letter-spacing:.07em;border-bottom:1px solid #c3bfb5}
+.a-logo{width:clamp(210px,38vw,460px);height:auto;filter:brightness(0);margin:19px auto 21px}
+.a-nav{display:flex;justify-content:center;gap:clamp(16px,3vw,48px);border-top:1px solid #c6c3ba;padding:12px;font:10px var(--mono);letter-spacing:.08em}
+.a-content{padding-top:20px}
+.a-topline,.c-issue,.d-newsline{display:flex;justify-content:space-between;border-bottom:1px solid currentColor;padding-bottom:10px;font:10px var(--mono);letter-spacing:.08em}
+.a-lead-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(220px,.82fr);gap:32px;padding-top:28px}
+.a-primary>.editorial-photo img{aspect-ratio:1.65;object-fit:cover}
+.a-primary-text{padding-top:22px}
+.a-category{font:10px var(--mono);letter-spacing:.12em;color:#7d4d45}
+.a-primary h2{font-size:clamp(33px,5vw,70px);line-height:1.07;letter-spacing:-.053em;margin:13px 0 15px}
+.a-primary-text>p{font-size:14px;line-height:1.85;max-width:420px}
+.a-link{display:flex;justify-content:space-between;border-top:1px solid #797e77;padding:14px 0;margin-top:22px;max-width:430px;font:11px var(--mono)}
+.a-sidebar{border-left:1px solid #bec2ba;padding-left:26px}
+.a-sidebar>h3{display:flex;justify-content:space-between;border-bottom:2px solid #282b27;padding-bottom:10px;font:12px var(--mono);letter-spacing:.06em}
+.a-sidebar>h3 span{font-size:9px;color:#787b74}
+.a-sidebar article{padding:16px 0 20px;border-bottom:1px solid #b5b9b2}
+.a-order{font:10px var(--mono);color:#795a4d;display:block;margin-bottom:12px}
+.a-sidebar .editorial-photo img{aspect-ratio:1.5;object-fit:cover}
+.a-sidebar h4{font-size:clamp(21px,2.3vw,30px);line-height:1.18;letter-spacing:-.025em;margin:12px 0 8px}
+.a-sidebar p{font-size:12px;color:#606660;line-height:1.55}
+.a-bottom-news{margin-top:34px;padding:24px 0 6px;border-top:3px double #353a35;display:flex;justify-content:space-between;gap:25px}
+.a-bottom-news span{font:10px var(--mono)}
+.a-bottom-news h3{font-size:28px;line-height:1.2;margin-top:8px}
+.a-bottom-news>div:last-child{display:flex;gap:14px;align-items:end;font:10px var(--mono)}
+.a-bottom-news b{font-weight:500}
+/* B / CINEMATIC EDITORIAL */
+.b-night{background:#101716;color:#f0eae0}
+.b-header{height:94px;padding:21px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #6167615e}
+.b-header img{width:230px;height:auto;filter:brightness(0) invert(1)}
+.b-header>span{font:10px var(--mono);letter-spacing:.11em;color:#c6c8bf}
+.b-hero{position:relative;min-height:650px;background:#242b2a;isolation:isolate}
+.b-photograph{position:absolute;inset:0}
+.b-photograph .editorial-photo{height:100%}
+.b-photograph .editorial-photo .photo-link{height:100%}
+.b-photograph .editorial-photo img{height:100%;object-fit:cover;object-position:center}
+.b-photograph .editorial-photo figcaption{position:absolute;right:34px;top:12px;color:#f4f3ee;z-index:5;background:#172222a3;padding:7px 10px}
+.b-overlay{position:absolute;inset:0;background:linear-gradient(180deg,#0e151711 18%,#06121132 44%,#050909e8 98%);pointer-events:none;z-index:1}
+.b-statement{position:relative;z-index:2;padding:360px 48px 45px;pointer-events:none}
+.b-statement a{pointer-events:auto}
+.b-statement>p{font:11px var(--mono);letter-spacing:.11em}
+.b-statement>p span{margin:0 12px;opacity:.5}
+.b-statement h2{font-size:clamp(45px,7.5vw,94px);line-height:.99;font-weight:400;letter-spacing:-.05em;margin:18px 0 40px;text-shadow:0 2px 20px #10171655}
+.b-statement h2 em{font-style:italic;font-family:Georgia,serif;font-weight:400}
+.b-actions{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid #ddd7c281;padding-top:20px;font:10px var(--mono);letter-spacing:.05em}
+.b-actions a{border-bottom:1px solid #d7dad1;padding-bottom:5px}
+.b-next{padding:40px 40px 54px}
+.b-next-heading{display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid #59625b;font:10px var(--mono);letter-spacing:.1em}
+.b-next-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:24px}
+.b-next-grid .editorial-photo img{aspect-ratio:1.72;object-fit:cover}
+.b-next-grid article>span{display:block;margin:17px 0 8px;color:#aaa69c;font:10px var(--mono)}
+.b-next-grid h3{font-size:clamp(24px,3vw,42px);line-height:1.15;letter-spacing:-.03em}
+.b-night .editorial-photo figcaption{color:#d0d1c9}
+.b-footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #46544e;padding:22px 40px;font:10px var(--mono);letter-spacing:.06em;color:#b0bab2}
+/* C / LONG-FORM ARCHIVE */
+.c-canvas{padding:clamp(20px,4vw,54px);background:#f8f7f2;color:#1c2628}
+.c-header{display:flex;align-items:end;justify-content:space-between;gap:20px;padding-bottom:22px}
+.c-small{font:10px var(--mono);letter-spacing:.1em;color:#556268}
+.c-header img{width:clamp(220px,36vw,430px);height:auto;filter:brightness(0);margin-top:12px}
+.c-volume{font:10px/1.6 var(--mono);text-align:right;letter-spacing:.1em;color:#5b5d5b}
+.c-nav{display:flex;justify-content:space-between;gap:18px;border-top:1px solid #242c2b;border-bottom:1px solid #242c2b;padding:15px 0;font:11px var(--mono);letter-spacing:.09em}
+.c-issue{margin:34px 0 22px;border-color:#b2b9b3}
+.c-lead{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,.95fr);gap:0}
+.c-hero-image .editorial-photo img{aspect-ratio:.96;object-fit:cover}
+.c-lead-text{background:#d9dcd5;padding:clamp(22px,4vw,64px) clamp(20px,3vw,46px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.c-lead-text>span{font:10px var(--mono);letter-spacing:.1em}
+.c-lead-text h2{font-size:clamp(42px,6vw,88px);line-height:1.06;letter-spacing:-.055em;margin:29px 0}
+.c-lead-text em{font-weight:450}
+.c-lead-text>p{font-size:13px;margin-bottom:32px}
+.c-lead-text>a{display:flex;justify-content:space-between;width:100%;padding-top:16px;border-top:1px solid #727970;font:10px var(--mono)}
+.c-double{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:42px 0 34px}
+.c-no{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:2px solid #272f2d;font:12px var(--mono)}
+.c-no span{font-size:10px}
+.c-small-story .editorial-photo img{aspect-ratio:1.65;object-fit:cover}
+.c-small-story h3{font-size:clamp(26px,3vw,42px);line-height:1.2;letter-spacing:-.03em;margin:15px 0 10px}
+.c-small-story>p{color:#59625c;font-size:12px;line-height:1.7}
+.c-footer{display:flex;justify-content:space-between;padding-top:15px;border-top:1px solid #89928a;font:10px var(--mono);color:#616a64}
+/* D / CONTEMPORARY EDITION */
+.d-edition{background:#eae7df;color:#202927;padding:clamp(20px,4vw,56px)}
+.d-top,.d-nav{display:flex;justify-content:space-between;gap:18px;font:10px var(--mono);letter-spacing:.06em}
+.d-top{border-bottom:1px solid #9da8a0;padding-bottom:12px;color:#53615a}
+.d-mast{display:flex;justify-content:space-between;gap:24px;align-items:end;padding:28px 0}
+.d-mast img{width:clamp(220px,34vw,380px);filter:brightness(0);height:auto}
+.d-mast span{font:12px/1.45 var(--mono);letter-spacing:.08em;text-align:right}
+.d-nav{border-top:2px solid #242d29;border-bottom:1px solid #79887e;padding:15px 0}
+.d-end{color:#a55444}
+.d-lead{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.85fr);margin-top:28px;min-height:530px}
+.d-photo .editorial-photo img{aspect-ratio:1.14;object-fit:cover}
+.d-lead-copy{background:#ccd4cd;padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+.d-lead-copy>span{font:11px var(--mono)}
+.d-lead-copy>span i{font-style:normal;margin-left:26px}
+.d-lead-copy h2{font-size:clamp(42px,6vw,87px);line-height:1.06;letter-spacing:-.055em}
+.d-lead-copy em{font-weight:400}
+.d-lead-copy p{font-size:13px;line-height:1.75;max-width:280px}
+.d-lead-copy>a{display:flex;justify-content:space-between;border-top:1px solid #727f75;padding-top:15px;font:11px var(--mono)}
+.d-newsline{border-color:#929d95;padding-top:42px;margin-bottom:20px}
+.d-grid{display:grid;grid-template-columns:1fr 1fr .76fr;gap:23px}
+.d-grid article>span{display:block;border-top:2px solid #26302d;padding:10px 0;font:10px var(--mono)}
+.d-grid .editorial-photo img{aspect-ratio:1.42;object-fit:cover}
+.d-grid article h3{font-size:clamp(24px,2.5vw,36px);line-height:1.17;letter-spacing:-.03em;margin:13px 0}
+.d-grid article>p{font-size:12px;line-height:1.7;color:#5e6a62}
+.d-colophon{background:#273832;color:#edf0e9;padding:27px;display:flex;flex-direction:column;min-height:300px}
+.d-colophon img{width:46px;height:46px;filter:grayscale(1) brightness(0) invert(1);margin:0 0 25px}
+.d-colophon>span{font:10px var(--mono);letter-spacing:.1em}
+.d-colophon p{font:19px/1.65 'TOHESAR Serif',serif;margin:18px 0}
+.d-colophon>a{font:10px var(--mono);margin-top:auto;border-top:1px solid #94a39b;padding-top:16px}
+.d-footer{display:flex;justify-content:space-between;border-top:1px solid #929d95;padding-top:18px;margin-top:40px;font:10px var(--mono);letter-spacing:.06em}
+/* AFTER */
+.lab-after{max-width:1376px;margin:0 auto;padding:clamp(55px,7vw,100px) 32px 75px;display:grid;grid-template-columns:1fr 1fr;column-gap:65px}
+.lab-after h2{font:400 clamp(28px,4vw,53px)/1.1 'TOHESAR Serif',Georgia,serif;letter-spacing:-.04em;margin-top:15px}
+.lab-after>p{align-self:center;font-size:13px;color:#4f5c55;line-height:2}
+.lab-next{grid-column:1/-1;display:flex;gap:20px;align-items:center;margin-top:40px}
+.lab-next button{background:#263a35;color:#f7f5eb;padding:18px 23px;min-height:55px;border:0;font-size:12px;font-weight:650}
+.lab-next button span{margin-left:35px}
+.lab-compare-home{font:11px var(--mono);border-bottom:1px solid #828b84;padding-bottom:8px}
+.lab-footer{padding:25px 32px;display:flex;justify-content:space-between;background:#252c2a;color:#e8e8df;font:10px var(--mono);letter-spacing:.07em}
+@media(max-width:760px){
+  .lab-chrome-inner{padding:0 18px;min-height:46px}
+  .lab-private{display:none}
+  .lab-intro{padding:40px 20px 36px}
+  .lab-intro h1{margin:24px 0 27px;font-size:clamp(45px,11vw,76px)}
+  .lab-intro-foot{align-items:start}
+  .lab-intro-foot p{font-size:12px}
+  .lab-number{display:none}
+  .lab-tablist{padding:0;overflow-x:auto;grid-template-columns:repeat(4,minmax(135px,1fr));scrollbar-width:none}
+  .lab-tablist::-webkit-scrollbar{display:none}
+  .lab-tab{min-height:81px;padding:14px 13px}
+  .lab-tab strong{font-size:12px}
+  .lab-tab small{font-size:9px}
+  .lab-stage{padding:18px 9px 0;scroll-margin-top:95px}
+  .lab-reading{grid-template-columns:1fr;gap:14px;padding:24px 20px}
+  .lab-reading p{font-size:12px}
+  .art-a .a-paper{padding:18px 15px 26px}
+  .a-dateline{font-size:7px}
+  .a-logo{width:235px;margin:18px auto}
+  .a-nav{justify-content:space-between;gap:7px;font-size:8px;padding:13px 0}
+  .a-topline{font-size:9px}
+  .a-lead-grid{grid-template-columns:1fr;gap:23px;padding-top:18px}
+  .a-primary>.editorial-photo img{aspect-ratio:1.35}
+  .a-primary h2{font-size:clamp(33px,9vw,49px)}
+  .a-primary-text>p{font-size:12px}
+  .a-sidebar{padding-left:0;border-left:0;border-top:3px double #333c33;padding-top:23px}
+  .a-sidebar>h3{font-size:11px}
+  .a-sidebar article{display:grid;grid-template-columns:1fr 1.1fr;gap:13px}
+  .a-sidebar article .a-order{grid-column:1/-1;margin:0}
+  .a-sidebar .editorial-photo{grid-row:2/4}
+  .a-sidebar .editorial-photo figcaption{display:none}
+  .a-sidebar h4{font-size:22px;margin:0}
+  .a-sidebar article>p{font-size:11px}
+  .a-sidebar .a-brief{display:block}
+  .a-bottom-news{display:block}
+  .a-bottom-news h3{font-size:23px}
+  .a-bottom-news>div:last-child{margin-top:18px;gap:22px;font-size:9px}
+  .b-header{height:74px;padding:18px}
+  .b-header img{width:145px}
+  .b-header>span{font-size:8px}
+  .b-header .b-index{display:none}
+  .b-hero{min-height:590px}
+  .b-photograph .editorial-photo img{object-position:45%}
+  .b-photograph .editorial-photo figcaption{top:8px;right:8px;font-size:8px;max-width:220px;flex-wrap:wrap}
+  .b-statement{padding:342px 20px 26px}
+  .b-statement>p{font-size:9px}
+  .b-statement h2{font-size:clamp(44px,11vw,70px);margin-bottom:29px}
+  .b-actions{font-size:9px}
+  .b-actions>span{max-width:130px;line-height:1.5}
+  .b-actions a{max-width:115px;line-height:1.5;text-align:right}
+  .b-next{padding:23px 18px 35px}
+  .b-next-heading{font-size:8px}
+  .b-next-grid{grid-template-columns:1fr;gap:28px}
+  .b-next-grid h3{font-size:28px}
+  .b-footer{padding:20px 18px;font-size:9px}
+  .b-footer span{display:none}
+  .c-canvas{padding:19px 14px}
+  .c-small{font-size:8px}
+  .c-header img{width:200px}
+  .c-volume{font-size:8px}
+  .c-nav{font-size:9px;gap:8px}
+  .c-issue{font-size:8px;margin:25px 0 15px}
+  .c-lead{grid-template-columns:1fr}
+  .c-hero-image .editorial-photo img{aspect-ratio:1.25}
+  .c-lead-text{padding:24px 20px 27px}
+  .c-lead-text h2{font-size:clamp(43px,10vw,61px);margin:20px 0}
+  .c-lead-text h2 br:nth-child(2){display:none}
+  .c-double{gap:30px;grid-template-columns:1fr;margin:35px 0}
+  .c-small-story h3{font-size:30px}
+  .c-footer{font-size:8px;gap:12px}
+  .d-edition{padding:17px 14px}
+  .d-top{font-size:8px}
+  .d-mast{padding:19px 0}
+  .d-mast img{width:215px}
+  .d-mast span{font-size:9px}
+  .d-nav{font-size:9px;gap:5px}
+  .d-end{display:none}
+  .d-lead{grid-template-columns:1fr;margin-top:20px}
+  .d-photo .editorial-photo img{aspect-ratio:1.2}
+  .d-lead-copy{min-height:410px;padding:26px 22px;gap:26px}
+  .d-lead-copy h2{font-size:clamp(46px,12vw,66px)}
+  .d-lead-copy p{font-size:13px}
+  .d-newsline{font-size:8px;padding-top:33px}
+  .d-newsline span:last-child{max-width:170px;text-align:right}
+  .d-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .d-grid article h3{font-size:22px}
+  .d-grid article>p{font-size:10px}
+  .d-grid article>span{font-size:8px}
+  .d-grid .editorial-photo figcaption{font-size:8px;display:block}
+  .d-colophon{grid-column:1/-1;min-height:210px;padding:22px}
+  .d-colophon img{margin:0 0 10px;width:34px;height:34px}
+  .d-colophon p{font-size:21px}
+  .lab-after{grid-template-columns:1fr;padding:60px 20px 58px;gap:18px}
+  .lab-after>p{font-size:12px}
+  .lab-next{margin-top:14px;flex-direction:column;align-items:stretch;gap:25px}
+  .lab-compare-home{text-align:center}
+  .lab-footer{padding:22px 18px;font-size:8px;gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .atelier *, .atelier *::before, .atelier *::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+</style>
+</body>
+</html>
