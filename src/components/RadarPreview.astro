@@ -1,46 +1,52 @@
-<section class="front-radar" aria-labelledby="front-radar-title">
-  <div class="front-radar-head">
-    <div class="front-radar-brand"><span class="front-radar-number">02 / SIGNALS FROM THE WORLD</span><h2 id="front-radar-title">RADAR<span>.</span> <em>지금 움직이는 자동차 세계</em></h2></div>
-    <a href="/radar/" class="front-radar-open">LIVE NEWS DESK <span aria-hidden="true">↗</span></a>
-  </div>
-  <div class="front-radar-frame">
-    <div class="front-radar-status"><span class="front-radar-pulse" aria-hidden="true"></span><span id="front-radar-state">세계 자동차 소식을 연결하고 있습니다.</span></div>
-    <ol id="front-radar-feed" class="front-radar-feed"><li><a href="/radar/"><strong>새로운 소식을 살펴보세요.</strong><small>포르쉐 뉴스룸 · BMW 프레스클럽 · Motor1</small></a></li></ol>
-    <p class="front-radar-note">원문 출처의 헤드라인입니다. TOHEŞAR 독립 취재 기사와 구분됩니다.</p>
-  </div>
+<section class="live-desk" aria-labelledby="live-desk-title">
+  <header class="live-desk-head">
+    <span class="live-desk-overline"><span class="live-desk-dot" aria-hidden="true"></span> NEWS / SOURCE RADAR</span>
+    <h2 id="live-desk-title">지금 자동차 세계</h2>
+    <p id="live-desk-status" class="live-desk-status" aria-live="polite">새 소식을 확인하고 있습니다.</p>
+  </header>
+  <ol id="live-desk-feed" class="live-desk-feed">
+    <li><a href="/radar/">포르쉐 · BMW · 자동차 전문 매체의 최신 소식 살펴보기 <span aria-hidden="true">↗</span></a></li>
+  </ol>
+  <a class="live-desk-all" href="/radar/">모든 소식 보기 <span aria-hidden="true">↗</span></a>
+  <p class="live-desk-note">원문 출처 링크 · TOHEŞAR 자체 기사와 구분</p>
 </section>
 <script>
-  const feed=document.getElementById('front-radar-feed');
-  const status=document.getElementById('front-radar-state');
-  if(feed&&status)fetch('/api/radar',{headers:{Accept:'application/json'}}).then(r=>r.json()).then(data=>{
-    if(!Array.isArray(data.articles)||!data.articles.length)throw new Error('No source entries');
-    feed.replaceChildren();
+  const list=document.getElementById('live-desk-feed');
+  const status=document.getElementById('live-desk-status');
+  if(list&&status) fetch('/api/radar',{headers:{Accept:'application/json'}}).then(r=>r.json()).then(data=>{
+    if(!Array.isArray(data.articles) || !data.articles.length)throw new Error('empty feed');
+    const fragment=document.createDocumentFragment();
     for(const item of data.articles.slice(0,4)){
       if(typeof item.url!=='string'||!item.url.startsWith('https://'))continue;
-      const li=document.createElement('li');const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer external';
-      const title=document.createElement('strong');title.textContent=item.title;title.lang='en';
-      const by=document.createElement('small');by.textContent=item.source+' · '+new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'short',day:'numeric'}).format(new Date(item.published_at))+' · 원문 ↗';
-      a.append(title,by);li.append(a);feed.append(li);
+      const li=document.createElement('li'), a=document.createElement('a');
+      a.href=item.url;a.target='_blank';a.rel='noopener noreferrer external';
+      const headline=document.createElement('strong');headline.textContent=item.title;headline.lang='en';
+      const meta=document.createElement('small');meta.textContent=item.source+' · '+new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'short',day:'numeric'}).format(new Date(item.published_at));
+      a.append(headline,meta);li.append(a);fragment.append(li);
     }
-    status.textContent='외부 소스 '+data.sources.filter((s:{status:string})=>s.status==='ok').length+'개 연결';
-  }).catch(()=>{status.textContent='연결 지연 · RADAR에서 다시 시도';});
+    if(fragment.childNodes.length){list.replaceChildren(fragment);status.textContent='오늘의 외부 뉴스 헤드라인';}
+  }).catch(()=>{status.textContent='뉴스 연결이 지연됩니다. Radar에서 다시 시도하세요.';});
 </script>
 <style is:global>
-.front-radar{margin:15px 0 60px;border-top:3px solid #20312b;padding-top:20px}
-.front-radar-head{display:flex;align-items:end;justify-content:space-between;gap:25px;padding-bottom:22px}
-.front-radar-number{font-size:10px;letter-spacing:.12em;color:#64796e}
-.front-radar-head h2{font-family:'TOHESAR Serif',Georgia,serif;font-weight:550;font-size:clamp(25px,3.5vw,42px);letter-spacing:-.055em;margin-top:10px}
-.front-radar-head h2>span{color:#537563}
-.front-radar-head h2 em{font-family:'TOHESAR Serif',Georgia,serif;font-weight:450;font-size:.58em;color:#6a7b6f;letter-spacing:-.025em;margin-left:17px}
-.front-radar-open{border-bottom:1px solid #304738;padding-bottom:8px;font-size:11px;flex-shrink:0}
-.front-radar-frame{display:grid;grid-template-columns:175px minmax(0,1fr);gap:25px;border-top:1px solid #9aaca0;border-bottom:1px solid #a3b2a8;padding:12px 0 20px}
-.front-radar-status{color:#536f5f;font-size:11px;display:flex;align-items:start;gap:11px;padding-top:13px;line-height:1.7}
-.front-radar-pulse{width:8px;height:8px;border-radius:50%;background:#608d72;flex-shrink:0;margin-top:4px}
-.front-radar-feed{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px;padding:0;margin:0}
-.front-radar-feed li{border-bottom:1px solid #c5cec5}
-.front-radar-feed a{display:flex;flex-direction:column;gap:10px;padding:17px 0;min-height:90px}
-.front-radar-feed strong{font:500 clamp(16px,1.7vw,20px)/1.43 'TOHESAR Serif',Georgia,serif}
-.front-radar-feed small{font-size:10px;color:#6c8074}
-.front-radar-note{grid-column:2;font-size:10px;color:#6b806f;margin-top:3px}
-@media(max-width:760px){.front-radar{margin:12px 0 45px}.front-radar-head{align-items:start;gap:15px}.front-radar-head h2{font-size:29px}.front-radar-head h2 em{display:block;margin:8px 0 0;font-size:17px}.front-radar-open{font-size:9px;line-height:1.6}.front-radar-frame{display:block}.front-radar-status{padding-top:7px}.front-radar-feed{grid-template-columns:1fr;margin:10px 0 0}.front-radar-feed a{min-height:70px;padding:14px 0}.front-radar-feed strong{font-size:19px}.front-radar-note{margin:15px 0 0;line-height:1.6}}
+.live-desk{color:var(--ink)}
+.live-desk-head{border-top:2px solid var(--ink);padding:16px 0 10px}
+.live-desk-overline{display:inline-flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.12em;color:#6d665c}
+.live-desk-dot{width:6px;height:6px;border-radius:50%;background:#658a72}
+.live-desk h2{font:600 21px/1.45 'TOHESAR Serif',serif;letter-spacing:-.045em;margin-top:10px}
+.live-desk-status{font-size:10px;color:#77746c;margin:5px 0 2px;line-height:1.5}
+.live-desk-feed{list-style:none;padding:0;margin:6px 0 0}
+.live-desk-feed li{border-bottom:1px solid var(--rule)}
+.live-desk-feed a{display:block;padding:15px 0 16px;min-height:60px;line-height:1.4}
+.live-desk-feed strong{display:block;font:500 16px/1.5 'TOHESAR Serif',serif;word-break:normal;overflow-wrap:break-word}
+.live-desk-feed small{display:block;color:var(--muted);font-size:10px;line-height:1.4;margin-top:7px}
+.live-desk-all{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink);padding:14px 0 11px;font-size:11px;margin-top:8px;min-height:44px}
+.live-desk-note{font-size:9px;color:var(--muted);line-height:1.5;margin-top:12px}
+@media(max-width:767px){
+ .live-desk{padding:0}
+ .live-desk h2{font-size:23px;margin-top:8px}
+ .live-desk-head{padding-top:14px}
+ .live-desk-feed a{padding:15px 0}
+ .live-desk-feed strong{font-size:17px}
+ .live-desk-all{font-size:12px}
+}
 </style>
