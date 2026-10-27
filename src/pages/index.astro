@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import StoryRow from '../components/StoryRow.astro';
+import RadarPreview from '../components/RadarPreview.astro';
 import { visibleArticles, href, subjects } from '../lib/publication';
 const stories = (await visibleArticles()).map((e) => e.data);
 const lead = stories.find((a) => a.slug === 'f40') || stories[0];
@@ -71,6 +72,7 @@ const archive = stories.find((a) => a.slug === 'ducati-916');
         <p>검토가 끝난 이야기부터 차례로 소개하겠습니다.</p>
       </section>
     )}
+    <RadarPreview />
     {secondary && (
       <section class="feature-spread" aria-labelledby="feature-title">
         <div class="section-heading full">
