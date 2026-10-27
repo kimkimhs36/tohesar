@@ -1,0 +1,200 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="RADAR · 세계의 자동차 소식" description="TOHEŞAR RADAR — 포르쉐 뉴스룸, BMW 프레스클럽과 자동차 전문 매체의 최신 소식을 원문 출처와 함께 살펴보는 자동차 뉴스 리더.">
+  <div class="radar-experience">
+    <header class="radar-hero">
+      <div class="radar-hero-top"><span>TOHEŞAR / THE WORLD IN MOTION</span><span>LIVE SOURCE INDEX · VERSION 01</span></div>
+      <div class="radar-hero-main">
+        <div><p class="radar-eyebrow">THE WORLD DOESN'T STOP MOVING.</p><h1>RADAR<span class="radar-period">.</span></h1><p class="radar-hero-korean">오늘 자동차 세계에서<br />무슨 일이 일어났을까.</p></div>
+        <div class="radar-hero-side">
+          <span class="radar-live"><span class="radar-orb" aria-hidden="true"></span>LIVE SOURCES</span>
+          <p>현대의 신차부터 모터스포츠와 디자인까지. 자동차를 이해하기 위해 먼저 살펴봐야 할 소식들을 원문 출처와 연결합니다.</p>
+          <p class="radar-honesty">발행처의 최신 제목·날짜를 표시하는 실시간 링크 모음입니다. TOHEŞAR의 자체 검증 기사와 구분합니다.</p>
+        </div>
+      </div>
+      <div class="radar-hero-foot"><span>01 / MONITOR THE INDUSTRY</span><span>02 / LEARN THE CONTEXT</span><span>03 / READ THE ORIGINAL</span></div>
+    </header>
+    <div class="radar-content">
+      <div class="radar-topbar">
+        <div><span class="radar-section-id">01 — DAILY SIGNALS</span><h2>세계의 소식<span class="radar-serif">, 지금.</span></h2></div>
+        <div class="radar-sync"><span class="radar-sync-indicator" id="radar-indicator" aria-hidden="true"></span><span id="radar-updated" aria-live="polite">뉴스 소스 연결 중</span><button type="button" id="radar-refresh">새로고침 ↻</button></div>
+      </div>
+      <div class="radar-controls">
+        <div class="radar-filter-scroller" aria-label="뉴스 주제 필터" role="group">
+          <button type="button" data-category="all" aria-pressed="true">ALL <span>전체</span></button>
+          <button type="button" data-category="new-cars" aria-pressed="false">NEW CARS <span>신차</span></button>
+          <button type="button" data-category="design" aria-pressed="false">DESIGN <span>디자인</span></button>
+          <button type="button" data-category="technology" aria-pressed="false">TECH <span>기술</span></button>
+          <button type="button" data-category="motorsport" aria-pressed="false">RACING <span>모터스포츠</span></button>
+          <button type="button" data-category="motorcycles" aria-pressed="false">MOTO <span>모터사이클</span></button>
+        </div>
+        <label class="radar-search"> <span class="radar-visually-hidden">뉴스 제목 검색</span><svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg><input id="radar-search" type="search" placeholder="제목에서 찾기" autocomplete="off" /></label>
+      </div>
+      <div class="radar-columns">
+        <div class="radar-news">
+          <div class="radar-newsmast"><span><b>THE DISPATCHES</b> / FROM OUR SOURCES</span><span id="radar-count" aria-live="polite">CONNECTING...</span></div>
+          <div id="radar-loading" class="radar-loading" role="status">공개 뉴스 피드를 읽고 있습니다. 잠시 뒤 발행처의 제목이 표시됩니다.</div>
+          <ol id="radar-list" class="radar-list" aria-label="실시간 자동차 뉴스"></ol>
+          <div id="radar-empty" class="radar-empty" hidden><h3>표시할 소식이 없습니다.</h3><p>피드 연결이 지연되었거나 현재 필터에 맞는 기사가 없습니다. 다시 불러오거나 공식 출처를 직접 방문할 수 있습니다.</p></div>
+          <div class="radar-list-foot"><span>END OF THE CURRENT DISPATCHES.</span><a href="/features/">TOHEŞAR 저널 읽기 ↗</a></div>
+        </div>
+        <aside class="radar-aside" aria-label="출처와 자동차 학습 노트">
+          <div class="radar-aside-title"><span>02 — SOURCE DESK</span><h2>어디에서<br /><em>왔는가.</em></h2></div>
+          <div id="radar-sources" class="radar-source-list">
+            <a href="https://newsroom.porsche.com/en.html" target="_blank" rel="noopener noreferrer"><strong>Porsche Newsroom</strong><span>제조사 발표 · 원문 ↗</span></a>
+            <a href="https://www.press.bmwgroup.com/global" target="_blank" rel="noopener noreferrer"><strong>BMW Group PressClub</strong><span>제조사 발표 · 원문 ↗</span></a>
+            <a href="https://www.motor1.com/" target="_blank" rel="noopener noreferrer"><strong>Motor1</strong><span>자동차 전문 매체 · 원문 ↗</span></a>
+          </div>
+          <div class="radar-notebook">
+            <div class="radar-notebook-number">03 / THE DESIGN READER</div>
+            <h3>뉴스를 볼 때<br />알아두면 좋은 것.</h3>
+            <dl>
+              <div><dt>CONCEPT CAR</dt><dd>생산차 출시 발표와 다릅니다. 디자인·기술 방향을 제안하는 실험적인 차량일 수 있어요.</dd></div>
+              <div><dt>FACELIFT</dt><dd>완전한 세대교체가 아니라 기존 차종의 디자인이나 장비를 개선하는 변경을 뜻합니다.</dd></div>
+              <div><dt>HOMOLOGATION</dt><dd>차량 또는 부품이 특정 규정의 인증·승인 요건을 충족하는 과정입니다. 모터스포츠에서는 대회 규정과 연결되기도 합니다.</dd></div>
+            </dl>
+            <a href="/articles/porsche-911/">디자인을 깊이 읽기 <span>↗</span></a>
+          </div>
+        </aside>
+      </div>
+      <div class="radar-ethics"><span>EDITORIAL NOTE / 001</span><p>여기에 표시되는 제목은 원문 발행처에서 가져옵니다. 뉴스 사실이나 제목의 해석을 TOHEŞAR가 독립적으로 검증한 것으로 표시하지 않습니다. 원문 기사·사진·본문은 복제하지 않으며, TOHEŞAR 자체 분석은 별도로 취재·검증해 발행합니다.</p></div>
+    </div>
+  </div>
+</Base>
+<script>
+  type Story = { title:string; url:string; source:string; source_id:string; category:string; published_at:string; original_language:string };
+  type Result = { status:string; fetched_at:string; articles:Story[]; sources:{id:string;source:string;status:string;count:number}[] };
+  const ids = { list:document.querySelector<HTMLOListElement>('#radar-list')!, count:document.querySelector<HTMLElement>('#radar-count')!, indicator:document.querySelector<HTMLElement>('#radar-indicator')!, updated:document.querySelector<HTMLElement>('#radar-updated')!, loading:document.querySelector<HTMLElement>('#radar-loading')!, empty:document.querySelector<HTMLElement>('#radar-empty')!, sources:document.querySelector<HTMLElement>('#radar-sources')!, search:document.querySelector<HTMLInputElement>('#radar-search')! };
+  const categories:Record<string,string> = { 'new-cars':'신차·업계','design':'디자인·역사','technology':'기술·동력','motorsport':'모터스포츠','motorcycles':'모터사이클' };
+  const addresses:Record<string,string> = { porsche:'https://newsroom.porsche.com/en.html',bmw:'https://www.press.bmwgroup.com/global',motor1:'https://www.motor1.com/' };
+  let entries:Story[]=[];
+  let active='all';
+  function formatTime(s:string) {
+    return new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(s));
+  }
+  function draw() {
+    const q=ids.search.value.toLocaleLowerCase().trim();
+    const shown=entries.filter(a => (active==='all'||a.category===active)&& (!q || a.title.toLocaleLowerCase().includes(q)||a.source.toLocaleLowerCase().includes(q)));
+    ids.list.replaceChildren();
+    ids.count.textContent=shown.length.toString().padStart(2,'0')+' DISPATCHES';
+    ids.empty.hidden=shown.length>0;
+    const frag=document.createDocumentFragment();
+    shown.forEach((story,index) => {
+      const li=document.createElement('li');
+      const link=document.createElement('a');
+      link.href=story.url;link.target='_blank';link.rel='noopener noreferrer external';link.className='radar-item-link';
+      const indexEl=document.createElement('span');indexEl.className='radar-index';indexEl.textContent=String(index+1).padStart(2,'0');
+      const copy=document.createElement('div');copy.className='radar-item-copy';
+      const source=document.createElement('div');source.className='radar-item-source';source.textContent=story.source.toUpperCase()+' / '+(categories[story.category]||'자동차');
+      const title=document.createElement('h3');title.lang='en';title.textContent=story.title;
+      const stamp=document.createElement('p');stamp.textContent=formatTime(story.published_at)+' KST · 원문 제목 · 외부 링크';
+      const arrow=document.createElement('span');arrow.className='radar-item-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='↗';
+      copy.append(source,title,stamp);link.append(indexEl,copy,arrow);li.append(link);frag.append(li);
+    });
+    ids.list.append(frag);
+  }
+  async function load() {
+    ids.loading.hidden=false; ids.empty.hidden=true;
+    ids.updated.textContent='뉴스 소스 연결 중';ids.indicator.dataset.status='loading';
+    try {
+      const res=await fetch('/api/radar',{headers:{Accept:'application/json'}});
+      const data:Result=await res.json();
+      if(!res.ok && !data.articles?.length) throw new Error('Sources unavailable');
+      entries=Array.isArray(data.articles)?data.articles:[];
+      ids.updated.textContent='소스 확인 '+formatTime(data.fetched_at)+' KST';
+      ids.indicator.dataset.status=data.status==='ok'?'ok':'partial';
+      ids.sources.replaceChildren();
+      data.sources.forEach(s=>{
+        const a=document.createElement('a');a.href=addresses[s.id]||'#';a.target='_blank';a.rel='noopener noreferrer';
+        const title=document.createElement('strong');title.textContent=s.source;
+        const stat=document.createElement('span');stat.textContent=s.status==='ok'?s.count+'개 소식 · 피드 연결':'연결 지연 · 원문 방문 ↗';
+        a.append(title,stat);ids.sources.append(a);
+      });
+      draw();
+    }catch {
+      entries=[]; ids.updated.textContent='소스 연결이 지연되고 있습니다'; ids.indicator.dataset.status='error';draw();
+    } finally {ids.loading.hidden=true;}
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(btn=>btn.addEventListener('click',()=>{
+    active=btn.dataset.category||'all';
+    document.querySelectorAll('[data-category]').forEach(el=>el.setAttribute('aria-pressed',String(el===btn)));
+    draw();
+  }));
+  ids.search.addEventListener('input',draw);
+  document.querySelector('#radar-refresh')?.addEventListener('click',load);
+  load();
+</script>
+<style is:global>
+.radar-experience{--radar-ink:#17201e;--radar-milk:#f2f1eb;--radar-green:#466255;--radar-line:#c4c8c0;background:var(--radar-milk);color:var(--radar-ink);margin:0 auto}
+.radar-hero{background:#1b2825;color:#f4f1e9;padding:22px max(24px,calc((100vw - 1320px)/2)) 0}
+.radar-hero-top,.radar-hero-foot{display:flex;justify-content:space-between;gap:20px;font:10px 'TOHESAR Sans',sans-serif;letter-spacing:.12em;color:#b8c4bc}
+.radar-hero-top{border-top:1px solid #6a8078;padding-top:16px}
+.radar-hero-main{display:grid;grid-template-columns:1.7fr 1fr;align-items:end;gap:70px;padding:44px 0 56px}
+.radar-eyebrow{font-size:11px;letter-spacing:.18em;color:#bbcbc2}
+.radar-hero h1{font-family:'TOHESAR Sans',sans-serif;font-size:clamp(90px,16vw,226px);font-weight:650;line-height:.88;letter-spacing:-.11em;margin:21px 0 32px}
+.radar-period{color:#a6beaf}
+.radar-hero-korean{font-family:'TOHESAR Serif',Georgia,serif;font-size:clamp(25px,2.5vw,39px);line-height:1.52;letter-spacing:-.045em}
+.radar-hero-side{padding-bottom:8px}
+.radar-live{display:flex;align-items:center;gap:12px;font:11px 'TOHESAR Sans',sans-serif;letter-spacing:.13em}
+.radar-orb{display:inline-block;width:9px;height:9px;background:#99c7a3;border-radius:50%;box-shadow:0 0 0 5px #99c7a321}
+.radar-hero-side p{font-size:15px;line-height:2;margin-top:21px;color:#e1e6df}
+.radar-hero-side .radar-honesty{font-size:11px;color:#b5c5b8;line-height:1.8;margin-top:16px}
+.radar-hero-foot{border-top:1px solid #4e6860;padding:17px 0 20px}
+.radar-content{max-width:1368px;padding:54px 24px 82px;margin:auto}
+.radar-topbar{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+.radar-section-id{font-size:10px;letter-spacing:.13em;color:#567267}
+.radar-topbar h2{font-family:'TOHESAR Serif',serif;font-weight:550;font-size:clamp(28px,3.1vw,46px);margin-top:14px;letter-spacing:-.05em}
+.radar-serif{font-family:Georgia,serif;font-weight:400;font-style:italic;color:#719183}
+.radar-sync{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:11px;color:#52665c}
+.radar-sync-indicator{width:8px;height:8px;border-radius:50%;background:#b3b59e}
+.radar-sync-indicator[data-status="ok"]{background:#477f5a}
+.radar-sync-indicator[data-status="partial"]{background:#b58c44}
+.radar-sync-indicator[data-status="error"]{background:#a75c4a}
+.radar-sync button{border:1px solid #849c90;padding:10px 13px;min-height:40px;font-size:11px;color:#1d3b31}
+.radar-controls{border-top:2px solid #24362e;border-bottom:1px solid #9caea4;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.radar-filter-scroller{display:flex;overflow-x:auto;scrollbar-width:none;gap:24px;min-width:0}
+.radar-filter-scroller button{flex-shrink:0;font-size:11px;font-weight:650;letter-spacing:.02em;min-height:60px;border:0;border-bottom:3px solid transparent;padding:13px 0 9px;color:#6b756e}
+.radar-filter-scroller button[aria-pressed="true"]{color:#1a2621;border-color:#4f7766}
+.radar-filter-scroller button span{display:block;font-size:9px;font-weight:450;margin-top:5px}
+.radar-search{display:flex;align-items:center;gap:9px;width:210px;min-width:160px;border-bottom:1px solid #818f85}
+.radar-search input{background:none;border:0;min-height:44px;font-size:12px;width:100%;outline-offset:0}
+.radar-visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.radar-columns{display:grid;grid-template-columns:minmax(0,1.95fr) minmax(270px,.9fr);gap:70px;margin-top:35px}
+.radar-newsmast{display:flex;justify-content:space-between;gap:18px;font-size:10px;letter-spacing:.09em;padding-bottom:15px;color:#56685d}
+.radar-newsmast b{color:#263c33}
+.radar-list{list-style:none;padding:0;margin:0;border-top:1px solid #aab9af}
+.radar-list li{border-bottom:1px solid #c2c9c0}
+.radar-item-link{display:grid;grid-template-columns:42px minmax(0,1fr) 21px;gap:20px;padding:26px 0 27px;align-items:start;min-height:117px}
+.radar-item-link:hover{color:#477562}
+.radar-index{font:14px Georgia,serif;color:#779082;margin-top:3px}
+.radar-item-source{font-size:10px;letter-spacing:.075em;color:#6b8375;margin-bottom:11px}
+.radar-item-copy h3{font-family:'TOHESAR Serif',Georgia,serif;line-height:1.42;font-weight:500;font-size:clamp(19px,2vw,28px);letter-spacing:-.02em;word-break:normal;overflow-wrap:break-word}
+.radar-item-copy p{font-size:10px;letter-spacing:.02em;color:#6d796d;margin-top:12px}
+.radar-item-arrow{font:22px Georgia,serif;color:#718277;align-self:start}
+.radar-empty,.radar-loading{padding:42px 18px;font-size:13px;color:#516a5d;line-height:1.9;background:#e8ede6}
+.radar-empty h3{font-family:'TOHESAR Serif',serif;font-size:22px;margin-bottom:8px}
+.radar-list-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:24px;font-size:10px;letter-spacing:.08em;color:#6c7d6e}
+.radar-list-foot a{border-bottom:1px solid #638275;padding-bottom:4px;color:#29483b}
+.radar-aside{border-left:1px solid #b4c0b5;padding-left:28px}
+.radar-aside-title{border-top:3px solid #23382e;padding-top:17px}
+.radar-aside-title>span,.radar-notebook-number{font-size:10px;letter-spacing:.12em;color:#5d7167}
+.radar-aside-title h2{font-family:'TOHESAR Serif',Georgia,serif;font-size:clamp(27px,3vw,42px);font-weight:500;line-height:1.3;letter-spacing:-.06em;margin:22px 0}
+.radar-aside-title h2 em{font-style:italic;font-weight:450;color:#6e8c7b}
+.radar-source-list a{display:flex;justify-content:space-between;align-items:start;gap:12px;border-top:1px solid #b8c5ba;padding:19px 0;font-size:12px}
+.radar-source-list strong{font-weight:650}
+.radar-source-list span{color:#607d6e;font-size:10px;text-align:right;max-width:110px}
+.radar-notebook{background:#dce3d9;padding:26px 23px 28px;margin-top:40px}
+.radar-notebook h3{font:500 26px/1.5 'TOHESAR Serif',serif;letter-spacing:-.04em;margin:20px 0 25px}
+.radar-notebook dl{margin:0}
+.radar-notebook dl div{border-top:1px solid #9daea2;padding:15px 0}
+.radar-notebook dt{font:10px 'TOHESAR Sans',sans-serif;letter-spacing:.07em;margin-bottom:8px}
+.radar-notebook dd{margin:0;font-size:12px;line-height:1.85;color:#4b5f52}
+.radar-notebook>a{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #8ba395;padding-top:15px;margin-top:13px;font-size:12px;font-weight:650}
+.radar-ethics{display:grid;grid-template-columns:200px 1fr;gap:35px;border-top:2px solid #284136;margin-top:55px;padding:24px 0}
+.radar-ethics span{font-size:10px;letter-spacing:.12em;color:#527061}
+.radar-ethics p{max-width:670px;color:#55695e;line-height:1.9;font-size:12px}
+@media(max-width:850px){.radar-hero{padding-inline:25px}.radar-hero-main{grid-template-columns:1fr;gap:20px;padding:55px 0 42px}.radar-hero h1{font-size:clamp(85px,20vw,170px)}.radar-hero-side{display:grid;grid-template-columns:1fr 2fr;column-gap:25px;align-items:start}.radar-hero-side p{margin-top:0}.radar-hero-side .radar-honesty{grid-column:2;margin-top:3px}.radar-hero-foot span:last-child{display:none}.radar-columns{grid-template-columns:1fr;gap:40px}.radar-aside{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-left:0;padding-left:0}.radar-source-list{grid-column:1}.radar-notebook{grid-column:2;grid-row:1/3;margin:0}.radar-aside-title h2{font-size:30px}.radar-controls{flex-direction:column;align-items:stretch;padding-top:12px}.radar-filter-scroller{gap:20px}.radar-search{align-self:flex-end;width:100%;max-width:360px;margin-bottom:12px}.radar-content{padding-inline:25px}}
+@media(max-width:600px){.radar-hero{padding:17px 20px 0}.radar-hero-top{font-size:8px}.radar-hero-top span:last-child{display:none}.radar-hero-main{padding:43px 0 32px;gap:25px}.radar-hero h1{font-size:clamp(73px,21vw,113px);margin:17px 0 24px;letter-spacing:-.09em}.radar-eyebrow{font-size:9px}.radar-hero-korean{font-size:25px}.radar-hero-side{display:block}.radar-live{font-size:10px}.radar-hero-side p{font-size:12px;line-height:1.8;margin-top:11px}.radar-hero-side .radar-honesty{font-size:10px;margin-top:10px}.radar-hero-foot{padding:15px 0;font-size:8px}.radar-content{padding:38px 20px 70px}.radar-topbar{align-items:start;flex-direction:column;gap:18px}.radar-topbar h2{font-size:33px}.radar-sync{width:100%;justify-content:space-between}.radar-filter-scroller{gap:24px}.radar-filter-scroller button{font-size:10px;min-height:51px}.radar-item-link{grid-template-columns:25px minmax(0,1fr) 16px;gap:9px;padding:21px 0}.radar-item-copy h3{font-size:20px}.radar-index{font-size:11px}.radar-item-arrow{font-size:17px}.radar-newsmast{font-size:9px}.radar-aside{display:block}.radar-source-list{margin-bottom:30px}.radar-notebook{margin-top:20px}.radar-ethics{grid-template-columns:1fr;gap:12px}.radar-list-foot{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.radar-experience *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
