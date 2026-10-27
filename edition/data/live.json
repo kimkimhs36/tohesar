@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "seed",
+  "fetched_at": "2026-10-27T16:00:00Z",
+  "disclaimer_ko": "검증된 공식 자료로 시작하는 초기 데이터입니다. 정기 RSS 갱신 성공 이후 외부 발행처의 최신 헤드라인으로 교체됩니다. 자체 취재 기사가 아닙니다.",
+  "sources": [
+    {
+      "id": "porsche",
+      "name": "Porsche Newsroom",
+      "status": "seed",
+      "count": 1
+    },
+    {
+      "id": "bmw",
+      "name": "BMW Group PressClub",
+      "status": "seed",
+      "count": 1
+    }
+  ],
+  "articles": [
+    {
+      "title": "Porsche Mission S: the essence of the sports car reinterpreted",
+      "url": "https://newsroom.porsche.com/en/2026/products/porsche-mission-s-vision-model-43528.html",
+      "source": "Porsche Newsroom",
+      "source_id": "porsche",
+      "category": "design",
+      "published_at": "2026-10-15T08:00:00Z",
+      "kind": "external-source",
+      "original_language": "en"
+    },
+    {
+      "title": "BMW Concept 7 Protection: Discreet protection in its most sophisticated form",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461562EN/bmw-concept-7-protection%3A-discreet-protection-in-its-most-sophisticated-form?language=en",
+      "source": "BMW Group PressClub",
+      "source_id": "bmw",
+      "category": "design",
+      "published_at": "2026-10-12T08:00:00Z",
+      "kind": "external-source",
+      "original_language": "en"
+    }
+  ]
+}
