@@ -18,11 +18,11 @@ const {
 const pageURL = new URL(Astro.url.pathname, Astro.site);
 const nav = [
   ['/radar/', 'Radar'],
-  ['/latest/', 'Latest'],
   ['/features/', 'Features'],
+  ['/search/', 'Search'],
+  ['/latest/', 'Latest'],
   ['/subjects/', 'Subjects'],
   ['/archive/', 'Archive'],
-  ['/search/', 'Search'],
 ];
 ---
 
@@ -57,8 +57,8 @@ const nav = [
     </a>
     {isPreview && (
       <div class="preview-notice">
-        <span>V3 PREVIEW</span>
-        <p>미발행 편집 샘플입니다. 실제 뉴스 발행 전 검토 중입니다.</p>
+        <span>PREVIEW</span>
+        <p>편집 실험 중 · 기획 기사는 아직 미발행입니다.</p>
         <a href="/about/#preview">안내 ↗</a>
       </div>
     )}
@@ -85,7 +85,7 @@ const nav = [
           그리고 기계 문화의 기록.
         </p>
         <a class="masthead-index" href="/archive/">
-          THE READING ROOM <span aria-hidden="true">↗</span>
+          READ THE ARCHIVE <span aria-hidden="true">↗</span>
         </a>
       </div>
       <nav class="main-nav" aria-label="주 메뉴">
@@ -108,6 +108,17 @@ const nav = [
             )}
           </a>
         ))}
+        <details class="mobile-nav-more">
+          <summary>더보기 <span aria-hidden="true">⌄</span></summary>
+          <div class="mobile-nav-links">
+            <a href="/latest/">최근 기사</a>
+            <a href="/subjects/">주제별</a>
+            <a href="/archive/">아카이브</a>
+            <a href="/saved/">저장한 글</a>
+            <a href="/atelier/">디자인 비교</a>
+            <a href="/about/">소개 · 편집 원칙</a>
+          </div>
+        </details>
       </nav>
     </header>
     <main id="main" tabindex="-1">
