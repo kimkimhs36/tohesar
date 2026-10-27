@@ -35,6 +35,12 @@
   });
   const expand=$("#wire-toggle"),content=$("#wire-content"),list=$("#wire-list"),state=$("#wire-state"),
     query=$("#wire-query"),more=$("#wire-more");
+  $("[data-bookmark]").forEach(button=>{
+    const id=escaped(button.dataset.bookmark);
+    const label=()=>{const ok=saved.has(id);button.setAttribute("aria-pressed",String(ok));button.textContent=ok?"저장됨 ♥":"나중에 읽기 ♡";};
+    label();
+    button.addEventListener("click",()=>{if(saved.has(id))saved.delete(id);else saved.add(id);savedSet(saved);label();});
+  });
   if(!expand||!content||!list||!state)return;
   let feed=[],active="all",take=12,loaded=false;
   function dom(tag,cls,value) {
@@ -125,10 +131,5 @@
     draw();
   }));
   more?.addEventListener("click",()=>{take+=12;draw();});
-  $$("[data-bookmark]").forEach(button=>{
-    const id=escaped(button.dataset.bookmark);
-    const label=()=>{const ok=saved.has(id);button.setAttribute("aria-pressed",String(ok));button.textContent=ok?"저장됨 ♥":"나중에 읽기 ♡";};
-    label();
-    button.addEventListener("click",()=>{if(saved.has(id))saved.delete(id);else saved.add(id);savedSet(saved);label();});
-  });
+
 })();
