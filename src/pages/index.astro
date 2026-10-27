@@ -73,6 +73,29 @@ const archive = stories.find((a) => a.slug === 'ducati-916');
       </section>
     )}
     <RadarPreview />
+    <section class="editorial-dossier-spotlight" aria-labelledby="dossier-title">
+      <div class="dossier-top"><span>THE DESIGN INTELLIGENCE / STUDY 001</span><span>PORSCHE · OCTOBER 2026</span></div>
+      <div class="dossier-layout">
+        <div><span class="dossier-kicker">THE NEW PORSCHE VISION</span><h2 id="dossier-title"><a href="/editorial/mission-s/">Mission S,<br /><em>형태가 미래를</em><br />예고할 때.</a></h2><p>새로운 포르쉐 비전 모델은 어떤 미래를 가리키는가. 2026년 공식 발표를 바탕으로 디자인 정체성과 미드 엔진 플랫폼의 의미를 읽는다.</p><a class="dossier-link" href="/editorial/mission-s/">한국어 디자인 분석 읽기 <span>↗</span></a></div>
+        <a class="dossier-art" href="/editorial/mission-s/" aria-label="Mission S 분석 기사 열기"><small>FORM / FUTURE / IDENTITY</small><strong>MS.</strong><span>NO FABRICATED CAR IMAGE. / EDITORIAL STUDY.</span></a>
+      </div>
+      <p class="dossier-disclosure">공식 발표 근거의 편집 검토 초안 · 양산 확정 보도가 아님 · 그래픽은 TOHEŞAR의 활자 디자인</p>
+    </section>
+    <style is:global>
+      .editorial-dossier-spotlight{margin:0 0 58px;background:#e6eae2;border-block:1px solid #a4b4a3;padding:24px clamp(18px,3vw,45px) 22px;color:#1b3228}
+      .dossier-top{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.08em;border-bottom:1px solid #9daf9d;padding-bottom:13px}
+      .dossier-layout{display:grid;grid-template-columns:1fr .78fr;gap:38px;padding-top:31px}
+      .dossier-kicker{font-size:10px;letter-spacing:.1em;color:#597c61}
+      .dossier-layout h2{font:500 clamp(30px,4vw,53px)/1.3 'TOHESAR Serif',Georgia,serif;letter-spacing:-.04em;margin:15px 0 17px}
+      .dossier-layout h2 em{font-family:'TOHESAR Serif',serif;font-style:normal;color:#5f8167;font-weight:450}
+      .dossier-layout p{font-size:13px;line-height:1.9;max-width:440px;color:#425f4d;margin:0 0 18px}
+      .dossier-link{display:inline-flex;align-items:center;gap:25px;font-size:11px;border-bottom:1px solid #33583d;padding-bottom:8px}
+      .dossier-art{display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;min-height:310px;color:#f0f5e9;background:radial-gradient(ellipse at 70% 20%,#829989,#456b5f 43%,#193f35 85%);padding:23px;isolation:isolate}
+      .dossier-art small,.dossier-art span{font:9px 'TOHESAR Sans',sans-serif;letter-spacing:.09em}
+      .dossier-art strong{font:400 clamp(110px,16vw,230px)/.7 Georgia,serif;letter-spacing:-.13em}
+      .dossier-disclosure{font-size:10px;color:#6a7a69;margin-top:20px}
+      @media(max-width:760px){.editorial-dossier-spotlight{margin-bottom:40px}.dossier-top{font-size:8px}.dossier-layout{grid-template-columns:1fr;gap:26px}.dossier-layout h2{font-size:35px}.dossier-art{min-height:270px}.dossier-art strong{font-size:clamp(130px,38vw,230px)}.dossier-disclosure{line-height:1.8}}
+    </style>
     {secondary && (
       <section class="feature-spread" aria-labelledby="feature-title">
         <div class="section-heading full">
