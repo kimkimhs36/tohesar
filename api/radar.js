@@ -13,7 +13,7 @@ const classify = (title) => {
   if (/motorcycle|motorrad|ducati|superbike|scooter|bike|two-wheel/.test(s)) return 'motorcycles';
   if (/racing|race|rally|formula|motorsport|grand prix|le mans|f1|penske|wrc|nascar/.test(s)) return 'motorsport';
   if (/design|concept|prototype|styling|shape|interior|coachbuild|heritage|historic|classic|vintage/.test(s)) return 'design';
-  if (/electric|battery|charging|hybrid|powertrain|engine|technology|software|hydrogen|efficiency/.test(s)) return 'technology';
+  if (/electric|battery|charging|hybrid|powertrain|engine|technology|software|hydrogen|efficiency|automated|autonomous|self-driving|fsd|factory|plant|production/.test(s)) return 'technology';
   return 'new-cars';
 };
 function decodeXml(value = '') {
@@ -61,6 +61,7 @@ function entriesFromFeed(xml, source) {
     if (!headline || !url || !Number.isFinite(t) || t < now - 45 * ONE_DAY || t > now + ONE_DAY) return null;
     // Source feeds are official feeds. These entries are source claims, NOT fact-checked TOHEŞAR articles.
     if (source.id === 'porsche' && /tennis|golf|fashion|watch|esport/i.test(headline)) return null;
+    if (/hot wheels.*heist|train heist|police recovered.*toys/i.test(headline)) return null;
     return {
       title: headline,
       url,
