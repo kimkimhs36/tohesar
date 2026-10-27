@@ -1,0 +1,36 @@
+name: Refresh TOHEŞAR Source Desk
+on:
+  schedule:
+    - cron: '13 0,6,12,18 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tohesar-source-desk
+  cancel-in-progress: false
+jobs:
+  update-feed:
+    if: github.repository == 'kimkimhs36/tohesar'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch public publisher RSS indexes
+        run: python .github/scripts/refresh_source_desk.py
+      - name: Validate generated JSON
+        run: python -m json.tool edition/data/live.json > /dev/null
+      - name: Commit only updated public headline metadata
+        run: |
+          git config user.name "TOHESAR Source Desk"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add edition/data/live.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(news): refresh attributed public headlines [skip ci]"
+            git push origin HEAD:main
+          fi
