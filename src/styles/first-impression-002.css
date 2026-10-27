@@ -172,3 +172,35 @@
 @media(prefers-reduced-motion:reduce){
  .fi2-body *, .fi2-body *::before, .fi2-body *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+
+/* CURATED NEWS: source-dated Korean headlines before the opt-in live English wire */
+.fi2-curated-intro{display:flex;justify-content:space-between;gap:17px;color:#7d8a7d;padding-bottom:12px;font-size:10px;letter-spacing:.035em}
+.fi2-curated-intro span:last-child{font-size:9px}
+.fi2-curated{border-top:1px solid #aebfb0}
+.fi2-curated-story{display:grid;grid-template-columns:27px 1fr;gap:18px;padding:24px 0 27px;border-bottom:1px solid #c1cdc2}
+.fi2-curated-no{font:12px Georgia,serif;color:#71917d;padding-top:5px}
+.fi2-curated-source{font-size:10px;letter-spacing:.055em;color:#63816d}
+.fi2-curated-story h3{font:530 clamp(19px,2.3vw,30px)/1.48 'TOHESAR Serif',Georgia,serif;letter-spacing:-.032em;margin:10px 0}
+.fi2-curated-story p{font-size:12px;line-height:1.85;color:#697e6e;max-width:620px}
+.fi2-curated-origin{display:inline-block;margin-top:15px;border-bottom:1px solid #68826e;padding-bottom:5px;color:#4c7659;font-size:11px}
+.fi2-wire{border-bottom:1px solid #acbba9}
+.fi2-wire>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:17px;min-height:58px;align-items:center;font-size:12px}
+.fi2-wire>summary::-webkit-details-marker{display:none}
+.fi2-wire>summary span{font-size:18px;color:#6e8472}
+.fi2-wire[open]>summary span{transform:rotate(180deg)}
+.fi2-wire-content{padding:0 0 22px}
+.fi2-wire .fi2-story{padding:17px 0;min-height:75px}
+.fi2-wire .fi2-story-main strong{font-size:18px;line-height:1.4}
+.fi2-wire .fi2-stories-list ol{border-color:#d1dcd1}
+.fi2-wire .fi2-provenance{font-size:10px;line-height:1.65}
+@media(max-width:700px){
+ .fi2-curated-intro{font-size:10px;padding-bottom:11px}
+ .fi2-curated-intro span:last-child{font-size:9px;max-width:140px;text-align:right}
+ .fi2-curated-story{grid-template-columns:21px 1fr;gap:11px;padding:19px 0 23px}
+ .fi2-curated-story h3{font-size:21px;line-height:1.43;margin:8px 0}
+ .fi2-curated-story p{font-size:12px;line-height:1.73}
+ .fi2-curated-origin{font-size:10px;margin-top:12px}
+ .fi2-wire>summary{min-height:56px;font-size:12px}
+ .fi2-wire .fi2-story-main strong{font-size:17px}
+}
