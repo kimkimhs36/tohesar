@@ -17,6 +17,7 @@ const {
 } = Astro.props;
 const pageURL = new URL(Astro.url.pathname, Astro.site);
 const nav = [
+  ['/radar/', 'Radar'],
   ['/latest/', 'Latest'],
   ['/features/', 'Features'],
   ['/subjects/', 'Subjects'],
@@ -143,6 +144,8 @@ const nav = [
           <a href="/about/#photography">사진과 출처</a>
           <a href="/saved/">저장한 글</a>
           <a href="/rss.xml">RSS</a>
+          <a href="/radar/">RADAR · 최신 외부 뉴스</a>
+          <a href="/atelier/">디자인 실험실</a>
         </nav>
         <span>
           © 2026 TOHEŞAR <span class="edition-separator">/</span>{' '}
