@@ -4,50 +4,50 @@ import Base from '../layouts/Base.astro';
 <Base title="RADAR · 세계의 자동차 소식" description="TOHEŞAR RADAR — 포르쉐 뉴스룸, BMW 프레스클럽과 자동차 전문 매체의 최신 소식을 원문 출처와 함께 살펴보는 자동차 뉴스 리더.">
   <div class="radar-experience">
     <header class="radar-hero">
-      <div class="radar-hero-top"><span>TOHEŞAR / THE WORLD IN MOTION</span><span>LIVE SOURCE INDEX · VERSION 01</span></div>
+      <div class="radar-hero-top"><span>TOHEŞAR / NEWSROOM</span><span>LIVE SOURCE INDEX</span></div>
       <div class="radar-hero-main">
-        <div><p class="radar-eyebrow">THE WORLD DOESN'T STOP MOVING.</p><h1>RADAR<span class="radar-period">.</span></h1><p class="radar-hero-korean">오늘 자동차 세계에서<br />무슨 일이 일어났을까.</p></div>
+        <div><p class="radar-eyebrow">WORLD MOTORING NEWS</p><h1>RADAR<span class="radar-period">.</span></h1><p class="radar-hero-korean">새로운 차, 새로운 이야기.</p></div>
         <div class="radar-hero-side">
           <span class="radar-live"><span class="radar-orb" aria-hidden="true"></span>LIVE SOURCES</span>
-          <p>현대의 신차부터 모터스포츠와 디자인까지. 자동차를 이해하기 위해 먼저 살펴봐야 할 소식들을 원문 출처와 연결합니다.</p>
-          <p class="radar-honesty">발행처의 최신 제목·날짜를 표시하는 실시간 링크 모음입니다. TOHEŞAR의 자체 검증 기사와 구분합니다.</p>
+          <p>제조사 발표와 자동차 매체의 최신 소식을 한곳에서 읽습니다.</p>
+          <p class="radar-honesty">출처의 원문 제목을 그대로 표시합니다. 자체 취재·검증 기사와는 별개입니다.</p>
         </div>
       </div>
-      <div class="radar-hero-foot"><span>01 / MONITOR THE INDUSTRY</span><span>02 / LEARN THE CONTEXT</span><span>03 / READ THE ORIGINAL</span></div>
+      
     </header>
     <div class="radar-content">
       <div class="radar-topbar">
-        <div><span class="radar-section-id">01 — DAILY SIGNALS</span><h2>세계의 소식<span class="radar-serif">, 지금.</span></h2></div>
+        <div><span class="radar-section-id">자동차 뉴스</span><h2>새로 올라온 소식</h2></div>
         <div class="radar-sync"><span class="radar-sync-indicator" id="radar-indicator" aria-hidden="true"></span><span id="radar-updated" aria-live="polite">뉴스 소스 연결 중</span><button type="button" id="radar-refresh">새로고침 ↻</button></div>
       </div>
       <div class="radar-controls">
         <div class="radar-filter-scroller" aria-label="뉴스 주제 필터" role="group">
-          <button type="button" data-category="all" aria-pressed="true">ALL <span>전체</span></button>
-          <button type="button" data-category="new-cars" aria-pressed="false">NEW CARS <span>신차</span></button>
-          <button type="button" data-category="design" aria-pressed="false">DESIGN <span>디자인</span></button>
-          <button type="button" data-category="technology" aria-pressed="false">TECH <span>기술</span></button>
-          <button type="button" data-category="motorsport" aria-pressed="false">RACING <span>모터스포츠</span></button>
-          <button type="button" data-category="motorcycles" aria-pressed="false">MOTO <span>모터사이클</span></button>
+          <button type="button" data-category="all" aria-pressed="true">전체</button>
+          <button type="button" data-category="new-cars" aria-pressed="false">신차</button>
+          <button type="button" data-category="design" aria-pressed="false">디자인</button>
+          <button type="button" data-category="technology" aria-pressed="false">기술</button>
+          <button type="button" data-category="motorsport" aria-pressed="false">모터스포츠</button>
+          <button type="button" data-category="motorcycles" aria-pressed="false">모터사이클</button>
         </div>
         <label class="radar-search"> <span class="radar-visually-hidden">뉴스 제목 검색</span><svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg><input id="radar-search" type="search" placeholder="제목에서 찾기" autocomplete="off" /></label>
       </div>
       <div class="radar-columns">
         <div class="radar-news">
-          <div class="radar-newsmast"><span><b>THE DISPATCHES</b> / FROM OUR SOURCES</span><span id="radar-count" aria-live="polite">CONNECTING...</span></div>
+          <div class="radar-newsmast"><span><b>원문 헤드라인</b></span><span id="radar-count" aria-live="polite">CONNECTING...</span></div>
           <div id="radar-loading" class="radar-loading" role="status">공개 뉴스 피드를 읽고 있습니다. 잠시 뒤 발행처의 제목이 표시됩니다.</div>
           <ol id="radar-list" class="radar-list" aria-label="실시간 자동차 뉴스"></ol>
-          <div id="radar-empty" class="radar-empty" hidden><h3>표시할 소식이 없습니다.</h3><p>피드 연결이 지연되었거나 현재 필터에 맞는 기사가 없습니다. 다시 불러오거나 공식 출처를 직접 방문할 수 있습니다.</p></div>
-          <div class="radar-list-foot"><span>END OF THE CURRENT DISPATCHES.</span><a href="/features/">TOHEŞAR 저널 읽기 ↗</a></div>
+          <button type="button" class="radar-more" id="radar-more" hidden>뉴스 더 보기 <span aria-hidden="true">↓</span></button><div id="radar-empty" class="radar-empty" hidden><h3>표시할 소식이 없습니다.</h3><p>피드 연결이 지연되었거나 현재 필터에 맞는 기사가 없습니다. 다시 불러오거나 공식 출처를 직접 방문할 수 있습니다.</p></div>
+          <div class="radar-list-foot"><span>출처는 각 기사의 원문 링크에서 확인할 수 있습니다.</span><a href="/features/">디자인 비평 읽기 ↗</a></div>
         </div>
         <aside class="radar-aside" aria-label="출처와 자동차 학습 노트">
-          <div class="radar-aside-title"><span>02 — SOURCE DESK</span><h2>어디에서<br /><em>왔는가.</em></h2></div>
+          <div class="radar-aside-title"><span>출처 정보</span><h2>어디에서 온 뉴스인가</h2></div>
           <div id="radar-sources" class="radar-source-list">
             <a href="https://newsroom.porsche.com/en.html" target="_blank" rel="noopener noreferrer"><strong>Porsche Newsroom</strong><span>제조사 발표 · 원문 ↗</span></a>
             <a href="https://www.press.bmwgroup.com/global" target="_blank" rel="noopener noreferrer"><strong>BMW Group PressClub</strong><span>제조사 발표 · 원문 ↗</span></a>
             <a href="https://www.motor1.com/" target="_blank" rel="noopener noreferrer"><strong>Motor1</strong><span>자동차 전문 매체 · 원문 ↗</span></a>
           </div>
-          <div class="radar-notebook">
-            <div class="radar-notebook-number">03 / THE DESIGN READER</div>
+          <details class="radar-notes"><summary>자동차 용어 알아보기 <span aria-hidden="true">⌄</span></summary><div class="radar-notebook">
+            <div class="radar-notebook-number">자동차 이해하기</div>
             <h3>뉴스를 볼 때<br />알아두면 좋은 것.</h3>
             <dl>
               <div><dt>CONCEPT CAR</dt><dd>생산차 출시 발표와 다릅니다. 디자인·기술 방향을 제안하는 실험적인 차량일 수 있어요.</dd></div>
@@ -55,10 +55,10 @@ import Base from '../layouts/Base.astro';
               <div><dt>HOMOLOGATION</dt><dd>차량 또는 부품이 특정 규정의 인증·승인 요건을 충족하는 과정입니다. 모터스포츠에서는 대회 규정과 연결되기도 합니다.</dd></div>
             </dl>
             <a href="/editorial/mission-s/">포르쉐 Mission S 분석 읽기 <span>↗</span></a>
-          </div>
+          </div></details>
         </aside>
       </div>
-      <div class="radar-ethics"><span>EDITORIAL NOTE / 001</span><p>여기에 표시되는 제목은 원문 발행처에서 가져옵니다. 뉴스 사실이나 제목의 해석을 TOHEŞAR가 독립적으로 검증한 것으로 표시하지 않습니다. 원문 기사·사진·본문은 복제하지 않으며, TOHEŞAR 자체 분석은 별도로 취재·검증해 발행합니다.</p></div>
+      <div class="radar-ethics"><span>편집 원칙</span><p>여기에 표시되는 제목은 원문 발행처에서 가져옵니다. 뉴스 사실이나 제목의 해석을 TOHEŞAR가 독립적으로 검증한 것으로 표시하지 않습니다. 원문 기사·사진·본문은 복제하지 않으며, TOHEŞAR 자체 분석은 별도로 취재·검증해 발행합니다.</p></div>
     </div>
   </div>
 </Base>
@@ -70,6 +70,8 @@ import Base from '../layouts/Base.astro';
   const addresses:Record<string,string> = { porsche:'https://newsroom.porsche.com/en.html',bmw:'https://www.press.bmwgroup.com/global',motor1:'https://www.motor1.com/' };
   let entries:Story[]=[];
   let active='all';
+  let visibleCount=12;
+  const more=document.querySelector<HTMLButtonElement>('#radar-more')!;
   function formatTime(s:string) {
     return new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(s));
   }
@@ -77,10 +79,11 @@ import Base from '../layouts/Base.astro';
     const q=ids.search.value.toLocaleLowerCase().trim();
     const shown=entries.filter(a => (active==='all'||a.category===active)&& (!q || a.title.toLocaleLowerCase().includes(q)||a.source.toLocaleLowerCase().includes(q)));
     ids.list.replaceChildren();
-    ids.count.textContent=shown.length.toString().padStart(2,'0')+' DISPATCHES';
+    ids.count.textContent=shown.length+'건';
+    more.hidden=shown.length<=visibleCount;
     ids.empty.hidden=shown.length>0;
     const frag=document.createDocumentFragment();
-    shown.forEach((story,index) => {
+    shown.slice(0,visibleCount).forEach((story,index) => {
       const li=document.createElement('li');
       const link=document.createElement('a');
       link.href=story.url;link.target='_blank';link.rel='noopener noreferrer external';link.className='radar-item-link';
@@ -118,10 +121,12 @@ import Base from '../layouts/Base.astro';
   }
   document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(btn=>btn.addEventListener('click',()=>{
     active=btn.dataset.category||'all';
+    visibleCount=12;
     document.querySelectorAll('[data-category]').forEach(el=>el.setAttribute('aria-pressed',String(el===btn)));
     draw();
   }));
-  ids.search.addEventListener('input',draw);
+  ids.search.addEventListener('input',()=>{visibleCount=12;draw();});
+  more.addEventListener('click',()=>{visibleCount+=12;draw();});
   document.querySelector('#radar-refresh')?.addEventListener('click',load);
   load();
 </script>
