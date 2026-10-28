@@ -44,7 +44,17 @@ Root HTML, COVER 004 assets/CSS/JS, original brand SVGs, root photographs, Yokoh
 
 ## Isolated release
 
-New project: `tohesar-visual-006-review` / `prj_yzNn38Aq8jjPtUfA9sOVBXIqaW4P`, team `teambkit`. Release URL and exact source commit are recorded after deployment in `visual-006-review/deployment-result.json`.
+New project: `tohesar-visual-006-review` / `prj_yzNn38Aq8jjPtUfA9sOVBXIqaW4P`, team `teambkit`. 
+- Public review: https://tohesar-visual-006-review.vercel.app/
+- Visual Culture: https://tohesar-visual-006-review.vercel.app/journal/visual/
+- Miniature Atelier: https://tohesar-visual-006-review.vercel.app/journal/miniatures/
+- Review room: https://tohesar-visual-006-review.vercel.app/docs/visual-006-review/
+- Deployment: `dpl_HqVoDZs7GL1sW41jouYwrap2KpQN`, READY, approximately 4.3-second build.
+- Application source: `4c5fdfb60018bc52533566d2dee60e5e1384d761`.
+- Public browser smoke: eight routes HTTP 200; menu, history and reverse collection scroll passed; no page errors. Deployed motion JS, CSS and new WebP bytes match the tested files.
+- Existing 005 review still points to `dpl_HmhvBap3PYH41dQQ1b1qXvrb37DX`. Protected branch heads remain unchanged.
+
+`visual-006-review/deployment-result.json` records the release. The final branch commit adds only completed deployment evidence, a deployed screenshot and this handoff. The public application source remains the tested commit above.
 
 ## Remaining limits
 

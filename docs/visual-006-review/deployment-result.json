@@ -1,0 +1,66 @@
+{
+  "status": "READY",
+  "public_url": "https://tohesar-visual-006-review.vercel.app/",
+  "deployment_url": "https://tohesar-visual-006-review-3uh5jkony-teambkit.vercel.app",
+  "project": "tohesar-visual-006-review",
+  "project_id": "prj_yzNn38Aq8jjPtUfA9sOVBXIqaW4P",
+  "team": "teambkit",
+  "deployment_id": "dpl_HqVoDZs7GL1sW41jouYwrap2KpQN",
+  "source_commit": "4c5fdfb60018bc52533566d2dee60e5e1384d761",
+  "branch": "feature/tohesar-visual-world-006",
+  "target": "production of isolated review project only",
+  "build_duration_seconds": 4.276,
+  "post_deploy": {
+    "routes": [
+      {
+        "route": "/",
+        "status": 200
+      },
+      {
+        "route": "/journal/",
+        "status": 200
+      },
+      {
+        "route": "/journal/911/",
+        "status": 200
+      },
+      {
+        "route": "/journal/f40/",
+        "status": 200
+      },
+      {
+        "route": "/journal/news/",
+        "status": 200
+      },
+      {
+        "route": "/journal/visual/",
+        "status": 200
+      },
+      {
+        "route": "/journal/miniatures/",
+        "status": 200
+      },
+      {
+        "route": "/docs/visual-006-review/",
+        "status": 200
+      }
+    ],
+    "errors": [],
+    "menu_history": true,
+    "collection_reverse": true
+  },
+  "deployed_asset_bytes_match": [
+    "journal/assets/visual-motion.js",
+    "journal/assets/visual-world.css",
+    "journal/assets/miniatures/wedge.webp",
+    "journal/assets/miniatures/gt.webp"
+  ],
+  "unchanged_005_deployment": "dpl_HmhvBap3PYH41dQQ1b1qXvrb37DX",
+  "protected_remote_heads": {
+    "refs/heads/creative/tohesar-cover-art-max-004": "851221c0996d6984dd68df029f6439db4b7391a9",
+    "refs/heads/creative/tohesar-cover-art-max-004-live": "24de81762bfa63f7281928df82b15d5daba0829b",
+    "refs/heads/feature/tohesar-journal-world-005": "acbb362e19661fb3333b160c936271aa5cec46d7",
+    "refs/heads/main": "8e2960ec70254f83033d8a808c3ea0eacd6eceb6"
+  },
+  "release_record_note": "Final branch commit only adds completed deployment evidence and handoff; public application source is the tested source_commit above."
+}
