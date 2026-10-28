@@ -4,3 +4,4 @@
 @media(max-width:360px){.header-journal{display:none}.journal-mast h1{font-size:49px}.section-nav a{font-size:9px}.feature-copy h2{font-size:31px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.image-link img{transition:none}}
 [hidden]{display:none!important}
+.mast-star{width:.58em;height:.58em;margin-left:.25em;margin-top:.02em;background:#96759b;clip-path:polygon(43% 0,57% 0,58% 32%,81% 9%,91% 19%,68% 42%,100% 43%,100% 57%,68% 58%,91% 81%,81% 91%,58% 68%,57% 100%,43% 100%,42% 68%,19% 91%,9% 81%,32% 58%,0 57%,0 43%,32% 42%,9% 19%,19% 9%,42% 32%)}
