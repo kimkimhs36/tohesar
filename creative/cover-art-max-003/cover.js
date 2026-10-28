@@ -42,7 +42,8 @@
     signature.style.opacity=phase(p,.66,.86);
     signature.style.visibility=p>.66?'visible':'hidden';
     cue.style.opacity=1-phase(p,0,.12);cue.style.visibility=p>.12?'hidden':'visible';
-    editorial.style.visibility=p>.38?'visible':'hidden';
+    editorial.style.visibility=p>.68?'visible':'hidden';
+    editorial.style.clipPath=`inset(0 0 ${100*(1-phase(p,.68,.96))}% 0)`;
     editorial.style.transform=`translateY(${18*(1-phase(p,.48,.94))}px)`;
     document.querySelector('.journal-link').style.opacity=1-phase(p,.06,.22)+phase(p,.72,.92);
   }
