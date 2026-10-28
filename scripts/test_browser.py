@@ -20,6 +20,7 @@ with sync_playwright() as p:
  page.set_viewport_size({'width':390,'height':844});page.goto('http://127.0.0.1:8000/edition/')
  page.get_by_role('button',name='메뉴 열기').click();assert page.locator('#mobile-menu').is_visible();page.keyboard.press('Escape');assert not page.locator('#mobile-menu').is_visible()
  page.get_by_role('button',name='검색 열기').click();page.locator('#search-field').fill('911');assert page.locator('#search-results a').count()==1;page.keyboard.press('Escape')
+ page.get_by_role('button',name='검색 열기').focus();page.keyboard.press('Enter');page.keyboard.press('ControlOrMeta+A');page.keyboard.type('F40');assert page.locator('#search-results a').count()==1;page.keyboard.press('Escape');assert not page.locator('#search-dialog').is_visible();assert page.get_by_role('button',name='검색 열기').evaluate('(el)=>el===document.activeElement')
  page.goto('http://127.0.0.1:8000/edition/story/f40/');page.locator('[data-save]').click();page.reload();assert page.locator('[data-save]').get_attribute('aria-pressed')=='true';assert page.locator('.article-toc a').count()==2
  page.locator('[data-saved-open]').click();assert page.locator('#saved-items a').count()==1;page.locator('#saved-items button').click();assert page.locator('#saved-items a').count()==0;page.keyboard.press('Escape');assert page.locator('[data-save]').get_attribute('aria-pressed')=='false'
  page.locator('.article-toc a').last.click();assert page.evaluate('scrollY')>0;assert page.locator('#reading-progress').get_attribute('style')
