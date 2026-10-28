@@ -43,3 +43,5 @@ body[data-page="news"] .site-header,body[data-page="archive"] .site-header{posit
 .current-brief{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin:0 0 32px;padding:0 0 30px;border-bottom:1px solid #b8c5b7}.current-brief span{font:10px var(--sans);color:#526e5a}.current-brief h3{font:500 clamp(24px,2.5vw,34px)/1.5 var(--serif);margin:16px 0}.current-brief p{font:13px/1.9 var(--sans);color:#4d6555;margin:0 0 12px}.current-brief small{display:block;font-size:10px;line-height:1.8;color:#526e5a}.current-brief .source-link{display:block;min-height:44px}@media(max-width:600px){.current-brief{grid-template-columns:1fr;gap:4px;margin-bottom:27px;padding-bottom:26px}.current-brief h3{font-size:25px;margin-top:12px}}
 /* Contrast verified against paper backgrounds. */
 .section-top,.tag-line,.section-headline p,.news-footer,.news-side>span,.subjects-grid a span,.subjects-grid small{color:#4e6857}.subjects-section h2 em{color:#647e6b}
+/* Intrinsic article image ratios must override HTML dimension hints. */
+.f40-article-image img{height:auto}
