@@ -49,6 +49,19 @@ Run `python3 -m http.server 8000` in the repository, then open `/`. Run `node sc
 - 005.3 `b99ef12`: Korean 911 and F40 editorials
 - 005.4 `1a8379b`: original miniature art
 - 005.5 `b0dceca`: scroll motion
-- 005.6: integration, review artifacts and completed browser checks in the commit containing this handoff.
+- 005.6 `aa6ae56`: integration, review artifacts and completed browser checks.
 
-Deployment result is recorded after the isolated review deployment is inspected.
+## Isolated deployment — READY
+
+- Public review: https://tohesar-journal-005-review.vercel.app/
+- Journal: https://tohesar-journal-005-review.vercel.app/journal/
+- Review room: https://tohesar-journal-005-review.vercel.app/docs/journal-005-review/
+- Additional verified review alias: https://tohesar-journal-world-005-review.vercel.app/
+- Project: `tohesar-journal-005-review` / `prj_QulgEvdY72JSr0TPWedS00OwgrsY`
+- Deployment: `dpl_HmhvBap3PYH41dQQ1b1qXvrb37DX`
+- Deployed source: `aa6ae56b0a4a5b3e3168ab7157711f0910886bd0`
+- Environment: production **of the new isolated review project only**; static HTML/CSS/JS, build approximately 3.2 seconds. Existing production projects/domains were not modified.
+- Post-deploy: eight public routes return HTTP 200; cover → journal → 911 → miniature → F40, history, reload and reverse scrolling pass; no page errors. See `docs/journal-005-review/deployment-result.json`.
+- Final branch commit adds only this completed deployment record and the JSON result; the deployed application source remains the tested 005.6 commit above.
+
+Remote branch heads checked after deployment: `main` remains `8e2960ec70254f83033d8a808c3ea0eacd6eceb6`; COVER 004 LIVE and the untouched editorial-005 experiment remain `24de81762bfa63f7281928df82b15d5daba0829b`. The existing cover review project still points to its original `dpl_4642JKEtTXXMRZUQYF3jcKVMnzAe` deployment.

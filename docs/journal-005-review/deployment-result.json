@@ -1,0 +1,57 @@
+{
+  "url": "https://tohesar-journal-005-review.vercel.app",
+  "status": "READY",
+  "deployment_id": "dpl_HmhvBap3PYH41dQQ1b1qXvrb37DX",
+  "project_id": "prj_QulgEvdY72JSr0TPWedS00OwgrsY",
+  "environment": "production of isolated review project only",
+  "deployed_commit": "aa6ae56b0a4a5b3e3168ab7157711f0910886bd0",
+  "framework": "static HTML/CSS/JS",
+  "build_duration_ms": 3185,
+  "checked_at": "2026-10-28T23:08:40.277Z",
+  "responses": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "TOHEŞAR — Cover 004"
+    },
+    {
+      "path": "/journal/",
+      "status": 200,
+      "title": "TOHEŞAR JOURNAL — 자동차를 바라보는 또 하나의 시선"
+    },
+    {
+      "path": "/journal/911/",
+      "status": 200,
+      "title": "911 — 형태가 시간을 통과하는 방식 — TOHEŞAR JOURNAL"
+    },
+    {
+      "path": "/journal/f40/",
+      "status": 200,
+      "title": "F40 — 바람이 지나갈 자리를 남기다 — TOHEŞAR JOURNAL"
+    },
+    {
+      "path": "/journal/news/",
+      "status": 200,
+      "title": "새로운 움직임 — TOHEŞAR 뉴스 아카이브"
+    },
+    {
+      "path": "/docs/journal-005-review/",
+      "status": 200,
+      "title": "TOHEŞAR 005 — Review room"
+    },
+    {
+      "path": "/journal/legacy-004/",
+      "status": 200,
+      "title": "TOHEŞAR — Journal / Index"
+    },
+    {
+      "path": "/journal/yokohama/",
+      "status": 200,
+      "title": "001 / YOKOHAMA — TOHEŞAR Journal"
+    }
+  ],
+  "journey": "pass",
+  "reverse_scroll": "pass",
+  "history_refresh": "pass",
+  "page_errors": []
+}
