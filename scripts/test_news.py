@@ -24,6 +24,22 @@ class FeedTests(unittest.TestCase):
             out=Path(d)/'news.json';out.write_text(json.dumps({'generated_at':'2026-10-15T00:00:00Z','items':[{'title':'Previous record'}]}))
             with patch.object(news,'read_source',side_effect=OSError('offline')):self.assertEqual(news.refresh(out),0)
             result=json.loads(out.read_text());self.assertEqual(result['generated_at'],'2026-10-15T00:00:00Z');self.assertEqual(len(result['items']),1);self.assertEqual(result['status'],'unavailable')
+    def test_headline_topic_inference_is_labelled_not_fact_checked(self):
+        examples = {
+            'Porsche design concept unveiled': 'design',
+            'MotoGP motorcycle racing update': 'motorcycles',
+            'Le Mans racecar history': 'motorsport',
+            'New electric battery manufacturing line': 'technology',
+            'Automaker earnings and market outlook': 'industry',
+            'New two-door sports car announced': 'new-cars',
+        }
+        for title, expected in examples.items():
+            self.assertEqual(news.infer_topic(title), expected, title)
+        data=b'<rss><channel><item><title>Porsche new design concept</title><link>https://newsroom.porsche.com/en/a</link><pubDate>Tue, 27 Oct 2026 09:00:00 GMT</pubDate></item></channel></rss>'
+        entry=news.parse_feed(data,self.source,self.now)[0]
+        self.assertEqual(entry['category'],'design')
+        self.assertEqual(entry['classification'],'headline-keywords')
+        self.assertFalse(entry['fact_checked'])
     def test_no_snapshot_and_no_network_fails(self):
         with tempfile.TemporaryDirectory() as d,patch.object(news,'read_source',side_effect=OSError('offline')):
             self.assertEqual(news.refresh(Path(d)/'missing.json'),1)
