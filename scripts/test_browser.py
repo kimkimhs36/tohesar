@@ -14,6 +14,8 @@ with sync_playwright() as p:
    checks=page.evaluate('''() => ({overflow:document.documentElement.scrollWidth>innerWidth,images:[...document.images].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),font:document.fonts.status})''')
    assert not checks['overflow'],(w,path,checks)
    assert not checks['images'],(w,path,checks)
+   if w<768 and page.locator('.f40-article-image img').count():
+    assert page.locator('.f40-article-image img').evaluate('(i)=>Math.abs(i.getBoundingClientRect().height/i.getBoundingClientRect().width-i.naturalHeight/i.naturalWidth)<0.02'),(w,path,'distorted image box')
    if w in [390,1440] and path in ['','news/','story/911/']:
     page.screenshot(path=out+'/'+('home' if not path else path.replace('/','-'))+str(w)+'.png',full_page=True)
    results.append({'width':w,'page':path or 'home',**checks})
