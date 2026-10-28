@@ -1,0 +1,43 @@
+name: TOHEŞAR Edition — news discovery QA
+on:
+  push:
+    branches:
+      - feature/edition-004-news-discovery-20261028
+    paths:
+      - 'edition/**'
+      - 'scripts/**'
+      - '.github/workflows/edition-news-qa.yml'
+  pull_request:
+    paths:
+      - 'edition/**'
+      - 'scripts/**'
+      - '.github/workflows/edition-news-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Python collection and publisher provenance
+        run: python3 -m unittest discover -s scripts -p 'test_news.py' -v
+      - name: Validate static HTML, links, attribution and root preservation
+        run: python3 scripts/test_edition.py --root .
+      - name: Check JavaScript syntax without build dependencies
+        run: node --check edition/app.js
+      - name: Assert mobile filters exist and are wired
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          html=Path('edition/news/index.html').read_text()
+          js=Path('edition/app.js').read_text()
+          css=Path('edition/style.css').read_text()
+          for key in ('wire-query','wire-publisher','wire-topic','wire-count','wire-load-more'):
+              assert f'id="{key}"' in html, f'Missing accessible control: {key}'
+              assert f"'{key}'" in js, f'Control not bound in JavaScript: {key}'
+          for phrase in ('ensureSearchIndex()', 'renderWire()', 'wireVisible+=12'):
+              assert phrase in js, f'Missing interactive action: {phrase}'
+          assert 'wire-filters' in css and 'prefers-reduced-motion' in css
+          print('PASS: all news discovery controls and mobile styles present')
+          PY
