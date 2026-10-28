@@ -1,0 +1,76 @@
+@import url("photo.css");
+
+:root {
+  color-scheme: light;
+  --ink: #272b38;
+  --white: #f8f2e7;
+  --edge: clamp(22px, 5.4vw, 64px);
+  --header-top: max(16px, env(safe-area-inset-top));
+  --p: 0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+a:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
+figure, h1, h2, p { margin: 0; }
+.navigation { position: absolute; top: var(--header-top); left: var(--edge); right: var(--edge); height: 44px; z-index: 8; display: flex; align-items: center; justify-content: space-between; color: var(--white); }
+.journal-link { display: flex; align-items: center; gap: 12px; min-height: 44px; font: 14px/1.3 Arial, sans-serif; letter-spacing: .015em; }
+.journal-link span { font-size: 17px; }
+.signature { width: 44px; height: 44px; display: grid; place-items: center; opacity: 0; visibility: hidden; margin-left: -10px; }
+.signature-shape, .travelling-signature { width: 26px; height: 26px; display: block; background: currentColor; -webkit-mask: url("../../assets/cedilla-icon.svg") center / contain no-repeat; mask: url("../../assets/cedilla-icon.svg") center / contain no-repeat; }
+.travelling-signature { display: none; }
+.sequence { position: relative; }
+.stage { position: relative; min-height: 100svh; overflow: clip; }
+.paper { position: absolute; inset: 0; background: var(--paper); }
+.photograph { position: relative; height: 100svh; }
+.photo-window { position: absolute; inset: 0; overflow: hidden; background: var(--sky); }
+.wordmark { position: absolute; width: 89%; left: 5.5%; top: max(104px, 15svh); transform-origin: 62.5% 90%; }
+.wordmark img { display: block; width: 100%; height: auto; animation: name-arrives 1.25s cubic-bezier(.22,.61,.36,1) both; }
+.photo-arrival { animation: light-settles 1.6s cubic-bezier(.22,.61,.36,1) both; }
+.opening-cue { position: absolute; top: calc(100svh - max(58px, env(safe-area-inset-bottom) + 32px)); left: var(--edge); right: var(--edge); color: var(--white); display: flex; align-items: center; justify-content: space-between; min-height: 44px; font-size: 12px; letter-spacing: .035em; }
+.cue-line { height: 30px; width: 1px; background: currentColor; position: relative; margin-right: 4px; }
+.cue-line::after { content: ""; position: absolute; bottom: 0; left: -3px; width: 6px; height: 6px; border-bottom: 1px solid; border-right: 1px solid; transform: rotate(45deg); }
+.photo-caption { position: absolute; top: calc(100% + 12px); left: 0; right: 0; display: flex; justify-content: space-between; gap: 16px; font-size: 10px; letter-spacing: .01em; }
+.editorial { padding: 64px var(--edge) 60px; }
+.editorial-heading { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; padding-bottom: 14px; border-bottom: 1px solid #272b3838; margin-bottom: 20px; }
+.editorial-heading span:last-child { color: #626573; font-size: 10px; }
+h2 { font-size: clamp(25px, 6.8vw, 36px); font-weight: 400; letter-spacing: -.065em; line-height: 1.5; word-break: keep-all; }
+.editorial p { font-size: 12px; color: #626573; line-height: 1.9; letter-spacing: -.025em; margin-top: 19px; word-break: keep-all; }
+.study-note { padding: 20px var(--edge) max(28px, env(safe-area-inset-bottom)); font-size: 10px; color: #676a75; border-top: 1px solid #272b381c; letter-spacing: -.015em; }
+.journal-anchor { position: absolute; top: 100svh; }
+
+/* The very same photograph becomes the journal's first plate. */
+.motion .navigation { position: fixed; }
+.motion .sequence { height: 205svh; }
+.motion .stage { position: sticky; top: 0; height: 100svh; min-height: 0; }
+.motion .photograph { position: absolute; inset: 0; height: auto; }
+.motion .photo-caption { top: auto; bottom: var(--caption-bottom, 35%); left: var(--edge); right: var(--edge); opacity: var(--caption-opacity, 0); transform: translateY(var(--caption-y, 8px)); }
+.motion .wordmark { transform: translate(var(--word-x, 0px), var(--word-y, 0px)) scale(var(--word-scale, 1)); opacity: var(--word-opacity, 1); }
+.motion .travelling-signature { display: block; position: absolute; top: 0; left: 0; color: var(--ink); opacity: var(--transfer-opacity, 0); transform: translate(var(--transfer-x, 0px), var(--transfer-y, 0px)) scale(var(--transfer-scale, 1)); }
+.motion .opening-cue { opacity: var(--cue-opacity, 1); transform: translateY(var(--cue-y, 0px)); visibility: var(--cue-visibility, visible); }
+.motion .editorial { position: absolute; padding: 0; top: var(--editorial-top, 72%); left: var(--edge); right: var(--edge); opacity: var(--editorial-opacity, 0); transform: translateY(var(--editorial-y, 28px)); visibility: var(--editorial-visibility, hidden); }
+.motion .journal-anchor { top: 105svh; }
+
+@keyframes light-settles { from { transform: scale(1.018); } to { transform: scale(1); } }
+@keyframes name-arrives { from { opacity: .35; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (min-width: 760px) and (min-aspect-ratio: 1/1) {
+  .wordmark { width: 64%; left: 18%; top: max(92px, 11svh); }
+  .editorial { max-width: 620px; margin-left: auto; }
+  .motion .editorial { left: 71%; right: 5%; top: 47%; margin: 0; }
+  .editorial-heading { display: block; }
+  .editorial-heading span:last-child { display: block; margin-top: 9px; }
+  h2 { font-size: clamp(23px, 2.15vw, 36px); }
+  .motion .photo-caption { left: 5%; right: 35%; }
+}
+@media (max-height: 600px) and (min-aspect-ratio: 1/1) {
+  .wordmark { width: 55%; left: 22.5%; top: 17%; }
+  .editorial p { font-size: 11px; margin-top: 12px; }
+  .editorial-heading { margin-bottom: 12px; padding-bottom: 10px; }
+  h2 { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; }
+}

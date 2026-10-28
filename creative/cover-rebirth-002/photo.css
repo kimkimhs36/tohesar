@@ -1,0 +1,32 @@
+/* Photo art direction is isolated from the choreography.
+   Current 4:5 repository image is a PLACEHOLDER, not an approved cover.
+   Its full car silhouette is protected on tall phones by a blue sky-coloured
+   mount above the image. No car extraction, generated image or photo composite.
+   For a final tall portrait: set --portrait-height: 100%; --sky-feather: 0%.
+   Replace the img src and preload href in index.html together.
+*/
+:root {
+  --sky: #445d83;
+  --paper: #dcdde3;
+  --portrait-height: min(100%, 158vw);
+  --sky-feather: 18%;
+  --photo-position: 85% 100%;
+}
+.photo-arrival {
+  position: absolute;
+  inset: 0;
+  background: var(--sky);
+}
+.cover-photo {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: var(--portrait-height);
+  object-fit: cover;
+  object-position: var(--photo-position);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 var(--sky-feather));
+  mask-image: linear-gradient(to bottom, transparent, #000 var(--sky-feather));
+}
+@media (min-width: 760px) and (min-aspect-ratio: 1/1) {
+  :root { --portrait-height: 100%; --photo-position: 50% 64%; --sky-feather: 0%; }
+}
