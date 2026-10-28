@@ -5,3 +5,7 @@
 @media(max-height:730px) and (min-width:701px){.scene-enabled .collection-field{height:300px}.scene-enabled .collection-heading h2{font-size:32px}.scene-enabled .air-diagram{height:180px}.scene-enabled .air-copy{margin-top:15px}.scene-enabled .air-copy h2{font-size:30px}.scene-enabled .air-notes{margin:10px 0;min-height:65px}}
 @media(prefers-reduced-motion:reduce){.object-art>img{transition:none}.object-art:hover>img{transform:none}.collection-bottom>span{font-size:0}.collection-bottom>span:after{content:'COLLECTION 01 / 정적 감상';font-size:8px}}
 .visual-page .site-footer{color:var(--ink)}
+@media(max-width:700px) and (max-height:759px){.scene-enabled .collection-field{height:275px}.scene-enabled .collection-heading h2{font-size:28px}.scene-enabled .collection-heading p{margin-top:10px}.scene-enabled .collection-heading{margin-top:16px}.scene-enabled .air-diagram{height:175px}.scene-enabled .air-copy{margin-top:18px}.scene-enabled .air-copy h2{font-size:28px}.scene-enabled .air-notes{min-height:70px;margin:17px 0}}
+/* Keep rotated artwork inside the editorial margins at both ends of the scroll. */
+.collection-field{overflow:clip;overflow-clip-margin:20px}.collection-field svg{overflow:hidden}.car-coupe{left:7%}@media(max-width:700px){.car-coupe{left:6%}.car-wedge{right:6%}}
+.car-coupe{top:3%}.car-gt{bottom:20px}@media(max-width:700px){.car-coupe{left:9%}.car-wedge{right:10%}}

@@ -14,6 +14,9 @@
       // Short landscape screens get an ordinary static plate instead of a clipped sticky one.
       s.enabled = !reduced.matches && innerHeight >= 620;
       s.el.classList.toggle('scene-enabled', s.enabled);
+      if (s.enabled && s.board.offsetHeight > innerHeight + 2) {
+        s.enabled = false; s.el.classList.remove('scene-enabled');
+      }
       s.top = s.el.getBoundingClientRect().top + scrollY;
       s.distance = Math.max(1, s.el.offsetHeight - s.board.offsetHeight);
       const track = s.el.querySelector('.air-diagram');
