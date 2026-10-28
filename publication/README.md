@@ -31,3 +31,8 @@ Eight static HTML routes. Native scrolling; one scroll-event requestAnimationFra
 The commissioned silver-car/Japanese-evening cover is still an opportunity; this candidate uses an authentic warm-light Audi photograph, not a fabricated shoot. The four-image gallery is intentionally small. Illustration recognisability needs specialist correction, especially Ferrari lamp shapes, Jaguar fascia and wheels; the artwork is openly identified as an AI-assisted study. A final commissioned illustration pass should increase variation in viewpoint and scale. More deeply reported stories and a verified complete personal collection are future editorial inputs. English is used for this candidate, following the supplied brief; a Korean editorial edition is not implemented.
 
 Chromium renders tested at 320, 390, 1024 and 1440 widths. No physical iPhone/iPad, Safari, VoiceOver, field Core Web Vitals or thermal measurements. Playwright WebKit executable unavailable. Reduced-motion behavior is CSS/media-query based and tested in Chromium. Full homepage payload is approximately 1 MB after all lazy images load; critical cover approximately 290 KB. No formal Lighthouse score claimed.
+
+## Independent hosted preview
+
+Public review alias: https://tohesar-astra-001-preview.vercel.app/
+Vercel project: `tohesar-astra-001-preview`, team `teambkit`. Its root is `publication/`; it has no TOHEŞAR custom domain. Vercel labels the public alias deployment as this **separate preview project's production**, which is unrelated to the existing official GitHub Pages production. Unique deployment URLs may require Vercel authentication; use the public review alias. No connection to or replacement of `tohesar.com` was made.

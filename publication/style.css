@@ -4,3 +4,5 @@
 /* Each car occupies one sprite cell; mask neighbouring wheel/shadow fragments. */
 .car-1 span,.car-4 span{clip-path:inset(0 0 0 3%)}.car-2 span,.car-5 span{clip-path:inset(0 0 0 3%)}
 @media(max-width:700px){.cover{height:88svh}.cover h1{top:15%}.cover-photo{object-position:53% 57%}}
+.out-arrow{display:inline-block;width:.7em;height:.7em;position:relative;margin-left:.3em}.out-arrow:before{content:'';position:absolute;inset:0;border-top:1px solid;border-right:1px solid}.out-arrow:after{content:'';position:absolute;top:0;right:0;width:.94em;border-top:1px solid;transform:rotate(-45deg);transform-origin:right center}
+@media(max-width:700px){.cover{height:150vw;min-height:0;max-height:88svh}}
