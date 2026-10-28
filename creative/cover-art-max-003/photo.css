@@ -1,0 +1,3 @@
+/* Replace the image URL in index.html (image and preload) and tune this focal point.
+   Source files stay untouched. No cutout, compositing or generated image. */
+:root{--photo-focus:85% 63%}
