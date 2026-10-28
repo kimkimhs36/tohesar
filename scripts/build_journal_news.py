@@ -11,7 +11,17 @@ def render(item):
 items=json.loads((ROOT/'journal/data/news.json').read_text())['items']
 items=sorted([i for i in items if i['status']=='published'],key=lambda i:i['published_at'],reverse=True)
 for path in ['journal/index.html','journal/news/index.html']:
-    p=ROOT/path;s=p.read_text();markup=''.join(map(render,items))
+    p=ROOT/path;s=p.read_text()
+    selected=items
+    if path=='journal/index.html':
+        # A compact, manufacturer-diverse homepage; the archive retains every record.
+        limit=int(re.search(r'data-limit="(\d+)"',s).group(1))
+        seen=set();selected=[]
+        for item in items:
+            if item['manufacturer'] not in seen:
+                selected.append(item);seen.add(item['manufacturer'])
+            if len(selected)==limit:break
+    markup=''.join(map(render,selected))
     if '<!-- NEWS:START -->' in s:
         s=re.sub(r'<!-- NEWS:START -->.*?<!-- NEWS:END -->',f'<!-- NEWS:START -->{markup}<!-- NEWS:END -->',s,flags=re.S)
     else:s=s.replace('>NEWS</div>',f'><!-- NEWS:START -->{markup}<!-- NEWS:END --></div>')

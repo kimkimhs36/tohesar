@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-28",
+  "method": "Official individual release fetched over HTTPS; visible date, title and body checked against Korean summary. No external images reused.",
+  "sources": [
+    {
+      "url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001290",
+      "http_status": 200,
+      "title": "Hyundai Motor Unveils ELANTRA N MONOCHROME with Understated High-Performance Theme",
+      "published_at": "2026-10-19",
+      "date_evidence": "SEOUL, October 19, 2026",
+      "summary": "현대자동차가 ELANTRA N MONOCHROME을 공개했다. 차체의 일관된 단색 처리로 실루엣과 소재, 고성능 디테일을 강조하는 디자인을 제안한다."
+    },
+    {
+      "url": "https://newsroom.genesis.com/danh-vo-announced-as-artist-for-genesis-facade-commission-2027-at-metropolitan-museum-of-art/",
+      "http_status": 200,
+      "title": "DANH VO ANNOUNCED AS ARTIST FOR GENESIS FACADE COMMISSION 2027 AT METROPOLITAN MUSEUM OF ART",
+      "published_at": "2026-10-15",
+      "date_evidence": "15 October 2026 | 23:00 Asia/Seoul",
+      "summary": "제네시스와 메트로폴리탄 미술관의 파사드 커미션에 작가 Danh Vo가 선정됐다. 전시는 뉴욕에서 2027년 9월 16일부터 2028년 6월 13일까지 열릴 예정이다."
+    },
+    {
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461077EN/the-new-mini-countryman-untamed-edition:-more-freedom-for-adventure",
+      "http_status": 200,
+      "title": "The new MINI Countryman Untamed Edition: More freedom for adventure.",
+      "published_at": "2026-10-06",
+      "date_evidence": "Tue Oct 06 18:00:00 CEST 2026",
+      "summary": "MINI가 Countryman Untamed Edition을 발표했다. 높아진 지상고와 올터레인 타이어, 전용 디자인 요소로 야외 활동의 성격을 드러내며 AUTOHOME·HELINOX 협업도 함께 소개했다."
+    }
+  ],
+  "excluded": [
+    {
+      "manufacturer": "Jaguar",
+      "reason": "Homepage advertised Type 01, but linked individual release returned HTTP 404. Not added."
+    }
+  ]
+}
