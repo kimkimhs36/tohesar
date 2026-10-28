@@ -25,6 +25,20 @@ FEEDS = (
 MAX_ITEMS=45
 MAX_AGE=timedelta(days=24)
 
+# A deliberately conservative label inferred from the publisher HEADLINE.
+# It is not an independently verified article category, nor a fact-check.
+TOPIC_PATTERNS=(
+    ('motorcycles',r'\\b(motorcycle|motorcycles|superbike|motorrad|scooter|two.wheel|motogp)\\b'),
+    ('motorsport',r'\\b(f1|formula 1|formula one|nascar|wrc|grand prix|motorsport|le mans|racing|rally|racecar|race car|indycar)\\b'),
+    ('design',r'\\b(concept|prototype|design|styling|heritage|classic|vintage|coachbuilt|coachbuild|restomod|vision model)\\b'),
+    ('technology',r'\\b(battery|charging|autonomous|software|electric|electrification|hydrogen|self.driving|factory|production|manufacturing|robot|powertrain)\\b'),
+    ('industry',r'\\b(recall|recalls|factory investment|earnings|profits|tariff|sales|market|partnership|plant|workers|ceo|bankruptcy)\\b'),
+)
+def infer_topic(title):
+    for topic,pattern in TOPIC_PATTERNS:
+        if re.search(pattern,title,re.I):return topic
+    return 'new-cars'
+
 def text_at(parent, keys):
     for child in parent:
         key=child.tag.rsplit('}',1)[-1].lower()
@@ -66,7 +80,7 @@ def parse_feed(data, source, now):
         dt=parse_date(raw_date,now)
         if not title or len(title)<7 or not link or dt is None:continue
         if re.search(r'\b(tennis|golf|fashion|watch|esport|LPGA|Ladies Championship)\b',title,re.I):continue
-        entries.append(dict(id=source['id']+'-'+hashlib.sha256(link.encode('utf8')).hexdigest()[:14],title=title,source=source['name'],source_id=source['id'],url=link,published_at=dt.isoformat(),category='ORIGINAL',language='en',collected_at=now.isoformat(),fact_checked=False,brands=[brand for brand in ('Porsche','BMW','MINI','Ferrari','Toyota','Mazda','Audi','KTM') if re.search(r'\b'+brand+r'\b',title,re.I)],models=[],kind='publisher-headline'))
+        entries.append(dict(id=source['id']+'-'+hashlib.sha256(link.encode('utf8')).hexdigest()[:14],title=title,source=source['name'],source_id=source['id'],url=link,published_at=dt.isoformat(),category=infer_topic(title),classification='headline-keywords',language='en',collected_at=now.isoformat(),fact_checked=False,brands=[brand for brand in ('Porsche','BMW','MINI','Ferrari','Toyota','Mazda','Audi','KTM') if re.search(r'\b'+brand+r'\b',title,re.I)],models=[],kind='publisher-headline'))
     return entries
 
 def read_source(source, now):
