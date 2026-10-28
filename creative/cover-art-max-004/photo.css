@@ -1,0 +1,3 @@
+/* Change the image and preload URLs in index.html, then adjust this focus.
+   Framing limits live in measure() in cover.js. Original assets are untouched. */
+:root{--photo-focus:82% 62%}
