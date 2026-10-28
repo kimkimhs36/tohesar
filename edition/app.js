@@ -23,22 +23,80 @@ function headlineCard(item){
 const approvedHosts=['newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com'];
 const safeFeedItem=(x)=>{try{const url=new URL(x.url);return url.protocol==='https:'&&approvedHosts.includes(url.hostname)&&typeof x.title==='string'&&x.title.length>5&&x.title.length<400&&Number.isFinite(Date.parse(x.published_at))}catch{return false}};
 let wireItems=[];
+let wireVisible=12;
+const topicLabels={
+ 'new-cars':'신차·차종','design':'디자인·콘셉트','technology':'기술·제조',
+ 'motorsport':'모터스포츠','motorcycles':'모터사이클','industry':'산업·시장'
+};
+function topicOf(item){
+ const provided=String(item.category||'');
+ if(topicLabels[provided])return provided;
+ const t=String(item.title||'').toLowerCase();
+ if(/\b(motorcycle|motorcycles|superbike|motorrad|scooter|motogp)\b/.test(t))return 'motorcycles';
+ if(/\b(f1|formula one|formula 1|nascar|wrc|grand prix|motorsport|le mans|racing|rally|indycar)\b/.test(t))return 'motorsport';
+ if(/\b(concept|prototype|design|styling|heritage|classic|vintage|restomod|vision model)\b/.test(t))return 'design';
+ if(/\b(battery|charging|autonomous|software|electric|hydrogen|self-driving|factory|production|robot|powertrain)\b/.test(t))return 'technology';
+ if(/\b(recall|earnings|tariff|sales|market|partnership|plant|workers|ceo)\b/.test(t))return 'industry';
+ return 'new-cars';
+}
+function renderWire(){
+ const list=by('wire-list');if(!list)return;
+ const query=(by('wire-query')?.value||'').trim().toLocaleLowerCase();
+ const publisher=by('wire-publisher')?.value||'all';
+ const topic=by('wire-topic')?.value||'all';
+ const matches=wireItems.filter(item=>
+   (publisher==='all'||item.source_id===publisher)&&
+   (topic==='all'||topicOf(item)===topic)&&
+   (!query||(item.title+' '+item.source).toLocaleLowerCase().includes(query))
+ );
+ const shown=matches.slice(0,wireVisible);
+ const frag=document.createDocumentFragment();
+ for(const item of shown)frag.append(headlineCard(item));
+ if(!shown.length)frag.append(element('li','wire-placeholder',wireItems.length?'조건에 맞는 뉴스가 없습니다. 필터를 바꿔보세요.':'표시할 원문 뉴스가 없습니다.'));
+ list.replaceChildren(frag);
+ const counter=by('wire-count');
+ if(counter)counter.textContent=matches.length+'건 중 '+shown.length+'건 표시 · 주제는 원문 제목 키워드로 자동 분류';
+ const more=by('wire-load-more');
+ if(more)more.hidden=shown.length>=matches.length;
+}
 async function loadWire(){
- const list=by('wire-list');const state=by('wire-state');if(!list)return;
- try {
+ const list=by('wire-list'),state=by('wire-state');if(!list)return;
+ if(state)state.textContent='수집 기록 확인 중';
+ try{
   const response=await fetch(base+'data/news.json',{cache:'no-cache'});
   if(!response.ok)throw new Error('fetch');
   const data=await response.json();
   if(!Array.isArray(data.items))throw new Error('bad schema');
-  const chosen=data.items.filter(safeFeedItem).slice(0,45);wireItems=chosen;
-  list.replaceChildren(...chosen.map(headlineCard));
-  if(!chosen.length)throw new Error('empty');
-  const instant=Date.parse(data.generated_at);const age=Math.max(0,(Date.now()-instant)/3600000);
-  const when=Number.isFinite(instant)?new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(instant)):'확인 불가';
-  const isFresh=['live','partial'].includes(data.status)&&age<12;
-  const health=by('feed-health');if(health)health.textContent=(data.sources||[]).map(x=>x.name+' · '+(x.status==='ok'?'수집 정상':x.status==='empty'?'최근 항목 없음':'수집 불가')).join(' / ');
-  state.textContent=(isFresh?(data.status==='partial'?'일부 출처 수집 · ':'수집 완료 · '):'오래된 보관 자료 · ')+when+' KST';
- }catch(e){wireItems=[];list.replaceChildren();const li=element('li','wire-placeholder','외부 헤드라인에 접속할 수 없습니다. 공식 발표 링크는 위에서 확인할 수 있습니다.');list.append(li);if(state)state.textContent='연결되지 않음 · 출처 방문 가능';}
+  wireItems=data.items.filter(safeFeedItem).slice(0,45);
+  if(!wireItems.length)throw new Error('empty');
+  renderWire();
+  const instant=Date.parse(data.generated_at),age=(Date.now()-instant)/3600000;
+  const validTime=Number.isFinite(instant);
+  const when=validTime?new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(instant)):'날짜 확인 불가';
+  const isFresh=validTime&&age>=0&&age<12&&['live','partial'].includes(data.status);
+  const health=by('feed-health');
+  if(health)health.textContent=(data.sources||[]).map(x=>x.name+' · '+(x.status==='ok'?'수집 정상':x.status==='empty'?'최근 항목 없음':'수집 불가')).join(' / ');
+  if(state)state.textContent=(isFresh?(data.status==='partial'?'일부 출처 수집 · ':'수집 완료 · '):'과거 수집 자료 · ')+when+' KST';
+ }catch(e){
+  wireItems=[];renderWire();
+  if(state)state.textContent='연결 지연 · 공식 출처에서 원문 확인';
+  const health=by('feed-health');if(health)health.textContent='헤드라인 데이터에 접속할 수 없습니다.';
+ }
+}
+for(const name of ['wire-query','wire-publisher','wire-topic']){
+ const input=by(name);
+ if(input)input.addEventListener(name==='wire-query'?'input':'change',()=>{wireVisible=12;renderWire()});
+}
+by('wire-load-more')?.addEventListener('click',()=>{wireVisible+=12;renderWire()});
+let searchIndexRequest=null;
+function ensureSearchIndex(){
+ if(wireItems.length||searchIndexRequest)return;
+ searchIndexRequest=fetch(base+'data/news.json',{cache:'no-cache'}).then(res=>{
+  if(!res.ok)throw new Error('no-news');
+  return res.json();
+ }).then(data=>{
+  if(Array.isArray(data.items)){wireItems=data.items.filter(safeFeedItem).slice(0,45);drawSearch()}
+ }).catch(()=>{}).finally(()=>{searchIndexRequest=null});
 }
 const refresh=by('refresh-wire');if(refresh)refresh.addEventListener('click',loadWire);
 if(by('wire-list'))loadWire();
@@ -49,7 +107,7 @@ function openDialog(dialog){if(dialog&&typeof dialog.showModal==='function'&&!di
 for(const dlg of document.querySelectorAll('dialog')){dlg.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();dlg.close()}});dlg.addEventListener('click',e=>{const r=dlg.getBoundingClientRect();if(e.target===dlg&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dlg.close()});dlg.addEventListener('close',()=>{document.body.style.overflow=''})}
 const search=by('search-dialog'),field=by('search-field'),results=by('search-results');
 function drawSearch(){if(!results||!field)return;const q=field.value.trim().toLocaleLowerCase();results.replaceChildren();if(!q){results.append(element('p',null,'자동차 이름이나 디자인 키워드를 입력해 보세요.'));return}const list=catalog.filter(x=>(x.title+' '+x.category).toLocaleLowerCase().includes(q));const extras=wireItems.filter(x=>(x.title+' '+x.source).toLocaleLowerCase().includes(q)).slice(0,8);if(!list.length&&!extras.length){results.append(element('p',null,'검색 결과가 없습니다. 다른 키워드를 입력해 보세요.'));return}for(const item of [...list,...extras]){const a=element('a',null,item.title);a.href=item.url;if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer external'}a.append(element('small',null,item.category||item.source));results.append(a)}}
-for(const b of document.querySelectorAll('.search-open'))b.addEventListener('click',()=>{openDialog(search);drawSearch();field?.focus()});field?.addEventListener('input',drawSearch);
+for(const b of document.querySelectorAll('.search-open'))b.addEventListener('click',()=>{openDialog(search);drawSearch();ensureSearchIndex();field?.focus()});field?.addEventListener('input',drawSearch);
 const savedDialog=by('saved-dialog'),savedContainer=by('saved-items');
 function drawSaved(){if(!savedContainer)return;savedContainer.replaceChildren();const chosen=catalog.filter(x=>getSaved().includes(x.id));if(!chosen.length){savedContainer.append(element('p',null,'저장한 글이 없습니다. 기사에서 ☆ 저장을 눌러 보세요.'));return}for(const item of chosen){const a=element('a',null,item.title);a.href=item.url;a.append(element('small',null,item.category));const row=element('div','saved-row');const remove=element('button',null,'삭제');remove.type='button';remove.setAttribute('aria-label',item.title+' 저장 취소');remove.addEventListener('click',()=>{if(saveItems(getSaved().filter(id=>id!==item.id))){drawSaved();document.querySelectorAll('[data-save]').forEach(b=>{const on=getSaved().includes(b.dataset.save);b.setAttribute('aria-pressed',String(on));b.textContent=on?'★ 저장됨':'☆ 저장'})}});row.append(a,remove);savedContainer.append(row)}}
 for(const b of document.querySelectorAll('[data-saved-open]')){b.addEventListener('click',e=>{e.preventDefault();drawSaved();openDialog(savedDialog)})}
