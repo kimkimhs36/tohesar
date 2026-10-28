@@ -21,17 +21,19 @@
     queued=false;if(!g||reduced.matches)return;
     const p=clamp((scrollY-sequence.offsetTop)/g.distance);
     // Release the masthead first; then slowly open the page margins around the photograph.
-    const release=phase(p,0,.34),frame=phase(p,.12,.91),read=phase(p,.40,.89);
+    const release=phase(p,.01,.29),frame=phase(p,.03,.91),read=phase(p,.40,.79);
     const y=mix(0,g.endY,frame),height=mix(g.startH,g.endH,frame);
     Object.assign(photo.style,{left:`${mix(0,g.wide?g.w*.05:g.edge,frame)}px`,top:`${y}px`,width:`${mix(g.wide?g.w*.60:g.w,g.endW,frame)}px`,height:`${height}px`});
     word.style.opacity=1-release;word.style.transform=`translateY(${-26*release}px)`;
-    word.style.visibility=p>=.34?'hidden':'visible';
+    word.style.visibility=p>=.29?'hidden':'visible';
     editorial.style.top=g.wide?`${mix(g.h*.45,g.h*.36,frame)}px`:`${y+height+mix(24,27,frame)}px`;
-    meta.style.marginBottom=`${18*read}px`;meta.style.height=`${15*read}px`;meta.style.opacity=read;meta.style.overflow='hidden';
-    copy.style.opacity=read;copy.style.transform=`translateY(${8*(1-read)}px)`;
-    signature.style.opacity=phase(p,.39,.68);signature.style.visibility=p>.39?'visible':'hidden';
+    meta.style.marginBottom=`${18*read}px`;meta.style.height=`${(g.wide?46:15)*read}px`;meta.style.opacity=read;meta.style.overflow='hidden';
+    photo.style.setProperty('--photo-scale',mix(1,g.wide?1:1.16,frame));
+    copy.style.opacity=phase(p,.55,.85);copy.style.transform=`translateY(${8*(1-read)}px)`;
+    signature.style.opacity=phase(p,.62,.83);signature.style.visibility=p>.62?'visible':'hidden';
     cue.style.opacity=1-phase(p,0,.15);cue.style.visibility=p>.15?'hidden':'visible';
-    const navT=phase(p,.12,.49);nav.style.color=`rgb(${mix(241,51,navT)} ${mix(228,46,navT)} ${mix(223,59,navT)})`;
+    document.querySelector('.journal-link').style.opacity=1-phase(p,.08,.23)+phase(p,.62,.84);
+    const navT=g.wide?1:phase(p,.12,.49);nav.style.color=`rgb(${mix(241,51,navT)} ${mix(228,46,navT)} ${mix(223,59,navT)})`;
     stage.style.background=`rgb(${mix(214,232,frame)} ${mix(202,223,frame)} ${mix(210,225,frame)})`;
   }
   function schedule(){if(!queued){queued=true;requestAnimationFrame(paint)}}
