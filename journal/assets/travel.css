@@ -1,4 +1,5 @@
-@view-transition{navigation:auto}
+@media (scripting:enabled) and (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+::view-transition{pointer-events:none}
 ::view-transition-old(root){animation:240ms ease both page-out}::view-transition-new(root){animation:360ms ease both page-in}
 @keyframes page-out{to{opacity:0;transform:translateY(-8px)}}@keyframes page-in{from{opacity:0;transform:translateY(10px)}}
 .travel-veil{position:fixed;inset:0;z-index:9999;background:#ded4db;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 180ms ease}

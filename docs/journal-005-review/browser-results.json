@@ -1,0 +1,433 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "checked_at": "2026-10-28T23:05:23.409Z",
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "154.0.8037.57",
+      "responsive_checks": [
+        {
+          "width": 320,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        }
+      ],
+      "poses": [
+        {
+          "transform": "translate3d(66.2459px, 99.9787px, 0px) translate(-50%, -82%) rotate(-12.2006deg)",
+          "x": 25.42719078063965,
+          "y": 627.2069091796875,
+          "visible": true
+        },
+        {
+          "transform": "translate3d(158.537px, 50.528px, 0px) translate(-50%, -82%) rotate(8.62372deg)",
+          "x": 118.84429168701172,
+          "y": 580.9896850585938,
+          "visible": true
+        },
+        {
+          "transform": "translate3d(281.598px, 69.7409px, 0px) translate(-50%, -82%) rotate(-13deg)",
+          "x": 240.56060791015625,
+          "y": 596.2676391601562,
+          "visible": true
+        },
+        {
+          "transform": "translate3d(158.537px, 50.528px, 0px) translate(-50%, -82%) rotate(8.62372deg)",
+          "x": 118.84429168701172,
+          "y": 580.9896850585938,
+          "visible": true
+        }
+      ],
+      "journey": "pass",
+      "reverse_scroll": "pass",
+      "landscape": "pass",
+      "filter": "pass",
+      "reduced_motion": "pass",
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "version": "26.5",
+      "responsive_checks": [
+        {
+          "width": 320,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 320,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 390,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 430,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 768,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/911/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/f40/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        },
+        {
+          "width": 1440,
+          "path": "/journal/news/",
+          "overflow": false,
+          "broken": [],
+          "h1": 1
+        }
+      ],
+      "poses": [
+        {
+          "transform": "translate3d(66.297303px, 99.967233px, 0px) translate(-50%, -82%) rotate(-12.257538deg)",
+          "x": 25.462636947631836,
+          "y": 627.12939453125,
+          "visible": true
+        },
+        {
+          "transform": "translate3d(158.381637px, 50.50456px, 0px) translate(-50%, -82%) rotate(8.541453deg)",
+          "x": 118.71771240234375,
+          "y": 581.02685546875,
+          "visible": true
+        },
+        {
+          "transform": "translate3d(281.46042px, 69.844782px, 0px) translate(-50%, -82%) rotate(-13deg)",
+          "x": 240.42337036132812,
+          "y": 596.35595703125,
+          "visible": true
+        },
+        {
+          "transform": "translate3d(158.381637px, 50.50456px, 0px) translate(-50%, -82%) rotate(8.541453deg)",
+          "x": 118.71771240234375,
+          "y": 581.02685546875,
+          "visible": true
+        }
+      ],
+      "journey": "pass",
+      "reverse_scroll": "pass",
+      "landscape": "pass",
+      "filter": "pass",
+      "reduced_motion": "pass",
+      "errors": []
+    }
+  ],
+  "errors": []
+}

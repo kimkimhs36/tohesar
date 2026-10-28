@@ -1,5 +1,12 @@
 (() => {
   const root = document.documentElement;
+  // A resize or rapid history traversal may legitimately cancel a native transition.
+  addEventListener('pagereveal', event => {
+    if (event.viewTransition) {
+      event.viewTransition.ready.catch(() => {});
+      event.viewTransition.finished.catch(() => {});
+    }
+  });
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const veil = document.createElement('div'); veil.className = 'travel-veil'; veil.setAttribute('aria-hidden','true'); document.body.append(veil);
   let timer, leaving = false;
