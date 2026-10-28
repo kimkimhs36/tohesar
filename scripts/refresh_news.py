@@ -28,11 +28,11 @@ MAX_AGE=timedelta(days=24)
 # A deliberately conservative label inferred from the publisher HEADLINE.
 # It is not an independently verified article category, nor a fact-check.
 TOPIC_PATTERNS=(
-    ('motorcycles',r'\\b(motorcycle|motorcycles|superbike|motorrad|scooter|two.wheel|motogp)\\b'),
-    ('motorsport',r'\\b(f1|formula 1|formula one|nascar|wrc|grand prix|motorsport|le mans|racing|rally|racecar|race car|indycar)\\b'),
-    ('design',r'\\b(concept|prototype|design|styling|heritage|classic|vintage|coachbuilt|coachbuild|restomod|vision model)\\b'),
-    ('technology',r'\\b(battery|charging|autonomous|software|electric|electrification|hydrogen|self.driving|factory|production|manufacturing|robot|powertrain)\\b'),
-    ('industry',r'\\b(recall|recalls|factory investment|earnings|profits|tariff|sales|market|partnership|plant|workers|ceo|bankruptcy)\\b'),
+    ('motorcycles',r'\b(motorcycle|motorcycles|superbike|motorrad|scooter|two.wheel|motogp)\b'),
+    ('motorsport',r'\b(f1|formula 1|formula one|nascar|wrc|grand prix|motorsport|le mans|racing|rally|racecar|race car|indycar)\b'),
+    ('design',r'\b(concept|prototype|design|styling|heritage|classic|vintage|coachbuilt|coachbuild|restomod|vision model)\b'),
+    ('technology',r'\b(battery|charging|autonomous|software|electric|electrification|hydrogen|self.driving|factory|production|manufacturing|robot|powertrain)\b'),
+    ('industry',r'\b(recall|recalls|factory investment|earnings|profits|tariff|sales|market|partnership|plant|workers|ceo|bankruptcy)\b'),
 )
 def infer_topic(title):
     for topic,pattern in TOPIC_PATTERNS:
