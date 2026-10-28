@@ -1,0 +1,118 @@
+{
+  "images": [
+    {
+      "id": "type01-arrival",
+      "model": "type01",
+      "source_page": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+      "original_url": "https://media.production.jlrms.com/2026-10-04/image/3486504f-71e9-4932-b870-2d62b2fa153d/Ext_Fr_3_4_Silver.jpg?VersionId=gBKce5Ek9Nml7Sz32Y973p76.nBsZd6u",
+      "original_dimensions": [
+        11937,
+        8792
+      ],
+      "original_sha256": "42458690c7177e1b564f4db682a8b2b18d620787bfa7628588d7f40eae709cac",
+      "credit": "© Jaguar Land Rover Limited",
+      "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+      "usage": "Independent non-commercial editorial review. JLR User Licence §§3.1, 3.2, 4(a–e); no endorsement. Resized / WebP conversion. Full frame retained in comparison.",
+      "files": [
+        "/journal/assets/design/type01-arrival-800.webp",
+        "/journal/assets/design/type01-arrival-1600.webp"
+      ],
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "type01-profile",
+      "model": "type01",
+      "source_page": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+      "original_url": "https://media.production.jlrms.com/2026-10-04/image/a4dcb7c7-5f4d-49cc-8376-709c161eee2c/Side%20View.jpg?VersionId=vYBditQLzbbaP8bccD2jWLSOMGCu6O4t",
+      "original_dimensions": [
+        7409,
+        4939
+      ],
+      "original_sha256": "7883491a42779252275b1e947a3f9ff98d7ef02ce6046ae93abfd45f199fb318",
+      "credit": "© Jaguar Land Rover Limited",
+      "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+      "usage": "Independent non-commercial editorial review. JLR User Licence §§3.1, 3.2, 4(a–e); no endorsement. Resized / WebP conversion. Full frame retained in comparison.",
+      "files": [
+        "/journal/assets/design/type01-profile-800.webp",
+        "/journal/assets/design/type01-profile-1600.webp"
+      ],
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "type01-rear",
+      "model": "type01",
+      "source_page": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+      "original_url": "https://media.production.jlrms.com/2026-10-04/image/e6e455d5-db90-4d0d-aa17-53773c168f49/Ext_Macro_Rear_3_4_Silver.jpg?VersionId=y7xjXe.iVUNuPXrX2KsjqRaXSUIcnRt_",
+      "original_dimensions": [
+        6584,
+        4120
+      ],
+      "original_sha256": "61010168bf53ec08059a87e4abc45774401f5c564adb4915723a359ae6add607",
+      "credit": "© Jaguar Land Rover Limited",
+      "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+      "usage": "Independent non-commercial editorial review. JLR User Licence §§3.1, 3.2, 4(a–e); no endorsement. Resized / WebP conversion. Full frame retained in comparison.",
+      "files": [
+        "/journal/assets/design/type01-rear-800.webp",
+        "/journal/assets/design/type01-rear-1600.webp"
+      ],
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "type01-overhead",
+      "model": "type01",
+      "source_page": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+      "original_url": "https://media.production.jlrms.com/2026-10-04/image/9acde9a5-1b41-45da-b56e-feb7189f19ca/SILVER_RED_WALL_OUTDOOR_TOP_DOWN.jpg?VersionId=DHnKgxcsJExUZ7.FdaAIdwc9b5z.CKqC",
+      "original_dimensions": [
+        5831,
+        3285
+      ],
+      "original_sha256": "7c7aa37c4dfcdc520d9b732fd426187614d3ec83d969a963a3c220873f203937",
+      "credit": "© Jaguar Land Rover Limited",
+      "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+      "usage": "Independent non-commercial editorial review. JLR User Licence §§3.1, 3.2, 4(a–e); no endorsement. Resized / WebP conversion. Full frame retained in comparison.",
+      "files": [
+        "/journal/assets/design/type01-overhead-800.webp",
+        "/journal/assets/design/type01-overhead-1600.webp"
+      ],
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "type00-profile",
+      "model": "type00",
+      "source_page": "https://media.jlr.com/jaguar/en-gb/news/2024/12/jaguar-unveils-type-00-unmistakable-unexpected-dramatic",
+      "original_url": "https://media.production.jlrms.com/2024-11-29/image/523ea470-afa7-40bd-a11e-ee0a317b1912/JAGUAR_TYPE00_SIDEPROFILE_16x9_021224.jpg?VersionId=e9CaKquxyCYEg_AgrW0dMsoIxZRsGtzm",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "original_sha256": "ff1babbb9bda9225b65a1f8010a3706f6a10245d757f0b5309d52989ca71f901",
+      "credit": "© Jaguar Land Rover Limited",
+      "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+      "usage": "Independent non-commercial editorial review. JLR User Licence §§3.1, 3.2, 4(a–e); no endorsement. Resized / WebP conversion. Full frame retained in comparison.",
+      "files": [
+        "/journal/assets/design/type00-profile-800.webp",
+        "/journal/assets/design/type00-profile-1600.webp"
+      ],
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "type00-arrival",
+      "model": "type00",
+      "source_page": "https://media.jlr.com/jaguar/en-gb/news/2024/12/jaguar-unveils-type-00-unmistakable-unexpected-dramatic",
+      "original_url": "https://media.production.jlrms.com/2024-11-29/image/ba433a0f-1f07-41bc-8d48-f75d0fdfa025/JAGUAR_TYPE00_3.4_16x9_021224.jpg?VersionId=_iec8f3yMCiL_mGf2Cp9mXj5syXZmkSr",
+      "original_dimensions": [
+        3840,
+        2160
+      ],
+      "original_sha256": "3cd0f98a3a7396e0d09605ee84d56cf273e2f52851a8d9a945b1722a221b1498",
+      "credit": "© Jaguar Land Rover Limited",
+      "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+      "usage": "Independent non-commercial editorial review. JLR User Licence §§3.1, 3.2, 4(a–e); no endorsement. Resized / WebP conversion. Full frame retained in comparison.",
+      "files": [
+        "/journal/assets/design/type00-arrival-800.webp",
+        "/journal/assets/design/type00-arrival-1600.webp"
+      ],
+      "verified_at": "2026-10-28"
+    }
+  ]
+}
