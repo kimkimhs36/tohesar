@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-28",
+  "mode": "curated-snapshot",
+  "items": [
+    {
+      "id": "porsche-technologies-20261021",
+      "title": "엔지니어링과 디지털, 하나의 이름으로",
+      "published_at": "2026-10-21",
+      "manufacturer": "Porsche",
+      "topic": "industry",
+      "source": "Porsche Newsroom",
+      "source_title": "Porsche Engineering and Porsche Digital combine their expertise",
+      "url": "https://newsroom.porsche.com/en/2026/company/porsche-engineering-digital-combine-expertise-porsche-technologies-43556.html",
+      "summary": "Porsche Engineering과 Porsche Digital이 Porsche Technologies라는 공동 브랜드로 역량을 모은다. 출범 예정 시점은 2027년 2분기 초다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인"
+    },
+    {
+      "id": "porsche-mission-s-20261015",
+      "title": "Mission S가 제안하는 포르쉐의 다음 디자인",
+      "published_at": "2026-10-15",
+      "manufacturer": "Porsche",
+      "topic": "design",
+      "source": "Porsche Newsroom",
+      "source_title": "Porsche Mission S: the essence of the sports car reinterpreted",
+      "url": "https://newsroom.porsche.com/en/2026/products/porsche-mission-s-vision-model-43528.html",
+      "summary": "포르쉐가 미래 디자인 정체성을 탐구하는 비전 모델 Mission S를 공개했다. 운전자 중심의 실내와 아날로그·디지털 조작계의 관계를 함께 제안한다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인"
+    },
+    {
+      "id": "porsche-vibe-seoul-20261013",
+      "title": "서울에서 만난 포르쉐 팬 문화",
+      "published_at": "2026-10-13",
+      "manufacturer": "Porsche",
+      "topic": "culture",
+      "source": "Porsche Newsroom",
+      "source_title": "‘Porsche Vibe Seoul’ opens new chapter in brand experience",
+      "url": "https://newsroom.porsche.com/en/2026/scene-passion/porsche-vibe-seoul-korea-43505.html",
+      "summary": "Porsche Vibe Seoul이 자동차와 예술, 개인화 문화를 연결했다. 제조사 발표에 따르면 이틀 동안 약 1만 5천 명이 방문했다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인"
+    }
+  ]
+}
