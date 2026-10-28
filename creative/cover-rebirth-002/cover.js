@@ -27,6 +27,7 @@
     const wide = w >= 760 && w > h;
     const edge = parseFloat(getComputedStyle(nav).left);
     const top = parseFloat(getComputedStyle(nav).top);
+    const art = getComputedStyle(root);
     const target = wide
       ? { x: w * .05, y: h * .16, w: w * .60, h: h * .69 }
       : { x: edge, y: Math.max(top + 64, h * .12), w: w - edge * 2, h: Math.min(h * .49, (w - edge * 2) * 1.12) };
@@ -34,6 +35,8 @@
       w, h, wide, edge, top, target,
       start: sequence.offsetTop,
       distance: sequence.offsetHeight - h,
+      photoRatio: parseFloat(art.getPropertyValue('--mobile-image-ratio')),
+      feather: parseFloat(art.getPropertyValue('--sky-feather')),
       wordX: word.offsetLeft + word.offsetWidth * .625,
       wordY: word.offsetTop + word.offsetHeight * .90,
       headerX: edge + 12,
@@ -53,20 +56,20 @@
     const withdrawal = phase(p, .035, .55);
     const transfer = withdrawal;
     const x = mix(0, g.target.x, framing);
-    const y = mix(0, g.target.y, framing);
+    // The top margin opens first to give the small signature its own space.
+    const y = g.target.y * phase(p, .08, .48);
     const w = mix(g.w, g.target.w, framing);
-    const h = mix(g.h, g.target.h, framing);
+    const h = Math.min(g.h - y, mix(g.h, g.target.h, framing));
 
     // A changing photographic aperture reveals the unprinted paper around it.
     // The image remains one intact photograph; the car never becomes a cutout.
     windowFrame.style.clipPath = `inset(${y}px ${g.w - x - w}px ${g.h - y - h}px ${x}px)`;
     photo.style.width = `${w}px`;
-    photo.style.height = `${Math.min(h, g.w * 1.58)}px`;
+    const photoHeight = g.wide ? h : Math.min(h, g.w * g.photoRatio);
+    photo.style.height = `${photoHeight}px`;
     photo.style.left = `${x}px`;
     photo.style.bottom = `${g.h - y - h}px`;
-    // In the editorial plate the full source replaces the tall-cover crop.
-    photo.style.objectPosition = g.wide ? `50% ${mix(64, 65, framing)}%` : '85% 100%';
-    photo.style.setProperty('--sky-feather', `${g.wide ? 0 : 18 * clamp((h - Math.min(h, g.w * 1.58)) / 60)}%`);
+    photo.style.setProperty('--sky-feather', `${g.feather * clamp((h - photoHeight) / 60)}%`);
     set('word-x', `${(g.headerX - g.wordX) * withdrawal}px`);
     set('word-y', `${(g.headerY - g.wordY) * withdrawal}px`);
     set('word-scale', mix(1, .12, withdrawal));
@@ -77,7 +80,7 @@
     set('transfer-opacity', phase(p, .33, .43) * (1 - phase(p, .55, .59)));
     signature.style.opacity = phase(p, .55, .59);
     signature.style.visibility = p > .55 ? 'visible' : 'hidden';
-    const ink = phase(p, .26, .40);
+    const ink = phase(p, .26, .34);
     nav.style.color = `rgb(${mix(248, 39, ink)} ${mix(242, 43, ink)} ${mix(231, 56, ink)})`;
     set('cue-opacity', 1 - phase(p, 0, .16));
     set('cue-y', `${-18 * phase(p, 0, .2)}px`);

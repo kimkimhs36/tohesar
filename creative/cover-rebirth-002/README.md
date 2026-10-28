@@ -12,3 +12,5 @@
 **사진은 최종 승인 에셋이 아니다.** 기존 `assets/yokohama-bluehour.webp`를 구도 검토용으로 사용한다. 새로운 사진 생성·누끼·합성은 하지 않았다. 긴 모바일 화면에서는 차체를 보존하기 위해 사진 위에 하늘색 바탕을 두었다. 밝은 피치·라벤더빛의 최종 세로 사진으로 교체할 때 `photo.css`의 안내와 함께 HTML의 이미지·preload 경로를 바꾼다. 원본 워드마크와 세디유 SVG는 수정하지 않았다.
 
 시각 검토: Chromium에서 iPhone 비율의 커버·중간 전환·첫 지면, 넓은 화면의 구도만 확인. 실제 iPhone Safari 검증·성능 분석·배포는 후속 작업이다. 기사 본문, 갤러리, 검색, 테스트 스위트는 포함하지 않는다.
+
+검토 이미지: [커버](previews/iphone-cover.jpg) · [전환](previews/iphone-transition.jpg) · [첫 지면](previews/iphone-editorial.jpg)

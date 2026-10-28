@@ -2,13 +2,14 @@
    Current 4:5 repository image is a PLACEHOLDER, not an approved cover.
    Its full car silhouette is protected on tall phones by a blue sky-coloured
    mount above the image. No car extraction, generated image or photo composite.
-   For a final tall portrait: set --portrait-height: 100%; --sky-feather: 0%.
+   For a final tall portrait: set --mobile-image-ratio: 2.5; --sky-feather: 0%.
    Replace the img src and preload href in index.html together.
 */
 :root {
   --sky: #445d83;
   --paper: #dcdde3;
-  --portrait-height: min(100%, 158vw);
+  --mobile-image-ratio: 1.58;
+  --portrait-height: min(100%, calc(100vw * var(--mobile-image-ratio)));
   --sky-feather: 18%;
   --photo-position: 85% 100%;
 }
