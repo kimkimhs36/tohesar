@@ -1,7 +1,6 @@
 name: Refresh news snapshot for production builds
 on:
-  schedule:
-    - cron: '17 1,7,13,19 * * *'
+  # Manual-only: Pages refreshes its own artifact on its existing schedule.
   workflow_dispatch:
 permissions:
   contents: write

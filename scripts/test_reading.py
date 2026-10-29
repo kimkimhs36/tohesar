@@ -44,6 +44,10 @@ try:
         assert not page.locator('#archive-empty').is_visible()
         page.goto(base + 'news/')
         page.wait_for_function('document.querySelectorAll("#wire-list .wire-card").length > 0')
+        page.locator('#wire-publisher').select_option('autoblog')
+        assert page.locator('#wire-list .wire-card').count() > 0
+        assert all('Autoblog' in label for label in page.locator('#wire-list .wire-card small').all_inner_texts())
+        page.locator('#wire-publisher').select_option('all')
         page.locator('#wire-query').fill('Porsche')
         assert page.locator('#wire-list .wire-card').count() > 0
         page.locator('#wire-topic').select_option('design')
