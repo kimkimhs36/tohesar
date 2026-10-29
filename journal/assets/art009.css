@@ -131,3 +131,92 @@
 @media(prefers-reduced-motion:no-preference){.chapter-curve .chapter-image>a,.chapter-language .chapter-image>a{transform:none}.chapter-edge .chapter-image>a{clip-path:none}}
 /* Keep every part of the opening car inside the photographic plate. */
 @media(max-width:700px){.edition-opening-photo>img{aspect-ratio:auto;height:auto;object-fit:contain}}
+/* Giulia: the length of a bonnet sets the width of the page. */
+.giulia-page .giulia-opening{background:#e6e6dc;padding-top:24px;padding-bottom:1px}
+.giulia-page .site-header{background:#e6e6dc}
+.giulia-folio{font-size:11px}
+.giulia-name{grid-template-columns:1.3fr 1fr;align-items:end;margin-top:35px;margin-bottom:30px;padding:0}
+.giulia-name>span{font-size:11px;letter-spacing:.1em}
+.giulia-name h1{font:italic 400 clamp(115px,21vw,290px)/.9 Georgia,serif;letter-spacing:-.08em;margin-top:20px}
+.giulia-name h1>span{color:#9d5b49}
+.giulia-name>p{font-size:clamp(27px,3vw,42px);line-height:1.5;padding:0 0 0 5vw;letter-spacing:-.06em}
+.giulia-hero{border:0;padding:0;margin:0 var(--edge)}
+.giulia-hero>img{aspect-ratio:2.2;width:100%;object-fit:cover;object-position:50% 53%}
+.giulia-hero-register{display:flex;justify-content:space-between;font:10px Arial;letter-spacing:.07em;padding:17px 0 12px;border-bottom:1px solid #84907d}
+.giulia-hero-register span:before{content:'';display:block;height:24px;border-left:1px solid #84907d;margin-top:-17px;margin-bottom:10px}
+.giulia-hero figcaption{font-family:inherit;font-size:11px;line-height:1.8}
+.giulia-deck{margin-top:38px;margin-bottom:35px}
+.giulia-deck>p{font-size:21px;line-height:1.9}
+.giulia-toc{margin-bottom:50px;font-size:13px}
+.reading-column{max-width:640px;line-height:2;font-size:17px}
+.reading-chapter>header>span{font-size:11px}
+.reading-chapter h2{letter-spacing:-.055em}
+.surface-plate{background:#d4d9cf}
+.surface-plate figcaption>span,.surface-plate small,.face-diptych figcaption{font-size:11px}
+/* Observation light, with delicate marks kept in the photograph's coordinate space. */
+.proportion-study{background:#d1d7c8;color:#2e3b32}
+.proportion-heading{border-color:#8b9785;font-size:11px;align-items:end;padding:16px 0 22px}
+.proportion-heading>div>p{font:italic 400 42px/1.1 Georgia,serif;letter-spacing:-.045em;margin-top:12px}
+.proportion-heading>[data-scene-count]{padding-bottom:4px;white-space:nowrap}
+.proportion-photo{background:#c2cbba;aspect-ratio:1.9;max-width:none;max-height:none}
+.proportion-photo>img{object-fit:cover;object-position:center;position:absolute;inset:0;width:100%;height:100%}
+.proportion-guides{stroke:#f1e8d0;stroke-width:1;filter:none}
+.proportion-guides path,.proportion-guides circle{vector-effect:non-scaling-stroke}
+.proportion-guides circle{stroke-dasharray:2 5;stroke-width:.7}
+.axle-guide{stroke:#f2eddc;opacity:.65}
+.motion-study .proportion-photo{aspect-ratio:1.9;max-height:none;max-width:100%;width:100%}
+.motion-study .attention-window{border:0;box-shadow:0 0 0 100vmax #13271938}
+.motion-study[data-scene="0"] .attention-window,.motion-study[data-scene="4"] .attention-window{box-shadow:none}
+.motion-study[data-scene="4"] .whole-guide{stroke-width:1.2}
+.study-note>span{font-size:11px;letter-spacing:.075em;color:#62715b}
+.study-note h3{font-size:26px;line-height:1.5;margin:12px 0 14px;letter-spacing:-.05em}
+.study-note p{color:#3f4c40;font-size:15px;line-height:1.9}
+.proportion-foot{border-color:#9aa58e;color:#576450;font-size:11px}
+.study-ticks{gap:8px}
+.study-ticks i{height:2px;background:#a4ae99;position:relative}
+.study-ticks i.active{background:#4d6047}
+.study-ticks i:after{content:'';position:absolute;inset:0;background:#4d6047;transform-origin:left;transform:scaleX(var(--tick-fill,0))}
+.static-proportions{background:#e5e7dd;padding-top:45px}
+.static-proportions>header{max-width:900px;margin:0 auto 30px}
+.static-proportions h2{font-size:clamp(28px,3.5vw,42px);font-weight:400;letter-spacing:-.055em;margin:15px 0}
+.static-proportions>header p{font-size:14px;line-height:1.8}
+.static-proportions img{height:auto;max-height:none;object-fit:contain}
+@media(min-width:1000px) and (min-height:581px){
+ .motion-study .proportion-board{display:grid;grid-template-columns:1.5fr 1fr;gap:24px 4vw;align-content:center}
+ .motion-study .proportion-heading{grid-column:1/-1}
+ .motion-study .proportion-photo{grid-column:1;grid-row:2;align-self:center}
+ .motion-study .study-observations{grid-column:2;grid-row:2;min-height:240px;margin:0;align-content:center}
+ .motion-study .proportion-foot,.motion-study .study-ticks{grid-column:1/-1}
+}
+@media(max-width:700px){
+ .giulia-folio{font-size:9px}
+ .giulia-name{display:grid;grid-template-columns:1fr 1fr;margin:28px var(--edge) 25px;gap:10px}
+ .giulia-name>span{font-size:10px}
+ .giulia-name h1{font-size:clamp(94px,29vw,130px);grid-column:1/-1;margin-top:8px}
+ .giulia-name>p{font-size:23px;grid-column:2;line-height:1.5;padding:0;margin:2px 0 0}
+ .giulia-hero{margin:0}
+ .giulia-hero>img{aspect-ratio:1.7;object-position:center 54%}
+ .giulia-hero-register{margin:0 var(--edge);padding-top:12px;font-size:9px;letter-spacing:.04em}
+ .giulia-hero-register span:before{height:20px;margin-top:-12px;margin-bottom:7px}
+ .giulia-hero figcaption{font-size:10px;padding:12px var(--edge) 0}
+ .giulia-deck{margin:30px 0}
+ .giulia-deck>.edition-label{font-size:10px;margin-bottom:20px}
+ .giulia-deck>p{font-size:18px;line-height:1.9}
+ .giulia-toc{font-size:12px;gap:0 23px;margin-bottom:36px}
+ .reading-column{font-size:16px;line-height:2}
+ .reading-chapter>header>span{font-size:10px}
+ .proportion-heading{padding:14px 0 22px;font-size:10px}
+ .proportion-heading>div>p{font-size:36px;margin-top:12px}
+ .motion-study .proportion-photo,.proportion-photo{width:calc(100% + 2 * var(--edge));margin-left:calc(-1 * var(--edge));max-width:none;aspect-ratio:1.7}
+ .motion-study .proportion-board{justify-content:center;padding-bottom:25px}
+ .motion-study .study-observations{min-height:213px;margin-top:20px}
+ .study-note h3{font-size:25px}
+ .study-note p{font-size:15px;line-height:1.9}
+ .proportion-foot{font-size:10px}
+ .static-proportions>header{margin-bottom:25px}
+ .static-proportions>header p{font-size:13px}
+}
+@media(max-width:350px){.study-note h3{font-size:22px}.study-note p{font-size:14px}.proportion-heading>div>p{font-size:30px}.giulia-name>p{font-size:21px}.motion-study .study-observations{min-height:230px}}
+@media(prefers-reduced-motion:reduce),(max-height:580px){.proportion-photo{width:100%;margin-left:0;max-width:900px}.study-observations{margin-top:30px}.study-note{border-bottom:1px solid #9aa58e}.study-note:last-child{border:0}}
+.chapter-identity>i{flex-shrink:0}
+@media(max-width:700px){.chapter-language .chapter-identity>span{font-size:clamp(62px,20vw,84px)}}
