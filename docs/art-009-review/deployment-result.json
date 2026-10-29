@@ -1,0 +1,17 @@
+{
+  "project": "tohesar-art-009-review",
+  "project_id": "prj_XiOic9JMDsTjgENdwYVQkel5JJBM",
+  "team_id": "team_PVgfk8zxTMeeUcglxP59fh17",
+  "deployment_id": "dpl_5gsapx3E2KhEhYV5GytYcQFjPBhm",
+  "status": "READY",
+  "url": "https://tohesar-art-009-review.vercel.app",
+  "immutable_url": "https://tohesar-art-009-review-2y12jwksk-teambkit.vercel.app",
+  "source_sha": "8e5791fac28b97f203c87dd700707f4ada7cc1f5",
+  "target": "production of NEW ISOLATED REVIEW PROJECT ONLY",
+  "framework": null,
+  "build_command": "python3 scripts/publish.py build",
+  "build_duration_ms": 11496,
+  "official_domain_changed": false,
+  "previous_review_changed": false,
+  "physical_iphone_tested": false
+}

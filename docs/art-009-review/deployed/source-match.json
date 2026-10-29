@@ -1,0 +1,84 @@
+{
+  "url": "https://tohesar-art-009-review.vercel.app",
+  "source_sha": "8e5791fac28b97f203c87dd700707f4ada7cc1f5",
+  "matches": [
+    {
+      "file": "index.html",
+      "bytes": 2066,
+      "sha256": "d8e986e0d3f05a63fd1ccef9c591e76f091bc63a98ee0c59b2039ac45f446318",
+      "matches": true
+    },
+    {
+      "file": "journal/index.html",
+      "bytes": 15839,
+      "sha256": "6f000364c10cab9e5bc4aba14a8194312778ae0ea5817706f47a5b175efc97ed",
+      "matches": true
+    },
+    {
+      "file": "journal/issues/index.html",
+      "bytes": 4137,
+      "sha256": "dd55340c3c907639844eaa73e086fd48a854ece86208b0b8970b2756ae2252fe",
+      "matches": true
+    },
+    {
+      "file": "journal/issues/001/index.html",
+      "bytes": 14343,
+      "sha256": "8e9d6551906f7957ed39d317df895a4f54d369b007099e39c26074a93b4c0a02",
+      "matches": true
+    },
+    {
+      "file": "journal/design/giulia/index.html",
+      "bytes": 25197,
+      "sha256": "1444f7c6b529e531c6d7a9444852ecc56da34dc0257a2df1bfd95c2dd260e30b",
+      "matches": true
+    },
+    {
+      "file": "journal/assets/art009.css",
+      "bytes": 21272,
+      "sha256": "125e773c1548b44d1ac415cdadf539e37a4bce85e258a73338522898327abc85",
+      "matches": true
+    },
+    {
+      "file": "journal/assets/proportion008.js",
+      "bytes": 2283,
+      "sha256": "fd305fcbd642844e882348241b87bffb7eaaa94778c588acf4d3ef824f50ce1f",
+      "matches": true
+    },
+    {
+      "file": "journal/data/content-index.json",
+      "bytes": 8147,
+      "sha256": "b4e4b98a388c75b88248c77d2c68dac3bf489b1cb34e84506640585118978392",
+      "matches": true
+    },
+    {
+      "file": "journal/data/issues.json",
+      "bytes": 4310,
+      "sha256": "6d26be4b7d1d4a02c2f873770415bf723c0a0eb6d898142ddb9af4e2bb016e90",
+      "matches": true
+    },
+    {
+      "file": "journal/data/news.json",
+      "bytes": 9567,
+      "sha256": "d161944d4eda9f13836713043076bf218f571c05cfcffb1da0a200ccb71735a8",
+      "matches": true
+    },
+    {
+      "file": "docs/art-009-review/index.html",
+      "bytes": 16311,
+      "sha256": "93b60e73299e9666d940e3ca3e9d53af11815171018c2586210129279cc1491a",
+      "matches": true
+    },
+    {
+      "file": "docs/art-009-review/before/webkit-issue.png",
+      "bytes": 212465,
+      "sha256": "39c07eea708af4ad9a5339bc5cd6c82278f644ef572f3ae2c6ae8831ab3106ae",
+      "matches": true
+    },
+    {
+      "file": "docs/art-009-review/after/webkit-issue.png",
+      "bytes": 210138,
+      "sha256": "6d4300a8b0505505144ab89b6ac6c3a21a01904a6546868c4347303a40b36d32",
+      "matches": true
+    }
+  ]
+}
