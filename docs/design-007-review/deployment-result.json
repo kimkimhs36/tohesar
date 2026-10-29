@@ -1,0 +1,121 @@
+{
+  "url": "https://tohesar-design-007-review.vercel.app",
+  "source_commit": "8d93d0f73edb65e26a822ec7e3f72e5770aa41db",
+  "project": "prj_ui4TOGg6qKVHuKoL8OLF3ZAakZIn",
+  "deployment": "dpl_9Zm8qbT53hTFUF59UaCUma6iGiAq",
+  "target": "production of isolated review project only",
+  "checked_at": "2026-10-29T00:12:26.989Z",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/journal/",
+      "status": 200
+    },
+    {
+      "route": "/journal/design/",
+      "status": 200
+    },
+    {
+      "route": "/journal/design/type-01/",
+      "status": 200
+    },
+    {
+      "route": "/journal/911/",
+      "status": 200
+    },
+    {
+      "route": "/journal/f40/",
+      "status": 200
+    },
+    {
+      "route": "/journal/news/",
+      "status": 200
+    },
+    {
+      "route": "/journal/visual/",
+      "status": 200
+    },
+    {
+      "route": "/journal/miniatures/",
+      "status": 200
+    },
+    {
+      "route": "/docs/design-007-review/",
+      "status": 200
+    }
+  ],
+  "assets": [
+    {
+      "path": "journal/design/index.html",
+      "sha256": "6466185bfa5479a89342f4a3725eea47ae054fa76e4b2ec0023fc1f1f24900ed",
+      "matches_source": true
+    },
+    {
+      "path": "journal/design/type-01/index.html",
+      "sha256": "29c3deee5df0a79b61dccc2206e68aba1987d42b76d08d28bd10d719bc9eb445",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/design-study.js",
+      "sha256": "41ad07c758ca9c21ab35b7d6326d9c8153337bcccb2800dfdcf84e8949bea2f7",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/design-discovery.js",
+      "sha256": "696ccda63738af1037db560f4aca0f22fa3314dd163d91a5101d918252d62919",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/travel.css",
+      "sha256": "9a001b434931a0ceb7f87e6b756a1f9a22219d20e5138e8986fe780af3cc996b",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/type01.css",
+      "sha256": "2b84beac7a106613a03742026b3bdf9d824175cb3f46b2b3263404ec434b09ee",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/design-atlas.css",
+      "sha256": "d2a750850087e84aa625b6bc1979aa2e9118c55982b0df8a28b4af5274f7bcec",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/design/type01-profile-800.webp",
+      "sha256": "6cb508f3c29e23751dd160023ff857a0eb650f29658a02d31f0bef29ea7bc530",
+      "matches_source": true
+    },
+    {
+      "path": "journal/assets/design/type00-profile-800.webp",
+      "sha256": "b1a2945dabd8160d65423c4557f88e999aec486bd59defae20be47626cda8026",
+      "matches_source": true
+    }
+  ],
+  "browsers": [
+    {
+      "name": "chromium",
+      "journey": "passed",
+      "search_url_history_reload": "passed",
+      "reverse_scroll": "passed",
+      "errors": []
+    },
+    {
+      "name": "webkit",
+      "journey": "passed",
+      "search_url_history_reload": "passed",
+      "reverse_scroll": "passed",
+      "errors": []
+    }
+  ],
+  "old_006_preview_unchanged": true,
+  "state": "READY",
+  "protected_remote_heads": {
+    "refs/heads/creative/tohesar-cover-art-max-004-live": "24de81762bfa63f7281928df82b15d5daba0829b",
+    "refs/heads/feature/tohesar-journal-world-005": "acbb362e19661fb3333b160c936271aa5cec46d7",
+    "refs/heads/feature/tohesar-visual-world-006": "c8725c19c3ed70a5a13eb6b605254df256cd0e89",
+    "refs/heads/main": "8e2960ec70254f83033d8a808c3ea0eacd6eceb6"
+  }
+}
