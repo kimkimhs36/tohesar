@@ -1,0 +1,150 @@
+/* BUILD 014 — photograph, type and the shape of a car share the page.
+   An authored layer over the existing publications; no article copy is replaced. */
+.beauty014-journal{--paper:#e5e1ed;--ink:#303448;--rule:#b3adbf}
+.beauty014-journal .site-header{background:var(--paper)}
+.beauty014-journal .journal-mast{padding-top:31px;padding-bottom:27px;align-items:center;gap:40px}
+.beauty014-journal .journal-mast h1{font:500 clamp(80px,12.8vw,190px)/.82 Arial,sans-serif;letter-spacing:-.095em;position:relative}
+.beauty014-journal .mast-star{display:none}
+.beauty014-journal .journal-mast p{max-width:15em;line-height:1.9;font-size:11px}
+.beauty014-journal .section-nav{border-top:0;gap:35px}
+.beauty014-journal .featured{margin-top:22px;grid-template-columns:1.3fr 1fr;gap:0 4vw;align-items:center;position:relative;padding-bottom:30px}
+.beauty014-journal .section-kicker{margin-bottom:15px}
+.beauty014-journal .feature-image{border-radius:0;aspect-ratio:1.28;margin:0;overflow:hidden}
+.beauty014-journal .feature-image>img{object-position:61% 69%}
+.beauty014-journal .image-stamp{top:20px;left:20px;line-height:1.6}
+.beauty014-journal .round-link{display:none}
+.beauty014-journal .feature-copy{position:relative;background:#efcfc1;padding:40px 38px 30px;margin-left:-11%;z-index:1;transform:translateY(35px)}
+.beauty014-journal .feature-copy .eyebrow{font-size:9px;letter-spacing:.045em;margin-bottom:25px}
+.beauty014-journal .feature-copy h2{font-size:clamp(31px,3.7vw,55px);letter-spacing:-.065em;line-height:1.38}
+.beauty014-journal .feature-copy>p{max-width:28em;font-size:13px;margin-top:22px}
+.beauty014-journal .feature-copy small{font-size:8px;margin-top:24px}
+.beauty014-journal .feature-copy .text-link{font-size:11px;margin-top:18px}
+.beauty014-journal .city-invitation{background:#c8d5e5}
+.beauty014-journal .city-invite-photo{border-radius:0;overflow:hidden}
+.beauty014-journal .city-invite-copy h2{letter-spacing:-.065em}
+/* The first edition already has its own jacket. Preserve it; articulate chapters. */
+.beauty014-issue .chapter-curve{background:#d5d0e6}
+.beauty014-issue .chapter-curve .chapter-spread{padding-top:0;gap:0 6vw}
+.beauty014-issue .chapter-curve .chapter-identity{border:0;z-index:3;position:relative;margin-bottom:-35px;padding:25px 0 0}
+.beauty014-issue .chapter-curve .chapter-identity>span{font:italic 400 clamp(130px,18vw,250px)/.8 Georgia,serif;color:#f4e5de;text-shadow:0 1px 0 #5e5c6f20}
+.beauty014-issue .chapter-curve .chapter-image>a{border-radius:48% 48% 0 0}
+.beauty014-issue .chapter-curve .chapter-image img{aspect-ratio:.95;object-position:62% 69%}
+.beauty014-issue .chapter-curve .chapter-copy{padding-top:65px}
+.beauty014-issue .chapter-edge{background:#f0d4c5;--wp-paper:240 212 197;color:#5a302f}
+.beauty014-issue .chapter-edge .chapter-spread{position:relative;padding-top:20px;gap:20px 6vw}
+.beauty014-issue .chapter-edge .chapter-identity{border:0;padding:0;margin-bottom:-18px;position:relative;z-index:3}
+.beauty014-issue .chapter-edge .chapter-identity>span{font:900 clamp(120px,18vw,260px)/.8 Arial,sans-serif;color:#9d3f37;letter-spacing:-.095em}
+.beauty014-issue .chapter-edge .chapter-identity>i{border-radius:0}
+.beauty014-issue .chapter-edge .chapter-image>a{border-radius:0;clip-path:polygon(0 0,100% 0,100% 90%,88% 100%,0 100%)}
+.beauty014-issue .chapter-edge .chapter-copy{padding-top:35px}
+.beauty014-issue .chapter-proportion{background:#dce0cf}
+.beauty014-issue .chapter-proportion .chapter-identity{border:0;margin-bottom:-50px;z-index:3;position:relative;padding-left:4%;color:#f1ead8}
+.beauty014-issue .chapter-proportion .chapter-identity>span{font-size:clamp(120px,17vw,235px)}
+.beauty014-issue .chapter-proportion .chapter-image>a{overflow:hidden;display:block}
+.beauty014-issue .chapter-proportion .chapter-image img{aspect-ratio:2.1;object-position:center 53%}
+.beauty014-issue .chapter-proportion .chapter-copy{padding-top:25px}
+.beauty014-issue .chapter-language{background:#bdcbd9;color:#293b52}
+.beauty014-issue .chapter-language .chapter-spread{grid-template-columns:1fr 1fr;gap:30px 7vw}
+.beauty014-issue .chapter-language .chapter-identity{border:0;padding:0;align-items:end}
+.beauty014-issue .chapter-language .chapter-identity>span{font:400 clamp(100px,15vw,215px)/.85 Arial,sans-serif;letter-spacing:-.09em}
+.beauty014-issue .chapter-language .chapter-identity>i{border-radius:0}
+.beauty014-issue .chapter-language .chapter-image{grid-column:1/-1;grid-row:2;width:87%;margin-left:auto}
+.beauty014-issue .chapter-language .chapter-copy{grid-column:1/-1;grid-row:3;max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:14px 7vw;padding:0}
+.beauty014-issue .chapter-language .chapter-copy>.edition-label{grid-column:1/-1}
+.beauty014-issue .chapter-language .chapter-copy h2{grid-row:2/4;max-width:9em;margin:0}
+.beauty014-issue .chapter-small{background:transparent}
+.beauty014-issue #wallpaper-issue-small{--wp-paper:231 216 225;background:#e7d8e1}
+.beauty014-issue .chapter-small .chapter-image>a{display:flex;flex-direction:column;gap:10px;padding:30px 0}
+.beauty014-issue .chapter-small .chapter-image img{width:78%;height:auto;object-fit:contain;transform:rotate(-7deg)}
+.beauty014-issue .chapter-small .chapter-image img:nth-child(2){align-self:end;transform:rotate(5deg)}
+.beauty014-issue .chapter-small .chapter-image img:nth-child(3){width:87%;transform:rotate(-3deg)}
+/* Standalone publications carry their car's silhouette, without a shared effect. */
+.beauty014-curve{--paper:#ddd9e9;--ink:#303448}
+.beauty014-curve .story-intro{background:#ddd9e9}
+.beauty014-curve .story-hero{margin:0 var(--edge) 0 8vw}
+.beauty014-curve .story-hero>img{border-radius:48% 48% 0 0;object-position:61% 70%;height:650px}
+.beauty014-curve .story-intro h1{font-size:clamp(40px,5.2vw,80px);letter-spacing:-.065em}
+.beauty014-blade{--paper:#eed7cd;--ink:#59332f;--rule:#b78982}
+.beauty014-blade .story-intro h1{font-weight:500;letter-spacing:-.07em}
+.beauty014-blade .story-intro>.eyebrow{color:#a43c34}
+.beauty014-blade .story-topline{border-bottom:1px solid #a43c34;padding-bottom:12px}
+.beauty014-blade .f40-hero{margin-left:var(--edge);margin-right:0}
+.beauty014-blade .f40-hero>img{clip-path:polygon(0 0,100% 0,100% 91%,89% 100%,0 100%)}
+.beauty014-proportion .giulia-name>p{font-weight:300}
+.beauty014-proportion .giulia-hero-register{border-color:#7d8b70}
+.beauty014-language .type-opening{background:#c9d4e1}
+.beauty014-language .type-opening-title>p{color:#344d64}
+.beauty014-language .type-opening-title>p i{font-family:Arial,sans-serif;font-style:normal;letter-spacing:-.085em;font-weight:400}
+.beauty014-miniatures .atelier-intro{background:#e6d9e8}
+@media(min-width:1000px){
+ .beauty014-curve main{display:grid;grid-template-columns:1fr 1fr}
+ .beauty014-curve main>*{grid-column:1/-1}
+ .beauty014-curve main>.story-intro{grid-column:1;grid-row:1;padding-top:32px;padding-right:5vw;padding-bottom:45px;display:flex;flex-direction:column;justify-content:center}
+ .beauty014-curve main>.story-hero{grid-column:2;grid-row:1;margin:35px var(--edge) 35px 0;align-self:center}
+ .beauty014-curve .story-topline{margin-bottom:35px}
+ .beauty014-curve .story-hero>img{height:min(65vw,650px)}
+ .beauty014-curve .story-hero figcaption{font-size:8px;line-height:1.8}
+}
+@media(max-width:700px){
+ .beauty014-journal .journal-mast{display:block;padding:28px var(--edge) 19px}
+ .beauty014-journal .journal-mast h1{font:500 24.5vw/.82 Arial,sans-serif;letter-spacing:-.095em;transform:translateX(-4px)}
+ .beauty014-journal .journal-mast p{max-width:none;margin-top:19px;font-size:10px;padding:0}
+ .beauty014-journal .section-nav{gap:0;justify-content:space-between}
+ .beauty014-journal .section-nav a{font-size:10px;gap:5px;min-height:39px}
+ .beauty014-journal .section-nav span{font-size:7px}
+ .beauty014-journal .featured{display:block;margin:19px 0 45px;padding:0}
+ .beauty014-journal .section-kicker{padding:0 var(--edge);font-size:8px;line-height:1.6;margin-bottom:13px}
+ .beauty014-journal .feature-image{margin:0 0 0 var(--edge);aspect-ratio:1.08;border-radius:0}
+ .beauty014-journal .feature-image>img{object-position:61% 71%}
+ .beauty014-journal .image-stamp{top:15px;left:15px;font-size:8px}
+ .beauty014-journal .feature-copy{margin:-37px var(--edge) 0 17%;padding:24px 21px 22px;transform:none;min-height:0}
+ .beauty014-journal .feature-copy .eyebrow{font-size:7px;margin-bottom:15px;line-height:1.8}
+ .beauty014-journal .feature-copy h2{font-size:29px;line-height:1.4;letter-spacing:-.065em}
+ .beauty014-journal .feature-copy>p{font-size:11px;line-height:1.9;margin-top:18px}
+ .beauty014-journal .feature-copy .text-link{font-size:10px;margin-top:13px;gap:25px}
+ .beauty014-journal .feature-copy small{font-size:7px;line-height:1.8;margin-top:15px}
+ .beauty014-issue .chapter-curve .chapter-identity{margin-bottom:-25px;padding-top:26px}
+ .beauty014-issue .chapter-curve .chapter-identity>span{font-size:137px}
+ .beauty014-issue .chapter-curve .chapter-image img{aspect-ratio:1.1;object-position:61% 72%}
+ .beauty014-issue .chapter-curve .chapter-copy{padding-top:29px;padding-left:8%}
+ .beauty014-issue .chapter-edge .chapter-identity{margin-bottom:-11px}
+ .beauty014-issue .chapter-edge .chapter-identity>span{font-size:127px}
+ .beauty014-issue .chapter-edge .chapter-copy{padding-top:12px}
+ .beauty014-issue .chapter-proportion .chapter-identity{margin-bottom:-43px;padding-left:2%}
+ .beauty014-issue .chapter-proportion .chapter-identity>span{font-size:118px}
+ .beauty014-issue .chapter-proportion .chapter-image img{aspect-ratio:1.68;object-position:50% 53%}
+ .beauty014-issue .chapter-proportion .chapter-copy{padding-top:6px}
+ .beauty014-issue .chapter-language .chapter-spread{display:flex;gap:25px}
+ .beauty014-issue .chapter-language .chapter-identity>span{font-size:85px}
+ .beauty014-issue .chapter-language .chapter-image{width:calc(100% + var(--edge));margin:0 0 0 0}
+ .beauty014-issue .chapter-language .chapter-image .edition-credit{padding-left:0;padding-right:var(--edge)}
+ .beauty014-issue .chapter-language .chapter-copy{display:block;padding:0 7% 0 0}
+ .beauty014-issue .chapter-language .chapter-copy h2{max-width:9em;margin:16px 0 21px}
+ .beauty014-issue .chapter-small .chapter-image>a{gap:7px;padding:10px 0}
+ .beauty014-curve .story-topline{margin-bottom:23px}
+ .beauty014-curve .story-intro{padding-bottom:27px}
+ .beauty014-curve .story-intro h1{font-size:38px;line-height:1.36}
+ .beauty014-curve .story-deck{font-size:12px;line-height:2;margin-top:22px}
+ .beauty014-curve .byline{margin-top:27px}
+ .beauty014-curve .story-hero{margin:0 var(--edge) 0 8vw}
+ .beauty014-curve .story-hero>img{height:auto;aspect-ratio:.94;border-radius:48% 48% 0 0;object-position:61% 70%}
+ .beauty014-curve .story-hero figcaption{font-size:7px;line-height:1.8}
+ .beauty014-blade .story-topline{margin-bottom:25px;padding-bottom:8px}
+ .beauty014-blade .story-intro h1{font-size:39px;line-height:1.33}
+ .beauty014-blade .story-deck{font-size:12px;margin-top:23px}
+ .beauty014-blade .byline{margin-top:28px}
+ .beauty014-language .type-opening-title>p i{font-size:72px}
+}
+@media(max-width:360px){
+ .beauty014-journal .feature-copy h2{font-size:25px}
+ .beauty014-curve .story-intro h1,.beauty014-blade .story-intro h1{font-size:34px}
+ .beauty014-issue .chapter-language .chapter-identity>span{font-size:75px}
+}
+/* Second visual pass: show the GT's length, rather than excess sky. */
+@media(min-width:701px){
+ .beauty014-issue .chapter-language .chapter-image img{width:100%;aspect-ratio:2.15;object-fit:cover;object-position:center 69%}
+ .beauty014-issue .chapter-language .chapter-image>a{overflow:hidden}
+ .beauty014-journal .feature-copy{max-width:610px}
+}
+/* Match the reading veil to its printed paper; avoid pale text-shaped clouds. */
+.beauty014-issue #wallpaper-issue-curve{--wp-paper:213 208 230;background:#d5d0e6}

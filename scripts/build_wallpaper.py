@@ -40,6 +40,8 @@ def attach(s):
         s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/wallpaper011.css"><script src="/journal/assets/wallpaper011.js" defer></script></head>')
     if '/journal/assets/living012.css' not in s:
         s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/living012.css"></head>')
+    if '/journal/assets/beauty014-wallpaper.css' not in s:
+        s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/beauty014-wallpaper.css"></head>')
     if 'data-wallpaper=' in s and 'class="wallpaper-provenance"' not in s:
         note='<p class="wallpaper-provenance">지면 배경의 자동차는 TOHEŞAR의 AI 보조 일러스트입니다. 특정 모델의 정확한 도해나 제조사 공식 상품이 아닙니다. <a href="/docs/wallpaper-011-review/#collection">8종의 아트워크와 제작 기록 ↗</a></p>'
         s=s.replace('</main>',note+'</main>',1)

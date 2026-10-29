@@ -1,0 +1,35 @@
+/* 014: ink at the margins, paper only underneath type. Original artwork unchanged. */
+.wallpaper-paper .edition-credit{position:relative}
+.wallpaper-car{opacity:min(1,calc(var(--o)*1.23));filter:saturate(1.09) contrast(1.03)}
+.wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before{inset:-4px -7px;filter:blur(7px);background:rgb(var(--wp-paper)/.96)}
+.wallpaper-reading :is(h2,.chapter-side)::before{inset:-5px;filter:blur(9px)}
+.wallpaper-art::after{display:none}
+@media(min-width:701px){.wallpaper-car{width:clamp(110px,calc(var(--w)*.72vw),185px)}.wallpaper-paper[data-density="rich"] .wallpaper-car{width:clamp(115px,calc(var(--w)*.8vw),195px)}}
+@media(max-width:700px){.wallpaper-car{width:calc(var(--w)*1.04vw)}.wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before{inset:-4px -5px;filter:blur(6px)}}
+/* City placements: protect paragraph lanes, keep complete silhouettes in the interlines. */
+.wallpaper-city .wallpaper-car{opacity:.94}
+.wallpaper-city .wallpaper-car:nth-child(3n){opacity:.79}
+@media(min-width:701px){
+ .wallpaper-city .wallpaper-car:nth-child(4){left:23%;top:33%;width:160px}
+ .wallpaper-city .wallpaper-car:nth-child(5){left:79%;top:42%;width:165px}
+ .wallpaper-city .wallpaper-car:nth-child(6){left:31%;top:49%}
+ .wallpaper-city .wallpaper-car:nth-child(7){left:87%;top:55%}
+ .wallpaper-city .wallpaper-car:nth-child(8){left:15%;top:59%}
+ .wallpaper-city .wallpaper-car:nth-child(9){left:69%;top:68%}
+}
+@media(max-width:700px){
+ .wallpaper-city .wallpaper-car:nth-child(1){left:11%;top:3%;width:95px}
+ .wallpaper-city .wallpaper-car:nth-child(2){left:85%;top:15%;width:105px}
+ .wallpaper-city .wallpaper-car:nth-child(3){left:71%;top:24%;width:89px}
+ .wallpaper-city .wallpaper-car:nth-child(4){left:12%;top:34%;width:103px}
+ .wallpaper-city .wallpaper-car:nth-child(5){left:85%;top:45%;width:105px}
+ .wallpaper-city .wallpaper-car:nth-child(6){left:22%;top:56%;width:101px}
+ .wallpaper-city .wallpaper-car:nth-child(7){left:87%;top:61%;width:109px}
+ .wallpaper-city .wallpaper-car:nth-child(8){left:13%;top:66%;width:97px}
+ .wallpaper-city .wallpaper-car:nth-child(9){left:20%;top:76%;width:93px}
+ .wallpaper-city .wallpaper-car:nth-child(10){left:90%;top:83%;width:106px}
+ .wallpaper-city .wallpaper-car:nth-child(11){left:12%;top:90%;width:110px}
+ .wallpaper-city .wallpaper-car:nth-child(12){left:69%;top:96%;width:100px}
+ .wallpaper-city .wallpaper-car:nth-child(n+13){display:none}
+}
+@media(max-width:700px){.wallpaper-city .wallpaper-art>.wallpaper-car:first-child{left:15%;top:1.2%;width:86px}}
