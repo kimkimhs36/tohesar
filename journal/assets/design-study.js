@@ -14,11 +14,15 @@
   function paint() {
     queued = false;
     if (!enabled) return;
-    const p = clamp((scrollY - top) / distance);
+    const p = clamp(-scene.getBoundingClientRect().top / distance);
     const index = p < .32 ? 0 : p < .69 ? 1 : 2;
     scene.dataset.progress = p.toFixed(4);
     scene.dataset.scene = String(index);
-    scene.style.setProperty('--study-reveal', `${15 + clamp(p / .72) * 85}%`);
+    const focus = index === 0 ? 'bonnet' : index === 1 ? 'cabin' : 'whole';
+    scene.dataset.focus = focus;
+    scene.style.setProperty('--inspection-width', `${35 + clamp((p - .55) / .35) * 65}%`);
+    scene.style.setProperty('--concept-focus', `${20 + clamp(p / .5) * 30}%`);
+    scene.style.setProperty('--production-focus', `${76 - clamp(p / .5) * 26}%`);
     scene.style.setProperty('--study-shift', (Math.sin(p * Math.PI) * 16).toFixed(3));
     scene.style.setProperty('--study-progress', `${p * 100}%`);
     captions.forEach((c, i) => c.classList.toggle('is-current', i === index));
@@ -38,7 +42,10 @@
     schedule();
   }
   buttons.forEach(b => b.addEventListener('click', () => {
-    if (enabled) scrollTo({top:top + distance * Number(b.dataset.studyGo), behavior:'auto'});
+    if (enabled) {
+      const currentTop = scene.getBoundingClientRect().top + scrollY;
+      scrollTo({top:currentTop + distance * Number(b.dataset.studyGo), behavior:'auto'});
+    }
   }));
   addEventListener('scroll', schedule, {passive:true});
   addEventListener('resize', measure, {passive:true});
@@ -46,5 +53,7 @@
   reduced.addEventListener('change', measure);
   short.addEventListener('change', measure);
   document.fonts.ready.then(measure);
+  addEventListener('load', measure);
+  new ResizeObserver(measure).observe(document.querySelector('.type-opening'));
   measure();
 })();
