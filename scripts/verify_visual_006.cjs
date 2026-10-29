@@ -66,9 +66,10 @@ async function pose(p,selector,fraction){const g=await p.locator(selector).evalu
   assert.deepEqual(errors,[]);result.browsers.push({name,checks,reverse_scroll:true,history_menu_reload:true,reduced_motion:true,no_js:true,errors});
   await browser.close();
  }
- // Cover and protected sources remain byte-for-byte identical to 005.
+ // 010 intentionally changes the cover HTML, layout and viewport measurement.
+ // Original photography, brand artwork, focus and legacy motion remain protected.
  const {execFileSync}=require('node:child_process');
- const preserved=['index.html','styles.css','motion.css','motion.js','assets','creative/cover-art-max-004','journal/yokohama','journal/legacy-004','creative/journal-world-005','journal/assets/miniature-coupe.webp','journal/assets/miniature-motion.js'];
+ const preserved=['styles.css','motion.css','motion.js','assets','creative/cover-art-max-004/photo.css','creative/cover-art-max-004/fonts.css','creative/cover-art-max-004/fonts','journal/yokohama','journal/legacy-004','creative/journal-world-005','journal/assets/miniature-coupe.webp','journal/assets/miniature-motion.js'];
  assert.equal(execFileSync('git',['diff','acbb362e19661fb3333b160c936271aa5cec46d7','--',...preserved],{maxBuffer:1024*1024}).length,0);
  result.preserved=preserved;if(fs.existsSync(out+'/checks.json')){const old=JSON.parse(fs.readFileSync(out+'/checks.json'));result.browsers=[...old.browsers.filter(b=>!result.browsers.some(n=>n.name===b.name)),...result.browsers];}fs.writeFileSync(out+'/checks.json',JSON.stringify(result,null,2));console.log('PASS: two browser engines, 22 focused route/viewport checks, editorial motion, history, reduced motion, no-JS, source preservation.');
 })().catch(e=>{console.error(e);process.exitCode=1});

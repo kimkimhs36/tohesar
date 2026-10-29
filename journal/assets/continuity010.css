@@ -73,3 +73,15 @@
  .issue-page .chapter-transition{grid-template-columns:1fr;gap:22px;padding-top:25px;padding-bottom:28px;min-height:150px}
  .chapter-following{border-top:1px solid #31353c26;padding-top:18px}.chapter-following strong{font-size:15px}
 }
+/* Keep the frontispiece; expose the real edition and collection in existing furniture. */
+.journal-home .edition-no{font-size:9px;line-height:1.9;letter-spacing:.045em;border-bottom:1px solid #aaa0b1;min-height:44px;display:flex;align-items:center}
+@media(max-width:700px){
+ .journal-home .edition-no{display:none}
+}
+@media(min-width:760px) and (max-width:1400px) and (orientation:landscape){
+ .journal-home .featured{grid-template-columns:1.25fr 1fr;column-gap:5vw;align-items:center}
+ .journal-home .feature-image{aspect-ratio:1.2;max-height:calc(100svh - 365px);min-height:340px}
+ .journal-home .feature-copy h2{font-size:clamp(33px,3.7vw,50px)}
+ .journal-home .feature-copy>.eyebrow{margin-bottom:20px}
+ .journal-home .feature-copy small{margin-top:22px}
+}
