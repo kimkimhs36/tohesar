@@ -1,0 +1,299 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "checked_at": "2026-10-29T00:05:10.933Z",
+  "real_iphone_tested": false,
+  "browsers": [
+    {
+      "name": "chromium",
+      "checks": [
+        {
+          "route": "/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        }
+      ],
+      "errors": [],
+      "search_and_filters": "passed",
+      "history_and_direct_reload": "passed",
+      "motion": {
+        "first": {
+          "p": "0.0500",
+          "focus": "bonnet",
+          "width": "35%",
+          "shift": "2.504"
+        },
+        "mid": {
+          "p": "0.5003",
+          "focus": "cabin",
+          "width": "35%",
+          "shift": "16.000"
+        },
+        "last": {
+          "p": "0.9500",
+          "focus": "whole",
+          "width": "100%",
+          "shift": "2.505"
+        },
+        "back": {
+          "p": "0.5003",
+          "focus": "cabin",
+          "width": "35%",
+          "shift": "16.000"
+        }
+      },
+      "reduced_and_nojs": "passed",
+      "journey": "passed"
+    },
+    {
+      "name": "webkit",
+      "checks": [
+        {
+          "route": "/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        }
+      ],
+      "errors": [],
+      "search_and_filters": "passed",
+      "history_and_direct_reload": "passed",
+      "motion": {
+        "first": {
+          "p": "0.0494",
+          "focus": "bonnet",
+          "width": "35%",
+          "shift": "2.472"
+        },
+        "mid": {
+          "p": "0.4997",
+          "focus": "cabin",
+          "width": "35%",
+          "shift": "16.000"
+        },
+        "last": {
+          "p": "0.9500",
+          "focus": "whole",
+          "width": "100%",
+          "shift": "2.505"
+        },
+        "back": {
+          "p": "0.4997",
+          "focus": "cabin",
+          "width": "35%",
+          "shift": "16.000"
+        }
+      },
+      "reduced_and_nojs": "passed",
+      "journey": "passed"
+    }
+  ]
+}

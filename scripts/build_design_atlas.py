@@ -8,7 +8,7 @@ forms={f['id']:f for f in data['forms']}
 items=[dict(i) for i in data['items'] if i['status']=='published']
 for n in json.loads((ROOT/data['news_source'].lstrip('/')).read_text())['items']:
     if n['status']!='published': continue
-    items.append(dict(id=n['id'],title=n['title'],url='/journal/news/#'+n['id'],kind='news',manufacturer=n['manufacturer'],model=None,published_at=n['published_at'],vehicle_year=None,forms=['new-language'] if n['topic']=='design' else [],summary=n['summary'],image=None,keywords=[n['manufacturer'],n['topic'],n['source_title']],related=[],source_url=n['url'],source_name=n['source']))
+    items.append(dict(id=n['id'],title=n['title'],url='/journal/news/#'+n['id'],kind='news',manufacturer=n['manufacturer'],model=None,published_at=n['published_at'],vehicle_year=None,forms=data.get('news_forms',{}).get(n['id'],[]),summary=n['summary'],image=None,keywords=[n['manufacturer'],n['topic'],n['source_title']],related=[],source_url=n['url'],source_name=n['source']))
 assert len({i['id'] for i in items})==len(items),'Duplicate content ID'
 labels={'design-essay':'디자인 에세이','visual-fiction':'비주얼 픽션','graphic-collection':'그래픽 컬렉션','news':'뉴스 / 공식 원문'}
 for i in items:
