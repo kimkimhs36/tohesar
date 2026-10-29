@@ -1,0 +1,488 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "engine": "webkit",
+  "version": "26.5",
+  "physical_device": false,
+  "records": [
+    {
+      "filename": "webkit-390-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-cover-middle.webp",
+      "route": "/",
+      "scroll": 506,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-cover-end.webp",
+      "route": "/",
+      "scroll": 1013,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-issue.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-curve.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 1210,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-edge.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 2327,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-proportion.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 3280,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-language.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 4385,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-small.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 6502,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-passage.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5378,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-passage-first.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5378,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-passage-middle.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5518,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-passage-last.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5658,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-related.webp",
+      "route": "/journal/design/giulia/",
+      "scroll": 13610,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-390-atelier.webp",
+      "route": "/journal/miniatures/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-430-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-430-cover-middle.webp",
+      "route": "/",
+      "scroll": 559,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-430-cover-end.webp",
+      "route": "/",
+      "scroll": 1118,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-430-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-820-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-820-cover-middle.webp",
+      "route": "/",
+      "scroll": 708,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-820-cover-end.webp",
+      "route": "/",
+      "scroll": 1416,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-820-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-cover-middle.webp",
+      "route": "/",
+      "scroll": 492,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-cover-end.webp",
+      "route": "/",
+      "scroll": 984,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-issue.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-curve.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 1546,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-edge.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 2596,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-proportion.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 3448,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-language.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 4821,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-small.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 6868,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-passage.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5708,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-passage-first.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5708,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-passage-middle.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5878,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-passage-last.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 6048,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-related.webp",
+      "route": "/journal/design/giulia/",
+      "scroll": 13352,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1180-atelier.webp",
+      "route": "/journal/miniatures/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1366-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1366-cover-middle.webp",
+      "route": "/",
+      "scroll": 614,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1366-cover-end.webp",
+      "route": "/",
+      "scroll": 1229,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1366-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1440-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1440-cover-middle.webp",
+      "route": "/",
+      "scroll": 540,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1440-cover-end.webp",
+      "route": "/",
+      "scroll": 1080,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "filename": "webkit-1440-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    }
+  ]
+}

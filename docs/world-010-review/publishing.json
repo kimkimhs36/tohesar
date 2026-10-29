@@ -1,0 +1,26 @@
+{
+  "check": "pass",
+  "build": "pass",
+  "preview": "port 8000 serving",
+  "repeat_build_identical": true,
+  "local_links": 607,
+  "protected_files": 139,
+  "manuscripts": [
+    {
+      "path": "journal/911/index.html",
+      "original_paragraphs_present": 31
+    },
+    {
+      "path": "journal/f40/index.html",
+      "original_paragraphs_present": 24
+    },
+    {
+      "path": "journal/design/type-01/index.html",
+      "original_paragraphs_present": 33
+    },
+    {
+      "path": "journal/templates/giulia-body.html",
+      "original_paragraphs_present": 38
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "base": "http://127.0.0.1:8001",
+  "engine": "chromium",
+  "version": "154.0.8037.57",
+  "physical_device": false,
+  "records": [
+    {
+      "filename": "chromium-390-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-cover-middle.webp",
+      "route": "/",
+      "scroll": 507,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-cover-end.webp",
+      "route": "/",
+      "scroll": 1013,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-issue.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-curve.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 1211,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-edge.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 2293,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-proportion.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 3213,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-language.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 4285,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-small.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5244,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-passage.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 6214,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-related.webp",
+      "route": "/journal/design/giulia/",
+      "scroll": 13743,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-390-atelier.webp",
+      "route": "/journal/miniatures/",
+      "scroll": 0,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-430-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-430-cover-middle.webp",
+      "route": "/",
+      "scroll": 559,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-430-cover-end.webp",
+      "route": "/",
+      "scroll": 1118,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-430-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 430,
+        "height": 932
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-820-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-820-cover-middle.webp",
+      "route": "/",
+      "scroll": 708,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-820-cover-end.webp",
+      "route": "/",
+      "scroll": 1416,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-820-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-cover-middle.webp",
+      "route": "/",
+      "scroll": 492,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-cover-end.webp",
+      "route": "/",
+      "scroll": 984,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-issue.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-curve.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 1547,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-edge.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 2612,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-proportion.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 3479,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-language.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 4867,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-small.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 5769,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-passage.webp",
+      "route": "/journal/issues/001/",
+      "scroll": 6725,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-related.webp",
+      "route": "/journal/design/giulia/",
+      "scroll": 13453,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1180-atelier.webp",
+      "route": "/journal/miniatures/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1180,
+        "height": 820
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1366-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1366-cover-middle.webp",
+      "route": "/",
+      "scroll": 615,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1366-cover-end.webp",
+      "route": "/",
+      "scroll": 1229,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1366-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1366,
+        "height": 1024
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1440-cover-start.webp",
+      "route": "/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1440-cover-middle.webp",
+      "route": "/",
+      "scroll": 540,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1440-cover-end.webp",
+      "route": "/",
+      "scroll": 1080,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "filename": "chromium-1440-journal.webp",
+      "route": "/journal/",
+      "scroll": 0,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "overflow": false
+    }
+  ]
+}
