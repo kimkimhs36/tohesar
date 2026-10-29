@@ -54,6 +54,11 @@ try:
         assert page.locator('#wire-count').inner_text()
         page.locator('#wire-query').fill('unlikelynoresults')
         assert '조건에 맞는' in page.locator('#wire-list').inner_text()
+        page.locator('#wire-reset').click()
+        assert page.locator('#wire-query').input_value() == ''
+        assert page.locator('#wire-publisher').input_value() == 'all'
+        assert page.locator('#wire-topic').input_value() == 'all'
+        assert page.locator('#wire-list .wire-card').count() > 0
         assert not errors, errors
         browser.close()
 finally:

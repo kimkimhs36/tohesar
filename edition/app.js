@@ -86,6 +86,12 @@ for(const name of ['wire-query','wire-publisher','wire-topic']){
  const input=by(name);
  if(input)input.addEventListener(name==='wire-query'?'input':'change',()=>{wireVisible=12;renderWire()});
 }
+by('wire-reset')?.addEventListener('click',()=>{
+ const query=by('wire-query'),publisher=by('wire-publisher'),topic=by('wire-topic');
+ if(query)query.value='';if(publisher)publisher.value='all';if(topic)topic.value='all';
+ const url=new URL(location.href);url.searchParams.delete('topic');history.replaceState(history.state,'',url);
+ wireVisible=12;renderWire();query?.focus();
+});
 by('wire-load-more')?.addEventListener('click',()=>{wireVisible+=12;renderWire()});
 let searchIndexRequest=null;
 let searchIndexFailed=false;

@@ -54,6 +54,7 @@ body[data-page="news"] .site-header,body[data-page="archive"] .site-header{posit
 .wire-filters input:focus-visible,.wire-filters select:focus-visible{outline:2px solid #8a7652;outline-offset:2px}
 .wire-filters input::placeholder{color:#758478;opacity:1}
 .wire-inferred{font-size:9px;color:#627a67;white-space:nowrap}
+.wire-reset{min-height:44px;padding:0 12px;border:1px solid #91aa99;background:transparent;color:#304e3a;font:600 12px var(--sans);cursor:pointer}.wire-reset:hover,.wire-reset:focus-visible{background:#e5ede4;outline-offset:2px}
 .wire-count{margin:11px 0 17px;font:11px/1.65 var(--sans);color:#536c58}
 .wire-load-more{width:100%;min-height:51px;margin:14px 0 22px;border:1px solid #789681;background:transparent;color:#304e3a;font:600 12px var(--sans);cursor:pointer}
 .wire-load-more:hover,.wire-load-more:focus-visible{background:#e5ede4}
