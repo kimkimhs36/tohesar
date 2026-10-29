@@ -11,6 +11,8 @@ for page in ['journal/index.html','journal/911/index.html','journal/f40/index.ht
     s=re.sub(r'<a class="cover-return".*?</a>',nav,s,flags=re.S)
     if '/journal/assets/navigation.css' not in s:
         s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/navigation.css"><script src="/journal/assets/navigation.js" defer></script></head>')
+    if '/journal/assets/continuity010.css' not in s:
+        s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/continuity010.css"><script src="/journal/assets/continuity010.js" defer></script></head>')
     footer=s.index('<footer')
     if 'href="/journal/visual/"' not in s[footer:]:
         s=s[:footer]+s[footer:].replace('<a href="/journal/yokohama/"','<a href="/journal/visual/" data-travel>Visual Culture ↗</a><a href="/journal/miniatures/" data-travel>Miniatures ↗</a><a href="/journal/yokohama/"',1)
