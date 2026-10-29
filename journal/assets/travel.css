@@ -1,10 +1,5 @@
-/* Native document transitions can reject during history/URL state changes.
-   Keep the existing CSS veil as the deterministic cross-page transition. */
+/* Keep the proven document + paper-veil approach. No loader or transition artwork. */
 @view-transition{navigation:none}
-::view-transition{pointer-events:none}
-::view-transition-old(root){animation:240ms ease both page-out}::view-transition-new(root){animation:360ms ease both page-in}
-@keyframes page-out{to{opacity:0;transform:translateY(-8px)}}@keyframes page-in{from{opacity:0;transform:translateY(10px)}}
-.travel-veil{position:fixed;inset:0;z-index:9999;background:#ded4db;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 180ms ease}
-.travel-veil::after{content:'';width:37px;height:42px;background:#68586d;mask:url('/assets/cedilla-icon.svg') center/contain no-repeat;-webkit-mask:url('/assets/cedilla-icon.svg') center/contain no-repeat;transform:translateY(6px);transition:transform 350ms ease}
-.travel-leaving .travel-veil,.travel-arriving .travel-veil{opacity:1}.travel-leaving .travel-veil::after,.travel-arriving .travel-veil::after{transform:none}
-@media(prefers-reduced-motion:reduce){::view-transition-group(*){animation:none!important}.travel-veil{display:none}}
+.travel-veil{position:fixed;inset:0;z-index:9999;background:var(--travel-paper,#ded4db);opacity:0;pointer-events:none;transition:opacity 140ms ease}
+.travel-leaving .travel-veil,.travel-arriving .travel-veil{opacity:1}
+@media(prefers-reduced-motion:reduce){.travel-veil{display:none}}
