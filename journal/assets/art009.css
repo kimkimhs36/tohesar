@@ -17,3 +17,117 @@
  .issue-page .sequence-note{font-size:12px}
  .issue-page .chapter-copy p{font-size:15px}
 }
+/* The edition jacket: a title in two voices, then a photographic plate. */
+.issue-page:not(.giulia-page):not(.archive-page) .site-header{background:var(--art-lilac)}
+.edition-opening{background:var(--art-lilac);padding-bottom:60px;overflow:hidden}
+.edition-topline{padding-bottom:14px}
+.edition-title{padding:32px 0 24px;max-width:1400px;margin:auto}
+.edition-title h1{margin:26px 0 20px;max-width:none;font-weight:400;line-height:.9;letter-spacing:-.06em}
+.title-shape{display:block;font:400 clamp(48px,8.7vw,132px)/.95 Arial;letter-spacing:-.065em}
+.title-desire{display:block;font:italic 400 clamp(76px,13.5vw,200px)/1 Georgia,serif;letter-spacing:-.065em;padding-left:13%}
+.edition-title h1 .title-desire i{font-size:.51em;letter-spacing:-.07em;margin-right:.06em}
+.edition-title p{font-size:15px;line-height:1.8;margin-left:14%;letter-spacing:-.03em}
+.edition-opening-photo{margin:5px 0 0 14%;padding:0 0 0 0;max-width:1200px}
+.edition-opening-photo>img{aspect-ratio:1.96;object-fit:cover;object-position:center 65%}
+.edition-opening-photo>span{font-size:11px;letter-spacing:.08em;left:-12%;bottom:30%}
+.edition-preface{margin:65px 0 45px 28%;max-width:740px;display:grid;grid-template-columns:1fr 1fr;gap:22px 40px}
+.edition-preface>.edition-label{grid-column:1/-1;margin:0}
+.edition-preface p+p{margin:0}
+.edition-contents a{font-size:14px;padding:22px 10px}
+.chapter-spread{position:relative;column-gap:6vw;padding-top:32px}
+.chapter-identity{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #31353c33;padding:0 0 22px;margin-bottom:0}
+.chapter-identity>span{font:italic 400 clamp(90px,12vw,180px)/.9 Georgia,serif;letter-spacing:-.065em}
+.chapter-identity>i{font:400 13px Arial;border:1px solid currentColor;border-radius:50%;width:40px;height:40px;display:grid;place-items:center}
+.chapter-image .chapter-mark{display:none}
+.chapter-folio{border-color:#31353c66}
+.chapter-curve{background:#c9c7dc;overflow:hidden}
+.chapter-curve .chapter-image{padding:0;margin:0}
+.chapter-curve .chapter-image>a{border-radius:0 30% 0 0;transform:none}
+.chapter-curve .chapter-image img{aspect-ratio:1.1;object-position:62% 64%}
+.chapter-curve .chapter-copy h2{max-width:8em}
+.chapter-edge{background:#e9dfd3;color:#493c38}
+.chapter-edge .chapter-spread{grid-template-columns:1.5fr 1fr;gap:32px 6vw}
+.chapter-edge .chapter-identity{border-color:#9a433e55;color:#a83c33}
+.chapter-edge .chapter-identity>span{font:400 clamp(100px,16vw,235px)/.8 Arial;letter-spacing:-.09em}
+.chapter-edge .chapter-image{border:0;padding:0;margin:0}
+.chapter-edge .chapter-image>a{clip-path:none}
+.chapter-edge .chapter-copy h2{border:0;padding:0}
+.chapter-proportion{background:#c9d1c3;color:#303b36}
+.chapter-proportion .chapter-spread{display:grid;grid-template-columns:1fr 1fr;gap:30px 6vw;padding-top:35px}
+.chapter-proportion .chapter-identity{width:100%}
+.chapter-proportion .chapter-identity>span{font-size:clamp(100px,15vw,205px)}
+.chapter-proportion .chapter-image{grid-column:1/-1;width:100%;margin:0}
+.chapter-proportion .chapter-image>a:after{display:none}
+.chapter-proportion .chapter-image img{aspect-ratio:2.2;object-fit:cover;object-position:center 55%}
+.proportion-register{display:flex;justify-content:space-between;border-bottom:1px solid #52605170;padding:14px 0;font:10px Arial;letter-spacing:.04em}
+.proportion-register span:before{content:'';display:block;height:20px;border-left:1px solid #52605170;margin-top:-14px;margin-bottom:8px}
+.chapter-proportion .chapter-copy{grid-column:1/-1;max-width:1100px;width:100%;gap:12px 7vw;padding-top:10px}
+.chapter-proportion .chapter-copy h2{font-size:clamp(32px,4.3vw,62px);max-width:10em}
+.chapter-language{background:#d9d3cd;color:#343b3e}
+.chapter-language .chapter-spread{grid-template-columns:1fr 1.3fr;gap:35px 5vw}
+.chapter-language .chapter-identity>span{font-style:normal;letter-spacing:-.075em}
+.chapter-language .chapter-copy{grid-column:1;grid-row:2}
+.chapter-language .chapter-image{grid-column:2;grid-row:2;margin-top:0}
+.chapter-language .chapter-image img{aspect-ratio:auto;object-fit:contain}
+.chapter-language .chapter-image>a{transform:none}
+.chapter-small{background:var(--art-sage)}
+.edition-closing{position:relative;background:var(--art-lilac);padding-top:60px;overflow:hidden}
+.closing-line{max-width:650px;margin:0 auto 35px;color:#7f768f}
+.closing-line svg{width:100%;height:auto;stroke:currentColor;stroke-width:1}
+.edition-closing h2{font-weight:400;letter-spacing:-.055em}
+.edition-footer{background:#c6c2d1}
+@media(max-width:700px){
+ .edition-opening{padding-top:22px;padding-bottom:40px}
+ .edition-topline{font-size:10px!important}
+ .edition-title{padding-top:25px;padding-bottom:26px}
+ .edition-title>.edition-label{font-size:10px}
+ .edition-title h1{margin-top:24px;margin-bottom:20px}
+ .title-shape{font-size:clamp(38px,11.7vw,65px)}
+ .title-desire{font-size:clamp(64px,19.8vw,105px);padding:7px 0 0 7%;white-space:nowrap}
+ .edition-title p{font-size:13px;margin-left:7%}
+ .edition-opening-photo{margin:0 calc(-1 * var(--edge)) 0 7%}
+ .edition-opening-photo>img{aspect-ratio:1.5;object-fit:cover;object-position:50% 60%}
+ .edition-opening-photo>span{left:-9%;bottom:32%;font-size:9px}
+ .edition-opening-photo .edition-credit{padding-right:var(--edge)}
+ .edition-preface{display:block;margin:37px 0 30px}
+ .edition-preface>.edition-label{display:block;margin-bottom:20px}
+ .edition-preface p{font-size:15px}
+ .edition-preface p+p{margin-top:18px}
+ .edition-contents a{font-size:13px;padding:15px 0}
+ .chapter-spread{gap:24px;padding-top:28px}
+ .chapter-identity{padding-bottom:18px}
+ .chapter-identity>span{font-size:100px}
+ .chapter-identity>i{font-size:11px;width:34px;height:34px}
+ .chapter-curve .chapter-image{padding:0;margin:0}
+ .chapter-curve .chapter-image>a{border-radius:0 28% 0 0}
+ .chapter-curve .chapter-image img{aspect-ratio:1.17}
+ .chapter-curve .chapter-copy{padding-left:12%}
+ .chapter-copy h2{margin:14px 0 20px}
+ .chapter-edge .chapter-spread{gap:26px}
+ .chapter-edge .chapter-identity{padding-bottom:22px}
+ .chapter-edge .chapter-identity>span{font-size:124px}
+ .chapter-edge .chapter-image{margin:0 0 0 0;padding:0}
+ .chapter-edge .edition-credit{padding-left:0}
+ .chapter-edge .chapter-copy{padding-right:8%}
+ .chapter-proportion .chapter-spread{display:flex;gap:22px;padding-top:28px}
+ .chapter-proportion .chapter-identity>span{font-size:100px}
+ .chapter-proportion .chapter-image{width:calc(100% + 2 * var(--edge));margin-left:calc(-1 * var(--edge))}
+ .chapter-proportion .chapter-image img{aspect-ratio:1.75;object-position:center 55%}
+ .proportion-register{margin:0 var(--edge);font-size:9px;padding:10px 0}
+ .proportion-register span:before{height:16px;margin-top:-10px}
+ .chapter-proportion .edition-credit{padding-left:var(--edge)}
+ .chapter-proportion .chapter-copy{display:block;padding:5px 0 0 7%;width:auto}
+ .chapter-proportion .chapter-copy h2{font-size:32px;margin-top:16px}
+ .chapter-proportion .edition-link{margin-top:22px}
+ .chapter-language .chapter-spread{gap:26px}
+ .chapter-language .chapter-identity>span{font-size:84px;white-space:nowrap}
+ .chapter-language .chapter-image{width:calc(100% + 2 * var(--edge));margin-left:calc(-1 * var(--edge));align-self:auto}
+ .chapter-language .chapter-image img{aspect-ratio:auto}
+ .chapter-language .edition-credit{padding-left:var(--edge)}
+ .chapter-language .chapter-copy{padding-left:7%}
+ .edition-closing{padding:48px var(--edge) 65px}
+ .closing-line{margin:0 -15px 35px}
+}
+@media(prefers-reduced-motion:no-preference){.chapter-curve .chapter-image>a,.chapter-language .chapter-image>a{transform:none}.chapter-edge .chapter-image>a{clip-path:none}}
+/* Keep every part of the opening car inside the photographic plate. */
+@media(max-width:700px){.edition-opening-photo>img{aspect-ratio:auto;height:auto;object-fit:contain}}
