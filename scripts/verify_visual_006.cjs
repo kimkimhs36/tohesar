@@ -42,7 +42,7 @@ async function pose(p,selector,fraction){const g=await p.locator(selector).evalu
   await p.goBack();await p.waitForURL('**/journal/visual/');await p.goBack();await p.waitForURL('**/journal/');
   await p.goto(base+'/journal/f40/#air-study');await ready(p);await p.locator('#air-study').scrollIntoViewIfNeeded();
   // Archive matches data, filters remain functional.
-  await p.goto(base+'/journal/news/');assert.equal(await p.locator('.news-item').count(),6);await p.locator('[data-filter="culture"]').click();assert.equal(await p.locator('.news-item:visible').count(),2);
+  await p.goto(base+'/journal/news/');const newsData=JSON.parse(fs.readFileSync('journal/data/news.json')).items.filter(i=>i.status==='published');assert.equal(await p.locator('.news-item').count(),newsData.length);await p.locator('[data-filter="culture"]').click();assert.equal(await p.locator('.news-item:visible').count(),newsData.filter(i=>i.topic==='culture').length);
   // Short phone, narrow phone and desktop layouts for the new spaces only.
   for(const size of [{width:320,height:667},{width:1440,height:1000}]){
    await p.setViewportSize(size);

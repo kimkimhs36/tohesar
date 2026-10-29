@@ -32,6 +32,7 @@ for path in ['journal/index.html','journal/news/index.html']:
     else:s=s.replace('>NEWS</div>',f'><!-- NEWS:START -->{markup}<!-- NEWS:END --></div>')
     verified=max(i.get('verified_at',i['published_at']) for i in items)
     s=re.sub(r'원문 확인 \d{4}\.\d{2}\.\d{2}', '원문 확인 '+verified.replace('-','.'),s)
-    s=re.sub(r'0?6 SOURCE-VERIFIED',f'{len(items):02d} SOURCE-VERIFIED',s)
+    s=re.sub(r'선별한 \d+건의 기록', f'선별한 {len(items)}건의 기록',s)
+    s=re.sub(r'(<p id="news-count"[^>]*>)\d+개의 기록',lambda m:m[1]+f'{len(items)}개의 기록',s)
     p.write_text(s)
 print(f'Rendered {len(items)} verified source records into both journal pages.')
