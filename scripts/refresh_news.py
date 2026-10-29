@@ -91,9 +91,21 @@ def read_source(source, now):
         if len(payload)>1500000:raise ValueError('feed too large')
     return parse_feed(payload,source,now)
 
+def atomic_write(output, result):
+    output.parent.mkdir(parents=True,exist_ok=True)
+    temp=output.with_suffix('.json.tmp')
+    temp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    os.replace(temp,output)
+
 def refresh(output):
     now=datetime.now(timezone.utc)
     all_items=[];states=[]
+    previous={}
+    if output.exists():
+        try:
+            previous=json.loads(output.read_text(encoding='utf8'))
+        except (ValueError, OSError):
+            print('WARN existing snapshot unreadable',file=sys.stderr)
     for src in FEEDS:
         try:
             items=read_source(src,now)
@@ -104,19 +116,26 @@ def refresh(output):
             print(f"WARN {src['id']} feed unavailable: {error}",file=sys.stderr)
     if not all_items:
         if output.exists():
-            previous=json.loads(output.read_text(encoding='utf8'))
             previous['last_attempt_at']=now.isoformat();previous['sources']=states;previous['status']='unavailable'
-            output.write_text(json.dumps(previous,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+            atomic_write(output,previous)
         print('WARN no valid feed items; keeping existing dated snapshot',file=sys.stderr)
         return 0 if output.exists() else 1
+    # Keep recent records from temporarily unavailable sources on partial failure.
+    failed={state['id'] for state in states if state['status'] != 'ok'}
+    for item in previous.get('items',[]):
+        if item.get('source_id') in failed and parse_date(item.get('published_at',''),now):
+            all_items.append(item)
     by_link={}
+    seen_titles=set()
     for item in sorted(all_items,key=lambda z:z['published_at'],reverse=True):
-        by_link.setdefault(item['url'],item)
+        title_key=re.sub(r'[^a-z0-9]+',' ',item['title'].lower()).strip()
+        if item['url'] in by_link or title_key in seen_titles:continue
+        by_link[item['url']]=item
+        seen_titles.add(title_key)
     result={'status':'live' if all(s['status']=='ok' for s in states) else 'partial',
       'generated_at':now.isoformat(),'note':'외부 발행처의 원문 헤드라인과 날짜·출처 링크만 수집합니다. TOHEŞAR 검증 기사와 별도입니다.',
       'sources':states,'items':list(by_link.values())[:MAX_ITEMS]}
-    output.parent.mkdir(parents=True,exist_ok=True)
-    temp=output.with_suffix('.json.tmp');temp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8');os.replace(temp,output)
+    atomic_write(output,result)
     print('Wrote',len(result['items']),'headlines:',output)
     return 0
 

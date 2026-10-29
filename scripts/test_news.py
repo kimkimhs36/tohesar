@@ -40,6 +40,21 @@ class FeedTests(unittest.TestCase):
         self.assertEqual(entry['category'],'design')
         self.assertEqual(entry['classification'],'headline-keywords')
         self.assertFalse(entry['fact_checked'])
+    def test_partial_refresh_retains_failed_source_and_deduplicates(self):
+        now=datetime.now(timezone.utc).isoformat()
+        old={'title':'BMW recent headline','url':'https://www.press.bmwgroup.com/a','source_id':'bmw','published_at':now}
+        fresh={'title':'A new Porsche headline','url':'https://newsroom.porsche.com/a','source_id':'porsche','published_at':now}
+        duplicate={**fresh,'url':'https://newsroom.porsche.com/b'}
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)/'news.json';out.write_text(json.dumps({'items':[old]}))
+            def read(source, now):
+                if source['id']=='bmw': raise OSError('offline')
+                return [fresh, duplicate] if source['id']=='porsche' else []
+            with patch.object(news,'read_source',side_effect=read): self.assertEqual(news.refresh(out),0)
+            result=json.loads(out.read_text())
+            self.assertEqual(result['status'],'partial')
+            self.assertEqual(len(result['items']),2)
+            self.assertIn(old,result['items'])
     def test_no_snapshot_and_no_network_fails(self):
         with tempfile.TemporaryDirectory() as d,patch.object(news,'read_source',side_effect=OSError('offline')):
             self.assertEqual(news.refresh(Path(d)/'missing.json'),1)

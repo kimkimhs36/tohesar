@@ -1,0 +1,33 @@
+name: Refresh news snapshot for production builds
+on:
+  schedule:
+    - cron: '17 1,7,13,19 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: news-snapshot
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Test ingestion
+        run: python3 -m unittest discover -s scripts -p 'test_news.py' -v
+      - name: Refresh and validate snapshot
+        run: |
+          python3 scripts/refresh_news.py
+          python3 scripts/test_edition.py
+      # Vercel builds from Git. Pages-only artifacts do not update Vercel.
+      # A non-fast-forward push fails safely if main changes during collection.
+      - name: Commit snapshot for the next deployment
+        run: |
+          if git diff --quiet -- edition/data/news.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add edition/data/news.json
+          git commit -m 'Update attributed news snapshot'
+          git push origin HEAD:main

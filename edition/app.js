@@ -5,9 +5,9 @@ const by=(id)=>document.getElementById(id);
 const root=document.body;
 const base=root.dataset.page==='article'?'../../':['news','archive'].includes(root.dataset.page)?'../':'./';
 const catalog=[
- {id:'mission-s',title:'다음 시대에도, 포르쉐는 포르쉐일까',category:'2026 · DESIGN',url:base+'story/mission-s/'},
- {id:'f40',title:'속도가 형태를 만들 때: 페라리 F40',category:'1987 · FERRARI',url:base+'story/f40/'},
- {id:'911',title:'시간이 남긴 실루엣: 포르쉐 911 카레라 RSR',category:'1973 · PORSCHE · 디자인 역사',url:base+'story/911/'},
+ {keywords:'porsche 포르쉐 mission s 2026 미래 디자인',id:'mission-s',title:'다음 시대에도, 포르쉐는 포르쉐일까',category:'2026 · DESIGN',url:base+'story/mission-s/'},
+ {keywords:'ferrari 페라리 f40 1987 역사 디자인',id:'f40',title:'속도가 형태를 만들 때: 페라리 F40',category:'1987 · FERRARI',url:base+'story/f40/'},
+ {keywords:'porsche 포르쉐 911 carrera rsr 1973 역사 디자인',id:'911',title:'시간이 남긴 실루엣: 포르쉐 911 카레라 RSR',category:'1973 · PORSCHE · 디자인 역사',url:base+'story/911/'},
  {id:'bmw-7',title:'BMW Concept 7 Protection: 보이지 않는 기술의 디자인',category:'2026 · BMW',url:'https://www.press.bmwgroup.com/global/article/detail/T0461562EN/bmw-concept-7-protection%3A-discreet-protection-in-its-most-sophisticated-form'}
 ];
 const storageKey='tohesar:edition003:saved';
@@ -99,14 +99,32 @@ function ensureSearchIndex(){
  }).catch(()=>{}).finally(()=>{searchIndexRequest=null});
 }
 const refresh=by('refresh-wire');if(refresh)refresh.addEventListener('click',loadWire);
-if(by('wire-list'))loadWire();
+if(by('wire-list')){
+ const requestedTopic=new URLSearchParams(location.search).get('topic');
+ const topicSelect=by('wire-topic');
+ if(topicSelect&&requestedTopic&&Array.from(topicSelect.options).some(option=>option.value===requestedTopic))topicSelect.value=requestedTopic;
+ loadWire();
+}
+const archiveQuery=by('archive-query'),archiveTopic=by('archive-topic');
+function filterArchive(){
+ const query=(archiveQuery?.value||'').trim().toLocaleLowerCase(),topic=archiveTopic?.value||'all';
+ let count=0;
+ document.querySelectorAll('[data-archive-item]').forEach(item=>{
+  const matchesTopic=topic==='all'||item.dataset.topics.split(' ').includes(topic);
+  const matchesQuery=!query||(item.textContent+' '+item.dataset.keywords).toLocaleLowerCase().includes(query);
+  item.hidden=!(matchesTopic&&matchesQuery);if(!item.hidden)count++;
+ });
+ const state=by('archive-count');if(state)state.textContent=count+'편의 이야기';
+}
+archiveQuery?.addEventListener('input',filterArchive);archiveTopic?.addEventListener('change',filterArchive);
+if(archiveQuery)filterArchive();
 const menuButton=document.querySelector('.menu-button'), menu=by('mobile-menu');
 function closeMenu(){if(menu){if(menu.contains(document.activeElement))menuButton?.focus();menu.hidden=true;}if(menuButton){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','메뉴 열기')}}
 if(menuButton&&menu){menuButton.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기')});menu.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target)&&!menuButton.contains(e.target))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()})}
 function openDialog(dialog){if(dialog&&typeof dialog.showModal==='function'&&!dialog.open){closeMenu();dialog.showModal()}}
 for(const dlg of document.querySelectorAll('dialog')){dlg.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();dlg.close()}});dlg.addEventListener('click',e=>{const r=dlg.getBoundingClientRect();if(e.target===dlg&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dlg.close()});dlg.addEventListener('close',()=>{document.body.style.overflow=''})}
 const search=by('search-dialog'),field=by('search-field'),results=by('search-results');
-function drawSearch(){if(!results||!field)return;const q=field.value.trim().toLocaleLowerCase();results.replaceChildren();if(!q){results.append(element('p',null,'자동차 이름이나 디자인 키워드를 입력해 보세요.'));return}const list=catalog.filter(x=>(x.title+' '+x.category).toLocaleLowerCase().includes(q));const extras=wireItems.filter(x=>(x.title+' '+x.source).toLocaleLowerCase().includes(q)).slice(0,8);if(!list.length&&!extras.length){results.append(element('p',null,'검색 결과가 없습니다. 다른 키워드를 입력해 보세요.'));return}for(const item of [...list,...extras]){const a=element('a',null,item.title);a.href=item.url;if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer external'}a.append(element('small',null,item.category||item.source));results.append(a)}}
+function drawSearch(){if(!results||!field)return;const q=field.value.trim().toLocaleLowerCase();results.replaceChildren();if(!q){results.append(element('p',null,'자동차 이름이나 디자인 키워드를 입력해 보세요.'));return}const list=catalog.filter(x=>(x.title+' '+x.category+' '+(x.keywords||'')).toLocaleLowerCase().includes(q));const extras=wireItems.filter(x=>(x.title+' '+x.source).toLocaleLowerCase().includes(q)).slice(0,8);if(!list.length&&!extras.length){results.append(element('p',null,'검색 결과가 없습니다. 다른 키워드를 입력해 보세요.'));return}for(const item of [...list,...extras]){const a=element('a',null,item.title);a.href=item.url;if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer external'}a.append(element('small',null,item.category||item.source));results.append(a)}}
 for(const b of document.querySelectorAll('.search-open'))b.addEventListener('click',()=>{openDialog(search);drawSearch();ensureSearchIndex();field?.focus()});field?.addEventListener('input',drawSearch);
 const savedDialog=by('saved-dialog'),savedContainer=by('saved-items');
 function drawSaved(){if(!savedContainer)return;savedContainer.replaceChildren();const chosen=catalog.filter(x=>getSaved().includes(x.id));if(!chosen.length){savedContainer.append(element('p',null,'저장한 글이 없습니다. 기사에서 ☆ 저장을 눌러 보세요.'));return}for(const item of chosen){const a=element('a',null,item.title);a.href=item.url;a.append(element('small',null,item.category));const row=element('div','saved-row');const remove=element('button',null,'삭제');remove.type='button';remove.setAttribute('aria-label',item.title+' 저장 취소');remove.addEventListener('click',()=>{if(saveItems(getSaved().filter(id=>id!==item.id))){drawSaved();document.querySelectorAll('[data-save]').forEach(b=>{const on=getSaved().includes(b.dataset.save);b.setAttribute('aria-pressed',String(on));b.textContent=on?'★ 저장됨':'☆ 저장'})}});row.append(a,remove);savedContainer.append(row)}}
