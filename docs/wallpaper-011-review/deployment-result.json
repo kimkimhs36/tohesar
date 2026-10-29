@@ -1,0 +1,29 @@
+{
+  "state": "READY",
+  "url": "https://tohesar-wallpaper-011-review.vercel.app/",
+  "deployment_url": "https://tohesar-wallpaper-011-review-35fbumw3z-teambkit.vercel.app",
+  "deployment_id": "dpl_3kLHjqdmACrrZQj7dNV7wM98eoiX",
+  "project": "tohesar-wallpaper-011-review",
+  "project_id": "prj_wAwdQVXwmF87kKdzCfzaO87J77Wc",
+  "team_id": "team_PVgfk8zxTMeeUcglxP59fh17",
+  "source_sha": "ef9e2db626e25ae585b76395297b75b430bd0b49",
+  "branch": "feature/tohesar-wallpaper-universe-011",
+  "baseline": "72132f0dc50de7cec35cc89e7ee99b0c67c64b44",
+  "target": "production environment of newly created isolated review project only",
+  "official_site_untouched": true,
+  "old_010_preview_byte_identical": true,
+  "all_preexisting_branch_heads_unchanged": true,
+  "physical_iphone_ipad_tested": false,
+  "framework": "static HTML / CSS / JavaScript",
+  "build_duration_ms": 7586,
+  "public_render_verified": [
+    "911",
+    "Issue 001",
+    "Giulia",
+    "F40"
+  ],
+  "public_engines": [
+    "Chromium 154",
+    "Playwright WebKit 26.5"
+  ]
+}

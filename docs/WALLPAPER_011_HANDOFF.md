@@ -2,8 +2,10 @@
 
 Branch: `feature/tohesar-wallpaper-universe-011`.
 Exact parent baseline: `72132f0dc50de7cec35cc89e7ee99b0c67c64b44`.
-Application/deployment source and final HEAD are recorded in the final release
-receipt after public verification. No existing review or official site is a target.
+Application / deployment source: `ef9e2db626e25ae585b76395297b75b430bd0b49`.
+The final documentation/tool-only commit records public verification after release;
+obtain its HEAD with `git rev-parse HEAD`. The deployed application remains pinned
+to the source above. No existing review or official site was a deployment target.
 
 ## Open the result
 
@@ -77,3 +79,26 @@ libraries; set `WEBKIT_EXECUTABLE_PATH` accordingly. No such launcher is shipped
 to the website. Review captures and regression receipts name both engines and
 all six commissioned sizes. Hardware iPhone/iPad Safari remains untested;
 older iOS, real toolbar/touch behaviour and thermal performance remain limits.
+
+## Isolated release and public verification
+
+Project `tohesar-wallpaper-011-review` / `prj_wAwdQVXwmF87kKdzCfzaO87J77Wc`,
+team `team_PVgfk8zxTMeeUcglxP59fh17`. Deployment
+`dpl_3kLHjqdmACrrZQj7dNV7wM98eoiX`, READY, approximately 7.6-second build.
+The stable alias is the production environment of this new review project only.
+No official domain or existing review project was assigned or replaced.
+
+The public 911, Issue, Giulia and F40 pages were rendered in both Chromium and
+WebKit with a mobile viewport. Actual prose and several background cars appear
+together. Phone and iPad landscape screenshots are in
+`wallpaper-011-review/deployed/`; these live captures were opened and inspected.
+Forward/reverse motion and live reduced-motion clearing also pass over public
+HTTPS. `deployed/source-verification.json` compares live article HTML, CSS, JS,
+artwork variants, data and review pages byte for byte with the pinned source.
+The old 010 deployed 911 remains byte-identical to its original deployed SHA.
+`protected-branches.json` confirms all pre-existing remote branch heads unchanged.
+
+`deployment-result.json` records the exact target, source and alias. The public
+review room already contains the source-backed visual comparisons; the later
+live verification receipts and handoff are committed without redeploying or
+changing the pinned application.

@@ -1,0 +1,170 @@
+[
+  {
+    "engine": "chromium",
+    "forward": true,
+    "reverse_exact": true,
+    "live_reduced_motion": true,
+    "poses": [
+      {
+        "progress": "0.41371",
+        "cars": [
+          "translate(-50%, -50%) translate3d(-2.244px, -1.339px, 0px) rotate(10.655deg)",
+          "translate(-50%, -50%) translate3d(1.726px, 2.142px, 0px) rotate(-12.655deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-1.381px, 1.071px, 0px) rotate(-8.173deg)",
+          "translate(-50%, -50%) translate3d(2.416px, -1.607px, 0px) rotate(12.173deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-2.244px, -1.339px, 0px) rotate(7.655deg)",
+          "translate(-50%, -50%) translate3d(1.726px, 2.142px, 0px) rotate(14.345deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-1.381px, 1.071px, 0px) rotate(-11.173deg)",
+          "translate(-50%, -50%) translate3d(2.416px, -1.607px, 0px) rotate(9.173deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-2.244px, -1.339px, 0px) rotate(-7.345deg)",
+          "translate(-50%, -50%) translate3d(1.726px, 2.142px, 0px) rotate(10.345deg)"
+        ]
+      },
+      {
+        "progress": "0.50686",
+        "cars": [
+          "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(11.027deg)",
+          "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(-13.027deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-7.986deg)",
+          "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(11.986deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(8.027deg)",
+          "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(13.973deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-10.986deg)",
+          "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(8.986deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(-6.973deg)",
+          "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(9.973deg)"
+        ]
+      },
+      {
+        "progress": "0.60000",
+        "cars": [
+          "translate(-50%, -50%) translate3d(2.6px, 1.545px, 0px) rotate(11.4deg)",
+          "translate(-50%, -50%) translate3d(-2px, -2.472px, 0px) rotate(-13.4deg)",
+          "",
+          "translate(-50%, -50%) translate3d(1.6px, -1.236px, 0px) rotate(-7.8deg)",
+          "translate(-50%, -50%) translate3d(-2.8px, 1.854px, 0px) rotate(11.8deg)",
+          "",
+          "translate(-50%, -50%) translate3d(2.6px, 1.545px, 0px) rotate(8.4deg)",
+          "translate(-50%, -50%) translate3d(-2px, -2.472px, 0px) rotate(13.6deg)",
+          "",
+          "translate(-50%, -50%) translate3d(1.6px, -1.236px, 0px) rotate(-10.8deg)",
+          "translate(-50%, -50%) translate3d(-2.8px, 1.854px, 0px) rotate(8.8deg)",
+          "",
+          "translate(-50%, -50%) translate3d(2.6px, 1.545px, 0px) rotate(-6.6deg)",
+          "translate(-50%, -50%) translate3d(-2px, -2.472px, 0px) rotate(9.6deg)"
+        ]
+      },
+      {
+        "progress": "0.50686",
+        "cars": [
+          "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(11.027deg)",
+          "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(-13.027deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-7.986deg)",
+          "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(11.986deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(8.027deg)",
+          "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(13.973deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-10.986deg)",
+          "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(8.986deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(-6.973deg)",
+          "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(9.973deg)"
+        ]
+      }
+    ]
+  },
+  {
+    "engine": "webkit",
+    "forward": true,
+    "reverse_exact": true,
+    "live_reduced_motion": true,
+    "poses": [
+      {
+        "progress": "0.41575",
+        "cars": [
+          "translate(-50%, -50%) translate3d(-2.191px, -1.308px, 0px) rotate(10.663deg)",
+          "translate(-50%, -50%) translate3d(1.685px, 2.093px, 0px) rotate(-12.663deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-1.348px, 1.046px, 0px) rotate(-8.169deg)",
+          "translate(-50%, -50%) translate3d(2.359px, -1.57px, 0px) rotate(12.169deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-2.191px, -1.308px, 0px) rotate(7.663deg)",
+          "translate(-50%, -50%) translate3d(1.685px, 2.093px, 0px) rotate(14.337deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-1.348px, 1.046px, 0px) rotate(-11.169deg)",
+          "translate(-50%, -50%) translate3d(2.359px, -1.57px, 0px) rotate(9.169deg)",
+          "",
+          "translate(-50%, -50%) translate3d(-2.191px, -1.308px, 0px) rotate(-7.337deg)",
+          "translate(-50%, -50%) translate3d(1.685px, 2.093px, 0px) rotate(10.337deg)"
+        ]
+      },
+      {
+        "progress": "0.50935",
+        "cars": [
+          "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(11.037deg)",
+          "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(-13.037deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-7.981deg)",
+          "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(11.981deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(8.037deg)",
+          "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(13.963deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-10.981deg)",
+          "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(8.981deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(-6.963deg)",
+          "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(9.963deg)"
+        ]
+      },
+      {
+        "progress": "0.60296",
+        "cars": [
+          "translate(-50%, -50%) translate3d(2.677px, 1.589px, 0px) rotate(11.412deg)",
+          "translate(-50%, -50%) translate3d(-2.059px, -2.543px, 0px) rotate(-13.412deg)",
+          "",
+          "translate(-50%, -50%) translate3d(1.647px, -1.271px, 0px) rotate(-7.794deg)",
+          "translate(-50%, -50%) translate3d(-2.883px, 1.907px, 0px) rotate(11.794deg)",
+          "",
+          "translate(-50%, -50%) translate3d(2.677px, 1.589px, 0px) rotate(8.412deg)",
+          "translate(-50%, -50%) translate3d(-2.059px, -2.543px, 0px) rotate(13.588deg)",
+          "",
+          "translate(-50%, -50%) translate3d(1.647px, -1.271px, 0px) rotate(-10.794deg)",
+          "translate(-50%, -50%) translate3d(-2.883px, 1.907px, 0px) rotate(8.794deg)",
+          "",
+          "translate(-50%, -50%) translate3d(2.677px, 1.589px, 0px) rotate(-6.588deg)",
+          "translate(-50%, -50%) translate3d(-2.059px, -2.543px, 0px) rotate(9.588deg)"
+        ]
+      },
+      {
+        "progress": "0.50935",
+        "cars": [
+          "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(11.037deg)",
+          "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(-13.037deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-7.981deg)",
+          "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(11.981deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(8.037deg)",
+          "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(13.963deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-10.981deg)",
+          "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(8.981deg)",
+          "",
+          "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(-6.963deg)",
+          "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(9.963deg)"
+        ]
+      }
+    ]
+  }
+]

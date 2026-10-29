@@ -1,0 +1,102 @@
+{
+  "base": "https://tohesar-wallpaper-011-review.vercel.app",
+  "records": [
+    {
+      "engine": "chromium",
+      "route": "/journal/911/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 10,
+      "paragraphs": true
+    },
+    {
+      "engine": "chromium",
+      "route": "/journal/issues/001/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 12,
+      "paragraphs": true
+    },
+    {
+      "engine": "chromium",
+      "route": "/journal/design/giulia/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 14,
+      "paragraphs": true
+    },
+    {
+      "engine": "chromium",
+      "route": "/journal/f40/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 9,
+      "paragraphs": true
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/911/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 10,
+      "paragraphs": true
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/issues/001/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 12,
+      "paragraphs": true
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/design/giulia/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 14,
+      "paragraphs": true
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/f40/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "broken": [],
+      "visibleCars": 9,
+      "paragraphs": true
+    }
+  ],
+  "physicalDevice": false
+}

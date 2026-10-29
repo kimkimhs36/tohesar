@@ -1,0 +1,181 @@
+{
+  "source_sha": "ef9e2db626e25ae585b76395297b75b430bd0b49",
+  "old_010_preview_byte_identical": true,
+  "files": [
+    {
+      "path": "journal/911/index.html",
+      "sha256": "8d15fc9badbdde73878bf7ec355bdc3aa11f9175c9a5b3ddc27351f463513447",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/f40/index.html",
+      "sha256": "19ec93971007c94da8b87f1de5e3bd1a992ef136e5917bbf385d365b7c4dfd07",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/design/giulia/index.html",
+      "sha256": "49e9ac4f30382e3152921d738925713dae41e2ec73b3927de63202a4056fe0aa",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/issues/001/index.html",
+      "sha256": "69d28052aa6bc57899264a9971bad22bac82cbd2b2c1a1550aa7dedee9f91043",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper011.css",
+      "sha256": "ca9b29430981a6d695a51cc0db07839127e3a2d99596c528c35ad1ef30045d89",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper011.js",
+      "sha256": "29ec6a963374f514d8470b03d8f05872156d7987fd18158ae8f38af62a114016",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/continuity010.js",
+      "sha256": "38bc810ff30dad2f0000e88b9cba63146d597fcd8b0a923c23bc609309dc8271",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/data/wallpaper-artworks.json",
+      "sha256": "adb3e99a86a08fc7ee08203a183417f16840f19e793c285b05e955eef61ba77e",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/data/wallpaper-layouts.json",
+      "sha256": "16f1253d3cb9b84b4734d829de92e5d5f8fcaaa1ab326e2f3d8512e9336418fb",
+      "matches_committed_source": true
+    },
+    {
+      "path": "docs/wallpaper-011-review/index.html",
+      "sha256": "f973e5650766bddbb0537bf7127ffbce47a40a68237af069259e9bad5c5c8687",
+      "matches_committed_source": true
+    },
+    {
+      "path": "docs/wallpaper-011-review/chromium-390-living-static.webp",
+      "sha256": "080472d2b18c2abe214613935561a6272166705602b9e6d5b84cd5e8cdd01c7f",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/blue-hour-480.webp",
+      "sha256": "b3960a0e69b9f55be3a72264ba38f4d80464bde3443350dccf3a3cae1d1de60a",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/lilac-arc-240.webp",
+      "sha256": "76c6a63a949d14252d407b7b4f98b7dd63ee4e379f0a161afd3c91a63255175f",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/lilac-arc.webp",
+      "sha256": "598e3255d659adb930ae18a0e506414ef1569e4bc803fb10744f0f5b262fae9c",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/rose-current-480.webp",
+      "sha256": "eb48cc832ae0317e55d46615103fe6837300a228ec220705d861c050cfdc5d48",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/butter-club-240.webp",
+      "sha256": "cdbd17a01b6073310a1969c374275cfe99d0d916bcabb3345c66ac2b5e23081f",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/lilac-arc-480.webp",
+      "sha256": "fadd7dcd578441fe8f656e5ae895fad4878d8519eb12d5ecce5d4d253772051d",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/butter-club-480.webp",
+      "sha256": "0877846af2b58d9a87a8c3ed54fb348291673b124f1a5f22dac2a57e274ab5a2",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/rose-current-240.webp",
+      "sha256": "0cdf1801e818cf9e28181b6d3d3c6f04e1d61ed1992c448ef9772f8162fa1120",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/coral-blade-240.webp",
+      "sha256": "a18d82068f497d7990c3fe25d2506c7c8f6ac13d37d6fc20c27c5d27b323c104",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/tomato-open.webp",
+      "sha256": "75f228571d5107f06d8b863f5a871fbed7cb45039b232068e83bff48f04ff346",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/butter-club.webp",
+      "sha256": "a566ccab376256fa386ad9aad72d4bdcb5a78539632a40b108be152a69afa0e6",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/sage-longtail-240.webp",
+      "sha256": "76d30ead6b42e3174d8ff79ee83555084808c38a8ca17867cee399173771e261",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/mint-tour.webp",
+      "sha256": "cb8b48ca664214586c29af8d6fc25f3ec5dec6047fbb36f71207fbf535dedc85",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/mint-tour-480.webp",
+      "sha256": "e539dffd0001820633a91efcd5c9906532d25716dd52acab0a3149de5ef0247d",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/sage-longtail.webp",
+      "sha256": "63cf1c32152e36a2ed48f14fd25e1e1c58b488d9213514427f8c54afc1a8797c",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/mint-tour-240.webp",
+      "sha256": "5e0d6c9e6a40dba3cc65de4b7e75050928d33a2bda39dde46019735518b35c36",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/tomato-open-240.webp",
+      "sha256": "596d04148bccdd1a954c25300a6fccb94312f80140833d0357bbe3848c571569",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/blue-hour.webp",
+      "sha256": "2fb994377816b4330d3edb8976ea520399f4677abdf85168921902d2b9be50cd",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/sage-longtail-480.webp",
+      "sha256": "10309d29cdcf4ad3c8453824267c9a86c3d19930e0726898fa04a8bb05507577",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/tomato-open-480.webp",
+      "sha256": "87b6042f5c02324673cab608c3c45facdddb4b48a91073f099e27d83afdb1823",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/coral-blade-480.webp",
+      "sha256": "352e1a30d06aa7d2ac8857c8433ca8ddbc90e16a231cb8081a3dd63a6d803cdf",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/blue-hour-240.webp",
+      "sha256": "ce3747eef747197d5015316dd81a5b92d7e4b50d861e3d92df87acd0a0a01bcc",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/rose-current.webp",
+      "sha256": "c30e2c2a3618c2e0e6487d1a2fda276ea3a5f1f3c99ae24ae3847dea524523b0",
+      "matches_committed_source": true
+    },
+    {
+      "path": "journal/assets/wallpaper/coral-blade.webp",
+      "sha256": "9830e9f93aead5bf01822feeea7eab8b8cab6273e8331eef9cabc260fa5d3031",
+      "matches_committed_source": true
+    }
+  ]
+}
