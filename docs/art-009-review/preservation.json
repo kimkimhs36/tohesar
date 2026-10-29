@@ -1,0 +1,483 @@
+{
+  "baseline": "b7a5d0b22fd21d9264064b4ff4afb42658520132",
+  "protected_files": 95,
+  "giulia_original_paragraphs": 36,
+  "all_giulia_paragraphs_preserved": true,
+  "files": [
+    {
+      "file": "assets/camera-study.js",
+      "unchanged": true,
+      "sha256": "a667c116fff9fc1b8fa74ac54a8977b3d8c0ccb5f577c17ca77853ddacd89778"
+    },
+    {
+      "file": "assets/cedilla-favicon.svg",
+      "unchanged": true,
+      "sha256": "23d1fb254e845d7d48d75666374a23d50fe5456bcc278078e5197ffce6d3034a"
+    },
+    {
+      "file": "assets/cedilla-icon.svg",
+      "unchanged": true,
+      "sha256": "27aa7bdf4a0e2c7bb857a44c8ba4c1d626574efa95a6579b7952f52ed7240991"
+    },
+    {
+      "file": "assets/chrome-atmosphere/atmosphere.css",
+      "unchanged": true,
+      "sha256": "c8ad7dd6321347a92d8993ed46c15603353bb14536898b83375f7e6d5fabe936"
+    },
+    {
+      "file": "assets/chrome-atmosphere/atmosphere.js",
+      "unchanged": true,
+      "sha256": "34a48a7dbed072428efe40c1a444d6bbe2f3a30e8eb11fe39f43e882f04c96c7"
+    },
+    {
+      "file": "assets/chrome-atmosphere/kinetic-type.js",
+      "unchanged": true,
+      "sha256": "9c62a9f8cbe5ea4f188eea4c2dcb15323a769294c6d7db3986c7b6dbed69d5dc"
+    },
+    {
+      "file": "assets/coast.webp",
+      "unchanged": true,
+      "sha256": "218142fd4d0036bd8789364ed19721c69f187829a301e779f8c5d4ccf8c5044c"
+    },
+    {
+      "file": "assets/detail.webp",
+      "unchanged": true,
+      "sha256": "2653b3e9a066fdcaf47878cd383fd4a682bd82c41f739e139736e612e5a0b9e6"
+    },
+    {
+      "file": "assets/experience/fonts.css",
+      "unchanged": true,
+      "sha256": "6299d1ab08b0ac36445e5c365bf91346a31d8d3b54b98f0ee40c6844b88ad5c0"
+    },
+    {
+      "file": "assets/experience/home.css",
+      "unchanged": true,
+      "sha256": "043cad40669d4eb704696f624ae670dfac7c0203deba70c8c4d943fdc6c675fc"
+    },
+    {
+      "file": "assets/experience/home.js",
+      "unchanged": true,
+      "sha256": "670112a3e162007725dfe1caf8718ef8a2ab351fa6c47ea9ea6799ef458595cf"
+    },
+    {
+      "file": "assets/experience/sculpture.js",
+      "unchanged": true,
+      "sha256": "9ee2346436372bf9bf589d7e585fe9800e001ab1456cb784535401a8a2e7c131"
+    },
+    {
+      "file": "assets/film-stage-v1.css",
+      "unchanged": true,
+      "sha256": "9dba4a3f2fa3bc860d9612a8e45007abbb269dd0e393c80681891e9f1493fa5a"
+    },
+    {
+      "file": "assets/film-stage-v1.js",
+      "unchanged": true,
+      "sha256": "e530090f9c5050ea5ae5d093ff6c99694403f4ec0625c541ac4808c90d072092"
+    },
+    {
+      "file": "assets/film-stage-v2.css",
+      "unchanged": true,
+      "sha256": "09c3f413117ea6b5d6d77bdbe8bde9c3c21e47cf3fa4b16ca59dc130b3ae7f35"
+    },
+    {
+      "file": "assets/film-stage-v2.js",
+      "unchanged": true,
+      "sha256": "667dca6b286531d0ca243f839af8de8821dd03af8829ed44b183122421d86b1b"
+    },
+    {
+      "file": "assets/film-stage-v3.css",
+      "unchanged": true,
+      "sha256": "e0e0a1b7fa98c7e533f69671e7f94d13208e879add541fb0cb442f2ef9dfac11"
+    },
+    {
+      "file": "assets/film-stage-v3.js",
+      "unchanged": true,
+      "sha256": "9a8308ecb9c52eb350e5bb765ab15af6f27b29df7a3ba1b9d0bad6a98ffa19e7"
+    },
+    {
+      "file": "assets/film-stage-v4.css",
+      "unchanged": true,
+      "sha256": "22897d668a3760842e89b0082b44597a72fd7ced802c79fb974903a13ad35ec8"
+    },
+    {
+      "file": "assets/gallery-desktop.webp",
+      "unchanged": true,
+      "sha256": "61c9e5f4f067d3e0f47e5a7d45ac5531c9bd399889627d51e594e9078406e313"
+    },
+    {
+      "file": "assets/gallery-mobile.webp",
+      "unchanged": true,
+      "sha256": "01048e3181fae126b0cfb811b4196f8a44471ca7432ccb7c14465e53f8aa948f"
+    },
+    {
+      "file": "assets/hero-world-v1.css",
+      "unchanged": true,
+      "sha256": "b989a19b6ea55f216cad113965e3d0afc41c02a89b124d7f9c60e162161a3846"
+    },
+    {
+      "file": "assets/journal-theme.mp3",
+      "unchanged": true,
+      "sha256": "c496d6b454e84602b4de940f197eb3bfad9c02cf4527d535a15c1df0035c36da"
+    },
+    {
+      "file": "assets/notes.webp",
+      "unchanged": true,
+      "sha256": "7ae9ca7368add38db91083937ba9620f4be23a64704c0e6ec25d6b1b1fc5a459"
+    },
+    {
+      "file": "assets/study-emblem.webp",
+      "unchanged": true,
+      "sha256": "a72351337f748c3f6fcd1fb5c3b6280b61e03c7b285ec1334f1d6a103c33a263"
+    },
+    {
+      "file": "assets/study-essential.webp",
+      "unchanged": true,
+      "sha256": "9af760427cd4fd54b8dab8c6d472a31b260e974a77f25f673acd892e2fb99fcb"
+    },
+    {
+      "file": "assets/study-signature.webp",
+      "unchanged": true,
+      "sha256": "6e13e4dd667c2b8570660da6d62137e42bf11c199a9ed66b54b7ca4f6e35b399"
+    },
+    {
+      "file": "assets/symbol-gallery-v10.css",
+      "unchanged": true,
+      "sha256": "2ef5c18bc2a4977f6eaeb33a3308a5e7923ae39354ddf56bf7a91ae07995327c"
+    },
+    {
+      "file": "assets/symbol-gallery-v3.css",
+      "unchanged": true,
+      "sha256": "dc78e2f4f8e1563db0a66016a197f7ed4929568332a3cdeb7462927b7e926157"
+    },
+    {
+      "file": "assets/symbol-gallery-v4.css",
+      "unchanged": true,
+      "sha256": "333311547571311efdb314261aebe99ea9cf720e53a76733de5b44f8c31bed86"
+    },
+    {
+      "file": "assets/symbol-gallery-v5.css",
+      "unchanged": true,
+      "sha256": "0d54d1a52c1b6e1c3f36a31682088b088ee54644a746717ecd90b74631057596"
+    },
+    {
+      "file": "assets/symbol-gallery-v6.css",
+      "unchanged": true,
+      "sha256": "028a7008fa5e301a7527234967ccd99a0ce6448f9219ea3e13c4c67fe7e68d98"
+    },
+    {
+      "file": "assets/symbol-gallery-v7.css",
+      "unchanged": true,
+      "sha256": "516249ac3b0456bd10787f92a7345558724ba66691f81ab368623709f29f91e9"
+    },
+    {
+      "file": "assets/symbol-gallery-v8.css",
+      "unchanged": true,
+      "sha256": "6f6eaaa5fb775da4c65893a6e5f02fe4d0241512d0317c82c8a76c1dfd814e3f"
+    },
+    {
+      "file": "assets/symbol-gallery-v9.css",
+      "unchanged": true,
+      "sha256": "dc2c7cbfef1ca77ba9d4af6277a871ae0c56a241574b79321b13cf06b131c7bf"
+    },
+    {
+      "file": "assets/symbol-renderer-v2.js",
+      "unchanged": true,
+      "sha256": "b8a48fd502b41d8d787d21f31b5597f209638540b164e2a57bef379591e022bb"
+    },
+    {
+      "file": "assets/symbol-renderer-v3.js",
+      "unchanged": true,
+      "sha256": "8f12289d6b849f9ab9c4136d5c752381fef587692b9446eda400cbcb64b5392e"
+    },
+    {
+      "file": "assets/symbol-renderer-v4.js",
+      "unchanged": true,
+      "sha256": "a7c6b59d132a6fa285d066bcd35c7b30ca835b8dd741e7934d097d44df5f6ac3"
+    },
+    {
+      "file": "assets/symbol-renderer-v5.js",
+      "unchanged": true,
+      "sha256": "d11fad076d7d8a549a361c8bf2aa40ad7609f13038ae0437cfcda5a1729e3811"
+    },
+    {
+      "file": "assets/symbol-renderer-v6.js",
+      "unchanged": true,
+      "sha256": "09ed3f62feecb994f007eced8c4057dbd1b53286a28ca6544417c0e79edd3e2f"
+    },
+    {
+      "file": "assets/symbol-renderer-v7.js",
+      "unchanged": true,
+      "sha256": "0591779289cb3e1c8233bca9233c07b724930864cbe06ed3ce1ceeff086b4274"
+    },
+    {
+      "file": "assets/symbol-renderer-v8.js",
+      "unchanged": true,
+      "sha256": "c82adc4e76053a5c983de090adb7340b66ec5b8a5e81aaa57941fe2f148d064a"
+    },
+    {
+      "file": "assets/symbol-renderer-v9.js",
+      "unchanged": true,
+      "sha256": "501970c67cd56a14eed9a0cf71584d31c6333434af9379026e6013ecfaf0aa54"
+    },
+    {
+      "file": "assets/symbol-v2.css",
+      "unchanged": true,
+      "sha256": "623365d1876427dad3fdb813b520481f01ebf3e63986325ebcacdcbdba241550"
+    },
+    {
+      "file": "assets/wordmark-hd.png",
+      "unchanged": true,
+      "sha256": "71ca9a7433d067d33d0e37ae6200c21f741f04060f8bd49d2733baffeb52eac1"
+    },
+    {
+      "file": "assets/wordmark.svg",
+      "unchanged": true,
+      "sha256": "17d4ac8b0e3f13d8b4e76e5c335a9ee42a603136401d8fa81422b70ae5337d20"
+    },
+    {
+      "file": "assets/yokohama-afterglow.webp",
+      "unchanged": true,
+      "sha256": "8598ae28c3519b05f37ff5ffa41876907a8747075d181ef34ed7fe1f12dcee0c"
+    },
+    {
+      "file": "assets/yokohama-arrival.webp",
+      "unchanged": true,
+      "sha256": "45d4cc23e3deef95afa577ce241e28f7b0b2f66ed96e70c5862ae0d02a356d1a"
+    },
+    {
+      "file": "assets/yokohama-bluehour.webp",
+      "unchanged": true,
+      "sha256": "ff5473c5a06b1066acdc23e9e6275a1f66ee0858e4cdd76cbf85dee9cf1bd5ee"
+    },
+    {
+      "file": "assets/yokohama-drive.webp",
+      "unchanged": true,
+      "sha256": "8f836b1c08b957b277fff90cb2841c08a26d0755d2fbacfa3e2a6e8542c8522d"
+    },
+    {
+      "file": "assets/yokohama-interior.webp",
+      "unchanged": true,
+      "sha256": "8d2da3bd6f28968dfeb640f7741cf10d1bdf6255f5f9cfae745b0ccd02e21f8a"
+    },
+    {
+      "file": "assets/yokohama-landscape.webp",
+      "unchanged": true,
+      "sha256": "dd9a1450a1da3de7319cf1773a94fe1fe098ba36e69423fb25f63183e2f777f3"
+    },
+    {
+      "file": "assets/yokohama-portrait.webp",
+      "unchanged": true,
+      "sha256": "a3ec40b107195817094c678be19ff9a7d3610c5a6124ea203fdf9bd4c099c118"
+    },
+    {
+      "file": "assets/yokohama-secondlight.webp",
+      "unchanged": true,
+      "sha256": "68d1ac67f0e23305e54fd022eeb27503084e560ebeeb1a157580acdc92e016b4"
+    },
+    {
+      "file": "creative/cover-art-max-004/cover.css",
+      "unchanged": true,
+      "sha256": "280bbe16cd0083e2a870d13700fd1b82ec5c97b2f6578209dbeedacba38411f7"
+    },
+    {
+      "file": "creative/cover-art-max-004/cover.js",
+      "unchanged": true,
+      "sha256": "6ff92c94f2c762b8c98a17776fdb31c6e2247af243891608568e092d4024d80b"
+    },
+    {
+      "file": "creative/cover-art-max-004/fonts.css",
+      "unchanged": true,
+      "sha256": "094771c94d5d39d75ebaf083085ddc96f1e704878a5bdcca3d3e81894f84ff8f"
+    },
+    {
+      "file": "creative/cover-art-max-004/index.html",
+      "unchanged": true,
+      "sha256": "2cf1c122fa7ac2f54382bc1341564dae7562f7a726632ebe64a88491624d46b0"
+    },
+    {
+      "file": "creative/cover-art-max-004/photo.css",
+      "unchanged": true,
+      "sha256": "d2014da79616257efc794e231cbb031bf961a18f890d0999267bf83652c6d0c8"
+    },
+    {
+      "file": "index.html",
+      "unchanged": true,
+      "sha256": "d8e986e0d3f05a63fd1ccef9c591e76f091bc63a98ee0c59b2039ac45f446318"
+    },
+    {
+      "file": "journal/assets/design-study.js",
+      "unchanged": true,
+      "sha256": "41ad07c758ca9c21ab35b7d6326d9c8153337bcccb2800dfdcf84e8949bea2f7"
+    },
+    {
+      "file": "journal/assets/design/type00-arrival-1600.webp",
+      "unchanged": true,
+      "sha256": "568424896c420a6bb5a6da10c27888278bd7be6dd1dd150b97c60b5fa3927c28"
+    },
+    {
+      "file": "journal/assets/design/type00-arrival-800.webp",
+      "unchanged": true,
+      "sha256": "6fff363a27635162ef26501862c52b876627e3936abd814745d333235f36dadf"
+    },
+    {
+      "file": "journal/assets/design/type00-profile-1600.webp",
+      "unchanged": true,
+      "sha256": "557732f2627a0a7ffdcc254a4e944bceeec90f6cc4169d57990e77bdf1d0e678"
+    },
+    {
+      "file": "journal/assets/design/type00-profile-800.webp",
+      "unchanged": true,
+      "sha256": "b1a2945dabd8160d65423c4557f88e999aec486bd59defae20be47626cda8026"
+    },
+    {
+      "file": "journal/assets/design/type01-arrival-1600.webp",
+      "unchanged": true,
+      "sha256": "976eaf1200ff7002d24d202d91e892b21c5c6aa9783b607a0210346bd8332ae9"
+    },
+    {
+      "file": "journal/assets/design/type01-arrival-800.webp",
+      "unchanged": true,
+      "sha256": "e5812b13887735eaf80a096c40e08e851e15d141fea8b4be48695779df619a80"
+    },
+    {
+      "file": "journal/assets/design/type01-overhead-1600.webp",
+      "unchanged": true,
+      "sha256": "05f6fe2506a81f90f46aff9d15f8608a54b66132750836dd90db459612970b0a"
+    },
+    {
+      "file": "journal/assets/design/type01-overhead-800.webp",
+      "unchanged": true,
+      "sha256": "6ee43bc4adc63d5916e2ad77577a795708b738bb016c0947f4baa7ecad2acea7"
+    },
+    {
+      "file": "journal/assets/design/type01-profile-1600.webp",
+      "unchanged": true,
+      "sha256": "f12e5dea55886625328b51ac2b0d1167ac58247e104de1f5aeb12cf9f0aa8310"
+    },
+    {
+      "file": "journal/assets/design/type01-profile-800.webp",
+      "unchanged": true,
+      "sha256": "6cb508f3c29e23751dd160023ff857a0eb650f29658a02d31f0bef29ea7bc530"
+    },
+    {
+      "file": "journal/assets/design/type01-rear-1600.webp",
+      "unchanged": true,
+      "sha256": "abcd8f508cf998d53e701281b27a02afcd6ff5b1ddad0746d45b95c836886474"
+    },
+    {
+      "file": "journal/assets/design/type01-rear-800.webp",
+      "unchanged": true,
+      "sha256": "907801939b2835eec6e016f0ce08703a83c34903910ec6ac3fad525f47334011"
+    },
+    {
+      "file": "journal/assets/giulia/front-1600.webp",
+      "unchanged": true,
+      "sha256": "417ac2237b6624e37c2647e14b3bd09e8bd8aaf9d580b90a3d4c3818ca6d4289"
+    },
+    {
+      "file": "journal/assets/giulia/front-800.webp",
+      "unchanged": true,
+      "sha256": "c190fcc4f3bfaf4f2778a1ad4dedec0f51bf90e671cd0a5e67630c420fed9fa4"
+    },
+    {
+      "file": "journal/assets/giulia/profile-1600.webp",
+      "unchanged": true,
+      "sha256": "a56d2b051ac4ac5e1e5c7428ffec5d75bf75a95b075324b15a7241e861fbde0d"
+    },
+    {
+      "file": "journal/assets/giulia/profile-800.webp",
+      "unchanged": true,
+      "sha256": "0038b1360cca4d59f09aa4da3f782941ad397ad2b177f96e6d41287df2ddfdd3"
+    },
+    {
+      "file": "journal/assets/giulia/rear-1600.webp",
+      "unchanged": true,
+      "sha256": "558f983909b1ffa598ace584289f6fcc291512bfd4677811d9a2238b28a8f485"
+    },
+    {
+      "file": "journal/assets/giulia/rear-800.webp",
+      "unchanged": true,
+      "sha256": "a79c9edda541bdde73bf2641e924de5b6ae8ef906a2a392c50911003fd2193b3"
+    },
+    {
+      "file": "journal/assets/giulia/side-1600.webp",
+      "unchanged": true,
+      "sha256": "3be1a4e8676f9b565fa7cbfa4ea9cb9b44b725279f54674eab05cc4718192c19"
+    },
+    {
+      "file": "journal/assets/giulia/side-800.webp",
+      "unchanged": true,
+      "sha256": "7aed33be347d1edb650662266b032673f37de1b7adf4ddcff072dc85d8041d59"
+    },
+    {
+      "file": "journal/assets/issue008.js",
+      "unchanged": true,
+      "sha256": "91161d2ae9ba7497dad29d8c3436d1ded2af6373c500a0dd5759ebb5108a4a39"
+    },
+    {
+      "file": "journal/assets/miniature-motion.js",
+      "unchanged": true,
+      "sha256": "48cd0b48fcc550e4157b4042b3c3bbbb02f34954864682109d5132d1e299e530"
+    },
+    {
+      "file": "journal/assets/miniatures/coupe.webp",
+      "unchanged": true,
+      "sha256": "32644f2fc9e193df3390cf9b9864ddcc12a6561dbbb2056ef16f93cec9331ea5"
+    },
+    {
+      "file": "journal/assets/miniatures/gt.webp",
+      "unchanged": true,
+      "sha256": "7cc280b8533eeab63ac649cf06a4b00e874a803b8245d9cd19c01e03ceb0bf75"
+    },
+    {
+      "file": "journal/assets/miniatures/wedge.webp",
+      "unchanged": true,
+      "sha256": "27b4d62926d1bf84256bc104af17a73cce3c6c4dd71009424ca4213e13fbb97b"
+    },
+    {
+      "file": "journal/assets/visual-motion.js",
+      "unchanged": true,
+      "sha256": "8fbccbbc30ae5a5bcb9be90db26aa5e2b46d798e0141691f203807c6235e1a54"
+    },
+    {
+      "file": "journal/data/content-index.json",
+      "unchanged": true,
+      "sha256": "b4e4b98a388c75b88248c77d2c68dac3bf489b1cb34e84506640585118978392"
+    },
+    {
+      "file": "journal/data/design-image-sources.json",
+      "unchanged": true,
+      "sha256": "571ffad8f91c4fb0adc624f6640fde181f121675967f86556c360cd76d3832dc"
+    },
+    {
+      "file": "journal/data/giulia-image-sources.json",
+      "unchanged": true,
+      "sha256": "52c1af1aa83f19de62fb27cc05870a660867b01ff6ee9a710953f4b3d39750ff"
+    },
+    {
+      "file": "journal/data/issues.json",
+      "unchanged": true,
+      "sha256": "6d26be4b7d1d4a02c2f873770415bf723c0a0eb6d898142ddb9af4e2bb016e90"
+    },
+    {
+      "file": "journal/data/news.json",
+      "unchanged": true,
+      "sha256": "d161944d4eda9f13836713043076bf218f571c05cfcffb1da0a200ccb71735a8"
+    },
+    {
+      "file": "motion.css",
+      "unchanged": true,
+      "sha256": "e8f4c9740aac9c864bc2145903220e0f2b1cf9798a3dfdc55c70bfd11ef8ad6c"
+    },
+    {
+      "file": "motion.js",
+      "unchanged": true,
+      "sha256": "d5a5970e5e103eaafce9e719205c96a2d92557a7fd8aed0d129a5dc4ee1d8d95"
+    },
+    {
+      "file": "styles.css",
+      "unchanged": true,
+      "sha256": "add2d756636010c5f3b1bdc3aa8d2704a16f94f8c1f0bfb6d01d45b32c84cc64"
+    }
+  ]
+}

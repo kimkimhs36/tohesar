@@ -305,3 +305,4 @@
 }
 @media(max-width:350px){.archive-opening h1{font-size:63px}.archive-opening p{min-width:150px}.archive-opening{gap:20px 10px}.jacket-title{font-size:26px}.jacket-title>i{font-size:45px}}
 .archive-opening h1,.jacket-title>i{font-family:Georgia,'Times New Roman',serif}
+@media(max-width:700px){.chapter-proportion .chapter-identity>span{font-size:clamp(78px,25vw,100px)}}

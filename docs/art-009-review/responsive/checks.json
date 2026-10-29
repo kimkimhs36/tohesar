@@ -1,0 +1,578 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "physical_iphone_tested": false,
+  "browsers": [
+    {
+      "name": "chromium",
+      "version": "154.0.8037.57",
+      "checks": [
+        {
+          "key": "issue",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "issue",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "issue",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "issue",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        }
+      ]
+    },
+    {
+      "name": "webkit",
+      "version": "26.5",
+      "checks": [
+        {
+          "key": "issue",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "issue",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "issue",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 1180,
+          "height": 820,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "issue",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "curve",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "edge",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "proportion",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "language",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "small",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "giulia",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "study",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "journal",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "key": "archive",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        }
+      ]
+    }
+  ]
+}

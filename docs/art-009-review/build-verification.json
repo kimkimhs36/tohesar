@@ -1,0 +1,10 @@
+{
+  "repeat_build_identical": true,
+  "generated_files": {
+    "journal/index.html": "6f000364c10cab9e5bc4aba14a8194312778ae0ea5817706f47a5b175efc97ed",
+    "journal/issues/index.html": "dd55340c3c907639844eaa73e086fd48a854ece86208b0b8970b2756ae2252fe",
+    "journal/issues/001/index.html": "8e9d6551906f7957ed39d317df895a4f54d369b007099e39c26074a93b4c0a02",
+    "journal/design/giulia/index.html": "1444f7c6b529e531c6d7a9444852ecc56da34dc0257a2df1bfd95c2dd260e30b"
+  },
+  "status_changes": false
+}

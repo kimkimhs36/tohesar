@@ -1,0 +1,196 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "checked_at": "2026-10-29T02:57:08.474Z",
+  "real_iphone_tested": false,
+  "browsers": [
+    {
+      "name": "chromium",
+      "checks": [
+        {
+          "route": "/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 320,
+          "height": 667,
+          "plate": {
+            "enabled": true,
+            "h": 667
+          }
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 320,
+          "height": 667,
+          "plate": {
+            "enabled": true,
+            "h": 667
+          }
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 1440,
+          "height": 1000,
+          "plate": {
+            "enabled": true,
+            "h": 1000
+          }
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 1440,
+          "height": 1000,
+          "plate": {
+            "enabled": true,
+            "h": 1000
+          }
+        }
+      ],
+      "reverse_scroll": true,
+      "history_menu_reload": true,
+      "reduced_motion": true,
+      "no_js": true,
+      "errors": []
+    },
+    {
+      "name": "webkit",
+      "checks": [
+        {
+          "route": "/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 320,
+          "height": 667,
+          "plate": {
+            "enabled": true,
+            "h": 667
+          }
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 320,
+          "height": 667,
+          "plate": {
+            "enabled": true,
+            "h": 667
+          }
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 1440,
+          "height": 1000,
+          "plate": {
+            "enabled": true,
+            "h": 1000
+          }
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 1440,
+          "height": 1000,
+          "plate": {
+            "enabled": true,
+            "h": 1000
+          }
+        }
+      ],
+      "reverse_scroll": true,
+      "history_menu_reload": true,
+      "reduced_motion": true,
+      "no_js": true,
+      "errors": []
+    }
+  ],
+  "preserved": [
+    "index.html",
+    "styles.css",
+    "motion.css",
+    "motion.js",
+    "assets",
+    "creative/cover-art-max-004",
+    "journal/yokohama",
+    "journal/legacy-004",
+    "creative/journal-world-005",
+    "journal/assets/miniature-coupe.webp",
+    "journal/assets/miniature-motion.js"
+  ]
+}
