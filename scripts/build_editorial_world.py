@@ -5,6 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 CSS='<link rel="stylesheet" href="/journal/assets/world013.css">'
 def inject(path,key,body,before):
  p=ROOT/path;s=p.read_text();start=f'<!-- {key}:START -->';end=f'<!-- {key}:END -->'
+ # The authored 015 home already includes the city essay in its reading sequence.
+ if path=='journal/index.html' and 'recovery015-journal' in s:return
  if start not in s:
   assert before in s,(path,before)
   s=s.replace(before,start+end+before,1)

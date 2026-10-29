@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-10-29T14:14:41.266250+00:00",
+  "status": "partial",
+  "sources": [
+    {
+      "id": "porsche",
+      "name": "Porsche Newsroom",
+      "status": "ok",
+      "count": 18
+    },
+    {
+      "id": "bmw",
+      "name": "BMW Group PressClub",
+      "status": "unavailable",
+      "count": 0
+    },
+    {
+      "id": "motor1",
+      "name": "Motor1",
+      "status": "ok",
+      "count": 20
+    },
+    {
+      "id": "autoblog",
+      "name": "Autoblog",
+      "status": "ok",
+      "count": 50
+    }
+  ],
+  "count": 45,
+  "note": "Live read-only collection to a separate file. Tracked snapshots were not changed."
+}

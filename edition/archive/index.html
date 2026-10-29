@@ -1,44 +1,58 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#eae8df">
-<meta name="description" content="TOHEŞAR — 자동차의 오늘과 오래 남을 아름다움. 공식 뉴스 원문과 깊이 있는 디자인 저널을 한곳에서 읽습니다.">
-<meta name="color-scheme" content="light">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 
-<link rel="canonical" href="https://tohesar.com/edition/archive/">
+<meta charset="utf-8"/>
 
-<link rel="stylesheet" href="../style.css">
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+
+<meta content="#f5f1ea" name="theme-color"/>
+
+<meta content="TOHEŞAR — 자동차의 오늘과 오래 남을 아름다움. 공식 뉴스 원문과 깊이 있는 디자인 저널을 한곳에서 읽습니다." name="description"/>
+
+<meta content="light" name="color-scheme"/>
+
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+
+<link href="https://tohesar.com/edition/archive/" rel="canonical"/>
+
+<link href="../style.css" rel="stylesheet"/>
+
 <title>디자인 아카이브 | TOHEŞAR</title>
-</head>
+
+<link href="/journal/assets/travel.css" rel="stylesheet"/>
+<link href="/edition/recovery015.css" rel="stylesheet"/>
+<script defer="" src="/journal/assets/travel.js"></script></head>
 <body data-page="archive">
 <a class="skip-link" href="#content">본문으로 이동</a>
-<div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+<div aria-hidden="true" class="reading-progress"><span id="reading-progress"></span></div>
+
 <header class="site-header" id="top">
-  <a class="logo" href="../" aria-label="TOHEŞAR 홈페이지"><img src="../assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>
-  <nav class="nav-primary" aria-label="주요 탐색">
-    <a class="nav-brief" href="../news/"><span class="status-dot" aria-hidden="true"></span> NEWS</a>
-    <button type="button" class="icon-button search-open" aria-label="검색 열기"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.3"/><path d="m15.4 15.4 5.3 5.3"/></svg></button>
-    <button type="button" class="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기"><span></span><span></span></button>
-  </nav>
-  <div id="mobile-menu" class="menu-panel" hidden>
-    <span class="menu-kicker">EXPLORE THE WORLD</span>
-    <a href="../news/">지금의 자동차 뉴스 <span>01</span></a><a href="../#journal">디자인 저널 <span>02</span></a><a href="../archive/">아카이브 <span>03</span></a><a href="../story/mission-s/">포르쉐 Mission S <span>04</span></a><a href="../#saved" data-saved-open>저장한 글 <span>05</span></a>
-  </div>
+<a aria-label="TOHEŞAR 커버" class="logo" href="/"><img alt="TOHEŞAR" height="255" src="../assets/wordmark.svg" width="1109"/></a>
+
+<nav aria-label="주요 탐색" class="nav-primary"><a class="nav-journal" data-travel="" href="/journal/">Journal ↗</a>
+
+<button aria-label="검색 열기" class="icon-button search-open" type="button"><svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="19"><circle cx="10.7" cy="10.7" r="6.3"></circle><path d="m15.4 15.4 5.3 5.3"></path></svg></button>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="메뉴 열기" class="menu-button" type="button"><span></span><span></span></button>
+</nav>
+<div class="menu-panel" hidden="" id="mobile-menu"><span class="menu-kicker">TOHEŞAR / INDEX</span><a data-travel="" href="/edition/">Newsroom <span>01</span></a><a data-travel="" href="/edition/news/">원문 뉴스 · 검색 <span>02</span></a><a data-travel="" href="/edition/archive/">디자인 아카이브 <span>03</span></a><a data-travel="" href="/journal/">Journal <span>04</span></a><a data-travel="" href="/">Cover <span>05</span></a><a data-saved-open="" href="#saved">저장한 글 <span>☆</span></a></div>
 </header>
-<main id="content" class="desk-main archive-main">
-<span class="eyebrow">THE FIELD GUIDE / SUBJECTS & ARCHIVE</span>
+
+<main class="desk-main archive-main" id="content">
+<span class="eyebrow">THE FIELD GUIDE / SUBJECTS &amp; ARCHIVE</span>
 <h1>형태를 읽는 시간.</h1><p class="desk-deck">브랜드와 시대, 자동차의 형태를 따라 읽는 TOHEŞAR의 디자인 기록.</p>
-<div class="archive-controls"><label>검색 <input id="archive-query" type="search" placeholder="F40, Porsche, 1987…"></label><label>주제 <select id="archive-topic"><option value="all">모든 이야기</option><option value="ferrari">Ferrari</option><option value="porsche">Porsche</option><option value="history">디자인 역사</option><option value="future">미래와 콘셉트</option></select></label><button type="button" id="archive-reset">조건 지우기</button><span id="archive-count" aria-live="polite">3편의 이야기</span></div>
+<div class="archive-controls"><label>검색 <input id="archive-query" placeholder="F40, Porsche, 1987…" type="search"/></label><label>주제 <select id="archive-topic"><option value="all">모든 이야기</option><option value="ferrari">Ferrari</option><option value="porsche">Porsche</option><option value="history">디자인 역사</option><option value="future">미래와 콘셉트</option></select></label><button id="archive-reset" type="button">조건 지우기</button><span aria-live="polite" id="archive-count">3편의 이야기</span></div>
 <div class="archive-list archive-cards">
-<a data-archive-item data-topics="ferrari history" data-keywords="ferrari 페라리 f40 1987" href="../story/f40/"><img src="../assets/f40-800.webp" alt="붉은 Ferrari F40" loading="lazy"><small>1987 / FERRARI · DESIGN HISTORY</small><h2>속도가 형태를 만들 때</h2><p>F40 · 공기의 통로와 1980년대의 조형 ↗</p><span class="archive-credit">사진: MrWalkr · CC BY-SA 4.0</span></a>
-<a data-archive-item data-topics="porsche history" data-keywords="porsche 포르쉐 911 carrera rsr 1973" href="../story/911/"><img src="../assets/porsche-911-800.webp" alt="Porsche 911 Carrera RSR" loading="lazy"><small>1973 / PORSCHE · DESIGN HISTORY</small><h2>시간이 남긴 실루엣</h2><p>911 Carrera RSR · 지붕선과 레이싱의 흔적 ↗</p><span class="archive-credit">사진: Calreyn88 · CC0 1.0</span></a>
-<a data-archive-item data-topics="porsche future" data-keywords="porsche 포르쉐 mission s 2026 vision concept 미래" href="../story/mission-s/"><div class="archive-type-cover"><span>PORSCHE / VISION MODEL</span><strong>MISSION S.</strong><small>TYPOGRAPHIC STUDY</small></div><small>2026 / PORSCHE · DESIGN</small><h2>다음 시대에도, 포르쉐는 포르쉐일까</h2><p>Mission S · 비전 모델과 양산차의 거리 ↗</p></a>
-</div><p id="archive-empty" class="archive-empty" hidden>조건에 맞는 이야기가 없습니다. 검색어나 주제를 바꿔보세요.</p><p class="wire-notice">현재 자동차 디자인·역사 3편을 제공합니다. 더 많은 주제는 새로운 이야기가 발행되면 추가됩니다.</p><a class="archive-news-link" href="../news/">최신 자동차 뉴스 찾아보기 ↗</a></main><footer class="site-footer"><span>© TOHEŞAR — INDEPENDENT AUTOMOTIVE JOURNAL</span><div><a href="#sources">출처와 편집 원칙</a><button type="button" data-saved-open>저장한 글</button></div><div id="sources" class="sources-foot">공식 뉴스: <a href="https://newsroom.porsche.com/" target="_blank" rel="noopener noreferrer">Porsche Newsroom</a> · <a href="https://www.press.bmwgroup.com/global" target="_blank" rel="noopener noreferrer">BMW PressClub</a> · <a href="https://www.motor1.com/" target="_blank" rel="noopener noreferrer">Motor1</a>. 기사 내용은 원문 출처를 밝힙니다. © 이미지별 권리 표기 참조.</div></footer>
-<dialog class="search-dialog" id="search-dialog" aria-labelledby="search-heading"><form method="dialog" class="dialog-header"><h2 id="search-heading">이야기를 찾다.</h2><button aria-label="닫기" class="close-button">×</button></form><label class="search-field">검색어<input id="search-field" type="search" autocomplete="off" placeholder="F40, 포르쉐, BMW…"></label><div id="search-results" class="search-results" aria-live="polite"></div></dialog>
-<dialog class="saved-dialog" id="saved-dialog" aria-labelledby="saved-heading"><form method="dialog" class="dialog-header"><h2 id="saved-heading">읽어둘 이야기.</h2><button class="close-button" aria-label="닫기">×</button></form><p class="wire-notice">이 브라우저에만 저장됩니다. 기기 간 동기화는 제공하지 않습니다.</p><div id="saved-items" class="saved-items" aria-live="polite"></div></dialog>
-<script src="../app.js" defer></script>
+<a data-archive-item="" data-keywords="ferrari 페라리 f40 1987" data-topics="ferrari history" href="../story/f40/"><img alt="붉은 Ferrari F40" loading="lazy" src="../assets/f40-800.webp"/><small>1987 / FERRARI · DESIGN HISTORY</small><h2>속도가 형태를 만들 때</h2><p>F40 · 공기의 통로와 1980년대의 조형 ↗</p><span class="archive-credit">사진: MrWalkr · CC BY-SA 4.0</span></a>
+<a data-archive-item="" data-keywords="porsche 포르쉐 911 carrera rsr 1973" data-topics="porsche history" href="../story/911/"><img alt="Porsche 911 Carrera RSR" loading="lazy" src="../assets/porsche-911-800.webp"/><small>1973 / PORSCHE · DESIGN HISTORY</small><h2>시간이 남긴 실루엣</h2><p>911 Carrera RSR · 지붕선과 레이싱의 흔적 ↗</p><span class="archive-credit">사진: Calreyn88 · CC0 1.0</span></a>
+<a data-archive-item="" data-keywords="porsche 포르쉐 mission s 2026 vision concept 미래" data-topics="porsche future" href="../story/mission-s/"><div class="archive-type-cover"><span>PORSCHE / VISION MODEL</span><strong>MISSION S.</strong><small>TYPOGRAPHIC STUDY</small></div><small>2026 / PORSCHE · DESIGN</small><h2>다음 시대에도, 포르쉐는 포르쉐일까</h2><p>Mission S · 비전 모델과 양산차의 거리 ↗</p></a>
+</div><p class="archive-empty" hidden="" id="archive-empty">조건에 맞는 이야기가 없습니다. 검색어나 주제를 바꿔보세요.</p><p class="wire-notice">현재 자동차 디자인·역사 3편을 제공합니다. 더 많은 주제는 새로운 이야기가 발행되면 추가됩니다.</p><a class="archive-news-link" href="../news/">최신 자동차 뉴스 찾아보기 ↗</a></main>
+<footer class="site-footer"><span>© TOHEŞAR — INDEPENDENT AUTOMOTIVE JOURNAL</span><div><a href="#sources">출처와 편집 원칙</a><button data-saved-open="" type="button">저장한 글</button></div><div class="sources-foot" id="sources">공식 뉴스: <a href="https://newsroom.porsche.com/" rel="noopener noreferrer" target="_blank">Porsche Newsroom</a> · <a href="https://www.press.bmwgroup.com/global" rel="noopener noreferrer" target="_blank">BMW PressClub</a> · <a href="https://www.motor1.com/" rel="noopener noreferrer" target="_blank">Motor1</a>. 기사 내용은 원문 출처를 밝힙니다. © 이미지별 권리 표기 참조.</div></footer>
+
+<dialog aria-labelledby="search-heading" class="search-dialog" id="search-dialog"><form class="dialog-header" method="dialog"><h2 id="search-heading">이야기를 찾다.</h2><button aria-label="닫기" class="close-button">×</button></form><label class="search-field">검색어<input autocomplete="off" id="search-field" placeholder="F40, 포르쉐, BMW…" type="search"/></label><div aria-live="polite" class="search-results" id="search-results"></div></dialog>
+
+<dialog aria-labelledby="saved-heading" class="saved-dialog" id="saved-dialog"><form class="dialog-header" method="dialog"><h2 id="saved-heading">읽어둘 이야기.</h2><button aria-label="닫기" class="close-button">×</button></form><p class="wire-notice">이 브라우저에만 저장됩니다. 기기 간 동기화는 제공하지 않습니다.</p><div aria-live="polite" class="saved-items" id="saved-items"></div></dialog>
+
+<script defer="" src="../app.js"></script>
 </body>
 </html>

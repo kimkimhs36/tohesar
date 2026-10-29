@@ -50,8 +50,9 @@ def build():
     p=ROOT/'journal/index.html';s=p.read_text();markup=invitation(published[0]) if published else ''
     if '<!-- ISSUE:START -->' not in s:s=s.replace('<section class="latest ', '<!-- ISSUE:START --><!-- ISSUE:END --><section class="latest ',1)
     s=re.sub(r'<!-- ISSUE:START -->.*?<!-- ISSUE:END -->',lambda _:f'<!-- ISSUE:START -->{markup}<!-- ISSUE:END -->',s,flags=re.S)
-    if '/journal/assets/issue008.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/issue008.css"></head>')
-    if '/journal/assets/art009.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/art009.css"></head>')
+    if 'recovery015-journal' not in s:
+        if '/journal/assets/issue008.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/issue008.css"></head>')
+        if '/journal/assets/art009.css' not in s:s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/art009.css"></head>')
     s=s.replace('<body>', '<body class="journal-home">')
     p.write_text(s)
     print(f'Rendered {len(published)} editions, archive and journal invitation.')

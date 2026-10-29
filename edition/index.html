@@ -1,108 +1,99 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#eae8df">
-<meta name="description" content="TOHEŞAR — 자동차의 오늘과 오래 남을 아름다움. 공식 뉴스 원문과 깊이 있는 디자인 저널을 한곳에서 읽습니다.">
-<meta name="color-scheme" content="light">
-<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="./assets/f40-800.webp" imagesrcset="./assets/f40-800.webp 800w, ./assets/f40-1600.webp 1600w" imagesizes="100vw" as="image" fetchpriority="high">
-<link rel="canonical" href="https://tohesar.com/edition/">
-<link rel="preload" href="./assets/serif.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="./home-news.css">
-<title>TOHEŞAR — 자동차의 오늘, 형태의 영원</title>
-</head>
+
+<meta charset="utf-8"/>
+
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+
+<meta content="#f5f1ea" name="theme-color"/>
+
+<meta content="TOHEŞAR — 자동차의 오늘과 오래 남을 아름다움. 공식 뉴스 원문과 깊이 있는 디자인 저널을 한곳에서 읽습니다." name="description"/>
+
+<meta content="light" name="color-scheme"/>
+
+<link href="./assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+
+<link href="https://tohesar.com/edition/" rel="canonical"/>
+
+<link as="font" crossorigin="" href="./assets/serif.woff2" rel="preload" type="font/woff2"/>
+
+<link href="./style.css" rel="stylesheet"/>
+
+<link href="./home-news.css" rel="stylesheet"/>
+
+<title>Newsroom — TOHEŞAR / 자동차의 오늘</title>
+
+<link href="/journal/assets/travel.css" rel="stylesheet"/>
+<link href="/edition/recovery015.css" rel="stylesheet"/>
+<script defer="" src="/journal/assets/travel.js"></script>
+<link as="image" fetchpriority="high" href="/journal/assets/design/type01-arrival-800.webp" rel="preload"/></head>
 <body data-page="home">
 <a class="skip-link" href="#content">본문으로 이동</a>
-<div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+<div aria-hidden="true" class="reading-progress"><span id="reading-progress"></span></div>
+
 <header class="site-header" id="top">
-  <a class="logo" href="./" aria-label="TOHEŞAR 홈페이지"><img src="./assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>
-  <nav class="nav-primary" aria-label="주요 탐색">
-    <a class="nav-brief" href="./news/"><span class="status-dot" aria-hidden="true"></span> NEWS</a>
-    <button type="button" class="icon-button search-open" aria-label="검색 열기"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.3"/><path d="m15.4 15.4 5.3 5.3"/></svg></button>
-    <button type="button" class="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기"><span></span><span></span></button>
-  </nav>
-  <div id="mobile-menu" class="menu-panel" hidden>
-    <span class="menu-kicker">EXPLORE THE WORLD</span>
-    <a href="./news/">지금의 자동차 뉴스 <span>01</span></a><a href="#journal">디자인 저널 <span>02</span></a><a href="./archive/">아카이브 <span>03</span></a><a href="./story/mission-s/">포르쉐 Mission S <span>04</span></a><a href="#saved" data-saved-open>저장한 글 <span>05</span></a>
-  </div>
+<a aria-label="TOHEŞAR 커버" class="logo" href="/"><img alt="TOHEŞAR" height="255" src="./assets/wordmark.svg" width="1109"/></a>
+
+<nav aria-label="주요 탐색" class="nav-primary"><a class="nav-journal" data-travel="" href="/journal/">Journal ↗</a>
+
+<button aria-label="검색 열기" class="icon-button search-open" type="button"><svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="19"><circle cx="10.7" cy="10.7" r="6.3"></circle><path d="m15.4 15.4 5.3 5.3"></path></svg></button>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="메뉴 열기" class="menu-button" type="button"><span></span><span></span></button>
+</nav>
+<div class="menu-panel" hidden="" id="mobile-menu"><span class="menu-kicker">TOHEŞAR / INDEX</span><a data-travel="" href="/edition/">Newsroom <span>01</span></a><a data-travel="" href="/edition/news/">원문 뉴스 · 검색 <span>02</span></a><a data-travel="" href="/edition/archive/">디자인 아카이브 <span>03</span></a><a data-travel="" href="/journal/">Journal <span>04</span></a><a data-travel="" href="/">Cover <span>05</span></a><a data-saved-open="" href="#saved">저장한 글 <span>☆</span></a></div>
 </header>
-<main id="content">
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-aura aura-warm" aria-hidden="true"></div><div class="hero-aura aura-blue" aria-hidden="true"></div>
-    <div class="hero-scene">
-      <div class="hero-ambient" aria-hidden="true"></div>
-      <img class="hero-photo" src="./assets/f40-1600.webp" srcset="./assets/f40-800.webp 800w, ./assets/f40-1600.webp 1600w" sizes="100vw" alt="런던 콩쿠르 행사에서 촬영한 붉은 페라리 F40의 전면 3/4 모습" width="1920" height="1043" fetchpriority="high" decoding="async">
-      <div class="hero-drape" aria-hidden="true"></div>
-      <div class="hero-film-line"><span>THE COMPLETE JOURNAL / 003</span><span>FORM, TIME & MOTION</span></div>
-      <div class="hero-content">
-        <div class="hero-led"><span>THE DESIGN FILE</span><span>FERRARI / 1987</span></div>
-        <h1 id="hero-title">속도가 만든 선.<br><em>Ferrari F40, 1987.</em></h1>
-        <div class="hero-bottom"><p>공기와 열, 그리고 1980년대의 야심.<br>한 대의 차에 남은 시대를 읽습니다.</p><a href="./story/f40/" class="hero-read">F40의 디자인 읽기 <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </div>
-    <div class="hero-after"><span>FERRARI F40 · PHOTOGRAPHY: <a href="https://commons.wikimedia.org/wiki/File:1991_Ferrari_F40_Red.jpg" target="_blank" rel="noopener noreferrer">MrWalkr</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span><a href="#front-wire" class="discover">다음 장면 <span aria-hidden="true">↓</span></a></div>
-  </section>
-  <nav class="edition-index" aria-label="에디션 둘러보기"><span>IN THIS EDITION</span><a href="#front-wire"><b>01</b><strong>뉴스 원문</strong><small>해외 헤드라인</small><i aria-hidden="true">↘</i></a><a href="#news"><b>02</b><strong>오늘의 해설</strong><small>공식 발표와 맥락</small><i aria-hidden="true">↘</i></a><a href="#journal"><b>03</b><strong>디자인 저널</strong><small>오래 남는 형태</small><i aria-hidden="true">↘</i></a></nav>
-  <aside class="front-story" aria-label="디자인 저널 추천">
-    <a href="../journal/design/giulia/" class="front-story-link"><div class="front-story-image"><img src="../journal/assets/giulia/front-800.webp" srcset="../journal/assets/giulia/front-800.webp 800w, ../journal/assets/giulia/front-1600.webp 1600w" sizes="(max-width:600px) 100vw, 50vw" width="1600" height="845" loading="lazy" decoding="async" alt="알파 로메오 Giulia의 전면 비례"></div><div class="front-story-copy"><span>THE DESIGN JOURNAL / 01</span><h2>비례가 말하는 것.<br><em>Giulia의 얼굴을 읽다.</em></h2><p>그릴과 보닛, 앞바퀴까지. 하나의 얼굴을 만드는 디자인의 관계.</p><b>디자인 이야기 읽기 ↗</b></div></a>
-    <small>사진: Vauxford · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Front.jpg" target="_blank" rel="noopener noreferrer">원본</a></small>
-  </aside>
-  <section class="front-wire" id="front-wire" aria-labelledby="front-wire-title">
-    <div class="front-wire-top"><span>THE FRONT PAGE / LATEST NEWS</span><span id="front-wire-state" aria-live="polite">수집 기록 확인 중</span></div>
-    <div class="front-wire-heading"><div><p>THE WORLD IN MOTION</p><h2 id="front-wire-title">지금, 자동차의 세계.</h2></div><a href="./news/">모든 뉴스 보기 <span aria-hidden="true">↗</span></a></div>
-    <p class="front-wire-intro">세계의 자동차 소식을 원문으로 만납니다. 아래는 해외 발행처의 영어 헤드라인입니다.</p>
-    <ol id="front-wire-list" class="front-wire-list" data-limit="5"><li class="front-wire-message">뉴스 자료를 읽고 있습니다.</li></ol><noscript><style>#front-wire-list,#front-wire-state{display:none}</style><p class="front-wire-message">헤드라인을 보려면 JavaScript가 필요합니다. <a href="./news/">뉴스 데스크에서 확인하기 ↗</a></p></noscript>
-    <a class="front-wire-more" href="./news/">뉴스 데스크에서 검색하고 탐색하기 <span aria-hidden="true">↗</span></a>
-  </section>
-  <section class="section news-section" id="news" aria-labelledby="news-title">
-    <div class="section-top"><span>02 / THE EDITORIAL DESK</span><span class="tag-line">CURATED & SOURCE-LINKED</span></div>
-    <div class="section-headline"><h2 id="news-title">자동차의 <em>오늘.</em></h2><p>새로운 발표를 빠르게 읽고,<br>왜 중요한지도 알아보세요.</p></div>
-    <div class="news-grid">
-      <article class="news-lead" data-search-title="포르쉐 Mission S 미래 디자인 새로운 미드 엔진 플랫폼">
-        <div class="news-topline"><span class="red-dot" aria-hidden="true"></span> OFFICIAL / PORSCHE <time datetime="2026-10-15">2026.10.15</time></div>
-        <h3><a href="./story/mission-s/">포르쉐는 미래에도<br><em>포르쉐일 수 있을까.</em></a></h3>
-        <p>새로운 비전 모델 Mission S. 브랜드의 다음 디자인 언어와 미드 엔진 슈퍼스포츠카 플랫폼이 향하는 곳.</p>
-        <div class="news-footer"><span>비전 모델 · 디자인·기술</span><a href="./story/mission-s/">분석 읽기 <span aria-hidden="true">↗</span></a></div>
-      </article>
-      <article class="news-side">
-        <span>OFFICIAL / PORSCHE <time datetime="2026-10-21">2026.10.21</time></span>
-        <h3><a href="https://newsroom.porsche.com/en/2026/company/porsche-engineering-digital-combine-expertise-porsche-technologies-43556.html" target="_blank" rel="noopener noreferrer">설계와 소프트웨어,<br>하나의 이름 아래.</a></h3>
-        <p>Porsche Engineering과 Porsche Digital이 ‘Porsche Technologies’로 역량을 모은다. 출범 목표는 2027년 2분기 초다.</p>
-        <p class="brief-context">왜 중요한가 · 차체 설계와 디지털 경험을 함께 개발하려는 움직임이다. 통합 완료가 아닌 향후 계획으로 읽어야 한다.</p>
-        <small>공식 본문 대조 · AI 보조 한국어 요약 · 10.28 확인</small>
-        <a class="source-link" href="https://newsroom.porsche.com/en/2026/company/porsche-engineering-digital-combine-expertise-porsche-technologies-43556.html" target="_blank" rel="noopener noreferrer">공식 원문과 일정 확인 ↗</a>
-      </article>
-    </div>
-    <a class="news-index-link" href="./news/"><span><small>NEWS DESK</small>원문 뉴스 인덱스</span><span>발행 시각 · 출처 · 수집 상태 ↗</span></a>
-    <p class="wire-notice">위 소식은 날짜가 명시된 공식 발표 해설입니다. 자동 수집된 해외 헤드라인은 뉴스 인덱스에서 별도로 읽습니다.</p>
-  </section>
-  <section class="reading-selection" aria-labelledby="reading-selection-title">
-    <div class="selection-header"><div><span>THE READING SELECTION / 03</span><h2 id="reading-selection-title">뉴스 너머의 <em>이야기.</em></h2></div><p>새로운 소식에서 한 걸음 더. 자동차의 형태와 그것이 놓인 풍경을 들여다봅니다.</p></div>
-    <div class="selection-grid">
-      <article class="selection-card selection-culture"><a href="../journal/yokohama/"><div class="selection-image"><img src="../assets/yokohama-arrival.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="상상한 요코하마 항구의 저녁빛과 은빛 쿠페"></div><div class="selection-copy"><span>VISUAL CULTURE / YOKOHAMA</span><h3>도시가 차에<br><em>남기는 빛.</em></h3><p>요코하마를 상상한 자동차와 도시의 시각 에세이.</p><span class="selection-cta">에세이 읽기 ↗</span></div></a><small>AI 보조 비주얼 픽션 · 실제 현장 사진이 아닙니다</small></article>
-    </div>
-    <a class="selection-archive" href="./archive/"><span>THE ARCHIVE</span> 자동차의 형태와 역사 더 읽기 <b aria-hidden="true">↗</b></a>
-  </section>
-  <section class="journal-section" id="journal" aria-labelledby="journal-title">
-    <div class="journal-no"><span>03 / DESIGN &amp; FORM</span><span>DESIGN, BEYOND ITS TIME</span></div>
-    <div class="journal-head"><h2 id="journal-title">시간이 흐른 뒤에도<br><em>남아 있는 선.</em></h2><div><p>1963년에서 오늘까지.<br>911의 실루엣이 한 가지 언어로 남는 이유.</p><a href="./story/911/" class="text-cta">디자인 아카이브 읽기 <span aria-hidden="true">↗</span></a></div></div>
-    <figure class="journal-photo"><img src="./assets/porsche-911-1600.webp" srcset="./assets/porsche-911-800.webp 800w, ./assets/porsche-911-1600.webp 1600w" sizes="(max-width:600px) 100vw, 90vw" width="1920" height="1347" loading="lazy" decoding="async" alt="1973 포르쉐 911 카레라 RSR, 마르티니 레이싱 도색과 전면 3/4 형태"><figcaption>1973 PORSCHE 911 CARRERA RSR · <a href="https://commons.wikimedia.org/wiki/File:1973_Porsche_911_Carrera_RSR_4.jpg" rel="noopener noreferrer" target="_blank">Calreyn88</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a></figcaption></figure>
-  </section>
-  <section class="culture-note" aria-labelledby="culture-title"><div><span>04 / CULTURE &amp; PEOPLE</span><h2 id="culture-title">자동차 밖으로<br><em>이어지는 이야기.</em></h2></div><div><p>도시와 사람, 음악과 사진. 자동차가 놓인 더 넓은 풍경을 기록합니다.</p><p class="culture-status">상상한 요코하마를 담은 비주얼 에세이. AI 보조 이미지로 제작된 작품입니다.</p><a class="culture-link" href="../journal/yokohama/">Yokohama 에세이 읽기 ↗</a></div></section>
-  <section class="subjects-section" id="subjects" aria-labelledby="subjects-title">
-    <div class="section-top"><span>05 / THE FIELD GUIDE</span><span>EXPLORE DEEPER</span></div>
-    <h2 id="subjects-title">기계가 만든 세계, <em>그리고 사람.</em></h2>
-    <div class="subjects-grid"><a href="#news"><span>01</span><strong>AUTOMOBILES</strong><small>새 차와 그 시대</small><b aria-hidden="true">↗</b></a><a href="./archive/"><span>02</span><strong>DESIGN & HISTORY</strong><small>형태의 이유</small><b aria-hidden="true">↗</b></a><a href="./news/?topic=motorsport"><span>03</span><strong>MOTORSPORT</strong><small>극한이 남긴 미학</small><b aria-hidden="true">↗</b></a><a href="./story/mission-s/"><span>04</span><strong>FUTURE MACHINES</strong><small>다가올 기계의 언어</small><b aria-hidden="true">↗</b></a></div>
-  </section>
-  <section class="outro"><div class="outro-glow" aria-hidden="true"></div><span>TOHEŞAR / THE WORLD OF MOTION</span><h2>새로운 이야기는<br><em>계속된다.</em></h2><p>기술을 전하고, 형태를 읽고, 문화를 기록합니다.</p><a href="#top" class="backtop">처음으로 <span aria-hidden="true">↑</span></a><div class="outro-brand"><img src="./assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"><img src="./assets/cedilla.svg" width="50" height="50" alt="세디유 심볼"></div></section>
-</main>
-<footer class="site-footer"><span>© TOHEŞAR — INDEPENDENT AUTOMOTIVE JOURNAL</span><div><a href="#sources">출처와 편집 원칙</a><button type="button" data-saved-open>저장한 글</button></div><div id="sources" class="sources-foot">뉴스 발행처: <a href="https://newsroom.porsche.com/" target="_blank" rel="noopener noreferrer">Porsche Newsroom</a> · <a href="https://www.press.bmwgroup.com/global" target="_blank" rel="noopener noreferrer">BMW PressClub</a> · <a href="https://www.motor1.com/" target="_blank" rel="noopener noreferrer">Motor1</a> · <a href="https://www.autoblog.com/" target="_blank" rel="noopener noreferrer">Autoblog</a>. 기사 내용은 원문 출처를 밝힙니다. © 이미지별 권리 표기 참조.</div></footer>
-<dialog class="search-dialog" id="search-dialog" aria-labelledby="search-heading"><form method="dialog" class="dialog-header"><h2 id="search-heading">이야기를 찾다.</h2><button aria-label="닫기" class="close-button">×</button></form><label class="search-field">검색어<input id="search-field" type="search" autocomplete="off" placeholder="F40, 포르쉐, BMW…"></label><div id="search-results" class="search-results" aria-live="polite"></div></dialog>
-<dialog class="saved-dialog" id="saved-dialog" aria-labelledby="saved-heading"><form method="dialog" class="dialog-header"><h2 id="saved-heading">읽어둘 이야기.</h2><button class="close-button" aria-label="닫기">×</button></form><p class="wire-notice">이 브라우저에만 저장됩니다. 기기 간 동기화는 제공하지 않습니다.</p><div id="saved-items" class="saved-items" aria-live="polite"></div></dialog>
-<script src="./app.js" defer></script>
-<script src="./home-news.js" defer></script>
+
+<main id="content"><div class="newsroom-mast"><div class="desk-register"><a data-travel="" href="/journal/">TOHEŞAR JOURNAL / THE NEWSROOM</a><span>OFFICIAL SOURCES, A CLOSER LOOK</span></div><h1>Newsroom<span>.</span></h1><div class="desk-mast-foot"><p>자동차의 오늘을 읽는 또 하나의 시선.</p><a href="./news/">원문 뉴스 검색 ↗</a></div></div>
+
+<nav aria-label="뉴스룸 탐색" class="desk-nav"><a href="#editorial">Editor's pick <span>01</span></a><a href="#front-wire">원문 헤드라인 <span>02</span></a><a href="./archive/">Archive <span>03</span></a></nav>
+
+<section aria-labelledby="desk-feature-title" class="desk-feature" id="editorial"><div class="desk-feature-photo"><a data-travel="" href="/journal/design/type-01/"><img alt="저녁빛 속의 은색 Jaguar Type 01 공식 이미지" fetchpriority="high" height="589" src="/journal/assets/design/type01-arrival-800.webp" width="800"/></a><span>JAGUAR / THE NEW DESIGN LANGUAGE</span></div><div class="desk-feature-copy"><span class="desk-kicker">EDITOR'S PICK / DESIGN FILE 03</span><h2 id="desk-feature-title"><a data-travel="" href="/journal/design/type-01/">새로운 시대는<br/>어떤 선으로 오는가.</a></h2><p>Type 00의 선언에서 새로운 4도어 GT까지.<br/>Jaguar Type 01의 긴 비례와 디자인 언어.</p><a class="desk-text-link" data-travel="" href="/journal/design/type-01/">디자인 에디토리얼 읽기 <span>↗</span></a></div><small class="desk-image-credit">사진 © Jaguar Land Rover Limited · WebP 변환 · <a href="https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins">공식 출처</a> / <a href="https://media.jlr.com/jaguar/en-gb/user-licence">JLR User Licence</a></small></section>
+<section aria-labelledby="front-wire-title" class="front-wire" id="front-wire">
+<div class="front-wire-top"><span>01 / DISPATCHES</span><span aria-live="polite" id="front-wire-state">수집 기록 확인 중</span></div>
+<div class="front-wire-heading"><div><p>ORIGINAL HEADLINES / SOURCE-LINKED</p><h2 id="front-wire-title">세계는 지금.</h2></div><a href="./news/">모든 뉴스 보기 <span aria-hidden="true">↗</span></a></div>
+<p class="front-wire-intro">세계의 자동차 소식을 원문으로 만납니다. 아래는 해외 발행처의 영어 헤드라인입니다.</p>
+<ol class="front-wire-list" data-limit="4" id="front-wire-list"><li class="front-wire-message">뉴스 자료를 읽고 있습니다.</li></ol>
+<noscript><style>#front-wire-list,#front-wire-state{display:none}</style><p class="front-wire-message">헤드라인을 보려면 JavaScript가 필요합니다. <a href="./news/">뉴스 데스크에서 확인하기 ↗</a></p></noscript>
+<a class="front-wire-more" href="./news/">뉴스 데스크에서 검색하고 탐색하기 <span aria-hidden="true">↗</span></a>
+</section>
+<section aria-labelledby="news-title" class="section news-section" id="news">
+<div class="section-top"><span>02 / THE EDITORIAL DESK</span><span class="tag-line">CURATED &amp; SOURCE-LINKED</span></div>
+<div class="section-headline"><h2 id="news-title">자동차의 <em>오늘.</em></h2><p>날짜가 명시된 공식 발표를<br/>한국어 해설로 읽습니다.</p></div>
+<div class="news-grid">
+
+<article class="news-lead" data-search-title="포르쉐 Mission S 미래 디자인 새로운 미드 엔진 플랫폼">
+<div class="news-topline"><span aria-hidden="true" class="red-dot"></span> OFFICIAL / PORSCHE <time datetime="2026-10-15">2026.10.15</time></div>
+<h3><a href="./story/mission-s/">포르쉐는 미래에도<br/><em>포르쉐일 수 있을까.</em></a></h3>
+<p>새로운 비전 모델 Mission S. 브랜드의 다음 디자인 언어와 미드 엔진 슈퍼스포츠카 플랫폼이 향하는 곳.</p>
+<div class="news-footer"><span>비전 모델 · 디자인·기술</span><a href="./story/mission-s/">분석 읽기 <span aria-hidden="true">↗</span></a></div>
+</article>
+
+<article class="news-side">
+<span>OFFICIAL / PORSCHE <time datetime="2026-10-21">2026.10.21</time></span>
+<h3><a href="https://newsroom.porsche.com/en/2026/company/porsche-engineering-digital-combine-expertise-porsche-technologies-43556.html" rel="noopener noreferrer" target="_blank">설계와 소프트웨어,<br/>하나의 이름 아래.</a></h3>
+<p>Porsche Engineering과 Porsche Digital이 ‘Porsche Technologies’로 역량을 모은다. 출범 목표는 2027년 2분기 초다.</p>
+<p class="brief-context">왜 중요한가 · 차체 설계와 디지털 경험을 함께 개발하려는 움직임이다. 통합 완료가 아닌 향후 계획으로 읽어야 한다.</p>
+<small>공식 본문 대조 · AI 보조 한국어 요약 · 10.28 확인</small>
+<a class="source-link" href="https://newsroom.porsche.com/en/2026/company/porsche-engineering-digital-combine-expertise-porsche-technologies-43556.html" rel="noopener noreferrer" target="_blank">공식 원문과 일정 확인 ↗</a>
+</article>
+</div>
+<a class="news-index-link" href="./news/"><span><small>NEWS DESK</small>원문 뉴스 인덱스</span><span>발행 시각 · 출처 · 수집 상태 ↗</span></a>
+<p class="wire-notice">위 소식은 날짜가 명시된 공식 발표 해설입니다. 자동 수집된 해외 헤드라인은 뉴스 인덱스에서 별도로 읽습니다.</p>
+</section>
+<section aria-labelledby="desk-reading-title" class="desk-reading" id="journal"><div class="desk-reading-head"><span class="desk-kicker">THE LONG READ / DESIGN &amp; HISTORY</span><h2 id="desk-reading-title">뉴스가 지나간 자리,<br/><i>오래 남는 형태.</i></h2><a class="desk-text-link" href="./archive/">디자인 아카이브 <span>↗</span></a></div>
+<article class="desk-f40"><a href="./story/f40/"><img alt="붉은 Ferrari F40의 전면과 커다란 리어 윙" height="869" loading="lazy" sizes="(max-width:700px) 100vw, 60vw" src="./assets/f40-1600.webp" srcset="./assets/f40-800.webp 800w, ./assets/f40-1600.webp 1600w" width="1600"/><span>FERRARI / 1987</span><h3>속도가 만든 선.</h3><p>공기와 열, 그리고 1980년대의 야심. ↗</p></a><small>사진: <a href="https://commons.wikimedia.org/wiki/File:1991_Ferrari_F40_Red.jpg">MrWalkr</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · WebP 변환</small></article>
+<article class="desk-911"><a href="./story/911/"><img alt="1973 Porsche 911 Carrera RSR의 앞모습" height="561" loading="lazy" src="./assets/porsche-911-800.webp" width="800"/><span>PORSCHE / 1973</span><h3>시간이 남긴 실루엣.</h3><p>레이싱의 흔적과 911의 지붕선. ↗</p></a><small>사진: <a href="https://commons.wikimedia.org/wiki/File:1973_Porsche_911_Carrera_RSR_4.jpg">Calreyn88</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></small></article></section>
+
+<aside class="back-to-journal"><div><span class="desk-kicker">DESIGN, PLACES &amp; THE THINGS THAT STAY</span><h2>그 너머의 아름다움.</h2><p>사진과 도시, 역사와 자동차 문화.</p><a class="desk-text-link" data-travel="" href="/journal/">Journal로 돌아가기 <span>↗</span></a></div><a class="journal-return-photo" data-travel="" href="/journal/yokohama/"><img alt="따뜻한 저녁빛의 요코하마와 은빛 쿠페 · AI 보조 비주얼 픽션" height="532" loading="lazy" src="/assets/yokohama-afterglow.webp" width="1428"/><span>Yokohama, in another light. ↗<small>TOHEŞAR · AI 보조 비주얼 픽션</small></span></a></aside></main>
+
+<footer class="site-footer"><span>© TOHEŞAR — INDEPENDENT AUTOMOTIVE JOURNAL</span><div><a href="#sources">출처와 편집 원칙</a><button data-saved-open="" type="button">저장한 글</button></div><div class="sources-foot" id="sources">뉴스 발행처: <a href="https://newsroom.porsche.com/" rel="noopener noreferrer" target="_blank">Porsche Newsroom</a> · <a href="https://www.press.bmwgroup.com/global" rel="noopener noreferrer" target="_blank">BMW PressClub</a> · <a href="https://www.motor1.com/" rel="noopener noreferrer" target="_blank">Motor1</a> · <a href="https://www.autoblog.com/" rel="noopener noreferrer" target="_blank">Autoblog</a>. 기사 내용은 원문 출처를 밝힙니다. © 이미지별 권리 표기 참조.</div></footer>
+
+<dialog aria-labelledby="search-heading" class="search-dialog" id="search-dialog"><form class="dialog-header" method="dialog"><h2 id="search-heading">이야기를 찾다.</h2><button aria-label="닫기" class="close-button">×</button></form><label class="search-field">검색어<input autocomplete="off" id="search-field" placeholder="F40, 포르쉐, BMW…" type="search"/></label><div aria-live="polite" class="search-results" id="search-results"></div></dialog>
+
+<dialog aria-labelledby="saved-heading" class="saved-dialog" id="saved-dialog"><form class="dialog-header" method="dialog"><h2 id="saved-heading">읽어둘 이야기.</h2><button aria-label="닫기" class="close-button">×</button></form><p class="wire-notice">이 브라우저에만 저장됩니다. 기기 간 동기화는 제공하지 않습니다.</p><div aria-live="polite" class="saved-items" id="saved-items"></div></dialog>
+
+<script defer="" src="./app.js"></script>
+
+<script defer="" src="./home-news.js"></script>
 </body>
 </html>

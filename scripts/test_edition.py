@@ -25,7 +25,8 @@ def check(root):
         assert len(doc.refs)>5 and len(doc.ids)>0,f
         for ref in doc.refs:
             if ref.startswith(('https://','http://','#','mailto:','data:')):continue
-            p=(root/f).parent/ref.split('#')[0].split('?')[0]
+            path=ref.split('#')[0].split('?')[0]
+            p=root/path.lstrip('/') if path.startswith('/') else (root/f).parent/path
             if p.is_dir():p=p/'index.html'
             assert p.is_file(),f'Broken file: {f} -> {ref}'
     feeds=json.loads((root/'edition/data/news.json').read_text(encoding='utf8'))

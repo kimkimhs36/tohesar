@@ -1,0 +1,1104 @@
+{
+  "base": "http://127.0.0.1:8100",
+  "responsive": [
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 320,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 375,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 430,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 768,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1024,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1194,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 320,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 430,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 768,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1024,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1194,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/journal/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/edition/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/edition/news/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/edition/archive/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/edition/story/f40/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/edition/story/911/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "route": "/edition/story/mission-s/",
+      "overflow": false,
+      "broken": [],
+      "fonts": "loaded"
+    }
+  ],
+  "interactions": [
+    {
+      "engine": "webkit",
+      "passed": [
+        "Cover frame",
+        "Cover → Journal → Newsroom → Journal / back",
+        "menu / Escape",
+        "search → article",
+        "save / reload / remove",
+        "article TOC / progress / sources",
+        "load 12 → 24",
+        "publisher / query / category / reset",
+        "original source link",
+        "feed health disclosure",
+        "topic deep link",
+        "RSS title search",
+        "archive search / empty / reset / category",
+        "HTTP 503 fallback",
+        "stale snapshot"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "passed": [
+        "Cover frame",
+        "Cover → Journal → Newsroom → Journal / back",
+        "menu / Escape",
+        "search → article",
+        "save / reload / remove",
+        "article TOC / progress / sources",
+        "load 12 → 24",
+        "publisher / query / category / reset",
+        "original source link",
+        "feed health disclosure",
+        "topic deep link",
+        "RSS title search",
+        "archive search / empty / reset / category",
+        "HTTP 503 fallback",
+        "stale snapshot"
+      ]
+    }
+  ],
+  "noJavaScript": [
+    {
+      "engine": "webkit",
+      "route": "/journal/",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "route": "/edition/",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "route": "/edition/news/",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "route": "/journal/",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "route": "/edition/",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "route": "/edition/news/",
+      "passed": true
+    }
+  ],
+  "errors": []
+}
