@@ -81,7 +81,7 @@ def build():
         body=destination('/'+item['body_file']).read_text()
         p.write_text(shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
     check()
-    for script in ['build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py']:
+    for script in ['build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     links()
 

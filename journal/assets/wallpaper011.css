@@ -1,0 +1,68 @@
+/* TOHEŞAR 011 — small forms printed into the editorial paper.
+   No sticky stage, no path diagram, no image used as a control. */
+.wallpaper-story{--paper:#eee9e3}
+.wallpaper-paper{--wp-paper:238 233 227;position:relative;isolation:isolate;background:rgb(var(--wp-paper));overflow:hidden;overflow:clip;padding:72px 0 62px}
+.wallpaper-art{position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none}
+.wallpaper-car{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:clamp(78px,calc(var(--w)*1vw),190px);opacity:var(--o);transform:translate(-50%,-50%) rotate(calc(var(--r)*1deg))}
+.wallpaper-car img{width:100%;height:auto;transform:scaleX(var(--flip,1));pointer-events:none}
+.wallpaper-reading{position:relative;z-index:1}
+/* Feathered paper reserves reading space; it has no border, card or visible box. */
+.wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p{position:relative;isolation:isolate}
+.wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before{content:"";position:absolute;z-index:-1;inset:-10px -24px;background:rgb(var(--wp-paper)/.96);filter:blur(16px);pointer-events:none}
+.wallpaper-reading :is(h2,.chapter-side,.chapter-folio,.edition-label){position:relative;isolation:isolate}
+.wallpaper-reading :is(h2,.chapter-side)::before{content:"";position:absolute;z-index:-1;inset:-12px;background:rgb(var(--wp-paper)/.84);filter:blur(18px);pointer-events:none}
+.wallpaper-reading .story-opening{margin:28px auto 60px}
+.wallpaper-reading .story-chapter{padding-top:34px;padding-bottom:40px}
+.wallpaper-reading .shape-note{background:transparent;margin:20px 0;padding-top:65px;padding-bottom:65px}
+.wallpaper-reading .shape-note>p{font-style:normal}
+.wallpaper-drift{--wp-paper:235 229 235}
+.wallpaper-drift .wallpaper-reading .chapter-body p+p{margin-top:68px}
+.wallpaper-drift .wallpaper-reading .chapter-body h2{margin-bottom:56px}
+.wallpaper-blade{--wp-paper:239 226 215}
+.wallpaper-touring{--wp-paper:233 236 226}
+.wallpaper-f40{--paper:#efe2d7}
+.wallpaper-paper[data-density="low"] .wallpaper-car:nth-child(3n){display:none}
+.wallpaper-paper[data-density="low"] .wallpaper-car{opacity:calc(var(--o)*.72)}
+.wallpaper-paper[data-density="rich"] .wallpaper-car{width:clamp(88px,calc(var(--w)*1.2vw),215px);opacity:min(1,calc(var(--o)*1.25))}
+/* Source layouts use different characters and asymmetrical placements per story. */
+.wallpaper-paper .edition-chapter{background:transparent}
+.wallpaper-paper .chapter-image{position:relative;z-index:2}
+.wallpaper-paper .chapter-transition{position:relative;z-index:2}
+.wallpaper-paper .chapter-transition>p{background:rgb(var(--wp-paper)/.9)}
+.wallpaper-paper .reading-chapter{padding-top:30px;padding-bottom:30px}
+.passage-archive{padding:30px var(--edge);background:#d8cedd}
+.passage-archive>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:space-between;font:12px/1.8 Arial}
+.passage-archive>summary::after{content:'+';font-size:24px}
+.passage-archive[open]>summary::after{content:'−'}
+.passage-archive .miniature-passage{margin:20px calc(-1*var(--edge)) -30px}
+@media(min-width:701px){
+ .wallpaper-car{width:clamp(88px,calc(var(--w)*.65vw),150px)}
+ .wallpaper-paper[data-density="rich"] .wallpaper-car{width:clamp(98px,calc(var(--w)*.8vw),175px)}
+ .wallpaper-paper .chapter-body{max-width:610px}
+ .wallpaper-paper .story-chapter{grid-template-columns:1fr 2fr .45fr}
+ .wallpaper-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 12%,rgb(var(--wp-paper)/.1) 26%,rgb(var(--wp-paper)/.3) 50%,transparent 90%)}
+}
+@media(max-width:700px){
+ .wallpaper-paper{padding:62px 0 55px}
+ .wallpaper-car{width:calc(var(--w)*1vw)}
+ .wallpaper-reading .story-opening{padding:0 47px;margin:22px 0 52px;font-size:17px;line-height:2.05}
+ .wallpaper-reading .story-opening p+p{font-size:14px;line-height:2.15;margin-top:48px;color:#514b59}
+ .wallpaper-reading .story-chapter{padding:30px 47px 40px}
+ .wallpaper-reading .chapter-side{margin-bottom:30px;gap:14px}
+ .wallpaper-reading .chapter-body h2{font-size:25px;margin-bottom:34px;line-height:1.55}
+ .wallpaper-reading .chapter-body p{font-size:15px;line-height:2.2;color:#37323e}
+ .wallpaper-reading .chapter-body p+p{margin-top:44px}
+ .wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before{inset:-8px -14px;filter:blur(13px)}
+ .wallpaper-paper[data-density="rich"] .wallpaper-car{width:calc(var(--w)*1.2vw)}
+ .wallpaper-paper .reading-chapter{padding:25px 47px}
+ .wallpaper-paper .reading-column{font-size:15px;line-height:2.15}
+ .wallpaper-paper .reading-column>p+p{margin-top:42px}
+ .wallpaper-paper .reading-chapter>header{margin-bottom:38px}
+ .wallpaper-paper .edition-chapter{padding-left:38px;padding-right:38px}
+ .wallpaper-paper .chapter-copy{padding-top:35px}
+}
+@media(max-width:350px){
+ .wallpaper-reading .story-opening,.wallpaper-reading .story-chapter,.wallpaper-paper .reading-chapter{padding-left:34px;padding-right:34px}
+ .wallpaper-reading .chapter-body h2{font-size:23px}
+}
+@media(prefers-reduced-motion:reduce){.wallpaper-car{transition:none!important}}

@@ -4,6 +4,7 @@ from pathlib import Path
 import re
 from issue_model import ROOT,validate
 from build_world_continuity import passage
+from build_wallpaper import scene, attach
 
 def shell(title,description,body,cls='issue-page'):
     nav=(ROOT/'journal/partials/navigation.html').read_text()
@@ -38,9 +39,13 @@ def build():
             continue
         contents=''.join(f'<a href="#chapter-{n:02d}"><span>{n:02d}</span>{e(items[c["content_id"]].get("model") or "Miniature Atelier")}</a>' for n,c in enumerate(i['chapters'],1))
         body=f'''<div data-generated-edition="{i['id']}"><header class="edition-opening"><div class="edition-topline"><a href="/journal/issues/" data-travel>THE EDITIONS / {i['number']}</a><time datetime="{i['published_at']}">{i['published_at'].replace('-','.')}</time></div><div class="edition-title"><span class="edition-label">TOHEŞAR ISSUE {i['number']} / AN OBSERVATION JOURNAL</span><h1>{e(i['title']).replace('THE SHAPE OF DESIRE','<span class="title-shape">THE SHAPE</span><span class="title-desire"><i>of</i> Desire</span>')}</h1><p>{e(i['subtitle'])}</p></div><figure class="edition-opening-photo"><img src="{e(i['visual'])}" alt="2017년 촬영한 검은색 Giulia Quadrifoglio의 앞모습과 측면" width="3626" height="1915" fetchpriority="high"><span aria-hidden="true">THE ART OF<br>LOOKING LONGER.</span>{credit(i)}</figure><div class="edition-preface"><span class="edition-label">EDITOR’S LETTER / {e(i.get('editor_note',''))}</span><p>{e(i['intro'])}</p><p>{e(i.get('editorial',''))}</p></div><nav class="edition-contents" aria-label="이 호의 다섯 이야기">{contents}</nav><p class="sequence-note">차례대로 읽어도, 마음이 가는 이야기부터 펼쳐도 좋습니다.</p></header>'''
-        body+=''.join((passage() if c['layout']=='small' else '')+chapter(c,items[c['content_id']],n,i['chapters'][n] if n<len(i['chapters']) else None) for n,c in enumerate(i['chapters'],1))
+        for n,c in enumerate(i['chapters'],1):
+            spread=chapter(c,items[c['content_id']],n,i['chapters'][n] if n<len(i['chapters']) else None)
+            if c['layout']=='curve':spread=scene(spread,'issue-curve','arc')
+            elif c['layout']=='small':spread=scene(spread,'issue-small','touring')
+            body+=spread
         body+=f'''<section class="edition-closing"><div class="closing-line" aria-hidden="true"><svg viewBox="0 0 600 140" fill="none"><path d="M0 115 C100 115 120 15 260 25 S420 120 600 70"/></svg></div><span class="edition-label">END OF ISSUE {i['number']} / THE LOOK CONTINUES</span><h2>좋은 형태는,<br>다시 보게 한다.</h2><p>다섯 이야기를 지나 돌아온 시선은 처음과 조금 다를 것이다.<br>이제 당신의 눈에 남는 자동차를 찾아볼 차례다.</p><a class="edition-link" href="/journal/design/" data-travel>Design Atlas에서 계속 보기 ↗</a><a class="edition-link" href="/journal/visual/" data-travel>빛과 도시 사이로 ↗</a><a class="edition-link" href="/journal/" data-travel>Journal로 돌아가기 ↗</a></section></div>'''
-        p.parent.mkdir(parents=True,exist_ok=True);p.write_text(shell('ISSUE '+i['number']+' — '+i['title'],i['intro'],body))
+        p.parent.mkdir(parents=True,exist_ok=True);p.write_text(attach(shell('ISSUE '+i['number']+' — '+i['title'],i['intro'],body)))
     p=ROOT/'journal/issues/index.html';p.parent.mkdir(exist_ok=True)
     p.write_text(shell('The Editions', 'TOHEŞAR의 디지털 매거진 에디션 아카이브.', '<header class="archive-opening"><span class="edition-label">TOHEŞAR / 독립 자동차 문화 저널</span><h1>The<br><i>Editions.</i></h1><p>자동차와 그 주변의 아름다운 것들을<br>하나의 편집 의도로 묶습니다.</p><small>'+f'{len(published):02d} EDITION'+('S' if len(published)!=1 else '')+' / 발행된 호</small></header><div class="archive-editions">'+''.join(invitation(i) for i in published)+'</div>','issue-page archive-page'))
     p=ROOT/'journal/index.html';s=p.read_text();markup=invitation(published[0]) if published else ''
