@@ -3,7 +3,6 @@ from html import escape as e
 from pathlib import Path
 import re
 from issue_model import ROOT,validate
-from build_world_continuity import passage
 from build_wallpaper import scene, attach
 
 def shell(title,description,body,cls='issue-page'):

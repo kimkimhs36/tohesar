@@ -20,7 +20,10 @@ def scene(body, name, variant='arc', density='medium'):
     for i, c in enumerate(layout):
         a = assets[c['art']]
         style = ';'.join(f'--{k}:{v}' for k,v in c.items() if k != 'art')
-        cars.append(f'<span class="wallpaper-car" data-wallpaper-car style="{style}"><img src="{a["web"]}" width="{a["width"]}" height="{a["height"]}" alt="" loading="lazy" decoding="async"></span>')
+        srcset=', '.join(f'{v["path"]} {v["width"]}w' for v in a.get('variants',[]))
+        if srcset:srcset+=f', {a["web"]} {a["width"]}w'
+        responsive=f' srcset="{srcset}" sizes="(max-width:700px) 28vw, 150px"' if srcset else ''
+        cars.append(f'<span class="wallpaper-car" data-wallpaper-car style="{style}"><img src="{a["web"]}"{responsive} width="{a["width"]}" height="{a["height"]}" alt="" loading="lazy" decoding="async"></span>')
     return (f'<!-- WALLPAPER:{name}:START --><div class="wallpaper-paper wallpaper-{variant}" '
             f'id="wallpaper-{name}" data-wallpaper="{variant}" data-density="{density}">'
             '<div class="wallpaper-art" aria-hidden="true" inert>'+''.join(cars)+'</div>'
@@ -35,6 +38,9 @@ def unwrap(s):
 def attach(s):
     if '/journal/assets/wallpaper011.css' not in s:
         s=s.replace('</head>','<link rel="stylesheet" href="/journal/assets/wallpaper011.css"><script src="/journal/assets/wallpaper011.js" defer></script></head>')
+    if 'data-wallpaper=' in s and 'class="wallpaper-provenance"' not in s:
+        note='<p class="wallpaper-provenance">지면 배경의 자동차는 TOHEŞAR의 AI 보조 일러스트입니다. 특정 모델의 정확한 도해나 제조사 공식 상품이 아닙니다. <a href="/docs/wallpaper-011-review/#collection">8종의 아트워크와 제작 기록 ↗</a></p>'
+        s=s.replace('</main>',note+'</main>',1)
     return s
 
 def wrap_between(s, start, end, name, variant):

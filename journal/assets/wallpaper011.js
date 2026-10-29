@@ -36,7 +36,7 @@
   addEventListener('pageshow', schedule);
   addEventListener('load', schedule);
   reduced.addEventListener('change', schedule);
-  visualViewport?.addEventListener('resize', schedule, {passive:true});
+  window.visualViewport?.addEventListener('resize', schedule, {passive:true});
   document.fonts?.ready.then(schedule);
   schedule();
 })();

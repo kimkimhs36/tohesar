@@ -28,12 +28,17 @@
 .wallpaper-paper .edition-chapter{background:transparent}
 .wallpaper-paper .chapter-image{position:relative;z-index:2}
 .wallpaper-paper .chapter-transition{position:relative;z-index:2}
+.wallpaper-paper :is(.chapter-transition,.edition-credit){isolation:isolate}
+.wallpaper-paper :is(.chapter-transition,.edition-credit)::before{content:"";position:absolute;inset:-8px;z-index:-1;background:rgb(var(--wp-paper)/.96);filter:blur(12px);pointer-events:none}
+.wallpaper-paper .chapter-copy :is(.edition-link,.edition-label,.study-entry){background:rgb(var(--wp-paper)/.94);box-shadow:0 0 12px 8px rgb(var(--wp-paper)/.94)}
 .wallpaper-paper .chapter-transition>p{background:rgb(var(--wp-paper)/.9)}
 .wallpaper-paper .reading-chapter{padding-top:30px;padding-bottom:30px}
 .passage-archive{padding:30px var(--edge);background:#d8cedd}
 .passage-archive>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:space-between;font:12px/1.8 Arial}
 .passage-archive>summary::after{content:'+';font-size:24px}
 .passage-archive[open]>summary::after{content:'−'}
+.wallpaper-provenance{font-size:10px;line-height:1.9;color:var(--muted);padding:24px var(--edge);max-width:1000px;margin:0 auto;word-break:keep-all}
+.wallpaper-provenance>a{text-decoration:underline;text-underline-offset:3px}
 .passage-archive .miniature-passage{margin:20px calc(-1*var(--edge)) -30px}
 @media(min-width:701px){
  .wallpaper-car{width:clamp(88px,calc(var(--w)*.65vw),150px)}

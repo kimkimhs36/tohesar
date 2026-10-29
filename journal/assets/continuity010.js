@@ -14,11 +14,11 @@
       c.el.style.left=`${at.x/10}%`;c.el.style.top=`${at.y/4.4}%`;c.el.style.transform=`translate(-50%,-50%) rotate(${angle}deg)`;
     });
   }}
-  function measure(){for(const s of scenes){s.enabled=!mq.matches&&innerHeight>=620;s.el.classList.toggle('passage-enabled',s.enabled);
+  function measure(){for(const s of scenes){s.enabled=!mq.matches&&innerHeight>=620&&s.el.getClientRects().length>0;s.el.classList.toggle('passage-enabled',s.enabled);
     if(s.enabled&&s.board.offsetHeight>innerHeight){s.enabled=false;s.el.classList.remove('passage-enabled')}
     s.top=s.el.getBoundingClientRect().top+scrollY;s.distance=Math.max(1,s.el.offsetHeight-s.board.offsetHeight);s.sx=s.plate.clientWidth/1000;s.sy=s.plate.clientHeight/440;
     if(!s.enabled){delete s.el.dataset.progress;s.cars.forEach(c=>c.el.removeAttribute('style'))}
   }draw()}
   function schedule(){if(!queued){queued=true;requestAnimationFrame(draw)}}
-  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',measure,{passive:true});addEventListener('pageshow',measure);mq.addEventListener('change',measure);document.fonts?.ready.then(measure);addEventListener('load',measure);measure();
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',measure,{passive:true});addEventListener('pageshow',measure);document.addEventListener('toggle',measure,true);mq.addEventListener('change',measure);document.fonts?.ready.then(measure);addEventListener('load',measure);measure();
 })();

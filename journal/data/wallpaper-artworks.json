@@ -15,7 +15,17 @@
       "palette": "lilac",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/lilac-arc-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/lilac-arc-480.webp"
+        }
+      ]
     },
     {
       "id": "coral-blade",
@@ -29,7 +39,17 @@
       "palette": "coral",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/coral-blade-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/coral-blade-480.webp"
+        }
+      ]
     },
     {
       "id": "sage-longtail",
@@ -43,7 +63,17 @@
       "palette": "sage",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/sage-longtail-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/sage-longtail-480.webp"
+        }
+      ]
     },
     {
       "id": "blue-hour",
@@ -57,7 +87,17 @@
       "palette": "powder blue",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/blue-hour-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/blue-hour-480.webp"
+        }
+      ]
     },
     {
       "id": "butter-club",
@@ -71,7 +111,17 @@
       "palette": "butter yellow",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/butter-club-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/butter-club-480.webp"
+        }
+      ]
     },
     {
       "id": "rose-current",
@@ -85,7 +135,17 @@
       "palette": "rose",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/rose-current-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/rose-current-480.webp"
+        }
+      ]
     },
     {
       "id": "tomato-open",
@@ -99,7 +159,17 @@
       "palette": "tomato",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/tomato-open-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/tomato-open-480.webp"
+        }
+      ]
     },
     {
       "id": "mint-tour",
@@ -113,7 +183,17 @@
       "palette": "mint",
       "style": "soft plum contours / airbrush cel shading / smoky glass",
       "source": "TOHEŞAR commissioned AI-assisted artwork, 2026-10-29",
-      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration"
+      "factual_status": "artistic vehicle motif; not a measured or manufacturer-endorsed illustration",
+      "variants": [
+        {
+          "width": 240,
+          "path": "/journal/assets/wallpaper/mint-tour-240.webp"
+        },
+        {
+          "width": 480,
+          "path": "/journal/assets/wallpaper/mint-tour-480.webp"
+        }
+      ]
     }
   ]
 }
