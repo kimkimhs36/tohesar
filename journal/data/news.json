@@ -16,7 +16,10 @@
       "image": null,
       "image_usage": "외부 보도 이미지는 사용하지 않음",
       "status": "published",
-      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인"
+      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인",
+      "registered_at": "2026-10-28",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-28"
     },
     {
       "id": "porsche-mission-s-20261015",
@@ -31,7 +34,10 @@
       "image": null,
       "image_usage": "외부 보도 이미지는 사용하지 않음",
       "status": "published",
-      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인"
+      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인",
+      "registered_at": "2026-10-28",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-28"
     },
     {
       "id": "porsche-vibe-seoul-20261013",
@@ -46,7 +52,10 @@
       "image": null,
       "image_usage": "외부 보도 이미지는 사용하지 않음",
       "status": "published",
-      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인"
+      "verification": "원문 HTTP 200, 제목·발표일·핵심 내용 확인",
+      "registered_at": "2026-10-28",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-28"
     },
     {
       "id": "hyundai-elantra-monochrome-20261019",
@@ -61,7 +70,10 @@
       "image": null,
       "image_usage": "외부 보도 이미지는 사용하지 않음",
       "status": "published",
-      "verification": "2026-10-28 공식 개별 원문 HTTP 200, 제목·본문 발표일·요약 대조. docs/visual-006-review/news-verification.json 참고"
+      "verification": "2026-10-28 공식 개별 원문 HTTP 200, 제목·본문 발표일·요약 대조. docs/visual-006-review/news-verification.json 참고",
+      "registered_at": "2026-10-28",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-28"
     },
     {
       "id": "genesis-danh-vo-20261015",
@@ -76,7 +88,10 @@
       "image": null,
       "image_usage": "외부 보도 이미지는 사용하지 않음",
       "status": "published",
-      "verification": "2026-10-28 공식 개별 원문 HTTP 200, 제목·본문 발표일·요약 대조. docs/visual-006-review/news-verification.json 참고"
+      "verification": "2026-10-28 공식 개별 원문 HTTP 200, 제목·본문 발표일·요약 대조. docs/visual-006-review/news-verification.json 참고",
+      "registered_at": "2026-10-28",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-28"
     },
     {
       "id": "mini-countryman-untamed-20261006",
@@ -91,7 +106,64 @@
       "image": null,
       "image_usage": "외부 보도 이미지는 사용하지 않음",
       "status": "published",
-      "verification": "2026-10-28 공식 개별 원문 HTTP 200, 제목·본문 발표일·요약 대조. docs/visual-006-review/news-verification.json 참고"
+      "verification": "2026-10-28 공식 개별 원문 HTTP 200, 제목·본문 발표일·요약 대조. docs/visual-006-review/news-verification.json 참고",
+      "registered_at": "2026-10-28",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-28"
+    },
+    {
+      "id": "alfa-sports-saloons-20261021",
+      "title": "스포츠 세단의 시간을 한자리에",
+      "manufacturer": "Alfa Romeo",
+      "topic": "culture",
+      "published_at": "2026-10-21",
+      "registered_at": "2026-10-29",
+      "source": "Stellantis Media",
+      "source_title": "Alfa Romeo, BERLINA SPORTIVA at Auto e Moto d’Epoca 2026",
+      "url": "https://www.media.stellantis.com/em-en/heritage-hub-italy/press/alfa-romeo-celebrates-the-berlina-sportiva-at-auto-e-moto-d-epoca-2026",
+      "summary": "Alfa Romeo Classiche가 볼로냐의 Auto e Moto d’Epoca 전시에서 Giulia TI Super, 75 Turbo Evoluzione, 155 V6 TI와 Giulia Quadrifoglio Super Sport를 함께 선보인다고 발표했다. 전시 기간은 10월 22~25일로 안내됐다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-29",
+      "verification": "2026-10-29 공식 개별 원문의 발표일·본문·요약 확인. docs/issue-008-review/news-verification.json 참고"
+    },
+    {
+      "id": "hyundai-risd-20261021",
+      "title": "자연의 움직임에서 배우는 미래 모빌리티",
+      "manufacturer": "Hyundai",
+      "topic": "design",
+      "published_at": "2026-10-21",
+      "registered_at": "2026-10-29",
+      "source": "Hyundai Worldwide Newsroom",
+      "source_title": "Hyundai Motor Group and RISD Collaborate on Regenerative Biodesign Strategies",
+      "url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001294",
+      "summary": "현대자동차그룹과 RISD가 생체모방·바이오디자인 연구 협력을 이어간다. 2026–27 Regeneration Studio의 주제는 Motion Rewild로, 자연의 움직임과 비정형 환경에서의 적응을 디자인 연구로 연결한다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-29",
+      "verification": "2026-10-29 공식 개별 원문의 발표일·본문·요약 확인. docs/issue-008-review/news-verification.json 참고"
+    },
+    {
+      "id": "bmw-art-car-zeitz-20261015",
+      "title": "Art Car에서 영상과 공동의 배움으로",
+      "manufacturer": "BMW",
+      "topic": "culture",
+      "published_at": "2026-10-15",
+      "registered_at": "2026-10-29",
+      "source": "BMW Group PressClub",
+      "source_title": "Turning Towards the Sun at Zeitz MOCAA",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0461796EN/",
+      "summary": "BMW와 AFMAC, Zeitz MOCAA가 Turning Towards the Sun 전시를 발표했다. Julie Mehretu의 BMW Art Car #20과 여섯 예술가·영화 제작자의 작업을 소개하며, 전시는 2026년 12월 11일부터 2027년 8월 15일까지 열릴 예정이다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "fact_check_status": "verified",
+      "verified_at": "2026-10-29",
+      "verification": "2026-10-29 공식 개별 원문의 발표일·본문·요약 확인. docs/issue-008-review/news-verification.json 참고"
     }
   ]
 }

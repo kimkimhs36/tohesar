@@ -39,11 +39,14 @@ for n in news:
     pattern=r'<article class="news-item"(?! id=)([^>]*>)(?:(?!</article>).)*?'+re.escape(e(n['url'],quote=True))
     s=re.sub(pattern,lambda m:m[0].replace('class="news-item"','class="news-item" id="'+n['id']+'"',1),s,flags=re.S)
 p.write_text(s)
-# Only the commissioned new article receives generated related links.
-p=ROOT/'journal/design/type-01/index.html'
-if p.exists():
-    current=next(i for i in items if i['id']=='jaguar-type-01')
-    reasons={'porsche-911':'정체성은 어떤 선에서 이어지는가','ferrari-f40':'형태와 공기 사이의 다른 해답','miniature-atelier':'GT의 비율을 그래픽으로 축약하다'}
-    body=''.join(f'<a href="{e(i["url"])}" data-travel><span>{e(reasons[i["id"]])}</span><strong>{e(i.get("model") or "Miniature Atelier")}</strong><small>{labels[i["kind"]]} ↗</small></a>' for rid in current['related'] for i in items if i['id']==rid)
-    s=re.sub('<!-- RELATED:START -->.*?<!-- RELATED:END -->',lambda _:'<!-- RELATED:START -->'+body+'<!-- RELATED:END -->',p.read_text(),flags=re.S);p.write_text(s)
+# Related stories share the same content IDs, on every indexed article.
+for current in [i for i in items if i['kind']!='news']:
+    p=ROOT/current['url'].lstrip('/')/'index.html'
+    if not p.exists():continue
+    reasons={'porsche-911':'이어지는 곡선과 정체성','ferrari-f40':'기능이 형태를 이끄는 방식','alfa-romeo-giulia':'보닛과 캐빈 사이, 비율의 아름다움','jaguar-type-01':'미래의 GT가 쓰는 새로운 언어','miniature-atelier':'형태를 작은 그래픽으로 남기다','visual-culture':'자동차를 둘러싼 빛과 도시'}
+    body=''.join(f'<a href="{e(i["url"])}" data-travel><span>{e(reasons.get(i["id"],i["summary"]))}</span><strong>{e(i.get("model") or i["title"].split(" — ")[0])}</strong><small>{labels[i["kind"]]} ↗</small></a>' for rid in current['related'] for i in items if i['id']==rid)
+    s=p.read_text()
+    if '<!-- RELATED:START -->' not in s:
+        s=s.replace('<footer', '<aside class="metadata-related"><span class="eyebrow">RELATED / 함께 읽는 형태</span><div><!-- RELATED:START --><!-- RELATED:END --></div><a href="/journal/issues/001/" data-travel>ISSUE 001에서 함께 읽기 ↗</a></aside><footer',1)
+    s=re.sub('<!-- RELATED:START -->.*?<!-- RELATED:END -->',lambda _:'<!-- RELATED:START -->'+body+'<!-- RELATED:END -->',s,flags=re.S);p.write_text(s)
 print(f'Rendered {len(items)} published entries and {len(forms)} form filters.')

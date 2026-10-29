@@ -1,0 +1,26 @@
+[
+  {
+    "id": "alfa-sports-saloons-20261021",
+    "url": "https://www.media.stellantis.com/em-en/heritage-hub-italy/press/alfa-romeo-celebrates-the-berlina-sportiva-at-auto-e-moto-d-epoca-2026",
+    "http_status": 200,
+    "checked_at": "2026-10-29",
+    "sha256": "9058cd0a346f521243b3250521700d1cac99ac29d4b096117342c716ab5726f0",
+    "verification": "Individual official release date/title/body manually compared via web tool; no photos reused."
+  },
+  {
+    "id": "hyundai-risd-20261021",
+    "url": "https://www.hyundai.com/worldwide/en/newsroom/detail/0000001294",
+    "http_status": 200,
+    "checked_at": "2026-10-29",
+    "sha256": "8a54b0337f5cb54d6ee564d77beaee451e97bb18e3e2b4880222cf9e4eb21ab2",
+    "verification": "Individual official release date/title/body manually compared via web tool; no photos reused."
+  },
+  {
+    "id": "bmw-art-car-zeitz-20261015",
+    "url": "https://www.press.bmwgroup.com/global/article/detail/T0461796EN/",
+    "http_status": 200,
+    "checked_at": "2026-10-29",
+    "sha256": "fe5ee3fc69b98fc2b113fe3d589e5e62763dbe9a7e56d1e1e0ac32186b5a90e7",
+    "verification": "Individual official release date/title/body manually compared via web tool; no photos reused."
+  }
+]
