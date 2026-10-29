@@ -34,7 +34,7 @@
     signature.style.opacity=phase(p,.62,.83);signature.style.visibility=p>.62?'visible':'hidden';
     cue.style.opacity=1-phase(p,0,.15);cue.style.visibility=p>.15?'hidden':'visible';
     document.querySelector('.journal-link').style.opacity=1-phase(p,.08,.23)+phase(p,.62,.84);
-    if(entry){entry.classList.toggle('is-visible',g.wide && p>.67);}
+    if(entry){entry.classList.toggle('is-visible',g.w>=760 && p>.67);}
     const navT=g.wide?1:phase(p,.12,.49);nav.style.color=`rgb(${mix(241,51,navT)} ${mix(228,46,navT)} ${mix(223,59,navT)})`;
     stage.style.background=`rgb(${mix(214,232,frame)} ${mix(202,223,frame)} ${mix(210,225,frame)})`;
   }

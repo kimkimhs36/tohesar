@@ -47,3 +47,17 @@ html:not(.motion) .stage{height:auto;min-height:100svh;padding-top:75svh}html:no
   .enter-journal span:last-child{font:22px Arial}
   @media(min-width:760px) and (orientation:landscape){html:not(.motion) .stage{min-height:100dvh}}
 }
+
+/* The iPad portrait viewport is not a small desktop; it also needs a real
+   Safari viewport and an obvious way onward when the cover settles. */
+@media(min-width:760px) and (orientation:portrait){
+ .motion .stage{height:100dvh}
+ .motion .sequence{height:188dvh}
+ .journal-link{font-size:14px;padding-inline:10px;border-bottom:1px solid currentColor}
+ .enter-journal{display:inline-flex;gap:14px;align-items:center;min-height:44px;margin-top:24px;border-bottom:1px solid currentColor;font-size:14px;transition:opacity .32s ease,transform .32s ease}
+ .enter-journal span:first-child{display:none}
+ .enter-journal strong{font-weight:400}
+ .enter-journal span:last-child{font:23px Arial}
+ .motion .enter-journal:not(.is-visible){visibility:hidden;opacity:0;pointer-events:none;transform:translateY(9px)}
+ .enter-journal.is-visible{visibility:visible;opacity:1;transform:none}
+}
