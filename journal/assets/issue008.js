@@ -1,0 +1,4 @@
+/* Different editorial gestures; native scroll is never intercepted. */
+(()=>{const mq=matchMedia('(prefers-reduced-motion: reduce)'),spreads=[...document.querySelectorAll('.edition-chapter')];let pending=false;
+function draw(){pending=false;for(const s of spreads){const r=s.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)continue;const p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight+r.height)));s.style.setProperty('--spread-offset',mq.matches?'0px':`${(p-.5)*24}px`);s.style.setProperty('--edge-reveal',mq.matches?'0%':`${Math.max(0,9-p*30)}%`);s.style.setProperty('--language-shift',mq.matches?'0px':`${(1-p)*-12}px`)}}
+function schedule(){if(!pending){pending=true;requestAnimationFrame(draw)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('pageshow',schedule);mq.addEventListener('change',schedule);schedule()})();
