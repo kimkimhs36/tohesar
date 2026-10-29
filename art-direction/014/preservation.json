@@ -1,0 +1,20 @@
+{
+  "build": "TOHEŞAR Beauty Project 014",
+  "base": "7d327697ef999634ac831d5b0b005adb4d7cb7c7",
+  "application_commit": "c9622d41387ac77ae02d792618df55394bece5c0",
+  "branch": "feature/tohesar-beauty-project-014",
+  "protected_paths": [
+    "assets",
+    "creative",
+    "journal/data",
+    "journal/partials/yokohama-001-original.html",
+    "journal/yokohama/original-001/index.html"
+  ],
+  "protected_path_changes": [],
+  "new_articles": 0,
+  "new_news": 0,
+  "preserved": "Original photographs, 8 car artworks, brand SVGs, manuscripts and rights registry remain unchanged.",
+  "publication_build": "passed twice, generated page hashes identical",
+  "review_project": "tohesar-beauty-014-review",
+  "physical_devices_tested": false
+}

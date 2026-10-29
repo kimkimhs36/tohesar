@@ -1,0 +1,86 @@
+{
+  "base": "https://tohesar-beauty-014-review.vercel.app",
+  "physical_device": false,
+  "files": [
+    {
+      "file": "journal/assets/beauty014-editorial.css",
+      "bytes": 11820,
+      "sha256": "95d63ec35fb37f1d4088b70bb0d07a46f130cdcfa96cd572ff6029ee46178e39",
+      "deployed_equals_local": true
+    },
+    {
+      "file": "journal/assets/beauty014-wallpaper.css",
+      "bytes": 2608,
+      "sha256": "fd10e3606751eee752d30a64b4b816ae106d727aea7f4c6b9fb00db323395868",
+      "deployed_equals_local": true
+    },
+    {
+      "file": "journal/assets/beauty014-yokohama.css",
+      "bytes": 8070,
+      "sha256": "b1592dad92e184d4842848bc5bf5500cc52d5cae6d354cce25a4c2646c51ded3",
+      "deployed_equals_local": true
+    },
+    {
+      "file": "journal/yokohama/index.html",
+      "bytes": 21372,
+      "sha256": "053dde3ea8f983678b7cdc93599ef04a79659424407ea4f130a49a6caee3e959",
+      "deployed_equals_local": true
+    },
+    {
+      "file": "journal/index.html",
+      "bytes": 17303,
+      "sha256": "117e7bb43da0fb89a55e4e5ce914e196777f9e5fadd90bab1e550648a8d85037",
+      "deployed_equals_local": true
+    },
+    {
+      "file": "journal/issues/001/index.html",
+      "bytes": 36409,
+      "sha256": "b70c35f6e6bc22fc7a5700adca404942a48e5bc27a2764896ecfcbaacdcaaa9b",
+      "deployed_equals_local": true
+    }
+  ],
+  "routes": [
+    {
+      "engine": "chromium",
+      "route": "/journal/yokohama/",
+      "status": 200,
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/journal/",
+      "status": 200,
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/journal/issues/001/",
+      "status": 200,
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/yokohama/",
+      "status": 200,
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/",
+      "status": 200,
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/journal/issues/001/",
+      "status": 200,
+      "overflow": false,
+      "broken": []
+    }
+  ]
+}

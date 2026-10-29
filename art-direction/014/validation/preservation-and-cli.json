@@ -1,0 +1,51 @@
+{
+  "baseline": "7d327697ef999634ac831d5b0b005adb4d7cb7c7",
+  "all_original_photographs_and_wallpaper_assets_unchanged": true,
+  "links": [
+    {
+      "file": "journal/yokohama/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 18
+    },
+    {
+      "file": "journal/911/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 35
+    },
+    {
+      "file": "journal/f40/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 34
+    },
+    {
+      "file": "journal/design/giulia/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 53
+    },
+    {
+      "file": "journal/design/type-01/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 60
+    },
+    {
+      "file": "journal/miniatures/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 34
+    },
+    {
+      "file": "journal/issues/001/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 50
+    },
+    {
+      "file": "journal/index.html",
+      "all_existing_links_preserved": true,
+      "original_link_count": 59
+    }
+  ],
+  "cli": {
+    "publish_check": "PASS: 1 edition, 7 stories, 9 news records; no status changed",
+    "publish_links": "PASS: 1405 local destinations/anchors across 12 pages",
+    "publishing_tests": "PASS: 6 tests"
+  }
+}

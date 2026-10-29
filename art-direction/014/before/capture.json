@@ -1,0 +1,103 @@
+{
+  "base": "https://tohesar-editorial-013-review.vercel.app",
+  "engine": "Chromium",
+  "physicalDevice": false,
+  "records": [
+    {
+      "route": "/journal/yokohama/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/issues/001/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/911/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/f40/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/design/giulia/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/design/type-01/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/miniatures/",
+      "width": 390,
+      "height": 844,
+      "status": 200
+    },
+    {
+      "route": "/journal/yokohama/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/issues/001/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/911/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/f40/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/design/giulia/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/design/type-01/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    },
+    {
+      "route": "/journal/miniatures/",
+      "width": 1440,
+      "height": 900,
+      "status": 200
+    }
+  ]
+}

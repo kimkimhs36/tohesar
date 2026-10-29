@@ -1,0 +1,55 @@
+[
+  {
+    "file": "journal/yokohama/index.html",
+    "before_paragraphs": 29,
+    "after_paragraphs": 29,
+    "all_original_paragraphs_preserved": false,
+    "missing": [
+      "TOHEŞAR/VISUALESSAY001REVISITED—013"
+    ],
+    "expected_folio_change": "REVISITED — 013 → BEAUTY PROJECT — 014",
+    "all_original_article_paragraphs_preserved": true
+  },
+  {
+    "file": "journal/911/index.html",
+    "before_paragraphs": 33,
+    "after_paragraphs": 33,
+    "all_original_paragraphs_preserved": true,
+    "missing": []
+  },
+  {
+    "file": "journal/f40/index.html",
+    "before_paragraphs": 26,
+    "after_paragraphs": 26,
+    "all_original_paragraphs_preserved": true,
+    "missing": []
+  },
+  {
+    "file": "journal/design/giulia/index.html",
+    "before_paragraphs": 45,
+    "after_paragraphs": 45,
+    "all_original_paragraphs_preserved": true,
+    "missing": []
+  },
+  {
+    "file": "journal/design/type-01/index.html",
+    "before_paragraphs": 34,
+    "after_paragraphs": 34,
+    "all_original_paragraphs_preserved": true,
+    "missing": []
+  },
+  {
+    "file": "journal/miniatures/index.html",
+    "before_paragraphs": 12,
+    "after_paragraphs": 12,
+    "all_original_paragraphs_preserved": true,
+    "missing": []
+  },
+  {
+    "file": "journal/issues/001/index.html",
+    "before_paragraphs": 18,
+    "after_paragraphs": 18,
+    "all_original_paragraphs_preserved": true,
+    "missing": []
+  }
+]
