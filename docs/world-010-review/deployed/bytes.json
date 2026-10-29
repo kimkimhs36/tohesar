@@ -1,0 +1,71 @@
+{
+  "source": "e6b77d156d953a0e0e24f36bd58ac7d370f1feac",
+  "base": "https://tohesar-world-010-review.vercel.app",
+  "responses": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "cfc73545b9c6326ba528147da582a3620d62b5f2423de29050880df67d7c2661"
+    },
+    {
+      "path": "/journal/",
+      "status": 200,
+      "sha256": "dc5cc7225ceb3d23c2d5a5905d11f262cac7f33c9a9514ee8499c81a3e7d8d82"
+    },
+    {
+      "path": "/journal/issues/001/",
+      "status": 200,
+      "sha256": "67c93d46c82aff261af9c4aa564df03f2227e1c9a41c142f32410a5edc1268a3"
+    },
+    {
+      "path": "/journal/911/",
+      "status": 200,
+      "sha256": "60e23e231fd98933536fffb8c8f206c8d628c7eac60e3b81bf247777f809dc23"
+    },
+    {
+      "path": "/journal/design/giulia/",
+      "status": 200,
+      "sha256": "d929824f3bf216198125cdade41fe518e19fa1479fadccb2f7205c01ee3d924d"
+    },
+    {
+      "path": "/journal/assets/continuity010.css",
+      "status": 200,
+      "sha256": "9377dece250118cc6845a49f27fabe15e1dff8c973eb79e7d2962c827503fc1f"
+    },
+    {
+      "path": "/journal/assets/continuity010.js",
+      "status": 200,
+      "sha256": "f6af677cf57d7ef6f7d273f3c424a66906d0c53dd32903b6a2b73dd5fd688bed"
+    },
+    {
+      "path": "/journal/assets/travel.js",
+      "status": 200,
+      "sha256": "ba54a95c7c57e2b1c6a4fddd6cc860fe013544e248a2d2977aa3fcf209f07629"
+    },
+    {
+      "path": "/creative/cover-art-max-004/cover.css",
+      "status": 200,
+      "sha256": "7c270bb05b88a81ded917d5d9bec64a7af3f4c536a46c0f094482621f3cdaccd"
+    },
+    {
+      "path": "/creative/cover-art-max-004/cover.js",
+      "status": 200,
+      "sha256": "be61ad7ea67376b5a3756aee21d8917926c4c1170e6426e09c688c3f47d7af86"
+    },
+    {
+      "path": "/docs/world-010-review/",
+      "status": 200,
+      "sha256": "b8577380c2493fb2e5725ee901da94834abdfcbe05ba3eaff175510c0b694f95"
+    },
+    {
+      "path": "/docs/world-010-review/before/webkit-1180-cover-end.webp",
+      "status": 200,
+      "sha256": "1d0d625ebe0a716e8b08e7dce934c864d2021ec9fff4450c45c435bb9dd01f9f"
+    },
+    {
+      "path": "/docs/world-010-review/after/webkit-390-passage-middle.webp",
+      "status": 200,
+      "sha256": "571d00a31eb447ce2b66f56d542d6131df78390c2923920a189fc6876b45dbfe"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "project": "tohesar-world-010-review",
+  "project_id": "prj_52bNvyMES3lKXDMATZq3yPMs6eB9",
+  "team_id": "team_PVgfk8zxTMeeUcglxP59fh17",
+  "deployment_id": "dpl_EnmBsJmcPTzgLnoGbUmifEEsxb2V",
+  "source_sha": "e6b77d156d953a0e0e24f36bd58ac7d370f1feac",
+  "baseline_sha": "500672342c158929b0e278a7cb1fb976a88781d6",
+  "state": "READY",
+  "url": "https://tohesar-world-010-review.vercel.app/",
+  "immutable_url": "https://tohesar-world-010-review-2q0bn9h3y-teambkit.vercel.app/",
+  "target": "production of the new isolated review project only",
+  "build_duration_ms": 5312,
+  "official_domain_changed": false,
+  "existing_projects_modified": false
+}
