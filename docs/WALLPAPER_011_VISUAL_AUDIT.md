@@ -87,7 +87,9 @@ route, browser version, scroll position, real manuscript visibility and geometry
 The old 911/F40/Type 01 motions, Atelier collection, image dialog, Index menu,
 news filter, Atlas search/history, related links and Issue navigation were
 exercised using the existing 006/008 suites in both engines. Existing test
-scripts were not weakened. Regression receipts are in `regression/`.
+assertions were not weakened. The publication test's isolated fixture now also
+copies the public collection document cited by the new provenance link; it
+continues to validate that destination and anchor. Regression receipts are in `regression/`.
 `preservation.json` compares every previously committed image/font/brand asset,
 content/news/Issue data, Giulia body template, and verbatim 911/F40 manuscript
 paragraphs against the exact baseline. The only change to the existing Passage

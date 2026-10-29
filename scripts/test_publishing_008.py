@@ -9,6 +9,11 @@ class Publishing(unittest.TestCase):
         for name in ['scripts','journal']:
             shutil.copytree(ROOT/name,self.root/name,ignore=shutil.ignore_patterns('__pycache__'))
         for name in ['assets','edition','creative']:(self.root/name).symlink_to(ROOT/name,target_is_directory=True)
+        # 011 articles cite the public provenance/collection document. Keep the
+        # isolated fixture faithful to that link; link validation stays enabled.
+        review=self.root/'docs/wallpaper-011-review'
+        review.mkdir(parents=True)
+        shutil.copy(ROOT/'docs/wallpaper-011-review/index.html',review/'index.html')
     def tearDown(self):self.temp.cleanup()
     def runcli(self,*args,ok=True):
         r=subprocess.run(['python3','scripts/publish.py',*args],cwd=self.root,capture_output=True,text=True)
