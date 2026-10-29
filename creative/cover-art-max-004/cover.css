@@ -11,3 +11,14 @@
 @media(min-aspect-ratio:1/1) and (min-width:760px){.wordmark{width:49%;left:5%;top:90px}.editorial{left:65%;right:5%}h2{font-size:clamp(44px,4.8vw,80px)}.article-meta{display:block}.article-meta span{display:block;margin-bottom:8px}.editorial p{font-size:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 html:not(.motion) .stage{height:auto;min-height:100svh;padding-top:75svh}html:not(.motion) .photograph{height:72svh}html:not(.motion) .editorial{position:relative;top:auto;left:auto;right:auto;padding:28px var(--edge) 60px}html:not(.motion) .opening{display:none}
+
+/* 010: expand the existing landscape composition into the visible viewport.
+   A stable svh scroll distance prevents browser-chrome changes from moving the story. */
+.journal-link{font-size:13px;min-width:72px;justify-content:flex-end}
+@media(min-aspect-ratio:1/1) and (min-width:760px){
+ .stage{height:100vh;height:100dvh}
+ .motion .sequence{height:220vh;height:calc(100dvh + 120svh)}
+ .editorial{left:65%;right:4.5%}
+ h2{font-size:clamp(44px,5.25vw,80px)}
+ .editorial p{font-size:clamp(13px,1.15vw,16px);line-height:2}
+}
