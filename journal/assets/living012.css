@@ -1,0 +1,14 @@
+/* 012 — the photograph is a colour bridge between two printed papers. */
+.wallpaper-story .story-wide{margin:0;padding:32px var(--edge) 30px;background:linear-gradient(180deg,#eee9e3 0%,#e8dcd4 38%,#ebe5eb 100%);display:grid;grid-template-columns:.65fr 1.35fr .1fr;gap:34px;align-items:end}
+.wallpaper-story .story-wide>img{grid-column:2;grid-row:1;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;display:block}
+.wallpaper-story .story-wide figcaption{grid-column:1;grid-row:1;font-size:11px;line-height:1.95;color:#514754;max-width:230px;margin:0;padding-top:17px;border-top:1px solid #a99aaa;word-break:keep-all;overflow-wrap:break-word}
+.wallpaper-story .story-hero figcaption{font-size:10px;line-height:1.9;padding-top:15px;padding-bottom:23px;color:#534b57}
+.wallpaper-f40 .f40-hero figcaption{padding:17px 0 24px;margin:0;font-size:11px;line-height:1.9;color:#5d443a;border-bottom:1px solid #b99989}
+.giulia-page .surface-plate figcaption{padding-top:20px;line-height:1.95}
+@media(max-width:700px){
+.wallpaper-story .story-wide{display:block;padding:24px 22px 28px}
+.wallpaper-story .story-wide>img{width:100%;height:auto;aspect-ratio:auto;max-height:none}
+.wallpaper-story .story-wide figcaption{max-width:100%;margin-top:18px;padding-top:13px;font-size:10px;line-height:1.95}
+.wallpaper-story .story-hero figcaption{padding:13px var(--edge) 20px;font-size:9px;line-height:1.8}
+.wallpaper-f40 .f40-hero figcaption{padding:17px var(--edge) 23px;font-size:10px;border:0;background:linear-gradient(#eee9e3,#efe2d7)}
+}
