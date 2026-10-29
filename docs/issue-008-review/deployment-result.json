@@ -1,0 +1,131 @@
+{
+  "url": "https://tohesar-issue-008-review.vercel.app",
+  "project": "prj_qL8JbCyu2FbRAc0y1BKA6qxBQHoJ",
+  "deployment_id": "dpl_2Manut9DYFXgoqeC6SRL5emefMve",
+  "source_commit": "eb40133595dfce8d13c605a67bc93fdc94402cd3",
+  "state": "READY",
+  "target": "production of isolated review project only; no official domain",
+  "paths": [
+    {
+      "path": "/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "d8e986e0d3f05a63fd1ccef9c591e76f091bc63a98ee0c59b2039ac45f446318"
+    },
+    {
+      "path": "/journal/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "9be7d1059fc07e4fea08de06c5d212183b86416f775df7ad444cef46c579bd87"
+    },
+    {
+      "path": "/journal/issues/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "6fc3c33bdf8ccac134978cc18c32543a1b8bef48a508b084974787f537cf5d90"
+    },
+    {
+      "path": "/journal/issues/001/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "6cbb0a063c2c88f0c843df40d9d95cb84b6138de890e430bcbb03c15e24de80b"
+    },
+    {
+      "path": "/journal/design/giulia/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "c07fc0172e1851f8022d7569ebdf6f6c4bbd2b0f48ffc2a917e52a0f69a12b1d"
+    },
+    {
+      "path": "/journal/design/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "18f965fbf4479d7eaf1feba50bf79055d61719dedf1c2f37df99f3e18520a150"
+    },
+    {
+      "path": "/journal/911/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "349b76c8fbd9f68ff636359f47f87ce7a49720978067f3b0d3d8f417800b6584"
+    },
+    {
+      "path": "/journal/f40/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "00a5381bba5dd3b1e5739f17c1e38e36dcca94f653d4b85d78a23cd63bdd69aa"
+    },
+    {
+      "path": "/journal/design/type-01/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "e46c86ddb994377fc4f45747c89a20160bd06c162b165a1d104b3104f9eaceb1"
+    },
+    {
+      "path": "/journal/news/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "9c00a1f1ca37d663b1e9b0e68e5638d24a759509540c142c366c9885e8782cd3"
+    },
+    {
+      "path": "/journal/visual/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "e262eb5f8c7e13d96be47862b8b18ec54f2a56883f4a38c67ca552a1287b3240"
+    },
+    {
+      "path": "/journal/miniatures/",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "24e0034395e4ad63b235850810413e70b74dc85016b72c508fc7155dc645bb6b"
+    },
+    {
+      "path": "/journal/assets/issue008.css",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "b94b822c2547b95b14da54ca7ef3d97cada4f889dedbaef2d5e4147a68575efd"
+    },
+    {
+      "path": "/journal/assets/giulia008.css",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "2b49a4be005584253d1f2c3fa1750ffcf9c0de6bb4a1a6a3cf45c5452c476274"
+    },
+    {
+      "path": "/journal/assets/proportion008.js",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "5662f8fcc70f6bce7b36a8e3fbbbf4fc00cebaaeda89d12327f552c9e8b6b59f"
+    },
+    {
+      "path": "/journal/assets/issue008.js",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "91161d2ae9ba7497dad29d8c3436d1ded2af6373c500a0dd5759ebb5108a4a39"
+    },
+    {
+      "path": "/journal/assets/giulia/profile-1600.webp",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "a56d2b051ac4ac5e1e5c7428ffec5d75bf75a95b075324b15a7241e861fbde0d"
+    },
+    {
+      "path": "/journal/assets/giulia/front-800.webp",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "c190fcc4f3bfaf4f2778a1ad4dedec0f51bf90e671cd0a5e67630c420fed9fa4"
+    },
+    {
+      "path": "/journal/data/content-index.json",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "b4e4b98a388c75b88248c77d2c68dac3bf489b1cb34e84506640585118978392"
+    },
+    {
+      "path": "/journal/data/issues.json",
+      "http_status": 200,
+      "matches_committed_source": true,
+      "sha256": "6d26be4b7d1d4a02c2f873770415bf723c0a0eb6d898142ddb9af4e2bb016e90"
+    }
+  ],
+  "unchanged_007_alias": true
+}
