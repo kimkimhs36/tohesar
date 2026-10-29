@@ -1,0 +1,262 @@
+{
+  "base": "http://localhost:8000",
+  "hardware_tested": false,
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "154.0.8037.57",
+      "viewports": [
+        {
+          "size": [
+            390,
+            844
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            430,
+            932
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            820,
+            1180
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            1180,
+            820
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            1440,
+            900
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        }
+      ],
+      "routes": [
+        {
+          "route": "/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/yokohama/original-001/",
+          "overflow": false,
+          "broken": []
+        }
+      ],
+      "journal_to_city_to_911_and_back": true,
+      "no_js": {
+        "overflow": false,
+        "broken": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "version": "26.5",
+      "viewports": [
+        {
+          "size": [
+            390,
+            844
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            430,
+            932
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            820,
+            1180
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            1180,
+            820
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        },
+        {
+          "size": [
+            1440,
+            900
+          ],
+          "overflow": false,
+          "broken": [],
+          "reverse_scroll": true,
+          "reduced_motion": true,
+          "errors": []
+        }
+      ],
+      "routes": [
+        {
+          "route": "/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/yokohama/original-001/",
+          "overflow": false,
+          "broken": []
+        }
+      ],
+      "journal_to_city_to_911_and_back": true,
+      "no_js": {
+        "overflow": false,
+        "broken": []
+      }
+    }
+  ]
+}
