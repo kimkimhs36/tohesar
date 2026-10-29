@@ -1,0 +1,62 @@
+[
+  {
+    "id": "giulia-side",
+    "model": "Alfa Romeo Giulia Quadrifoglio, type 952, pre-facelift",
+    "vehicle_year": 2017,
+    "year_basis": "Photographer description (2017); exact production date unverified. Filename 3.0 is not an engine specification.",
+    "photographed_at": "2017-10-10",
+    "author": "Vauxford",
+    "source": "https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0.jpg",
+    "original_path": "creative/first-issue-008/originals/side.jpg",
+    "dimensions": [
+      4059,
+      1819
+    ],
+    "sha256": "b1d4b325056e2de487f79ef7716fa1fcfd9b0b784e74c2267052957c8383bd10",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resize/WebP; CSS crops and separate editorial observation overlays. No vehicle warping. Adapted image presentations CC BY-SA 4.0.",
+    "verified_at": "2026-10-29"
+  },
+  {
+    "id": "giulia-front",
+    "model": "Alfa Romeo Giulia Quadrifoglio, type 952, pre-facelift",
+    "vehicle_year": 2017,
+    "year_basis": "Photographer description (2017); exact production date unverified. Filename 3.0 is not an engine specification.",
+    "photographed_at": "2017-10-04",
+    "author": "Vauxford",
+    "source": "https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Front.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Front.jpg",
+    "original_path": "creative/first-issue-008/originals/front.jpg",
+    "dimensions": [
+      3626,
+      1915
+    ],
+    "sha256": "374ebd5e23abfee10da7e271a98973072a5f41bc4aa2494405e0cdf3a6807d1f",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resize/WebP; CSS crops and separate editorial observation overlays. No vehicle warping. Adapted image presentations CC BY-SA 4.0.",
+    "verified_at": "2026-10-29"
+  },
+  {
+    "id": "giulia-rear",
+    "model": "Alfa Romeo Giulia Quadrifoglio, type 952, pre-facelift",
+    "vehicle_year": 2017,
+    "year_basis": "Photographer description (2017); exact production date unverified. Filename 3.0 is not an engine specification.",
+    "photographed_at": "2017-10-04",
+    "author": "Vauxford",
+    "source": "https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Rear.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Rear.jpg",
+    "original_path": "creative/first-issue-008/originals/rear.jpg",
+    "dimensions": [
+      3971,
+      2038
+    ],
+    "sha256": "246fed58d17224de4531cc4718a0fe25670eb3bdf2f0b4177ee92e95160cdf4d",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resize/WebP; CSS crops and separate editorial observation overlays. No vehicle warping. Adapted image presentations CC BY-SA 4.0.",
+    "verified_at": "2026-10-29"
+  }
+]

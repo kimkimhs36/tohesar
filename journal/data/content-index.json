@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "verified_at": "2026-10-28",
+  "verified_at": "2026-10-29",
   "news_source": "/journal/data/news.json",
   "forms": [
     {
@@ -62,6 +62,7 @@
       "image_licence": "https://media.jlr.com/jaguar/en-gb/user-licence",
       "image_source": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
       "related": [
+        "alfa-romeo-giulia",
         "porsche-911",
         "ferrari-f40",
         "miniature-atelier"
@@ -99,6 +100,7 @@
       "image_licence": "TOHEŞAR original / existing 005 asset",
       "image_source": "/journal/911/#sources-title",
       "related": [
+        "alfa-romeo-giulia",
         "jaguar-type-01",
         "visual-culture"
       ],
@@ -108,6 +110,45 @@
         "지붕",
         "디자인 연속성",
         "964"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "alfa-romeo-giulia",
+      "title": "Alfa Romeo Giulia — 아름다움이 비율이 되는 순간",
+      "url": "/journal/design/giulia/",
+      "kind": "design-essay",
+      "manufacturer": "Alfa Romeo",
+      "model": "Giulia",
+      "published_at": "2026-10-29",
+      "vehicle_year": 2017,
+      "announced_at": "2015-06-24",
+      "forms": [
+        "curves"
+      ],
+      "summary": "긴 보닛과 뒤로 물러난 캐빈. 952 계열 Giulia의 자세, 곡면과 얼굴에서 비율의 설득력을 읽다.",
+      "image": "/journal/assets/giulia/side-1600.webp",
+      "image_alt": "파란색 초기형 Giulia Quadrifoglio의 측면, 2017년 촬영",
+      "image_credit": "Vauxford · CC BY-SA 4.0 · 크기 조절 / WebP 변환",
+      "image_licence": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "image_source": "https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0.jpg",
+      "related": [
+        "porsche-911",
+        "ferrari-f40",
+        "jaguar-type-01",
+        "miniature-atelier"
+      ],
+      "keywords": [
+        "알파 로메오",
+        "줄리아",
+        "비율",
+        "비례",
+        "세단",
+        "952",
+        "Quadrifoglio",
+        "보닛",
+        "캐빈",
+        "곡선"
       ],
       "status": "published"
     },
@@ -130,6 +171,7 @@
       "image_licence": "https://creativecommons.org/licenses/by-sa/4.0/",
       "image_source": "https://commons.wikimedia.org/wiki/File:1991_Ferrari_F40_Red.jpg",
       "related": [
+        "alfa-romeo-giulia",
         "jaguar-type-01",
         "miniature-atelier"
       ],
@@ -195,6 +237,7 @@
       "image_licence": "TOHEŞAR original / existing 006 asset",
       "image_source": "/journal/miniatures/",
       "related": [
+        "alfa-romeo-giulia",
         "ferrari-f40",
         "porsche-911",
         "jaguar-type-01"

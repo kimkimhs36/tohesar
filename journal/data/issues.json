@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "issues": [
+    {
+      "id": "issue-001",
+      "number": "001",
+      "title": "THE SHAPE OF DESIRE",
+      "subtitle": "우리가 자동차의 형태를 오래 바라보는 이유",
+      "published_at": "2026-10-29",
+      "status": "published",
+      "url": "/journal/issues/001/",
+      "visual": "/journal/assets/giulia/front-1600.webp",
+      "image_source": "https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Front.jpg",
+      "image_credit": "Vauxford · CC BY-SA 4.0 · 크기 조절 / WebP 변환",
+      "image_licence": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "intro": "어떤 형태는 스쳐 지나가지 않는다. 곡선의 연속성, 기능의 솔직함, 비례의 긴장, 그리고 새로운 언어. 다섯 이야기를 통해 자동차를 오래 바라보는 이유를 묻는다.",
+      "editor_note": "첫 번째 호를 펴내며",
+      "editorial": "우리는 자동차를 볼 때 가장 먼저 이름을 찾곤 한다. 이번에는 이름보다 앞서 눈에 들어오는 것들을 따라가고 싶었다. 지붕이 끝나는 자리, 바퀴와 문 사이의 거리, 빛을 받는 어깨. 서로 다른 자동차를 한 지면에 놓은 이유는 우열을 가리기 위해서가 아니다. 하나를 본 눈으로 다른 하나를 다시 보기 위해서다.",
+      "chapters": [
+        {
+          "content_id": "porsche-911",
+          "layout": "curve",
+          "title": "THE ENDURING LINE",
+          "heading": "기억은 곡선을 따라간다.",
+          "note": "새로운 차에서도 오래된 실루엣을 알아보는 순간이 있다. 911의 지붕과 펜더는 변화를 멈추지 않으면서도 기억의 기준점으로 남는다. 형태를 오래 바라보는 첫 번째 이유는, 그 안에서 시간을 읽기 때문이다.",
+          "transition": "그러나 모든 아름다움이 부드러운 선에서 시작되는 것은 아니다."
+        },
+        {
+          "content_id": "ferrari-f40",
+          "layout": "edge",
+          "title": "FUNCTION BECOMES FORM",
+          "heading": "바람을 위한 빈자리.",
+          "note": "F40의 면을 따라가면 시선은 곧 구멍에 닿는다. 냉각과 공기의 이동을 위해 남겨진 공간이 차체의 인상이 된다. 911이 선을 이어간다면, F40은 선을 끊는 자리에서 자신의 성격을 드러낸다.",
+          "transition": "기능을 드러내는 강렬함에서, 요소 사이의 조용한 관계로."
+        },
+        {
+          "content_id": "alfa-romeo-giulia",
+          "layout": "proportion",
+          "title": "BEAUTY IN PROPORTION",
+          "heading": "아름다움이 비율이 되는 순간.",
+          "note": "긴 보닛, 뒤로 물러난 캐빈, 뒷바퀴를 감싸는 어깨. Giulia는 네 개의 문을 가진 일상적인 차체 안에서 각 요소가 놓이는 위치를 다시 보게 한다. 이번 호의 새로운 에세이이자, 함께 관찰하는 비율 연구다.",
+          "transition": "같은 긴 보닛도 다른 동력과 시대를 만나면 다른 질문이 된다."
+        },
+        {
+          "content_id": "jaguar-type-01",
+          "layout": "language",
+          "title": "A NEW LANGUAGE",
+          "heading": "익숙한 비례, 낯선 문장.",
+          "note": "Type 01의 긴 앞부분과 낮은 지붕은 GT의 기억을 불러온다. 하지만 표면, 유리, 네 개의 문이 만드는 관계는 새로운 선언을 향한다. 전통이 미래로 이어지는 방식은 복제만으로 설명되지 않는다.",
+          "transition": "마지막에는 크기를 줄여본다. 무엇이 남고, 무엇이 사라질까."
+        },
+        {
+          "content_id": "miniature-atelier",
+          "layout": "small",
+          "title": "THE SMALL WORLD",
+          "heading": "작아져도 남는 성격.",
+          "note": "곡선의 쿠페, 낮은 웨지, 긴 그랜드 투어러. 실제 차를 그대로 재현하지 않는 세 대의 그래픽은 형태의 핵심만 남기는 실험이다. 한 대를 알아보게 하는 것은 세부의 수일까, 덩어리의 관계일까.",
+          "transition": "다섯 이야기는 하나의 정답보다, 다시 바라볼 다섯 가지 이유다."
+        }
+      ]
+    }
+  ]
+}
