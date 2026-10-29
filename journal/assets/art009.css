@@ -220,3 +220,88 @@
 @media(prefers-reduced-motion:reduce),(max-height:580px){.proportion-photo{width:100%;margin-left:0;max-width:900px}.study-observations{margin-top:30px}.study-note{border-bottom:1px solid #9aa58e}.study-note:last-child{border:0}}
 .chapter-identity>i{flex-shrink:0}
 @media(max-width:700px){.chapter-language .chapter-identity>span{font-size:clamp(62px,20vw,84px)}}
+/* Journal: a frontispiece; archive: a shelf of actual editions. */
+.journal-home{--paper:#e8e4e7;--lavender:#d5ccdc;--muted:#625d68}
+.journal-home .journal-mast{padding-top:32px;padding-bottom:28px}
+.journal-home .journal-mast h1{font:italic 400 clamp(64px,8vw,114px)/.95 Georgia,serif;letter-spacing:-.065em}
+.journal-home .mast-star{width:.27em;height:.27em;vertical-align:top;margin-top:.1em;margin-left:.17em;background:#877292}
+.journal-home .journal-mast p{font-size:13px;line-height:1.8}
+.journal-home .section-nav a{font-size:13px}
+.journal-home .section-kicker{font-size:11px;letter-spacing:.04em;line-height:1.7}
+.journal-home .feature-image{aspect-ratio:1.2;border-radius:0 19% 0 0}
+.journal-home .feature-copy h2{letter-spacing:-.055em}
+.journal-home .feature-copy small,.journal-home .design small{font-size:11px;line-height:1.8}
+.journal-home .latest{background:#d9d2df}
+.journal-home .news-item p{font-size:13px;line-height:1.9}
+.journal-home .news-date span,.journal-home .news-source{font-size:11px;line-height:1.8}
+.journal-home .section-heading .eyebrow{font-size:11px}
+.issue-invitation{background:transparent;border:0;padding:0;margin-top:60px;margin-bottom:65px}
+.issue-invitation>a{grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.issue-invite-copy h2{font-size:clamp(30px,4vw,58px);font-weight:400;line-height:1.05;max-width:9em}
+.issue-invitation .edition-label{font-size:11px;line-height:1.8}
+.issue-invitation p{font-size:15px}
+.issue-invitation>small{font-size:11px;line-height:1.8;margin-top:20px}
+.issue-jacket{position:relative;background:var(--art-lilac);padding:30px 28px 24px 36px;border-left:4px double #aaa1b7;color:#33333f;box-shadow:7px 8px 0 #33333f0c}
+.jacket-number{font:11px Arial;display:block;margin-bottom:34px}
+.jacket-title{font:400 clamp(27px,3.2vw,48px)/1 Arial;letter-spacing:-.06em;display:block;margin-bottom:25px}
+.jacket-title>i{display:block;font:italic 400 1.65em/.95 Georgia;letter-spacing:-.065em;padding-top:10px}
+.issue-jacket img{aspect-ratio:auto;width:100%;height:auto}
+.jacket-foot{display:block;font:9px/1.5 Arial;letter-spacing:.07em;margin-top:27px}
+.archive-page .site-header,.archive-opening{background:var(--art-paper)}
+.archive-opening{padding-top:45px;padding-bottom:38px;display:grid;grid-template-columns:1fr 1fr;gap:20px 7vw;align-items:end}
+.archive-opening>.edition-label{grid-column:1/-1}
+.archive-opening h1{font:400 clamp(64px,9vw,128px)/.87 Georgia;letter-spacing:-.07em;margin:10px 0 0;grid-row:2/4}
+.archive-opening h1>i{font-weight:400}
+.archive-opening p{font-size:15px;line-height:1.9}
+.archive-opening small{margin:0;font-size:11px;letter-spacing:.05em}
+.archive-editions{padding:20px 0 35px}
+.archive-page .issue-invitation{margin-top:24px;padding:0}
+.archive-page .issue-invitation>a{grid-template-columns:1.1fr 1fr}
+.archive-page .issue-jacket{grid-column:1;grid-row:1}
+.archive-page .issue-invite-copy{grid-column:2;grid-row:1}
+.archive-page .issue-invitation h2{font-size:clamp(32px,4vw,58px)}
+@media(max-width:700px){
+ .journal-home .journal-mast{padding-top:25px;padding-bottom:24px;gap:11px}
+ .journal-home .journal-mast h1{font-size:72px}
+ .journal-home .journal-mast p{font-size:12px}
+ .journal-home .section-nav a{font-size:11px;gap:6px}
+ .journal-home .section-nav span{font-size:9px}
+ .journal-home .section-kicker{font-size:10px;letter-spacing:.02em;gap:10px}
+ .journal-home .section-kicker>span:last-child{max-width:125px;text-align:right}
+ .journal-home .featured{margin-top:22px}
+ .journal-home .feature-image{margin-left:calc(-1 * var(--edge));aspect-ratio:1.13;border-radius:0 18% 0 0}
+ .journal-home .feature-copy{padding-top:25px;padding-left:7%}
+ .journal-home .feature-copy .eyebrow{font-size:10px}
+ .journal-home .feature-copy h2{font-size:34px;line-height:1.4}
+ .journal-home .feature-copy>p{font-size:14px}
+ .journal-home .feature-copy small{font-size:10px}
+ .journal-home .section-heading .eyebrow{font-size:10px}
+ .journal-home .news-date{font-size:11px}
+ .journal-home .news-item p{font-size:13px}
+ .journal-home .news-date span,.journal-home .news-source{font-size:10px}
+ .journal-home .design small{font-size:10px}
+ .issue-invitation>a{grid-template-columns:1fr;gap:30px}
+ .issue-invitation{margin-top:44px;margin-bottom:45px}
+ .issue-jacket{margin-left:6%;padding:22px 20px 22px 27px}
+ .issue-invite-copy h2{font-size:36px}
+ .issue-invitation p{font-size:14px}
+ .issue-invitation>small{font-size:10px}
+ .jacket-title{font-size:30px}
+ .jacket-title>i{font-size:52px}
+ .jacket-number{margin-bottom:25px;font-size:11px}
+ .issue-invitation .issue-jacket img{aspect-ratio:auto;object-fit:contain}
+ .archive-opening{display:grid;grid-template-columns:1fr 1fr;padding-top:30px;padding-bottom:28px;gap:24px 20px}
+ .archive-opening>.edition-label{font-size:10px}
+ .archive-opening h1{font-size:72px;grid-column:1/-1;grid-row:auto;margin:0}
+ .archive-opening p{grid-column:1;min-width:180px;font-size:13px}
+ .archive-opening p br{display:none}
+ .archive-opening small{grid-column:2;font-size:10px;text-align:right;line-height:1.7}
+ .archive-editions{padding-top:0}
+ .archive-page .issue-invitation{margin-top:10px}
+ .archive-page .issue-invitation>a{display:flex;flex-direction:column;align-items:stretch;gap:30px}
+ .archive-page .issue-jacket{order:0;margin-left:6%;margin-right:6%}
+ .archive-page .issue-invite-copy{order:1;padding-left:6%}
+ .archive-page .issue-invitation h2{font-size:32px}
+}
+@media(max-width:350px){.archive-opening h1{font-size:63px}.archive-opening p{min-width:150px}.archive-opening{gap:20px 10px}.jacket-title{font-size:26px}.jacket-title>i{font-size:45px}}
+.archive-opening h1,.jacket-title>i{font-family:Georgia,'Times New Roman',serif}
