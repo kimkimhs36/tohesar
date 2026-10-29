@@ -1,0 +1,19 @@
+/* TOHEŞAR 009. Observation plates: lilac / warm paper / sage.
+   Scoped to the authored edition and journal; COVER and older motion stay intact. */
+.issue-page,.journal-home{--art-lilac:#d5d0e0;--art-paper:#eeebe3;--art-sage:#d2d8c9;--art-ink:#31353c;--art-peach:#e8c7b5;--edge:clamp(22px,4.5vw,76px)}
+.issue-page{--paper:var(--art-paper);--ink:var(--art-ink)}
+.issue-page .edition-label,.issue-page .chapter-folio,.issue-page .edition-topline{font-size:11px;letter-spacing:.075em}
+.issue-page .edition-credit{font-size:11px;line-height:1.8;opacity:.8;padding-top:12px}
+.issue-page .edition-link{font-size:13px;min-height:48px}
+.issue-page .chapter-copy p{max-width:36em;line-height:1.95}
+.issue-page .chapter-copy h2{font-weight:400;line-height:1.35;letter-spacing:-.055em;text-wrap:balance}
+.issue-page .edition-preface p{line-height:1.95}
+.issue-page .edition-footer small{font-size:10px;line-height:1.8}
+@media(max-width:700px){
+ .issue-page .chapter-folio{font-size:10px;letter-spacing:.025em}
+ .issue-page .chapter-copy h2{font-size:32px}
+ .issue-page .chapter-transition{font-size:12px;line-height:1.9;min-height:130px;justify-content:start}
+ .issue-page .edition-credit{font-size:10px}
+ .issue-page .sequence-note{font-size:12px}
+ .issue-page .chapter-copy p{font-size:15px}
+}
