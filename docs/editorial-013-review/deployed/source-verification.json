@@ -1,0 +1,70 @@
+{
+  "source_sha": "59f6b847e3d6818ff00e1a13749efabf86fe40ad",
+  "files": [
+    {
+      "path": "journal/yokohama/index.html",
+      "byte_identical": true,
+      "sha256": "4587c72e70b7b061b5fbf1093987082021a2ce27668446127de088d183c61afd"
+    },
+    {
+      "path": "journal/index.html",
+      "byte_identical": true,
+      "sha256": "10f740fe41058d223a23c5e1b726a539ad4d62ebcaa0b07afb61072fc58acb81"
+    },
+    {
+      "path": "journal/visual/index.html",
+      "byte_identical": true,
+      "sha256": "092c9dfa024271e2d25e8f981a74b619f10f637b6ab43252f2f8e9cf352e1014"
+    },
+    {
+      "path": "journal/911/index.html",
+      "byte_identical": true,
+      "sha256": "84d05fb8c94af2f1e8c728f63f82867dd0b21de63a17d7b152c01eb335ccdfe2"
+    },
+    {
+      "path": "journal/issues/001/index.html",
+      "byte_identical": true,
+      "sha256": "04145e5d2f2bc384f34f6968f427b9414918375fae82001999af234f81e65860"
+    },
+    {
+      "path": "journal/assets/yokohama013.css",
+      "byte_identical": true,
+      "sha256": "ba987415264df3ba83d5cde664dcb6e2abf249f67ac7b83fdff5bbe0a64a97ba"
+    },
+    {
+      "path": "journal/assets/world013.css",
+      "byte_identical": true,
+      "sha256": "a6c9d6d89b82f51d7e41ce4b95ae40483607cb0eaf181b072efecb71cfb2c543"
+    },
+    {
+      "path": "journal/assets/wallpaper011.css",
+      "byte_identical": true,
+      "sha256": "ca9b29430981a6d695a51cc0db07839127e3a2d99596c528c35ad1ef30045d89"
+    },
+    {
+      "path": "journal/assets/wallpaper011.js",
+      "byte_identical": true,
+      "sha256": "29ec6a963374f514d8470b03d8f05872156d7987fd18158ae8f38af62a114016"
+    },
+    {
+      "path": "journal/data/wallpaper-layouts.json",
+      "byte_identical": true,
+      "sha256": "1314025a35f7b666e86aed8e68c0de70212148f506110f90dfde89a97cd5eb3b"
+    },
+    {
+      "path": "journal/partials/yokohama-001-original.html",
+      "byte_identical": true,
+      "sha256": "aaf3621902fe12f152c214d0cbfa791eb2164ed503b18abf12c97c2a4779ca2f"
+    },
+    {
+      "path": "journal/yokohama/original-001/index.html",
+      "byte_identical": true,
+      "sha256": "40bec65db54535391eba5033dd5aa5b95be1574749754aa38ed42d21e0525cc2"
+    },
+    {
+      "path": "docs/editorial-013-review/index.html",
+      "byte_identical": true,
+      "sha256": "4d4315a8ac70e5441a7aa7b0ed24c6f0069a04adb0a05897366854ddd15b6af8"
+    }
+  ]
+}

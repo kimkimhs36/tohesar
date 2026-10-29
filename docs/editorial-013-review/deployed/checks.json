@@ -1,0 +1,50 @@
+[
+  {
+    "engine": "chromium",
+    "viewport": [
+      390,
+      844
+    ],
+    "motion": true,
+    "reverse": true,
+    "reduced_motion": true,
+    "overflow": false,
+    "broken": []
+  },
+  {
+    "engine": "chromium",
+    "viewport": [
+      1180,
+      820
+    ],
+    "motion": true,
+    "reverse": true,
+    "reduced_motion": true,
+    "overflow": false,
+    "broken": []
+  },
+  {
+    "engine": "webkit",
+    "viewport": [
+      390,
+      844
+    ],
+    "motion": true,
+    "reverse": true,
+    "reduced_motion": true,
+    "overflow": false,
+    "broken": []
+  },
+  {
+    "engine": "webkit",
+    "viewport": [
+      1180,
+      820
+    ],
+    "motion": true,
+    "reverse": true,
+    "reduced_motion": true,
+    "overflow": false,
+    "broken": []
+  }
+]

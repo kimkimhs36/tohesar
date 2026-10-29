@@ -91,7 +91,7 @@ def run():
                         capture(page, f'{engine}-{w}-{label}.png')
                 page.emulate_media(reduced_motion='reduce')
                 scroll(page, positions[1])
-                assert page.locator('[data-wallpaper-car]').evaluate_all('(els)=>els.every(e=>!e.style.transform)')
+                page.wait_for_function("matchMedia('(prefers-reduced-motion: reduce)').matches && [...document.querySelectorAll('[data-wallpaper-car]')].every(e=>!e.style.transform)")
                 capture(page, f'{engine}-{w}-reduced.png')
                 state = geometry(page)
                 assert not errors, errors

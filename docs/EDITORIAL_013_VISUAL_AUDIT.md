@@ -21,3 +21,8 @@ Open `editorial-013-review/index.html` for before/after, photographic compositio
 ## Limits
 
 These are Chromium and Playwright WebKit viewport tests, not physical iPhone or iPad Safari tests. Real Safari toolbar/touch dynamics, older iOS, heat and battery use remain unverified. The original 012 brief was unavailable; the preserved 012 commit implements the living-magazine core inferable from the supplied 013 brief, without claiming unknown acceptance criteria were checked. AI imagery is disclosed in the opening, captions and colophon. Existing 911/F40/Giulia/Type01 prose and distinct image credits remain intact.
+
+
+## Public release inspection
+
+The isolated public deployment is READY at `https://tohesar-editorial-013-review.vercel.app/`, sourced from `59f6b847e3d6818ff00e1a13749efabf86fe40ad`. Actual live phone prose and tablet opening captures were opened. Their images, typography and in-article wallpaper match the reviewed local composition. Thirteen relevant source files match byte for byte; both engines restore the same pose on reverse scroll and clear transforms for reduced motion. Build time was about 11.7 seconds. The official site and previous review deployments were not targets.
