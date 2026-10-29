@@ -11,3 +11,9 @@ Check real destinations, new article sources and photo permissions. Regenerate n
 `news_forms` is an optional ID → form list annotation. Only a specific verified connection gets a form classification; a news item with topic `design` is not automatically classified as a new design language. News without form annotations remains discoverable in All stories and text search.
 
 Browser verification: `node scripts/verify_design_007.cjs`. Set `WEBKIT_EXECUTABLE_PATH` only if the host requires a custom launcher for local browser libraries. Playwright is a development tool supplied by the environment, not a website dependency. The cloud host required locally extracted Debian WebKit libraries outside this repository.
+
+## HTTPS navigation check
+
+`node scripts/verify_design_deployment.cjs` checks the isolated public review, exact HTML/CSS/JS/image bytes, search/history and reverse scrolling in Chromium/WebKit. Set `SOURCE_COMMIT`, `DEPLOYMENT_ID` and optional `BASE_URL` for the release being checked. On a proxy-only cloud host use Node's supported `NODE_USE_ENV_PROXY=1`; browsers use the inherited HTTPS proxy. Never put proxy credentials in the repository.
+
+007's first public HTTPS smoke exposed Chromium native document-transition rejections (`ViewTransition opt-in disabled`) during repeated navigation between the new rooms. The existing CSS veil remains the cross-page transition; automatic native document transitions are disabled in the shared travel stylesheet for this branch. Reduced motion still bypasses the veil and all links retain normal history. Existing cover artwork, layout and scroll behaviour are unchanged. The original 006 branch and deployment retain their original code.
