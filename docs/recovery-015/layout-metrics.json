@@ -1,0 +1,88 @@
+[
+  {
+    "state": "beauty014",
+    "route": "/journal/",
+    "firstPhotographTop": 321,
+    "documentHeight": 6591,
+    "imageSrc": "/assets/yokohama-bluehour.webp",
+    "stylesheets": [
+      "/creative/cover-art-max-004/fonts.css",
+      "/journal/assets/journal.css",
+      "/journal/assets/travel.css",
+      "/journal/assets/navigation.css",
+      "/journal/assets/atlas-invitation.css",
+      "/journal/assets/issue008.css",
+      "/journal/assets/art009.css",
+      "/journal/assets/continuity010.css",
+      "/journal/assets/world013.css",
+      "/journal/assets/beauty014-editorial.css"
+    ]
+  },
+  {
+    "state": "beauty014",
+    "route": "/edition/",
+    "firstPhotographTop": 119,
+    "documentHeight": 4106,
+    "imageSrc": "./assets/f40-1600.webp",
+    "stylesheets": [
+      "./style.css"
+    ]
+  },
+  {
+    "state": "current",
+    "route": "/journal/",
+    "firstPhotographTop": 1151,
+    "documentHeight": 7421,
+    "imageSrc": "/assets/yokohama-bluehour.webp",
+    "stylesheets": [
+      "/creative/cover-art-max-004/fonts.css",
+      "/journal/assets/journal.css",
+      "/journal/assets/travel.css",
+      "/journal/assets/navigation.css",
+      "/journal/assets/atlas-invitation.css",
+      "/journal/assets/issue008.css",
+      "/journal/assets/art009.css",
+      "/journal/assets/continuity010.css",
+      "/journal/assets/world013.css",
+      "/journal/assets/beauty014-editorial.css",
+      "/journal/assets/newsroom-entry.css"
+    ]
+  },
+  {
+    "state": "current",
+    "route": "/edition/",
+    "firstPhotographTop": 119,
+    "documentHeight": 6548,
+    "imageSrc": "./assets/f40-1600.webp",
+    "stylesheets": [
+      "./style.css",
+      "./home-news.css"
+    ]
+  },
+  {
+    "state": "after",
+    "route": "/journal/",
+    "firstPhotographTop": 336,
+    "documentHeight": 5485,
+    "imageSrc": "/assets/yokohama-bluehour.webp",
+    "stylesheets": [
+      "/creative/cover-art-max-004/fonts.css",
+      "/journal/assets/travel.css",
+      "/journal/assets/navigation.css",
+      "/journal/assets/recovery015.css"
+    ]
+  },
+  {
+    "state": "after",
+    "route": "/edition/",
+    "firstPhotographTop": 290,
+    "documentHeight": 4317,
+    "imageSrc": "/journal/assets/design/type01-arrival-800.webp",
+    "stylesheets": [
+      "./style.css",
+      "./home-news.css",
+      "/journal/assets/travel.css",
+      "/edition/recovery015.css"
+    ]
+  }
+]
