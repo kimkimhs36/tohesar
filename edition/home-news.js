@@ -11,11 +11,11 @@ fetch('/edition/data/news.json',{cache:'no-cache'}).then(response=>{if(!response
  if(!items.length)throw Error('empty');
  const fragment=document.createDocumentFragment();
  items.forEach((item,index)=>{
-  const li=document.createElement('li'),a=document.createElement('a'),meta=document.createElement('span'),title=document.createElement('strong'),date=document.createElement('span');
+  const li=document.createElement('li'),a=document.createElement('a'),meta=document.createElement('span'),title=document.createElement('strong'),date=document.createElement('time');
   li.className='front-wire-item';a.href=item.url;a.target='_blank';a.rel='noopener noreferrer external';
   meta.className='front-wire-meta';meta.textContent=String(index+1).padStart(2,'0')+' / '+(item.source||'SOURCE');
   title.lang='en';title.textContent=item.title;
-  date.className='front-wire-date';date.textContent=new Intl.DateTimeFormat('ko-KR',{year:'numeric',month:'short',day:'numeric',timeZone:'Asia/Seoul'}).format(new Date(item.published_at))+' · 원문 ↗';
+  date.className='front-wire-date';date.dateTime=item.published_at;date.textContent=new Intl.DateTimeFormat('ko-KR',{year:'numeric',month:'short',day:'numeric',timeZone:'Asia/Seoul'}).format(new Date(item.published_at))+' · 원문 ↗';
   a.append(meta,title,date);li.append(a);fragment.append(li);
  });
  list.replaceChildren(fragment);

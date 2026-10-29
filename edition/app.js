@@ -89,14 +89,18 @@ for(const name of ['wire-query','wire-publisher','wire-topic']){
 }
 by('wire-load-more')?.addEventListener('click',()=>{wireVisible+=12;renderWire()});
 let searchIndexRequest=null;
+let searchIndexFailed=false;
 function ensureSearchIndex(){
  if(wireItems.length||searchIndexRequest)return;
+ searchIndexFailed=false;
  searchIndexRequest=fetch(base+'data/news.json',{cache:'no-cache'}).then(res=>{
   if(!res.ok)throw new Error('no-news');
   return res.json();
  }).then(data=>{
-  if(Array.isArray(data.items)){wireItems=data.items.filter(safeFeedItem).slice(0,45);drawSearch()}
- }).catch(()=>{}).finally(()=>{searchIndexRequest=null});
+  if(!Array.isArray(data.items))throw new Error('bad-schema');
+  wireItems=data.items.filter(safeFeedItem).slice(0,45);drawSearch()
+ }).catch(()=>{searchIndexFailed=true}).finally(()=>{searchIndexRequest=null;drawSearch()});
+ drawSearch();
 }
 const refresh=by('refresh-wire');if(refresh)refresh.addEventListener('click',loadWire);
 if(by('wire-list')){
@@ -115,8 +119,10 @@ function filterArchive(){
   item.hidden=!(matchesTopic&&matchesQuery);if(!item.hidden)count++;
  });
  const state=by('archive-count');if(state)state.textContent=count+'편의 이야기';
+ const empty=by('archive-empty');if(empty)empty.hidden=count>0;
 }
 archiveQuery?.addEventListener('input',filterArchive);archiveTopic?.addEventListener('change',filterArchive);
+by('archive-reset')?.addEventListener('click',()=>{if(archiveQuery)archiveQuery.value='';if(archiveTopic)archiveTopic.value='all';filterArchive();archiveQuery?.focus()});
 if(archiveQuery)filterArchive();
 const menuButton=document.querySelector('.menu-button'), menu=by('mobile-menu');
 function closeMenu(){if(menu){if(menu.contains(document.activeElement))menuButton?.focus();menu.hidden=true;}if(menuButton){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','메뉴 열기')}}
@@ -124,14 +130,42 @@ if(menuButton&&menu){menuButton.addEventListener('click',()=>{const open=menu.hi
 function openDialog(dialog){if(dialog&&typeof dialog.showModal==='function'&&!dialog.open){closeMenu();dialog.showModal()}}
 for(const dlg of document.querySelectorAll('dialog')){dlg.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();dlg.close()}});dlg.addEventListener('click',e=>{const r=dlg.getBoundingClientRect();if(e.target===dlg&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dlg.close()});dlg.addEventListener('close',()=>{document.body.style.overflow=''})}
 const search=by('search-dialog'),field=by('search-field'),results=by('search-results');
-function drawSearch(){if(!results||!field)return;const q=field.value.trim().toLocaleLowerCase();results.replaceChildren();if(!q){results.append(element('p',null,'자동차 이름이나 디자인 키워드를 입력해 보세요.'));return}const list=catalog.filter(x=>(x.title+' '+x.category+' '+(x.keywords||'')).toLocaleLowerCase().includes(q));const extras=wireItems.filter(x=>(x.title+' '+x.source).toLocaleLowerCase().includes(q)).slice(0,8);if(!list.length&&!extras.length){results.append(element('p',null,'검색 결과가 없습니다. 다른 키워드를 입력해 보세요.'));return}for(const item of [...list,...extras]){const a=element('a',null,item.title);a.href=item.url;if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer external'}a.append(element('small',null,item.category||item.source));results.append(a)}}
+function drawSearch(){
+ if(!results||!field)return;
+ const q=field.value.trim().toLocaleLowerCase();results.replaceChildren();
+ if(!q){results.append(element('p',null,'자동차 이름이나 디자인 키워드를 입력해 보세요.'));return}
+ const terms=q.split(/\s+/);
+ const matches=(text)=>terms.every(term=>text.toLocaleLowerCase().includes(term));
+ const list=catalog.filter(x=>matches(x.title+' '+x.category+' '+(x.keywords||'')));
+ const extras=wireItems.filter(x=>matches(x.title+' '+x.source)).slice(0,8);
+ if(!list.length&&!extras.length)results.append(element('p',null,searchIndexRequest?'뉴스 검색 중입니다.':'검색 결과가 없습니다. 다른 키워드를 입력해 보세요.'));
+ for(const item of [...list,...extras]){
+  const a=element('a',null,item.title);a.href=item.url;
+  if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer external'}
+  a.append(element('small',null,item.category||item.source+' · 원문'));results.append(a)
+ }
+ if(searchIndexFailed)results.append(element('p',null,'뉴스 검색을 불러오지 못했습니다. 디자인 기록은 검색할 수 있습니다.'));
+}
 for(const b of document.querySelectorAll('.search-open'))b.addEventListener('click',()=>{openDialog(search);drawSearch();ensureSearchIndex();field?.focus()});field?.addEventListener('input',drawSearch);
 const savedDialog=by('saved-dialog'),savedContainer=by('saved-items');
 function drawSaved(){if(!savedContainer)return;savedContainer.replaceChildren();const chosen=catalog.filter(x=>getSaved().includes(x.id));if(!chosen.length){savedContainer.append(element('p',null,'저장한 글이 없습니다. 기사에서 ☆ 저장을 눌러 보세요.'));return}for(const item of chosen){const a=element('a',null,item.title);a.href=item.url;a.append(element('small',null,item.category));const row=element('div','saved-row');const remove=element('button',null,'삭제');remove.type='button';remove.setAttribute('aria-label',item.title+' 저장 취소');remove.addEventListener('click',()=>{if(saveItems(getSaved().filter(id=>id!==item.id))){drawSaved();document.querySelectorAll('[data-save]').forEach(b=>{const on=getSaved().includes(b.dataset.save);b.setAttribute('aria-pressed',String(on));b.textContent=on?'★ 저장됨':'☆ 저장'})}});row.append(a,remove);savedContainer.append(row)}}
 for(const b of document.querySelectorAll('[data-saved-open]')){b.addEventListener('click',e=>{e.preventDefault();drawSaved();openDialog(savedDialog)})}
 for(const b of document.querySelectorAll('[data-save]')){const id=b.dataset.save;function update(){const on=getSaved().includes(id);b.setAttribute('aria-pressed',String(on));b.textContent=on?'★ 저장됨':'☆ 저장'}update();b.addEventListener('click',()=>{const saved=getSaved();if(saveItems(saved.includes(id)?saved.filter(s=>s!==id):[...saved,id]))update();else b.textContent='저장 공간 사용 불가'})}
-for(const btn of document.querySelectorAll('[data-share]')){const status=element('p','share-status');status.setAttribute('role','status');btn.closest('.article-toolbar').after(status);btn.addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:document.title,url:location.href})}else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);status.textContent='기사 링크를 복사했습니다.'}else{status.textContent='이 주소를 복사해 공유하세요: '+location.href}}catch(e){if(e.name!=='AbortError')status.textContent='주소창의 기사 링크를 복사해 공유해 주세요.'}})}
-const toc=document.querySelector('.article-toc');if(toc){document.querySelectorAll('.article-body h2').forEach((h,i)=>{h.id='chapter-'+(i+1);const a=element('a',null,String(i+1).padStart(2,'0')+' · '+h.textContent);a.href='#'+h.id;toc.append(a)})}
+for(const btn of document.querySelectorAll('[data-share]')){
+ const status=element('p','share-status');status.setAttribute('role','status');btn.closest('.article-toolbar').after(status);
+ btn.addEventListener('click',async()=>{
+  const url=document.querySelector('link[rel="canonical"]')?.href||location.href;
+  status.textContent='';
+  if(navigator.share){try{await navigator.share({title:document.title,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{if(!navigator.clipboard)throw new Error('no clipboard');await navigator.clipboard.writeText(url);status.textContent='기사 링크를 복사했습니다.'}
+  catch{status.textContent='이 주소를 복사해 공유하세요: '+url}
+ })
+}
+const toc=document.querySelector('.article-toc');if(toc){document.querySelectorAll('.article-body h2').forEach((h,i)=>{if(!h.id)h.id='chapter-'+(i+1);const a=element('a',null,String(i+1).padStart(2,'0')+' · '+h.textContent);a.href='#'+h.id;toc.append(a)})}
 window.addEventListener('storage',()=>{drawSaved();document.querySelectorAll('[data-save]').forEach(b=>{const on=getSaved().includes(b.dataset.save);b.setAttribute('aria-pressed',String(on));b.textContent=on?'★ 저장됨':'☆ 저장'})});
-const prog=by('reading-progress');if(prog&&root.dataset.page==='article'){let raf=0;const update=()=>{raf=0;const max=document.documentElement.scrollHeight-innerHeight;const pct=max>0?Math.max(0,Math.min(100,scrollY/max*100)):0;prog.style.transform='scaleX('+pct/100+')'};window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update)},{passive:true});requestAnimationFrame(update)}
+const prog=by('reading-progress');if(prog&&root.dataset.page==='article'){
+ let raf=0;const body=document.querySelector('.article-body');
+ const update=()=>{raf=0;if(!body)return;const top=body.getBoundingClientRect().top+scrollY;const length=body.offsetHeight;const pct=length>0?Math.max(0,Math.min(1,(scrollY+innerHeight-top)/length)):0;prog.style.transform='scaleX('+pct+')'};
+ window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update)},{passive:true});window.addEventListener('resize',()=>{if(!raf)raf=requestAnimationFrame(update)});requestAnimationFrame(update)
+}
 })();
