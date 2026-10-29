@@ -7,8 +7,7 @@ const base=root.dataset.page==='article'?'../../':['news','archive'].includes(ro
 const catalog=[
  {keywords:'porsche 포르쉐 mission s 2026 미래 디자인',id:'mission-s',title:'다음 시대에도, 포르쉐는 포르쉐일까',category:'2026 · DESIGN',url:base+'story/mission-s/'},
  {keywords:'ferrari 페라리 f40 1987 역사 디자인',id:'f40',title:'속도가 형태를 만들 때: 페라리 F40',category:'1987 · FERRARI',url:base+'story/f40/'},
- {keywords:'porsche 포르쉐 911 carrera rsr 1973 역사 디자인',id:'911',title:'시간이 남긴 실루엣: 포르쉐 911 카레라 RSR',category:'1973 · PORSCHE · 디자인 역사',url:base+'story/911/'},
- {id:'bmw-7',title:'BMW Concept 7 Protection: 보이지 않는 기술의 디자인',category:'2026 · BMW',url:'https://www.press.bmwgroup.com/global/article/detail/T0461562EN/bmw-concept-7-protection%3A-discreet-protection-in-its-most-sophisticated-form'}
+ {keywords:'porsche 포르쉐 911 carrera rsr 1973 역사 디자인',id:'911',title:'시간이 남긴 실루엣: 포르쉐 911 카레라 RSR',category:'1973 · PORSCHE · 디자인 역사',url:base+'story/911/'}
 ];
 const storageKey='tohesar:edition003:saved';
 function getSaved(){try{const x=JSON.parse(localStorage.getItem(storageKey)||'[]');return Array.isArray(x)?x.filter(v=>typeof v==='string'):[]}catch{return []}}
@@ -20,7 +19,7 @@ function headlineCard(item){
  const stamp=element('span',null,(item.published_at?new Intl.DateTimeFormat('ko-KR',{year:'numeric',month:'short',day:'numeric',timeZone:'Asia/Seoul'}).format(new Date(item.published_at)):'')+' · ORIGINAL ↗');
  a.append(meta,title,stamp);li.append(a);return li;
 }
-const approvedHosts=['newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com'];
+const approvedHosts=['newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com','www.autoblog.com','autoblog.com'];
 const safeFeedItem=(x)=>{try{const url=new URL(x.url);return url.protocol==='https:'&&approvedHosts.includes(url.hostname)&&typeof x.title==='string'&&x.title.length>5&&x.title.length<400&&Number.isFinite(Date.parse(x.published_at))}catch{return false}};
 let wireItems=[];
 let wireVisible=12;
@@ -142,7 +141,7 @@ function drawSearch(){
  for(const item of [...list,...extras]){
   const a=element('a',null,item.title);a.href=item.url;
   if(a.hostname!==location.hostname){a.target='_blank';a.rel='noopener noreferrer external'}
-  a.append(element('small',null,item.category||item.source+' · 원문'));results.append(a)
+  a.append(element('small',null,item.source ? item.source+' · 원문' : item.category));results.append(a)
  }
  if(searchIndexFailed)results.append(element('p',null,'뉴스 검색을 불러오지 못했습니다. 디자인 기록은 검색할 수 있습니다.'));
 }

@@ -4,7 +4,7 @@
 const list=document.getElementById('front-wire-list');
 const state=document.getElementById('front-wire-state');
 if(!list)return;
-const hosts=['newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com'];
+const hosts=['newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com','www.autoblog.com','autoblog.com'];
 const valid=item=>{try{const url=new URL(item.url);return url.protocol==='https:'&&hosts.includes(url.hostname)&&typeof item.title==='string'&&item.title.length>5&&item.title.length<400&&Number.isFinite(Date.parse(item.published_at))}catch{return false}};
 fetch('/edition/data/news.json',{cache:'no-cache'}).then(response=>{if(!response.ok)throw Error('fetch');return response.json()}).then(data=>{
  const items=Array.isArray(data.items)?data.items.filter(valid).slice(0,Number(list.dataset.limit)||8):[];

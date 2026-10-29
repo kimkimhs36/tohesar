@@ -32,7 +32,7 @@ def check(root):
     assert isinstance(feeds['items'],list) and feeds['generated_at']
     for item in feeds['items']:
         assert urlsplit(item['url']).scheme=='https'
-        assert urlsplit(item['url']).hostname in {'newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com'}
+        assert urlsplit(item['url']).hostname in {'newsroom.porsche.com','www.press.bmwgroup.com','press.bmwgroup.com','www.motor1.com','motor1.com','www.autoblog.com','autoblog.com'}
         assert datetime.fromisoformat(item['published_at']).tzinfo is not None
         assert item.get('fact_checked') is False
         assert item['source'] and item['title'] and item['published_at']

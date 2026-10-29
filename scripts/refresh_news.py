@@ -19,10 +19,12 @@ import xml.etree.ElementTree as ET
 
 FEEDS = (
     dict(id='porsche',name='Porsche Newsroom',url='https://newsroom.porsche.com/rss/en/index.rss',hosts={'newsroom.porsche.com'}),
-    dict(id='bmw',name='BMW Group PressClub',url='https://www.press.bmwgroup.com/global/rss',hosts={'www.press.bmwgroup.com','press.bmwgroup.com'}),
+    dict(id='bmw',name='BMW Group PressClub',url='https://www.press.bmwgroup.com/global/rss',fallback_urls=('https://www.press.bmwgroup.com/global/rss2',),cache_usable=False,hosts={'www.press.bmwgroup.com','press.bmwgroup.com'}),
     dict(id='motor1',name='Motor1',url='https://www.motor1.com/rss/news/all/',hosts={'www.motor1.com','motor1.com'}),
+    dict(id='autoblog',name='Autoblog',url='https://www.autoblog.com/rss.xml',hosts={'www.autoblog.com','autoblog.com'}),
 )
 MAX_ITEMS=45
+MAX_PER_SOURCE=15
 MAX_AGE=timedelta(days=24)
 
 # A deliberately conservative label inferred from the publisher HEADLINE.
@@ -69,6 +71,8 @@ def safe_url(value, source):
 
 def parse_feed(data, source, now):
     root=ET.fromstring(data)
+    if root.tag.rsplit('}',1)[-1].lower() not in ('rss','feed','rdf'):
+        raise ValueError('response is not an RSS or Atom feed')
     entries=[]
     for node in root.iter():
         if node.tag.rsplit('}',1)[-1].lower() not in ('item','entry'):continue
@@ -86,13 +90,30 @@ def parse_feed(data, source, now):
         entries.append(dict(id=source['id']+'-'+hashlib.sha256(link.encode('utf8')).hexdigest()[:14],title=title,source=source['name'],source_id=source['id'],url=link,published_at=dt.isoformat(),category=infer_topic(title),classification='headline-keywords',language='en',collected_at=now.isoformat(),fact_checked=False,brands=[brand for brand in ('Porsche','BMW','MINI','Ferrari','Toyota','Mazda','Audi','KTM') if re.search(r'\b'+brand+r'\b',title,re.I)],models=[],kind='publisher-headline'))
     return entries
 
+class SafeRedirect(urllib.request.HTTPRedirectHandler):
+    def __init__(self, source):
+        self.source=source
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not safe_url(newurl,self.source):
+            raise ValueError('redirect outside allowed HTTPS publisher')
+        return super().redirect_request(req,fp,code,msg,headers,newurl)
+
 def read_source(source, now):
-    req=urllib.request.Request(source['url'],headers={'User-Agent':'TOHESAR-Radar/1.0 (attributed headline monitor)','Accept':'application/rss+xml,application/atom+xml,text/xml'})
-    with urllib.request.urlopen(req,timeout=9) as response:
-        if not safe_url(response.geturl(),source):raise ValueError('redirect outside allowed HTTPS publisher')
-        payload=response.read(1500001)
-        if len(payload)>1500000:raise ValueError('feed too large')
-    return parse_feed(payload,source,now)
+    opener=urllib.request.build_opener(SafeRedirect(source))
+    errors=[]
+    for url in (source['url'], *source.get('fallback_urls',())):
+        try:
+            req=urllib.request.Request(url,headers={'User-Agent':'TOHESAR-Radar/1.0 (attributed headline monitor)','Accept':'application/rss+xml,application/atom+xml,text/xml'})
+            with opener.open(req,timeout=9) as response:
+                if not safe_url(response.geturl(),source):raise ValueError('redirect outside allowed HTTPS publisher')
+                payload=response.read(1500001)
+                if len(payload)>1500000:raise ValueError('feed too large')
+            items=parse_feed(payload,source,now)
+            if items:return items
+            errors.append('no valid recent items')
+        except (OSError, ValueError, ET.ParseError) as error:
+            errors.append(str(error))
+    raise ValueError('; '.join(errors))
 
 def atomic_write(output, result):
     output.parent.mkdir(parents=True,exist_ok=True)
@@ -109,7 +130,7 @@ def cached_items(snapshot, now, recent_only=False):
         if not isinstance(item,dict):continue
         source_id=item.get('source_id')
         source=sources.get(source_id) if isinstance(source_id,str) else None
-        if not source or not isinstance(item.get('id'),str) or not item['id'] or not isinstance(item.get('title'),str) or len(item['title'])<7:continue
+        if not source or source.get('cache_usable') is False or not isinstance(item.get('id'),str) or not item['id'] or not isinstance(item.get('title'),str) or len(item['title'])<7:continue
         url=safe_url(item.get('url',''),source)
         if not url or item.get('source')!=source['name'] or item.get('fact_checked') is not False or 'body' in item or 'summary' in item:continue
         # Parse even expired dates for an all-feed outage: the original timestamp
@@ -125,19 +146,20 @@ def cached_items(snapshot, now, recent_only=False):
         result.append(clean)
     return result
 
-def normalize_items(items):
+def normalize_items(items, balance_sources=True):
     """Deduplicate a publisher's same headline, keeping other publishers' reports.
 
     Identical normalized titles from different publishers are linked as possible
     related coverage, not asserted to be independently verified same events.
     """
     ordered=sorted(items,key=lambda item:datetime.fromisoformat(item['published_at'].replace('Z','+00:00')),reverse=True)
-    kept=[];links=set();titles=set()
+    kept=[];links=set();titles=set();source_counts={}
     for item in ordered:
         title_key=re.sub(r'[^a-z0-9]+',' ',item['title'].lower()).strip()
         source_title=(item['source_id'],title_key)
-        if item['url'] in links or source_title in titles:continue
+        if item['url'] in links or source_title in titles or (balance_sources and source_counts.get(item['source_id'],0)>=MAX_PER_SOURCE):continue
         links.add(item['url']);titles.add(source_title)
+        source_counts[item['source_id']]=source_counts.get(item['source_id'],0)+1
         kept.append(item)
         if len(kept)==MAX_ITEMS:break
     groups={}
@@ -180,7 +202,7 @@ def refresh(output):
             print('WARN snapshot timestamp invalid',file=sys.stderr)
             return 1
         # Preserve the collection time and contents; mark the failed attempt.
-        previous['items']=normalize_items(cached)
+        previous['items']=normalize_items(cached,balance_sources=False)
         previous['last_attempt_at']=now.isoformat();previous['sources']=states;previous['status']='unavailable'
         atomic_write(output,previous)
         print('WARN no valid feed items; keeping existing dated snapshot',file=sys.stderr)

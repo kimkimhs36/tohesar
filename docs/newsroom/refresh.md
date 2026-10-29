@@ -9,3 +9,9 @@ As observed on 29 October 2026, Porsche and Motor1 responded successfully; the c
 ## Production observation — 29 October 2026
 
 The `tohesar.com` responses for `/`, `/journal/`, and `/edition/` matched `origin/main` at the time of inspection and carried GitHub Pages response headers. The domain's news JSON differed from both the checked-in main and the review branch; that observation alone does not prove its refresh schedule. Beauty 014 was a separate Vercel review deployment. The newsroom branch is not the current domain deployment. Do not merge or change Pages/Vercel configuration until the reviewed release path and its news refresh are verified. The original BUILD 01 commit is preserved at `backup/codex-living-journal-build-01`.
+
+## BUILD 03 feed check — 29 October 2026
+
+The BMW PressClub `/global/rss` and `/global/rss2` addresses both redirected to the new BMW newsroom HTML homepage during this check, not a feed. A sampled cached PressClub article URL also redirected to that homepage, so old BMW records are excluded until a working feed and article links are verified. The collector tries both known addresses and reports the source unavailable; it does not treat HTML as a feed or follow a redirect to an unapproved host. This is not a verified replacement BMW feed.
+
+Autoblog's public RSS was verified and added as an attributed headlines-only source. A live local refresh returned 18 Porsche, 20 Motor1 and 50 Autoblog valid recent records; the snapshot contains 45 after deduplication and a 15-item per-source limit. BMW failed, so the snapshot status is `partial`. The per-source limit preserves room for a variety of publishers; it is not an assertion that similarly worded stories are the same event. The collector still does not copy publisher bodies or images. Re-run the collector to verify availability at deployment time.

@@ -44,13 +44,13 @@ class FeedTests(unittest.TestCase):
         self.assertFalse(entry['fact_checked'])
     def test_partial_refresh_retains_failed_source_and_deduplicates(self):
         now=datetime.now(timezone.utc).isoformat()
-        old=self.record(news.FEEDS[1],'BMW recent headline','https://www.press.bmwgroup.com/a',now)
+        old=self.record(news.FEEDS[2],'Motor1 recent headline','https://www.motor1.com/a',now)
         fresh=self.record(self.source,'A new Porsche headline','https://newsroom.porsche.com/a',now)
         duplicate={**fresh,'url':'https://newsroom.porsche.com/b'}
         with tempfile.TemporaryDirectory() as d:
             out=Path(d)/'news.json';out.write_text(json.dumps({'items':[old]}))
             def read(source, now):
-                if source['id']=='bmw': raise OSError('offline')
+                if source['id'] in ('bmw','motor1'): raise OSError('offline')
                 return [fresh, duplicate] if source['id']=='porsche' else []
             with patch.object(news,'read_source',side_effect=read): self.assertEqual(news.refresh(out),0)
             result=json.loads(out.read_text())
@@ -82,6 +82,19 @@ class FeedTests(unittest.TestCase):
     def test_atom_prefers_published_to_updated(self):
         data=b'<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>Porsche new design</title><link href="https://newsroom.porsche.com/a"/><updated>2026-10-28T00:00:00Z</updated><published>2026-10-27T00:00:00Z</published></entry></feed>'
         self.assertEqual(news.parse_feed(data,self.source,self.now)[0]['published_at'],'2026-10-27T00:00:00+00:00')
+    def test_rejects_html_masquerading_as_feed(self):
+        with self.assertRaises(ValueError):
+            news.parse_feed(b'<html><body>Not a feed</body></html>',self.source,self.now)
+    def test_source_balance_preserves_space_for_other_publishers(self):
+        first=[self.record(self.source, f'Porsche story number {i}', f'https://newsroom.porsche.com/{i}', self.now.isoformat()) for i in range(20)]
+        other=self.record(news.FEEDS[-1], 'Another publisher story', 'https://www.autoblog.com/a', self.now.isoformat())
+        result=news.normalize_items(first+[other])
+        self.assertEqual(len(result),16)
+        self.assertIn(other,result)
+    def test_redirect_does_not_leave_publisher(self):
+        handler=news.SafeRedirect(self.source)
+        with self.assertRaises(ValueError):
+            handler.redirect_request(None,None,302,'Found',{},'https://evil.test/')
     def test_no_snapshot_and_no_network_fails(self):
         with tempfile.TemporaryDirectory() as d,patch.object(news,'read_source',side_effect=OSError('offline')):
             self.assertEqual(news.refresh(Path(d)/'missing.json'),1)
