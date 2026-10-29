@@ -51,7 +51,7 @@ def links():
                 if d.get(key):self.refs.append(d[key])
             if d.get('srcset'):
                 self.refs.extend(x.strip().split()[0] for x in d['srcset'].split(','))
-    active=['journal/index.html','journal/911/index.html','journal/f40/index.html','journal/news/index.html','journal/visual/index.html','journal/miniatures/index.html','journal/design/index.html','journal/design/type-01/index.html','journal/design/giulia/index.html','journal/issues/index.html']
+    active=['journal/index.html','journal/911/index.html','journal/yokohama/index.html','journal/f40/index.html','journal/news/index.html','journal/visual/index.html','journal/miniatures/index.html','journal/design/index.html','journal/design/type-01/index.html','journal/design/giulia/index.html','journal/issues/index.html']
     active +=[str(p.relative_to(ROOT)) for p in (ROOT/'journal/issues').glob('*/index.html')]
     cache={};count=0
     for page in active:
@@ -81,7 +81,7 @@ def build():
         body=destination('/'+item['body_file']).read_text()
         p.write_text(shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
     check()
-    for script in ['build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py']:
+    for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py','build_editorial_world.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     links()
 

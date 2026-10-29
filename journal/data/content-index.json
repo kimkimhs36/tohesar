@@ -100,6 +100,7 @@
       "image_licence": "TOHEŞAR original / existing 005 asset",
       "image_source": "/journal/911/#sources-title",
       "related": [
+        "yokohama-city-car",
         "alfa-romeo-giulia",
         "jaguar-type-01",
         "visual-culture"
@@ -204,6 +205,7 @@
       "image_licence": "TOHEŞAR original / existing 006 asset",
       "image_source": "/journal/visual/#sequence",
       "related": [
+        "yokohama-city-car",
         "porsche-911",
         "miniature-atelier"
       ],
@@ -250,6 +252,40 @@
         "그래픽",
         "곡선",
         "웨지"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "yokohama-city-car",
+      "title": "Yokohama — 도시가 차에 남기는 빛",
+      "url": "/journal/yokohama/",
+      "kind": "visual-fiction",
+      "manufacturer": null,
+      "model": null,
+      "published_at": "2026-10-29",
+      "vehicle_year": null,
+      "forms": [
+        "curves"
+      ],
+      "summary": "도시의 저녁빛, 자동차의 표면, 작은 그래픽이 하나의 지면으로 이어지는 다섯 장면의 시각적 에세이.",
+      "image": "/assets/yokohama-afterglow.webp",
+      "image_alt": "상상한 요코하마 항구의 노을과 은빛 쿠페",
+      "image_credit": "TOHEŞAR · AI 보조 비주얼 픽션 / 실제 현장 사진 아님",
+      "image_licence": "TOHEŞAR original / preserved existing Yokohama assets",
+      "image_source": "/journal/yokohama/#credits",
+      "related": [
+        "porsche-911",
+        "visual-culture",
+        "miniature-atelier"
+      ],
+      "keywords": [
+        "요코하마",
+        "Yokohama",
+        "도시",
+        "저녁빛",
+        "사진",
+        "자동차",
+        "벽지"
       ],
       "status": "published"
     }

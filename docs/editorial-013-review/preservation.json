@@ -1,0 +1,857 @@
+{
+  "baseline": "fb3e7a6a8ca689b43fd4f780eca5b4dc1a455970",
+  "comparison": "Original tracked artwork/photos/fonts/brand files and protected content data are compared by Git blob hashes; substantive existing article paragraphs by normalized text. Generated navigation and new content are excluded.",
+  "files_checked": 137,
+  "all_protected_files_preserved": true,
+  "all_article_prose_preserved": true,
+  "files": [
+    {
+      "path": "assets/cedilla-favicon.svg",
+      "baseline_blob": "e19fa53c5d6114c6e7ef5036e2ff48e7add8b26f",
+      "current_blob": "e19fa53c5d6114c6e7ef5036e2ff48e7add8b26f",
+      "preserved": true
+    },
+    {
+      "path": "assets/cedilla-icon.svg",
+      "baseline_blob": "bbb5209d0188507896f557f4a3d74da2612592b3",
+      "current_blob": "bbb5209d0188507896f557f4a3d74da2612592b3",
+      "preserved": true
+    },
+    {
+      "path": "assets/coast.webp",
+      "baseline_blob": "16cebc7fca145289ed7f68722de3e051e60802c7",
+      "current_blob": "16cebc7fca145289ed7f68722de3e051e60802c7",
+      "preserved": true
+    },
+    {
+      "path": "assets/detail.webp",
+      "baseline_blob": "6012fd70a2ba740d58753dc2dabfcdeb7a185c12",
+      "current_blob": "6012fd70a2ba740d58753dc2dabfcdeb7a185c12",
+      "preserved": true
+    },
+    {
+      "path": "assets/gallery-desktop.webp",
+      "baseline_blob": "3ff1e5a28f64ea093265ad642a4b8241197bad6f",
+      "current_blob": "3ff1e5a28f64ea093265ad642a4b8241197bad6f",
+      "preserved": true
+    },
+    {
+      "path": "assets/gallery-mobile.webp",
+      "baseline_blob": "a0e81ab51df95eb7c728c132e0a6355506721f33",
+      "current_blob": "a0e81ab51df95eb7c728c132e0a6355506721f33",
+      "preserved": true
+    },
+    {
+      "path": "assets/notes.webp",
+      "baseline_blob": "554f51c789b69b21a893c20580947b3ef88bea88",
+      "current_blob": "554f51c789b69b21a893c20580947b3ef88bea88",
+      "preserved": true
+    },
+    {
+      "path": "assets/study-emblem.webp",
+      "baseline_blob": "d5f59db7f6875118e1031bef269982acaa863f8e",
+      "current_blob": "d5f59db7f6875118e1031bef269982acaa863f8e",
+      "preserved": true
+    },
+    {
+      "path": "assets/study-essential.webp",
+      "baseline_blob": "77a907abefa19def75baebda7f9c0fda86e9e08f",
+      "current_blob": "77a907abefa19def75baebda7f9c0fda86e9e08f",
+      "preserved": true
+    },
+    {
+      "path": "assets/study-signature.webp",
+      "baseline_blob": "3e3c59321df916ed145e504ce4b42f1bc33b9139",
+      "current_blob": "3e3c59321df916ed145e504ce4b42f1bc33b9139",
+      "preserved": true
+    },
+    {
+      "path": "assets/wordmark-hd.png",
+      "baseline_blob": "00b996bd0d4b926ca0c97bb98421e0d4cbd26dd6",
+      "current_blob": "00b996bd0d4b926ca0c97bb98421e0d4cbd26dd6",
+      "preserved": true
+    },
+    {
+      "path": "assets/wordmark.svg",
+      "baseline_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+      "current_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-afterglow.webp",
+      "baseline_blob": "bd1b72b87666f621695bb2c0ef5503918dbc98d1",
+      "current_blob": "bd1b72b87666f621695bb2c0ef5503918dbc98d1",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-arrival.webp",
+      "baseline_blob": "85e61477879347b292e2080ce92be443ae7f984e",
+      "current_blob": "85e61477879347b292e2080ce92be443ae7f984e",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-bluehour.webp",
+      "baseline_blob": "2b2316381f019f17048ff3627503157a6b9dcc81",
+      "current_blob": "2b2316381f019f17048ff3627503157a6b9dcc81",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-drive.webp",
+      "baseline_blob": "b93933746449fa7c50dc37c36aa642a89a429b3b",
+      "current_blob": "b93933746449fa7c50dc37c36aa642a89a429b3b",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-interior.webp",
+      "baseline_blob": "a6d727128ebdf2448921ebbe24bd1e5d65c0b12c",
+      "current_blob": "a6d727128ebdf2448921ebbe24bd1e5d65c0b12c",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-landscape.webp",
+      "baseline_blob": "8f1c299c23e2e04445a7e13ba8564b34c88ac04f",
+      "current_blob": "8f1c299c23e2e04445a7e13ba8564b34c88ac04f",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-portrait.webp",
+      "baseline_blob": "dc63715d207718fbd6a8c17ab3358c3de183612b",
+      "current_blob": "dc63715d207718fbd6a8c17ab3358c3de183612b",
+      "preserved": true
+    },
+    {
+      "path": "assets/yokohama-secondlight.webp",
+      "baseline_blob": "f4f10316a248b7d18301368be733b9a326be13ce",
+      "current_blob": "f4f10316a248b7d18301368be733b9a326be13ce",
+      "preserved": true
+    },
+    {
+      "path": "creative/first-issue-008/originals/front.jpg",
+      "baseline_blob": "9068c4befdf886de325a41706ffe16b7da3f74e9",
+      "current_blob": "9068c4befdf886de325a41706ffe16b7da3f74e9",
+      "preserved": true
+    },
+    {
+      "path": "creative/first-issue-008/originals/profile.jpg",
+      "baseline_blob": "f54fa0489577f5aaf68ee3fa58fd3a741e0b7495",
+      "current_blob": "f54fa0489577f5aaf68ee3fa58fd3a741e0b7495",
+      "preserved": true
+    },
+    {
+      "path": "creative/first-issue-008/originals/rear.jpg",
+      "baseline_blob": "77b055e6cd7fe10017160dfe06a6f877b71668c9",
+      "current_blob": "77b055e6cd7fe10017160dfe06a6f877b71668c9",
+      "preserved": true
+    },
+    {
+      "path": "creative/first-issue-008/originals/side.jpg",
+      "baseline_blob": "3b213af9ee5bd1728aeeccb75d9b39c2a23aa8b6",
+      "current_blob": "3b213af9ee5bd1728aeeccb75d9b39c2a23aa8b6",
+      "preserved": true
+    },
+    {
+      "path": "creative/journal-world-005/miniature-source.png",
+      "baseline_blob": "6069c30c5980ca07500a4302447c1ceb89a7798d",
+      "current_blob": "6069c30c5980ca07500a4302447c1ceb89a7798d",
+      "preserved": true
+    },
+    {
+      "path": "creative/visual-world-006/gt-source.png",
+      "baseline_blob": "5dd5fe5a1572b9e27a3df5e046ca9ce31126fabc",
+      "current_blob": "5dd5fe5a1572b9e27a3df5e046ca9ce31126fabc",
+      "preserved": true
+    },
+    {
+      "path": "creative/visual-world-006/wedge-source.png",
+      "baseline_blob": "e25efeddf81f21a5c3481633f636e4975da2154c",
+      "current_blob": "e25efeddf81f21a5c3481633f636e4975da2154c",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/blue-hour.png",
+      "baseline_blob": "221ac0f5c18ec4ae5047e693583cd2f48c223bf4",
+      "current_blob": "221ac0f5c18ec4ae5047e693583cd2f48c223bf4",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/butter-club.png",
+      "baseline_blob": "e3670d43145fd7c94d15e366e174efd4ebea567c",
+      "current_blob": "e3670d43145fd7c94d15e366e174efd4ebea567c",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/collection-source.png",
+      "baseline_blob": "55c354e65933e441e2321bbb121b4a3d0e997f0a",
+      "current_blob": "55c354e65933e441e2321bbb121b4a3d0e997f0a",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/coral-blade.png",
+      "baseline_blob": "63d27d1aac2ea05c11a8a1b0241ca73386e306e4",
+      "current_blob": "63d27d1aac2ea05c11a8a1b0241ca73386e306e4",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/lilac-arc.png",
+      "baseline_blob": "770a56e60526494f38ffd8c523cc32304cb42c19",
+      "current_blob": "770a56e60526494f38ffd8c523cc32304cb42c19",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/mint-tour.png",
+      "baseline_blob": "857c1c54eb33a389239e538893e2fda447f42821",
+      "current_blob": "857c1c54eb33a389239e538893e2fda447f42821",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/rose-current.png",
+      "baseline_blob": "d62dc97b43fcbf3a7c8869e81e62fb53629a8943",
+      "current_blob": "d62dc97b43fcbf3a7c8869e81e62fb53629a8943",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/sage-longtail.png",
+      "baseline_blob": "867dbbabaddfbcbe7fd284c74baade5ffc1260b1",
+      "current_blob": "867dbbabaddfbcbe7fd284c74baade5ffc1260b1",
+      "preserved": true
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/tomato-open.png",
+      "baseline_blob": "dba9f7b3ad5523399a9ae944515ed6db4b6fadd1",
+      "current_blob": "dba9f7b3ad5523399a9ae944515ed6db4b6fadd1",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/cedilla.svg",
+      "baseline_blob": "bbb5209d0188507896f557f4a3d74da2612592b3",
+      "current_blob": "bbb5209d0188507896f557f4a3d74da2612592b3",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/f40-1600.webp",
+      "baseline_blob": "456738ed20baba87a8a96a07e43a724f3d5e7438",
+      "current_blob": "456738ed20baba87a8a96a07e43a724f3d5e7438",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/f40-800.webp",
+      "baseline_blob": "0445b84963ea8be0f03c13fab7274ed639a7f481",
+      "current_blob": "0445b84963ea8be0f03c13fab7274ed639a7f481",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/f40.jpg",
+      "baseline_blob": "87b4336da8523d07ddf403e2e2a9daacffc62d02",
+      "current_blob": "87b4336da8523d07ddf403e2e2a9daacffc62d02",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/favicon.svg",
+      "baseline_blob": "e19fa53c5d6114c6e7ef5036e2ff48e7add8b26f",
+      "current_blob": "e19fa53c5d6114c6e7ef5036e2ff48e7add8b26f",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/porsche-911-1600.webp",
+      "baseline_blob": "93e681b7ccbca356069bde70f73a80639829f0d6",
+      "current_blob": "93e681b7ccbca356069bde70f73a80639829f0d6",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/porsche-911-800.webp",
+      "baseline_blob": "8f67e8efb47cba6daad05340c7616957b7b32caf",
+      "current_blob": "8f67e8efb47cba6daad05340c7616957b7b32caf",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/porsche-911.jpg",
+      "baseline_blob": "1effe2aaf8bbdb58121e4409ba7b37779f5e7985",
+      "current_blob": "1effe2aaf8bbdb58121e4409ba7b37779f5e7985",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/sans.woff2",
+      "baseline_blob": "b2a9ef78c725e2351684f1c663be5c33826132e5",
+      "current_blob": "b2a9ef78c725e2351684f1c663be5c33826132e5",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/serif.woff2",
+      "baseline_blob": "1a63692b58ebe164fbcde7ff800f3cc47e480030",
+      "current_blob": "1a63692b58ebe164fbcde7ff800f3cc47e480030",
+      "preserved": true
+    },
+    {
+      "path": "edition/assets/wordmark.svg",
+      "baseline_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+      "current_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+      "preserved": true
+    },
+    {
+      "path": "genesis/assets/poster.png",
+      "baseline_blob": "f98ab3510b207751c8dd60a59ef002d6086ad74f",
+      "current_blob": "f98ab3510b207751c8dd60a59ef002d6086ad74f",
+      "preserved": true
+    },
+    {
+      "path": "genesis/assets/wordmark.svg",
+      "baseline_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+      "current_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+      "preserved": true
+    },
+    {
+      "path": "genesis/assets/yokohama-bluehour.webp",
+      "baseline_blob": "2b2316381f019f17048ff3627503157a6b9dcc81",
+      "current_blob": "2b2316381f019f17048ff3627503157a6b9dcc81",
+      "preserved": true
+    },
+    {
+      "path": "genesis/assets/yokohama-interior.webp",
+      "baseline_blob": "a6d727128ebdf2448921ebbe24bd1e5d65c0b12c",
+      "current_blob": "a6d727128ebdf2448921ebbe24bd1e5d65c0b12c",
+      "preserved": true
+    },
+    {
+      "path": "genesis/assets/yokohama-portrait.webp",
+      "baseline_blob": "dc63715d207718fbd6a8c17ab3358c3de183612b",
+      "current_blob": "dc63715d207718fbd6a8c17ab3358c3de183612b",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type00-arrival-1600.webp",
+      "baseline_blob": "1aaa1133fdbed62f584d8e28243e38eaecf38695",
+      "current_blob": "1aaa1133fdbed62f584d8e28243e38eaecf38695",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type00-arrival-800.webp",
+      "baseline_blob": "3556dbab4d6352b2ce6a62bc4574a1e685ea2488",
+      "current_blob": "3556dbab4d6352b2ce6a62bc4574a1e685ea2488",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type00-profile-1600.webp",
+      "baseline_blob": "55e030731c451a1cf835344f8ec0881df65af7db",
+      "current_blob": "55e030731c451a1cf835344f8ec0881df65af7db",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type00-profile-800.webp",
+      "baseline_blob": "8ebc3ab88b6bf86d8bb3695a4a106408e1a34047",
+      "current_blob": "8ebc3ab88b6bf86d8bb3695a4a106408e1a34047",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-arrival-1600.webp",
+      "baseline_blob": "00de4192e40f6fe3d6d95927d1bbbc954a3ec347",
+      "current_blob": "00de4192e40f6fe3d6d95927d1bbbc954a3ec347",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-arrival-800.webp",
+      "baseline_blob": "9feb1ff4f91a65792aa855eb2a8d1c1dfa9d900a",
+      "current_blob": "9feb1ff4f91a65792aa855eb2a8d1c1dfa9d900a",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-overhead-1600.webp",
+      "baseline_blob": "6c08e10c8a583dd1209dfd94bb7cb7be4088f1ed",
+      "current_blob": "6c08e10c8a583dd1209dfd94bb7cb7be4088f1ed",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-overhead-800.webp",
+      "baseline_blob": "fe8b4d7537b2ec498a8bc19a34a975ccfcae89ab",
+      "current_blob": "fe8b4d7537b2ec498a8bc19a34a975ccfcae89ab",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-profile-1600.webp",
+      "baseline_blob": "133ef3cce74d240f2f7b107ab4d70b5357c41ba1",
+      "current_blob": "133ef3cce74d240f2f7b107ab4d70b5357c41ba1",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-profile-800.webp",
+      "baseline_blob": "f1d4830d8f134a0377b91508c5203df6d7fb9f9f",
+      "current_blob": "f1d4830d8f134a0377b91508c5203df6d7fb9f9f",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-rear-1600.webp",
+      "baseline_blob": "5dc3bb9d20ada793d7b86c9e6ba06e6e28d684ca",
+      "current_blob": "5dc3bb9d20ada793d7b86c9e6ba06e6e28d684ca",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/design/type01-rear-800.webp",
+      "baseline_blob": "086d0eaf659b014aeff6d434b77d766018573560",
+      "current_blob": "086d0eaf659b014aeff6d434b77d766018573560",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/front-1600.webp",
+      "baseline_blob": "8d8b60a4fdfb4a3f28e2aa3f9f5840fbc6642b55",
+      "current_blob": "8d8b60a4fdfb4a3f28e2aa3f9f5840fbc6642b55",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/front-800.webp",
+      "baseline_blob": "caea3a1008ad00148480b2c2c302164bde9ce4c1",
+      "current_blob": "caea3a1008ad00148480b2c2c302164bde9ce4c1",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/profile-1600.webp",
+      "baseline_blob": "c299e6a9def0a358907d9bc704b5ef192544a576",
+      "current_blob": "c299e6a9def0a358907d9bc704b5ef192544a576",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/profile-800.webp",
+      "baseline_blob": "40d962de0e61f2d5d5f497d72232b84a7a873947",
+      "current_blob": "40d962de0e61f2d5d5f497d72232b84a7a873947",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/rear-1600.webp",
+      "baseline_blob": "52cbb64b05c620237aa9981b786667434ab59d66",
+      "current_blob": "52cbb64b05c620237aa9981b786667434ab59d66",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/rear-800.webp",
+      "baseline_blob": "3900a24cc9b7017d18543d168f9dd76608b13a40",
+      "current_blob": "3900a24cc9b7017d18543d168f9dd76608b13a40",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/side-1600.webp",
+      "baseline_blob": "8d106f8138222354ec630086c315e0c3b0ae5dc2",
+      "current_blob": "8d106f8138222354ec630086c315e0c3b0ae5dc2",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/giulia/side-800.webp",
+      "baseline_blob": "82a21294e4d5f67701a194f7a9da61336eaf87fa",
+      "current_blob": "82a21294e4d5f67701a194f7a9da61336eaf87fa",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/miniature-coupe.webp",
+      "baseline_blob": "0c1a59401c997250985c259f9b23b2b039b29990",
+      "current_blob": "0c1a59401c997250985c259f9b23b2b039b29990",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/miniatures/coupe.webp",
+      "baseline_blob": "f454a0b8374266ffd6afa363750bea50063db929",
+      "current_blob": "f454a0b8374266ffd6afa363750bea50063db929",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/miniatures/gt.webp",
+      "baseline_blob": "af1622013f5e99718b8366dbac7acbe5847e3a11",
+      "current_blob": "af1622013f5e99718b8366dbac7acbe5847e3a11",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/miniatures/wedge.webp",
+      "baseline_blob": "4825d5c57d118a0db77d6d21b7ef2795d1896961",
+      "current_blob": "4825d5c57d118a0db77d6d21b7ef2795d1896961",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/blue-hour-240.webp",
+      "baseline_blob": "445401cc2c11c6d66ecf88c234fea2e66d2faee7",
+      "current_blob": "445401cc2c11c6d66ecf88c234fea2e66d2faee7",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/blue-hour-480.webp",
+      "baseline_blob": "831442c2e9f7db6f012453a79fccdea56e68c104",
+      "current_blob": "831442c2e9f7db6f012453a79fccdea56e68c104",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/blue-hour.webp",
+      "baseline_blob": "bd260067f2a6c9c6046b7993b56e3e219da6c586",
+      "current_blob": "bd260067f2a6c9c6046b7993b56e3e219da6c586",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/butter-club-240.webp",
+      "baseline_blob": "9056971c1f4e1cd5b5441ab97e5835be3abc5017",
+      "current_blob": "9056971c1f4e1cd5b5441ab97e5835be3abc5017",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/butter-club-480.webp",
+      "baseline_blob": "8cf3b101a734344c52450be880ed56b8dea45d3f",
+      "current_blob": "8cf3b101a734344c52450be880ed56b8dea45d3f",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/butter-club.webp",
+      "baseline_blob": "d647eabe848e4f6d0627eb18709cd01ac34764d5",
+      "current_blob": "d647eabe848e4f6d0627eb18709cd01ac34764d5",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/coral-blade-240.webp",
+      "baseline_blob": "cf04bdf461836f467ed501da72840707f66f7d8b",
+      "current_blob": "cf04bdf461836f467ed501da72840707f66f7d8b",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/coral-blade-480.webp",
+      "baseline_blob": "c8e5332c35f3c91b71bf35db9170ea2481f62d9c",
+      "current_blob": "c8e5332c35f3c91b71bf35db9170ea2481f62d9c",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/coral-blade.webp",
+      "baseline_blob": "addf1ff0849b6007b3c487275fce9ce357775e1d",
+      "current_blob": "addf1ff0849b6007b3c487275fce9ce357775e1d",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/lilac-arc-240.webp",
+      "baseline_blob": "e3fe9aad76f998ad6d70d6dcb97da500d63c0cbd",
+      "current_blob": "e3fe9aad76f998ad6d70d6dcb97da500d63c0cbd",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/lilac-arc-480.webp",
+      "baseline_blob": "32b476edd3b3a2fe005ac635138dfb6331b90093",
+      "current_blob": "32b476edd3b3a2fe005ac635138dfb6331b90093",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/lilac-arc.webp",
+      "baseline_blob": "ce97b330d6f5950e0627a5dae11d605638b8f04e",
+      "current_blob": "ce97b330d6f5950e0627a5dae11d605638b8f04e",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/mint-tour-240.webp",
+      "baseline_blob": "f019aed7f3d535ca2ca8a9e7f1e260a033ea2587",
+      "current_blob": "f019aed7f3d535ca2ca8a9e7f1e260a033ea2587",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/mint-tour-480.webp",
+      "baseline_blob": "f3aecd06505bb5605093648352365102b55ce04d",
+      "current_blob": "f3aecd06505bb5605093648352365102b55ce04d",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/mint-tour.webp",
+      "baseline_blob": "cfd3ab81449088ed9d63c4cdb043b836eb3b87b9",
+      "current_blob": "cfd3ab81449088ed9d63c4cdb043b836eb3b87b9",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/rose-current-240.webp",
+      "baseline_blob": "ca90db3fb7454ca190bb9aaa9bfa4009c3885c7d",
+      "current_blob": "ca90db3fb7454ca190bb9aaa9bfa4009c3885c7d",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/rose-current-480.webp",
+      "baseline_blob": "53d916179bcc1c4393168a0ec6d03a51deb1c03c",
+      "current_blob": "53d916179bcc1c4393168a0ec6d03a51deb1c03c",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/rose-current.webp",
+      "baseline_blob": "7262e756a198a672acfbe8f253004fc1ab7337b8",
+      "current_blob": "7262e756a198a672acfbe8f253004fc1ab7337b8",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/sage-longtail-240.webp",
+      "baseline_blob": "c3433a03974b2479c9c488bcef965672fcf435f9",
+      "current_blob": "c3433a03974b2479c9c488bcef965672fcf435f9",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/sage-longtail-480.webp",
+      "baseline_blob": "2f50d7dcf7b860dcc6b73534421568574443e4c7",
+      "current_blob": "2f50d7dcf7b860dcc6b73534421568574443e4c7",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/sage-longtail.webp",
+      "baseline_blob": "483425a3390a1225bef60724cb3b0cf6f029de37",
+      "current_blob": "483425a3390a1225bef60724cb3b0cf6f029de37",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/tomato-open-240.webp",
+      "baseline_blob": "2f71dc358baed66e861b5fe8de3d0a159fd6e1ec",
+      "current_blob": "2f71dc358baed66e861b5fe8de3d0a159fd6e1ec",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/tomato-open-480.webp",
+      "baseline_blob": "816e6a98e1074039a8d50ad8c1b6d8f37b834bd0",
+      "current_blob": "816e6a98e1074039a8d50ad8c1b6d8f37b834bd0",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper/tomato-open.webp",
+      "baseline_blob": "84b244bf70c9b7740ba39a2149a2ab1b41726571",
+      "current_blob": "84b244bf70c9b7740ba39a2149a2ab1b41726571",
+      "preserved": true
+    },
+    {
+      "path": "journal/assets/wallpaper011.js",
+      "baseline_blob": "4229df9d6f3566ab4dac7ab99915184e91db0632",
+      "current_blob": "4229df9d6f3566ab4dac7ab99915184e91db0632",
+      "preserved": true
+    },
+    {
+      "path": "journal/data/issues.json",
+      "baseline_blob": "8b87a5a1d5b8af615e1054820c4c74af833b0553",
+      "current_blob": "8b87a5a1d5b8af615e1054820c4c74af833b0553",
+      "preserved": true
+    },
+    {
+      "path": "journal/data/news.json",
+      "baseline_blob": "9e0640588fe61701761578b7dc150aa72ae5c828",
+      "current_blob": "9e0640588fe61701761578b7dc150aa72ae5c828",
+      "preserved": true
+    },
+    {
+      "path": "journal/data/wallpaper-artworks.json",
+      "baseline_blob": "d07b579c358091c92ccdf5c83769cb24923c262e",
+      "current_blob": "d07b579c358091c92ccdf5c83769cb24923c262e",
+      "preserved": true
+    },
+    {
+      "path": "journal/data/wallpaper-layouts.json",
+      "baseline_blob": "137443298e4c751d3215e767f1ede290193b548b",
+      "current_blob": "137443298e4c751d3215e767f1ede290193b548b",
+      "preserved": true
+    },
+    {
+      "path": "journal/templates/giulia-body.html",
+      "baseline_blob": "3a98bc52c49bd19d3acc7c05c0fd90a222b13bba",
+      "current_blob": "3a98bc52c49bd19d3acc7c05c0fd90a222b13bba",
+      "preserved": true
+    },
+    {
+      "path": "next-generation/fonts/dm-sans-normal-400.woff2",
+      "baseline_blob": "617187b591524402cf6f30165adc3ca8843c46cc",
+      "current_blob": "617187b591524402cf6f30165adc3ca8843c46cc",
+      "preserved": true
+    },
+    {
+      "path": "next-generation/fonts/dm-sans-normal-500.woff2",
+      "baseline_blob": "cf6342301ebadc7d2806d80febe111f88fbe1a5b",
+      "current_blob": "cf6342301ebadc7d2806d80febe111f88fbe1a5b",
+      "preserved": true
+    },
+    {
+      "path": "next-generation/fonts/dm-sans-normal-600.woff2",
+      "baseline_blob": "19c09dbde78bc355975751412a1455ef23751323",
+      "current_blob": "19c09dbde78bc355975751412a1455ef23751323",
+      "preserved": true
+    },
+    {
+      "path": "next-generation/fonts/dm-sans-normal-700.woff2",
+      "baseline_blob": "0fd647cde0449833e18369894b648f03ee3f5151",
+      "current_blob": "0fd647cde0449833e18369894b648f03ee3f5151",
+      "preserved": true
+    },
+    {
+      "path": "next-generation/fonts/instrument-serif-italic-400.woff2",
+      "baseline_blob": "1a863bbe98734e2cc9f21051e8e894116b4016fd",
+      "current_blob": "1a863bbe98734e2cc9f21051e8e894116b4016fd",
+      "preserved": true
+    },
+    {
+      "path": "next-generation/fonts/instrument-serif-normal-400.woff2",
+      "baseline_blob": "24e5107058ba51d58e5cced1a7c24b0a6ee047ec",
+      "current_blob": "24e5107058ba51d58e5cced1a7c24b0a6ee047ec",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/cedilla-icon.svg",
+      "baseline_blob": "bbb5209d0188507896f557f4a3d74da2612592b3",
+      "current_blob": "bbb5209d0188507896f557f4a3d74da2612592b3",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-102-400-normal.woff2",
+      "baseline_blob": "4e9245558620deeb01d57141d1954187299618c3",
+      "current_blob": "4e9245558620deeb01d57141d1954187299618c3",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-104-400-normal.woff2",
+      "baseline_blob": "e55e0542aa14de8c71506c211381f8ef4a0a0018",
+      "current_blob": "e55e0542aa14de8c71506c211381f8ef4a0a0018",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-106-400-normal.woff2",
+      "baseline_blob": "96bb64c30fe97895bb9cd3d88f74fba6df7c322b",
+      "current_blob": "96bb64c30fe97895bb9cd3d88f74fba6df7c322b",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-108-400-normal.woff2",
+      "baseline_blob": "03395f3dce29998f2af1ab0c82fe2b0f6d124075",
+      "current_blob": "03395f3dce29998f2af1ab0c82fe2b0f6d124075",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-109-400-normal.woff2",
+      "baseline_blob": "f39897a980289b5d3add989572032155bb483cae",
+      "current_blob": "f39897a980289b5d3add989572032155bb483cae",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-110-400-normal.woff2",
+      "baseline_blob": "c44acbc124a21e85319a03d4e2bca0ad4eb04ab7",
+      "current_blob": "c44acbc124a21e85319a03d4e2bca0ad4eb04ab7",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-111-400-normal.woff2",
+      "baseline_blob": "6900386879a44b24ae27b7461db6fb6c2c728d28",
+      "current_blob": "6900386879a44b24ae27b7461db6fb6c2c728d28",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-112-400-normal.woff2",
+      "baseline_blob": "cb8934d3bf1bdaba79cc0975c13b6f240f695b54",
+      "current_blob": "cb8934d3bf1bdaba79cc0975c13b6f240f695b54",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-113-400-normal.woff2",
+      "baseline_blob": "ae9dd1ed85ec69285c803b673a7a06343e51fb41",
+      "current_blob": "ae9dd1ed85ec69285c803b673a7a06343e51fb41",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-114-400-normal.woff2",
+      "baseline_blob": "ae5cefff53203768b404a8cfb57a76fa4ee4c95c",
+      "current_blob": "ae5cefff53203768b404a8cfb57a76fa4ee4c95c",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-115-400-normal.woff2",
+      "baseline_blob": "20fc48eff38a6a3ecd9f81c1fdf1f101ec5ec2cb",
+      "current_blob": "20fc48eff38a6a3ecd9f81c1fdf1f101ec5ec2cb",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-116-400-normal.woff2",
+      "baseline_blob": "8d4ecb6aa69ca47236b0e75a592fc27cf256c893",
+      "current_blob": "8d4ecb6aa69ca47236b0e75a592fc27cf256c893",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-117-400-normal.woff2",
+      "baseline_blob": "a6e4494e41ec1fcefd995ef9139f5bdfed0bd542",
+      "current_blob": "a6e4494e41ec1fcefd995ef9139f5bdfed0bd542",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-118-400-normal.woff2",
+      "baseline_blob": "c407f901d95b2cc6538361c5acbc29c30209f964",
+      "current_blob": "c407f901d95b2cc6538361c5acbc29c30209f964",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-119-400-normal.woff2",
+      "baseline_blob": "f0b3f0a4c61f672c126547298499e2ba8c1d994d",
+      "current_blob": "f0b3f0a4c61f672c126547298499e2ba8c1d994d",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-98-400-normal.woff2",
+      "baseline_blob": "b7941d1f9a7cebd149b3c75d0d29756ab1281c61",
+      "current_blob": "b7941d1f9a7cebd149b3c75d0d29756ab1281c61",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-99-400-normal.woff2",
+      "baseline_blob": "4706747772edee3ecdca0c5d8a5084e447bfe14b",
+      "current_blob": "4706747772edee3ecdca0c5d8a5084e447bfe14b",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-latin-400-normal.woff2",
+      "baseline_blob": "8a60a848ab8118f003d985b44ff7954f657728b7",
+      "current_blob": "8a60a848ab8118f003d985b44ff7954f657728b7",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-latin-ext-400-normal.woff2",
+      "baseline_blob": "64bae51ea8ecfaf2c63dee56471de648c6e15bdb",
+      "current_blob": "64bae51ea8ecfaf2c63dee56471de648c6e15bdb",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/wordmark-hd.png",
+      "baseline_blob": "00b996bd0d4b926ca0c97bb98421e0d4cbd26dd6",
+      "current_blob": "00b996bd0d4b926ca0c97bb98421e0d4cbd26dd6",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/yokohama-arrival.webp",
+      "baseline_blob": "85e61477879347b292e2080ce92be443ae7f984e",
+      "current_blob": "85e61477879347b292e2080ce92be443ae7f984e",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/yokohama-bluehour.webp",
+      "baseline_blob": "2b2316381f019f17048ff3627503157a6b9dcc81",
+      "current_blob": "2b2316381f019f17048ff3627503157a6b9dcc81",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/yokohama-interior.webp",
+      "baseline_blob": "a6d727128ebdf2448921ebbe24bd1e5d65c0b12c",
+      "current_blob": "a6d727128ebdf2448921ebbe24bd1e5d65c0b12c",
+      "preserved": true
+    },
+    {
+      "path": "world/assets/yokohama-portrait.webp",
+      "baseline_blob": "dc63715d207718fbd6a8c17ab3358c3de183612b",
+      "current_blob": "dc63715d207718fbd6a8c17ab3358c3de183612b",
+      "preserved": true
+    }
+  ],
+  "prose": [
+    {
+      "path": "journal/911/index.html",
+      "baseline_substantive_paragraphs": 25,
+      "missing": [],
+      "preserved": true
+    },
+    {
+      "path": "journal/f40/index.html",
+      "baseline_substantive_paragraphs": 20,
+      "missing": [],
+      "preserved": true
+    },
+    {
+      "path": "journal/design/giulia/index.html",
+      "baseline_substantive_paragraphs": 39,
+      "missing": [],
+      "preserved": true
+    },
+    {
+      "path": "journal/design/type-01/index.html",
+      "baseline_substantive_paragraphs": 31,
+      "missing": [],
+      "preserved": true
+    }
+  ]
+}
