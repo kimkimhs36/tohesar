@@ -1,0 +1,21 @@
+{
+  "byte_identical_rebuild": true,
+  "files": {
+    "journal/index.html": "dc5cc7225ceb3d23c2d5a5905d11f262cac7f33c9a9514ee8499c81a3e7d8d82",
+    "journal/911/index.html": "8d15fc9badbdde73878bf7ec355bdc3aa11f9175c9a5b3ddc27351f463513447",
+    "journal/f40/index.html": "19ec93971007c94da8b87f1de5e3bd1a992ef136e5917bbf385d365b7c4dfd07",
+    "journal/partials/miniature-passage.html": "90e06a3ce16ba4c87e322f2b73b51473ebe3e0b914fd8e3bbe2f07593f41de37",
+    "journal/partials/navigation.html": "b14639233f549296241578852f4767155e5af71f6abcbd6e8818265f903f05df",
+    "journal/news/index.html": "494ac4ddb3adb83ab3313226131ea3ac9dc7bd0f00d4903fa41659f0238008dc",
+    "journal/issues/index.html": "dfbb22587ca42156122a9ee7618d23358b0aa8ae419f447d5cbbfa2c11b21b59",
+    "journal/legacy-004/index.html": "c5b22017b3ffb5febbf4a456cea0bba9c72d8c8dcd7ca0d42e12df7c2ac74e54",
+    "journal/miniatures/index.html": "83af2aa5ed75bd21126f4f8b3c7e1014a9622b8b8a29926af690414ddcb8471f",
+    "journal/design/index.html": "8df979212832ec02766798a3572343f22fc60ab92074097d70d2e0591250adcc",
+    "journal/templates/giulia-body.html": "cb864bf9563b16d40e48954f0f170e61d638c7c3d7ca23c7867836c08eeb80ce",
+    "journal/visual/index.html": "8e8b3f15442300a8ac44d9ff0a366639799ff8d310d9584229089e124fce790a",
+    "journal/yokohama/index.html": "aaf3621902fe12f152c214d0cbfa791eb2164ed503b18abf12c97c2a4779ca2f",
+    "journal/issues/001/index.html": "69d28052aa6bc57899264a9971bad22bac82cbd2b2c1a1550aa7dedee9f91043",
+    "journal/design/giulia/index.html": "49e9ac4f30382e3152921d738925713dae41e2ec73b3927de63202a4056fe0aa",
+    "journal/design/type-01/index.html": "5f078014ec8ab18c8cdecfa3faa7460120852d791fb9151236e00271660720d2"
+  }
+}

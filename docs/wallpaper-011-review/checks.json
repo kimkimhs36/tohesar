@@ -1,0 +1,1218 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "before": "http://127.0.0.1:8001",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "154.0.8037.57",
+      "physicalDevice": false,
+      "errors": [],
+      "records": [
+        {
+          "name": "chromium-320-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 825
+        },
+        {
+          "name": "chromium-320-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 11,
+          "manuscriptVisible": true,
+          "scroll": 867
+        },
+        {
+          "name": "chromium-320-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 7,
+          "manuscriptVisible": true,
+          "scroll": 3133
+        },
+        {
+          "name": "chromium-320-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 6,
+          "manuscriptVisible": true,
+          "scroll": 5318
+        },
+        {
+          "name": "chromium-390-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 938
+        },
+        {
+          "name": "chromium-390-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 980
+        },
+        {
+          "name": "chromium-390-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3200
+        },
+        {
+          "name": "chromium-390-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 5317
+        },
+        {
+          "name": "chromium-390-issue",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 1768
+        },
+        {
+          "name": "chromium-390-issue-small",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 11,
+          "manuscriptVisible": true,
+          "scroll": 6022
+        },
+        {
+          "name": "chromium-390-giulia",
+          "route": "/journal/design/giulia/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 1757
+        },
+        {
+          "name": "chromium-390-f40",
+          "route": "/journal/f40/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 955
+        },
+        {
+          "name": "chromium-430-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1003
+        },
+        {
+          "name": "chromium-430-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 16,
+          "manuscriptVisible": true,
+          "scroll": 1045
+        },
+        {
+          "name": "chromium-430-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 11,
+          "manuscriptVisible": true,
+          "scroll": 3216
+        },
+        {
+          "name": "chromium-430-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 5288
+        },
+        {
+          "name": "chromium-820-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1394
+        },
+        {
+          "name": "chromium-820-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 24,
+          "manuscriptVisible": true,
+          "scroll": 1419
+        },
+        {
+          "name": "chromium-820-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 3207
+        },
+        {
+          "name": "chromium-820-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 14,
+          "manuscriptVisible": true,
+          "scroll": 5090
+        },
+        {
+          "name": "chromium-1180-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1289
+        },
+        {
+          "name": "chromium-1180-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 21,
+          "manuscriptVisible": true,
+          "scroll": 1314
+        },
+        {
+          "name": "chromium-1180-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 3123
+        },
+        {
+          "name": "chromium-1180-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 12,
+          "manuscriptVisible": true,
+          "scroll": 4895
+        },
+        {
+          "name": "chromium-1180-issue",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 1956
+        },
+        {
+          "name": "chromium-1180-issue-small",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 6124
+        },
+        {
+          "name": "chromium-1180-giulia",
+          "route": "/journal/design/giulia/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 17,
+          "manuscriptVisible": true,
+          "scroll": 1880
+        },
+        {
+          "name": "chromium-1180-f40",
+          "route": "/journal/f40/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 1463
+        },
+        {
+          "name": "chromium-1440-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1391
+        },
+        {
+          "name": "chromium-1440-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 24,
+          "manuscriptVisible": true,
+          "scroll": 1416
+        },
+        {
+          "name": "chromium-1440-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 3232
+        },
+        {
+          "name": "chromium-1440-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 5027
+        },
+        {
+          "name": "chromium-390-motion-start",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3110
+        },
+        {
+          "name": "chromium-390-motion-middle",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 3300
+        },
+        {
+          "name": "chromium-390-motion-end",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3490
+        },
+        {
+          "name": "chromium-390-motion-reverse",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 3300
+        },
+        {
+          "name": "chromium-390-reduced",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 3300
+        },
+        {
+          "name": "chromium-844-rotated",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 7,
+          "manuscriptVisible": true,
+          "scroll": 2687
+        },
+        {
+          "name": "chromium-390-old-passage",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 8817
+        },
+        {
+          "name": "chromium-390-no-js",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3200
+        }
+      ],
+      "poses": [
+        {
+          "progress": "0.41371",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(-2.244px, -1.339px, 0px) rotate(10.655deg)",
+            "translate(-50%, -50%) translate3d(1.726px, 2.142px, 0px) rotate(-12.655deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-1.381px, 1.071px, 0px) rotate(-8.173deg)",
+            "translate(-50%, -50%) translate3d(2.416px, -1.607px, 0px) rotate(12.173deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-2.244px, -1.339px, 0px) rotate(7.655deg)",
+            "translate(-50%, -50%) translate3d(1.726px, 2.142px, 0px) rotate(14.345deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-1.381px, 1.071px, 0px) rotate(-11.173deg)",
+            "translate(-50%, -50%) translate3d(2.416px, -1.607px, 0px) rotate(9.173deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-2.244px, -1.339px, 0px) rotate(-7.345deg)",
+            "translate(-50%, -50%) translate3d(1.726px, 2.142px, 0px) rotate(10.345deg)"
+          ]
+        },
+        {
+          "progress": "0.50686",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(11.027deg)",
+            "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(-13.027deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-7.986deg)",
+            "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(11.986deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(8.027deg)",
+            "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(13.973deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-10.986deg)",
+            "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(8.986deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(-6.973deg)",
+            "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(9.973deg)"
+          ]
+        },
+        {
+          "progress": "0.60000",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(2.6px, 1.545px, 0px) rotate(11.4deg)",
+            "translate(-50%, -50%) translate3d(-2px, -2.472px, 0px) rotate(-13.4deg)",
+            "",
+            "translate(-50%, -50%) translate3d(1.6px, -1.236px, 0px) rotate(-7.8deg)",
+            "translate(-50%, -50%) translate3d(-2.8px, 1.854px, 0px) rotate(11.8deg)",
+            "",
+            "translate(-50%, -50%) translate3d(2.6px, 1.545px, 0px) rotate(8.4deg)",
+            "translate(-50%, -50%) translate3d(-2px, -2.472px, 0px) rotate(13.6deg)",
+            "",
+            "translate(-50%, -50%) translate3d(1.6px, -1.236px, 0px) rotate(-10.8deg)",
+            "translate(-50%, -50%) translate3d(-2.8px, 1.854px, 0px) rotate(8.8deg)",
+            "",
+            "translate(-50%, -50%) translate3d(2.6px, 1.545px, 0px) rotate(-6.6deg)",
+            "translate(-50%, -50%) translate3d(-2px, -2.472px, 0px) rotate(9.6deg)"
+          ]
+        },
+        {
+          "progress": "0.50686",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(11.027deg)",
+            "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(-13.027deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-7.986deg)",
+            "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(11.986deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(8.027deg)",
+            "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(13.973deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.11px, -0.086px, 0px) rotate(-10.986deg)",
+            "translate(-50%, -50%) translate3d(-0.192px, 0.129px, 0px) rotate(8.986deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.178px, 0.108px, 0px) rotate(-6.973deg)",
+            "translate(-50%, -50%) translate3d(-0.137px, -0.172px, 0px) rotate(9.973deg)"
+          ]
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "version": "26.5",
+      "physicalDevice": false,
+      "errors": [],
+      "records": [
+        {
+          "name": "webkit-320-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 824
+        },
+        {
+          "name": "webkit-320-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 11,
+          "manuscriptVisible": true,
+          "scroll": 866
+        },
+        {
+          "name": "webkit-320-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 7,
+          "manuscriptVisible": true,
+          "scroll": 3123
+        },
+        {
+          "name": "webkit-320-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 320,
+            "height": 667
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 6,
+          "manuscriptVisible": true,
+          "scroll": 5243
+        },
+        {
+          "name": "webkit-390-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 938
+        },
+        {
+          "name": "webkit-390-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 980
+        },
+        {
+          "name": "webkit-390-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3157
+        },
+        {
+          "name": "webkit-390-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 5263
+        },
+        {
+          "name": "webkit-390-issue",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 1767
+        },
+        {
+          "name": "webkit-390-issue-small",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 11,
+          "manuscriptVisible": true,
+          "scroll": 6019
+        },
+        {
+          "name": "webkit-390-giulia",
+          "route": "/journal/design/giulia/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 1757
+        },
+        {
+          "name": "webkit-390-f40",
+          "route": "/journal/f40/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 9,
+          "manuscriptVisible": true,
+          "scroll": 954
+        },
+        {
+          "name": "webkit-430-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1003
+        },
+        {
+          "name": "webkit-430-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 16,
+          "manuscriptVisible": true,
+          "scroll": 1045
+        },
+        {
+          "name": "webkit-430-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 11,
+          "manuscriptVisible": true,
+          "scroll": 3172
+        },
+        {
+          "name": "webkit-430-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 430,
+            "height": 932
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 5235
+        },
+        {
+          "name": "webkit-820-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1394
+        },
+        {
+          "name": "webkit-820-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 24,
+          "manuscriptVisible": true,
+          "scroll": 1419
+        },
+        {
+          "name": "webkit-820-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 3206
+        },
+        {
+          "name": "webkit-820-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 820,
+            "height": 1180
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 14,
+          "manuscriptVisible": true,
+          "scroll": 5057
+        },
+        {
+          "name": "webkit-1180-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1288
+        },
+        {
+          "name": "webkit-1180-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 21,
+          "manuscriptVisible": true,
+          "scroll": 1313
+        },
+        {
+          "name": "webkit-1180-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 3122
+        },
+        {
+          "name": "webkit-1180-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 12,
+          "manuscriptVisible": true,
+          "scroll": 4894
+        },
+        {
+          "name": "webkit-1180-issue",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 1956
+        },
+        {
+          "name": "webkit-1180-issue-small",
+          "route": "/journal/issues/001/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 6123
+        },
+        {
+          "name": "webkit-1180-giulia",
+          "route": "/journal/design/giulia/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 18,
+          "manuscriptVisible": true,
+          "scroll": 1840
+        },
+        {
+          "name": "webkit-1180-f40",
+          "route": "/journal/f40/",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 1462
+        },
+        {
+          "name": "webkit-1440-before",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 1391
+        },
+        {
+          "name": "webkit-1440-opening",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 24,
+          "manuscriptVisible": true,
+          "scroll": 1416
+        },
+        {
+          "name": "webkit-1440-living-static",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 13,
+          "manuscriptVisible": true,
+          "scroll": 3232
+        },
+        {
+          "name": "webkit-1440-ending",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 15,
+          "manuscriptVisible": true,
+          "scroll": 4993
+        },
+        {
+          "name": "webkit-390-motion-start",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3067
+        },
+        {
+          "name": "webkit-390-motion-middle",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3257
+        },
+        {
+          "name": "webkit-390-motion-end",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3447
+        },
+        {
+          "name": "webkit-390-motion-reverse",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3257
+        },
+        {
+          "name": "webkit-390-reduced",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3257
+        },
+        {
+          "name": "webkit-844-rotated",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 7,
+          "manuscriptVisible": true,
+          "scroll": 2687
+        },
+        {
+          "name": "webkit-390-old-passage",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 0,
+          "manuscriptVisible": false,
+          "scroll": 8712
+        },
+        {
+          "name": "webkit-390-no-js",
+          "route": "/journal/911/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "overflow": false,
+          "broken": [],
+          "visibleCars": 10,
+          "manuscriptVisible": true,
+          "scroll": 3157
+        }
+      ],
+      "poses": [
+        {
+          "progress": "0.41575",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(-2.191px, -1.308px, 0px) rotate(10.663deg)",
+            "translate(-50%, -50%) translate3d(1.685px, 2.093px, 0px) rotate(-12.663deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-1.348px, 1.046px, 0px) rotate(-8.169deg)",
+            "translate(-50%, -50%) translate3d(2.359px, -1.57px, 0px) rotate(12.169deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-2.191px, -1.308px, 0px) rotate(7.663deg)",
+            "translate(-50%, -50%) translate3d(1.685px, 2.093px, 0px) rotate(14.337deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-1.348px, 1.046px, 0px) rotate(-11.169deg)",
+            "translate(-50%, -50%) translate3d(2.359px, -1.57px, 0px) rotate(9.169deg)",
+            "",
+            "translate(-50%, -50%) translate3d(-2.191px, -1.308px, 0px) rotate(-7.337deg)",
+            "translate(-50%, -50%) translate3d(1.685px, 2.093px, 0px) rotate(10.337deg)"
+          ]
+        },
+        {
+          "progress": "0.50935",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(11.037deg)",
+            "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(-13.037deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-7.981deg)",
+            "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(11.981deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(8.037deg)",
+            "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(13.963deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-10.981deg)",
+            "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(8.981deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(-6.963deg)",
+            "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(9.963deg)"
+          ]
+        },
+        {
+          "progress": "0.60296",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(2.677px, 1.589px, 0px) rotate(11.412deg)",
+            "translate(-50%, -50%) translate3d(-2.059px, -2.543px, 0px) rotate(-13.412deg)",
+            "",
+            "translate(-50%, -50%) translate3d(1.647px, -1.271px, 0px) rotate(-7.794deg)",
+            "translate(-50%, -50%) translate3d(-2.883px, 1.907px, 0px) rotate(11.794deg)",
+            "",
+            "translate(-50%, -50%) translate3d(2.677px, 1.589px, 0px) rotate(8.412deg)",
+            "translate(-50%, -50%) translate3d(-2.059px, -2.543px, 0px) rotate(13.588deg)",
+            "",
+            "translate(-50%, -50%) translate3d(1.647px, -1.271px, 0px) rotate(-10.794deg)",
+            "translate(-50%, -50%) translate3d(-2.883px, 1.907px, 0px) rotate(8.794deg)",
+            "",
+            "translate(-50%, -50%) translate3d(2.677px, 1.589px, 0px) rotate(-6.588deg)",
+            "translate(-50%, -50%) translate3d(-2.059px, -2.543px, 0px) rotate(9.588deg)"
+          ]
+        },
+        {
+          "progress": "0.50935",
+          "transforms": [
+            "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(11.037deg)",
+            "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(-13.037deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-7.981deg)",
+            "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(11.981deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(8.037deg)",
+            "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(13.963deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.15px, -0.118px, 0px) rotate(-10.981deg)",
+            "translate(-50%, -50%) translate3d(-0.262px, 0.176px, 0px) rotate(8.981deg)",
+            "",
+            "translate(-50%, -50%) translate3d(0.243px, 0.147px, 0px) rotate(-6.963deg)",
+            "translate(-50%, -50%) translate3d(-0.187px, -0.235px, 0px) rotate(9.963deg)"
+          ]
+        }
+      ]
+    }
+  ]
+}

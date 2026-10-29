@@ -1,0 +1,263 @@
+{
+  "base": "http://127.0.0.1:8000",
+  "checked_at": "2026-10-29T08:44:57.948Z",
+  "physical_iphone_tested": false,
+  "browsers": [
+    {
+      "name": "chromium",
+      "version": "154.0.8037.57",
+      "checks": [
+        {
+          "route": "/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/911/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/f40/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/type-01/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/news/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/visual/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/miniatures/",
+          "width": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/",
+          "width": 320,
+          "height": 667,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/",
+          "width": 430,
+          "height": 932,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/",
+          "width": 844,
+          "height": 390,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/001/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/design/giulia/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "route": "/journal/issues/",
+          "width": 1440,
+          "height": 1000,
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "regression": "/journal/911/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "regression": "/journal/f40/",
+          "overflow": false,
+          "broken": []
+        },
+        {
+          "regression": "/journal/design/type-01/",
+          "overflow": false,
+          "broken": []
+        }
+      ],
+      "poses": [
+        {
+          "progress": "0.04014",
+          "scene": "0",
+          "left": "3%",
+          "right": "3%"
+        },
+        {
+          "progress": "0.28009",
+          "scene": "1",
+          "left": "6%",
+          "right": "64%"
+        },
+        {
+          "progress": "0.50015",
+          "scene": "2",
+          "left": "30%",
+          "right": "27%"
+        },
+        {
+          "progress": "0.72021",
+          "scene": "3",
+          "left": "67%",
+          "right": "9%"
+        },
+        {
+          "progress": "0.95000",
+          "scene": "4",
+          "left": "3%",
+          "right": "3%"
+        },
+        {
+          "progress": "0.72021",
+          "scene": "3",
+          "left": "67%",
+          "right": "9%"
+        },
+        {
+          "progress": "0.50015",
+          "scene": "2",
+          "left": "30%",
+          "right": "27%"
+        },
+        {
+          "progress": "0.28009",
+          "scene": "1",
+          "left": "6%",
+          "right": "64%"
+        },
+        {
+          "progress": "0.04014",
+          "scene": "0",
+          "left": "3%",
+          "right": "3%"
+        }
+      ],
+      "bounds": [
+        {
+          "top": 193.09375,
+          "bottom": 422.5
+        },
+        {
+          "top": 442.5,
+          "bottom": 646.1875
+        },
+        {
+          "top": 663.5,
+          "bottom": 723.5
+        },
+        {
+          "top": 738.5,
+          "bottom": 740.5
+        }
+      ],
+      "page_errors": [],
+      "journey": "pass",
+      "history": "pass",
+      "no_js": "pass",
+      "reduced_motion": "pass"
+    }
+  ]
+}
