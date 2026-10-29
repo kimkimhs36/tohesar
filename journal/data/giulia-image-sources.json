@@ -58,5 +58,24 @@
     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "changes": "Resize/WebP; CSS crops and separate editorial observation overlays. No vehicle warping. Adapted image presentations CC BY-SA 4.0.",
     "verified_at": "2026-10-29"
+  },
+  {
+    "id": "giulia-profile",
+    "model": "Alfa Romeo Giulia, type 952, pre-facelift; exact trim and model year not documented by photographer",
+    "vehicle_year": null,
+    "photographed_at": null,
+    "author": "Owen.outdoors",
+    "source": "https://www.pexels.com/photo/alfa-romeo-giulia-in-side-view-26756716/",
+    "original_url": "https://images.pexels.com/photos/26756716/pexels-photo-26756716.png?cs=srgb&dl=pexels-owen-outdoors-409204690-26756716.jpg&fm=jpg",
+    "original_path": "creative/first-issue-008/originals/profile.jpg",
+    "dimensions": [
+      5616,
+      3744
+    ],
+    "sha256": "706c362e846b35e08a412d7b16f8c4cca25112da447e608834f986606048d14e",
+    "licence": "Pexels License",
+    "licence_url": "https://www.pexels.com/license/",
+    "changes": "Resize/WebP conversion. CSS framing and separate observation overlays. Original preserved; no geometry changes. No endorsement implied.",
+    "verified_at": "2026-10-29"
   }
 ]
