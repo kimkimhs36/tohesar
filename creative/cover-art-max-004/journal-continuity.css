@@ -13,7 +13,7 @@
 .home-journal .j-topline{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--j-rule);padding:19px var(--j-edge);font:10px/1.6 Arial,sans-serif;letter-spacing:.1em}
 .home-journal .j-intro{display:grid;grid-template-columns:1.35fr .65fr;align-items:end;gap:30px;padding:clamp(47px,7vw,100px) var(--j-edge) clamp(40px,6vw,90px)}
 .home-journal .j-intro h2{font:400 clamp(60px,11vw,138px)/1 Arial,sans-serif;letter-spacing:-.09em;margin-top:8px}
-.home-journal .j-intro h2 span{color:#9f799d}
+.home-journal .j-intro h2 span{color:#9f799d;margin-left:0}
 .home-journal .j-intro p{font-size:13px;line-height:2;max-width:310px;margin-bottom:14px}
 .home-journal .j-index{display:flex;justify-content:space-between;gap:0;margin:0 var(--j-edge);border-block:1px solid var(--j-rule);overflow-x:auto;scrollbar-width:none}
 .home-journal .j-index a{min-height:48px;display:flex;gap:25px;align-items:center;justify-content:space-between;flex:1;padding:0 18px;font:11px Arial,sans-serif;white-space:nowrap}
