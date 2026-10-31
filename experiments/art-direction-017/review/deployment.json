@@ -1,0 +1,20 @@
+{
+  "id": "appgdep_6ae5bcf200e881918b4f1b1b58356cd6",
+  "project_id": "appgprj_6ae5ba7a1724819197205f65335f53c0",
+  "title": "TOHEŞAR — Art Direction Lab 017",
+  "version_id": "appgprj_6ae5ba7a1724819197205f65335f53c0~appgver_8e83f3de60888191a61757aacd16c805",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://tohesar-art-direction-017-lab.teambkit.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ae5ba7a1724819197205f65335f53c0",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-31T10:03:45.492852+00:00",
+  "github_source_commit": "8dd605c57458fbd58727a5f001aa57f4292af8aa",
+  "site_source_commit": "4dc0a471d5ef1a05cf28e69223460a5c0e11705a",
+  "audience": "owner-private",
+  "production_repository_branch": "main unchanged",
+  "note": "Independent Sites review mirror. Does not replace tohesar.com. The source helper was unavailable; ordinary Git through hidden stdin was used to push source, then its static archive was saved and privately deployed."
+}

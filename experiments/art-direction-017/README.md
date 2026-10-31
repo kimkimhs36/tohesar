@@ -1,5 +1,7 @@
 # TOHEŞAR — Art Direction Lab 017
 
+비공개 검토 사이트: https://tohesar-art-direction-017-lab.teambkit.chatgpt.site
+
 운영 디자인을 대체하지 않는 독립 프리뷰. 기준: `70d2a818c0be7f695b840fe5a2f2f0255d240b97` (main). 016을 병합하거나 기준으로 삼지 않았다. 채택은 창립자의 결정이다.
 
 저장소 루트에서 `python -m http.server 8177` 후 `/experiments/art-direction-017/`를 연다. 빌드·JavaScript·외부 CDN 없이 작동한다.
