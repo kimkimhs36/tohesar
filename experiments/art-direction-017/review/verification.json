@@ -1,0 +1,1053 @@
+{
+  "baseline_commit": "70d2a818c0be7f695b840fe5a2f2f0255d240b97",
+  "browser": "Playwright WebKit 26.5 / Linux",
+  "physical_device": false,
+  "manuscripts": [
+    {
+      "variant": "a",
+      "story": "911",
+      "sections": 4,
+      "paragraphs": 13,
+      "all_manuscript_text_equal": true
+    },
+    {
+      "variant": "b",
+      "story": "911",
+      "sections": 4,
+      "paragraphs": 13,
+      "all_manuscript_text_equal": true
+    },
+    {
+      "variant": "a",
+      "story": "f40",
+      "sections": 3,
+      "paragraphs": 9,
+      "all_manuscript_text_equal": true
+    },
+    {
+      "variant": "b",
+      "story": "f40",
+      "sections": 3,
+      "paragraphs": 9,
+      "all_manuscript_text_equal": true
+    }
+  ],
+  "responsive_checks": 16,
+  "no_js_and_reduced_motion_routes": 4,
+  "local_link_and_image_urls": 28,
+  "records": [
+    {
+      "path": "/experiments/art-direction-017/a/911/",
+      "viewport": [
+        390,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 4.72,
+      "layout": {
+        "viewport": 390,
+        "document": 390,
+        "height": 7540,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "16px",
+        "lineHeight": "32.799999px",
+        "readingWidth": 338,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": {
+        "frames": 71,
+        "medianMs": 16,
+        "p95Ms": 17,
+        "maxMs": 18,
+        "note": "Local headless WebKit RAF sweep; not physical iPhone performance"
+      }
+    },
+    {
+      "path": "/experiments/art-direction-017/a/f40/",
+      "viewport": [
+        390,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 4.41,
+      "layout": {
+        "viewport": 390,
+        "document": 390,
+        "height": 5331,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "16px",
+        "lineHeight": "32.799999px",
+        "readingWidth": 338,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": {
+        "frames": 71,
+        "medianMs": 16,
+        "p95Ms": 17,
+        "maxMs": 34,
+        "note": "Local headless WebKit RAF sweep; not physical iPhone performance"
+      }
+    },
+    {
+      "path": "/experiments/art-direction-017/b/911/",
+      "viewport": [
+        390,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 4.83,
+      "layout": {
+        "viewport": 390,
+        "document": 390,
+        "height": 7532,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "17px",
+        "lineHeight": "34px",
+        "readingWidth": 338,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": {
+        "frames": 71,
+        "medianMs": 16,
+        "p95Ms": 17,
+        "maxMs": 18,
+        "note": "Local headless WebKit RAF sweep; not physical iPhone performance"
+      }
+    },
+    {
+      "path": "/experiments/art-direction-017/b/f40/",
+      "viewport": [
+        390,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 4.37,
+      "layout": {
+        "viewport": 390,
+        "document": 390,
+        "height": 5714,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "17px",
+        "lineHeight": "34px",
+        "readingWidth": 338,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 390,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": {
+        "frames": 71,
+        "medianMs": 16,
+        "p95Ms": 17,
+        "maxMs": 17,
+        "note": "Local headless WebKit RAF sweep; not physical iPhone performance"
+      }
+    },
+    {
+      "path": "/experiments/art-direction-017/a/911/",
+      "viewport": [
+        375,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.32,
+      "layout": {
+        "viewport": 375,
+        "document": 375,
+        "height": 7638,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "16px",
+        "lineHeight": "32.799999px",
+        "readingWidth": 323,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/a/f40/",
+      "viewport": [
+        375,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 1.98,
+      "layout": {
+        "viewport": 375,
+        "document": 375,
+        "height": 5438,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "16px",
+        "lineHeight": "32.799999px",
+        "readingWidth": 323,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/b/911/",
+      "viewport": [
+        375,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.65,
+      "layout": {
+        "viewport": 375,
+        "document": 375,
+        "height": 7711,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "17px",
+        "lineHeight": "34px",
+        "readingWidth": 323,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/b/f40/",
+      "viewport": [
+        375,
+        844
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.14,
+      "layout": {
+        "viewport": 375,
+        "document": 375,
+        "height": 5753,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "17px",
+        "lineHeight": "34px",
+        "readingWidth": 323,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 374,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/a/911/",
+      "viewport": [
+        430,
+        932
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.27,
+      "layout": {
+        "viewport": 430,
+        "document": 430,
+        "height": 7268,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "16px",
+        "lineHeight": "32.799999px",
+        "readingWidth": 378,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/a/f40/",
+      "viewport": [
+        430,
+        932
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.14,
+      "layout": {
+        "viewport": 430,
+        "document": 430,
+        "height": 5213,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "16px",
+        "lineHeight": "32.799999px",
+        "readingWidth": 378,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/b/911/",
+      "viewport": [
+        430,
+        932
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.46,
+      "layout": {
+        "viewport": 430,
+        "document": 430,
+        "height": 7350,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "17px",
+        "lineHeight": "34px",
+        "readingWidth": 378,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/b/f40/",
+      "viewport": [
+        430,
+        932
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.59,
+      "layout": {
+        "viewport": 430,
+        "document": 430,
+        "height": 5552,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "17px",
+        "lineHeight": "34px",
+        "readingWidth": 378,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-800.webp",
+          "width": 430,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/a/911/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.43,
+      "layout": {
+        "viewport": 1194,
+        "document": 1194,
+        "height": 6766,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "17px",
+        "lineHeight": "34.849998px",
+        "readingWidth": 600,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/a/f40/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.23,
+      "layout": {
+        "viewport": 1194,
+        "document": 1194,
+        "height": 4827,
+        "bodyFont": "Noto Sans KR, Apple SD Gothic Neo, sans-serif",
+        "bodySize": "17px",
+        "lineHeight": "34.849998px",
+        "readingWidth": 600,
+        "animations": 0,
+        "objectCount": 1
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/b/911/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.56,
+      "layout": {
+        "viewport": 1194,
+        "document": 1194,
+        "height": 6378,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "18px",
+        "lineHeight": "36px",
+        "readingWidth": 600,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/coupe.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/assets/yokohama-arrival.webp",
+          "width": 1122,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    },
+    {
+      "path": "/experiments/art-direction-017/b/f40/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "engine": "WebKit",
+      "dpr": 1,
+      "load_and_scroll_seconds": 2.2,
+      "layout": {
+        "viewport": 1194,
+        "document": 1194,
+        "height": 4891,
+        "bodyFont": "PaperSerif, Noto Serif CJK KR, AppleMyungjo, serif",
+        "bodySize": "18px",
+        "lineHeight": "36px",
+        "readingWidth": 600,
+        "animations": 0,
+        "objectCount": 2
+      },
+      "images": [
+        {
+          "src": "/assets/wordmark.svg",
+          "width": 300,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/journal/assets/miniatures/wedge.webp",
+          "width": 1200,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/f40-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/edition/assets/porsche-911-1600.webp",
+          "width": 1100,
+          "complete": true
+        },
+        {
+          "src": "/assets/cedilla-icon.svg",
+          "width": 150,
+          "complete": true
+        }
+      ],
+      "broken_requests": [],
+      "script_errors": [],
+      "text_object_collisions": [],
+      "object_document_position_delta": 0.0,
+      "scroll_raf": null
+    }
+  ],
+  "visual_approval": "Pending founder review; technical checks are not design approval."
+}

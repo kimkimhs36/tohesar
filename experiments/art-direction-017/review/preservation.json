@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "70d2a818c0be7f695b840fe5a2f2f0255d240b97",
+  "verified_existing_files": 1293,
+  "existing_file_content_changes": [],
+  "all_existing_files_byte_identical": true,
+  "contains_016_commits": false,
+  "new_source_prefix": "/experiments/art-direction-017/",
+  "manuscripts": [
+    {
+      "variant": "a",
+      "story": "911",
+      "sections": 4,
+      "paragraphs": 13,
+      "all_manuscript_text_equal": true
+    },
+    {
+      "variant": "b",
+      "story": "911",
+      "sections": 4,
+      "paragraphs": 13,
+      "all_manuscript_text_equal": true
+    },
+    {
+      "variant": "a",
+      "story": "f40",
+      "sections": 3,
+      "paragraphs": 9,
+      "all_manuscript_text_equal": true
+    },
+    {
+      "variant": "b",
+      "story": "f40",
+      "sections": 3,
+      "paragraphs": 9,
+      "all_manuscript_text_equal": true
+    }
+  ],
+  "protected_examples": {
+    "index.html": "cfc73545b9c6326ba528147da582a3620d62b5f2423de29050880df67d7c2661",
+    "CNAME": "dc077b9553a9b4b8698a263ade4e7ac59e9113c857d3f92bed28edc1d0265124",
+    ".vercelignore": "c8dd5eaf35f5f469b8f5bd094879597d60a2de3e80b2c1dfe86c2628bc79ff1e",
+    "creative/cover-art-max-004/index.html": "2cf1c122fa7ac2f54382bc1341564dae7562f7a726632ebe64a88491624d46b0",
+    "journal/index.html": "b7a497547892fc0391967231facc0a494d0fc3771c9edb50c4f3446097261015",
+    "journal/911/index.html": "596cfe201483fce130cf8819b20d9aee46bfec3f2d4e84e5b69b8a743f466753",
+    "journal/f40/index.html": "683c6901432a30bcb2583c9a61a79f2076b3d9fce26daed1c17c7643a136e047",
+    "edition/index.html": "568d497802396839415ef61ef191434109e2f4384370f3429f96f02a3b4a79d7",
+    "edition/news/index.html": "c999d91e505d5392501fcf048c073e41fe5f1349afbf1f381aba639a41074539",
+    "edition/data/news.json": "ded3fb83f9ba17433dbe80db91693674b2d453dbcd20037dca6d2a154a1a13e1",
+    "journal/data/content-index.json": "145efa559c683c02501edbd3f6634d66db9d2f8262f543ca7752b456b05ed197",
+    "scripts/refresh_news.py": "0d1ca693e29e76addd1d03373b8bca04e5834b8ccf9db13424cb616f1059b2f6",
+    ".github/workflows/tohesar-pages-news.yml": "267ea26e703966545a2c29a5d1eb340a101df6764396b358e4607689ba893c66"
+  }
+}
