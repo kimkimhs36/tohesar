@@ -1,0 +1,116 @@
+/* TOHEŞAR 018 / Shared editorial chrome. The authored interiors retain their own compositions.
+   Applies to all Journal and Newsroom pages, never to the COVER 004 stage. */
+:root{
+  --thz-paper:#e9e4ee;
+  --thz-paper-light:#f5f1eb;
+  --thz-peach:#efcebd;
+  --thz-ink:#343143;
+  --thz-muted:#686172;
+  --thz-rule:#b8aebf;
+  --thz-edition:#d4c9da;
+  --thz-gutter:clamp(22px,4.5vw,76px)
+}
+body:not(:has(.sequence)) .site-header,
+.journal-flow .site-header{
+  position:relative;
+  z-index:25;
+  background-color:var(--thz-paper);
+  color:var(--thz-ink);
+  border-bottom:1px solid var(--thz-rule);
+  box-shadow:none;
+  min-height:68px;
+  -webkit-font-smoothing:antialiased
+}
+body:not(:has(.sequence)) .site-header .brand,
+body:not(:has(.sequence)) .site-header .logo,
+.journal-flow .site-header .brand{
+  width:clamp(118px,14vw,146px);
+  max-width:44vw;
+  flex:0 0 auto;
+  filter:none;
+  opacity:1
+}
+body:not(:has(.sequence)) .site-header .brand,
+body:not(:has(.sequence)) .site-header .logo img,
+.journal-flow .site-header .brand{filter:brightness(0);opacity:.85}
+body:not(:has(.sequence)) .site-header .header-journal,
+body:not(:has(.sequence)) .site-header .nav-journal,
+.journal-flow .site-header .header-journal{
+  color:var(--thz-ink);
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.015em;
+  min-height:44px;
+  align-items:center
+}
+body:not(:has(.sequence)) .journal-index,
+.journal-flow .journal-index{color:var(--thz-ink)}
+body:not(:has(.sequence)) .journal-index nav,
+.journal-flow .journal-index nav{
+  background:var(--thz-paper-light);
+  color:var(--thz-ink);
+  border-color:var(--thz-rule);
+  box-shadow:0 20px 40px rgba(52,49,67,.12)
+}
+body:not(:has(.sequence)) .journal-index nav>a,
+.journal-flow .journal-index nav>a{
+  border-color:var(--thz-rule);
+  color:var(--thz-ink)
+}
+body:not(:has(.sequence)) .journal-index nav>a:hover,
+.journal-flow .journal-index nav>a:hover{background-color:rgba(239,206,189,.28);opacity:1}
+body[data-page] .menu-panel{
+  background:var(--thz-paper-light);
+  border-color:var(--thz-rule);
+  box-shadow:0 20px 40px rgba(52,49,67,.12)
+}
+body[data-page] .menu-panel a{border-color:var(--thz-rule)}
+body[data-page] .icon-button,
+body[data-page] .menu-button{color:var(--thz-ink)}
+body:not(:has(.sequence)) .site-footer,
+.journal-flow .site-footer{
+  background-color:var(--thz-edition);
+  color:var(--thz-ink);
+  border-top:1px solid var(--thz-rule)
+}
+body:not(:has(.sequence)) .site-footer a,
+.journal-flow .site-footer a{color:inherit}
+body:not(:has(.sequence)) .site-footer a:focus-visible,
+body:not(:has(.sequence)) .site-header a:focus-visible,
+body:not(:has(.sequence)) .site-header summary:focus-visible,
+.journal-flow .site-header a:focus-visible,
+.journal-flow .site-header summary:focus-visible{
+  outline:2px solid #79578a;
+  outline-offset:4px
+}
+body[data-page] .newsroom-mast h1,
+body[data-page] .desk-feature h2{
+  color:var(--thz-ink)
+}
+body[data-page] .newsroom-mast h1>span{
+  color:#a580a3
+}
+body[data-page] .desk-feature-copy{
+  background-color:var(--thz-peach);
+  color:var(--thz-ink)
+}
+body[data-page] .desk-feature-copy h2{font-weight:400}
+body[data-page] .desk-nav,
+body[data-page] .front-wire-top{border-color:var(--thz-rule)}
+body[data-page] .desk-nav a{color:var(--thz-ink)}
+body:not(:has(.sequence)) .site-header a,
+.journal-flow .site-header a{touch-action:manipulation}
+@media(max-width:700px){
+  body:not(:has(.sequence)) .site-header,
+  .journal-flow .site-header{min-height:62px}
+  body:not(:has(.sequence)) .site-header .header-journal,
+  body:not(:has(.sequence)) .site-header .nav-journal,
+  .journal-flow .site-header .header-journal{font-size:10px}
+  body:not(:has(.sequence)) .site-header .brand,
+  body:not(:has(.sequence)) .site-header .logo,
+  .journal-flow .site-header .brand{width:126px;max-width:43vw}
+}
+@media(prefers-reduced-motion:reduce){
+  body:not(:has(.sequence)) .site-header *,
+  .journal-flow .site-header *{transition:none!important}
+}
