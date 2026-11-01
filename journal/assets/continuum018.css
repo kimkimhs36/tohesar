@@ -62,3 +62,41 @@ h1,h2,h3,p,figure{margin:0}h1,h2,h3,p{word-break:keep-all}a{color:inherit;text-d
 .journal-flow img{max-width:100%}
 @media(max-width:700px){.journal-flow .cover-editorial-continuation{display:block;padding:27px var(--edge) 23px}.journal-flow .cover-editorial-continuation p{font-size:22px;margin:13px 0}.journal-flow .cover-editorial-continuation>a{width:max-content;font-size:10px}.journal-flow .latest .section-heading{margin-bottom:14px}}
 @media(prefers-reduced-motion:reduce){.journal-flow a{transition:none}}
+
+/* Living newsroom inset: authoritative dated English titles, never disguised as translated TOHEŞAR reporting. */
+.journal-flow .journal-wire{background:#f7f2eb;padding:clamp(25px,4vw,55px);margin:28px 0 45px;color:#343143}
+.journal-flow .journal-wire-register,.journal-flow .journal-curated-caption{display:flex;justify-content:space-between;gap:18px;font:9px/1.75 Arial,sans-serif;letter-spacing:.08em;color:#73666f}
+.journal-flow .journal-wire-register{padding-bottom:13px;border-bottom:1px solid #cbbfc3}
+.journal-flow .journal-wire-register>span:last-child{letter-spacing:0;text-align:right}
+.journal-flow .journal-wire-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;padding:24px 0 12px}
+.journal-flow .journal-wire-heading h3{font:400 clamp(26px,3vw,44px)/1.3 'Noto Sans KR','Apple SD Gothic Neo',sans-serif;letter-spacing:-.06em;margin:0}
+.journal-flow .journal-wire-heading p{font:11px/1.85 'Noto Sans KR',sans-serif;color:#746972;max-width:270px}
+.journal-flow .journal-wire-list{list-style:none;margin:12px 0 0;padding:0;border-top:1px solid #b8aebf}
+.journal-flow .journal-wire-list li{border-bottom:1px solid #d2c6c8;margin:0}
+.journal-flow .journal-wire-list a{display:grid;grid-template-columns:170px minmax(0,1fr) 145px;gap:18px;align-items:center;min-height:72px;padding:15px 0;transition:color .2s}
+.journal-flow .journal-wire-list a:hover{color:#86616f}
+.journal-flow .journal-wire-list .front-wire-meta{font:9px/1.6 Arial,sans-serif;color:#786c73}
+.journal-flow .journal-wire-list strong{font:400 clamp(16px,1.85vw,24px)/1.5 THSerif,Georgia,serif;word-break:normal;overflow-wrap:anywhere}
+.journal-flow .journal-wire-list .front-wire-date{font:9px/1.6 Arial,sans-serif;color:#786c73;text-align:right}
+.journal-flow .journal-wire-list .front-wire-message{font-size:11px;color:#786c73;padding:22px 0}
+.journal-flow .journal-wire-more{display:flex;justify-content:space-between;align-items:center;gap:22px;min-height:48px;border-bottom:1px solid #81717c;font:11px/1.6 'Noto Sans KR',sans-serif;margin-top:10px;width:fit-content;min-width:225px}
+.journal-flow .journal-curated-caption{padding-bottom:15px;border-bottom:1px solid #ba9f9e}
+@media(max-width:800px){
+.journal-flow .journal-wire-list a{grid-template-columns:95px 1fr;gap:5px 14px}
+.journal-flow .journal-wire-list .front-wire-date{grid-column:2;text-align:left}
+}
+@media(max-width:700px){
+.journal-flow .journal-wire{margin:23px 0 32px;padding:24px 20px}
+.journal-flow .journal-wire-register{font-size:8px}
+.journal-flow .journal-wire-register>span:last-child{max-width:135px}
+.journal-flow .journal-wire-heading{display:block;padding-top:20px}
+.journal-flow .journal-wire-heading h3{font-size:27px}
+.journal-flow .journal-wire-heading p{margin:10px 0 5px;font-size:10px}
+.journal-flow .journal-wire-list a{display:block;padding:16px 0}
+.journal-flow .journal-wire-list .front-wire-meta{display:block;font-size:8px;margin-bottom:6px}
+.journal-flow .journal-wire-list strong{display:block;font-size:19px;line-height:1.52}
+.journal-flow .journal-wire-list .front-wire-date{display:block;font-size:8px;margin-top:8px}
+.journal-flow .journal-curated-caption{display:block;font-size:8px}
+.journal-flow .journal-curated-caption span:last-child{display:block;margin-top:3px}
+}
+@media(prefers-reduced-motion:reduce){.journal-flow .journal-wire-list a{transition:none}}
