@@ -62,6 +62,37 @@ class EditorialSystemTest(unittest.TestCase):
             es.build()
         self.assertEqual(page.read_text(), 'authored')
 
+    def test_all_three_miniature_modes_render_without_altering_content(self):
+        text = self.story['title']
+        for mode in ('quiet', 'trace', 'atelier'):
+            self.story['art_direction'] = {'miniatures': mode}
+            html = es.render(self.story, preview=True)
+            self.assertIn(f'data-miniatures="{mode}"', html)
+            self.assertIn('data-paper="ivory"', html)
+            self.assertIn('name="robots" content="noindex,nofollow"', html)
+            self.assertIn('새로운 시대는', html)
+            self.assertIn('Jaguar Type 01', html)
+            self.assertEqual(text, self.story['title'])
+        css = (self.root / 'journal/assets/editorial-system.css').read_text()
+        self.assertIn('.es-page[data-miniatures="quiet"]', css)
+        self.assertIn('.es-page[data-miniatures="trace"]', css)
+        self.assertIn('.es-page[data-miniatures="atelier"]', css)
+        self.assertNotIn('.es-page main{background-color:', css)
+        self.assertNotIn('.es-lead p,.es-page .es-section-copy{background:', css)
+
+    def test_unknown_miniature_mode_is_rejected_before_publication(self):
+        self.story['art_direction'] = {'miniatures': 'all-over'}
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'invalid miniature art direction'):
+            es.preview(self.story['slug'])
+        self.assertFalse((self.root / '.editorial-preview/type-01-standard/index.html').exists())
+        self.story['status'] = 'published'
+        self.story['verification'] = {'status': 'verified', 'reviewer': 'Editor', 'verified_at': '2026-10-29', 'note': 'Checked'}
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'invalid miniature art direction'):
+            es.build()
+        self.assertFalse((self.root / 'journal/stories/type-01-standard/index.html').exists())
+
     def test_invalid_image_or_source_blocks_publication(self):
         self.verify(); self.story['hero']['src'] = '/missing.webp'; self.save()
         with self.assertRaises(ValueError): es.build()
