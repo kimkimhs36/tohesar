@@ -31,13 +31,13 @@ def check(root):
             assert p.is_file(),f'Broken file: {f} -> {ref}'
     # The visual archive must actually expose published editorial, not only link to it elsewhere.
     archive=(root/'edition/archive/index.html').read_text(encoding='utf8')
-    entries=re.findall(r'<a\\s+data-archive-item=""[^>]*>',archive)
+    entries=re.findall(r'<a\s+data-archive-item=""[^>]*>',archive)
     assert len(entries)>=5, 'Archive is missing published stories'
     urls=[re.search(r'href="([^"]+)"',entry).group(1) for entry in entries]
     assert len(set(urls))==len(urls), 'Duplicate story in archive'
     for route in ('/journal/design/giulia/','/journal/design/type-01/'):
         assert route in urls, f'Missing editorial route: {route}'
-    initial=re.search(r'id="archive-count">(\\d+)편의 이야기',archive)
+    initial=re.search(r'id="archive-count">(\d+)편의 이야기',archive)
     assert initial and int(initial.group(1))==len(entries), 'Archive initial count does not match cards'
     select=re.search(r'<select id="archive-topic">(.*?)</select>',archive,re.S)
     assert select, 'Archive topic selector missing'
@@ -45,7 +45,7 @@ def check(root):
     for entry in entries:
         tags=re.search(r'data-topics="([^"]+)"',entry)
         assert tags and set(tags.group(1).split()) & filters, 'Unfilterable archive story'
-    assert all('alt=' in block for block in re.findall(r'<a\\s+data-archive-item="".*?</a>',archive,re.S) if '<img' in block), 'Archive picture without alternative text'
+    assert all('alt=' in block for block in re.findall(r'<a\s+data-archive-item="".*?</a>',archive,re.S) if '<img' in block), 'Archive picture without alternative text'
     feeds=json.loads((root/'edition/data/news.json').read_text(encoding='utf8'))
     assert isinstance(feeds['items'],list) and feeds['generated_at']
     for item in feeds['items']:
