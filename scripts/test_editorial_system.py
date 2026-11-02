@@ -102,4 +102,40 @@ class EditorialSystemTest(unittest.TestCase):
         self.story['sources'][0]['url'] = 'javascript:alert(1)'; self.save()
         with self.assertRaises(ValueError): es.build()
 
+    def test_image_dimensions_are_explicit_and_caption_links_are_identifiable(self):
+        image = dict(self.story['hero'])
+        image['alt'] = '차량의 "측면"'
+        html = es.figure(image, 'es-hero')
+        self.assertIn(' 800w, ', html)
+        self.assertIn(' 1600w', html)
+        self.assertIn('width="1600" height="1178"', html)
+        self.assertIn('aria-label="사진 출처: 차량의 &quot;측면&quot;"', html)
+        # A writer can provide an arbitrary small image without false 800/1600 descriptors.
+        for key in ('width', 'height', 'src_small_width'):
+            image.pop(key)
+        self.assertNotIn('srcset=', es.figure(image, 'es-hero'))
+        image['src_small_width'] = 500
+        with self.assertRaisesRegex(ValueError, 'small image needs'):
+            es.image_check(image)
+
+    def test_malformed_article_structure_is_rejected(self):
+        self.story['chapters'][0]['paragraphs'] = '문단이어야 할 문자열'
+        with self.assertRaisesRegex(ValueError, 'paragraphs required'):
+            es.validate_story(self.story)
+        self.story['chapters'][0]['paragraphs'] = ['본문']
+        self.story['sources'] = ['https://example.org']
+        with self.assertRaisesRegex(ValueError, 'source must be an object'):
+            es.validate_story(self.story)
+        self.story['sources'] = [{'label': '원문', 'url': 'https://example.org'}]
+        self.story['hero'] = 'image.webp'
+        with self.assertRaisesRegex(ValueError, 'image must be an object'):
+            es.validate_story(self.story)
+
+    def test_non_image_file_cannot_be_published_as_photo(self):
+        not_photo = self.root / 'article.txt'
+        not_photo.write_text('이 파일은 이미지가 아닙니다')
+        self.story['hero']['src'] = '/article.txt'
+        with self.assertRaisesRegex(ValueError, 'invalid image file'):
+            es.validate_story(self.story)
+
 if __name__ == '__main__': unittest.main()

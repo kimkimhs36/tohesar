@@ -56,6 +56,9 @@ def links():
                 self.refs.extend(x.strip().split()[0] for x in d['srcset'].split(','))
     active=['journal/index.html','journal/911/index.html','journal/yokohama/index.html','journal/f40/index.html','journal/news/index.html','journal/visual/index.html','journal/miniatures/index.html','journal/design/index.html','journal/design/type-01/index.html','journal/design/giulia/index.html','journal/issues/index.html']
     active +=[str(p.relative_to(ROOT)) for p in (ROOT/'journal/issues').glob('*/index.html')]
+    # Published data-driven stories are not a fixed list. Check them as well as
+    # the longstanding authored pages whenever a build adds a new route.
+    active +=[str(p.relative_to(ROOT)) for p in (ROOT/'journal/stories').glob('*/index.html')]
     cache={};count=0
     for page in active:
         p=ROOT/page;parser=Parser();parser.feed(p.read_text())

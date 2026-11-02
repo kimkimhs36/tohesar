@@ -31,6 +31,8 @@ def https(value):
 
 
 def image_check(image):
+    if not isinstance(image, dict):
+        raise ValueError('image must be an object')
     for key in ('src', 'alt', 'credit', 'source_url', 'licence_url'):
         required(image, key)
     for key in ('source_url', 'licence_url'):
@@ -38,8 +40,23 @@ def image_check(image):
     for key in ('src', 'src_small'):
         if image.get(key):
             path = image[key]
-            if not path.startswith('/') or '..' in path or not (ROOT / path.lstrip('/')).is_file():
+            if not isinstance(path, str) or not path.startswith('/') or '..' in path or not (ROOT / path.lstrip('/')).is_file():
                 raise ValueError(f'missing or unsafe image: {path}')
+            with (ROOT / path.lstrip('/')).open('rb') as f:
+                header = f.read(128)
+            raster = (header.startswith(b'\x89PNG\r\n\x1a\n') or header.startswith(b'\xff\xd8\xff') or
+                      header.startswith((b'GIF87a', b'GIF89a')) or
+                      (header.startswith(b'RIFF') and header[8:12] == b'WEBP') or
+                      (header[4:8] == b'ftyp' and (b'avif' in header[:64] or b'avis' in header[:64])))
+            if not raster:
+                raise ValueError(f'unsupported or invalid image file: {path}')
+    for key in ('width', 'height', 'src_small_width'):
+        if key in image and (type(image[key]) is not int or image[key] <= 0):
+            raise ValueError(f'invalid image dimension: {key}')
+    if ('width' in image) != ('height' in image):
+        raise ValueError('image width and height must be supplied together')
+    if 'src_small_width' in image and (not image.get('src_small') or not image.get('width') or image['src_small_width'] >= image['width']):
+        raise ValueError('small image needs a smaller width and both image sources')
 
 
 def validate_story(story, publish=False):
@@ -62,16 +79,20 @@ def validate_story(story, publish=False):
     if not isinstance(story.get('chapters'), list) or not story['chapters']:
         raise ValueError(f'{slug}: chapters required')
     for chapter in story['chapters']:
+        if not isinstance(chapter, dict):
+            raise ValueError(f'{slug}: chapter must be an object')
         required(chapter, 'heading')
         if chapter.get('composition', 'normal') not in ('normal', 'offset', 'inset'):
             raise ValueError(f'{slug}: invalid composition')
-        if not chapter.get('paragraphs') or any(not isinstance(p, str) or not p.strip() for p in chapter['paragraphs']):
+        if not isinstance(chapter.get('paragraphs'), list) or not chapter['paragraphs'] or any(not isinstance(p, str) or not p.strip() for p in chapter['paragraphs']):
             raise ValueError(f'{slug}: paragraphs required')
         if chapter.get('image'):
             image_check(chapter['image'])
-    if not story.get('sources'):
+    if not isinstance(story.get('sources'), list) or not story['sources']:
         raise ValueError(f'{slug}: sources required')
     for source in story['sources']:
+        if not isinstance(source, dict):
+            raise ValueError(f'{slug}: source must be an object')
         required(source, 'label'); https(required(source, 'url'))
     if publish:
         review = story.get('verification', {})
@@ -102,11 +123,13 @@ def load_stories():
 
 
 def figure(image, cls, eager=False):
-    srcset = f' srcset="{esc(image["src_small"])} 800w, {esc(image["src"])} 1600w" sizes="100vw"' if image.get('src_small') else ''
+    # Width descriptors must describe the actual files, not assumed 800/1600px sizes.
+    srcset = f' srcset="{esc(image["src_small"])} {image["src_small_width"]}w, {esc(image["src"])} {image["width"]}w" sizes="100vw"' if image.get('src_small_width') else ''
+    dimensions = f' width="{image["width"]}" height="{image["height"]}"' if image.get('width') and image.get('height') else ''
     loading = ' fetchpriority="high"' if eager else ' loading="lazy"'
-    return (f'<figure class="{cls}"><img src="{esc(image["src"])}"{srcset} alt="{esc(image["alt"])}"{loading}>'
-            f'<figcaption class="es-caption">{esc(image["credit"])} · <a href="{esc(image["source_url"])}">사진 출처</a> / '
-            f'<a href="{esc(image["licence_url"])}">이용 조건</a></figcaption></figure>')
+    return (f'<figure class="{cls}"><img src="{esc(image["src"])}"{srcset}{dimensions} alt="{esc(image["alt"])}"{loading} decoding="async">'
+            f'<figcaption class="es-caption">{esc(image["credit"])} · <a href="{esc(image["source_url"])}" aria-label="사진 출처: {esc(image["alt"])}">사진 출처</a> / '
+            f'<a href="{esc(image["licence_url"])}" aria-label="사진 이용 조건: {esc(image["alt"])}">이용 조건</a></figcaption></figure>')
 
 
 def render(story, preview=False):

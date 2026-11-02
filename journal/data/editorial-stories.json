@@ -27,7 +27,10 @@
         "alt": "긴 보닛과 낮은 지붕을 가진 은색 Jaguar Type 01, 공식 사진",
         "credit": "사진 © Jaguar Land Rover Limited",
         "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
-        "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+        "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+        "width": 1600,
+        "height": 1178,
+        "src_small_width": 800
       },
       "lead": "자동차의 비례는 단순한 치수가 아니다. 무엇을 드러내고, 무엇을 남길 것인지에 대한 선택이다. 재규어 Type 01은 이 선택을 전기차 시대의 새로운 질문으로 바꾸어 놓는다.",
       "chapters": [
@@ -44,7 +47,10 @@
             "alt": "Jaguar Type 01 공식 측면 사진, 앞부분과 낮은 실루엣의 비례를 볼 수 있다",
             "credit": "사진 © Jaguar Land Rover Limited",
             "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
-            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+            "width": 1600,
+            "height": 1067,
+            "src_small_width": 800
           }
         },
         {
@@ -61,7 +67,10 @@
             "alt": "Jaguar Type 01의 후면과 차체 표면을 보여주는 공식 사진",
             "credit": "사진 © Jaguar Land Rover Limited",
             "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
-            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence",
+            "width": 1600,
+            "height": 1001,
+            "src_small_width": 800
           }
         }
       ],
