@@ -359,3 +359,73 @@ body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-brea
  }
 }
 @keyframes thz-photo-arrive{from{opacity:.86;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Third pass: landscape spreads and the long Jaguar essay share the same papers. */
+@media(min-width:1000px){
+ .journal-flow .journal-mast{padding-block:17px 12px}
+ .journal-flow .journal-mast h1{font-size:clamp(100px,9.2vw,145px);margin-bottom:14px}
+ .journal-flow .cover-editorial-continuation{padding-block:21px 27px}
+ .journal-flow .cover-editorial-continuation p{font-size:clamp(22px,2.3vw,33px);line-height:1.55}
+ .journal-flow .atlas-invitation{padding-block:42px 56px}
+ .beauty014-blade main{display:grid;grid-template-columns:.95fr 1.2fr}
+ .beauty014-blade main>*{grid-column:1/-1}
+ .beauty014-blade main>.story-intro{grid-column:1;grid-row:1;padding:30px 4vw 45px var(--edge);display:flex;flex-direction:column;justify-content:center}
+ .beauty014-blade main>.f40-hero{grid-column:2;grid-row:1;align-self:center;margin:45px var(--edge) 45px 0}
+ .beauty014-blade .story-topline{font-size:9px;gap:12px;margin-bottom:28px}
+ .beauty014-blade .story-intro h1{font-size:clamp(42px,4.3vw,69px);line-height:1.4;letter-spacing:-.07em}
+ .beauty014-blade .story-intro h1>span{padding-left:.3em}
+ .beauty014-blade .story-deck{font-size:15px;margin-top:25px}
+ .beauty014-blade .byline{margin-top:31px;font-size:10px}
+}
+.beauty014-language{--paper:#f5f1eb;--ink:#343143;--muted:#686172;--accent:#806776;--rule:#b8aebf;background:var(--paper);color:var(--ink)}
+.beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:17px;line-height:2.05;letter-spacing:-.025em}
+.beauty014-language .type-fact{background:#efe3dc;border-color:#ad8e9f}
+.beauty014-language .type-fact p{font-size:14px;line-height:1.9}
+.beauty014-language .type-fact small{font-size:11px;line-height:1.9;color:var(--muted)}
+.beauty014-language .type-language{background:linear-gradient(135deg,#eee8ed,#e7e1e9)}
+.beauty014-language .type-comparison{background:#e7dfe9}
+.beauty014-language .type-sources{background:#f0ebe6}
+.beauty014-language :is(.type-study-intro,.design-study){background:#343143}
+.beauty014-language .study-pair img{background:transparent}
+.beauty014-language .type-study-intro>p{font-size:15px;line-height:1.95;max-width:43em}
+.beauty014-language .study-observations>p{font-size:15px;line-height:1.95}
+.beauty014-language .design-study.study-enabled{height:175svh}
+.beauty014-language .study-controls button{min-width:44px;min-height:44px}
+.beauty014-language :is(.type-hero-foot small,.type-byline,figcaption,figcaption small){font-size:11px;line-height:1.9}
+.beauty014-language .type-chapters a{font-size:12px}
+.beauty014-language .comparison-notes p{font-size:15px;line-height:2}
+.beauty014-language .comparison-heading>p{font-size:14px;line-height:1.95}
+.beauty014-language .type-sources :is(p,li){font-size:13px;line-height:2}
+.beauty014-language .type-sources li span{font-size:11px;line-height:1.9}
+body[data-page="article"] .article-deck{word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.025em}
+body[data-page="article"] :is(.article-toolbar,.article-aside,.article-aside dl div,.article-body h2){border-color:var(--thz-rule)}
+body[data-page="article"] .article-aside{border-top-width:1px}
+body[data-page="article"] .article-aside :is(dt,p),body[data-page="article"] .f40-article-image figcaption{color:var(--thz-muted)}
+body[data-page="article"] .article-body blockquote{background:#e8e0eb;color:#69536e;border:0;padding:32px;line-height:1.8}
+body[data-page="article"] .article-body .article-source{background:#eee7e3}
+body[data-page="article"] .f40-article-image img{background:transparent}
+@media(max-width:700px){
+ .beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:16px;line-height:2.05;margin-bottom:26px}
+ .beauty014-language .type-chapters{gap:0 12px;padding-block:7px}
+ .beauty014-language .type-chapters a{font-size:11px;line-height:1.8;min-height:44px}
+ .beauty014-language .type-hero-foot>p{font-size:15px;line-height:1.95}
+ .beauty014-language :is(.type-hero-foot small,.type-byline,figcaption,figcaption small){font-size:10px;line-height:1.9}
+ .beauty014-language .type-fact{padding:23px 21px}
+ .beauty014-language .type-fact p{font-size:13px}
+ .beauty014-language .type-fact small{font-size:11px}
+ .beauty014-language .type-study-intro>p{font-size:14px}
+ .beauty014-language .study-observations>p{font-size:13px;line-height:1.95}
+ .beauty014-language .study-enabled .study-observations{min-height:118px}
+ .beauty014-language .study-pair figcaption{font-size:10px}
+ .beauty014-language .study-bottom small{font-size:9px;line-height:1.8}
+ .beauty014-language .comparison-notes p{font-size:14px;line-height:2}
+ .beauty014-language .type-sources :is(p,li){font-size:12px;line-height:1.95}
+ body[data-page="article"] .article-deck{font-size:16px;line-height:1.9}
+ body[data-page="article"] .article-body{font-size:17px;line-height:2}
+ body[data-page="article"] .article-body blockquote{font-size:21px;padding:27px 24px;margin-block:32px}
+ body[data-page="article"] .article-label{margin-top:27px}
+ body[data-page="article"] .article-intro{padding-bottom:32px}
+}
+@media(prefers-reduced-motion:reduce){
+ .beauty014-language .design-study.study-enabled{height:auto}
+}
