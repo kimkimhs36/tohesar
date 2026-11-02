@@ -1,3 +1,4 @@
+@import url("/journal/assets/article-tokens.css");
 /* TOHEŞAR Editorial System 018 — new articles only.
    A single readable paper system. Existing approved special editions are untouched.
    Design is authored in one place; article content is data. */
@@ -59,7 +60,7 @@
 }
 @media(min-width:1776px){.es-hero{margin-inline:auto}}
 .es-hero img{display:block;width:100%;height:auto;object-fit:contain}
-.es-caption{font-size:11px;line-height:1.85;color:var(--es-muted);margin-top:13px;max-width:90ch}
+.es-caption{font-size:var(--article-caption);line-height:1.85;color:var(--es-muted);margin-top:13px;max-width:90ch}
 .es-caption a,.es-source-list a{border-bottom:1px solid currentColor}
 .es-body{background:var(--es-paper-reading);padding:clamp(72px,10vw,150px) var(--es-gutter) clamp(80px,12vw,170px)}
 .es-lead{max-width:var(--es-read);margin:0 auto clamp(95px,11vw,150px)}
@@ -73,7 +74,7 @@
  text-wrap:balance
 }
 .es-section p{
- font:400 clamp(16px,1.23vw,18px)/2.08 var(--es-type);
+ font:400 var(--article-copy)/var(--article-leading) var(--es-type);
  letter-spacing:-.027em;margin:0 0 25px
 }
 .es-section-image{margin:clamp(50px,7vw,98px) 0 0}
@@ -112,7 +113,7 @@
  .es-lead{margin-bottom:104px}
  .es-lead p{font-size:22px;line-height:1.8}
  .es-section h2{font-size:clamp(31px,8vw,39px);margin-bottom:34px}
- .es-section p{font-size:16px;line-height:2.05}
+ .es-section p{font-size:var(--article-copy);line-height:var(--article-leading)}
  .es-section+.es-section{margin-top:110px}
  .es-section-image{margin:45px calc(-1 * var(--es-gutter)) 0}
  .es-section-image .es-caption{margin:12px var(--es-gutter) 0}

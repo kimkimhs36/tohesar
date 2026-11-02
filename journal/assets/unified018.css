@@ -1,3 +1,4 @@
+@import url("/journal/assets/article-tokens.css");
 /* TOHEŞAR 018 / Shared editorial chrome. The authored interiors retain their own compositions.
    Applies to all Journal and Newsroom pages, never to the COVER 004 stage. */
 :root{
@@ -181,8 +182,6 @@ body[data-page] .wire-reset{min-height:44px;font-size:12px;background:transparen
 body[data-page] .wire-heading{font-size:10px;line-height:1.8;align-items:baseline}
 
 /* Shared reading scale: photography, openings and paper colors remain article-specific. */
-:root{--article-copy:17px;--article-leading:2.05;--article-caption:11px;--article-muted:#615b68}
-@media(max-width:700px){:root{--article-copy:16px}}
 .beauty014-proportion .reading-column p{font-size:var(--article-copy);line-height:var(--article-leading)}
 :is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-wide, .drive-photo, .surface-plate, .type-profile, .type-closing-photo) figcaption{font-size:var(--article-caption);line-height:1.9;color:var(--article-muted)}
 :is(.beauty014-proportion,.beauty014-language) :is(.giulia-sources,.type-sources) :is(p,li){font-size:12px;line-height:1.95}
@@ -401,6 +400,8 @@ body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-brea
 .beauty014-language .comparison-heading>p{font-size:14px;line-height:1.95}
 .beauty014-language .type-sources :is(p,li){font-size:12px;line-height:1.95}
 .beauty014-language .type-sources li span{font-size:11px;line-height:1.9}
+body[data-page="article"] .article-body{font-size:var(--article-copy);line-height:var(--article-leading)}
+body[data-page="article"] .f40-article-image figcaption{font-size:var(--article-caption);line-height:1.9}
 body[data-page="article"] .article-deck{word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.025em}
 body[data-page="article"] :is(.article-toolbar,.article-aside,.article-aside dl div,.article-body h2){border-color:var(--thz-rule)}
 body[data-page="article"] .article-aside{border-top-width:1px}
@@ -425,7 +426,7 @@ body[data-page="article"] .f40-article-image img{background:transparent}
  .beauty014-language .comparison-notes p{font-size:14px;line-height:2}
  .beauty014-language .type-sources :is(p,li){font-size:12px;line-height:1.95}
  body[data-page="article"] .article-deck{font-size:16px;line-height:1.9}
- body[data-page="article"] .article-body{font-size:17px;line-height:2}
+ body[data-page="article"] .article-body{font-size:var(--article-copy);line-height:var(--article-leading)}
  body[data-page="article"] .article-body blockquote{font-size:21px;padding:27px 24px;margin-block:32px}
  body[data-page="article"] .article-label{margin-top:27px}
  body[data-page="article"] .article-intro{padding-bottom:32px}
