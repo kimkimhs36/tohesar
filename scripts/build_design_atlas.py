@@ -51,7 +51,7 @@ for current in [i for i in items if i['kind']!='news']:
     body=''
     for n,i in enumerate(related):
         visual=f'<img src="{e(i["image"])}" alt="{e(i["image_alt"])}" width="1600" height="1000" loading="lazy">' if n==0 and i.get('image') else ''
-        body+=f'<a class="continuation-story{ " continuation-lead" if n==0 else ""}" href="{e(i["url"])}" data-travel>{visual}<div><span>{e(reasons.get(i["id"],i["summary"]))}</span><strong>{e(i.get("model") or i["title"].split(" — ")[0])}</strong><small>{labels[i["kind"]]} / READ THE STORY</small></div></a>'
+        body+=f'<a class="continuation-story{ " continuation-lead" if n==0 else ""}" href="{e(i["url"])}" data-travel>{visual}<div><span>{e(reasons.get(i["id"],i["summary"]))}</span><strong>{e(i.get("model") or i["title"].split(" — ")[0])}</strong><small>{labels[i["kind"]]}</small></div></a>'
     if related and related[0].get('image_credit'):
         i=related[0]
         body+=f'<p class="continuation-credit">{e(i["image_credit"])} · <a href="{e(i["image_source"])}">이미지 출처</a>'+ (f' / <a href="{e(i["image_licence"])}">이용 조건</a>' if i['image_licence'].startswith('https:') else '')+'</p>'

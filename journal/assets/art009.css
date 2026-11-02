@@ -13,7 +13,7 @@
  .issue-page .chapter-folio{font-size:10px;letter-spacing:.025em}
  .issue-page .chapter-copy h2{font-size:32px}
  .issue-page .chapter-transition{font-size:12px;line-height:1.9;min-height:130px;justify-content:start}
- .issue-page .edition-credit{font-size:10px}
+ .issue-page .edition-credit{font-size:var(--article-caption,11px);line-height:1.8}
  .issue-page .sequence-note{font-size:12px}
  .issue-page .chapter-copy p{font-size:15px}
 }
