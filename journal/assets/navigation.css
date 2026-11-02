@@ -39,3 +39,5 @@
 body:not(.cover-page) .site-header:has(.journal-index),body[data-page] .site-header:has(.journal-index),.article-bar:has(.journal-index){position:sticky;top:0;z-index:100;background:var(--paper,var(--bone,#f4f0e9));color:var(--ink,#343143)}
 .article-bar:has(.journal-index){display:flex;align-items:center;justify-content:space-between}
 .journal-index nav>a[aria-current="page"] strong::after{content:" · 현재";font-size:11px;letter-spacing:0}
+.es-header:has(.journal-index){position:sticky;top:0;z-index:100;background:var(--es-paper,#f4f0e9)}
+.es-footer nav{display:flex;flex-wrap:wrap;gap:8px 22px}
