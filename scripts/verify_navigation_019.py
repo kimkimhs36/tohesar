@@ -26,3 +26,6 @@ with sync_playwright() as pw:
    page.close()
  b.close()
 (out/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2));print(json.dumps(results,ensure_ascii=False))
+failures = [r for r in results if 'failure' in r or r.get('status') != 200 or r.get('errors') or r.get('dimensions', {}).get('broken') or r.get('dimensions', {}).get('scroll', 0) > r.get('dimensions', {}).get('width', 0)]
+if failures:
+ raise SystemExit(f'{len(failures)} navigation checks failed; see {out / "results.json"}')
