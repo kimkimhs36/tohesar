@@ -15,6 +15,7 @@ class EditorialSystemTest(unittest.TestCase):
         self.data.parent.mkdir(parents=True)
         self.story = json.loads(es.DATA.read_text())['stories'][0]
         (self.root / 'journal/assets').symlink_to(es.ROOT / 'journal/assets', target_is_directory=True)
+        (self.root / 'journal/partials').symlink_to(es.ROOT / 'journal/partials', target_is_directory=True)
         (self.root / 'journal/index.html').write_text('<main>기존 지면</main>')
         self.root_patch = patch.object(es, 'ROOT', self.root); self.root_patch.start()
         self.data_patch = patch.object(es, 'DATA', self.data); self.data_patch.start()
@@ -34,6 +35,7 @@ class EditorialSystemTest(unittest.TestCase):
     def test_review_preview_is_not_public(self):
         es.preview(self.story['slug']); es.build()
         self.assertTrue((self.root / '.editorial-preview/type-01-standard/index.html').exists())
+        self.assertIn('class="journal-index"', (self.root / '.editorial-preview/type-01-standard/index.html').read_text())
         self.assertFalse((self.root / 'journal/stories/type-01-standard/index.html').exists())
         self.assertNotIn('type-01-standard', (self.root / 'journal/index.html').read_text())
 
