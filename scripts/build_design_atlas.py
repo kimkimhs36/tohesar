@@ -26,12 +26,13 @@ def card(i):
         credit+='</small>'
     tags=' · '.join(forms[f]['label'] for f in i['forms'])
     date=i.get('manufacturer') or 'TOHEŞAR'
-    return f'''<article class="discovery-card" data-content-id="{e(i['id'])}" data-kind="{i['kind']}">{image}<div class="result-meta"><span>{labels[i['kind']]}</span><span>{e(date)}</span></div><h3><a href="{e(i['url'])}" data-travel>{e(i['title'])} ↗</a></h3><p>{e(i['summary'])}</p><span class="result-tags">{e(tags)}</span>{credit}</article>'''
+    return f'''<article class="discovery-card" data-content-id="{e(i['id'])}" data-kind="{i['kind']}">{image}<div class="result-meta"><span>{labels[i['kind']]}</span><span>{e(date)}</span></div><h3><a href="{e(i['url'])}" data-travel>{e(i['title'])}</a></h3><p>{e(i['summary'])}</p><span class="result-tags">{e(tags)}</span>{credit}</article>'''
 form_titles={'curves':'곡선','wedge-edge':'쐐기와 직선','grand-touring':'그랜드 투어링','new-language':'새로운 조형'}
-buttons=f'<button type="button" data-form="all" aria-pressed="true" aria-label="모든 이야기 {len(items)}편">전체</button>'
-buttons+=''.join(f'<button type="button" data-form="{f["id"]}" aria-pressed="false" aria-label="{e(form_titles.get(f["id"], f["ko"]))} {sum(f["id"] in i["forms"] for i in items)}편">{e(form_titles.get(f["id"],f["ko"]))}</button>' for f in data['forms'])
+discovery_items=[i for i in items if i['kind'] != 'news']
+buttons=f'<button type="button" data-form="all" aria-pressed="true" aria-label="모든 이야기 {len(discovery_items)}편">전체</button>'
+buttons+=''.join(f'<button type="button" data-form="{f["id"]}" aria-pressed="false" aria-label="{e(form_titles.get(f["id"], f["ko"]))} {sum(f["id"] in i["forms"] for i in discovery_items)}편">{e(form_titles.get(f["id"],f["ko"]))}</button>' for f in data['forms'])
 p=ROOT/'journal/design/index.html';s=p.read_text()
-for key,body in [('FILTERS',buttons),('RESULTS','\n'.join(card(i) for i in items)),('INDEX','<script type="application/json" id="discovery-index">'+json.dumps(items,ensure_ascii=False).replace('<','\\u003c')+'</script>')]:
+for key,body in [('FILTERS',buttons),('RESULTS','\n'.join(card(i) for i in discovery_items)),('INDEX','<script type="application/json" id="discovery-index">'+json.dumps(discovery_items,ensure_ascii=False).replace('<','\\u003c')+'</script>')]:
     s=re.sub(f'<!-- {key}:START -->.*?<!-- {key}:END -->',lambda _:f'<!-- {key}:START -->{body}<!-- {key}:END -->',s,flags=re.S)
 p.write_text(s)
 # Add stable anchors without changing the existing news content or data.
