@@ -10,7 +10,7 @@
   function measure(){
     root.classList.toggle('motion',!reduced.matches);
     if(reduced.matches){
-      [photo,word,editorial,meta,copy,signature,cue,nav,stage,document.querySelector('.journal-link')].forEach(el=>el.removeAttribute('style'));
+      [photo,word,editorial,meta,copy,signature,cue,nav,stage].forEach(el=>el.removeAttribute('style'));
       return;
     }
     const w=stage.clientWidth,h=stage.clientHeight,wide=w>=760&&w>h;
@@ -28,16 +28,15 @@
     const release=phase(p,.01,.29),frame=phase(p,.03,.91),read=phase(p,.40,.79);
     const y=mix(0,g.endY,frame),height=mix(g.startH,g.endH,frame);
     Object.assign(photo.style,{left:`${mix(0,g.wide?g.w*.05:g.edge,frame)}px`,top:`${y}px`,width:`${mix(g.wide?g.w*.60:g.w,g.endW,frame)}px`,height:`${height}px`});
+    stage.style.setProperty('--cover-blur-opacity', 1-release);
     word.style.opacity=1-release;word.style.transform=`translateY(${-26*release}px)`;
     word.style.visibility=p>=.29?'hidden':'visible';
     editorial.style.top=g.wide?`${mix(g.h*.45,g.h*.34,frame)}px`:`${y+height+mix(24,27,frame)}px`;
     meta.style.marginBottom=`${18*read}px`;meta.style.height=`${(g.wide?46:15)*read}px`;meta.style.opacity=read;meta.style.overflow='hidden';
-    photo.style.setProperty('--photo-scale',mix(1,g.wide?1:1.16,frame));
+    photo.style.setProperty('--photo-scale',mix(1,g.wide?1:1.05,frame));
     copy.style.opacity=phase(p,.55,.85);copy.style.transform=`translateY(${8*(1-read)}px)`;
     signature.style.opacity=phase(p,.62,.83);signature.style.visibility=p>.62?'visible':'hidden';
     cue.style.opacity=1-phase(p,0,.15);cue.style.visibility=p>.15?'hidden':'visible';
-    // The existing Journal entrance remains visible through the entire sequence.
-    document.querySelector('.journal-link').style.opacity=1;
     const navT=g.wide?1:phase(p,.12,.49);nav.style.color=`rgb(${mix(241,51,navT)} ${mix(228,46,navT)} ${mix(223,59,navT)})`;
     stage.style.background=`rgb(${mix(214,232,frame)} ${mix(202,223,frame)} ${mix(210,225,frame)})`;
   }

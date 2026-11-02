@@ -22,3 +22,19 @@ html:not(.motion) .stage{height:auto;min-height:100svh;padding-top:75svh}html:no
  h2{font-size:clamp(44px,5.25vw,80px)}
  .editorial p{font-size:clamp(13px,1.15vw,16px);line-height:2}
 }
+/* One quiet invitation into the scroll; the sequence itself remains unchanged. */
+.editorial h2{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:400;letter-spacing:-.055em}
+.opening span:last-child{animation:cover-scroll-cue 2.8s ease-in-out infinite}
+@keyframes cover-scroll-cue{0%,100%{transform:translateY(0);opacity:.65}50%{transform:translateY(6px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.opening span:last-child{animation:none}}
+/* Soften the photograph behind the wordmark, then let it clear as the cover opens. */
+.photograph::after{
+ content:"";position:absolute;inset:-14px;pointer-events:none;
+ background:url('/assets/cover-911-valentin-kremer.jpg') var(--photo-focus) / cover no-repeat;
+ filter:blur(9px) brightness(.9);
+ -webkit-mask-image:linear-gradient(to bottom,#000 25%,transparent 42%);
+ mask-image:linear-gradient(to bottom,#000 25%,transparent 42%);opacity:var(--cover-blur-opacity,1)
+}
+.editorial h2{font-weight:300;line-height:1.24;letter-spacing:-.045em}
+.editorial h2 span{margin-left:.28em}
+@media(max-width:759px){.editorial h2{font-size:clamp(35px,9.7vw,42px)}}
