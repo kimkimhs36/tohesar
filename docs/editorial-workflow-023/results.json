@@ -1,0 +1,84 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "status": 200,
+      "details": {
+        "width": 375,
+        "viewport": 375,
+        "broken": [],
+        "title": "새로운 시대는 어떤 형태로 오는가. — TOHEŞAR",
+        "sections": 2,
+        "images": 5
+      },
+      "errors": [],
+      "menu_opened": true,
+      "escape_closed": true
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "details": {
+        "width": 390,
+        "viewport": 390,
+        "broken": [],
+        "title": "새로운 시대는 어떤 형태로 오는가. — TOHEŞAR",
+        "sections": 2,
+        "images": 5
+      },
+      "errors": [],
+      "menu_opened": true,
+      "escape_closed": true
+    },
+    {
+      "width": 430,
+      "status": 200,
+      "details": {
+        "width": 430,
+        "viewport": 430,
+        "broken": [],
+        "title": "새로운 시대는 어떤 형태로 오는가. — TOHEŞAR",
+        "sections": 2,
+        "images": 5
+      },
+      "errors": [],
+      "menu_opened": true,
+      "escape_closed": true
+    },
+    {
+      "width": 768,
+      "status": 200,
+      "details": {
+        "width": 768,
+        "viewport": 768,
+        "broken": [],
+        "title": "새로운 시대는 어떤 형태로 오는가. — TOHEŞAR",
+        "sections": 2,
+        "images": 5
+      },
+      "errors": [],
+      "menu_opened": true,
+      "escape_closed": true
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "details": {
+        "width": 1440,
+        "viewport": 1440,
+        "broken": [],
+        "title": "새로운 시대는 어떤 형태로 오는가. — TOHEŞAR",
+        "sections": 2,
+        "images": 5
+      },
+      "errors": [],
+      "menu_opened": true,
+      "escape_closed": true
+    }
+  ],
+  "reduced_motion": {
+    "reduced": true,
+    "animated": 0,
+    "invisible": 0
+  }
+}
