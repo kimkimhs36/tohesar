@@ -1,0 +1,5 @@
+/* Motion is an enhancement: content is visible until and unless an entrance starts. */
+@media (prefers-reduced-motion: no-preference){
+  .article-motion-enter{animation:article-motion-enter 650ms cubic-bezier(.2,.65,.2,1) both}
+  @keyframes article-motion-enter{from{opacity:.78;translate:0 8px}to{opacity:1;translate:0 0}}
+}

@@ -29,6 +29,13 @@ for page in files:
         s = s.replace('</head>', '<link rel="stylesheet" href="/journal/assets/navigation.css"></head>')
     if '/journal/assets/navigation.js' not in s:
         s = s.replace('</head>', '<script src="/journal/assets/navigation.js" defer></script></head>')
+    # Only article interiors receive motion. The cinematic cover and openings remain authored.
+    article_pages = ('journal/911/', 'journal/f40/', 'journal/design/giulia/', 'journal/design/type-01/', 'journal/yokohama/', 'journal/stories/', 'edition/story/')
+    if page.startswith(article_pages):
+        if '/journal/assets/article-motion.css' not in s:
+            s = s.replace('</head>', '<link rel="stylesheet" href="/journal/assets/article-motion.css"></head>')
+        if '/journal/assets/article-motion.js' not in s:
+            s = s.replace('</head>', '<script src="/journal/assets/article-motion.js" defer></script></head>')
     s = re.sub(r'<nav aria-label="하단 메뉴"[^>]*>.*?</nav>', lambda _: footer, s, flags=re.S)
     p.write_text(s)
 print('Rendered shared navigation.')
