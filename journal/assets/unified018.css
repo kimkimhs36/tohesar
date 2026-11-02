@@ -122,7 +122,7 @@ body:not(:has(.sequence)) .site-header a,
 .journal-flow .cover-editorial-continuation>.eyebrow{max-width:90px;line-height:1.9}
 .journal-flow .cover-editorial-continuation p{font-size:clamp(19px,2.5vw,31px);line-height:1.65}
 :is(.journal-flow,.recovery015-journal) .atlas-invitation{
-  background:linear-gradient(130deg,#f7f3ed,#f2eae3);padding-block:62px 68px;gap:6vw
+  background:#f5f1eb;padding-block:62px 68px;gap:6vw
 }
 :is(.journal-flow,.recovery015-journal) .atlas-invitation h2{line-height:1.45;letter-spacing:-.055em}
 :is(.journal-flow,.recovery015-journal) .atlas-invitation p{font-size:14px;line-height:1.95}
@@ -133,7 +133,7 @@ body:not(:has(.sequence)) .site-header a,
 :is(.journal-flow,.recovery015-journal) .design small{font-size:10px;line-height:1.85}
 :is(.journal-flow,.recovery015-journal) .design-small{margin-top:114px}
 :is(.journal-flow,.recovery015-journal) .latest{
-  background:linear-gradient(135deg,#f6eee6,#f0e0d9);padding-block:60px 66px
+  background:#f3e4dc;padding-block:60px 66px
 }
 :is(.journal-flow,.recovery015-journal) .section-note{font-size:13px;line-height:1.95;max-width:54em}
 :is(.journal-flow,.recovery015-journal) .section-note>span{font-size:11px;margin-top:6px}
@@ -149,7 +149,7 @@ body:not(:has(.sequence)) .site-header a,
 :is(.journal-flow,.recovery015-journal) .news-date{font-size:11px}
 :is(.journal-flow,.recovery015-journal) .news-date span{font-size:10px}
 :is(.journal-flow,.recovery015-journal) .news-source{font-size:11px}
-:is(.journal-flow,.recovery015-journal) .city-invitation{background:linear-gradient(145deg,#ebe5eb,#e0d5e2);padding-block:34px 68px}
+:is(.journal-flow,.recovery015-journal) .city-invitation{background:#e8e1e9;padding-block:34px 68px}
 :is(.journal-flow,.recovery015-journal) .city-invite-copy p{font-size:14px;line-height:1.95;max-width:31em}
 :is(.journal-flow,.recovery015-journal) .city-invite-copy small{font-size:10px;line-height:1.9}
 :is(.journal-flow,.recovery015-journal) .mini-invitation p{font-size:14px;line-height:1.9}
@@ -202,7 +202,7 @@ body[data-page] .wire-heading{font-size:10px;line-height:1.8;align-items:baselin
 .beauty014-blade .air-notes b{font-size:11px}
 .beauty014-language .type-lead p{font-size:17px;line-height:2.05;letter-spacing:-.025em}
 .beauty014-language .type-lead>p{font-size:23px;line-height:1.9}
-.beauty014-language .type-opening{background:linear-gradient(140deg,#ede7ed,#e2dbe7)}
+.beauty014-language .type-opening{background:#ebe5ec}
 .beauty014-language .type-opening-title>p{color:#625b70}
 .beauty014-language .type-opening-title h1 em{color:#806776}
 
@@ -382,7 +382,7 @@ body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-brea
 .beauty014-language .type-fact{background:#efe3dc;border-color:#ad8e9f}
 .beauty014-language .type-fact p{font-size:14px;line-height:1.9}
 .beauty014-language .type-fact small{font-size:11px;line-height:1.9;color:var(--muted)}
-.beauty014-language .type-language{background:linear-gradient(135deg,#eee8ed,#e7e1e9)}
+.beauty014-language .type-language{background:#ebe6ec}
 .beauty014-language .type-comparison{background:#e7dfe9}
 .beauty014-language .type-sources{background:#f0ebe6}
 .beauty014-language :is(.type-study-intro,.design-study){background:#343143}
@@ -429,3 +429,69 @@ body[data-page="article"] .f40-article-image img{background:transparent}
 @media(prefers-reduced-motion:reduce){
  .beauty014-language .design-study.study-enabled{height:auto}
 }
+
+/* A small printed issue returns between the photographic stories. */
+:is(.journal-flow,.recovery015-journal) .issue-invitation{
+  border:0; margin:0; padding:clamp(42px,6vw,82px) var(--edge); background:#eee6e7
+}
+:is(.journal-flow,.recovery015-journal) .issue-invitation>a{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(260px, .8fr);
+  gap:clamp(32px,8vw,130px); align-items:center; max-width:1100px; margin:auto
+}
+:is(.journal-flow,.recovery015-journal) .issue-invite-copy{display:block}
+:is(.journal-flow,.recovery015-journal) .issue-invite-copy h2{
+  font-size:clamp(30px,3.8vw,50px); line-height:1.12; max-width:8em; margin:18px 0
+}
+:is(.journal-flow,.recovery015-journal) .issue-invite-copy p{font-size:14px; line-height:1.8}
+:is(.journal-flow,.recovery015-journal) .edition-link{margin-top:16px; border-bottom:1px solid currentColor}
+:is(.journal-flow,.recovery015-journal) .issue-jacket{
+  display:flex; flex-direction:column; background:#dcd3df; color:#343143;
+  padding:clamp(18px,2.5vw,34px); box-shadow:7px 9px 0 rgba(52,49,67,.07)
+}
+:is(.journal-flow,.recovery015-journal) .jacket-number{font:10px/1.5 Arial,sans-serif; letter-spacing:.1em}
+:is(.journal-flow,.recovery015-journal) .jacket-title{font:400 clamp(26px,3vw,42px)/.95 THSerif,Georgia,serif; letter-spacing:-.04em; margin:24px 0}
+:is(.journal-flow,.recovery015-journal) .jacket-title i{display:block; font-weight:400}
+:is(.journal-flow,.recovery015-journal) .issue-jacket img{width:100%;height:auto}
+:is(.journal-flow,.recovery015-journal) .jacket-foot{font:8px/1.5 Arial,sans-serif; letter-spacing:.08em; margin-top:18px}
+:is(.journal-flow,.recovery015-journal) .issue-invitation>small{
+  display:block; max-width:1100px; margin:18px auto 0; font-size:10px; line-height:1.8; color:#686172
+}
+:is(.journal-flow,.recovery015-journal) .issue-invitation>small a{text-decoration:underline}
+@media(max-width:700px){
+  .recovery015-journal .featured{margin:22px 0 48px}
+  .recovery015-journal .feature-image{aspect-ratio:auto; margin-left:var(--edge)}
+  .recovery015-journal .feature-image img{height:auto; object-fit:initial}
+  .recovery015-journal .feature-copy{margin:0 22px 0 12%; padding:28px 0 0; background:transparent}
+  .recovery015-journal .feature-copy .eyebrow{margin-bottom:15px}
+  .recovery015-journal .feature-copy h2{font-size:31px;line-height:1.42}
+  :is(.journal-flow,.recovery015-journal) .issue-invitation{padding:42px var(--edge) 34px}
+  :is(.journal-flow,.recovery015-journal) .issue-invitation>a{grid-template-columns:minmax(0,1fr) minmax(130px,44%); gap:18px; align-items:center}
+  :is(.journal-flow,.recovery015-journal) .issue-invite-copy h2{font-size:25px; line-height:1.12; margin:12px 0}
+  :is(.journal-flow,.recovery015-journal) .issue-invite-copy p{font-size:12px;line-height:1.7}
+  :is(.journal-flow,.recovery015-journal) .edition-link{font-size:11px; margin-top:10px}
+  :is(.journal-flow,.recovery015-journal) .issue-jacket{padding:15px 13px 14px}
+  :is(.journal-flow,.recovery015-journal) .jacket-title{font-size:25px; margin:18px 0}
+  :is(.journal-flow,.recovery015-journal) .jacket-foot{font-size:7px; margin-top:12px}
+}
+
+/* Let photographs keep their frame; the supporting type sits on the paper. */
+.beauty014-language .type-hero>img,
+.beauty014-language .type-closing-photo img{aspect-ratio:auto; height:auto; object-fit:contain}
+.beauty014-language .hero-caption{
+  position:static; display:block; color:var(--thz-muted); font:9px/1.8 Arial,sans-serif;
+  letter-spacing:.07em; padding:10px 0 0; background:#ebe5ec
+}
+@media(max-width:700px){
+  body[data-page] .desk-feature-photo{margin:0 0 0 var(--desk-edge)}
+  body[data-page] .desk-feature-photo>span{margin-right:var(--desk-edge)}
+  body[data-page] .front-wire-item strong{font-size:22px; line-height:1.42}
+  body[data-page] .front-wire-item:first-child strong{font-size:26px}
+  body[data-page] .front-wire-item{border-color:#d6cbd0}
+  .beauty014-blade .f40-hero{margin-inline:0}
+  .beauty014-blade .f40-hero figcaption{padding:12px var(--edge) 0}
+  .beauty014-language .hero-caption{padding:10px var(--edge) 0}
+}
+
+/* Carry the cover's final paper colour into the journal threshold. */
+.journal-flow.journal-flow{background:#e8dfe1}
+.journal-flow .site-header{background:#e8dfe1;border-bottom-color:transparent}
