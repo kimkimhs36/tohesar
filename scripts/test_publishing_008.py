@@ -38,6 +38,12 @@ class Publishing(unittest.TestCase):
     def test_unpublish_removes_generated_edition(self):
         d=self.data('issues.json');d['issues'][0]['status']='review';self.save('issues.json',d)
         self.runcli('build',ok=False);self.assertFalse((self.root/'journal/issues/001/index.html').exists())
+    def test_unverified_authored_story_blocks_before_publication(self):
+        self.runcli('new-story','unverified-story','--title','Unverified')
+        d=self.data('content-index.json');d['items'][-1]['status']='published';self.save('content-index.json',d)
+        self.runcli('build',ok=False)
+        self.assertFalse((self.root/'journal/design/unverified-story/index.html').exists())
+
     def test_story_draft_kept_out_of_search(self):
         self.runcli('new-story','new-design-note','--title','A new draft');self.runcli('build')
         self.assertNotIn('new-design-note',(self.root/'journal/design/index.html').read_text())

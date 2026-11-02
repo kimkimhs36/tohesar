@@ -14,6 +14,7 @@ def check():
     issues,content=validate()
     for i in content.values():
         assert i['status'] in ['draft','review','published'],i['id']
+        validate_authored_story(i)
         if i['status']!='published':continue
         for k in ['title','url','summary','published_at','image','image_source','image_credit','image_licence']:assert i.get(k),f'{i["id"]}: missing {k}'
         date.fromisoformat(i['published_at'])
@@ -71,7 +72,17 @@ def links():
             count+=1
     print(f'LINK PASS: {count} local destinations/anchors across {len(active)} pages')
 
+def validate_authored_story(item):
+    if not item.get('body_file') or item.get('status') != 'published':return
+    review=item.get('verification',{})
+    assert isinstance(review,dict) and review.get('status')=='verified',f'{item["id"]}: authored story verification required'
+    for key in ['reviewer','note','verified_at']:assert review.get(key),f'{item["id"]}: missing verification {key}'
+    assert date.fromisoformat(review['verified_at'])<=date.today(),'Future verification date'
+
 def build():
+    # Reject unverified authored stories before touching public files.
+    for item in load('journal/data/content-index.json')['items']:
+        validate_authored_story(item)
     from editorial_system import preflight
     preflight()
     # Body-file entries are authored once; public routes are generated only after explicit publication.
@@ -108,7 +119,7 @@ def new_story(slug,title):
     assert re.fullmatch('[a-z0-9-]+',slug),'Use a lowercase slug'
     d=load('journal/data/content-index.json');assert not any(n['id']==slug for n in d['items']),'ID exists'
     url=f'/journal/design/{slug}/';p=destination(url);assert not p.exists(),'Route exists'
-    d['items'].append(dict(id=slug,title=title,url=url,kind='design-essay',manufacturer=None,model=None,published_at=date.today().isoformat(),vehicle_year=None,forms=[],summary='',image='',image_alt='',image_source='',image_credit='',image_licence='',related=[],keywords=[],status='draft',body_file=f'journal/drafts/{slug}.html'))
+    d['items'].append(dict(id=slug,title=title,url=url,kind='design-essay',manufacturer=None,model=None,published_at=date.today().isoformat(),vehicle_year=None,forms=[],summary='',image='',image_alt='',image_source='',image_credit='',image_licence='',related=[],keywords=[],status='draft',verification=dict(status='pending',reviewer='',note='',verified_at=None),body_file=f'journal/drafts/{slug}.html'))
     write('journal/data/content-index.json',d)
     # Drafts live outside public routes until the editor prepares and explicitly publishes them.
     p=ROOT/'journal/drafts'/f'{slug}.html';p.parent.mkdir(exist_ok=True)
