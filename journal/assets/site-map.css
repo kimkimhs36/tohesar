@@ -3,3 +3,10 @@
 /* A quiet miniature paper links discovery with the journal reading pages. */
 body:has(.explore-list) .map-intro{background-image:linear-gradient(rgba(238,233,226,.62),rgba(238,233,226,.62)),url("/journal/assets/wallpaper/miniature-paper-wide.svg");background-position:center top;background-size:1000px 1650px}
 @media(max-width:700px){body:has(.explore-list) .map-intro{background-image:linear-gradient(rgba(238,233,226,.62),rgba(238,233,226,.62)),url("/journal/assets/wallpaper/miniature-paper-mobile.svg");background-size:390px 1650px}}
+
+/* Let the miniature collection breathe without competing with the text. */
+body:has(.explore-list) .map-intro{position:relative;isolation:isolate;overflow:hidden}
+body:has(.explore-list) .map-intro::after{content:"";position:absolute;z-index:-1;pointer-events:none;right:8%;bottom:8%;width:clamp(110px,15vw,200px);aspect-ratio:240/90;background:url('/journal/assets/wallpaper/rose-current-240.webp') center/contain no-repeat;opacity:.26;animation:explore-car-drift 16s ease-in-out infinite alternate}
+@keyframes explore-car-drift{from{transform:translate3d(-5px,3px,0) rotate(-2deg)}to{transform:translate3d(6px,-2px,0) rotate(1deg)}}
+@media(max-width:700px){body:has(.explore-list) .map-intro::after{right:-26px;bottom:3%;width:130px;opacity:.2}}
+@media(prefers-reduced-motion:reduce){body:has(.explore-list) .map-intro::after{animation:none}}

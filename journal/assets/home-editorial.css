@@ -27,3 +27,14 @@
 .home-close nav{min-width:220px;align-self:end}.home-close nav a{display:block;padding:17px 0;border-bottom:1px solid var(--home-rule);font-size:15px}
 @media(max-width:700px){.home-editorial{background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:390px 1650px}.home-intro{padding-top:82px;padding-bottom:92px}.home-intro h1{font-size:clamp(43px,11vw,55px)}.home-feature{display:block;padding-left:0;padding-right:0;padding-bottom:110px}.home-feature-copy{padding:26px 24px 0}.home-feature-copy h2{font-size:36px}.home-pair{display:block;padding-bottom:90px}.home-pair article:nth-child(2){margin-top:80px}.home-pair h2{font-size:32px}.home-paths{grid-template-columns:1fr;padding-top:65px;padding-bottom:65px}.home-paths img{max-width:330px;margin-top:15px}.home-close{display:block;padding-top:68px;padding-bottom:85px}.home-close nav{margin-top:45px}}
 @media(prefers-reduced-motion:reduce){.home-editorial *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Small, independent silhouettes drift at the edge of the paper. */
+.home-intro,.home-close{position:relative;isolation:isolate}
+.home-intro::before,.home-intro::after,.home-close::before,.home-close::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:clamp(110px,14vw,210px);aspect-ratio:240/98;background:center/contain no-repeat;opacity:.37;animation:home-car-drift 13s ease-in-out infinite alternate}
+.home-intro::before{background-image:url('/journal/assets/wallpaper/butter-club-240.webp');right:7%;top:16%;animation-delay:-4s}
+.home-intro::after{background-image:url('/journal/assets/wallpaper/blue-hour-240.webp');right:21%;bottom:5%;opacity:.27;animation-duration:17s;animation-delay:-8s}
+.home-close::before{background-image:url('/journal/assets/wallpaper/tomato-open-240.webp');left:45%;top:12%;opacity:.3;animation-duration:16s;animation-delay:-6s}
+.home-close::after{background-image:url('/journal/assets/wallpaper/mint-tour-240.webp');left:28%;bottom:5%;opacity:.27;animation-duration:19s;animation-delay:-10s}
+@keyframes home-car-drift{from{transform:translate3d(-5px,2px,0) rotate(-2deg)}to{transform:translate3d(6px,-3px,0) rotate(1deg)}}
+@media(max-width:700px){.home-intro::before{right:-34px;top:13%;width:135px;opacity:.3}.home-intro::after{right:7%;bottom:3%;width:115px;opacity:.23}.home-close::before{left:auto;right:-30px;top:5%;width:125px;opacity:.24}.home-close::after{left:52%;bottom:3%;width:115px;opacity:.2}}
+@media(prefers-reduced-motion:reduce){.home-intro::before,.home-intro::after,.home-close::before,.home-close::after{animation:none}}
