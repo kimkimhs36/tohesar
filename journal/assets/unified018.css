@@ -1,0 +1,1007 @@
+/* TOHEŞAR 018 / Shared editorial chrome. The authored interiors retain their own compositions.
+   Applies to all Journal and Newsroom pages, never to the COVER 004 stage. */
+:root{
+  --thz-paper:#e9e4ee;
+  --thz-paper-light:#f5f1eb;
+  --thz-peach:#efcebd;
+  --thz-ink:#343143;
+  --thz-muted:#686172;
+  --thz-rule:#b8aebf;
+  --thz-edition:#d4c9da;
+  --thz-gutter:clamp(22px,4.5vw,76px)
+}
+body:not(:has(.sequence)) .site-header,
+.journal-flow .site-header{
+  position:relative;
+  z-index:25;
+  background-color:var(--thz-paper);
+  color:var(--thz-ink);
+  border-bottom:1px solid var(--thz-rule);
+  box-shadow:none;
+  min-height:68px;
+  -webkit-font-smoothing:antialiased
+}
+body:not(:has(.sequence)) .site-header .brand,
+body:not(:has(.sequence)) .site-header .logo,
+.journal-flow .site-header .brand{
+  width:clamp(118px,14vw,146px);
+  max-width:44vw;
+  flex:0 0 auto;
+  filter:none;
+  opacity:1
+}
+body:not(:has(.sequence)) .site-header .brand,
+body:not(:has(.sequence)) .site-header .logo img,
+.journal-flow .site-header .brand{filter:brightness(0);opacity:.85}
+body:not(:has(.sequence)) .site-header .header-journal,
+body:not(:has(.sequence)) .site-header .nav-journal,
+.journal-flow .site-header .header-journal{
+  color:var(--thz-ink);
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.015em;
+  min-height:44px;
+  align-items:center
+}
+body:not(:has(.sequence)) .journal-index,
+.journal-flow .journal-index{color:var(--thz-ink)}
+body:not(:has(.sequence)) .journal-index nav,
+.journal-flow .journal-index nav{
+  background:var(--thz-paper-light);
+  color:var(--thz-ink);
+  border-color:var(--thz-rule);
+  box-shadow:0 20px 40px rgba(52,49,67,.12)
+}
+body:not(:has(.sequence)) .journal-index nav>a,
+.journal-flow .journal-index nav>a{
+  border-color:var(--thz-rule);
+  color:var(--thz-ink)
+}
+body:not(:has(.sequence)) .journal-index nav>a:hover,
+.journal-flow .journal-index nav>a:hover{background-color:rgba(239,206,189,.28);opacity:1}
+body[data-page] .menu-panel{
+  background:var(--thz-paper-light);
+  border-color:var(--thz-rule);
+  box-shadow:0 20px 40px rgba(52,49,67,.12)
+}
+body[data-page] .menu-panel a{border-color:var(--thz-rule)}
+body[data-page] .icon-button,
+body[data-page] .menu-button{color:var(--thz-ink)}
+body:not(:has(.sequence)) .site-footer,
+.journal-flow .site-footer{
+  background-color:var(--thz-edition);
+  color:var(--thz-ink);
+  border-top:1px solid var(--thz-rule)
+}
+body:not(:has(.sequence)) .site-footer a,
+.journal-flow .site-footer a{color:inherit}
+body:not(:has(.sequence)) .site-footer a:focus-visible,
+body:not(:has(.sequence)) .site-header a:focus-visible,
+body:not(:has(.sequence)) .site-header summary:focus-visible,
+.journal-flow .site-header a:focus-visible,
+.journal-flow .site-header summary:focus-visible{
+  outline:2px solid #79578a;
+  outline-offset:4px
+}
+body[data-page] .newsroom-mast h1,
+body[data-page] .desk-feature h2{
+  color:var(--thz-ink)
+}
+body[data-page] .newsroom-mast h1>span{
+  color:#a580a3
+}
+body[data-page] .desk-feature-copy{
+  background-color:var(--thz-peach);
+  color:var(--thz-ink)
+}
+body[data-page] .desk-feature-copy h2{font-weight:400}
+body[data-page] .desk-nav,
+body[data-page] .front-wire-top{border-color:var(--thz-rule)}
+body[data-page] .desk-nav a{color:var(--thz-ink)}
+body:not(:has(.sequence)) .site-header a,
+.journal-flow .site-header a{touch-action:manipulation}
+@media(max-width:700px){
+  body:not(:has(.sequence)) .site-header,
+  .journal-flow .site-header{min-height:62px}
+  body:not(:has(.sequence)) .site-header .header-journal,
+  body:not(:has(.sequence)) .site-header .nav-journal,
+  .journal-flow .site-header .header-journal{font-size:10px}
+  body:not(:has(.sequence)) .site-header .brand,
+  body:not(:has(.sequence)) .site-header .logo,
+  .journal-flow .site-header .brand{width:126px;max-width:43vw}
+}
+@media(prefers-reduced-motion:reduce){
+  body:not(:has(.sequence)) .site-header *,
+  .journal-flow .site-header *{transition:none!important}
+}
+/* Continuous design development · 02 Nov 2026.
+   COVER 004 and the existing Index remain independent of these reading surfaces. */
+:is(.journal-flow,.recovery015-journal) .cover-editorial-continuation{
+  background:transparent;border:0;padding-block:30px 36px;align-items:center
+}
+.journal-flow .cover-editorial-continuation>.eyebrow{max-width:90px;line-height:1.9}
+.journal-flow .cover-editorial-continuation p{font-size:clamp(19px,2.5vw,31px);line-height:1.65}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation{
+  background:#f5f1eb;padding-block:62px 68px;gap:6vw
+}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation h2{line-height:1.45;letter-spacing:-.055em}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation p{font-size:14px;line-height:1.95}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation small{font-size:10px;line-height:1.85}
+:is(.journal-flow,.recovery015-journal) .issue-invitation{margin-top:34px;margin-bottom:16px}
+:is(.journal-flow,.recovery015-journal) .design{padding-top:26px;padding-bottom:74px}
+:is(.journal-flow,.recovery015-journal) .design p{font-size:14px;line-height:1.95;max-width:34em}
+:is(.journal-flow,.recovery015-journal) .design small{font-size:10px;line-height:1.85}
+:is(.journal-flow,.recovery015-journal) .design-small{margin-top:114px}
+:is(.journal-flow,.recovery015-journal) .latest{
+  background:#f3e4dc;padding-block:60px 66px
+}
+:is(.journal-flow,.recovery015-journal) .section-note{font-size:13px;line-height:1.95;max-width:54em}
+:is(.journal-flow,.recovery015-journal) .section-note>span{font-size:11px;margin-top:6px}
+.journal-flow .journal-wire{background:transparent;padding:0;margin:35px 0 48px}
+.journal-flow .journal-wire-register{font-size:10px;letter-spacing:0}
+.journal-flow .journal-wire-heading p{font-size:12px;line-height:1.9;max-width:26em}
+.journal-flow .journal-wire-list a{grid-template-columns:130px minmax(0,1fr) 170px;min-height:92px;padding-block:21px;gap:24px}
+.journal-flow .journal-wire-list strong{font-size:clamp(21px,2.1vw,29px);line-height:1.45;overflow-wrap:normal}
+.journal-flow .journal-wire-list :is(.front-wire-meta,.front-wire-date){font-size:10px}
+.journal-flow .journal-curated-caption{font-size:10px;letter-spacing:0}
+:is(.journal-flow,.recovery015-journal) .news-item{padding-block:28px}
+:is(.journal-flow,.recovery015-journal) .news-item p{font-size:14px;line-height:1.95}
+:is(.journal-flow,.recovery015-journal) .news-date{font-size:11px}
+:is(.journal-flow,.recovery015-journal) .news-date span{font-size:10px}
+:is(.journal-flow,.recovery015-journal) .news-source{font-size:11px}
+:is(.journal-flow,.recovery015-journal) .city-invitation{background:#e8e1e9;padding-block:34px 68px}
+:is(.journal-flow,.recovery015-journal) .city-invite-copy p{font-size:14px;line-height:1.95;max-width:31em}
+:is(.journal-flow,.recovery015-journal) .city-invite-copy small{font-size:10px;line-height:1.9}
+:is(.journal-flow,.recovery015-journal) .mini-invitation p{font-size:14px;line-height:1.9}
+:is(.journal-flow,.recovery015-journal) .site-footer p{font-size:13px}
+:is(.journal-flow,.recovery015-journal) .site-footer nav a{font-size:12px}
+
+/* The newsroom's typography reads as a register; the feature keeps the whole car. */
+body[data-page] .desk-feature-photo>span{position:static;display:block;color:var(--body);font-size:10px;letter-spacing:.04em;margin-top:12px}
+body[data-page] .desk-feature-copy{margin-left:0;transform:none;background:transparent;padding-right:0;padding-left:clamp(28px,4.5vw,70px)}
+body[data-page] .desk-feature{grid-template-columns:1.35fr 1fr;align-items:center;margin-block:34px 60px}
+body[data-page] .desk-feature-copy p{font-size:14px;line-height:1.95}
+body[data-page] .desk-image-credit{font-size:10px;max-width:none;margin-top:20px}
+body[data-page] .desk-text-link{font-size:12px}
+body[data-page] .front-wire-intro{font-size:13px;line-height:1.9;max-width:42em}
+body[data-page] :is(.front-wire-meta,.front-wire-date){font-size:10px;line-height:1.8}
+body[data-page] .front-wire-item a{padding-block:25px}
+body[data-page] .front-wire-item strong{line-height:1.45}
+body[data-page] :is(.news-lead>p,.news-side p){font-size:14px;line-height:1.95}
+body[data-page] .desk-reading article p{font-size:14px;line-height:1.9}
+body[data-page] .desk-reading article>small{font-size:10px;line-height:1.9}
+body[data-page] .news-index-main{padding-top:36px}
+body[data-page] .news-index-main .desk-deck{font-size:14px;line-height:1.9;max-width:36em}
+body[data-page] .news-index-main .wire-card{padding-block:26px}
+body[data-page] .news-index-main .wire-card strong{line-height:1.5;overflow-wrap:normal}
+body[data-page] .news-index-main .wire-card :is(small,span){font-size:10px;line-height:1.8}
+body[data-page] .wire-count{font-size:12px;line-height:1.8}
+body[data-page] .feed-health-detail{font-size:11px}
+body[data-page] .wire-reset{min-height:44px;font-size:12px;background:transparent;border-width:0 0 1px;padding-inline:0}
+body[data-page] .wire-heading{font-size:10px;line-height:1.8;align-items:baseline}
+
+/* Reading sizes over the original miniature wallpaper. */
+:is(.beauty014-curve,.beauty014-blade) :is(.story-opening,.chapter-body){max-width:660px}
+:is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:17px;line-height:2.05;letter-spacing:-.025em;word-break:keep-all;overflow-wrap:break-word}
+:is(.beauty014-curve,.beauty014-blade) .chapter-body p+p{margin-top:27px}
+:is(.beauty014-curve,.beauty014-blade) .story-opening{font-size:23px;line-height:1.9;letter-spacing:-.04em}
+:is(.beauty014-curve,.beauty014-blade) .story-opening p+p{font-size:16px;line-height:2.05}
+:is(.beauty014-curve,.beauty014-blade) .story-deck{font-size:16px;line-height:1.95;letter-spacing:-.035em}
+:is(.beauty014-curve,.beauty014-blade) :is(.byline,.story-hero figcaption,.f40-hero figcaption){font-size:11px;line-height:1.85}
+:is(.beauty014-curve,.beauty014-blade) .story-sources :is(p,li){font-size:12px;line-height:1.95}
+.beauty014-blade .f40-hero{margin-inline:var(--edge)}
+.beauty014-blade .f40-hero>img{clip-path:none;aspect-ratio:auto;object-fit:contain}
+.beauty014-blade .f40-hero figcaption{padding:13px 0 0;background:transparent;margin-top:0}
+.beauty014-blade .air-sequence.scene-enabled{height:160svh}
+.beauty014-blade .air-board{max-width:1100px}
+.beauty014-blade .air-copy>p{font-size:14px;line-height:1.9}
+.beauty014-blade .air-notes p{font-size:14px;line-height:1.9}
+.beauty014-blade .air-notes b{font-size:11px}
+.beauty014-language .type-lead p{font-size:17px;line-height:2.05;letter-spacing:-.025em}
+.beauty014-language .type-lead>p{font-size:23px;line-height:1.9}
+.beauty014-language .type-opening{background:#ebe5ec}
+.beauty014-language .type-opening-title>p{color:#625b70}
+.beauty014-language .type-opening-title h1 em{color:#806776}
+
+@media(max-width:900px) and (min-width:701px){
+ .journal-flow .journal-wire-list a{grid-template-columns:105px minmax(0,1fr)}
+ .journal-flow .journal-wire-list .front-wire-date{grid-column:2;text-align:left}
+}
+@media(max-width:700px){
+ :is(.journal-flow,.recovery015-journal) .journal-mast{padding-block:23px 18px}
+ :is(.journal-flow,.recovery015-journal) .journal-mast h1{font-size:23vw;margin-bottom:20px}
+ :is(.journal-flow,.recovery015-journal) .mast-bottom p{font-size:12px;line-height:1.8}
+ :is(.journal-flow,.recovery015-journal) .section-nav a{font-size:11px;min-height:48px}
+ :is(.journal-flow,.recovery015-journal) .section-nav span{font-size:9px}
+ .journal-flow .cover-editorial-continuation{padding-block:27px 32px;display:grid;grid-template-columns:1fr auto;gap:16px}
+ .journal-flow .cover-editorial-continuation>.eyebrow{grid-column:1/-1;max-width:none;font-size:10px}
+ .journal-flow .cover-editorial-continuation p{font-size:19px;line-height:1.75;margin:0}
+ .journal-flow .cover-editorial-continuation>a{font-size:11px;white-space:normal;max-width:8.6em;gap:12px;line-height:1.8;padding-bottom:5px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation{padding:32px 0 40px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invite-photo{margin:0 var(--edge) 0 0}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation>div{margin:27px var(--edge) 0 12%}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation h2{font-size:31px;margin-bottom:20px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation .text-link{font-size:12px;line-height:1.8;margin-top:18px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation .text-link+.text-link{font-size:11px;margin-top:4px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation small{margin-top:20px}
+ :is(.journal-flow,.recovery015-journal) .issue-invitation{margin-block:28px 12px;padding-block:22px}
+ :is(.journal-flow,.recovery015-journal) .issue-invite-copy{display:block}
+ :is(.journal-flow,.recovery015-journal) .edition-label{font-size:9px}
+ :is(.journal-flow,.recovery015-journal) .issue-invite-copy h2{font-size:26px;margin-block:13px 10px}
+ :is(.journal-flow,.recovery015-journal) .issue-invite-copy p{font-size:12px}
+ :is(.journal-flow,.recovery015-journal) .edition-link{font-size:11px;margin-top:5px}
+ :is(.journal-flow,.recovery015-journal) .design{padding-block:18px 44px}
+ :is(.journal-flow,.recovery015-journal) .section-heading>.text-link{font-size:11px}
+ :is(.journal-flow,.recovery015-journal) .design-large h3{font-size:26px;line-height:1.5}
+ :is(.journal-flow,.recovery015-journal) .design-small{margin:40px 0 0 12%}
+ :is(.journal-flow,.recovery015-journal) .story-label{font-size:9px;margin-block:17px 12px}
+ :is(.journal-flow,.recovery015-journal) .latest{padding-block:38px 42px}
+ :is(.journal-flow,.recovery015-journal) .latest .section-heading{display:block;margin-bottom:18px}
+ :is(.journal-flow,.recovery015-journal) .latest .section-heading h2{font-size:30px}
+ .journal-flow .journal-wire{margin-block:29px 38px}
+ .journal-flow .journal-wire-register{font-size:10px;gap:20px}
+ .journal-flow .journal-wire-register>span:last-child{max-width:155px}
+ .journal-flow .journal-wire-heading{padding-top:24px}
+ .journal-flow .journal-wire-heading h3{font-size:28px}
+ .journal-flow .journal-wire-heading p{font-size:12px;margin-block:13px 10px}
+ .journal-flow .journal-wire-list a{display:block;min-height:0;padding-block:22px}
+ .journal-flow .journal-wire-list strong{font-size:24px;line-height:1.45;margin-block:9px 11px}
+ .journal-flow .journal-wire-list :is(.front-wire-meta,.front-wire-date){font-size:10px}
+ .journal-flow .journal-wire-more{font-size:12px;margin-top:14px}
+ .journal-flow .journal-curated-caption{font-size:10px;line-height:1.9}
+ :is(.journal-flow,.recovery015-journal) .news-date{display:flex;font-size:11px}
+ :is(.journal-flow,.recovery015-journal) .news-item h3{font-size:23px;line-height:1.55;margin-block:15px 13px}
+ :is(.journal-flow,.recovery015-journal) .news-source{font-size:11px;margin-top:10px;line-height:1.8}
+ :is(.journal-flow,.recovery015-journal) .city-invitation{padding-block:28px 44px}
+ :is(.journal-flow,.recovery015-journal) .city-invite-top{font-size:10px}
+ :is(.journal-flow,.recovery015-journal) .city-invite-copy{margin:28px 0 0 12%}
+ :is(.journal-flow,.recovery015-journal) .city-invite-copy h2{font-size:37px;line-height:1.4;margin-block:18px 22px}
+ :is(.journal-flow,.recovery015-journal) .city-invite-link{font-size:12px}
+ :is(.journal-flow,.recovery015-journal) .mini-invitation{padding-block:38px 32px}
+ :is(.journal-flow,.recovery015-journal) .mini-invitation .text-link{font-size:12px}
+ :is(.journal-flow,.recovery015-journal) .mini-number{font-size:9px;line-height:1.8}
+ :is(.journal-flow,.recovery015-journal) .feature-copy>p{font-size:14px;line-height:1.95}
+ :is(.journal-flow,.recovery015-journal) .feature-copy small{font-size:10px}
+ body[data-page] .newsroom-mast{padding-block:22px 18px}
+ body[data-page] .desk-register{font-size:9px}
+ body[data-page] .newsroom-mast h1{margin-block:18px 14px}
+ body[data-page] .desk-mast-foot p{font-size:12px}
+ body[data-page] .desk-nav a{font-size:11px;min-height:48px}
+ body[data-page] .desk-nav span{font-size:9px}
+ body[data-page] .desk-feature{margin:25px 0 42px}
+ body[data-page] .desk-feature-photo{margin:0 var(--desk-edge)}
+ body[data-page] .desk-feature-photo>span{font-size:9px;line-height:1.8;margin-top:10px}
+ body[data-page] .desk-feature-copy{margin:25px var(--desk-edge) 0 12%;padding:0}
+ body[data-page] .desk-kicker{font-size:10px;line-height:1.8;letter-spacing:.04em}
+ body[data-page] .desk-feature h2{font-size:32px;line-height:1.5;margin-block:14px 20px}
+ body[data-page] .desk-image-credit{font-size:10px;margin:19px var(--desk-edge) 0;line-height:1.85}
+ body[data-page] .front-wire{padding-bottom:40px}
+ body[data-page] .front-wire-heading p{font-size:9px}
+ body[data-page] .front-wire-heading>a{font-size:11px}
+ body[data-page] .front-wire-item strong{font-size:25px;line-height:1.45;margin-block:10px 12px}
+ body[data-page] .front-wire-more{font-size:12px;line-height:1.8}
+ body[data-page] .section-top{font-size:10px}
+ body[data-page] .news-side small{font-size:10px;line-height:1.8}
+ body[data-page] .desk-reading{padding-block:38px 44px}
+ body[data-page] .desk-reading article>a>span{font-size:10px}
+ body[data-page] .desk-reading article>small{font-size:10px}
+ body[data-page] .desk-911{margin:38px 0 0 12%}
+ body[data-page] .news-index-main{padding-top:25px}
+ body[data-page] .news-index-main h1{font-size:40px;margin-block:13px 16px}
+ body[data-page] .news-index-main>.eyebrow{font-size:10px;letter-spacing:.045em}
+ body[data-page] .news-index-main .desk-deck{margin-bottom:26px}
+ body[data-page] .news-index-main section:first-of-type{padding-top:22px}
+ body[data-page] .news-index-main section>h2{font-size:22px}
+ body[data-page] .news-index-main section:first-of-type>p:first-of-type{font-size:11px;line-height:1.9}
+ body[data-page] .wire-filters{margin-top:18px;gap:12px}
+ body[data-page] .wire-filters label{font-size:12px;line-height:1.8}
+ body[data-page] .wire-filters select{border-radius:0;background-color:#fffcf6}
+ body[data-page] .wire-count{margin-block:18px 15px}
+ body[data-page] .news-index-main .wire-card strong{font-size:25px;margin-block:10px 13px}
+ :is(.beauty014-curve,.beauty014-blade) .story-intro{padding-block:14px 29px}
+ :is(.beauty014-curve,.beauty014-blade) .story-topline{font-size:9px;margin-bottom:22px}
+ :is(.beauty014-curve,.beauty014-blade) .story-intro h1{font-size:37px;line-height:1.45;letter-spacing:-.065em}
+ :is(.beauty014-curve,.beauty014-blade) .story-intro>.eyebrow{font-size:10px}
+ :is(.beauty014-curve,.beauty014-blade) .story-deck{font-size:14px;margin-top:22px}
+ :is(.beauty014-curve,.beauty014-blade) .byline{font-size:10px;line-height:1.9;margin-top:25px}
+ :is(.beauty014-curve,.beauty014-blade) .story-opening{font-size:21px;line-height:1.95;margin-block:44px 36px;padding-inline:var(--edge)}
+ :is(.beauty014-curve,.beauty014-blade) .story-opening p+p{font-size:16px;line-height:2.05}
+ :is(.beauty014-curve,.beauty014-blade) .story-chapter{padding-block:29px 38px}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:16px;line-height:2.05}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-body h2{font-size:25px;line-height:1.55;margin-bottom:25px}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-side>p{font-size:10px}
+ :is(.beauty014-curve,.beauty014-blade) .story-sources :is(p,li){font-size:12px;line-height:1.95}
+ :is(.beauty014-curve,.beauty014-blade) .story-hero figcaption{font-size:10px}
+ .beauty014-blade .air-diagram{height:190px}
+ .beauty014-blade .air-notes{min-height:90px}
+ .beauty014-blade .air-top{font-size:9px}
+ .beauty014-blade .air-bottom{font-size:9px;line-height:1.9}
+ .beauty014-language .type-opening-title{padding-top:22px}
+ .beauty014-language .type-opening-title h1{font-size:29px;line-height:1.6;letter-spacing:-.06em}
+ .beauty014-language .type-opening-title>p i{font-size:64px}
+ .beauty014-language .type-lead p{font-size:16px;line-height:2.05}
+ .beauty014-language .type-lead>p{font-size:21px;line-height:1.95}
+}
+@media(prefers-reduced-motion:reduce){
+ .beauty014-blade .air-sequence.scene-enabled{height:auto}
+}
+
+/* Second pass: compact service headings, unbroken Korean measures, calmer article chrome. */
+body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-break:keep-all;overflow-wrap:break-word}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header{display:flex;align-items:center;gap:24px}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header .header-journal{margin-left:auto;display:flex;white-space:nowrap}
+@media(max-width:700px){
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header{padding-block:11px;gap:18px;min-height:67px}
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header .header-journal{font-size:10px;line-height:1.5}
+ body[data-page] .news-index-main>.desk-deck{font-size:13px;line-height:1.9;margin-bottom:22px}
+ body[data-page] .news-index-main section>h2{font:400 16px/1.5 var(--sans);margin-bottom:8px;letter-spacing:-.03em}
+ body[data-page] .news-index-main section:first-of-type{padding-top:18px}
+ body[data-page] .news-index-main .wire-heading{margin-top:15px;padding-block:12px;gap:14px;font-size:9px}
+ body[data-page] .news-index-main .wire-heading>span{max-width:57%}
+ body[data-page] .feed-health-detail{padding-block:7px}
+ body[data-page] .feed-health-detail summary{min-height:32px}
+ body[data-page] .wire-filters{gap:11px 12px;margin-top:16px}
+ body[data-page] .wire-filters label{gap:6px;font-size:11px}
+ body[data-page] .wire-filters input,body[data-page] .wire-filters select{font-size:16px;min-height:46px}
+ body[data-page] .wire-reset{font-size:11px;min-height:40px}
+ body[data-page] .wire-count{font-size:11px;margin-block:13px 12px}
+ body[data-page] .news-index-main .wire-list{padding-top:0}
+ .beauty014-language .type-opening-title h1{font-size:29px}
+}
+@supports(animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  :is(.journal-flow,.recovery015-journal) :is(.atlas-invite-photo,.design-large .image-link,.design-small .image-link,.city-invite-photo){
+   animation:thz-photo-arrive linear both;animation-timeline:view();animation-range:entry 0% entry 85%
+  }
+ }
+}
+@keyframes thz-photo-arrive{from{opacity:.86;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Third pass: landscape spreads and the long Jaguar essay share the same papers. */
+@media(min-width:1000px){
+ .journal-flow .journal-mast{padding-block:17px 12px}
+ .journal-flow .journal-mast h1{font-size:clamp(100px,9.2vw,145px);margin-bottom:14px}
+ .journal-flow .cover-editorial-continuation{padding-block:21px 27px}
+ .journal-flow .cover-editorial-continuation p{font-size:clamp(22px,2.3vw,33px);line-height:1.55}
+ .journal-flow .atlas-invitation{padding-block:42px 56px}
+ .beauty014-blade main{display:grid;grid-template-columns:.95fr 1.2fr}
+ .beauty014-blade main>*{grid-column:1/-1}
+ .beauty014-blade main>.story-intro{grid-column:1;grid-row:1;padding:30px 4vw 45px var(--edge);display:flex;flex-direction:column;justify-content:center}
+ .beauty014-blade main>.f40-hero{grid-column:2;grid-row:1;align-self:center;margin:45px var(--edge) 45px 0}
+ .beauty014-blade .story-topline{font-size:9px;gap:12px;margin-bottom:28px}
+ .beauty014-blade .story-intro h1{font-size:clamp(42px,4.3vw,69px);line-height:1.4;letter-spacing:-.07em}
+ .beauty014-blade .story-intro h1>span{padding-left:.3em}
+ .beauty014-blade .story-deck{font-size:15px;margin-top:25px}
+ .beauty014-blade .byline{margin-top:31px;font-size:10px}
+}
+.beauty014-language{--paper:#f5f1eb;--ink:#343143;--muted:#686172;--accent:#806776;--rule:#b8aebf;background:var(--paper);color:var(--ink)}
+.beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:17px;line-height:2.05;letter-spacing:-.025em}
+.beauty014-language .type-fact{background:#efe3dc;border-color:#ad8e9f}
+.beauty014-language .type-fact p{font-size:14px;line-height:1.9}
+.beauty014-language .type-fact small{font-size:11px;line-height:1.9;color:var(--muted)}
+.beauty014-language .type-language{background:#ebe6ec}
+.beauty014-language .type-comparison{background:#e7dfe9}
+.beauty014-language .type-sources{background:#f0ebe6}
+.beauty014-language :is(.type-study-intro,.design-study){background:#343143}
+.beauty014-language .study-pair img{background:transparent}
+.beauty014-language .type-study-intro>p{font-size:15px;line-height:1.95;max-width:43em}
+.beauty014-language .study-observations>p{font-size:15px;line-height:1.95}
+.beauty014-language .design-study.study-enabled{height:175svh}
+.beauty014-language .study-controls button{min-width:44px;min-height:44px}
+.beauty014-language :is(.type-hero-foot small,.type-byline,figcaption,figcaption small){font-size:11px;line-height:1.9}
+.beauty014-language .type-chapters a{font-size:12px}
+.beauty014-language .comparison-notes p{font-size:15px;line-height:2}
+.beauty014-language .comparison-heading>p{font-size:14px;line-height:1.95}
+.beauty014-language .type-sources :is(p,li){font-size:13px;line-height:2}
+.beauty014-language .type-sources li span{font-size:11px;line-height:1.9}
+body[data-page="article"] .article-deck{word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.025em}
+body[data-page="article"] :is(.article-toolbar,.article-aside,.article-aside dl div,.article-body h2){border-color:var(--thz-rule)}
+body[data-page="article"] .article-aside{border-top-width:1px}
+body[data-page="article"] .article-aside :is(dt,p),body[data-page="article"] .f40-article-image figcaption{color:var(--thz-muted)}
+body[data-page="article"] .article-body blockquote{background:#e8e0eb;color:#69536e;border:0;padding:32px;line-height:1.8}
+body[data-page="article"] .article-body .article-source{background:#eee7e3}
+body[data-page="article"] .f40-article-image img{background:transparent}
+@media(max-width:700px){
+ .beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:16px;line-height:2.05;margin-bottom:26px}
+ .beauty014-language .type-chapters{gap:0 12px;padding-block:7px}
+ .beauty014-language .type-chapters a{font-size:11px;line-height:1.8;min-height:44px}
+ .beauty014-language .type-hero-foot>p{font-size:15px;line-height:1.95}
+ .beauty014-language :is(.type-hero-foot small,.type-byline,figcaption,figcaption small){font-size:10px;line-height:1.9}
+ .beauty014-language .type-fact{padding:23px 21px}
+ .beauty014-language .type-fact p{font-size:13px}
+ .beauty014-language .type-fact small{font-size:11px}
+ .beauty014-language .type-study-intro>p{font-size:14px}
+ .beauty014-language .study-observations>p{font-size:13px;line-height:1.95}
+ .beauty014-language .study-enabled .study-observations{min-height:118px}
+ .beauty014-language .study-pair figcaption{font-size:10px}
+ .beauty014-language .study-bottom small{font-size:9px;line-height:1.8}
+ .beauty014-language .comparison-notes p{font-size:14px;line-height:2}
+ .beauty014-language .type-sources :is(p,li){font-size:12px;line-height:1.95}
+ body[data-page="article"] .article-deck{font-size:16px;line-height:1.9}
+ body[data-page="article"] .article-body{font-size:17px;line-height:2}
+ body[data-page="article"] .article-body blockquote{font-size:21px;padding:27px 24px;margin-block:32px}
+ body[data-page="article"] .article-label{margin-top:27px}
+ body[data-page="article"] .article-intro{padding-bottom:32px}
+}
+@media(prefers-reduced-motion:reduce){
+ .beauty014-language .design-study.study-enabled{height:auto}
+}
+
+/* A small printed issue returns between the photographic stories. */
+:is(.journal-flow,.recovery015-journal) .issue-invitation{
+  border:0; margin:0; padding:clamp(42px,6vw,82px) var(--edge); background:#eee6e7
+}
+:is(.journal-flow,.recovery015-journal) .issue-invitation>a{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(260px, .8fr);
+  gap:clamp(32px,8vw,130px); align-items:center; max-width:1100px; margin:auto
+}
+:is(.journal-flow,.recovery015-journal) .issue-invite-copy{display:block}
+:is(.journal-flow,.recovery015-journal) .issue-invite-copy h2{
+  font-size:clamp(30px,3.8vw,50px); line-height:1.12; max-width:8em; margin:18px 0
+}
+:is(.journal-flow,.recovery015-journal) .issue-invite-copy p{font-size:14px; line-height:1.8}
+:is(.journal-flow,.recovery015-journal) .edition-link{margin-top:16px; border-bottom:1px solid currentColor}
+:is(.journal-flow,.recovery015-journal) .issue-jacket{
+  display:flex; flex-direction:column; background:#dcd3df; color:#343143;
+  padding:clamp(18px,2.5vw,34px); box-shadow:7px 9px 0 rgba(52,49,67,.07)
+}
+:is(.journal-flow,.recovery015-journal) .jacket-number{font:10px/1.5 Arial,sans-serif; letter-spacing:.1em}
+:is(.journal-flow,.recovery015-journal) .jacket-title{font:400 clamp(26px,3vw,42px)/.95 THSerif,Georgia,serif; letter-spacing:-.04em; margin:24px 0}
+:is(.journal-flow,.recovery015-journal) .jacket-title i{display:block; font-weight:400}
+:is(.journal-flow,.recovery015-journal) .issue-jacket img{width:100%;height:auto}
+:is(.journal-flow,.recovery015-journal) .jacket-foot{font:8px/1.5 Arial,sans-serif; letter-spacing:.08em; margin-top:18px}
+:is(.journal-flow,.recovery015-journal) .issue-invitation>small{
+  display:block; max-width:1100px; margin:18px auto 0; font-size:10px; line-height:1.8; color:#686172
+}
+:is(.journal-flow,.recovery015-journal) .issue-invitation>small a{text-decoration:underline}
+@media(max-width:700px){
+  .recovery015-journal .featured{margin:22px 0 48px}
+  .recovery015-journal .feature-image{aspect-ratio:auto; margin-left:var(--edge)}
+  .recovery015-journal .feature-image img{height:auto; object-fit:initial}
+  .recovery015-journal .feature-copy{margin:0 22px 0 12%; padding:28px 0 0; background:transparent}
+  .recovery015-journal .feature-copy .eyebrow{margin-bottom:15px}
+  .recovery015-journal .feature-copy h2{font-size:31px;line-height:1.42}
+  :is(.journal-flow,.recovery015-journal) .issue-invitation{padding:42px var(--edge) 34px}
+  :is(.journal-flow,.recovery015-journal) .issue-invitation>a{grid-template-columns:minmax(0,1fr) minmax(130px,44%); gap:18px; align-items:center}
+  :is(.journal-flow,.recovery015-journal) .issue-invite-copy h2{font-size:25px; line-height:1.12; margin:12px 0}
+  :is(.journal-flow,.recovery015-journal) .issue-invite-copy p{font-size:12px;line-height:1.7}
+  :is(.journal-flow,.recovery015-journal) .edition-link{font-size:11px; margin-top:10px}
+  :is(.journal-flow,.recovery015-journal) .issue-jacket{padding:15px 13px 14px}
+  :is(.journal-flow,.recovery015-journal) .jacket-title{font-size:25px; margin:18px 0}
+  :is(.journal-flow,.recovery015-journal) .jacket-foot{font-size:7px; margin-top:12px}
+}
+
+/* Let photographs keep their frame; the supporting type sits on the paper. */
+.beauty014-language .type-hero>img,
+.beauty014-language .type-closing-photo img{aspect-ratio:auto; height:auto; object-fit:contain}
+.beauty014-language .hero-caption{
+  position:static; display:block; color:var(--thz-muted); font:9px/1.8 Arial,sans-serif;
+  letter-spacing:.07em; padding:10px 0 0; background:#ebe5ec
+}
+@media(max-width:700px){
+  body[data-page] .desk-feature-photo{margin:0 0 0 var(--desk-edge)}
+  body[data-page] .desk-feature-photo>span{margin-right:var(--desk-edge)}
+  body[data-page] .front-wire-item strong{font-size:22px; line-height:1.42}
+  body[data-page] .front-wire-item:first-child strong{font-size:26px}
+  body[data-page] .front-wire-item{border-color:#d6cbd0}
+  .beauty014-blade .f40-hero{margin-inline:0}
+  .beauty014-blade .f40-hero figcaption{padding:12px var(--edge) 0}
+  .beauty014-language .hero-caption{padding:10px var(--edge) 0}
+}
+
+/* Carry the cover's final paper colour into the journal threshold. */
+.journal-flow.journal-flow{background:#e8dfe1}
+.journal-flow .site-header{background:#e8dfe1;border-bottom-color:transparent}
+
+/* The same quiet navigation and photographic framing across the entry pages. */
+body:not(:has(.sequence)) .site-header .header-journal{
+  display:flex; margin-left:auto; white-space:nowrap
+}
+.visual-page .site-header .journal-index summary{color:var(--thz-ink)}
+.atlas-page{--paper:#f5f1eb;--ink:#343143;--muted:#686172;--rule:#c9bdc6;--accent:#806776}
+.atlas-page .atlas-time{background:#e9e2e9}
+.atlas-page .atlas-feature-photo>img{aspect-ratio:auto;height:auto;object-fit:contain}
+.atlas-page .atlas-feature-photo>span{display:none}
+.giulia-page .giulia-opening{background:#f0ece7}
+.giulia-page .giulia-hero>img{aspect-ratio:auto;height:auto;object-fit:contain}
+.beauty014-curve .story-hero>img{border-radius:0;aspect-ratio:auto;height:auto;object-fit:contain}
+@media(max-width:700px){
+ .visual-page .visual-opening figure img{height:auto;max-height:none;object-fit:contain}
+ .beauty014-curve .story-hero{margin:0 var(--edge)}
+}
+@media(max-width:360px){
+ body:not(:has(.sequence)) .site-header .header-journal{display:none}
+}
+
+/* One continuous family of miniature papers for the essays and the issue. */
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main,
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main :is(
+ .story-intro,.wallpaper-paper,.story-sources,.next-story,
+ .giulia-opening,.opening-text,.reading-chapter,.giulia-sources,.giulia-related,
+ .edition-opening,.edition-chapter,.type-opening,.type-lead,.type-chapter,
+ .type-language,.type-comparison,.type-sources,.type-related
+){
+ background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');
+ background-size:1000px 1650px; background-position:center top; background-repeat:repeat
+}
+/* The original individual placements remain in the markup; the shared paper avoids doubled cars. */
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-issue) .wallpaper-art{display:none}
+@media(max-width:700px){
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main,
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main :is(
+  .story-intro,.wallpaper-paper,.story-sources,.next-story,
+  .giulia-opening,.opening-text,.reading-chapter,.giulia-sources,.giulia-related,
+  .edition-opening,.edition-chapter,.type-opening,.type-lead,.type-chapter,
+  .type-language,.type-comparison,.type-sources,.type-related
+ ){
+  background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg');
+  background-size:390px 1650px
+ }
+}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main :is(
+ .story-intro,.wallpaper-paper,.story-sources,.next-story,
+ .giulia-opening,.opening-text,.reading-chapter,.giulia-sources,.giulia-related,
+ .edition-opening,.edition-chapter,.type-opening,.type-lead,.type-chapter,
+ .type-language,.type-comparison,.type-sources,.type-related
+){background-position:center var(--miniature-paper-y,0px)}
+:is(.beauty014-proportion,.beauty014-issue) .wallpaper-paper :is(.reading-chapter,.edition-chapter){background-image:none}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-issue) .wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before,
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-issue) .wallpaper-reading :is(h2,.chapter-side)::before{display:none}
+/* Feather the paper immediately beneath text while keeping the cars visible around it. */
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-issue) .wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before{
+ display:block; inset:-5px -10px; background:rgb(var(--wp-paper)/.76); filter:blur(9px)
+}
+.beauty014-language :is(.type-reading,.type-lead,.type-columns,.language-layout) p{position:relative;isolation:isolate}
+.beauty014-language :is(.type-reading,.type-lead,.type-columns,.language-layout) p::before{
+ content:""; position:absolute; inset:-5px -10px; z-index:-1; background:var(--paper); opacity:.76; filter:blur(9px); pointer-events:none
+}
+
+/* Korean text follows the reader's native system face, with softer spacing. */
+:is(.journal-flow,.recovery015-journal) :is(.mast-bottom p,.cover-editorial-continuation p,.feature-copy h2,.feature-copy>p,.atlas-invitation h2,.atlas-invitation p,.design h2,.design h3,.design p,.city-invite-copy h2,.city-invite-copy p,.news-item h3,.news-item p),
+:is(.beauty014-curve,.beauty014-blade) :is(.story-intro h1,.story-deck,.story-opening p,.chapter-body h2,.chapter-body p),
+.beauty014-language :is(.type-opening-title h1,.type-lead p,.type-chapter h2,.type-columns p,.language-layout p,.type-reading p),
+.beauty014-proportion :is(.giulia-name>p,.giulia-deck>p,.reading-column p,.reading-chapter h2),
+.beauty014-issue :is(.edition-preface p,.chapter-copy h2,.chapter-copy p){
+ font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+ letter-spacing:-.035em; word-break:keep-all; overflow-wrap:break-word
+}
+:is(.journal-flow,.recovery015-journal) .journal-mast h1{
+ font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif; font-weight:400; letter-spacing:-.085em
+}
+/* Keep article covers and navigation clear; the paper begins with the reading. */
+:is(.beauty014-curve,.beauty014-blade) .story-intro,
+.beauty014-proportion .giulia-opening,
+.beauty014-language .type-opening{background-image:none}
+.beauty014-issue :is(#wallpaper-issue-curve,#wallpaper-issue-small){
+ background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');
+ background-size:1000px 1650px; background-position:center var(--miniature-paper-y,0px); background-repeat:repeat
+}
+@media(max-width:700px){
+ .beauty014-issue :is(#wallpaper-issue-curve,#wallpaper-issue-small){
+  background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg'); background-size:390px 1650px
+ }
+}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main{
+ background-position:center var(--miniature-drift,0px)
+}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main :is(
+ .wallpaper-paper,.story-sources,.next-story,.opening-text,.reading-chapter,.giulia-sources,.giulia-related,
+ .edition-opening,.edition-chapter,.type-lead,.type-chapter,.type-language,.type-comparison,.type-sources,.type-related
+),
+.beauty014-issue :is(#wallpaper-issue-curve,#wallpaper-issue-small){
+ background-position:center calc(var(--miniature-paper-y,0px) + var(--miniature-drift,0px))
+}
+/* Continue the same paper through chapter transitions and observation spreads. */
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main :is(
+ .shape-note,.air-sequence,.proportion-intro,.proportion-study,.static-proportions,
+ .surface-plate,.face-diptych,.giulia-pullquote,.edition-closing,.type-study-intro,.design-study
+){
+ background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');
+ background-size:1000px 1650px; background-repeat:repeat;
+ background-position:center calc(var(--miniature-paper-y,0px) + var(--miniature-drift,0px))
+}
+@media(max-width:700px){
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.beauty014-issue) main :is(
+  .shape-note,.air-sequence,.proportion-intro,.proportion-study,.static-proportions,
+  .surface-plate,.face-diptych,.giulia-pullquote,.edition-closing,.type-study-intro,.design-study
+ ){
+  background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg'); background-size:390px 1650px
+ }
+}
+/* A quieter opening after the cover: a thought, not another oversized masthead. */
+:is(.journal-flow,.recovery015-journal) .journal-mast h1{
+ font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+ font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.3;letter-spacing:-.055em;
+ transform:none;margin:12px 0 20px
+}
+:is(.journal-flow,.recovery015-journal) .mast-bottom p{font-size:13px;line-height:1.8;letter-spacing:-.025em}
+@media(max-width:700px){
+ :is(.journal-flow,.recovery015-journal) .journal-mast{padding-block:28px 24px}
+ :is(.journal-flow,.recovery015-journal) .journal-mast h1{font-size:36px;line-height:1.35;margin:0 0 16px}
+ :is(.journal-flow,.recovery015-journal) .mast-bottom p{font-size:12px}
+}
+
+/* Remove repeated decorative registers; keep dates, sources and functional controls. */
+.atlas-page :is(.atlas-mast .atlas-eyebrow,.atlas-edition,.atlas-feature-copy>.atlas-eyebrow),
+:is(.journal-flow,.recovery015-journal) :is(.cover-editorial-continuation>.eyebrow,.design .section-heading .eyebrow),
+.beauty014-language .type-opening-title>.atlas-eyebrow,
+body[data-page] :is(.desk-register,.desk-nav a>span){display:none}
+@media(max-width:700px){
+ .atlas-page .atlas-mast{grid-template-columns:1fr}
+ .journal-flow .cover-editorial-continuation{display:block;padding-block:24px 32px}
+ .journal-flow .cover-editorial-continuation p{font-size:18px;line-height:1.7}
+ .journal-flow .cover-editorial-continuation>a{max-width:none;width:fit-content;margin-top:14px;gap:28px}
+}
+:is(.beauty014-curve,.beauty014-blade) main .story-intro,
+.beauty014-proportion main .giulia-opening,
+.beauty014-language main .type-opening{background-image:none}
+.beauty014-language .type-opening-title .atlas-eyebrow{display:none}
+
+/* One typographic voice across the edition's different cars. */
+.beauty014-issue .edition-opening{background-color:#f2ede9;color:#343143}
+.beauty014-issue .edition-title h1,
+.beauty014-issue .edition-title h1 i{font-family:THSerif,Georgia,serif;font-weight:400;font-style:normal;letter-spacing:-.045em}
+.beauty014-issue .edition-opening-photo>span,
+.beauty014-issue .edition-title>.edition-label,
+.beauty014-issue .edition-chapter :is(.chapter-folio,.chapter-identity>i,.chapter-mark,.proportion-register,.chapter-copy>.edition-label){display:none}
+.beauty014-issue .edition-chapter .chapter-identity{
+ border:0;padding:0;margin:0 0 22px;position:relative;color:#343143
+}
+.beauty014-issue .edition-chapter .chapter-identity>span{
+ font:400 clamp(54px,7vw,108px)/1 THSerif,Georgia,serif;letter-spacing:-.045em;color:#343143;text-shadow:none
+}
+.beauty014-issue .edition-chapter .chapter-image>a{border-radius:0;clip-path:none}
+.beauty014-issue .edition-chapter .chapter-image img{aspect-ratio:auto;height:auto;object-fit:contain}
+.beauty014-issue :is(.chapter-edge,.chapter-proportion,.chapter-language){background-color:#f2ede9;color:#343143}
+.beauty014-issue #wallpaper-issue-curve{--wp-paper:233 226 233;background-color:#e9e2e9}
+.beauty014-issue #wallpaper-issue-small{--wp-paper:239 228 225;background-color:#efe4e1}
+.beauty014-proportion .giulia-name h1,
+.beauty014-language .type-opening-title>p i{font-family:THSerif,Georgia,serif;font-style:normal;font-weight:400;letter-spacing:-.05em}
+@media(max-width:700px){
+ .beauty014-issue .edition-chapter .chapter-identity{margin:0 0 18px}
+ .beauty014-issue .edition-chapter .chapter-identity>span{font-size:clamp(52px,14vw,68px)}
+ .beauty014-issue .edition-chapter .chapter-copy{padding-top:25px}
+ .beauty014-issue .edition-opening-photo{margin-top:0}
+ .beauty014-proportion .giulia-name h1{font-size:92px}
+ .beauty014-language .type-opening-title>p i{font-size:58px}
+}
+.beauty014-issue .edition-title :is(.title-shape,.title-desire){
+ font-family:Georgia,serif;font-style:normal;font-weight:400;letter-spacing:-.045em
+}
+.beauty014-issue .edition-title .title-shape{font-size:clamp(36px,7vw,104px)}
+.beauty014-issue .edition-title .title-desire{font-size:clamp(48px,9vw,135px)}
+.beauty014-issue .edition-title .title-desire i{font:inherit}
+.beauty014-issue .edition-chapter .chapter-identity>span,
+.beauty014-proportion .giulia-name h1,
+.beauty014-language .type-opening-title>p i{
+ font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;font-style:normal;font-weight:400
+}
+.beauty014-issue main .edition-opening{background-image:none}
+.beauty014-issue main .edition-preface{
+ background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');
+ background-size:1000px 1650px;background-repeat:repeat;
+ background-position:center calc(var(--miniature-paper-y,0px) + var(--miniature-drift,0px))
+}
+@media(max-width:700px){
+ .beauty014-issue .edition-title .title-shape{font-size:39px}
+ .beauty014-issue .edition-title .title-desire{font-size:46px;white-space:normal;padding-left:7%}
+ .beauty014-issue main .edition-preface{background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:390px 1650px}
+}
+/* Giulia uses the same title treatment and a quieter photograph caption. */
+.beauty014-proportion :is(.giulia-name h1>span,.giulia-name>span,.giulia-hero-register,.giulia-deck>.edition-label){display:none}
+.beauty014-proportion .giulia-name>p{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;letter-spacing:-.035em}
+.beauty014-proportion .giulia-hero figcaption{font-size:11px;line-height:1.9;padding-top:15px}
+.beauty014-proportion main .giulia-opening{
+ background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');background-size:1000px 1650px;
+ background-position:center calc(var(--miniature-paper-y,0px) + var(--miniature-drift,0px));background-repeat:repeat
+}
+@media(max-width:700px){
+ .beauty014-proportion .giulia-folio{font-size:10px}
+ .beauty014-proportion .giulia-name{margin-top:24px}
+ .beauty014-proportion .giulia-name h1{margin-top:0}
+ .beauty014-proportion .giulia-hero figcaption{padding:15px var(--edge) 0}
+ .beauty014-proportion main .giulia-opening{background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:390px 1650px}
+}
+.beauty014-proportion .giulia-name h1{isolation:isolate}
+.beauty014-proportion .giulia-name h1::before{
+ content:"";position:absolute;inset:-10px -12px;z-index:-1;background:#f0ece7;opacity:.82;filter:blur(14px);pointer-events:none
+}
+
+/* The archive is an editorial index, with the search tools on the paper. */
+body[data-page="archive"] .archive-main>.eyebrow{display:none}
+body[data-page="archive"] .archive-main :is(h1,.archive-cards h2){
+ font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+ font-weight:400;letter-spacing:-.045em;line-height:1.4
+}
+body[data-page="archive"] .archive-main h1{margin:12px 0 18px}
+body[data-page="archive"] .archive-controls{
+ border:0;border-top:1px solid var(--thz-rule);padding:25px 0 0;margin:28px 0 44px;gap:18px 30px
+}
+body[data-page="archive"] .archive-controls label{font-size:12px;letter-spacing:0;color:var(--thz-muted)}
+body[data-page="archive"] .archive-controls :is(input,select){
+ background:transparent;border:0;border-bottom:1px solid #afa3ad;border-radius:0;
+ padding:10px 2px;min-height:48px;color:var(--thz-ink);font-size:16px
+}
+body[data-page="archive"] .archive-controls button{
+ border:0;border-bottom:1px solid #8c7b8a;background:transparent;padding:0;min-height:44px;font-size:12px
+}
+body[data-page="archive"] .archive-cards h2{margin:14px 0 9px}
+body[data-page="archive"] .archive-cards p{font-size:14px;line-height:1.9}
+body[data-page="archive"] .archive-cards>a{margin-bottom:48px}
+@media(max-width:700px){
+ body[data-page="archive"] .archive-main{padding-top:32px}
+ body[data-page="archive"] .archive-main h1{font-size:34px}
+ body[data-page="archive"] .archive-controls{display:grid;grid-template-columns:1fr auto;gap:20px 24px}
+ body[data-page="archive"] .archive-controls label:first-child{grid-column:1/-1}
+ body[data-page="archive"] .archive-controls label:not(:first-child){min-width:0}
+ body[data-page="archive"] .archive-controls button{align-self:end}
+ body[data-page="archive"] .archive-controls span{grid-column:1/-1;margin:0;font-size:11px}
+ body[data-page="archive"] .archive-cards>a:nth-child(2){margin-left:12%}
+ body[data-page="archive"] .archive-cards h2{font-size:27px}
+}
+body[data-page="archive"] .archive-controls select{
+ -webkit-appearance:none;appearance:none;background-color:transparent;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23686172' stroke-width='1.2'/%3E%3C/svg%3E");
+ background-repeat:no-repeat;background-size:12px 8px;background-position:right 4px center;padding-right:26px
+}
+.journal-flow .cover-editorial-continuation>small{display:block;font-size:10px;line-height:1.8;color:#686172;margin-top:15px}
+.journal-flow .cover-editorial-continuation>small a{text-decoration:underline;text-underline-offset:3px}
+.journal-flow .cover-editorial-continuation{flex-wrap:wrap}
+.journal-flow .cover-editorial-continuation>small{flex-basis:100%}
+
+/* 018 / Archive editorial index — expanded five-story collection. */
+/* The cards are stories on paper, not bordered product tiles. */
+body[data-page="archive"] .archive-main{
+  max-width:1320px;
+  margin-inline:auto;
+  padding-bottom:clamp(68px,8vw,118px);
+}
+body[data-page="archive"] .archive-main .desk-deck{
+  max-width:48ch;
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:clamp(13px,1.2vw,15px);
+  line-height:1.9;
+  letter-spacing:-.027em;
+}
+body[data-page="archive"] .archive-controls{
+  align-items:end;
+  column-gap:clamp(20px,3vw,55px);
+}
+body[data-page="archive"] .archive-controls :is(input,select){
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+}
+body[data-page="archive"] .archive-controls input::placeholder{
+  color:#8d8790;
+  opacity:1;
+}
+body[data-page="archive"] .archive-controls button{
+  white-space:nowrap;
+  color:var(--thz-ink);
+}
+body[data-page="archive"] .archive-controls :is(input,select,button):focus-visible{
+  outline:2px solid #806776;
+  outline-offset:3px;
+}
+body[data-page="archive"] .archive-cards{
+  align-items:start;
+}
+body[data-page="archive"] .archive-cards>a{
+  display:block;
+  min-width:0;
+  color:var(--thz-ink);
+  text-decoration:none;
+}
+body[data-page="archive"] .archive-cards>a[hidden]{display:none!important}
+body[data-page="archive"] .archive-cards>a>img,
+body[data-page="archive"] .archive-cards .archive-type-cover{
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  margin-bottom:22px;
+  background:transparent;
+}
+body[data-page="archive"] .archive-cards>a>small{
+  display:block;
+  font:400 10px/1.65 Arial,sans-serif;
+  letter-spacing:.025em;
+  color:var(--thz-muted);
+}
+body[data-page="archive"] .archive-cards h2{
+  font-size:clamp(23px,2.4vw,35px);
+  line-height:1.38;
+  margin:14px 0 10px;
+  text-wrap:balance;
+}
+body[data-page="archive"] .archive-cards p{
+  font-size:clamp(13px,1.1vw,15px);
+  line-height:1.8;
+  color:var(--thz-muted);
+  letter-spacing:-.02em;
+}
+body[data-page="archive"] .archive-credit{
+  display:block;
+  margin-top:14px;
+  color:var(--thz-muted);
+  font-size:10px;
+  line-height:1.8;
+}
+body[data-page="archive"] .archive-type-cover{
+  min-height:220px;
+  aspect-ratio:3/2!important;
+  background:#dfd6df;
+  color:var(--thz-ink);
+  padding:clamp(20px,3vw,38px);
+}
+body[data-page="archive"] .archive-type-cover strong{
+  font:400 clamp(35px,5vw,70px)/1.05 -apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  letter-spacing:-.07em;
+}
+body[data-page="archive"] .archive-type-cover :is(span,small){
+  color:var(--thz-muted);
+}
+body[data-page="archive"] .archive-news-link{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  border-bottom:1px solid var(--thz-ink);
+  color:var(--thz-ink);
+  margin-top:28px;
+  text-decoration:none;
+}
+@media(min-width:780px){
+  body[data-page="archive"] .archive-cards{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    column-gap:clamp(28px,4vw,74px);
+    row-gap:clamp(55px,6vw,98px);
+  }
+  body[data-page="archive"] .archive-cards>a{
+    grid-column:span 5;
+    margin:0;
+  }
+  body[data-page="archive"] .archive-cards>a:nth-child(5n+1),
+  body[data-page="archive"] .archive-cards>a:nth-child(5n+4){
+    grid-column:span 7;
+  }
+  body[data-page="archive"] .archive-cards>a:nth-child(5n+2){
+    padding-top:clamp(45px,7vw,110px);
+  }
+  /* A search result must not inherit the artistic offsets of the full index. */
+  body[data-page="archive"] .archive-cards:has(>a[hidden])>a:not([hidden]){
+    grid-column:span 6;
+    padding-top:0;
+  }
+}
+@media(max-width:779px){
+  body[data-page="archive"] .archive-cards{
+    display:block;
+  }
+  body[data-page="archive"] .archive-cards>a{
+    width:100%;
+    padding:0;
+    margin:0 0 52px;
+  }
+  body[data-page="archive"] .archive-cards>a:nth-child(even){
+    width:92%;
+    margin-left:auto;
+  }
+  body[data-page="archive"] .archive-cards>a>img,
+  body[data-page="archive"] .archive-cards .archive-type-cover{
+    margin-bottom:18px;
+  }
+  body[data-page="archive"] .archive-cards h2{
+    font-size:clamp(25px,6.8vw,32px);
+  }
+}
+@media(max-width:700px){
+  body[data-page="archive"] .archive-main{
+    padding-top:40px;
+  }
+  body[data-page="archive"] .archive-main h1{
+    font-size:clamp(31px,8.8vw,39px);
+    line-height:1.34;
+    margin-bottom:16px;
+  }
+  body[data-page="archive"] .archive-controls{
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:16px 20px;
+    margin-top:30px;
+    margin-bottom:43px;
+  }
+  body[data-page="archive"] .archive-controls label:first-child{
+    grid-column:1/-1;
+  }
+  body[data-page="archive"] .archive-controls select{
+    max-width:100%;
+  }
+  body[data-page="archive"] .archive-controls span{
+    margin-top:0;
+    padding-top:2px;
+    font-size:11px;
+  }
+  body[data-page="archive"] .archive-credit{
+    font-size:10px;
+  }
+}
+
+/* 018 / Design Atlas uses an editorial taxonomy, not boxed filter buttons. */
+.atlas-page .form-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:clamp(14px,2vw,32px);
+  align-items:center;
+  padding:0 0 28px;
+  border-bottom:1px solid var(--thz-rule);
+}
+.atlas-page .form-filters button{
+  flex:0 0 auto;
+  min-height:46px;
+  padding:3px 1px;
+  border:0;
+  border-bottom:1px solid transparent;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--thz-muted);
+  font:400 clamp(12px,1vw,14px)/1.4 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  letter-spacing:-.025em;
+  white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;
+}
+.atlas-page .form-filters button[aria-pressed="true"]{
+  background:transparent;
+  border-bottom:1px solid var(--thz-ink);
+  color:var(--thz-ink);
+  font-weight:600;
+}
+.atlas-page .form-filters button:focus-visible{
+  outline:2px solid #806776;
+  outline-offset:4px;
+}
+.atlas-page .results-top{
+  border-top:0;
+  padding-block:22px 27px;
+}
+.atlas-page #result-count{
+  color:var(--thz-muted);
+  font-size:11px;
+  font-variant-numeric:tabular-nums;
+}
+.atlas-page .discovery-card h3{
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-wrap:pretty;
+}
+.atlas-page .discovery-card p{
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:13px;
+  line-height:1.87;
+  letter-spacing:-.02em;
+}
+.atlas-page .result-credit{
+  font-size:10px;
+  line-height:1.8;
+}
+@media(max-width:700px){
+  .atlas-page .form-filters{
+    flex-wrap:nowrap;
+    gap:26px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    margin-inline:calc(-1 * var(--edge));
+    padding:0 var(--edge) 12px;
+    scroll-padding-inline:var(--edge);
+  }
+  .atlas-page .form-filters::-webkit-scrollbar{display:none}
+  .atlas-page .form-filters button{font-size:13px;min-height:46px}
+  .atlas-page .results-top{padding-block:20px 24px}
+  .atlas-page .discovery-card p{font-size:13px;line-height:1.85}
+  .atlas-page .result-credit{font-size:10px}
+}

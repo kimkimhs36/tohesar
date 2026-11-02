@@ -22,3 +22,5 @@ Desktop.ini
 # Local environment files
 .env
 .env.*
+
+.editorial-preview/

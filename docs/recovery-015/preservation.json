@@ -1,0 +1,630 @@
+{
+  "base": "70d2a818c0be7f695b840fe5a2f2f0255d240b97",
+  "unchanged_files": 156,
+  "resources": [
+    {
+      "path": ".github/workflows/edition-news-qa.yml",
+      "sha256": "1b052bd0a604f114c494b8ccd5af4d78c821cc8bec42f2ecee92f34d95429714"
+    },
+    {
+      "path": ".github/workflows/news-snapshot.yml",
+      "sha256": "9f50357018500912c37dd2792932ec86a8dd38c04ff240711f53bc2c29ae33cd"
+    },
+    {
+      "path": ".github/workflows/tohesar-pages-news.yml",
+      "sha256": "267ea26e703966545a2c29a5d1eb340a101df6764396b358e4607689ba893c66"
+    },
+    {
+      "path": "CNAME",
+      "sha256": "dc077b9553a9b4b8698a263ade4e7ac59e9113c857d3f92bed28edc1d0265124"
+    },
+    {
+      "path": "assets/camera-study.js",
+      "sha256": "a667c116fff9fc1b8fa74ac54a8977b3d8c0ccb5f577c17ca77853ddacd89778"
+    },
+    {
+      "path": "assets/cedilla-favicon.svg",
+      "sha256": "23d1fb254e845d7d48d75666374a23d50fe5456bcc278078e5197ffce6d3034a"
+    },
+    {
+      "path": "assets/cedilla-icon.svg",
+      "sha256": "27aa7bdf4a0e2c7bb857a44c8ba4c1d626574efa95a6579b7952f52ed7240991"
+    },
+    {
+      "path": "assets/chrome-atmosphere/atmosphere.css",
+      "sha256": "c8ad7dd6321347a92d8993ed46c15603353bb14536898b83375f7e6d5fabe936"
+    },
+    {
+      "path": "assets/chrome-atmosphere/atmosphere.js",
+      "sha256": "34a48a7dbed072428efe40c1a444d6bbe2f3a30e8eb11fe39f43e882f04c96c7"
+    },
+    {
+      "path": "assets/chrome-atmosphere/kinetic-type.js",
+      "sha256": "9c62a9f8cbe5ea4f188eea4c2dcb15323a769294c6d7db3986c7b6dbed69d5dc"
+    },
+    {
+      "path": "assets/coast.webp",
+      "sha256": "218142fd4d0036bd8789364ed19721c69f187829a301e779f8c5d4ccf8c5044c"
+    },
+    {
+      "path": "assets/detail.webp",
+      "sha256": "2653b3e9a066fdcaf47878cd383fd4a682bd82c41f739e139736e612e5a0b9e6"
+    },
+    {
+      "path": "assets/experience/fonts.css",
+      "sha256": "6299d1ab08b0ac36445e5c365bf91346a31d8d3b54b98f0ee40c6844b88ad5c0"
+    },
+    {
+      "path": "assets/experience/home.css",
+      "sha256": "043cad40669d4eb704696f624ae670dfac7c0203deba70c8c4d943fdc6c675fc"
+    },
+    {
+      "path": "assets/experience/home.js",
+      "sha256": "670112a3e162007725dfe1caf8718ef8a2ab351fa6c47ea9ea6799ef458595cf"
+    },
+    {
+      "path": "assets/experience/sculpture.js",
+      "sha256": "9ee2346436372bf9bf589d7e585fe9800e001ab1456cb784535401a8a2e7c131"
+    },
+    {
+      "path": "assets/film-stage-v1.css",
+      "sha256": "9dba4a3f2fa3bc860d9612a8e45007abbb269dd0e393c80681891e9f1493fa5a"
+    },
+    {
+      "path": "assets/film-stage-v1.js",
+      "sha256": "e530090f9c5050ea5ae5d093ff6c99694403f4ec0625c541ac4808c90d072092"
+    },
+    {
+      "path": "assets/film-stage-v2.css",
+      "sha256": "09c3f413117ea6b5d6d77bdbe8bde9c3c21e47cf3fa4b16ca59dc130b3ae7f35"
+    },
+    {
+      "path": "assets/film-stage-v2.js",
+      "sha256": "667dca6b286531d0ca243f839af8de8821dd03af8829ed44b183122421d86b1b"
+    },
+    {
+      "path": "assets/film-stage-v3.css",
+      "sha256": "e0e0a1b7fa98c7e533f69671e7f94d13208e879add541fb0cb442f2ef9dfac11"
+    },
+    {
+      "path": "assets/film-stage-v3.js",
+      "sha256": "9a8308ecb9c52eb350e5bb765ab15af6f27b29df7a3ba1b9d0bad6a98ffa19e7"
+    },
+    {
+      "path": "assets/film-stage-v4.css",
+      "sha256": "22897d668a3760842e89b0082b44597a72fd7ced802c79fb974903a13ad35ec8"
+    },
+    {
+      "path": "assets/gallery-desktop.webp",
+      "sha256": "61c9e5f4f067d3e0f47e5a7d45ac5531c9bd399889627d51e594e9078406e313"
+    },
+    {
+      "path": "assets/gallery-mobile.webp",
+      "sha256": "01048e3181fae126b0cfb811b4196f8a44471ca7432ccb7c14465e53f8aa948f"
+    },
+    {
+      "path": "assets/hero-world-v1.css",
+      "sha256": "b989a19b6ea55f216cad113965e3d0afc41c02a89b124d7f9c60e162161a3846"
+    },
+    {
+      "path": "assets/journal-theme.mp3",
+      "sha256": "c496d6b454e84602b4de940f197eb3bfad9c02cf4527d535a15c1df0035c36da"
+    },
+    {
+      "path": "assets/notes.webp",
+      "sha256": "7ae9ca7368add38db91083937ba9620f4be23a64704c0e6ec25d6b1b1fc5a459"
+    },
+    {
+      "path": "assets/study-emblem.webp",
+      "sha256": "a72351337f748c3f6fcd1fb5c3b6280b61e03c7b285ec1334f1d6a103c33a263"
+    },
+    {
+      "path": "assets/study-essential.webp",
+      "sha256": "9af760427cd4fd54b8dab8c6d472a31b260e974a77f25f673acd892e2fb99fcb"
+    },
+    {
+      "path": "assets/study-signature.webp",
+      "sha256": "6e13e4dd667c2b8570660da6d62137e42bf11c199a9ed66b54b7ca4f6e35b399"
+    },
+    {
+      "path": "assets/symbol-gallery-v10.css",
+      "sha256": "2ef5c18bc2a4977f6eaeb33a3308a5e7923ae39354ddf56bf7a91ae07995327c"
+    },
+    {
+      "path": "assets/symbol-gallery-v3.css",
+      "sha256": "dc78e2f4f8e1563db0a66016a197f7ed4929568332a3cdeb7462927b7e926157"
+    },
+    {
+      "path": "assets/symbol-gallery-v4.css",
+      "sha256": "333311547571311efdb314261aebe99ea9cf720e53a76733de5b44f8c31bed86"
+    },
+    {
+      "path": "assets/symbol-gallery-v5.css",
+      "sha256": "0d54d1a52c1b6e1c3f36a31682088b088ee54644a746717ecd90b74631057596"
+    },
+    {
+      "path": "assets/symbol-gallery-v6.css",
+      "sha256": "028a7008fa5e301a7527234967ccd99a0ce6448f9219ea3e13c4c67fe7e68d98"
+    },
+    {
+      "path": "assets/symbol-gallery-v7.css",
+      "sha256": "516249ac3b0456bd10787f92a7345558724ba66691f81ab368623709f29f91e9"
+    },
+    {
+      "path": "assets/symbol-gallery-v8.css",
+      "sha256": "6f6eaaa5fb775da4c65893a6e5f02fe4d0241512d0317c82c8a76c1dfd814e3f"
+    },
+    {
+      "path": "assets/symbol-gallery-v9.css",
+      "sha256": "dc2c7cbfef1ca77ba9d4af6277a871ae0c56a241574b79321b13cf06b131c7bf"
+    },
+    {
+      "path": "assets/symbol-renderer-v2.js",
+      "sha256": "b8a48fd502b41d8d787d21f31b5597f209638540b164e2a57bef379591e022bb"
+    },
+    {
+      "path": "assets/symbol-renderer-v3.js",
+      "sha256": "8f12289d6b849f9ab9c4136d5c752381fef587692b9446eda400cbcb64b5392e"
+    },
+    {
+      "path": "assets/symbol-renderer-v4.js",
+      "sha256": "a7c6b59d132a6fa285d066bcd35c7b30ca835b8dd741e7934d097d44df5f6ac3"
+    },
+    {
+      "path": "assets/symbol-renderer-v5.js",
+      "sha256": "d11fad076d7d8a549a361c8bf2aa40ad7609f13038ae0437cfcda5a1729e3811"
+    },
+    {
+      "path": "assets/symbol-renderer-v6.js",
+      "sha256": "09ed3f62feecb994f007eced8c4057dbd1b53286a28ca6544417c0e79edd3e2f"
+    },
+    {
+      "path": "assets/symbol-renderer-v7.js",
+      "sha256": "0591779289cb3e1c8233bca9233c07b724930864cbe06ed3ce1ceeff086b4274"
+    },
+    {
+      "path": "assets/symbol-renderer-v8.js",
+      "sha256": "c82adc4e76053a5c983de090adb7340b66ec5b8a5e81aaa57941fe2f148d064a"
+    },
+    {
+      "path": "assets/symbol-renderer-v9.js",
+      "sha256": "501970c67cd56a14eed9a0cf71584d31c6333434af9379026e6013ecfaf0aa54"
+    },
+    {
+      "path": "assets/symbol-v2.css",
+      "sha256": "623365d1876427dad3fdb813b520481f01ebf3e63986325ebcacdcbdba241550"
+    },
+    {
+      "path": "assets/wordmark-hd.png",
+      "sha256": "71ca9a7433d067d33d0e37ae6200c21f741f04060f8bd49d2733baffeb52eac1"
+    },
+    {
+      "path": "assets/wordmark.svg",
+      "sha256": "17d4ac8b0e3f13d8b4e76e5c335a9ee42a603136401d8fa81422b70ae5337d20"
+    },
+    {
+      "path": "assets/yokohama-afterglow.webp",
+      "sha256": "8598ae28c3519b05f37ff5ffa41876907a8747075d181ef34ed7fe1f12dcee0c"
+    },
+    {
+      "path": "assets/yokohama-arrival.webp",
+      "sha256": "45d4cc23e3deef95afa577ce241e28f7b0b2f66ed96e70c5862ae0d02a356d1a"
+    },
+    {
+      "path": "assets/yokohama-bluehour.webp",
+      "sha256": "ff5473c5a06b1066acdc23e9e6275a1f66ee0858e4cdd76cbf85dee9cf1bd5ee"
+    },
+    {
+      "path": "assets/yokohama-drive.webp",
+      "sha256": "8f836b1c08b957b277fff90cb2841c08a26d0755d2fbacfa3e2a6e8542c8522d"
+    },
+    {
+      "path": "assets/yokohama-interior.webp",
+      "sha256": "8d2da3bd6f28968dfeb640f7741cf10d1bdf6255f5f9cfae745b0ccd02e21f8a"
+    },
+    {
+      "path": "assets/yokohama-landscape.webp",
+      "sha256": "dd9a1450a1da3de7319cf1773a94fe1fe098ba36e69423fb25f63183e2f777f3"
+    },
+    {
+      "path": "assets/yokohama-portrait.webp",
+      "sha256": "a3ec40b107195817094c678be19ff9a7d3610c5a6124ea203fdf9bd4c099c118"
+    },
+    {
+      "path": "assets/yokohama-secondlight.webp",
+      "sha256": "68d1ac67f0e23305e54fd022eeb27503084e560ebeeb1a157580acdc92e016b4"
+    },
+    {
+      "path": "creative/cover-art-max-004/cover.css",
+      "sha256": "7c270bb05b88a81ded917d5d9bec64a7af3f4c536a46c0f094482621f3cdaccd"
+    },
+    {
+      "path": "creative/cover-art-max-004/cover.js",
+      "sha256": "be61ad7ea67376b5a3756aee21d8917926c4c1170e6426e09c688c3f47d7af86"
+    },
+    {
+      "path": "creative/cover-art-max-004/fonts.css",
+      "sha256": "094771c94d5d39d75ebaf083085ddc96f1e704878a5bdcca3d3e81894f84ff8f"
+    },
+    {
+      "path": "creative/cover-art-max-004/index.html",
+      "sha256": "2cf1c122fa7ac2f54382bc1341564dae7562f7a726632ebe64a88491624d46b0"
+    },
+    {
+      "path": "creative/cover-art-max-004/photo.css",
+      "sha256": "d2014da79616257efc794e231cbb031bf961a18f890d0999267bf83652c6d0c8"
+    },
+    {
+      "path": "creative/first-issue-008/originals/front.jpg",
+      "sha256": "374ebd5e23abfee10da7e271a98973072a5f41bc4aa2494405e0cdf3a6807d1f"
+    },
+    {
+      "path": "creative/first-issue-008/originals/profile.jpg",
+      "sha256": "706c362e846b35e08a412d7b16f8c4cca25112da447e608834f986606048d14e"
+    },
+    {
+      "path": "creative/first-issue-008/originals/rear.jpg",
+      "sha256": "246fed58d17224de4531cc4718a0fe25670eb3bdf2f0b4177ee92e95160cdf4d"
+    },
+    {
+      "path": "creative/first-issue-008/originals/side.jpg",
+      "sha256": "b1d4b325056e2de487f79ef7716fa1fcfd9b0b784e74c2267052957c8383bd10"
+    },
+    {
+      "path": "creative/journal-world-005/miniature-source.png",
+      "sha256": "1a0928d1512182ab5695dd9a8155a854af83cbb1d74ae22a70c0bfb154871538"
+    },
+    {
+      "path": "creative/visual-world-006/README.md",
+      "sha256": "7166014f149a1d4d94f4f1a361fc4a6213a6c226739e00c6f9c9ff1f5ba774f2"
+    },
+    {
+      "path": "creative/visual-world-006/gt-source.png",
+      "sha256": "c6d5eda0b9dbd494eb8bde20218046f4892877f89191fede96933b69b739b710"
+    },
+    {
+      "path": "creative/visual-world-006/wedge-source.png",
+      "sha256": "60fcad11da64b600f822823de71e7be4924914317c1e35322de2a92b52442ee3"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/PRODUCTION.md",
+      "sha256": "b4e8132b7661438c817d78fc4a895d1adbb4ba5b1f1e4dfbc18c3d0af183532e"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/blue-hour.png",
+      "sha256": "8dc3e73d3cc08498b3c65039f4f5eebf2ef262ba136f0d280ce8ea17e9881363"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/butter-club.png",
+      "sha256": "06e3f36117239667137dab25127acc506c77280145ee3a8974c7a65b9998048c"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/collection-source.png",
+      "sha256": "35f8a354fcaaba450498a99a2968b9c233e94cedebacc145f757159ec22611a4"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/coral-blade.png",
+      "sha256": "8b3e70503378865a8b7e666ccc398616779c8c2eb834d51dc77bedd6f659d47a"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/lilac-arc.png",
+      "sha256": "73ceb86c1b1b6a2b9ccb330f40fdf40298226586561982b5977add2a46102ba5"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/mint-tour.png",
+      "sha256": "27dc86730af649de93615d0ceb2f79e34a594d699d4fe891b6c5c6c10db0dc76"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/rose-current.png",
+      "sha256": "716fabf28cce665adecca35f4256a0d07f9410231ee85b8db89fc07375c372c3"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/sage-longtail.png",
+      "sha256": "fb62603b97e62f4635604da97c5a5783b2026ef8cf9af851da178c7e2ebe7404"
+    },
+    {
+      "path": "creative/wallpaper-universe-011/originals/tomato-open.png",
+      "sha256": "c9b214bab63c62a739f8578c197f275ec1f40226f5e7958f8b87db7e53e9cb9c"
+    },
+    {
+      "path": "edition/app.js",
+      "sha256": "b2b38faff8e07946c15a382eb58c2d4c0c9a7272dc9bfc63154342e33dfb8a32"
+    },
+    {
+      "path": "edition/data/news.json",
+      "sha256": "ded3fb83f9ba17433dbe80db91693674b2d453dbcd20037dca6d2a154a1a13e1"
+    },
+    {
+      "path": "edition/home-news.js",
+      "sha256": "cc5a961666b3e76af5f4ee569e2be227adb6ce78cf397c604e80c78c8125fb36"
+    },
+    {
+      "path": "index.html",
+      "sha256": "cfc73545b9c6326ba528147da582a3620d62b5f2423de29050880df67d7c2661"
+    },
+    {
+      "path": "journal/data/content-index.json",
+      "sha256": "145efa559c683c02501edbd3f6634d66db9d2f8262f543ca7752b456b05ed197"
+    },
+    {
+      "path": "journal/data/design-image-sources.json",
+      "sha256": "571ffad8f91c4fb0adc624f6640fde181f121675967f86556c360cd76d3832dc"
+    },
+    {
+      "path": "journal/data/giulia-image-sources.json",
+      "sha256": "52c1af1aa83f19de62fb27cc05870a660867b01ff6ee9a710953f4b3d39750ff"
+    },
+    {
+      "path": "journal/data/issues.json",
+      "sha256": "6d26be4b7d1d4a02c2f873770415bf723c0a0eb6d898142ddb9af4e2bb016e90"
+    },
+    {
+      "path": "journal/data/news.json",
+      "sha256": "d161944d4eda9f13836713043076bf218f571c05cfcffb1da0a200ccb71735a8"
+    },
+    {
+      "path": "journal/data/wallpaper-artworks.json",
+      "sha256": "adb3e99a86a08fc7ee08203a183417f16840f19e793c285b05e955eef61ba77e"
+    },
+    {
+      "path": "journal/data/wallpaper-layouts.json",
+      "sha256": "1314025a35f7b666e86aed8e68c0de70212148f506110f90dfde89a97cd5eb3b"
+    },
+    {
+      "path": "scripts/refresh_news.py",
+      "sha256": "0d1ca693e29e76addd1d03373b8bca04e5834b8ccf9db13424cb616f1059b2f6"
+    },
+    {
+      "path": "world/911/index.html",
+      "sha256": "49fbd8b3c125c2434d43953f3a00b72cd4d15770245dd1c80cc41ffc3ace63f4"
+    },
+    {
+      "path": "world/ASSET_PROVENANCE.md",
+      "sha256": "44fabe032420e86daec449c1c4fa7ac59a8506593db074f29caf3823b13859d8"
+    },
+    {
+      "path": "world/README.md",
+      "sha256": "653c983a59a21b797345e31419553161b015122e0e538b1b8126fe8fbcb35e93"
+    },
+    {
+      "path": "world/assets/THREE-LICENSE.txt",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "path": "world/assets/car-911-carrera-4s-lod1.glb",
+      "sha256": "885f01bef05fa8312a6c29c14a3522341b6084bd85b025ddd733e52461f58b34"
+    },
+    {
+      "path": "world/assets/car-concept-silver.glb",
+      "sha256": "da8cef9e3ff8b537f27ebd71e252ce27c7a1946aa8f3645ec6b5f413fc92f1d7"
+    },
+    {
+      "path": "world/assets/cedilla-icon.svg",
+      "sha256": "27aa7bdf4a0e2c7bb857a44c8ba4c1d626574efa95a6579b7952f52ed7240991"
+    },
+    {
+      "path": "world/assets/fonts/OFL.txt",
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3"
+    },
+    {
+      "path": "world/assets/fonts/korean.css",
+      "sha256": "7ff595876c19a2cd1def986a525c307f9b492a63fe43ed830ddd3619d838d681"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-102-400-normal.woff2",
+      "sha256": "9aab5023d9484fea3613f718a38dd814e4603a0f8bb5b20c4bcedabd4aa4f2cf"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-104-400-normal.woff2",
+      "sha256": "5b56efc83b60cef975e46d20c5e3e4234bd3d4de9b896f8213210db7f89e35f1"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-106-400-normal.woff2",
+      "sha256": "08b29ee2db6d3f37981baf3810b1d34a2f4c5098fdc8483cef2051bfdbeb3761"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-108-400-normal.woff2",
+      "sha256": "ace94e2f64b58b2d4c8ce8a9423d3dc086aad84dde85f19d889448426d7f5103"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-109-400-normal.woff2",
+      "sha256": "840c41c0329b0e4883576a75725eae27dae9b7592a0e8e937ed5781496a683d2"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-110-400-normal.woff2",
+      "sha256": "6e81af779c53181988a0c4bfc4863293f26af6c9e4330a634d318c55ac0485ff"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-111-400-normal.woff2",
+      "sha256": "0f84ea32e2098a5f820a34ec37a6a27f1d0d5390a98342adef289e627d7ec6ff"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-112-400-normal.woff2",
+      "sha256": "66684ad1664916aafd6a2129357016bdda482390fa3ab67b997d60968ee78eff"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-113-400-normal.woff2",
+      "sha256": "3a9fc2618d7c46686ad58f8ff700f7a0993b4de51a0c2ab419d47e70903ee67f"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-114-400-normal.woff2",
+      "sha256": "c6d1b81a5f4434c20f1a7dde01078ed851c94b67febf950678e0f6d06ad0da4f"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-115-400-normal.woff2",
+      "sha256": "cd99dc78104d80043fbcedcfa72da4d6d24cce01286c4405e5aa3c3019a322d0"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-116-400-normal.woff2",
+      "sha256": "baff29f850aa4df33fc0f945f84d952ceb28ff540462c705cf72a721a69195b2"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-117-400-normal.woff2",
+      "sha256": "ca1c5808c82088daf6aa97105fa05b9e8c68fad1dc8f1a548169a6f705ea8a6e"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-118-400-normal.woff2",
+      "sha256": "6a56ab9b34f5341cad56549d6bfa436f672dc57a94d4960050c6fa51c023ea24"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-119-400-normal.woff2",
+      "sha256": "777f2622999b929efa353f07035093194c82e7468171602155ec0f3d5812e9ca"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-98-400-normal.woff2",
+      "sha256": "fb4548bf37c551e4ee01cd62ec2b81980347a0f18ca465512e92c25cb65ee82b"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-99-400-normal.woff2",
+      "sha256": "ffe07abe5ae76ec9509fecd401a2c83b154092b9c39a40a6d922a1f8b00263c8"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-latin-400-normal.woff2",
+      "sha256": "d45129ae032c4b94cd598f26d69bd0ce11e72b423a77883f01f481b39e8d3ac1"
+    },
+    {
+      "path": "world/assets/fonts/noto-sans-kr-latin-ext-400-normal.woff2",
+      "sha256": "0fea49522d92fc679a74d609711413267b59219a01d0f247cc0a73b6599e8bca"
+    },
+    {
+      "path": "world/assets/wordmark-hd.png",
+      "sha256": "71ca9a7433d067d33d0e37ae6200c21f741f04060f8bd49d2733baffeb52eac1"
+    },
+    {
+      "path": "world/assets/yokohama-arrival.webp",
+      "sha256": "45d4cc23e3deef95afa577ce241e28f7b0b2f66ed96e70c5862ae0d02a356d1a"
+    },
+    {
+      "path": "world/assets/yokohama-bluehour.webp",
+      "sha256": "ff5473c5a06b1066acdc23e9e6275a1f66ee0858e4cdd76cbf85dee9cf1bd5ee"
+    },
+    {
+      "path": "world/assets/yokohama-interior.webp",
+      "sha256": "8d2da3bd6f28968dfeb640f7741cf10d1bdf6255f5f9cfae745b0ccd02e21f8a"
+    },
+    {
+      "path": "world/assets/yokohama-portrait.webp",
+      "sha256": "a3ec40b107195817094c678be19ff9a7d3610c5a6124ea203fdf9bd4c099c118"
+    },
+    {
+      "path": "world/index.html",
+      "sha256": "49fbd8b3c125c2434d43953f3a00b72cd4d15770245dd1c80cc41ffc3ace63f4"
+    },
+    {
+      "path": "world/src/main-911-cinema-002.js",
+      "sha256": "afc1eb93d5c570c777078a18c586b183f58e73f0c0de1db834c1e2dbc6f45354"
+    },
+    {
+      "path": "world/src/main-911-cinema-003.js",
+      "sha256": "2ee85ef5e7ecf13a240677d10beea5d5bee77a7dfca31ae8a0c2d39b188caca4"
+    },
+    {
+      "path": "world/src/main-911-cinema-004.js",
+      "sha256": "7743bc7a84e3feaf526518bc7b4f9100dd1d9cdeddccf5495505947859433d54"
+    },
+    {
+      "path": "world/src/main-911-cinema-005.js",
+      "sha256": "95b1e13f49dbaba749b420f29cf88e09912743e036ec09338ccc887073a15df2"
+    },
+    {
+      "path": "world/src/main-911-cinema-006.js",
+      "sha256": "5f7b671a2f56ffdfb3d3c8d84cb23017c377495aac0e0471a585932a5537c2fa"
+    },
+    {
+      "path": "world/src/main-911-cinema-007.js",
+      "sha256": "f945c4a318fddd9a962b593b65b1664a6e660332a96b6f9dcb6a16fd57e57aca"
+    },
+    {
+      "path": "world/src/main-911-cinema-008.js",
+      "sha256": "ed8fb7c464aedc80a9f79df7596e22b047dc9464fc53aff2edf4e0c8f0fa04c5"
+    },
+    {
+      "path": "world/src/main-911.js",
+      "sha256": "1fa3fd440bcb282bc23821f92948a6005852df450097db9bfb4cef83995c5cc5"
+    },
+    {
+      "path": "world/src/main.js",
+      "sha256": "d30486b05b002455a3d2fcffc0040ca34ab3ac213da32b40e33fa733e9f0f024"
+    },
+    {
+      "path": "world/src/materials-cinema-002.js",
+      "sha256": "f4bb670a400e268a509f05fc6ba3b8cb1de656a9870bd6e31b6f6438eb3a7a92"
+    },
+    {
+      "path": "world/src/materials-cinema-003.js",
+      "sha256": "13aeb39eb56699284faca22ccd73c6526bfdb1f16a858cf525a3c0e107e9cee7"
+    },
+    {
+      "path": "world/src/materials-cinema-004.js",
+      "sha256": "a46f6e0b319bfa5eaa479e0c3bc851323213d41675cc333bcef4b34a97d4fed2"
+    },
+    {
+      "path": "world/src/materials-cinema-005.js",
+      "sha256": "6794f93d8c9b3d2206a54979117b234f05cbb6eb751de81b1f6849c840ff0a02"
+    },
+    {
+      "path": "world/src/materials.js",
+      "sha256": "11842fd743ac9e83ecc98cbc0fa7b310de332e343e95435861988857bf2ca04f"
+    },
+    {
+      "path": "world/src/vehicle.js",
+      "sha256": "acb0a7ddea8eaccd06694a84d25f93307baf9a952f94a6ec3b9a4593133866d7"
+    },
+    {
+      "path": "world/src/world-911-cinema-002.js",
+      "sha256": "fd66d081144a880e955087c1955a6358500942ecd534bea65fd49fecd679f3e9"
+    },
+    {
+      "path": "world/src/world-911-cinema-003.js",
+      "sha256": "0c124e847a844bce3e4c0e87c7553a9d90d966ccdb6d558ff72242e77bd3b425"
+    },
+    {
+      "path": "world/src/world-911-cinema-004.js",
+      "sha256": "e8659fa61ff731c926bdf981e0b6a1d9ff9d923bb0ec4d0ed768d756390402c1"
+    },
+    {
+      "path": "world/src/world-911-cinema-005.js",
+      "sha256": "4033a927a904e16b8159119b4b443c3169a27b4e473eaee037601b33691d359f"
+    },
+    {
+      "path": "world/src/world-911-cinema-006.js",
+      "sha256": "6b1d02380de28e5ca6142f5bff6954611a7b9808dba686dc5a1944686499dd78"
+    },
+    {
+      "path": "world/src/world-911.js",
+      "sha256": "163652e8923e61a2f099f711763532e3dafcc65c8d2132114dda0f13521a93b0"
+    },
+    {
+      "path": "world/src/world.js",
+      "sha256": "163652e8923e61a2f099f711763532e3dafcc65c8d2132114dda0f13521a93b0"
+    },
+    {
+      "path": "world/styles-cinema-003.css",
+      "sha256": "3189f3c4b0e54280c616da08bea98f9a49aa0290f92a03b9d9336c883a455778"
+    },
+    {
+      "path": "world/styles-cinema-004.css",
+      "sha256": "8ccf30dc8285f188f7918d74bfa893ddb72c3e84297e9f2fce94def6dddcde7b"
+    },
+    {
+      "path": "world/styles-cinema-005.css",
+      "sha256": "a8fb7b78bb55425d59abab5cf2b88082d636a9690aa61700ec4d27b4d37b4e66"
+    },
+    {
+      "path": "world/styles-cinema-006.css",
+      "sha256": "dca62f5d0091c2b61c0b85b6941d1699255c3e6bf86c4ebba1ddb835581b1110"
+    },
+    {
+      "path": "world/styles-cinema-007.css",
+      "sha256": "ce58e122c570b2e54ec08a3555c8f93ee8287d98f13016eb6ed8de0e16c08ebc"
+    },
+    {
+      "path": "world/styles-cinema-008.css",
+      "sha256": "d9343b73998c2ec8272953638ad04ea4a0650b3f836664d16d91cbdca4497b8c"
+    },
+    {
+      "path": "world/styles.css",
+      "sha256": "46f2c37849f1e264d096d010fd287bed2a8b58f853b09aceea8e13f46da78c39"
+    }
+  ]
+}

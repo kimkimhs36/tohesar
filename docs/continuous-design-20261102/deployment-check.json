@@ -1,0 +1,13 @@
+{
+  "url": "https://tohesar-journal-unified-018-review-cndzedr4y-teambkit.vercel.app",
+  "deployment": "dpl_D7RGiVACgMy79VdPahPmNCtkpmDp",
+  "commit": "b39afeec5fd3d8f5e287cfab6b6db1e473ccd8b7",
+  "target": "preview",
+  "engine": "Playwright WebKit 26.5",
+  "viewport": [
+    390,
+    844
+  ],
+  "stylesheet_sha256": "1e8d15eddc1bd33e22f6b651dd7e5f4bcd1b3eaab094e080dd84964d3ccc1b65",
+  "console_errors": []
+}

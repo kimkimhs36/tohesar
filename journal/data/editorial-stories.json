@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "editorial_policy": {
+    "template": "shared-essay-018",
+    "allowed_papers": [
+      "ivory",
+      "lilac"
+    ],
+    "emoji": "forbidden",
+    "layout": "consistent-typography-and-spacing",
+    "review_note": "Founder-approved cinematic covers and legacy art directions are preserved, not automatically re-rendered."
+  },
+  "stories": [
+    {
+      "slug": "type-01-standard",
+      "status": "review",
+      "paper": "ivory",
+      "title": "새로운 시대는\n어떤 형태로 오는가.",
+      "subject": "Jaguar Type 01",
+      "deck": "낮은 지붕, 긴 보닛, 그리고 네 개의 문. 전기차가 얻은 자유를 재규어는 어떻게 형태로 바꾸었을까.",
+      "description": "Jaguar Type 01의 조형과 비례를 살펴보는 TOHEŞAR 공통 편집 시스템 시험 지면.",
+      "date": "2026-10-28",
+      "author": "TOHEŞAR",
+      "hero": {
+        "src": "/journal/assets/design/type01-arrival-1600.webp",
+        "src_small": "/journal/assets/design/type01-arrival-800.webp",
+        "alt": "긴 보닛과 낮은 지붕을 가진 은색 Jaguar Type 01, 공식 사진",
+        "credit": "사진 © Jaguar Land Rover Limited",
+        "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+        "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+      },
+      "lead": "자동차의 비례는 단순한 치수가 아니다. 무엇을 드러내고, 무엇을 남길 것인지에 대한 선택이다. 재규어 Type 01은 이 선택을 전기차 시대의 새로운 질문으로 바꾸어 놓는다.",
+      "chapters": [
+        {
+          "heading": "긴 앞부분을 남기는 이유.",
+          "composition": "normal",
+          "paragraphs": [
+            "전기 구동계가 반드시 긴 보닛을 요구하지는 않는다. 그럼에도 Type 01은 앞부분을 길게 두고 실내를 뒤로 물렸다. 앞바퀴부터 앞유리까지 이어지는 공간이 먼저 눈에 들어오고, 실내는 낮은 지붕 아래에 자리한다.",
+            "낮은 차체와 짧은 앞 오버행, 긴 후면의 조합은 그랜드 투어러의 역사를 떠올리게 한다. 하지만 이 자동차는 과거의 세부 장식을 그대로 되풀이하지 않는다. 익숙한 비례에 낯선 표면을 입힌다."
+          ],
+          "image": {
+            "src": "/journal/assets/design/type01-profile-1600.webp",
+            "src_small": "/journal/assets/design/type01-profile-800.webp",
+            "alt": "Jaguar Type 01 공식 측면 사진, 앞부분과 낮은 실루엣의 비례를 볼 수 있다",
+            "credit": "사진 © Jaguar Land Rover Limited",
+            "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+          }
+        },
+        {
+          "heading": "기억을 잇는 것은 같은 선이 아니다.",
+          "composition": "offset",
+          "paragraphs": [
+            "Type 00이 디자인의 방향을 제시한 콘셉트였다면, Type 01은 네 개의 문을 가진 전기 GT라는 현실적인 조건 속에서 그 방향을 이어간다. 두 자동차를 연결하는 것은 특정 램프나 장식보다 낮은 캐빈과 길게 뻗은 덩어리의 균형이다.",
+            "차체를 따라 흐르는 빛의 경계가 면의 변화를 보여준다. 넓고 단순해 보이는 부분에도 미묘한 각도가 존재한다. 오랜 자동차 디자인의 문법을 기억하면서 새로운 조형 언어를 만들려는 시도가 여기에 있다.",
+            "이는 빠르게 변화하는 전기차 시장에서 브랜드의 형태가 어디까지 새로워질 수 있는지 묻는 하나의 사례다."
+          ],
+          "image": {
+            "src": "/journal/assets/design/type01-rear-1600.webp",
+            "src_small": "/journal/assets/design/type01-rear-800.webp",
+            "alt": "Jaguar Type 01의 후면과 차체 표면을 보여주는 공식 사진",
+            "credit": "사진 © Jaguar Land Rover Limited",
+            "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "label": "Jaguar Type 01 — 공식 공개 자료",
+          "url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins"
+        },
+        {
+          "label": "JLR 이미지 이용 조건",
+          "url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+        }
+      ],
+      "art_direction": {
+        "miniatures": "trace"
+      }
+    }
+  ]
+}

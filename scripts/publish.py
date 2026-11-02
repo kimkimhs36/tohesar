@@ -9,9 +9,12 @@ from issue_model import ROOT,load,validate,destination
 
 def write(path,data):(ROOT/path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 def check():
+    from editorial_system import load_stories
+    load_stories()
     issues,content=validate()
     for i in content.values():
         assert i['status'] in ['draft','review','published'],i['id']
+        validate_authored_story(i)
         if i['status']!='published':continue
         for k in ['title','url','summary','published_at','image','image_source','image_credit','image_licence']:assert i.get(k),f'{i["id"]}: missing {k}'
         date.fromisoformat(i['published_at'])
@@ -69,7 +72,25 @@ def links():
             count+=1
     print(f'LINK PASS: {count} local destinations/anchors across {len(active)} pages')
 
+def validate_authored_story(item):
+    if not item.get('body_file') or item.get('status') != 'published':return
+    review=item.get('verification',{})
+    assert isinstance(review,dict) and review.get('status')=='verified',f'{item["id"]}: authored story verification required'
+    for key in ['reviewer','note','verified_at']:assert review.get(key),f'{item["id"]}: missing verification {key}'
+    assert date.fromisoformat(review['verified_at'])<=date.today(),'Future verification date'
+    assert item['body_file'].startswith('journal/drafts/') and '..' not in item['body_file'],'Unsafe body path'
+    target=destination(item['url'])
+    assert not target.exists() or '<!-- generated authored-story -->' in target.read_text(),f'Refusing to overwrite authored page: {item["url"]}'
+    assert destination('/'+item['body_file']).is_file(),'Missing authored story body'
+    for key in ['title','summary','image','image_source','image_credit','image_licence']:assert item.get(key),f'Complete story field: {key}'
+    assert destination(item['image']).is_file(),'Missing authored story image'
+
 def build():
+    # Reject unverified authored stories before touching public files.
+    for item in load('journal/data/content-index.json')['items']:
+        validate_authored_story(item)
+    from editorial_system import preflight
+    preflight()
     # Body-file entries are authored once; public routes are generated only after explicit publication.
     from build_issues import shell
     for item in load('journal/data/content-index.json')['items']:
@@ -79,10 +100,12 @@ def build():
         for k in ['title','summary','image','image_source','image_credit','image_licence']:assert item.get(k),f'Complete story field: {k}'
         p=destination(item['url']);p.parent.mkdir(parents=True,exist_ok=True)
         body=destination('/'+item['body_file']).read_text()
-        p.write_text(shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
+        p.write_text('<!-- generated authored-story -->\n'+shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
     check()
     for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
+    from editorial_system import build as build_editorial
+    build_editorial()
     links()
 
 def new_issue(number,title):
@@ -102,7 +125,7 @@ def new_story(slug,title):
     assert re.fullmatch('[a-z0-9-]+',slug),'Use a lowercase slug'
     d=load('journal/data/content-index.json');assert not any(n['id']==slug for n in d['items']),'ID exists'
     url=f'/journal/design/{slug}/';p=destination(url);assert not p.exists(),'Route exists'
-    d['items'].append(dict(id=slug,title=title,url=url,kind='design-essay',manufacturer=None,model=None,published_at=date.today().isoformat(),vehicle_year=None,forms=[],summary='',image='',image_alt='',image_source='',image_credit='',image_licence='',related=[],keywords=[],status='draft',body_file=f'journal/drafts/{slug}.html'))
+    d['items'].append(dict(id=slug,title=title,url=url,kind='design-essay',manufacturer=None,model=None,published_at=date.today().isoformat(),vehicle_year=None,forms=[],summary='',image='',image_alt='',image_source='',image_credit='',image_licence='',related=[],keywords=[],status='draft',verification=dict(status='pending',reviewer='',note='',verified_at=None),body_file=f'journal/drafts/{slug}.html'))
     write('journal/data/content-index.json',d)
     # Drafts live outside public routes until the editor prepares and explicitly publishes them.
     p=ROOT/'journal/drafts'/f'{slug}.html';p.parent.mkdir(exist_ok=True)
@@ -117,6 +140,7 @@ def main():
     n=sub.add_parser('new-news');n.add_argument('id')
     n=sub.add_parser('new-story');n.add_argument('slug');n.add_argument('--title',required=True)
     n=sub.add_parser('preview');n.add_argument('--port',type=int,default=8000)
+    n=sub.add_parser('preview-story');n.add_argument('slug')
     a=p.parse_args()
     try:
         if a.command=='check':check()
@@ -125,6 +149,9 @@ def main():
         elif a.command=='new-issue':new_issue(a.number,a.title)
         elif a.command=='new-news':new_news(a.id)
         elif a.command=='new-story':new_story(a.slug,a.title)
+        elif a.command=='preview-story':
+            from editorial_system import preview
+            preview(a.slug)
         else:subprocess.run([sys.executable,'-m','http.server',str(a.port),'--bind','127.0.0.1','--directory',str(ROOT)],check=True)
     except (AssertionError,ValueError,KeyError) as error:p.exit(1,f'Publication blocked: {error}\n')
 if __name__=='__main__':main()

@@ -20,6 +20,9 @@ def build():
  for name, marker in PAGES.items():
   path = ROOT / name
   text = path.read_text()
+  # 015 owns the Journal opening; 014 still owns its standalone publications.
+  if name == 'journal/index.html' and 'recovery015-journal' in text:
+   continue
   if name == 'journal/issues/001/index.html':
    wp = '<link rel="stylesheet" href="/journal/assets/beauty014-wallpaper.css">'
    text = text.replace(wp, '')
