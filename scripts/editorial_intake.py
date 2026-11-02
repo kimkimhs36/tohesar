@@ -63,7 +63,7 @@ def prepare(brief):
         date=brief.get('date') or date.today().isoformat(), author=brief.get('author') or 'TOHEŞAR',
         paper=brief.get('paper', 'ivory'), art_direction=brief.get('art_direction', {'miniatures':'trace','placement':'reading'}),
         hero=brief.get('hero', {}), lead=lead, chapters=chapters,
-        sources=brief.get('sources', []))
+        sources=brief.get('sources', []), glossary=brief.get('glossary', []))
     editorial.validate_story(story)
     return story
 

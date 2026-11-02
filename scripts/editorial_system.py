@@ -94,6 +94,24 @@ def validate_story(story, publish=False):
         if not isinstance(source, dict):
             raise ValueError(f'{slug}: source must be an object')
         required(source, 'label'); https(required(source, 'url'))
+    glossary = story.get('glossary', [])
+    if not isinstance(glossary, list) or len(glossary) > 20:
+        raise ValueError(f'{slug}: glossary must be a list of at most 20 terms')
+    body = [story['lead']] + [p for chapter in story['chapters'] for p in chapter['paragraphs']]
+    seen = []
+    for item in glossary:
+        if not isinstance(item, dict):
+            raise ValueError(f'{slug}: glossary entry must be an object')
+        term = required(item, 'term')
+        definition = required(item, 'definition')
+        https(required(item, 'source_url'))
+        if len(term) > 60 or len(definition) > 600 or '\n' in term:
+            raise ValueError(f'{slug}: glossary entry too long or multiline')
+        if any(term in other or other in term for other in seen):
+            raise ValueError(f'{slug}: duplicate or overlapping glossary term')
+        if not any(term in paragraph for paragraph in body):
+            raise ValueError(f'{slug}: glossary term not present in body: {term}')
+        seen.append(term)
     if publish:
         review = story.get('verification', {})
         if review.get('status') != 'verified':
@@ -132,23 +150,49 @@ def figure(image, cls, eager=False):
             f'<a href="{esc(image["licence_url"])}" aria-label="사진 이용 조건: {esc(image["alt"])}">이용 조건</a></figcaption></figure>')
 
 
+def render_text(text, glossary, rendered):
+    """Mark only the first occurrence of each term; all author input is escaped."""
+    available = [g for g in glossary if g['term'] not in rendered]
+    if not available:
+        return esc(text)
+    by_term = {g['term']: (index, g) for index, g in enumerate(glossary, 1)}
+    pattern = re.compile('|'.join(re.escape(g['term']) for g in sorted(available, key=lambda g: len(g['term']), reverse=True)))
+    output, cursor = [], 0
+    for match in pattern.finditer(text):
+        term = match.group()
+        if term in rendered:
+            continue
+        rendered.add(term)
+        index, item = by_term[term]
+        ident = f'editorial-term-{index}'
+        output.append(esc(text[cursor:match.start()]))
+        output.append(f'<span class="term-note"><button type="button" class="term-trigger" aria-expanded="false" aria-controls="{ident}" hidden>{esc(term)}</button><span class="term-fallback">{esc(term)}</span><span class="term-definition" id="{ident}" role="note">{esc(item["definition"])} <a href="{esc(item["source_url"])}">출처</a></span></span>')
+        cursor = match.end()
+    output.append(esc(text[cursor:]))
+    return ''.join(output)
+
+
 def render(story, preview=False):
     validate_story(story, publish=not preview)
+    glossary = story.get('glossary', [])
+    rendered = set()
+    lead = render_text(story['lead'], glossary, rendered)
     chapters = []
     for chapter in story['chapters']:
-        paras = ''.join(f'<p>{esc(p)}</p>' for p in chapter['paragraphs'])
+        paras = ''.join(f'<p>{render_text(p, glossary, rendered)}</p>' for p in chapter['paragraphs'])
         fig = figure(chapter['image'], 'es-section-image') if chapter.get('image') else ''
         chapters.append(f'<section class="es-section" data-composition="{esc(chapter.get("composition", "normal"))}"><div class="es-section-copy"><h2>{esc(chapter["heading"])}</h2>{paras}</div>{fig}</section>')
     sources = ''.join(f'<li><a href="{esc(s["url"])}">{esc(s["label"])}</a></li>' for s in story['sources'])
     title = esc(story['title']).replace('\n', '<br>')
     robots = '<meta name="robots" content="noindex,nofollow">' if preview else ''
+    notes = '<link rel="stylesheet" href="/journal/assets/reader-notes.css"><script src="/journal/assets/reader-notes.js" defer></script>' if glossary else ''
     nav = (ROOT / 'journal/partials/navigation.html').read_text().strip()
     footer_nav = (ROOT / 'journal/partials/footer-navigation.html').read_text().strip()
     return f'''<!doctype html>
 {MARKER}
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">{robots}<title>{esc(story['title'].replace(chr(10), ' '))} — TOHEŞAR</title><meta name="description" content="{esc(story['description'])}"><link rel="icon" href="/assets/cedilla-favicon.svg"><link rel="stylesheet" href="/journal/assets/editorial-system.css"><link rel="stylesheet" href="/journal/assets/article-motion.css"><script src="/journal/assets/article-motion.js" defer></script><link rel="stylesheet" href="/journal/assets/navigation.css"><script src="/journal/assets/navigation.js" defer></script></head>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">{robots}<title>{esc(story['title'].replace(chr(10), ' '))} — TOHEŞAR</title><meta name="description" content="{esc(story['description'])}"><link rel="icon" href="/assets/cedilla-favicon.svg"><link rel="stylesheet" href="/journal/assets/editorial-system.css">{notes}<link rel="stylesheet" href="/journal/assets/article-motion.css"><script src="/journal/assets/article-motion.js" defer></script><link rel="stylesheet" href="/journal/assets/navigation.css"><script src="/journal/assets/navigation.js" defer></script></head>
 <body class="es-page" data-paper="{esc(story.get('paper', 'ivory'))}" data-miniatures="{esc(story.get('art_direction', {}).get('miniatures', 'trace'))}" data-miniature-placement="{esc(story.get('art_direction', {}).get('placement', 'reading'))}"><a class="es-skip" href="#content">본문으로 건너뛰기</a><header class="es-header"><a class="es-wordmark" href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{nav}</header>
-<main id="content"><article><header class="es-opening"><span class="es-category">{esc(story.get('subject', ''))}</span><h1 class="es-title">{title}</h1><p class="es-deck">{esc(story['deck'])}</p><div class="es-meta"><span>{esc(story['author'])}</span><time datetime="{esc(story['date'])}">{esc(story['date'].replace('-', '.'))}</time></div></header>{figure(story['hero'], 'es-hero', True)}<div class="es-body"><div class="es-lead"><p>{esc(story['lead'])}</p></div>{''.join(chapters)}</div><section class="es-sources"><div class="es-sources-inner"><h2>출처와 사진</h2><ul class="es-source-list">{sources}</ul></div></section></article></main><footer class="es-footer"><div class="es-footer-inner"><a href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{footer_nav}</div></footer></body></html>\n'''
+<main id="content"><article><header class="es-opening"><span class="es-category">{esc(story.get('subject', ''))}</span><h1 class="es-title">{title}</h1><p class="es-deck">{esc(story['deck'])}</p><div class="es-meta"><span>{esc(story['author'])}</span><time datetime="{esc(story['date'])}">{esc(story['date'].replace('-', '.'))}</time></div></header>{figure(story['hero'], 'es-hero', True)}<div class="es-body"><div class="es-lead"><p>{lead}</p></div>{''.join(chapters)}</div><section class="es-sources"><div class="es-sources-inner"><h2>출처와 사진</h2><ul class="es-source-list">{sources}</ul></div></section></article></main><footer class="es-footer"><div class="es-footer-inner"><a href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{footer_nav}</div></footer></body></html>\n'''
 
 
 def preview(slug):

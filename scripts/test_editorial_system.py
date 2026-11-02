@@ -131,6 +131,25 @@ class EditorialSystemTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'image must be an object'):
             es.validate_story(self.story)
 
+    def test_glossary_renders_once_escapes_and_provides_fallback(self):
+        self.story['lead'] = '보닛과 보닛의 비례.'
+        self.story['glossary'] = [{'term': '보닛', 'definition': '앞쪽 <구조>와 & 표면', 'source_url': 'https://example.org/source?q=1&n=2'}]
+        html = es.render(self.story, preview=True)
+        self.assertEqual(html.count('class="term-trigger"'), 1)
+        self.assertIn('class="term-fallback">보닛</span>', html)
+        self.assertIn('앞쪽 &lt;구조&gt;와 &amp; 표면', html)
+        self.assertIn('href="https://example.org/source?q=1&amp;n=2"', html)
+        self.assertIn('/journal/assets/reader-notes.js', html)
+        self.assertIn('aria-controls="editorial-term-1"', html)
+
+    def test_glossary_rejects_bad_or_ambiguous_data(self):
+        for glossary in ([{'term':'없는말', 'definition':'설명', 'source_url':'https://example.org'}],
+                         [{'term':'자동차', 'definition':'설명', 'source_url':'javascript:alert(1)'}],
+                         [{'term':'자동차', 'definition':'설명', 'source_url':'https://example.org'}, {'term':'차', 'definition':'설명', 'source_url':'https://example.org'}],
+                         'bad'):
+            self.story['glossary'] = glossary
+            with self.assertRaises(ValueError): es.validate_story(self.story)
+
     def test_non_image_file_cannot_be_published_as_photo(self):
         not_photo = self.root / 'article.txt'
         not_photo.write_text('이 파일은 이미지가 아닙니다')

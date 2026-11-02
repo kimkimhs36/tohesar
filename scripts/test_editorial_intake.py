@@ -40,6 +40,15 @@ class EditorialIntakeTest(unittest.TestCase):
                 with self.assertRaises(ValueError): editorial_intake.intake(self.brief)
                 self.assertFalse((root / 'journal/stories').exists())
 
+    def test_glossary_survives_intake_and_is_validated(self):
+        brief = {**self.brief, 'glossary': [{'term':'둘째', 'definition':'둘째의 뜻', 'source_url':'https://example.org/source'}]}
+        with patch('editorial_intake.editorial.image_check'):
+            story = editorial_intake.prepare(brief)
+        self.assertEqual(story['glossary'], brief['glossary'])
+        self.assertEqual(story['status'], 'review')
+        with patch('editorial_intake.editorial.image_check'), self.assertRaises(ValueError):
+            editorial_intake.prepare({**brief, 'glossary': [{'term':'없는 단어', 'definition':'뜻', 'source_url':'https://example.org'}]})
+
     def test_publication_claim_rejected(self):
         for field in ('status', 'verification'):
             with self.subTest(field=field), self.assertRaises(ValueError):
