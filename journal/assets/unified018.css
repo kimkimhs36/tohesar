@@ -114,3 +114,248 @@ body:not(:has(.sequence)) .site-header a,
   body:not(:has(.sequence)) .site-header *,
   .journal-flow .site-header *{transition:none!important}
 }
+/* Continuous design development · 02 Nov 2026.
+   COVER 004 and the existing Index remain independent of these reading surfaces. */
+:is(.journal-flow,.recovery015-journal) .cover-editorial-continuation{
+  background:transparent;border:0;padding-block:30px 36px;align-items:center
+}
+.journal-flow .cover-editorial-continuation>.eyebrow{max-width:90px;line-height:1.9}
+.journal-flow .cover-editorial-continuation p{font-size:clamp(19px,2.5vw,31px);line-height:1.65}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation{
+  background:linear-gradient(130deg,#f7f3ed,#f2eae3);padding-block:62px 68px;gap:6vw
+}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation h2{line-height:1.45;letter-spacing:-.055em}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation p{font-size:14px;line-height:1.95}
+:is(.journal-flow,.recovery015-journal) .atlas-invitation small{font-size:10px;line-height:1.85}
+:is(.journal-flow,.recovery015-journal) .issue-invitation{margin-top:34px;margin-bottom:16px}
+:is(.journal-flow,.recovery015-journal) .design{padding-top:26px;padding-bottom:74px}
+:is(.journal-flow,.recovery015-journal) .design p{font-size:14px;line-height:1.95;max-width:34em}
+:is(.journal-flow,.recovery015-journal) .design small{font-size:10px;line-height:1.85}
+:is(.journal-flow,.recovery015-journal) .design-small{margin-top:114px}
+:is(.journal-flow,.recovery015-journal) .latest{
+  background:linear-gradient(135deg,#f6eee6,#f0e0d9);padding-block:60px 66px
+}
+:is(.journal-flow,.recovery015-journal) .section-note{font-size:13px;line-height:1.95;max-width:54em}
+:is(.journal-flow,.recovery015-journal) .section-note>span{font-size:11px;margin-top:6px}
+.journal-flow .journal-wire{background:transparent;padding:0;margin:35px 0 48px}
+.journal-flow .journal-wire-register{font-size:10px;letter-spacing:0}
+.journal-flow .journal-wire-heading p{font-size:12px;line-height:1.9;max-width:26em}
+.journal-flow .journal-wire-list a{grid-template-columns:130px minmax(0,1fr) 170px;min-height:92px;padding-block:21px;gap:24px}
+.journal-flow .journal-wire-list strong{font-size:clamp(21px,2.1vw,29px);line-height:1.45;overflow-wrap:normal}
+.journal-flow .journal-wire-list :is(.front-wire-meta,.front-wire-date){font-size:10px}
+.journal-flow .journal-curated-caption{font-size:10px;letter-spacing:0}
+:is(.journal-flow,.recovery015-journal) .news-item{padding-block:28px}
+:is(.journal-flow,.recovery015-journal) .news-item p{font-size:14px;line-height:1.95}
+:is(.journal-flow,.recovery015-journal) .news-date{font-size:11px}
+:is(.journal-flow,.recovery015-journal) .news-date span{font-size:10px}
+:is(.journal-flow,.recovery015-journal) .news-source{font-size:11px}
+:is(.journal-flow,.recovery015-journal) .city-invitation{background:linear-gradient(145deg,#ebe5eb,#e0d5e2);padding-block:34px 68px}
+:is(.journal-flow,.recovery015-journal) .city-invite-copy p{font-size:14px;line-height:1.95;max-width:31em}
+:is(.journal-flow,.recovery015-journal) .city-invite-copy small{font-size:10px;line-height:1.9}
+:is(.journal-flow,.recovery015-journal) .mini-invitation p{font-size:14px;line-height:1.9}
+:is(.journal-flow,.recovery015-journal) .site-footer p{font-size:13px}
+:is(.journal-flow,.recovery015-journal) .site-footer nav a{font-size:12px}
+
+/* The newsroom's typography reads as a register; the feature keeps the whole car. */
+body[data-page] .desk-feature-photo>span{position:static;display:block;color:var(--body);font-size:10px;letter-spacing:.04em;margin-top:12px}
+body[data-page] .desk-feature-copy{margin-left:0;transform:none;background:transparent;padding-right:0;padding-left:clamp(28px,4.5vw,70px)}
+body[data-page] .desk-feature{grid-template-columns:1.35fr 1fr;align-items:center;margin-block:34px 60px}
+body[data-page] .desk-feature-copy p{font-size:14px;line-height:1.95}
+body[data-page] .desk-image-credit{font-size:10px;max-width:none;margin-top:20px}
+body[data-page] .desk-text-link{font-size:12px}
+body[data-page] .front-wire-intro{font-size:13px;line-height:1.9;max-width:42em}
+body[data-page] :is(.front-wire-meta,.front-wire-date){font-size:10px;line-height:1.8}
+body[data-page] .front-wire-item a{padding-block:25px}
+body[data-page] .front-wire-item strong{line-height:1.45}
+body[data-page] :is(.news-lead>p,.news-side p){font-size:14px;line-height:1.95}
+body[data-page] .desk-reading article p{font-size:14px;line-height:1.9}
+body[data-page] .desk-reading article>small{font-size:10px;line-height:1.9}
+body[data-page] .news-index-main{padding-top:36px}
+body[data-page] .news-index-main .desk-deck{font-size:14px;line-height:1.9;max-width:36em}
+body[data-page] .news-index-main .wire-card{padding-block:26px}
+body[data-page] .news-index-main .wire-card strong{line-height:1.5;overflow-wrap:normal}
+body[data-page] .news-index-main .wire-card :is(small,span){font-size:10px;line-height:1.8}
+body[data-page] .wire-count{font-size:12px;line-height:1.8}
+body[data-page] .feed-health-detail{font-size:11px}
+body[data-page] .wire-reset{min-height:44px;font-size:12px;background:transparent;border-width:0 0 1px;padding-inline:0}
+body[data-page] .wire-heading{font-size:10px;line-height:1.8;align-items:baseline}
+
+/* A quiet page for the manuscript. Miniatures remain in the authored form studies. */
+:is(.beauty014-curve,.beauty014-blade) .wallpaper-art{display:none}
+:is(.beauty014-curve,.beauty014-blade) .wallpaper-reading :is(.chapter-body,.story-opening,.reading-column,.chapter-copy)>p::before,
+:is(.beauty014-curve,.beauty014-blade) .wallpaper-reading :is(h2,.chapter-side)::before{display:none}
+:is(.beauty014-curve,.beauty014-blade) :is(.story-opening,.chapter-body){max-width:660px}
+:is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:17px;line-height:2.05;letter-spacing:-.025em;word-break:keep-all;overflow-wrap:break-word}
+:is(.beauty014-curve,.beauty014-blade) .chapter-body p+p{margin-top:27px}
+:is(.beauty014-curve,.beauty014-blade) .story-opening{font-size:23px;line-height:1.9;letter-spacing:-.04em}
+:is(.beauty014-curve,.beauty014-blade) .story-opening p+p{font-size:16px;line-height:2.05}
+:is(.beauty014-curve,.beauty014-blade) .story-deck{font-size:16px;line-height:1.95;letter-spacing:-.035em}
+:is(.beauty014-curve,.beauty014-blade) :is(.byline,.story-hero figcaption,.f40-hero figcaption){font-size:11px;line-height:1.85}
+:is(.beauty014-curve,.beauty014-blade) .story-sources :is(p,li){font-size:12px;line-height:1.95}
+.beauty014-blade .f40-hero{margin-inline:var(--edge)}
+.beauty014-blade .f40-hero>img{clip-path:none;aspect-ratio:auto;object-fit:contain}
+.beauty014-blade .f40-hero figcaption{padding:13px 0 0;background:transparent;margin-top:0}
+.beauty014-blade .air-sequence.scene-enabled{height:160svh}
+.beauty014-blade .air-board{max-width:1100px}
+.beauty014-blade .air-copy>p{font-size:14px;line-height:1.9}
+.beauty014-blade .air-notes p{font-size:14px;line-height:1.9}
+.beauty014-blade .air-notes b{font-size:11px}
+.beauty014-language .type-lead p{font-size:17px;line-height:2.05;letter-spacing:-.025em}
+.beauty014-language .type-lead>p{font-size:23px;line-height:1.9}
+.beauty014-language .type-opening{background:linear-gradient(140deg,#ede7ed,#e2dbe7)}
+.beauty014-language .type-opening-title>p{color:#625b70}
+.beauty014-language .type-opening-title h1 em{color:#806776}
+
+@media(max-width:900px) and (min-width:701px){
+ .journal-flow .journal-wire-list a{grid-template-columns:105px minmax(0,1fr)}
+ .journal-flow .journal-wire-list .front-wire-date{grid-column:2;text-align:left}
+}
+@media(max-width:700px){
+ :is(.journal-flow,.recovery015-journal) .journal-mast{padding-block:23px 18px}
+ :is(.journal-flow,.recovery015-journal) .journal-mast h1{font-size:23vw;margin-bottom:20px}
+ :is(.journal-flow,.recovery015-journal) .mast-bottom p{font-size:12px;line-height:1.8}
+ :is(.journal-flow,.recovery015-journal) .section-nav a{font-size:11px;min-height:48px}
+ :is(.journal-flow,.recovery015-journal) .section-nav span{font-size:9px}
+ .journal-flow .cover-editorial-continuation{padding-block:27px 32px;display:grid;grid-template-columns:1fr auto;gap:16px}
+ .journal-flow .cover-editorial-continuation>.eyebrow{grid-column:1/-1;max-width:none;font-size:10px}
+ .journal-flow .cover-editorial-continuation p{font-size:19px;line-height:1.75;margin:0}
+ .journal-flow .cover-editorial-continuation>a{font-size:11px;white-space:normal;max-width:8.6em;gap:12px;line-height:1.8;padding-bottom:5px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation{padding:32px 0 40px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invite-photo{margin:0 var(--edge) 0 0}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation>div{margin:27px var(--edge) 0 12%}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation h2{font-size:31px;margin-bottom:20px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation .text-link{font-size:12px;line-height:1.8;margin-top:18px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation .text-link+.text-link{font-size:11px;margin-top:4px}
+ :is(.journal-flow,.recovery015-journal) .atlas-invitation small{margin-top:20px}
+ :is(.journal-flow,.recovery015-journal) .issue-invitation{margin-block:28px 12px;padding-block:22px}
+ :is(.journal-flow,.recovery015-journal) .issue-invite-copy{display:block}
+ :is(.journal-flow,.recovery015-journal) .edition-label{font-size:9px}
+ :is(.journal-flow,.recovery015-journal) .issue-invite-copy h2{font-size:26px;margin-block:13px 10px}
+ :is(.journal-flow,.recovery015-journal) .issue-invite-copy p{font-size:12px}
+ :is(.journal-flow,.recovery015-journal) .edition-link{font-size:11px;margin-top:5px}
+ :is(.journal-flow,.recovery015-journal) .design{padding-block:18px 44px}
+ :is(.journal-flow,.recovery015-journal) .section-heading>.text-link{font-size:11px}
+ :is(.journal-flow,.recovery015-journal) .design-large h3{font-size:26px;line-height:1.5}
+ :is(.journal-flow,.recovery015-journal) .design-small{margin:40px 0 0 12%}
+ :is(.journal-flow,.recovery015-journal) .story-label{font-size:9px;margin-block:17px 12px}
+ :is(.journal-flow,.recovery015-journal) .latest{padding-block:38px 42px}
+ :is(.journal-flow,.recovery015-journal) .latest .section-heading{display:block;margin-bottom:18px}
+ :is(.journal-flow,.recovery015-journal) .latest .section-heading h2{font-size:30px}
+ .journal-flow .journal-wire{margin-block:29px 38px}
+ .journal-flow .journal-wire-register{font-size:10px;gap:20px}
+ .journal-flow .journal-wire-register>span:last-child{max-width:155px}
+ .journal-flow .journal-wire-heading{padding-top:24px}
+ .journal-flow .journal-wire-heading h3{font-size:28px}
+ .journal-flow .journal-wire-heading p{font-size:12px;margin-block:13px 10px}
+ .journal-flow .journal-wire-list a{display:block;min-height:0;padding-block:22px}
+ .journal-flow .journal-wire-list strong{font-size:24px;line-height:1.45;margin-block:9px 11px}
+ .journal-flow .journal-wire-list :is(.front-wire-meta,.front-wire-date){font-size:10px}
+ .journal-flow .journal-wire-more{font-size:12px;margin-top:14px}
+ .journal-flow .journal-curated-caption{font-size:10px;line-height:1.9}
+ :is(.journal-flow,.recovery015-journal) .news-date{display:flex;font-size:11px}
+ :is(.journal-flow,.recovery015-journal) .news-item h3{font-size:23px;line-height:1.55;margin-block:15px 13px}
+ :is(.journal-flow,.recovery015-journal) .news-source{font-size:11px;margin-top:10px;line-height:1.8}
+ :is(.journal-flow,.recovery015-journal) .city-invitation{padding-block:28px 44px}
+ :is(.journal-flow,.recovery015-journal) .city-invite-top{font-size:10px}
+ :is(.journal-flow,.recovery015-journal) .city-invite-copy{margin:28px 0 0 12%}
+ :is(.journal-flow,.recovery015-journal) .city-invite-copy h2{font-size:37px;line-height:1.4;margin-block:18px 22px}
+ :is(.journal-flow,.recovery015-journal) .city-invite-link{font-size:12px}
+ :is(.journal-flow,.recovery015-journal) .mini-invitation{padding-block:38px 32px}
+ :is(.journal-flow,.recovery015-journal) .mini-invitation .text-link{font-size:12px}
+ :is(.journal-flow,.recovery015-journal) .mini-number{font-size:9px;line-height:1.8}
+ :is(.journal-flow,.recovery015-journal) .feature-copy>p{font-size:14px;line-height:1.95}
+ :is(.journal-flow,.recovery015-journal) .feature-copy small{font-size:10px}
+ body[data-page] .newsroom-mast{padding-block:22px 18px}
+ body[data-page] .desk-register{font-size:9px}
+ body[data-page] .newsroom-mast h1{margin-block:18px 14px}
+ body[data-page] .desk-mast-foot p{font-size:12px}
+ body[data-page] .desk-nav a{font-size:11px;min-height:48px}
+ body[data-page] .desk-nav span{font-size:9px}
+ body[data-page] .desk-feature{margin:25px 0 42px}
+ body[data-page] .desk-feature-photo{margin:0 var(--desk-edge)}
+ body[data-page] .desk-feature-photo>span{font-size:9px;line-height:1.8;margin-top:10px}
+ body[data-page] .desk-feature-copy{margin:25px var(--desk-edge) 0 12%;padding:0}
+ body[data-page] .desk-kicker{font-size:10px;line-height:1.8;letter-spacing:.04em}
+ body[data-page] .desk-feature h2{font-size:32px;line-height:1.5;margin-block:14px 20px}
+ body[data-page] .desk-image-credit{font-size:10px;margin:19px var(--desk-edge) 0;line-height:1.85}
+ body[data-page] .front-wire{padding-bottom:40px}
+ body[data-page] .front-wire-heading p{font-size:9px}
+ body[data-page] .front-wire-heading>a{font-size:11px}
+ body[data-page] .front-wire-item strong{font-size:25px;line-height:1.45;margin-block:10px 12px}
+ body[data-page] .front-wire-more{font-size:12px;line-height:1.8}
+ body[data-page] .section-top{font-size:10px}
+ body[data-page] .news-side small{font-size:10px;line-height:1.8}
+ body[data-page] .desk-reading{padding-block:38px 44px}
+ body[data-page] .desk-reading article>a>span{font-size:10px}
+ body[data-page] .desk-reading article>small{font-size:10px}
+ body[data-page] .desk-911{margin:38px 0 0 12%}
+ body[data-page] .news-index-main{padding-top:25px}
+ body[data-page] .news-index-main h1{font-size:40px;margin-block:13px 16px}
+ body[data-page] .news-index-main>.eyebrow{font-size:10px;letter-spacing:.045em}
+ body[data-page] .news-index-main .desk-deck{margin-bottom:26px}
+ body[data-page] .news-index-main section:first-of-type{padding-top:22px}
+ body[data-page] .news-index-main section>h2{font-size:22px}
+ body[data-page] .news-index-main section:first-of-type>p:first-of-type{font-size:11px;line-height:1.9}
+ body[data-page] .wire-filters{margin-top:18px;gap:12px}
+ body[data-page] .wire-filters label{font-size:12px;line-height:1.8}
+ body[data-page] .wire-filters select{border-radius:0;background-color:#fffcf6}
+ body[data-page] .wire-count{margin-block:18px 15px}
+ body[data-page] .news-index-main .wire-card strong{font-size:25px;margin-block:10px 13px}
+ :is(.beauty014-curve,.beauty014-blade) .story-intro{padding-block:14px 29px}
+ :is(.beauty014-curve,.beauty014-blade) .story-topline{font-size:9px;margin-bottom:22px}
+ :is(.beauty014-curve,.beauty014-blade) .story-intro h1{font-size:37px;line-height:1.45;letter-spacing:-.065em}
+ :is(.beauty014-curve,.beauty014-blade) .story-intro>.eyebrow{font-size:10px}
+ :is(.beauty014-curve,.beauty014-blade) .story-deck{font-size:14px;margin-top:22px}
+ :is(.beauty014-curve,.beauty014-blade) .byline{font-size:10px;line-height:1.9;margin-top:25px}
+ :is(.beauty014-curve,.beauty014-blade) .story-opening{font-size:21px;line-height:1.95;margin-block:44px 36px;padding-inline:var(--edge)}
+ :is(.beauty014-curve,.beauty014-blade) .story-opening p+p{font-size:16px;line-height:2.05}
+ :is(.beauty014-curve,.beauty014-blade) .story-chapter{padding-block:29px 38px}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:16px;line-height:2.05}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-body h2{font-size:25px;line-height:1.55;margin-bottom:25px}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-side>p{font-size:10px}
+ :is(.beauty014-curve,.beauty014-blade) .story-sources :is(p,li){font-size:12px;line-height:1.95}
+ :is(.beauty014-curve,.beauty014-blade) .story-hero figcaption{font-size:10px}
+ .beauty014-blade .air-diagram{height:190px}
+ .beauty014-blade .air-notes{min-height:90px}
+ .beauty014-blade .air-top{font-size:9px}
+ .beauty014-blade .air-bottom{font-size:9px;line-height:1.9}
+ .beauty014-language .type-opening-title{padding-top:22px}
+ .beauty014-language .type-opening-title h1{font-size:29px;line-height:1.6;letter-spacing:-.06em}
+ .beauty014-language .type-opening-title>p i{font-size:64px}
+ .beauty014-language .type-lead p{font-size:16px;line-height:2.05}
+ .beauty014-language .type-lead>p{font-size:21px;line-height:1.95}
+}
+@media(prefers-reduced-motion:reduce){
+ .beauty014-blade .air-sequence.scene-enabled{height:auto}
+}
+
+/* Second pass: compact service headings, unbroken Korean measures, calmer article chrome. */
+body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-break:keep-all;overflow-wrap:break-word}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header{display:flex;align-items:center;gap:24px}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header .header-journal{margin-left:auto;display:flex;white-space:nowrap}
+@media(max-width:700px){
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header{padding-block:11px;gap:18px;min-height:67px}
+ :is(.beauty014-curve,.beauty014-blade,.beauty014-language) .site-header .header-journal{font-size:10px;line-height:1.5}
+ body[data-page] .news-index-main>.desk-deck{font-size:13px;line-height:1.9;margin-bottom:22px}
+ body[data-page] .news-index-main section>h2{font:400 16px/1.5 var(--sans);margin-bottom:8px;letter-spacing:-.03em}
+ body[data-page] .news-index-main section:first-of-type{padding-top:18px}
+ body[data-page] .news-index-main .wire-heading{margin-top:15px;padding-block:12px;gap:14px;font-size:9px}
+ body[data-page] .news-index-main .wire-heading>span{max-width:57%}
+ body[data-page] .feed-health-detail{padding-block:7px}
+ body[data-page] .feed-health-detail summary{min-height:32px}
+ body[data-page] .wire-filters{gap:11px 12px;margin-top:16px}
+ body[data-page] .wire-filters label{gap:6px;font-size:11px}
+ body[data-page] .wire-filters input,body[data-page] .wire-filters select{font-size:16px;min-height:46px}
+ body[data-page] .wire-reset{font-size:11px;min-height:40px}
+ body[data-page] .wire-count{font-size:11px;margin-block:13px 12px}
+ body[data-page] .news-index-main .wire-list{padding-top:0}
+ .beauty014-language .type-opening-title h1{font-size:29px}
+}
+@supports(animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  :is(.journal-flow,.recovery015-journal) :is(.atlas-invite-photo,.design-large .image-link,.design-small .image-link,.city-invite-photo){
+   animation:thz-photo-arrive linear both;animation-timeline:view();animation-range:entry 0% entry 85%
+  }
+ }
+}
+@keyframes thz-photo-arrive{from{opacity:.86;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
