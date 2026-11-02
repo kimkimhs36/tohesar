@@ -9,6 +9,8 @@ from issue_model import ROOT,load,validate,destination
 
 def write(path,data):(ROOT/path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 def check():
+    from editorial_system import load_stories
+    load_stories()
     issues,content=validate()
     for i in content.values():
         assert i['status'] in ['draft','review','published'],i['id']
@@ -70,6 +72,8 @@ def links():
     print(f'LINK PASS: {count} local destinations/anchors across {len(active)} pages')
 
 def build():
+    from editorial_system import preflight
+    preflight()
     # Body-file entries are authored once; public routes are generated only after explicit publication.
     from build_issues import shell
     for item in load('journal/data/content-index.json')['items']:
@@ -83,6 +87,8 @@ def build():
     check()
     for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
+    from editorial_system import build as build_editorial
+    build_editorial()
     links()
 
 def new_issue(number,title):
@@ -117,6 +123,7 @@ def main():
     n=sub.add_parser('new-news');n.add_argument('id')
     n=sub.add_parser('new-story');n.add_argument('slug');n.add_argument('--title',required=True)
     n=sub.add_parser('preview');n.add_argument('--port',type=int,default=8000)
+    n=sub.add_parser('preview-story');n.add_argument('slug')
     a=p.parse_args()
     try:
         if a.command=='check':check()
@@ -125,6 +132,9 @@ def main():
         elif a.command=='new-issue':new_issue(a.number,a.title)
         elif a.command=='new-news':new_news(a.id)
         elif a.command=='new-story':new_story(a.slug,a.title)
+        elif a.command=='preview-story':
+            from editorial_system import preview
+            preview(a.slug)
         else:subprocess.run([sys.executable,'-m','http.server',str(a.port),'--bind','127.0.0.1','--directory',str(ROOT)],check=True)
     except (AssertionError,ValueError,KeyError) as error:p.exit(1,f'Publication blocked: {error}\n')
 if __name__=='__main__':main()
