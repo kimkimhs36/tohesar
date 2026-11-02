@@ -18,6 +18,8 @@ for page in files:
         s = re.sub(r'<div class="menu-panel".*?</div>', '', s, flags=re.S)
         s = re.sub(r'<button[^>]*class="menu-button"[^>]*>.*?</button>', '', s, flags=re.S)
         s = s.replace('</header>', nav + '</header>', 1)
+    elif 'class="city-nav"' in s:
+        s = re.sub(r'<header class="city-nav">(.*?)</header>', lambda m: '<header class="city-nav">' + re.sub(r'<nav\b[^>]*>.*?</nav>', '', m.group(1), flags=re.S) + nav + '</header>', s, count=1, flags=re.S)
     elif 'class="article-bar"' in s:
         s = s.replace('</header>', nav + '</header>', 1)
     else:
