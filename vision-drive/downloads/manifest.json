@@ -1,0 +1,14 @@
+{
+  "version": "4.0.0",
+  "file": "vision-drive-4.0.0-merged.bin",
+  "size": 983312,
+  "sha256": "c79e41887c8185bccea29da5b9461714781359ee69a96ca4e399a71eb6c12867",
+  "chip": "ESP32",
+  "board": "Keyestudio KS5023 / esp32cam",
+  "flash_size": 4194304,
+  "offset": 0,
+  "platform": "espressif32@6.9.0",
+  "framework": "Arduino ESP32 2.0.17",
+  "hardware_verified": false,
+  "note": "Back up full stock flash first. No physical device has been flashed or tested."
+}
