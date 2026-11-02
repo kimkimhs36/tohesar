@@ -1,0 +1,31 @@
+name: TOHEŞAR article review package
+on:
+  workflow_dispatch:
+    inputs:
+      input_path:
+        description: 'JSON file in journal/inbox/ on the selected branch'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate editorial safety tests
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_editorial*.py'
+          python3 scripts/publish.py check
+      - name: Generate isolated review package
+        env:
+          ARTICLE_INPUT: ${{ inputs.input_path }}
+        run: python3 scripts/editorial_review_job.py --input "$ARTICLE_INPUT" --output "$RUNNER_TEMP/tohesar-review"
+      - name: Upload package for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: tohesar-article-review
+          path: ${{ runner.temp }}/tohesar-review/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
