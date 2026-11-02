@@ -81,9 +81,9 @@
 .es-section-image .es-caption{margin-top:13px}
 /* Composition changes the position and scale of a photograph, never its crop. */
 .es-section[data-composition="offset"] .es-section-image{width:min(82%,1050px);margin-left:auto}
-.es-section[data-composition="offset"] .es-section-copy{margin-right:auto;margin-left:clamp(0px,12vw,145px)}
+.es-section[data-composition="offset"] .es-section-copy{margin-right:auto;margin-left:min(clamp(0px,12vw,145px),max(0px,calc(100% - var(--es-read))))}
 .es-section[data-composition="inset"] .es-section-image{width:min(65%,780px);margin-left:clamp(0px,8vw,100px)}
-.es-section[data-composition="inset"] .es-section-copy{margin-left:auto;margin-right:clamp(0px,10vw,120px)}
+.es-section[data-composition="inset"] .es-section-copy{margin-left:auto;margin-right:min(clamp(0px,10vw,120px),max(0px,calc(100% - var(--es-read))))}
 .es-section blockquote{
  font:400 clamp(25px,3vw,44px)/1.65 var(--es-type);
  letter-spacing:-.06em;border:0;margin:48px auto 50px;
