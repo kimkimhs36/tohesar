@@ -1,0 +1,280 @@
+{
+  "baseline": "bacd737d3b5782750f2e15f59181746092cc3aaa",
+  "source_commit": "b39afeec5fd3d8f5e287cfab6b6db1e473ccd8b7",
+  "engine": "Playwright WebKit 26.5",
+  "layouts": [
+    {
+      "path": "/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/news/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/f40/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/911/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/design/type-01/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/story/f40/",
+      "viewport": [
+        375,
+        812
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/news/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/f40/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/911/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/design/type-01/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/story/f40/",
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/news/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/f40/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/911/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/design/type-01/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/story/f40/",
+      "viewport": [
+        430,
+        932
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/news/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/f40/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/911/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/journal/design/type-01/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "path": "/edition/story/f40/",
+      "viewport": [
+        1194,
+        834
+      ],
+      "horizontal_overflow": false
+    }
+  ],
+  "interactions": [
+    "WebKit: 12→24 headlines, publisher/topic filters, query, empty result and reset",
+    "WebKit: newsroom menu, search→article, saved article survives reload",
+    "WebKit: Cover→Journal anchor and original Index navigation",
+    "Reduced motion: cover, F40, 911 and Jaguar use static reading surfaces"
+  ],
+  "preservation": {
+    "journal/911/index.html main": "byte-identical",
+    "journal/f40/index.html main": "byte-identical",
+    "journal/design/type-01/index.html main": "byte-identical",
+    "creative/cover-art-max-004/cover.css": "7c270bb05b88a81ded917d5d9bec64a7af3f4c536a46c0f094482621f3cdaccd",
+    "creative/cover-art-max-004/cover.js": "be61ad7ea67376b5a3756aee21d8917926c4c1170e6426e09c688c3f47d7af86",
+    "assets/wordmark.svg": "17d4ac8b0e3f13d8b4e76e5c335a9ee42a603136401d8fa81422b70ae5337d20",
+    "CNAME": "dc077b9553a9b4b8698a263ade4e7ac59e9113c857d3f92bed28edc1d0265124",
+    "edition/app.js": "b2b38faff8e07946c15a382eb58c2d4c0c9a7272dc9bfc63154342e33dfb8a32",
+    "edition/data/news.json": "ded3fb83f9ba17433dbe80db91693674b2d453dbcd20037dca6d2a154a1a13e1"
+  }
+}
