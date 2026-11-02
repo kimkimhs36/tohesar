@@ -1,5 +1,6 @@
-/* Motion is an enhancement: content is visible until and unless an entrance starts. */
+/* Content is visible by default. The quiet timing follows the cover's editorial easing. */
 @media (prefers-reduced-motion: no-preference){
-  .article-motion-enter{animation:article-motion-enter 650ms cubic-bezier(.2,.65,.2,1) both}
+  .article-motion-enter{animation:article-motion-enter 1.05s cubic-bezier(.22,1,.36,1) both}
+  figure.article-motion-enter{animation-duration:1.35s}
   @keyframes article-motion-enter{from{opacity:.78;translate:0 8px}to{opacity:1;translate:0 0}}
 }
