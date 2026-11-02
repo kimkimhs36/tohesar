@@ -30,7 +30,7 @@ jobs:
       - name: Assemble existing official site without changing its files
         run: |
           mkdir -p _site
-          tar --exclude=.git --exclude=_site --exclude=.github --exclude=docs --exclude=scripts -cf - . | (cd _site && tar xf -)
+          tar --exclude=.git --exclude=_site --exclude=.github --exclude=docs --exclude=scripts --exclude=./journal/inbox -cf - . | (cd _site && tar xf -)
       - name: Refresh attributed public feeds; retain snapshot on failure
         run: python3 scripts/refresh_news.py --output _site/edition/data/news.json
       - name: Validate site and source integrity

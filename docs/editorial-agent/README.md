@@ -47,3 +47,5 @@ python3 scripts/publish.py check
 자동화는 입력 형식과 로컬 파일 존재를 점검해 `review` 기사와 `noindex` 미리보기만 만들며, 저장소에 쓰거나 배포하지 않는다. 원문 사실·사진 권리 확인이나 승인자의 판단을 대신하지 않는다. 실행 스케줄과 GPT 데이터 공급은 설정되지 않았다. 나중에 승인된 스케줄러가 같은 명령을 실행할 수 있지만 내용 수집 및 검증의 책임 경로를 먼저 연결해야 한다.
 
 GitHub의 `workflow_dispatch`는 워크플로 파일이 기본 브랜치에 있어야 실행할 수 있다. 검토 브랜치에만 있는 동안에는 로컬 명령 `python3 scripts/editorial_review_job.py --input journal/inbox/기사.json --output /tmp/tohesar-review`를 사용한다. 기본 브랜치에 워크플로를 반영하기 전까지 GitHub에서 실행 가능한 것으로 간주하지 않는다.
+
+접수함은 정적 사이트 배포에서 제외하지만 Git 저장소에 커밋한 파일은 저장소 접근 권한을 가진 사람에게 보인다. 비밀 정보나 사용 허가가 없는 사진을 커밋하지 않는다.
