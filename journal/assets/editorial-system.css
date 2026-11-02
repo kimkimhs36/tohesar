@@ -126,3 +126,9 @@
  .es-footer-inner{align-items:start;flex-direction:column;gap:10px}
 }
 @media(prefers-reduced-motion:reduce){.es-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* The miniature paper is the shared journal surface, continuous behind the story. */
+.es-page main{background-color:var(--es-paper-reading);background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');background-size:1000px 1650px;background-repeat:repeat;background-position:center top}
+.es-page .es-body{background:transparent}
+.es-page .es-lead p,.es-page .es-section-copy{background:rgba(244,240,233,.84);box-shadow:0 0 32px 22px rgba(244,240,233,.84)}
+@media(max-width:700px){.es-page main{background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:390px 1650px}.es-page .es-lead p,.es-page .es-section-copy{box-shadow:0 0 22px 14px rgba(244,240,233,.84)}}
