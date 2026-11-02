@@ -49,3 +49,5 @@ python3 scripts/publish.py check
 GitHub의 `workflow_dispatch`는 워크플로 파일이 기본 브랜치에 있어야 실행할 수 있다. 검토 브랜치에만 있는 동안에는 로컬 명령 `python3 scripts/editorial_review_job.py --input journal/inbox/기사.json --output /tmp/tohesar-review`를 사용한다. 기본 브랜치에 워크플로를 반영하기 전까지 GitHub에서 실행 가능한 것으로 간주하지 않는다.
 
 접수함은 정적 사이트 배포에서 제외하지만 Git 저장소에 커밋한 파일은 저장소 접근 권한을 가진 사람에게 보인다. 비밀 정보나 사용 허가가 없는 사진을 커밋하지 않는다.
+
+여러 `editorial_intake.py` 실행은 서로 직렬화된다. 다만 직접 JSON 파일을 편집하거나 다른 생성 도구를 동시에 실행하는 작업까지 직렬화하지는 않으므로 한 번에 하나의 작성 경로만 사용한다. 프로세스가 강제 종료되어 `.editorial-preview/<slug>/`만 남으면 데이터에 해당 기사가 이미 존재하는지 먼저 확인한 뒤, 데이터가 없는 고아 미리보기만 제거하고 재접수한다.
