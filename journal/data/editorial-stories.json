@@ -74,7 +74,10 @@
           "label": "JLR 이미지 이용 조건",
           "url": "https://media.jlr.com/jaguar/en-gb/user-licence"
         }
-      ]
+      ],
+      "art_direction": {
+        "miniatures": "trace"
+      }
     }
   ]
 }
