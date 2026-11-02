@@ -2,7 +2,10 @@
   "schema": 1,
   "editorial_policy": {
     "template": "shared-essay-018",
-    "allowed_papers": ["ivory", "lilac"],
+    "allowed_papers": [
+      "ivory",
+      "lilac"
+    ],
     "emoji": "forbidden",
     "layout": "consistent-typography-and-spacing",
     "review_note": "Founder-approved cinematic covers and legacy art directions are preserved, not automatically re-rendered."
@@ -51,7 +54,15 @@
             "Type 00이 디자인의 방향을 제시한 콘셉트였다면, Type 01은 네 개의 문을 가진 전기 GT라는 현실적인 조건 속에서 그 방향을 이어간다. 두 자동차를 연결하는 것은 특정 램프나 장식보다 낮은 캐빈과 길게 뻗은 덩어리의 균형이다.",
             "차체를 따라 흐르는 빛의 경계가 면의 변화를 보여준다. 넓고 단순해 보이는 부분에도 미묘한 각도가 존재한다. 오랜 자동차 디자인의 문법을 기억하면서 새로운 조형 언어를 만들려는 시도가 여기에 있다.",
             "이는 빠르게 변화하는 전기차 시장에서 브랜드의 형태가 어디까지 새로워질 수 있는지 묻는 하나의 사례다."
-          ]
+          ],
+          "image": {
+            "src": "/journal/assets/design/type01-rear-1600.webp",
+            "src_small": "/journal/assets/design/type01-rear-800.webp",
+            "alt": "Jaguar Type 01의 후면과 차체 표면을 보여주는 공식 사진",
+            "credit": "사진 © Jaguar Land Rover Limited",
+            "source_url": "https://media.jlr.com/jaguar/en-gb/news/2026/10/jaguar-type-01-new-era-begins",
+            "licence_url": "https://media.jlr.com/jaguar/en-gb/user-licence"
+          }
         }
       ],
       "sources": [

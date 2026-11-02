@@ -1,7 +1,6 @@
 /* TOHEŞAR Editorial System 018 — new articles only.
    A single readable paper system. Existing approved special editions are untouched.
    Design is authored in one place; article content is data. */
-:root{color-scheme:light}
 .es-page{
  --es-paper:#f4f0e9;
  --es-paper-reading:#ebe5ed;
@@ -11,6 +10,7 @@
  --es-gutter:clamp(24px,5.4vw,88px);
  --es-read:670px;
  --es-type:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+ color-scheme:light;
  margin:0;background:var(--es-paper);color:var(--es-ink);
  font-family:var(--es-type);font-synthesis:none;
  -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
@@ -21,6 +21,7 @@
 .es-page :is(h1,h2,h3,p,blockquote,figure){margin:0}
 .es-page :is(h1,h2,h3,p){word-break:keep-all;overflow-wrap:break-word}
 .es-page a{color:inherit;text-decoration:none;text-underline-offset:4px}
+.es-page a:hover{text-decoration-color:currentColor}
 .es-page a:focus-visible{outline:2px solid #826a87;outline-offset:4px}
 .es-page img{display:block;max-width:100%;height:auto}
 .es-skip{position:fixed;top:-140px;left:16px;z-index:100;background:white;padding:12px}
@@ -78,8 +79,11 @@
 .es-section-image{margin:clamp(50px,7vw,98px) 0 0}
 .es-section-image img{width:100%;height:auto;object-fit:contain}
 .es-section-image .es-caption{margin-top:13px}
-.es-section[data-composition="offset"] .es-section-image{margin-left:min(8vw,100px);max-width:1050px}
+/* Composition changes the position and scale of a photograph, never its crop. */
+.es-section[data-composition="offset"] .es-section-image{width:min(82%,1050px);margin-left:auto}
 .es-section[data-composition="offset"] .es-section-copy{margin-right:auto;margin-left:clamp(0px,12vw,145px)}
+.es-section[data-composition="inset"] .es-section-image{width:min(65%,780px);margin-left:clamp(0px,8vw,100px)}
+.es-section[data-composition="inset"] .es-section-copy{margin-left:auto;margin-right:clamp(0px,10vw,120px)}
 .es-section blockquote{
  font:400 clamp(25px,3vw,44px)/1.65 var(--es-type);
  letter-spacing:-.06em;border:0;margin:48px auto 50px;
@@ -112,8 +116,11 @@
  .es-section+.es-section{margin-top:110px}
  .es-section-image{margin:45px calc(-1 * var(--es-gutter)) 0}
  .es-section-image .es-caption{margin:12px var(--es-gutter) 0}
- .es-section[data-composition="offset"] .es-section-image{margin-left:0;max-width:none}
- .es-section[data-composition="offset"] .es-section-copy{margin-inline:auto}
+ .es-section[data-composition="offset"] .es-section-image{width:calc(100% + var(--es-gutter));margin-left:0;margin-right:calc(-1 * var(--es-gutter))}
+ .es-section[data-composition="offset"] .es-section-image .es-caption{margin-left:0}
+ .es-section[data-composition="inset"] .es-section-image{width:90%;margin-left:0;margin-right:auto}
+ .es-section[data-composition="inset"] .es-section-image .es-caption{margin-inline:0}
+ .es-section[data-composition="offset"] .es-section-copy,.es-section[data-composition="inset"] .es-section-copy{margin-inline:auto}
  .es-sources-inner{display:block}
  .es-sources h2{margin-bottom:29px}
  .es-footer-inner{align-items:start;flex-direction:column;gap:10px}
