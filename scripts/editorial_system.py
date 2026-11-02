@@ -56,6 +56,8 @@ def validate_story(story, publish=False):
     art = story.get('art_direction', {})
     if not isinstance(art, dict) or art.get('miniatures', 'trace') not in ('quiet', 'trace', 'atelier'):
         raise ValueError(f'{slug}: invalid miniature art direction')
+    if art.get('placement', 'reading') not in ('reading', 'opening', 'both'):
+        raise ValueError(f'{slug}: invalid miniature placement')
     image_check(story['hero'])
     if not isinstance(story.get('chapters'), list) or not story['chapters']:
         raise ValueError(f'{slug}: chapters required')
@@ -120,7 +122,7 @@ def render(story, preview=False):
     return f'''<!doctype html>
 {MARKER}
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">{robots}<title>{esc(story['title'].replace(chr(10), ' '))} — TOHEŞAR</title><meta name="description" content="{esc(story['description'])}"><link rel="icon" href="/assets/cedilla-favicon.svg"><link rel="stylesheet" href="/journal/assets/editorial-system.css"></head>
-<body class="es-page" data-paper="{esc(story.get('paper', 'ivory'))}" data-miniatures="{esc(story.get('art_direction', {}).get('miniatures', 'trace'))}"><a class="es-skip" href="#content">본문으로 건너뛰기</a><header class="es-header"><a class="es-wordmark" href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a><a class="es-back" href="/journal/">저널로 돌아가기</a></header>
+<body class="es-page" data-paper="{esc(story.get('paper', 'ivory'))}" data-miniatures="{esc(story.get('art_direction', {}).get('miniatures', 'trace'))}" data-miniature-placement="{esc(story.get('art_direction', {}).get('placement', 'reading'))}"><a class="es-skip" href="#content">본문으로 건너뛰기</a><header class="es-header"><a class="es-wordmark" href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a><a class="es-back" href="/journal/">저널로 돌아가기</a></header>
 <main id="content"><article><header class="es-opening"><span class="es-category">{esc(story.get('subject', ''))}</span><h1 class="es-title">{title}</h1><p class="es-deck">{esc(story['deck'])}</p><div class="es-meta"><span>{esc(story['author'])}</span><time datetime="{esc(story['date'])}">{esc(story['date'].replace('-', '.'))}</time></div></header>{figure(story['hero'], 'es-hero', True)}<div class="es-body"><div class="es-lead"><p>{esc(story['lead'])}</p></div>{''.join(chapters)}</div><section class="es-sources"><div class="es-sources-inner"><h2>출처와 사진</h2><ul class="es-source-list">{sources}</ul></div></section></article></main><footer class="es-footer"><div class="es-footer-inner"><a href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a><a href="/journal/">다른 이야기 보기</a></div></footer></body></html>\n'''
 
 
