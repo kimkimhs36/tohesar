@@ -3,6 +3,14 @@
   const main = document.querySelector('main');
   if (!main) return;
   const sheets = [...main.querySelectorAll('.story-intro,.wallpaper-paper,.story-sources,.next-story,.giulia-opening,.opening-text,.reading-chapter,.giulia-sources,.giulia-related,.edition-opening,.edition-preface,.edition-chapter,.type-opening,.type-lead,.type-chapter,.type-language,.type-comparison,.type-sources,.type-related,.shape-note,.air-sequence,.proportion-intro,.proportion-study,.static-proportions,.surface-plate,.face-diptych,.giulia-pullquote,.edition-closing,.type-study-intro,.design-study')];
+  // One quiet miniature in the source area; the opening remains untouched.
+  const end = main.querySelector('.story-sources,.giulia-sources,.type-sources,.edition-closing');
+  if (end && !end.querySelector('.miniature-end-car')) {
+    const car = document.createElement('span');
+    car.className = 'miniature-end-car';
+    car.setAttribute('aria-hidden', 'true');
+    end.appendChild(car);
+  }
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let queued = false, needsAlignment = true;
   function paint() {

@@ -1013,3 +1013,12 @@ body[data-page="archive"] .archive-news-link{
   .atlas-page .discovery-card p{font-size:13px;line-height:1.85}
   .atlas-page .result-credit{font-size:10px}
 }
+
+/* A quiet moving miniature near the end of the reading, away from the opening. */
+:is(.story-sources,.giulia-sources,.type-sources,.edition-closing):has(>.miniature-end-car){position:relative;isolation:isolate;overflow:hidden}
+.miniature-end-car{position:absolute;right:clamp(-12px,4vw,70px);bottom:8px;width:clamp(95px,11vw,165px);aspect-ratio:240/98;z-index:-1;pointer-events:none;opacity:.22;background:url('/journal/assets/wallpaper/sage-longtail-240.webp') center/contain no-repeat}
+.beauty014-blade .miniature-end-car{background-image:url('/journal/assets/wallpaper/coral-blade-240.webp')}
+.beauty014-curve .miniature-end-car{background-image:url('/journal/assets/wallpaper/lilac-arc-240.webp')}
+.beauty014-language .miniature-end-car{background-image:url('/journal/assets/wallpaper/blue-hour-240.webp')}
+@media(prefers-reduced-motion:no-preference){.miniature-end-car{animation:miniature-end-drift 17s ease-in-out infinite alternate}}
+@keyframes miniature-end-drift{from{transform:translate3d(-4px,1px,0) rotate(-1deg)}to{transform:translate3d(5px,-2px,0) rotate(1deg)}}
