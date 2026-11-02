@@ -155,3 +155,33 @@
  .es-page[data-miniatures="trace"] .es-body::before{opacity:.13}
  .es-page[data-miniatures="atelier"] .es-body::before{opacity:.32}
 }
+
+/* The opening is another optional part of the miniature universe.
+   Its own gentle layer does not obstruct the headline or lead photograph. */
+.es-opening{position:relative;isolation:isolate}
+.es-opening::before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background-image:url("/journal/assets/wallpaper/miniature-paper-wide.svg");
+ background-size:1000px 1650px;background-repeat:no-repeat;background-position:center -48px;
+ opacity:0;
+ -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 14%,transparent 36%,transparent 68%,#000 90%,#000 100%);
+ mask-image:linear-gradient(90deg,#000 0%,#000 14%,transparent 36%,transparent 68%,#000 90%,#000 100%)
+}
+.es-opening>*{position:relative;z-index:1}
+.es-page[data-miniatures="trace"][data-miniature-placement="opening"] .es-opening::before,
+.es-page[data-miniatures="trace"][data-miniature-placement="both"] .es-opening::before{opacity:.18}
+.es-page[data-miniatures="atelier"][data-miniature-placement="opening"] .es-opening::before,
+.es-page[data-miniatures="atelier"][data-miniature-placement="both"] .es-opening::before{opacity:.42}
+.es-page[data-miniature-placement="opening"] .es-body::before{content:none}
+@media(max-width:700px){
+ .es-opening::before{
+  background-image:url("/journal/assets/wallpaper/miniature-paper-mobile.svg");
+  background-size:390px 1650px;background-position:center -100px;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 31%,transparent 70%,#000 100%);
+  mask-image:linear-gradient(90deg,#000 0%,transparent 31%,transparent 70%,#000 100%)
+ }
+ .es-page[data-miniatures="trace"][data-miniature-placement="opening"] .es-opening::before,
+ .es-page[data-miniatures="trace"][data-miniature-placement="both"] .es-opening::before{opacity:.14}
+ .es-page[data-miniatures="atelier"][data-miniature-placement="opening"] .es-opening::before,
+ .es-page[data-miniatures="atelier"][data-miniature-placement="both"] .es-opening::before{opacity:.30}
+}
