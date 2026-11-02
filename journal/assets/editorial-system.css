@@ -127,8 +127,31 @@
 }
 @media(prefers-reduced-motion:reduce){.es-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
-/* The miniature paper is the shared journal surface, continuous behind the story. */
-.es-page main{background-color:var(--es-paper-reading);background-image:url('/journal/assets/wallpaper/miniature-paper-wide.svg');background-size:1000px 1650px;background-repeat:repeat;background-position:center top}
-.es-page .es-body{background:transparent}
-.es-page .es-lead p,.es-page .es-section-copy{background:rgba(244,240,233,.84);box-shadow:0 0 32px 22px rgba(244,240,233,.84)}
-@media(max-width:700px){.es-page main{background-image:url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:390px 1650px}.es-page .es-lead p,.es-page .es-section-copy{box-shadow:0 0 22px 14px rgba(244,240,233,.84)}}
+/* EDITORIAL PAPER / 018
+   The artwork belongs to the reading atmosphere, not to the title, hero, or
+   provenance. Intensity is an explicit article art-direction choice.
+   Avoid opaque rectangles behind prose: the central reading lane stays clear. */
+.es-body{position:relative;isolation:isolate;background:var(--es-paper-reading)}
+.es-body::before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background-image:url("/journal/assets/wallpaper/miniature-paper-wide.svg");
+ background-size:1000px 1650px;background-repeat:repeat;background-position:center top;
+ opacity:0;
+ -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 12%,transparent 33%,transparent 67%,#000 88%,#000 100%);
+ mask-image:linear-gradient(90deg,#000 0%,#000 12%,transparent 33%,transparent 67%,#000 88%,#000 100%)
+}
+.es-body>:is(.es-lead,.es-section){position:relative;z-index:1}
+.es-page[data-miniatures="trace"] .es-body::before{opacity:.17}
+.es-page[data-miniatures="atelier"] .es-body::before{opacity:.44}
+/* The clean mode has no decorative image, while retaining identical typography. */
+.es-page[data-miniatures="quiet"] .es-body::before{content:none}
+@media(max-width:700px){
+ .es-body::before{
+  background-image:url("/journal/assets/wallpaper/miniature-paper-mobile.svg");
+  background-size:390px 1650px;background-position:center top;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,transparent 28%,transparent 71%,#000 100%);
+  mask-image:linear-gradient(90deg,#000 0%,transparent 28%,transparent 71%,#000 100%)
+ }
+ .es-page[data-miniatures="trace"] .es-body::before{opacity:.13}
+ .es-page[data-miniatures="atelier"] .es-body::before{opacity:.32}
+}
