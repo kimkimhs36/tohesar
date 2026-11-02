@@ -927,3 +927,81 @@ body[data-page="archive"] .archive-news-link{
     font-size:10px;
   }
 }
+
+/* 018 / Design Atlas uses an editorial taxonomy, not boxed filter buttons. */
+.atlas-page .form-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:clamp(14px,2vw,32px);
+  align-items:center;
+  padding:0 0 28px;
+  border-bottom:1px solid var(--thz-rule);
+}
+.atlas-page .form-filters button{
+  flex:0 0 auto;
+  min-height:46px;
+  padding:3px 1px;
+  border:0;
+  border-bottom:1px solid transparent;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--thz-muted);
+  font:400 clamp(12px,1vw,14px)/1.4 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  letter-spacing:-.025em;
+  white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;
+}
+.atlas-page .form-filters button[aria-pressed="true"]{
+  background:transparent;
+  border-bottom:1px solid var(--thz-ink);
+  color:var(--thz-ink);
+  font-weight:600;
+}
+.atlas-page .form-filters button:focus-visible{
+  outline:2px solid #806776;
+  outline-offset:4px;
+}
+.atlas-page .results-top{
+  border-top:0;
+  padding-block:22px 27px;
+}
+.atlas-page #result-count{
+  color:var(--thz-muted);
+  font-size:11px;
+  font-variant-numeric:tabular-nums;
+}
+.atlas-page .discovery-card h3{
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-weight:400;
+  letter-spacing:-.04em;
+  text-wrap:pretty;
+}
+.atlas-page .discovery-card p{
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  font-size:13px;
+  line-height:1.87;
+  letter-spacing:-.02em;
+}
+.atlas-page .result-credit{
+  font-size:10px;
+  line-height:1.8;
+}
+@media(max-width:700px){
+  .atlas-page .form-filters{
+    flex-wrap:nowrap;
+    gap:26px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    margin-inline:calc(-1 * var(--edge));
+    padding:0 var(--edge) 12px;
+    scroll-padding-inline:var(--edge);
+  }
+  .atlas-page .form-filters::-webkit-scrollbar{display:none}
+  .atlas-page .form-filters button{font-size:13px;min-height:46px}
+  .atlas-page .results-top{padding-block:20px 24px}
+  .atlas-page .discovery-card p{font-size:13px;line-height:1.85}
+  .atlas-page .result-credit{font-size:10px}
+}
