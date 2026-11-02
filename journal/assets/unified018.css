@@ -870,6 +870,11 @@ body[data-page="archive"] .archive-news-link{
   body[data-page="archive"] .archive-cards>a:nth-child(5n+2){
     padding-top:clamp(45px,7vw,110px);
   }
+  /* A search result must not inherit the artistic offsets of the full index. */
+  body[data-page="archive"] .archive-cards:has(>a[hidden])>a:not([hidden]){
+    grid-column:span 6;
+    padding-top:0;
+  }
 }
 @media(max-width:779px){
   body[data-page="archive"] .archive-cards{
