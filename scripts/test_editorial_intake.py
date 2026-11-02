@@ -1,6 +1,8 @@
 import unittest
 import json
 import tempfile
+import shutil
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from unittest.mock import patch
 import editorial_intake
@@ -26,7 +28,7 @@ class EditorialIntakeTest(unittest.TestCase):
             data = root / 'journal/data/editorial-stories.json'
             data.parent.mkdir(parents=True)
             data.write_text(json.dumps({'schema':1, 'stories':[]}), encoding='utf-8')
-            (root / 'example.webp').write_bytes(b'image')
+            shutil.copyfile(Path(__file__).resolve().parents[1] / 'journal/assets/design/type01-arrival-800.webp', root / 'example.webp')
             partials = root / 'journal/partials'
             partials.mkdir(parents=True)
             (partials / 'navigation.html').write_text('<nav></nav>')
@@ -46,5 +48,59 @@ class EditorialIntakeTest(unittest.TestCase):
     def test_missing_source_rejected(self):
         with patch('editorial_intake.editorial.image_check'), self.assertRaises(ValueError):
             editorial_intake.prepare({**self.brief, 'sources':[]})
+
+    def test_multiple_chapters_and_photographs_are_rendered(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copyfile(Path(__file__).resolve().parents[1] / 'journal/assets/design/type01-arrival-800.webp', root / 'example.webp')
+            partials = root / 'journal/partials'
+            partials.mkdir(parents=True)
+            for name in ('navigation.html', 'footer-navigation.html'):
+                (partials / name).write_text('<nav></nav>')
+            brief = {k: v for k, v in self.brief.items() if k != 'body'}
+            brief.update(lead='첫 관찰', chapters=[
+                {'heading':'비례', 'paragraphs':['첫 장 본문'], 'composition':'offset', 'image':self.brief['hero']},
+                {'heading':'표면', 'paragraphs':'둘째 장 본문', 'composition':'inset'}])
+            with patch.object(editorial_intake.editorial, 'ROOT', root):
+                story = editorial_intake.prepare(brief)
+                html = editorial_intake.editorial.render(story, preview=True)
+            self.assertEqual(story['status'], 'review')
+            self.assertIn('data-composition="offset"', html)
+            self.assertIn('data-composition="inset"', html)
+            self.assertEqual(html.count('>사진 출처</a>'), 2)
+            self.assertIn('noindex,nofollow', html)
+
+    def test_incomplete_chapter_or_ambiguous_body_is_rejected(self):
+        brief = {k: v for k, v in self.brief.items() if k != 'body'}
+        brief.update(lead='도입', chapters=[{'heading':'제목', 'paragraphs':['본문'], 'image':{}}])
+        with patch('editorial_intake.editorial.image_check'):
+            with self.assertRaises(ValueError): editorial_intake.prepare(brief)
+            brief['chapters'][0].pop('image')
+            brief['chapters'][0]['composition'] = 'unknown'
+            with self.assertRaises(ValueError): editorial_intake.prepare(brief)
+            brief['body'] = ['본문']
+            with self.assertRaises(ValueError): editorial_intake.prepare(brief)
+
+    def test_parallel_intakes_do_not_lose_articles_and_failed_write_rolls_back(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data = root / 'journal/data/editorial-stories.json'
+            data.parent.mkdir(parents=True)
+            data.write_text(json.dumps({'schema':1, 'stories':[]}), encoding='utf-8')
+            shutil.copyfile(Path(__file__).resolve().parents[1] / 'journal/assets/design/type01-arrival-800.webp', root / 'example.webp')
+            partials = root / 'journal/partials'
+            partials.mkdir(parents=True)
+            for name in ('navigation.html', 'footer-navigation.html'):
+                (partials / name).write_text('<nav></nav>')
+            with patch.object(editorial_intake.editorial, 'ROOT', root), patch.object(editorial_intake.editorial, 'DATA', data):
+                briefs = [{**self.brief, 'slug': f'story-{n}'} for n in range(8)]
+                with ThreadPoolExecutor(max_workers=8) as pool:
+                    list(pool.map(editorial_intake.intake, briefs))
+                self.assertEqual(len(json.loads(data.read_text())['stories']), 8)
+                with patch('editorial_intake.os.replace', side_effect=OSError('disk failure')):
+                    with self.assertRaises(OSError):
+                        editorial_intake.intake({**self.brief, 'slug':'failure'})
+                self.assertFalse((root / '.editorial-preview/failure/index.html').exists())
+                self.assertEqual(len(json.loads(data.read_text())['stories']), 8)
 
 if __name__ == '__main__': unittest.main()
