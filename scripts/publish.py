@@ -78,6 +78,12 @@ def validate_authored_story(item):
     assert isinstance(review,dict) and review.get('status')=='verified',f'{item["id"]}: authored story verification required'
     for key in ['reviewer','note','verified_at']:assert review.get(key),f'{item["id"]}: missing verification {key}'
     assert date.fromisoformat(review['verified_at'])<=date.today(),'Future verification date'
+    assert item['body_file'].startswith('journal/drafts/') and '..' not in item['body_file'],'Unsafe body path'
+    target=destination(item['url'])
+    assert not target.exists() or '<!-- generated authored-story -->' in target.read_text(),f'Refusing to overwrite authored page: {item["url"]}'
+    assert destination('/'+item['body_file']).is_file(),'Missing authored story body'
+    for key in ['title','summary','image','image_source','image_credit','image_licence']:assert item.get(key),f'Complete story field: {key}'
+    assert destination(item['image']).is_file(),'Missing authored story image'
 
 def build():
     # Reject unverified authored stories before touching public files.
@@ -94,7 +100,7 @@ def build():
         for k in ['title','summary','image','image_source','image_credit','image_licence']:assert item.get(k),f'Complete story field: {k}'
         p=destination(item['url']);p.parent.mkdir(parents=True,exist_ok=True)
         body=destination('/'+item['body_file']).read_text()
-        p.write_text(shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
+        p.write_text('<!-- generated authored-story -->\n'+shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
     check()
     for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)

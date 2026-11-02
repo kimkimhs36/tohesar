@@ -44,6 +44,15 @@ class Publishing(unittest.TestCase):
         self.runcli('build',ok=False)
         self.assertFalse((self.root/'journal/design/unverified-story/index.html').exists())
 
+    def test_authored_story_cannot_replace_existing_page(self):
+        self.runcli('new-story','collision-story','--title','Collision')
+        d=self.data('content-index.json');story=d['items'][-1]
+        story['status']='published';story['url']='/journal/f40/'
+        story['verification']={'status':'verified','reviewer':'Editor','note':'Checked','verified_at':'2026-10-29'}
+        self.save('content-index.json',d)
+        target=self.root/'journal/f40/index.html';before=target.read_bytes()
+        self.runcli('build',ok=False);self.assertEqual(before,target.read_bytes())
+
     def test_story_draft_kept_out_of_search(self):
         self.runcli('new-story','new-design-note','--title','A new draft');self.runcli('build')
         self.assertNotIn('new-design-note',(self.root/'journal/design/index.html').read_text())
