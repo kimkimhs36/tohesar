@@ -41,6 +41,10 @@
     if (photo && link.contains(photo) && photo.complete && photo.naturalWidth) selected = { path: target.pathname, photo };
   });
   addEventListener('pageswap', event => {
+    // A destination may not opt in, or a rapid back navigation may abort the transition.
+    // Observe both promises even when no shared photograph was selected.
+    event.viewTransition?.ready.catch(() => {});
+    event.viewTransition?.finished.catch(() => {});
     clear();
     // A stale or interrupted click must never supply a later navigation.
     try { sessionStorage.removeItem(key); } catch (_) {}
@@ -59,6 +63,8 @@
     selected = null;
   });
   addEventListener('pagereveal', event => {
+    event.viewTransition?.ready.catch(() => {});
+    event.viewTransition?.finished.catch(() => {});
     clear();
     const passage = readPassage();
     const story = stories[location.pathname];
