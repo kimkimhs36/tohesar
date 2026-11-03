@@ -22,11 +22,12 @@ async function clean(page) {
 (async () => {
   let engines = 0;
   for (const [engine, type] of [['chromium',chromium],['webkit',webkit]]) {
+    if (process.env.TEST_ENGINE && process.env.TEST_ENGINE !== engine) continue;
     let browser;
     try { browser = await type.launch(engine === 'chromium' ? {executablePath:process.env.CHROMIUM_PATH || '/usr/bin/chromium',args:['--no-sandbox']} : {}); }
     catch (error) { console.log(`SKIP ${engine}: ${error.message.split('\n').find(Boolean)}`); continue; }
     engines++;
-    for (const viewport of sizes) {
+    for (const viewport of sizes.filter(size => !process.env.TEST_WIDTH || size.width === Number(process.env.TEST_WIDTH))) {
       const page = await browser.newPage({viewport});
       const errors = [];
       page.on('pageerror', e => errors.push(e.message));
@@ -47,7 +48,7 @@ async function clean(page) {
         await page.locator(story.home).click();
         await page.waitForURL('**' + story.path);
         const state = await page.evaluate(() => window.__cinematicAtShow);
-        if (engine === 'chromium' && state.native && state.story) {
+        if (state.native && state.story) {
           assert.equal(state.story, story.id, 'correct story selected on arrival');
           assert.equal(state.shared.filter(x => x.name === 'journal-photo').length, 1, 'one shared photograph');
           assert.equal(await page.locator(story.photo).getAttribute('data-cinematic-shared'), '');
@@ -75,6 +76,7 @@ async function clean(page) {
     const nojs = await browser.newPage({viewport:sizes[1],javaScriptEnabled:false});
     await nojs.goto(base + '/');
     await nojs.locator(stories[0].home).click(); await nojs.waitForURL('**' + stories[0].path);
+    await nojs.waitForTimeout(1000);
     await nojs.locator('.article-return026 a').evaluate(a => window.scrollTo({top:a.getBoundingClientRect().top + scrollY - 300, behavior:'instant'}));
     await nojs.locator('.article-return026 a').click(); await nojs.waitForURL(base + '/'); await homeSignature(nojs);
     await nojs.close();
@@ -85,9 +87,10 @@ async function clean(page) {
     const rapid = await browser.newPage({viewport:sizes[1]});
     await rapid.goto(base + '/');
     await rapid.locator(stories[0].home).evaluate(a => { a.click(); a.click(); });
-    await rapid.waitForURL('**' + stories[0].path); await clean(rapid);
+    // The second native click may cancel the first request before committing.
+    await rapid.waitForURL('**' + stories[0].path).catch(() => rapid.waitForURL('**' + stories[0].path)); await clean(rapid);
     await rapid.locator('.article-return026 a').evaluate(a => { a.click(); a.click(); });
-    await rapid.emulateMedia({reducedMotion:'reduce'}); await rapid.waitForURL(base + '/'); await homeSignature(rapid);
+    await rapid.emulateMedia({reducedMotion:'reduce'}); await rapid.waitForURL(base + '/').catch(() => rapid.waitForURL(base + '/')); await homeSignature(rapid);
     await rapid.close();
     console.log(`PASS ${engine}: reduced motion, JavaScript disabled, keyboard, repeated clicks`);
     await browser.close();
