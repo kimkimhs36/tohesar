@@ -28,7 +28,7 @@ def make_review(input_path, output):
     for directory in (root / 'journal/assets', root / 'assets'):
         if directory.is_symlink() or any(p.is_symlink() for p in directory.rglob('*')):
             raise ValueError('symlinks are not allowed in packaged asset directories')
-    images = [story['hero']] + [c['image'] for c in story['chapters'] if c.get('image')]
+    images = [story['hero']] + [image for c in story['chapters'] for image in (([c['image']] if c.get('image') else []) + c.get('images', []))]
     for img in images:
         for key in ('src', 'src_small'):
             if img.get(key):

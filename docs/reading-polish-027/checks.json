@@ -1,0 +1,365 @@
+{
+  "results": [
+    {
+      "width": 375,
+      "name": "cover",
+      "w": 375,
+      "client": 375,
+      "h": 4629,
+      "maxWidth": 375,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 3784
+    },
+    {
+      "width": 375,
+      "name": "f40",
+      "w": 375,
+      "client": 375,
+      "h": 6127,
+      "maxWidth": 375,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 5283
+    },
+    {
+      "width": 375,
+      "name": "giulia",
+      "w": 375,
+      "client": 375,
+      "h": 15091,
+      "maxWidth": 375,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 14247
+    },
+    {
+      "width": 375,
+      "name": "jaguar",
+      "w": 375,
+      "client": 375,
+      "h": 10922,
+      "maxWidth": 375,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 10289
+    },
+    {
+      "width": 375,
+      "name": "preview",
+      "w": 375,
+      "client": 375,
+      "h": 3735,
+      "maxWidth": 375,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 2891
+    },
+    {
+      "width": 390,
+      "name": "cover",
+      "w": 390,
+      "client": 390,
+      "h": 4657,
+      "maxWidth": 390,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 3813
+    },
+    {
+      "width": 390,
+      "name": "f40",
+      "w": 390,
+      "client": 390,
+      "h": 6021,
+      "maxWidth": 390,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 5177
+    },
+    {
+      "width": 390,
+      "name": "giulia",
+      "w": 390,
+      "client": 390,
+      "h": 14846,
+      "maxWidth": 390,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 14002
+    },
+    {
+      "width": 390,
+      "name": "jaguar",
+      "w": 390,
+      "client": 390,
+      "h": 10958,
+      "maxWidth": 390,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 10334
+    },
+    {
+      "width": 390,
+      "name": "preview",
+      "w": 390,
+      "client": 390,
+      "h": 3737,
+      "maxWidth": 390,
+      "menu": true,
+      "badImages": [],
+      "overflow": [
+        "NAV."
+      ],
+      "y": 2893
+    },
+    {
+      "width": 430,
+      "name": "cover",
+      "w": 430,
+      "client": 430,
+      "h": 4701,
+      "maxWidth": 430,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 3857
+    },
+    {
+      "width": 430,
+      "name": "f40",
+      "w": 430,
+      "client": 430,
+      "h": 5815,
+      "maxWidth": 430,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 4971
+    },
+    {
+      "width": 430,
+      "name": "giulia",
+      "w": 430,
+      "client": 430,
+      "h": 14408,
+      "maxWidth": 430,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 13564
+    },
+    {
+      "width": 430,
+      "name": "jaguar",
+      "w": 430,
+      "client": 430,
+      "h": 10615,
+      "maxWidth": 430,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 10014
+    },
+    {
+      "width": 430,
+      "name": "preview",
+      "w": 430,
+      "client": 430,
+      "h": 3744,
+      "maxWidth": 430,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 2901
+    },
+    {
+      "width": 768,
+      "name": "cover",
+      "w": 768,
+      "client": 768,
+      "h": 4221,
+      "maxWidth": 768,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 3321
+    },
+    {
+      "width": 768,
+      "name": "f40",
+      "w": 768,
+      "client": 768,
+      "h": 7981,
+      "maxWidth": 768,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 7081
+    },
+    {
+      "width": 768,
+      "name": "giulia",
+      "w": 768,
+      "client": 768,
+      "h": 13818,
+      "maxWidth": 768,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 12918
+    },
+    {
+      "width": 768,
+      "name": "jaguar",
+      "w": 768,
+      "client": 768,
+      "h": 10101,
+      "maxWidth": 768,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 9590
+    },
+    {
+      "width": 768,
+      "name": "preview",
+      "w": 768,
+      "client": 768,
+      "h": 3847,
+      "maxWidth": 768,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 2948
+    },
+    {
+      "width": 1440,
+      "name": "cover",
+      "w": 1440,
+      "client": 1440,
+      "h": 4819,
+      "maxWidth": 1440,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 3919
+    },
+    {
+      "width": 1440,
+      "name": "f40",
+      "w": 1440,
+      "client": 1440,
+      "h": 6543,
+      "maxWidth": 1440,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 5643
+    },
+    {
+      "width": 1440,
+      "name": "giulia",
+      "w": 1440,
+      "client": 1440,
+      "h": 15589,
+      "maxWidth": 1440,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 14689
+    },
+    {
+      "width": 1440,
+      "name": "jaguar",
+      "w": 1440,
+      "client": 1440,
+      "h": 10134,
+      "maxWidth": 1440,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 9964
+    },
+    {
+      "width": 1440,
+      "name": "preview",
+      "w": 1440,
+      "client": 1440,
+      "h": 5973,
+      "maxWidth": 1440,
+      "menu": true,
+      "badImages": [],
+      "overflow": [],
+      "y": 5073
+    },
+    {
+      "name": "cover",
+      "reduced": {
+        "reduced": true,
+        "animation": null,
+        "transform": null
+      }
+    },
+    {
+      "name": "f40",
+      "reduced": {
+        "reduced": true,
+        "animation": "none",
+        "transform": "none"
+      }
+    },
+    {
+      "name": "giulia",
+      "reduced": {
+        "reduced": true,
+        "animation": "none",
+        "transform": "none"
+      }
+    },
+    {
+      "name": "jaguar",
+      "reduced": {
+        "reduced": true,
+        "animation": "none",
+        "transform": "none"
+      }
+    },
+    {
+      "name": "preview",
+      "reduced": {
+        "reduced": true,
+        "animation": "none",
+        "transform": "none"
+      }
+    }
+  ],
+  "errors": []
+}

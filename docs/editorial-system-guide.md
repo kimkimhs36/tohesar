@@ -20,3 +20,7 @@ python3 scripts/publish.py preview --port 8000
 사실, 사진 권리와 지면을 검토한 후에만 `verification`에 `status: verified`, `reviewer`, `note`, `verified_at` (YYYY-MM-DD)을 기록하고 `status`를 `published`로 바꾼다. 미래 날짜는 허용되지 않는다. `python3 scripts/publish.py check`로 검증하고 `python3 scripts/publish.py build`로 공개 페이지와 저널 목록을 생성한다. 빌드는 상태를 자동으로 바꾸지 않으며, 생성기 소유 표시가 없는 기존 페이지는 덮어쓰지 않는다. 발행 취소 시 다음 빌드에서 이 생성기가 만든 페이지와 목록 항목만 제거된다. 결과 변경분을 검토하고 브랜치에서 확인한 후 별도 배포 절차를 따른다.
 
 검증: `python3 -m unittest discover -s scripts -p 'test_editorial_system.py'` 및 `python3 scripts/publish.py links`. 기존 발행 빌드는 여러 특수 지면도 재생성하므로 변경분을 반드시 검토한다. COVER 004와 승인된 F40, Giulia, 미니카 지면은 별도 소스로 유지한다.
+
+## 027 사진과 지면
+
+새 기사의 사진·제목·종이와 추가 사진, 색 및 미니카 선택은 [기사 에이전트 안내](editorial-agent/README.md#사진과-지면-조정)를 따른다. 기존의 검토 및 발행 검증 조건은 그대로 적용된다.

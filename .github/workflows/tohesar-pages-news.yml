@@ -2,10 +2,6 @@ name: TOHEŞAR Pages — editorial news refresh
 on:
   push:
     branches: [main]
-    paths:
-      - 'edition/**'
-      - 'scripts/**'
-      - '.github/workflows/tohesar-pages-news.yml'
   schedule:
     - cron: '37 0,6,12,18 * * *'
   workflow_dispatch:
@@ -38,5 +34,10 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+      - name: Reject stale builds before deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(gh api repos/${{ github.repository }}/commits/main --jq .sha)" = "$GITHUB_SHA"
       - uses: actions/deploy-pages@v4
         id: deployment

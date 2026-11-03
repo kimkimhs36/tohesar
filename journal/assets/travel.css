@@ -1,5 +1,2 @@
-/* Keep the proven document + paper-veil approach. No loader or transition artwork. */
+/* Documents opt in individually. All other links use ordinary navigation. */
 @view-transition{navigation:none}
-.travel-veil{position:fixed;inset:0;z-index:9999;background:var(--travel-paper,#ded4db);opacity:0;pointer-events:none;transition:opacity 140ms ease}
-.travel-leaving .travel-veil,.travel-arriving .travel-veil{opacity:1}
-@media(prefers-reduced-motion:reduce){.travel-veil{display:none}}

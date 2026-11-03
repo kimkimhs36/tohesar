@@ -69,13 +69,17 @@ def validate_story(story, publish=False):
     for key in ('title', 'deck', 'description', 'date', 'author', 'lead'):
         required(story, key)
     date.fromisoformat(story['date'])
-    if story.get('paper', 'ivory') not in ('ivory', 'lilac'):
+    if story.get('paper', 'ivory') not in ('ivory', 'lilac', 'sage', 'peach'):
         raise ValueError(f'{slug}: invalid paper')
     art = story.get('art_direction', {})
     if not isinstance(art, dict) or art.get('miniatures', 'trace') not in ('quiet', 'trace', 'atelier'):
         raise ValueError(f'{slug}: invalid miniature art direction')
     if art.get('placement', 'reading') not in ('reading', 'opening', 'both'):
         raise ValueError(f'{slug}: invalid miniature placement')
+    if art.get('car', 'journal') not in ('journal', 'coral', 'sage', 'lilac', 'blue', 'butter', 'mint', 'rose', 'tomato'):
+        raise ValueError(f'{slug}: invalid miniature car')
+    if art.get('opening', 'full') not in ('full', 'inset', 'offset'):
+        raise ValueError(f'{slug}: invalid opening composition')
     image_check(story['hero'])
     if not isinstance(story.get('chapters'), list) or not story['chapters']:
         raise ValueError(f'{slug}: chapters required')
@@ -89,8 +93,15 @@ def validate_story(story, publish=False):
             raise ValueError(f'{slug}: paragraphs required')
         if chapter.get('image'):
             image_check(chapter['image'])
-    if not isinstance(story.get('sources'), list) or not story['sources']:
-        raise ValueError(f'{slug}: sources required')
+        if 'images' in chapter:
+            if not isinstance(chapter['images'], list) or len(chapter['images']) > 12:
+                raise ValueError(f'{slug}: invalid chapter images')
+            for image in chapter['images']:
+                image_check(image)
+    if not isinstance(story.get('sources'), list):
+        raise ValueError(f'{slug}: sources must be a list')
+    if publish and not story['sources']:
+        raise ValueError(f'{slug}: factual sources required before publication')
     for source in story['sources']:
         if not isinstance(source, dict):
             raise ValueError(f'{slug}: source must be an object')
@@ -245,10 +256,12 @@ def render(story, preview=False):
     chapters = []
     for chapter in story['chapters']:
         paras = ''.join(f'<p>{render_text(p, glossary, rendered)}</p>' for p in chapter['paragraphs'])
-        fig = figure(chapter['image'], 'es-section-image') if chapter.get('image') else ''
+        images = ([chapter['image']] if chapter.get('image') else []) + chapter.get('images', [])
+        fig = ''.join(figure(image, 'es-section-image') for image in images)
         chapters.append(f'<section class="es-section" data-composition="{esc(chapter.get("composition", "normal"))}"><div class="es-section-copy"><h2>{esc(chapter["heading"])}</h2>{paras}</div>{fig}</section>')
-    sources = ''.join(f'<li><a href="{esc(s["url"])}">{esc(s["label"])}</a></li>' for s in story['sources'])
+    sources = ''.join(f'<li><a href="{esc(s["url"])}">{esc(s["label"])}</a></li>' for s in story['sources']) or '<li>사실 출처를 추가하고 검토해야 합니다.</li>'
     title = esc(story['title']).replace('\n', '<br>')
+    deck = f'<p class="es-deck">{esc(story["deck"])}</p>' if story['deck'] != story['lead'] else ''
     robots = '<meta name="robots" content="noindex,nofollow">' if preview else ''
     notes = '<link rel="stylesheet" href="/journal/assets/reader-notes.css"><script src="/journal/assets/reader-notes.js" defer></script>' if glossary else ''
     nav = (ROOT / 'journal/partials/navigation.html').read_text().strip()
@@ -256,8 +269,8 @@ def render(story, preview=False):
     return f'''<!doctype html>
 {MARKER}
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">{robots}<title>{esc(story['title'].replace(chr(10), ' '))} — TOHEŞAR</title><meta name="description" content="{esc(story['description'])}"><link rel="icon" href="/assets/cedilla-favicon.svg"><link rel="stylesheet" href="/journal/assets/editorial-system.css">{notes}<link rel="stylesheet" href="/journal/assets/article-motion.css"><script src="/journal/assets/article-motion.js" defer></script><link rel="stylesheet" href="/journal/assets/navigation.css"><script src="/journal/assets/navigation.js" defer></script></head>
-<body class="es-page" data-paper="{esc(story.get('paper', 'ivory'))}" data-miniatures="{esc(story.get('art_direction', {}).get('miniatures', 'trace'))}" data-miniature-placement="{esc(story.get('art_direction', {}).get('placement', 'reading'))}"><a class="es-skip" href="#content">본문으로 건너뛰기</a><header class="es-header"><a class="es-wordmark" href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{nav}</header>
-<main id="content"><article><header class="es-opening"><span class="es-category">{esc(story.get('subject', ''))}</span><h1 class="es-title">{title}</h1><p class="es-deck">{esc(story['deck'])}</p><div class="es-meta"><span>{esc(story['author'])}</span><time datetime="{esc(story['date'])}">{esc(story['date'].replace('-', '.'))}</time></div></header>{figure(story['hero'], 'es-hero', True)}<div class="es-body"><div class="es-lead"><p>{lead}</p></div>{''.join(chapters)}</div><section class="es-sources"><div class="es-sources-inner"><h2>출처와 사진</h2><ul class="es-source-list">{sources}</ul></div></section></article></main><footer class="es-footer"><div class="es-footer-inner"><a href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{footer_nav}</div></footer></body></html>\n'''
+<body class="es-page" data-paper="{esc(story.get('paper', 'ivory'))}" data-miniatures="{esc(story.get('art_direction', {}).get('miniatures', 'trace'))}" data-miniature-placement="{esc(story.get('art_direction', {}).get('placement', 'reading'))}" data-miniature-car="{esc(story.get('art_direction', {}).get('car', 'journal'))}" data-opening="{esc(story.get('art_direction', {}).get('opening', 'full'))}"><a class="es-skip" href="#content">본문으로 건너뛰기</a><header class="es-header"><a class="es-wordmark" href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{nav}</header>
+<main id="content"><article>{figure(story['hero'], 'es-hero', True)}<header class="es-opening"><img class="es-masthead" src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"><span class="es-category">{esc(story.get('subject', ''))}</span><h1 class="es-title">{title}</h1>{deck}<div class="es-meta"><span>{esc(story['author'])}</span><time datetime="{esc(story['date'])}">{esc(story['date'].replace('-', '.'))}</time></div></header><div class="es-body"><div class="es-lead"><p>{lead}</p></div>{''.join(chapters)}</div><section class="es-sources"><div class="es-sources-inner"><h2>출처와 사진</h2><ul class="es-source-list">{sources}</ul></div></section><aside class="es-return"><p>이야기는 여기서 잠시 멈춥니다.</p><a href="/">홈으로</a></aside></article></main><footer class="es-footer"><div class="es-footer-inner"><a href="/journal/"><img src="/assets/wordmark.svg" alt="TOHEŞAR" width="1109" height="255"></a>{footer_nav}</div></footer></body></html>\n'''
 
 
 def preview(slug):

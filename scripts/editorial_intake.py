@@ -48,6 +48,8 @@ def prepare(brief):
                 if not isinstance(raw['image'], dict) or not raw['image']:
                     raise ValueError('장 사진에는 출처와 이용 조건이 필요합니다')
                 chapter['image'] = raw['image']
+            if 'images' in raw:
+                chapter['images'] = raw['images']
             chapters.append(chapter)
     else:
         paragraphs = parse_paragraphs(brief.get('body'), 'body')
@@ -56,6 +58,12 @@ def prepare(brief):
         lead = paragraphs[0]
         chapters = [{'heading': brief.get('heading') or title.replace('\n', ' '),
                      'composition': 'normal', 'paragraphs': paragraphs[1:]}]
+    # Additional photos retain their own captions and rights; they are placed
+    # after the chapter text when the simple body form is used.
+    if 'photos' in brief:
+        if not isinstance(brief['photos'], list) or not brief['photos']:
+            raise ValueError('photos에는 사진 객체 배열이 필요합니다')
+        chapters[-1]['images'] = chapters[-1].get('images', []) + brief['photos']
     # Content defaults are deliberately mechanical; do not invent facts or rights.
     story = dict(slug=editorial.required(brief, 'slug'), status='review',
         title=title, subject=brief.get('subject', ''), deck=brief.get('deck') or lead,
