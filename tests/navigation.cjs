@@ -3,9 +3,9 @@ const { chromium, webkit } = require('playwright');
 const assert = require('node:assert/strict');
 const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
 const stories = [
-  {id:'f40', path:'/journal/f40/', home:'.home-feature-image', photo:'.f40-hero > img'},
-  {id:'giulia', path:'/journal/design/giulia/', home:'.home-pair article:nth-child(1) > a', photo:'.giulia-hero > img'},
-  {id:'jaguar', path:'/journal/design/type-01/', home:'.home-pair article:nth-child(2) > a', photo:'.type-hero > img'}
+  {id:'f40', path:'/journal/f40/', home:'.home-feature-image', photo:'.f40-hero > img', image:'f40-'},
+  {id:'giulia', path:'/journal/design/giulia/', home:'.home-pair article:nth-child(1) > a', photo:'.giulia-hero > img', image:'giulia/profile-'},
+  {id:'jaguar', path:'/journal/design/type-01/', home:'.home-pair article:nth-child(2) > a', photo:'.type-hero > img', image:'type01-arrival-'}
 ];
 const sizes = [{width:375,height:812},{width:390,height:844},{width:430,height:932},{width:1180,height:820},{width:1440,height:900}];
 async function homeSignature(page) {
@@ -51,7 +51,7 @@ async function clean(page) {
         if (state.native && state.story) {
           assert.equal(state.story, story.id, 'correct story selected on arrival');
           assert.equal(state.shared.filter(x => x.name === 'journal-photo').length, 1, 'one shared photograph');
-          assert.equal(await page.locator(story.photo).getAttribute('data-cinematic-shared'), '');
+          assert(state.shared.find(x => x.name === 'journal-photo').src.includes(story.image), 'only the matching story photograph is shared');
         } else {
           assert.equal(state.shared.length, 0, 'unavailable photographs safely skip sharing');
         }
