@@ -1,0 +1,37 @@
+[
+  {
+    "route": "/journal/f40/",
+    "reading_animations": 16,
+    "protected_opening_animated": false,
+    "reduced_motion": "pass; including live switch and opt-in",
+    "page_errors": []
+  },
+  {
+    "route": "/journal/design/giulia/",
+    "reading_animations": 28,
+    "protected_opening_animated": false,
+    "reduced_motion": "pass; including live switch and opt-in",
+    "page_errors": []
+  },
+  {
+    "route": "/journal/design/type-01/",
+    "reading_animations": 25,
+    "protected_opening_animated": false,
+    "reduced_motion": "pass; including live switch and opt-in",
+    "page_errors": []
+  },
+  {
+    "route": "/edition/story/f40/",
+    "reading_animations": 7,
+    "protected_opening_animated": false,
+    "reduced_motion": "pass; including live switch and opt-in",
+    "page_errors": []
+  },
+  {
+    "route": "/motion-generated/",
+    "reading_animations": 12,
+    "protected_opening_animated": false,
+    "reduced_motion": "pass; including live switch and opt-in",
+    "page_errors": []
+  }
+]

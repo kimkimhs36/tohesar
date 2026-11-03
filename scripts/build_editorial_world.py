@@ -7,6 +7,8 @@ def inject(path,key,body,before):
  p=ROOT/path;s=p.read_text();start=f'<!-- {key}:START -->';end=f'<!-- {key}:END -->'
  # The authored 015 home already includes the city essay in its reading sequence.
  if path=='journal/index.html' and 'recovery015-journal' in s:return
+ # The new visual spread has its own source and deliberately has no AI city plate.
+ if path=='journal/visual/index.html' and '/journal/assets/visual026.css' in s:return
  if start not in s:
   assert before in s,(path,before)
   s=s.replace(before,start+end+before,1)

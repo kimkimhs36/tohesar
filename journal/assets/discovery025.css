@@ -132,3 +132,13 @@ body:has(.explore-list) .map-footer{background:#e1d5e2}
  .map-footer>small{display:block;margin-top:15px;font-size:8px}
 }
 @media(prefers-reduced-motion:reduce){.home-editorial a img{transition:none}}
+/* The journal continues the cover in softly changing paper tones. */
+.recovery015-journal{background:linear-gradient(160deg,#eae4ed 0%,#f1e8e8 48%,#e9e2e9 100%)}
+.recovery015-journal .feature-copy small a{text-decoration:underline;text-underline-offset:3px}
+.recovery015-journal .city026{padding:clamp(70px,9vw,135px) var(--edge);background:linear-gradient(145deg,#e9e2ed,#f0e4df);border-top:1px solid #cfc2cd}
+.recovery015-journal .city026>div{max-width:1500px;margin:auto}
+.recovery015-journal .city026 h2{font-size:clamp(36px,4.2vw,60px);font-weight:400;line-height:1.35;letter-spacing:-.06em;margin:20px 0}
+.recovery015-journal .city026 p{font-size:14px;line-height:1.95;max-width:32em}
+.recovery015-journal .city026>div>p:first-child{font-size:11px;color:#756877}
+.recovery015-journal .city026 a{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid currentColor;font-size:12px;margin-top:24px}
+@media(max-width:700px){.recovery015-journal .city026{padding-top:65px;padding-bottom:68px}.recovery015-journal .city026 h2{font-size:36px}}

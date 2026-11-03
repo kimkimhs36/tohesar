@@ -21,7 +21,7 @@ for i in items:
     i['search_text']=' '.join(str(v) for v in [i['title'],i.get('manufacturer') or '',i.get('model') or '',i['summary'],*i['keywords'],*[forms[f]['label']+' '+forms[f]['ko']+' '+' '.join(forms[f]['keywords']) for f in i['forms']]])
 def card(i):
     image=''
-    if i.get('image'):
+    if i.get('image') and i.get('kind') != 'visual-fiction':
         width,height=intrinsic_dimensions(i['image']) or (1600,1000)
         small=re.sub(r'-1600(?=\.)','-800',i['image'])
         size=intrinsic_dimensions(small) if small!=i['image'] else None
@@ -69,7 +69,7 @@ for current in [i for i in items if i['kind']!='news']:
     related=[i for rid in current['related'] for i in items if i['id']==rid]
     body=''
     for n,i in enumerate(related):
-        visual=f'<img src="{e(i["image"])}" alt="{e(i["image_alt"])}" width="1600" height="1000" loading="lazy">' if n==0 and i.get('image') else ''
+        visual=f'<img src="{e(i["image"])}" alt="{e(i["image_alt"])}" width="1600" height="1000" loading="lazy">' if n==0 and i.get('image') and i.get('kind') != 'visual-fiction' else ''
         body+=f'<a class="continuation-story{ " continuation-lead" if n==0 else ""}" href="{e(i["url"])}" data-travel>{visual}<div><span>{e(reasons.get(i["id"],i["summary"]))}</span><strong>{e(i.get("model") or i["title"].split(" — ")[0])}</strong><small>{labels[i["kind"]]}</small></div></a>'
     if related and related[0].get('image_credit'):
         i=related[0]

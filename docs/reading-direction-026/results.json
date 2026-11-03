@@ -1,0 +1,1594 @@
+{
+  "browser": "Chromium",
+  "actual_safari": false,
+  "reduced_motion": true,
+  "note": "Photo source/rights not certified by this browser check. Miniature illustrations are distinct from photography.",
+  "checks": [
+    {
+      "page": "home",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 포르쉐 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": "145px"
+    },
+    {
+      "page": "journal",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "Giulia의 앞쪽 비례를 담은 Vauxford의 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "visual",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 옆모습"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "f40",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "전시된 빨간 Ferrari F40. 낮은 앞부분과 큰 리어 윙이 보인다."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "giulia",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "정측면에 가까운 시점에서 본 초기형 952 Giulia의 긴 보닛과 뒤로 놓인 캐빈"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 거의 측면인 실사진. 앞부분은 왼쪽, 캐빈은 중앙 뒤쪽에 놓인다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "안내선 없이 보는 Giulia 측면 사진 전체 프레임"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/side-1600.webp",
+          "alt": "검은 Giulia의 도어와 펜더에 비친 거리 풍경이 표면의 굴곡을 드러낸다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "초기형 Quadrifoglio의 삼각형 그릴과 가늘어지는 램프"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/rear-1600.webp",
+          "alt": "Giulia Quadrifoglio의 후면, 짧은 트렁크와 부푼 뒤쪽 펜더"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "jaguar",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽과 긴 그림자 앞의 은색 Jaguar Type 01, 전면과 옆면이 함께 보이는 공식 사진"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01의 완전한 측면, 낮은 지붕과 긴 앞부분 및 후면 오버행"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-rear-1600.webp",
+          "alt": "Type 01 후면의 창과 차체가 만나는 경계, 넓은 펜더 표면을 보여주는 공식 디테일"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-profile-800.webp",
+          "alt": "왼쪽을 향한 분홍색 Type 00 콘셉트의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01 4도어 GT의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-arrival-800.webp",
+          "alt": "분홍색 Jaguar Type 00 콘셉트의 앞모습과 옆면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽 앞의 은색 Jaguar Type 01 전기 4도어 GT"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-overhead-1600.webp",
+          "alt": "위에서 내려다본 Type 01, 긴 차체와 도시의 그림자가 만나는 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "miniatures",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/coupe.webp",
+          "alt": "라벤더 쿠페. 둥근 지붕과 풍성한 뒤쪽 펜더."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/wedge.webp",
+          "alt": "코럴 레드 웨지. 낮은 코와 높은 리어 윙."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/gt.webp",
+          "alt": "세이지 실버 GT. 긴 보닛과 뒤로 놓인 캐빈."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "issue",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "2017년 촬영한 검은색 Giulia Quadrifoglio의 앞모습과 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "Jaguar Type 01의 길고 낮은 옆모습, 제조사 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "explore",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "design",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "따뜻한 저녁빛과 벽돌빛 벽 앞에 놓인 은색 Jaguar Type 01"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "은색 Jaguar Type 01의 긴 보닛과 네 개의 문을 보여주는 제조사 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911. 세부 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "newsroom",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "붉은 Ferrari F40의 전면과 커다란 리어 윙"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/porsche-911-800.webp",
+          "alt": "1973 Porsche 911 Carrera RSR의 앞모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "cover",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/yokohama-bluehour.webp",
+          "alt": "저녁의 항구를 배경으로 서 있는 은색 포르쉐 911, 낮은 지붕에서 넓은 뒷펜더로 이어지는 곡선"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "home",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 포르쉐 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": "145px"
+    },
+    {
+      "page": "journal",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "Giulia의 앞쪽 비례를 담은 Vauxford의 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "visual",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 옆모습"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "f40",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "전시된 빨간 Ferrari F40. 낮은 앞부분과 큰 리어 윙이 보인다."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "giulia",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "정측면에 가까운 시점에서 본 초기형 952 Giulia의 긴 보닛과 뒤로 놓인 캐빈"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 거의 측면인 실사진. 앞부분은 왼쪽, 캐빈은 중앙 뒤쪽에 놓인다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "안내선 없이 보는 Giulia 측면 사진 전체 프레임"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/side-1600.webp",
+          "alt": "검은 Giulia의 도어와 펜더에 비친 거리 풍경이 표면의 굴곡을 드러낸다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "초기형 Quadrifoglio의 삼각형 그릴과 가늘어지는 램프"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/rear-1600.webp",
+          "alt": "Giulia Quadrifoglio의 후면, 짧은 트렁크와 부푼 뒤쪽 펜더"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "jaguar",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽과 긴 그림자 앞의 은색 Jaguar Type 01, 전면과 옆면이 함께 보이는 공식 사진"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01의 완전한 측면, 낮은 지붕과 긴 앞부분 및 후면 오버행"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-rear-1600.webp",
+          "alt": "Type 01 후면의 창과 차체가 만나는 경계, 넓은 펜더 표면을 보여주는 공식 디테일"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-profile-800.webp",
+          "alt": "왼쪽을 향한 분홍색 Type 00 콘셉트의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01 4도어 GT의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-arrival-800.webp",
+          "alt": "분홍색 Jaguar Type 00 콘셉트의 앞모습과 옆면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽 앞의 은색 Jaguar Type 01 전기 4도어 GT"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-overhead-1600.webp",
+          "alt": "위에서 내려다본 Type 01, 긴 차체와 도시의 그림자가 만나는 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "miniatures",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/coupe.webp",
+          "alt": "라벤더 쿠페. 둥근 지붕과 풍성한 뒤쪽 펜더."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/wedge.webp",
+          "alt": "코럴 레드 웨지. 낮은 코와 높은 리어 윙."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/gt.webp",
+          "alt": "세이지 실버 GT. 긴 보닛과 뒤로 놓인 캐빈."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "issue",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "2017년 촬영한 검은색 Giulia Quadrifoglio의 앞모습과 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "Jaguar Type 01의 길고 낮은 옆모습, 제조사 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "explore",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "design",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "따뜻한 저녁빛과 벽돌빛 벽 앞에 놓인 은색 Jaguar Type 01"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "은색 Jaguar Type 01의 긴 보닛과 네 개의 문을 보여주는 제조사 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911. 세부 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "newsroom",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "붉은 Ferrari F40의 전면과 커다란 리어 윙"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/porsche-911-800.webp",
+          "alt": "1973 Porsche 911 Carrera RSR의 앞모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "cover",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/yokohama-bluehour.webp",
+          "alt": "저녁의 항구를 배경으로 서 있는 은색 포르쉐 911, 낮은 지붕에서 넓은 뒷펜더로 이어지는 곡선"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "home",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 포르쉐 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": "145px"
+    },
+    {
+      "page": "journal",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "Giulia의 앞쪽 비례를 담은 Vauxford의 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "visual",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 옆모습"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "f40",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "전시된 빨간 Ferrari F40. 낮은 앞부분과 큰 리어 윙이 보인다."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "giulia",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "정측면에 가까운 시점에서 본 초기형 952 Giulia의 긴 보닛과 뒤로 놓인 캐빈"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 거의 측면인 실사진. 앞부분은 왼쪽, 캐빈은 중앙 뒤쪽에 놓인다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "안내선 없이 보는 Giulia 측면 사진 전체 프레임"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/side-1600.webp",
+          "alt": "검은 Giulia의 도어와 펜더에 비친 거리 풍경이 표면의 굴곡을 드러낸다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "초기형 Quadrifoglio의 삼각형 그릴과 가늘어지는 램프"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/rear-1600.webp",
+          "alt": "Giulia Quadrifoglio의 후면, 짧은 트렁크와 부푼 뒤쪽 펜더"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "jaguar",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽과 긴 그림자 앞의 은색 Jaguar Type 01, 전면과 옆면이 함께 보이는 공식 사진"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01의 완전한 측면, 낮은 지붕과 긴 앞부분 및 후면 오버행"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-rear-1600.webp",
+          "alt": "Type 01 후면의 창과 차체가 만나는 경계, 넓은 펜더 표면을 보여주는 공식 디테일"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-profile-800.webp",
+          "alt": "왼쪽을 향한 분홍색 Type 00 콘셉트의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01 4도어 GT의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-arrival-800.webp",
+          "alt": "분홍색 Jaguar Type 00 콘셉트의 앞모습과 옆면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽 앞의 은색 Jaguar Type 01 전기 4도어 GT"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-overhead-1600.webp",
+          "alt": "위에서 내려다본 Type 01, 긴 차체와 도시의 그림자가 만나는 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "miniatures",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/coupe.webp",
+          "alt": "라벤더 쿠페. 둥근 지붕과 풍성한 뒤쪽 펜더."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/wedge.webp",
+          "alt": "코럴 레드 웨지. 낮은 코와 높은 리어 윙."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/gt.webp",
+          "alt": "세이지 실버 GT. 긴 보닛과 뒤로 놓인 캐빈."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "issue",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "2017년 촬영한 검은색 Giulia Quadrifoglio의 앞모습과 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "Jaguar Type 01의 길고 낮은 옆모습, 제조사 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "explore",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "design",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "따뜻한 저녁빛과 벽돌빛 벽 앞에 놓인 은색 Jaguar Type 01"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "은색 Jaguar Type 01의 긴 보닛과 네 개의 문을 보여주는 제조사 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911. 세부 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "newsroom",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "붉은 Ferrari F40의 전면과 커다란 리어 윙"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/porsche-911-800.webp",
+          "alt": "1973 Porsche 911 Carrera RSR의 앞모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "cover",
+      "width": 430,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/yokohama-bluehour.webp",
+          "alt": "저녁의 항구를 배경으로 서 있는 은색 포르쉐 911, 낮은 지붕에서 넓은 뒷펜더로 이어지는 곡선"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 포르쉐 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": "135px"
+    },
+    {
+      "page": "journal",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "Giulia의 앞쪽 비례를 담은 Vauxford의 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "visual",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 옆모습"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "f40",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "전시된 빨간 Ferrari F40. 낮은 앞부분과 큰 리어 윙이 보인다."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "giulia",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "정측면에 가까운 시점에서 본 초기형 952 Giulia의 긴 보닛과 뒤로 놓인 캐빈"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 거의 측면인 실사진. 앞부분은 왼쪽, 캐빈은 중앙 뒤쪽에 놓인다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "안내선 없이 보는 Giulia 측면 사진 전체 프레임"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/side-1600.webp",
+          "alt": "검은 Giulia의 도어와 펜더에 비친 거리 풍경이 표면의 굴곡을 드러낸다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "초기형 Quadrifoglio의 삼각형 그릴과 가늘어지는 램프"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/rear-1600.webp",
+          "alt": "Giulia Quadrifoglio의 후면, 짧은 트렁크와 부푼 뒤쪽 펜더"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "jaguar",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽과 긴 그림자 앞의 은색 Jaguar Type 01, 전면과 옆면이 함께 보이는 공식 사진"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01의 완전한 측면, 낮은 지붕과 긴 앞부분 및 후면 오버행"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-rear-800.webp",
+          "alt": "Type 01 후면의 창과 차체가 만나는 경계, 넓은 펜더 표면을 보여주는 공식 디테일"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-profile-800.webp",
+          "alt": "왼쪽을 향한 분홍색 Type 00 콘셉트의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-800.webp",
+          "alt": "오른쪽을 향한 은색 Type 01 4도어 GT의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-arrival-800.webp",
+          "alt": "분홍색 Jaguar Type 00 콘셉트의 앞모습과 옆면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "벽돌빛 벽 앞의 은색 Jaguar Type 01 전기 4도어 GT"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-overhead-1600.webp",
+          "alt": "위에서 내려다본 Type 01, 긴 차체와 도시의 그림자가 만나는 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "miniatures",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/coupe.webp",
+          "alt": "라벤더 쿠페. 둥근 지붕과 풍성한 뒤쪽 펜더."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/wedge.webp",
+          "alt": "코럴 레드 웨지. 낮은 코와 높은 리어 윙."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/gt.webp",
+          "alt": "세이지 실버 GT. 긴 보닛과 뒤로 놓인 캐빈."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "issue",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "2017년 촬영한 검은색 Giulia Quadrifoglio의 앞모습과 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "Jaguar Type 01의 길고 낮은 옆모습, 제조사 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "explore",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "design",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "따뜻한 저녁빛과 벽돌빛 벽 앞에 놓인 은색 Jaguar Type 01"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "은색 Jaguar Type 01의 긴 보닛과 네 개의 문을 보여주는 제조사 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911. 세부 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "newsroom",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "붉은 Ferrari F40의 전면과 커다란 리어 윙"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/porsche-911-800.webp",
+          "alt": "1973 Porsche 911 Carrera RSR의 앞모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "cover",
+      "width": 768,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/yokohama-bluehour.webp",
+          "alt": "저녁의 항구를 배경으로 서 있는 은색 포르쉐 911, 낮은 지붕에서 넓은 뒷펜더로 이어지는 곡선"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 포르쉐 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": "187.2px"
+    },
+    {
+      "page": "journal",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911의 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞모습과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 긴 보닛과 옆모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "Giulia의 앞쪽 비례를 담은 Vauxford의 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "visual",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "Alfa Romeo Giulia의 옆모습"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "f40",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "전시된 빨간 Ferrari F40. 낮은 앞부분과 큰 리어 윙이 보인다."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "giulia",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "정측면에 가까운 시점에서 본 초기형 952 Giulia의 긴 보닛과 뒤로 놓인 캐빈"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 거의 측면인 실사진. 앞부분은 왼쪽, 캐빈은 중앙 뒤쪽에 놓인다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "안내선 없이 보는 Giulia 측면 사진 전체 프레임"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/side-1600.webp",
+          "alt": "검은 Giulia의 도어와 펜더에 비친 거리 풍경이 표면의 굴곡을 드러낸다"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "초기형 Quadrifoglio의 삼각형 그릴과 가늘어지는 램프"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/rear-1600.webp",
+          "alt": "Giulia Quadrifoglio의 후면, 짧은 트렁크와 부푼 뒤쪽 펜더"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "jaguar",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-1600.webp",
+          "alt": "벽돌빛 벽과 긴 그림자 앞의 은색 Jaguar Type 01, 전면과 옆면이 함께 보이는 공식 사진"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "오른쪽을 향한 은색 Type 01의 완전한 측면, 낮은 지붕과 긴 앞부분 및 후면 오버행"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-rear-1600.webp",
+          "alt": "Type 01 후면의 창과 차체가 만나는 경계, 넓은 펜더 표면을 보여주는 공식 디테일"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-profile-1600.webp",
+          "alt": "왼쪽을 향한 분홍색 Type 00 콘셉트의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "오른쪽을 향한 은색 Type 01 4도어 GT의 전체 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type00-arrival-1600.webp",
+          "alt": "분홍색 Jaguar Type 00 콘셉트의 앞모습과 옆면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-1600.webp",
+          "alt": "벽돌빛 벽 앞의 은색 Jaguar Type 01 전기 4도어 GT"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-overhead-1600.webp",
+          "alt": "위에서 내려다본 Type 01, 긴 차체와 도시의 그림자가 만나는 공식 이미지"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "miniatures",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/coupe.webp",
+          "alt": "라벤더 쿠페. 둥근 지붕과 풍성한 뒤쪽 펜더."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/wedge.webp",
+          "alt": "코럴 레드 웨지. 낮은 코와 높은 리어 윙."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/miniatures/gt.webp",
+          "alt": "세이지 실버 GT. 긴 보닛과 뒤로 놓인 캐빈."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "issue",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/front-1600.webp",
+          "alt": "2017년 촬영한 검은색 Giulia Quadrifoglio의 앞모습과 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-1600.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-profile-1600.webp",
+          "alt": "Jaguar Type 01의 길고 낮은 옆모습, 제조사 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "explore",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "Alfa Romeo Giulia의 측면"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속 Jaguar Type 01 공식 사진"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "design",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-1600.webp",
+          "alt": "따뜻한 저녁빛과 벽돌빛 벽 앞에 놓인 은색 Jaguar Type 01"
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "은색 Jaguar Type 01의 긴 보닛과 네 개의 문을 보여주는 제조사 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞에 주차된 검은 Porsche 911. 세부 모델은 확인되지 않음."
+        },
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/giulia/profile-800.webp",
+          "alt": "초기형 952 Giulia의 측면 실사진. 세부 연식·트림 미확인."
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-800.webp",
+          "alt": "낮은 앞부분과 큰 리어 윙을 지닌 빨간 Ferrari F40"
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "newsroom",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/journal/assets/design/type01-arrival-800.webp",
+          "alt": "저녁빛 속의 은색 Jaguar Type 01 공식 이미지"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/f40-1600.webp",
+          "alt": "붉은 Ferrari F40의 전면과 커다란 리어 윙"
+        },
+        {
+          "src": "http://127.0.0.1:8765/edition/assets/porsche-911-800.webp",
+          "alt": "1973 Porsche 911 Carrera RSR의 앞모습"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/cover-911-valentin-kremer.jpg",
+          "alt": "벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음."
+        }
+      ],
+      "intro_padding_bottom": null
+    },
+    {
+      "page": "cover",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "broken": [],
+      "photos": [
+        {
+          "src": "http://127.0.0.1:8765/assets/yokohama-bluehour.webp",
+          "alt": "저녁의 항구를 배경으로 서 있는 은색 포르쉐 911, 낮은 지붕에서 넓은 뒷펜더로 이어지는 곡선"
+        }
+      ],
+      "intro_padding_bottom": null
+    }
+  ],
+  "source_state": "Working tree during final implementation; captures are current-instance evidence, not a published deployment.",
+  "photography_check": {
+    "scope": "Known previously used Yokohama AI photography paths in actual page img sources; illustrations and protected standalone COVER004 are distinguished.",
+    "remaining_reference_exception": "/creative/cover-art-max-004/ retains its approved /assets/yokohama-bluehour.webp photograph-like illustration.",
+    "fact_and_rights_verification": "Not performed by browser QA."
+  }
+}

@@ -1,0 +1,35 @@
+/* The story keeps its own opening. The ending offers two calm, familiar paths. */
+.article-return026{padding:clamp(60px,9vw,125px) var(--edge);background:linear-gradient(145deg,#eee6e8 0%,#e8e1eb 52%,#eee1d8 100%);color:#433a49;border-top:1px solid #c9bdca}
+.article-return026>p{font:12px/1.8 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;letter-spacing:0;color:#736579}
+.article-return026 h2{font:400 clamp(29px,4vw,49px)/1.5 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;letter-spacing:-.055em;margin:18px 0 30px}
+.article-return026 nav{display:flex;flex-wrap:wrap;gap:12px 34px}
+.article-return026 nav a{display:inline-flex;align-items:center;min-height:48px;border-bottom:1px solid #827087;font:13px/1.8 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;letter-spacing:0}
+.article-return026 a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+/* Confine layout widths, never the focus ring or a usable control. */
+.type01-page main,.type01-page main :is(section,aside,figure,header,div){min-width:0}
+.type01-page :is(.type-columns,.language-layout,.comparison-heading,.comparison-cars,.comparison-notes){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.type01-page :is(.type-columns,.language-layout,.comparison-heading,.comparison-notes)>*{min-width:0;overflow-wrap:break-word}
+.type01-page .comparison-notes{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Only the image layers are masked; study controls and captions remain outside. */
+.type01-page .study-pair figure{min-width:0}
+.type01-page .study-pair img{max-width:100%}
+.type01-page .study-enabled .study-board{overflow:visible}
+.type01-page .study-enabled .study-concept,.type01-page .study-enabled .study-production{transform:none}
+.type01-page .study-enabled .study-label{transform:none}
+.type01-page .study-controls{flex-wrap:wrap;flex-shrink:0}
+.type01-page .study-bottom{flex-wrap:wrap}
+.type01-page .type-topline{flex-wrap:wrap;row-gap:6px}
+.type01-page .type-topline>*{min-width:0;overflow-wrap:anywhere}
+/* A tonal wash through the reading, with the printed miniature layer retained. */
+.beauty014-language :is(.type-language,.type-comparison){background-image:linear-gradient(140deg,rgba(246,231,223,.36),rgba(224,215,233,.32)),url('/journal/assets/wallpaper/miniature-paper-wide.svg')}
+.beauty014-proportion .giulia-sources,.beauty014-blade .story-sources{background-image:linear-gradient(150deg,rgba(245,230,221,.32),rgba(225,215,234,.28)),url('/journal/assets/wallpaper/miniature-paper-wide.svg')}
+@media(max-width:700px){
+ .article-return026{padding-block:62px 68px}
+ .article-return026 h2{font-size:31px;max-width:9em}
+ .type01-page :is(.type-columns,.language-layout,.comparison-heading,.comparison-cars,.comparison-notes){display:block}
+ .type01-page .study-enabled .study-board{height:auto;min-height:100svh;padding-block:24px;justify-content:center}
+ .type01-page .study-enabled .study-pair{gap:20px}
+ .type01-page .study-controls{width:100%;justify-content:flex-start}
+ .type01-page .study-bottom small{max-width:100%;overflow-wrap:anywhere}
+ .beauty014-language :is(.type-language,.type-comparison),.beauty014-proportion .giulia-sources,.beauty014-blade .story-sources{background-image:linear-gradient(140deg,rgba(246,231,223,.36),rgba(224,215,233,.32)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg')}
+}
