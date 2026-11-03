@@ -1,0 +1,446 @@
+{
+  "browser": "Chromium",
+  "tests": "Menu opens after scrolling; Escape and outside click close; header sticks at top after its journal entry; wordmark remains visible; no horizontal overflow. Home rerun at journal-index offset+200, not arbitrary1400.",
+  "checks": [
+    {
+      "page": "home",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "journal",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "design",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "news",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "sitemap",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "explore",
+      "width": 375,
+      "status": 200,
+      "dimensions": {
+        "width": 375,
+        "scroll": 375,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "home",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "journal",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "design",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "news",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "sitemap",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "explore",
+      "width": 390,
+      "status": 200,
+      "dimensions": {
+        "width": 390,
+        "scroll": 390,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "home",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "journal",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "design",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "news",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "sitemap",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "explore",
+      "width": 430,
+      "status": 200,
+      "dimensions": {
+        "width": 430,
+        "scroll": 430,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "journal",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "design",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "news",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "sitemap",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "explore",
+      "width": 768,
+      "status": 200,
+      "dimensions": {
+        "width": 768,
+        "scroll": 768,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "journal",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "design",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "news",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "sitemap",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    },
+    {
+      "page": "explore",
+      "width": 1440,
+      "status": 200,
+      "dimensions": {
+        "width": 1440,
+        "scroll": 1440,
+        "broken": []
+      },
+      "errors": []
+    }
+  ]
+}

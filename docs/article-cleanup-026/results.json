@@ -1,0 +1,150 @@
+{
+  "engine": "Chromium; not actual iPhone Safari",
+  "checks": [
+    {
+      "page": "f40",
+      "width": 375,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "jaguar",
+      "width": 375,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 375,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 375,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "jaguar",
+      "width": 375,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 375,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 390,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "jaguar",
+      "width": 390,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 390,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 390,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "jaguar",
+      "width": 390,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 390,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 430,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "jaguar",
+      "width": 430,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 430,
+      "reduced_motion": "reduce",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "f40",
+      "width": 430,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "jaguar",
+      "width": 430,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    },
+    {
+      "page": "giulia",
+      "width": 430,
+      "reduced_motion": "no-preference",
+      "overflow": false,
+      "broken_images": [],
+      "errors": []
+    }
+  ],
+  "idempotent": true
+}

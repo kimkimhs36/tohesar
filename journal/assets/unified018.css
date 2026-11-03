@@ -1,3 +1,4 @@
+@import url("/journal/assets/article-tokens.css");
 /* TOHEŞAR 018 / Shared editorial chrome. The authored interiors retain their own compositions.
    Applies to all Journal and Newsroom pages, never to the COVER 004 stage. */
 :root{
@@ -180,9 +181,14 @@ body[data-page] .feed-health-detail{font-size:11px}
 body[data-page] .wire-reset{min-height:44px;font-size:12px;background:transparent;border-width:0 0 1px;padding-inline:0}
 body[data-page] .wire-heading{font-size:10px;line-height:1.8;align-items:baseline}
 
+/* Shared reading scale: photography, openings and paper colors remain article-specific. */
+.beauty014-proportion .reading-column p{font-size:var(--article-copy);line-height:var(--article-leading)}
+:is(.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-wide, .drive-photo, .surface-plate, .type-profile, .type-closing-photo) figcaption{font-size:var(--article-caption);line-height:1.9;color:var(--article-muted)}
+:is(.beauty014-proportion,.beauty014-language) :is(.giulia-sources,.type-sources) :is(p,li){font-size:12px;line-height:1.95}
+
 /* Reading sizes over the original miniature wallpaper. */
 :is(.beauty014-curve,.beauty014-blade) :is(.story-opening,.chapter-body){max-width:660px}
-:is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:17px;line-height:2.05;letter-spacing:-.025em;word-break:keep-all;overflow-wrap:break-word}
+:is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:var(--article-copy);line-height:var(--article-leading);letter-spacing:-.025em;word-break:keep-all;overflow-wrap:break-word}
 :is(.beauty014-curve,.beauty014-blade) .chapter-body p+p{margin-top:27px}
 :is(.beauty014-curve,.beauty014-blade) .story-opening{font-size:23px;line-height:1.9;letter-spacing:-.04em}
 :is(.beauty014-curve,.beauty014-blade) .story-opening p+p{font-size:16px;line-height:2.05}
@@ -307,7 +313,7 @@ body[data-page] .wire-heading{font-size:10px;line-height:1.8;align-items:baselin
  :is(.beauty014-curve,.beauty014-blade) .story-opening{font-size:21px;line-height:1.95;margin-block:44px 36px;padding-inline:var(--edge)}
  :is(.beauty014-curve,.beauty014-blade) .story-opening p+p{font-size:16px;line-height:2.05}
  :is(.beauty014-curve,.beauty014-blade) .story-chapter{padding-block:29px 38px}
- :is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:16px;line-height:2.05}
+ :is(.beauty014-curve,.beauty014-blade) .chapter-body p{font-size:var(--article-copy);line-height:var(--article-leading)}
  :is(.beauty014-curve,.beauty014-blade) .chapter-body h2{font-size:25px;line-height:1.55;margin-bottom:25px}
  :is(.beauty014-curve,.beauty014-blade) .chapter-side>p{font-size:10px}
  :is(.beauty014-curve,.beauty014-blade) .story-sources :is(p,li){font-size:12px;line-height:1.95}
@@ -375,7 +381,7 @@ body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-brea
  .beauty014-blade .byline{margin-top:31px;font-size:10px}
 }
 .beauty014-language{--paper:#f5f1eb;--ink:#343143;--muted:#686172;--accent:#806776;--rule:#b8aebf;background:var(--paper);color:var(--ink)}
-.beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:17px;line-height:2.05;letter-spacing:-.025em}
+.beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:var(--article-copy);line-height:var(--article-leading);letter-spacing:-.025em}
 .beauty014-language .type-fact{background:#efe3dc;border-color:#ad8e9f}
 .beauty014-language .type-fact p{font-size:14px;line-height:1.9}
 .beauty014-language .type-fact small{font-size:11px;line-height:1.9;color:var(--muted)}
@@ -392,8 +398,10 @@ body[data-page] :is(.desk-deck,.front-wire-intro,.desk-feature-copy p){word-brea
 .beauty014-language .type-chapters a{font-size:12px}
 .beauty014-language .comparison-notes p{font-size:15px;line-height:2}
 .beauty014-language .comparison-heading>p{font-size:14px;line-height:1.95}
-.beauty014-language .type-sources :is(p,li){font-size:13px;line-height:2}
+.beauty014-language .type-sources :is(p,li){font-size:12px;line-height:1.95}
 .beauty014-language .type-sources li span{font-size:11px;line-height:1.9}
+body[data-page="article"] .article-body{font-size:var(--article-copy);line-height:var(--article-leading)}
+body[data-page="article"] .f40-article-image figcaption{font-size:var(--article-caption);line-height:1.9}
 body[data-page="article"] .article-deck{word-break:keep-all;overflow-wrap:break-word;letter-spacing:-.025em}
 body[data-page="article"] :is(.article-toolbar,.article-aside,.article-aside dl div,.article-body h2){border-color:var(--thz-rule)}
 body[data-page="article"] .article-aside{border-top-width:1px}
@@ -402,7 +410,7 @@ body[data-page="article"] .article-body blockquote{background:#e8e0eb;color:#695
 body[data-page="article"] .article-body .article-source{background:#eee7e3}
 body[data-page="article"] .f40-article-image img{background:transparent}
 @media(max-width:700px){
- .beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:16px;line-height:2.05;margin-bottom:26px}
+ .beauty014-language :is(.type-columns>div p,.language-layout>div p,.type-reading p){font-size:var(--article-copy);line-height:var(--article-leading);margin-bottom:26px}
  .beauty014-language .type-chapters{gap:0 12px;padding-block:7px}
  .beauty014-language .type-chapters a{font-size:11px;line-height:1.8;min-height:44px}
  .beauty014-language .type-hero-foot>p{font-size:15px;line-height:1.95}
@@ -418,7 +426,7 @@ body[data-page="article"] .f40-article-image img{background:transparent}
  .beauty014-language .comparison-notes p{font-size:14px;line-height:2}
  .beauty014-language .type-sources :is(p,li){font-size:12px;line-height:1.95}
  body[data-page="article"] .article-deck{font-size:16px;line-height:1.9}
- body[data-page="article"] .article-body{font-size:17px;line-height:2}
+ body[data-page="article"] .article-body{font-size:var(--article-copy);line-height:var(--article-leading)}
  body[data-page="article"] .article-body blockquote{font-size:21px;padding:27px 24px;margin-block:32px}
  body[data-page="article"] .article-label{margin-top:27px}
  body[data-page="article"] .article-intro{padding-bottom:32px}
@@ -1005,3 +1013,12 @@ body[data-page="archive"] .archive-news-link{
   .atlas-page .discovery-card p{font-size:13px;line-height:1.85}
   .atlas-page .result-credit{font-size:10px}
 }
+
+/* A quiet moving miniature near the end of the reading, away from the opening. */
+:is(.story-sources,.giulia-sources,.type-sources,.edition-closing):has(>.miniature-end-car){position:relative;isolation:isolate;overflow:hidden}
+.miniature-end-car{position:absolute;right:clamp(-12px,4vw,70px);bottom:8px;width:clamp(95px,11vw,165px);aspect-ratio:240/98;z-index:-1;pointer-events:none;opacity:.22;background:url('/journal/assets/wallpaper/sage-longtail-240.webp') center/contain no-repeat}
+.beauty014-blade .miniature-end-car{background-image:url('/journal/assets/wallpaper/coral-blade-240.webp')}
+.beauty014-curve .miniature-end-car{background-image:url('/journal/assets/wallpaper/lilac-arc-240.webp')}
+.beauty014-language .miniature-end-car{background-image:url('/journal/assets/wallpaper/blue-hour-240.webp')}
+@media(prefers-reduced-motion:no-preference){.miniature-end-car{animation:miniature-end-drift 17s ease-in-out infinite alternate}}
+@keyframes miniature-end-drift{from{transform:translate3d(-4px,1px,0) rotate(-1deg)}to{transform:translate3d(5px,-2px,0) rotate(1deg)}}

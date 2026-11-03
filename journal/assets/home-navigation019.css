@@ -1,0 +1,9 @@
+/* The cinematic cover remains untouched; navigation enters with the journal. */
+.journal-flow > .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #e9e4ee;
+}
+.journal-flow { scroll-margin-top: 0; }
+.journal-flow [id] { scroll-margin-top: calc(84px + env(safe-area-inset-top)); }

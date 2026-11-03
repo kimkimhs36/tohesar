@@ -1,0 +1,56 @@
+{
+  "base_branch": "design/tohesar-reading-experience-024",
+  "base_commit": "cdd35a32c6d057df16dff06020b3a5c2e026c5e0",
+  "main_unchanged": "492abfc9f5b98263618d62fa58cb24a5eb1d8808",
+  "unit_tests": {
+    "news": 14,
+    "editorial_system": 13,
+    "editorial_intake": 8,
+    "editorial_review_job": 2,
+    "publishing": 8,
+    "total": 45,
+    "final_status": "passed"
+  },
+  "functional_checks": {
+    "reader_search_back_save_share_archive_news": "passed",
+    "design_filters_search_reset": "passed",
+    "newsroom_search_publisher_reset_load_more": "passed",
+    "miniature_paper_layout_and_live_reduced_motion": "passed",
+    "menu_escape_outside_sticky_header": {
+      "combinations": 40,
+      "final_status": "passed"
+    }
+  },
+  "build": {
+    "disposable_full_publish_build": "passed",
+    "repeat_build_byte_identical": "passed",
+    "all_six_updated_landing_pages_match_rebuilt_output": true,
+    "protected_opening_markup_survives_rebuild": true
+  },
+  "limitations": [
+    "Chromium emulation only; actual iPhone Safari and WebKit not available",
+    "No new artwork or independent revalidation of existing editorial claims/photo rights",
+    "No Vercel deployment performed: no connected deployment tool/CLI; GitHub deployment API request was Forbidden",
+    "No main merge or production deployment"
+  ],
+  "environment_config": {
+    "start_skill": "saved in environment draft",
+    "install_script": "not needed; Python/Node/Playwright/Chromium already installed",
+    "published": false
+  },
+  "responsive_browser": {
+    "browser": "Chromium",
+    "routes": 11,
+    "widths": [
+      375,
+      390,
+      430,
+      768,
+      1440
+    ],
+    "combinations": 55,
+    "failures": 0,
+    "actual_safari_tested": false
+  },
+  "source_commit": "65331ff"
+}

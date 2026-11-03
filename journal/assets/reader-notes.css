@@ -1,0 +1,9 @@
+/* Quiet, in-context explanations; the manuscript stays readable without JavaScript. */
+.term-note{display:inline}
+.term-trigger{appearance:none;border:0;border-bottom:1px solid currentColor;border-radius:0;background:transparent;color:inherit;cursor:pointer;font:inherit;letter-spacing:inherit;padding:0 0 1px;text-underline-offset:.18em}
+.term-trigger:focus-visible{outline:2px solid #61546a;outline-offset:4px}
+.term-trigger[aria-expanded="true"]{border-bottom-width:2px}
+.term-trigger[hidden],.term-fallback[hidden],.term-definition[hidden]{display:none}
+.term-definition{display:block;margin:1.15em 0 1.35em;padding:1em 1.2em;border-left:2px solid #a596a5;background:rgba(250,247,242,.93);color:#423b46;font-size:.88em;line-height:1.8;letter-spacing:-.02em;overflow-wrap:anywhere}
+.term-definition:before{content:'용어 설명';display:block;margin-bottom:.35em;color:#716774;font-size:.72em;letter-spacing:.03em}
+.term-definition a{color:inherit;text-underline-offset:.2em}

@@ -1,0 +1,9 @@
+/* Visible without JavaScript. No permanent GPU layers, blur, or scroll-bound animation. */
+@media (prefers-reduced-motion: no-preference){
+ .article-motion-enter{animation:article-motion-enter 1.1s cubic-bezier(.22,1,.36,1) both}
+ figure.article-motion-enter,.es-section-image.article-motion-enter{animation-duration:1.4s}
+ @keyframes article-motion-enter{from{opacity:.9;translate:0 7px}to{opacity:1;translate:0 0}}
+}
+@media (prefers-reduced-motion: reduce){
+ .article-motion-enter{animation:none!important;translate:none!important}
+}

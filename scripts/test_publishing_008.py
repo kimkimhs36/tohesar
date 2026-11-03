@@ -1,5 +1,5 @@
 """Publication safety tests run in a disposable checkout copy, never in the working data."""
-import unittest,tempfile,shutil,subprocess,json
+import unittest,tempfile,shutil,subprocess,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 class Publishing(unittest.TestCase):
@@ -21,8 +21,20 @@ class Publishing(unittest.TestCase):
     def data(self,name):return json.loads((self.root/'journal/data'/name).read_text())
     def save(self,name,d):(self.root/'journal/data'/name).write_text(json.dumps(d,ensure_ascii=False))
     def test_draft_issue_never_public_and_build_idempotent(self):
+        protected = [('index.html', r'<section class="sequence".*?</section>'),
+                     ('journal/f40/index.html', r'<header class="story-intro">.*?</header>'),
+                     ('journal/design/giulia/index.html', r'<header class="giulia-opening">.*?</header>')]
+        openings = {name: re.search(pattern, (self.root/name).read_text(), re.S).group() for name, pattern in protected}
         self.runcli('new-issue','002','--title','DRAFT ONLY')
         self.runcli('build');self.assertFalse((self.root/'journal/issues/002/index.html').exists())
+        for name, pattern in protected:
+            self.assertEqual(openings[name], re.search(pattern, (self.root/name).read_text(), re.S).group(), name)
+        for name in ['journal/design/giulia/index.html', 'journal/issues/001/index.html']:
+            rebuilt = (self.root/name).read_text()
+            self.assertIn('/journal/assets/unified018.css', rebuilt, name)
+            self.assertIn('/journal/assets/miniature-paper.js', rebuilt, name)
+        self.assertIn('/journal/assets/discovery025.css', (self.root/'index.html').read_text())
+        self.assertIn('/journal/assets/atlas025.css', (self.root/'journal/design/index.html').read_text())
         archive=(self.root/'journal/issues/index.html').read_text();self.assertNotIn('DRAFT ONLY',archive)
         files=list((self.root/'journal').rglob('*.html'));before={p:p.read_bytes() for p in files}
         self.runcli('build');self.assertEqual(before,{p:p.read_bytes() for p in files})

@@ -1,0 +1,222 @@
+[
+  {
+    "name": "home",
+    "width": 375,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 375,
+      "scroll": 375,
+      "broken": []
+    }
+  },
+  {
+    "name": "journal",
+    "width": 375,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 375,
+      "scroll": 375,
+      "broken": []
+    }
+  },
+  {
+    "name": "design",
+    "width": 375,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 375,
+      "scroll": 375,
+      "broken": []
+    }
+  },
+  {
+    "name": "explore",
+    "width": 375,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 375,
+      "scroll": 375,
+      "broken": []
+    }
+  },
+  {
+    "name": "yokohama",
+    "width": 375,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 375,
+      "scroll": 375,
+      "broken": []
+    }
+  },
+  {
+    "name": "home",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 390,
+      "scroll": 390,
+      "broken": []
+    }
+  },
+  {
+    "name": "journal",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 390,
+      "scroll": 390,
+      "broken": []
+    }
+  },
+  {
+    "name": "design",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 390,
+      "scroll": 390,
+      "broken": []
+    }
+  },
+  {
+    "name": "explore",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 390,
+      "scroll": 390,
+      "broken": []
+    }
+  },
+  {
+    "name": "yokohama",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 390,
+      "scroll": 390,
+      "broken": []
+    }
+  },
+  {
+    "name": "home",
+    "width": 430,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 430,
+      "scroll": 430,
+      "broken": []
+    }
+  },
+  {
+    "name": "journal",
+    "width": 430,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 430,
+      "scroll": 430,
+      "broken": []
+    }
+  },
+  {
+    "name": "design",
+    "width": 430,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 430,
+      "scroll": 430,
+      "broken": []
+    }
+  },
+  {
+    "name": "explore",
+    "width": 430,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 430,
+      "scroll": 430,
+      "broken": []
+    }
+  },
+  {
+    "name": "yokohama",
+    "width": 430,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 430,
+      "scroll": 430,
+      "broken": []
+    }
+  },
+  {
+    "name": "home",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": []
+    }
+  },
+  {
+    "name": "journal",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": []
+    }
+  },
+  {
+    "name": "design",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": []
+    }
+  },
+  {
+    "name": "explore",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": []
+    }
+  },
+  {
+    "name": "yokohama",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": []
+    }
+  }
+]

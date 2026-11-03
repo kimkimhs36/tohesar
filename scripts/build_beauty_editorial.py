@@ -28,7 +28,12 @@ def build():
    text = text.replace(wp, '')
    text = text.replace('</head>', wp + '</head>')
   text = text.replace(CSS, '')
-  text = text.replace('</head>', CSS + '</head>')
+  # Keep shared 018 rules after 014 so the article reading system wins.
+  shared = re.search(r'<link\b[^>]*href=["\']/journal/assets/unified018\.css["\'][^>]*>', text)
+  if shared:
+   text = text[:shared.start()] + CSS + text[shared.start():]
+  else:
+   text = text.replace('</head>', CSS + '</head>')
   text = re.sub(r'<body class="([^"]*)"', lambda m: '<body class="' + ' '.join(dict.fromkeys(m[1].split() + [marker])) + '"', text, count=1)
   path.write_text(text)
  print('Rendered 014 editorial art direction on seven existing publications.')

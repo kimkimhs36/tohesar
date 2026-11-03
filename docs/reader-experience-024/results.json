@@ -1,0 +1,47 @@
+[
+  {
+    "width": 375,
+    "http": 200,
+    "errors": [],
+    "overflow": {
+      "inner": 375,
+      "scroll": 375
+    }
+  },
+  {
+    "width": 390,
+    "http": 200,
+    "errors": [],
+    "overflow": {
+      "inner": 390,
+      "scroll": 390
+    }
+  },
+  {
+    "width": 430,
+    "http": 200,
+    "errors": [],
+    "overflow": {
+      "inner": 430,
+      "scroll": 430
+    }
+  },
+  {
+    "width": 768,
+    "http": 200,
+    "errors": [],
+    "overflow": {
+      "inner": 768,
+      "scroll": 768
+    }
+  },
+  {
+    "width": 1440,
+    "http": 200,
+    "errors": [],
+    "overflow": {
+      "inner": 1440,
+      "scroll": 1440
+    }
+  }
+]

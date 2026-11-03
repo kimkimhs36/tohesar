@@ -1,0 +1,266 @@
+[
+  {
+    "page": "911",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "f40",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "giulia",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "type01",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "yokohama",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "visual",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "miniatures",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "issue",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "edition911",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "editionf40",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "mission",
+    "width": 390,
+    "status": 200,
+    "dimensions": {
+      "width": 390,
+      "scroll": 390,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "911",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "f40",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "giulia",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "type01",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "yokohama",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "visual",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "miniatures",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "issue",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "edition911",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "editionf40",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  },
+  {
+    "page": "mission",
+    "width": 1440,
+    "status": 200,
+    "dimensions": {
+      "width": 1440,
+      "scroll": 1440,
+      "broken": [],
+      "menu": true
+    },
+    "errors": []
+  }
+]

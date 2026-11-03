@@ -56,6 +56,9 @@ def links():
                 self.refs.extend(x.strip().split()[0] for x in d['srcset'].split(','))
     active=['journal/index.html','journal/911/index.html','journal/yokohama/index.html','journal/f40/index.html','journal/news/index.html','journal/visual/index.html','journal/miniatures/index.html','journal/design/index.html','journal/design/type-01/index.html','journal/design/giulia/index.html','journal/issues/index.html']
     active +=[str(p.relative_to(ROOT)) for p in (ROOT/'journal/issues').glob('*/index.html')]
+    # Published data-driven stories are not a fixed list. Check them as well as
+    # the longstanding authored pages whenever a build adds a new route.
+    active +=[str(p.relative_to(ROOT)) for p in (ROOT/'journal/stories').glob('*/index.html')]
     cache={};count=0
     for page in active:
         p=ROOT/page;parser=Parser();parser.feed(p.read_text())
@@ -102,10 +105,12 @@ def build():
         body=destination('/'+item['body_file']).read_text()
         p.write_text('<!-- generated authored-story -->\n'+shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
     check()
-    for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_journal_navigation.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py']:
+    for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py','build_site_map.py','build_visual026.py','build_journal_navigation.py','build_editorial025.py','build_newsroom_polish.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     from editorial_system import build as build_editorial
     build_editorial()
+    for script in ['build_article_cleanup026.py','build_realphotos026.py']:
+        subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     links()
 
 def new_issue(number,title):

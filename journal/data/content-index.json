@@ -94,11 +94,11 @@
         "curves"
       ],
       "summary": "지붕에서 어깨로 이어지는 곡선. 변화를 거듭하면서도 한눈에 알아볼 수 있는 형태의 연속성.",
-      "image": "/assets/yokohama-bluehour.webp",
-      "image_alt": "은색 911을 주제로 한 푸른 저녁의 비주얼 스터디",
-      "image_credit": "TOHEŞAR · AI 보조 비주얼 픽션. 역사적 1963년 차량 사진이 아님.",
-      "image_licence": "TOHEŞAR original / existing 005 asset",
-      "image_source": "/journal/911/#sources-title",
+      "image": "/assets/cover-911-valentin-kremer.jpg",
+      "image_alt": "벽돌 건물 앞에 주차된 검은 Porsche 911. 세부 모델은 확인되지 않음.",
+      "image_credit": "Valentin Kremer / Unsplash · 세부 모델 미확인",
+      "image_licence": "https://unsplash.com/license",
+      "image_source": "https://unsplash.com/photos/mhrZmA_2eEg",
       "related": [
         "yokohama-city-car",
         "alfa-romeo-giulia",
@@ -188,7 +188,7 @@
     },
     {
       "id": "visual-culture",
-      "title": "Visual Culture — 빛과 도시 사이",
+      "title": "시각 문화 — 빛과 형태",
       "url": "/journal/visual/",
       "kind": "visual-fiction",
       "manufacturer": null,
@@ -198,12 +198,12 @@
       "forms": [
         "curves"
       ],
-      "summary": "요코하마의 저녁을 상상한 사진적 시퀀스. 자동차와 도시가 서로의 배경이 되는 시각적 맥락.",
-      "image": "/assets/yokohama-afterglow.webp",
-      "image_alt": "요코하마의 저녁과 자동차를 상상한 비주얼 픽션",
-      "image_credit": "TOHEŞAR · AI 보조 비주얼 픽션 / 현장 사진 아님",
-      "image_licence": "TOHEŞAR original / existing 006 asset",
-      "image_source": "/journal/visual/#sequence",
+      "summary": "자동차의 형태와 빛, 작은 그래픽으로 이어지는 시각적 관찰.",
+      "image": "/journal/assets/giulia/profile-1600.webp",
+      "image_alt": "Alfa Romeo Giulia의 측면 사진",
+      "image_credit": "Owen.outdoors / Pexels · WebP 변환",
+      "image_licence": "https://www.pexels.com/license/",
+      "image_source": "https://www.pexels.com/photo/alfa-romeo-giulia-in-side-view-26756716/",
       "related": [
         "yokohama-city-car",
         "porsche-911",

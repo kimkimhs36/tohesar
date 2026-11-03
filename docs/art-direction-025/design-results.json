@@ -1,0 +1,34 @@
+[
+  {
+    "width": 375,
+    "overflow": false,
+    "images": "all loaded",
+    "filter": 5,
+    "search": 1,
+    "reset": 7
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "images": "all loaded",
+    "filter": 5,
+    "search": 1,
+    "reset": 7
+  },
+  {
+    "width": 430,
+    "overflow": false,
+    "images": "all loaded",
+    "filter": 5,
+    "search": 1,
+    "reset": 7
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "images": "all loaded",
+    "filter": 5,
+    "search": 1,
+    "reset": 7
+  }
+]

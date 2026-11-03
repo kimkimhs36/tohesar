@@ -1,0 +1,18 @@
+/* A single, unhurried passage from the cover into the journal. */
+.motion .sequence{height:260svh}
+.cover-passage{height:clamp(100px,16vw,180px);background:linear-gradient(180deg,#e8dfe1 0%,#eae3e9 55%,#e9e4ee 100%)}
+.journal-flow>.site-header{background:#e9e4ee;transition:background-color .8s ease,box-shadow .8s ease}
+.journal-flow>.site-header.is-settled{background:#ebe5ed;box-shadow:0 8px 28px rgba(75,58,76,.055)}
+.home-editorial{background:linear-gradient(165deg,#eee8ed 0%,#f1e9e8 36%,#e9e2eb 75%,#e4dbe6 100%)}
+.home-editorial .home-intro{padding-top:clamp(100px,12vw,165px);padding-bottom:clamp(135px,13vw,195px)}
+.home-editorial .home-pair{background:linear-gradient(165deg,#f4f0eb,#f0e8ed)}
+.home-intro.entering{animation:journal-arrival 1.05s cubic-bezier(.22,1,.36,1) both}
+@keyframes journal-arrival{from{opacity:.72;filter:blur(3px);transform:translateY(12px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@media(max-width:700px){
+ .cover-passage{height:160px}
+ .home-editorial .home-intro{padding-top:92px;padding-bottom:145px}
+ .editorial{left:var(--edge);right:var(--edge)}
+ .editorial h2{font-size:clamp(42px,11vw,55px);line-height:1.18}
+ .editorial p{font-size:14px;line-height:1.9}
+}
+@media(prefers-reduced-motion:reduce){.journal-flow>.site-header{transition:none}.home-intro.entering{animation:none}}
