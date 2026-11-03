@@ -17,11 +17,11 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       console.log(`SKIP ${name}: ${error.message.split('\n')[0]}`); continue;
     }
     engines++;
-    for (const viewport of [{width:390,height:844},{width:1180,height:820},{width:1440,height:900}]) {
+    for (const viewport of [{width:390,height:844},{width:1180,height:820},{width:1440,height:900}].filter(size => !process.env.TEST_WIDTH || size.width === Number(process.env.TEST_WIDTH))) {
       const page = await browser.newPage({viewport});
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
-      await page.addInitScript(() => { window.__thzIcons030Test = {delay:0, speed:4}; });
+      await page.addInitScript(width => { window.__thzIcons030Test = {delay:0, speed:width === 390 ? 2 : 4}; }, viewport.width);
       await page.goto(base + '/journal/f40/');
       const car = page.locator('.thz-icons030-car');
       await car.waitFor();
@@ -42,8 +42,29 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       for (const r of samples.filter(r => r.visible)) assert(r.x >= -1 && r.y >= -1 && r.right <= viewport.width+1 && r.bottom <= viewport.height+1, JSON.stringify(r));
       assert(samples.some((p,i) => i && Math.abs(p.y-samples[0].y)>100), 'car should travel around a corner');
       assert(samples.some(p => p.puff > 0), 'brief exhaust appears while driving');
-      if (viewport.width === 390) assert(samples.some(p => p.tracks >= 2), 'paired tire traces appear in a bend');
+      if (viewport.width === 390) {
+        await page.waitForFunction(() => document.querySelectorAll('.thz-icons030-track').length >= 2, null, {timeout:13000});
+        const mark = await page.locator('.thz-icons030-track').first().elementHandle();
+        await page.waitForTimeout(2100);
+        assert(await mark.evaluate(node => node.isConnected && Number(getComputedStyle(node).opacity) > 0), 'tire traces remain visible');
+      }
       await page.waitForFunction(() => document.querySelector('.thz-icons030.is-visible') && !document.querySelector('.thz-icons030-car').classList.contains('is-obscured'));
+      if (viewport.width === 390) {
+        const beforeDrag = await car.locator('.thz-icons030-current').getAttribute('src');
+        const rect = await car.boundingBox();
+        await page.mouse.move(rect.x + rect.width / 2, rect.y + rect.height / 2);
+        await page.mouse.down();
+        await page.mouse.move(viewport.width / 2, viewport.height / 2, {steps:10});
+        const dragged = await car.boundingBox();
+        assert(Math.abs(dragged.x + dragged.width / 2 - viewport.width / 2) < 12, 'car follows the pointer');
+        await page.mouse.up();
+        await page.waitForTimeout(900);
+        const returned = await car.boundingBox();
+        const x = returned.x + returned.width / 2, y = returned.y + returned.height / 2;
+        assert(Math.min(x, viewport.width-x, y, viewport.height-y) < 65, 'car returns to the perimeter');
+        assert.equal(await car.locator('.thz-icons030-current').getAttribute('src'), beforeDrag, 'dragging must not trigger a tap transformation');
+        await page.waitForFunction(() => !document.querySelector('.thz-icons030-car').classList.contains('is-obscured'));
+      }
       const prior = await car.locator('.thz-icons030-current').getAttribute('src');
       await car.click({force:true});
       await page.waitForFunction(src => document.querySelector('.thz-icons030-current')?.getAttribute('src') !== src, prior, {timeout:3000});
@@ -58,6 +79,17 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       await page.waitForURL('**/journal/f40/');
       await page.goBack(); await page.waitForURL(base+'/');
       assert.equal(await page.locator('.thz-icons030').count(),1);
+      if (viewport.width === 390) {
+        await page.emulateMedia({reducedMotion:'no-preference'});
+        await page.locator('.home-feature-image').scrollIntoViewIfNeeded();
+        await page.waitForSelector('.thz-icons030.is-visible', {timeout:5000});
+        await page.evaluate(() => scrollTo(0, 0));
+        await page.waitForFunction(() => document.querySelector('.thz-icons030.is-cover-hidden'));
+        assert.equal(await page.locator('.thz-icons030').evaluate(el => getComputedStyle(el).visibility), 'hidden');
+        await page.locator('.home-feature-image').scrollIntoViewIfNeeded();
+        await page.waitForSelector('.thz-icons030.is-visible', {timeout:5000});
+        assert.equal(await page.locator('.thz-icons030').evaluate(el => getComputedStyle(el).visibility), 'visible');
+      }
       assert.deepEqual(errors, []);
       console.log(`PASS ${name} ${viewport.width}x${viewport.height}: path, tap, reduced motion, history`);
       await page.close();

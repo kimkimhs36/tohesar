@@ -49,6 +49,7 @@
   let frame = 0, timer = 0, morphTimer = 0, running = false, morphing = false, transformed = false;
   let controls = [], enabled = false, brakingUntil = 0, speed = 0, scrollFrame = 0;
   let blocked = false, lastPuff = 0, lastTrack = 0, previousWheels = null, exhaustUntil = 0;
+  let drag = null, returning = null, suppressClick = false, currentAngle = 0, coverShowing = null;
   let preloads, generation = 0;
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
   const smooth = t => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
@@ -78,6 +79,7 @@
     const point = track.getPointAtLength(at);
     const ahead = track.getPointAtLength((at + 1) % total);
     const angle = Math.atan2(ahead.y - point.y, ahead.x - point.x) * 180 / Math.PI;
+    currentAngle = angle;
     car.style.transform = `translate3d(${point.x.toFixed(2)}px,${point.y.toFixed(2)}px,0) translate(-50%,-50%) rotate(${angle.toFixed(2)}deg)`;
     // Hide before entering a control's hit area so the decoration never steals navigation.
     blocked = controls.some(r => point.x > r.left - 35 && point.x < r.right + 35 && point.y > r.top - 35 && point.y < r.bottom + 35);
@@ -87,9 +89,12 @@
   function effectNode(name, className) {
     const node = document.createElementNS('http://www.w3.org/2000/svg', name);
     node.setAttribute('class', className);
-    node.addEventListener('animationend', () => node.remove(), {once:true});
+    if (className === 'thz-icons030-puff') node.addEventListener('animationend', () => node.remove(), {once:true});
     effects.append(node);
     return node;
+  }
+  function clearEffects(clearTracks) {
+    effects.querySelectorAll(clearTracks ? '.thz-icons030-puff, .thz-icons030-track' : '.thz-icons030-puff').forEach(node => node.remove());
   }
   function drawEffects(now, bend) {
     if (blocked || morphing) { previousWheels = null; return; }
@@ -110,7 +115,7 @@
       puff.append(cloud);
     }
 
-    // A very light pair of short-lived traces only through a bend.
+    // A light pair of traces remains on the page after the car takes a bend.
     if (bend < .045 || speed < 20) { previousWheels = null; return; }
     if (now - lastTrack < 110) return;
     lastTrack = now;
@@ -124,6 +129,9 @@
       line.setAttribute('x1', previous.x.toFixed(1)); line.setAttribute('y1', previous.y.toFixed(1));
       line.setAttribute('x2', wheel.x.toFixed(1)); line.setAttribute('y2', wheel.y.toFixed(1));
     });
+    // Bound the number of retained marks for unusually long visits.
+    const marks = effects.querySelectorAll('.thz-icons030-track');
+    if (marks.length > 800) for (let i = 0; i < marks.length - 800; i++) marks[i].remove();
     previousWheels = wheels;
   }
   function morph() {
@@ -144,31 +152,58 @@
       morphing = false;
     }, 900);
   }
-  function cancel() {
+  function cancel(clearTracks = false) {
     generation++;
     clearTimeout(timer); clearTimeout(morphTimer); cancelAnimationFrame(frame);
     running = morphing = false;
-    effects.replaceChildren(); previousWheels = null;
+    clearEffects(clearTracks); previousWheels = null;
+    drag = returning = null;
+    car.classList.remove('is-dragging');
     car.classList.remove('is-transforming');
     layer.classList.remove('is-visible');
     car.disabled = true;
   }
   function ready() {
     const cover = document.getElementById('cover');
-    return !cover || cover.getBoundingClientRect().bottom < innerHeight * .8;
+    if (!cover) return true;
+    const rect = cover.getBoundingClientRect();
+    return rect.bottom <= 0 || rect.top >= innerHeight;
+  }
+  function syncCover() {
+    const showing = !ready();
+    if (showing === coverShowing) return;
+    coverShowing = showing;
+    layer.classList.toggle('is-cover-hidden', showing);
+    if (showing) cancel(false);
+    else if (enabled) schedule(600);
   }
   function schedule(delay) {
     clearTimeout(timer);
-    if (!enabled) return;
+    if (!enabled || coverShowing) return;
     timer = setTimeout(() => {
       if (!enabled) return;
-      if (!ready()) { schedule(2500); return; }
+      if (!ready()) { syncCover(); return; }
       begin();
     }, delay);
   }
   function tick(now) {
     if (!running || !enabled) return;
-    const dt = Math.min((now - last) / 1000, .05); last = now; elapsed += dt;
+    const dt = Math.min((now - last) / 1000, .05); last = now;
+    if (drag && drag.moved) { frame = requestAnimationFrame(tick); return; }
+    if (returning) {
+      const t = smooth((now - returning.start) / 700);
+      const destination = track.getPointAtLength(distance);
+      const ahead = track.getPointAtLength((distance + 1) % total);
+      const target = Math.atan2(ahead.y - destination.y, ahead.x - destination.x) * 180 / Math.PI;
+      const turn = ((target - returning.angle + 540) % 360) - 180;
+      const x = returning.x + (destination.x - returning.x) * t;
+      const y = returning.y + (destination.y - returning.y) * t;
+      currentAngle = returning.angle + turn * t;
+      car.style.transform = `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0) translate(-50%,-50%) rotate(${currentAngle.toFixed(2)}deg)`;
+      if (t >= 1) { returning = null; speed = 0; paint(); }
+      frame = requestAnimationFrame(tick); return;
+    }
+    elapsed += dt;
     // Smooth departure and arrival; corner curvature naturally follows the path tangent.
     const end = smooth((total - distance) / 110);
     const start = smooth(elapsed / 2);
@@ -187,8 +222,8 @@
     if (!transformed && distance > total * .55) { transformed = true; morph(); }
     if (distance >= total - 1) {
       running = false; layer.classList.remove('is-visible'); car.disabled = true;
-      effects.replaceChildren(); previousWheels = null;
-      schedule(60000); return;
+      clearEffects(false); previousWheels = null;
+      schedule(18000); return;
     }
     frame = requestAnimationFrame(tick);
   }
@@ -210,19 +245,54 @@
   }
   function updateEnabled() {
     enabled = !reduced.matches && !(connection && connection.saveData) && document.visibilityState !== 'hidden';
-    cancel(); if (enabled) schedule(Number.isFinite(test.delay) ? test.delay : 12000);
+    cancel(reduced.matches || !!(connection && connection.saveData)); if (enabled) schedule(Number.isFinite(test.delay) ? test.delay : 4000);
   }
-  car.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); morph(); });
+  car.addEventListener('pointerdown', event => {
+    if (!running || returning || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    const rect = car.getBoundingClientRect();
+    drag = {id:event.pointerId, startX:event.clientX, startY:event.clientY,
+      offsetX:rect.left + rect.width / 2 - event.clientX, offsetY:rect.top + rect.height / 2 - event.clientY,
+      x:rect.left + rect.width / 2, y:rect.top + rect.height / 2, moved:false};
+    car.setPointerCapture(event.pointerId);
+  });
+  car.addEventListener('pointermove', event => {
+    if (!drag || drag.id !== event.pointerId) return;
+    if (!drag.moved && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < 6) return;
+    drag.moved = true; previousWheels = null;
+    car.classList.add('is-dragging'); car.classList.remove('is-obscured');
+    drag.x = clamp(event.clientX + drag.offsetX, 37, innerWidth - 37);
+    drag.y = clamp(event.clientY + drag.offsetY, 37, innerHeight - 37);
+    car.style.transform = `translate3d(${drag.x.toFixed(2)}px,${drag.y.toFixed(2)}px,0) translate(-50%,-50%) rotate(${currentAngle.toFixed(2)}deg)`;
+  });
+  function release(event) {
+    if (!drag || drag.id !== event.pointerId) return;
+    if (drag.moved) {
+      let nearest = 0, best = Infinity;
+      for (let d = 0; d < total; d += 8) {
+        const p = track.getPointAtLength(d), squared = (p.x - drag.x) ** 2 + (p.y - drag.y) ** 2;
+        if (squared < best) { best = squared; nearest = d; }
+      }
+      distance = nearest;
+      transformed = true;
+      returning = {x:drag.x, y:drag.y, angle:currentAngle, start:performance.now()};
+      suppressClick = true; setTimeout(() => { suppressClick = false; }, 0);
+    }
+    drag = null; car.classList.remove('is-dragging');
+  }
+  car.addEventListener('pointerup', release);
+  car.addEventListener('pointercancel', release);
+  car.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); if (!suppressClick) morph(); });
   reduced.addEventListener('change', updateEnabled);
   connection?.addEventListener?.('change', updateEnabled);
   document.addEventListener('visibilitychange', updateEnabled);
-  addEventListener('pagehide', cancel);
+  addEventListener('pagehide', () => cancel(true));
   addEventListener('pageshow', updateEnabled);
-  addEventListener('resize', layout, {passive:true});
+  addEventListener('resize', () => { layout(); syncCover(); }, {passive:true});
   addEventListener('scroll', () => {
+    syncCover();
     if (!running || scrollFrame) return;
     scrollFrame = requestAnimationFrame(() => { scrollFrame = 0; updateControls(); });
   }, {passive:true});
-  window.visualViewport?.addEventListener('resize', layout, {passive:true});
-  layout(); updateEnabled();
+  window.visualViewport?.addEventListener('resize', () => { layout(); syncCover(); }, {passive:true});
+  layout(); syncCover(); updateEnabled();
 })();
