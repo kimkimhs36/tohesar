@@ -1,0 +1,83 @@
+/* Reading direction 027: the photographic scene opens onto a quieter sheet. */
+:is(.story-page,.giulia-page,.type01-page) .site-header .brand{width:clamp(132px,13vw,175px);height:auto}
+.type01-page{--paper:#eee9ec;--ink:#35313d;--accent:#766071}
+.type01-page .type-opening{padding:0;background:linear-gradient(155deg,#e2dbe5,#f2eee9 75%)}
+.type01-page .type-topline{padding:20px var(--edge) 10px}
+.type01-page .type-opening-paper{padding:clamp(32px,5vw,75px) var(--edge) clamp(30px,5vw,68px);max-width:1500px;margin:auto}
+.type01-page .type-opening-title{padding:0 0 24px}
+.type01-page .type-opening-title .atlas-eyebrow,.type01-page .hero-caption{display:none}
+.type01-page .type-hero{margin:0;background:#d8ccd8;overflow:hidden}
+.type01-page .type-hero>img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;transform-origin:center center}
+.type01-page .type-hero-foot{padding:12px 0 30px}
+.type01-page .type-hero-foot>p{font-size:clamp(16px,1.5vw,20px)}
+.type01-page .type-hero-foot small{font-size:11px}
+.type01-page .type-byline{font-size:11px}
+.type01-page .type-lead{padding-top:clamp(90px,12vw,170px)}
+.type01-page .profile-guides{display:none}
+.type01-page .type-profile figcaption small{display:none}
+.type01-page .type-study-intro{background:#4b414d;color:#f1e9e9;padding-bottom:clamp(50px,7vw,90px)}
+.type01-page .type-comparison{background-color:#eee8e9}
+.type01-page :is(.type-language,.type-comparison){background-image:linear-gradient(145deg,rgba(244,237,235,.92),rgba(230,224,235,.92)),url('/journal/assets/wallpaper/miniature-paper-wide.svg')}
+.type01-page :is(.type-chapter,.type-comparison,.type-lead,.type-sources){overflow-wrap:anywhere}
+/* Preserve the original F40 opening and sequence, replacing only the diagram. */
+.beauty014-blade #air-study{height:auto!important;min-height:0!important;padding:clamp(60px,8vw,120px) var(--edge)!important;background:#ead6cd!important;color:#563b3a!important}
+.beauty014-blade #air-study .air-board{height:auto!important;min-height:0!important;position:relative!important;display:block!important;padding:0!important;max-width:1300px;margin:auto;overflow:visible!important}
+.beauty014-blade #air-study .air-copy{position:static!important;max-width:660px;margin:0 auto 45px;transform:none!important;opacity:1!important}
+.beauty014-blade #air-study .air-copy h2{font-size:clamp(30px,4vw,52px);line-height:1.45;font-weight:400}
+.beauty014-blade #air-study .air-copy p{font-size:16px;line-height:1.9;margin-top:20px}
+.beauty014-blade #air-study figure{margin:0 auto;max-width:1100px}
+.beauty014-blade #air-study figure img{display:block;width:100%;height:auto}
+.beauty014-blade #air-study figcaption{font-size:11px;line-height:1.8;margin-top:12px}
+.beauty014-blade #air-study figcaption a{text-decoration:underline}
+.beauty014-blade #air-study .air-notes{position:static!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:45px auto 0;max-width:1100px;transform:none!important}
+.beauty014-blade #air-study .air-notes p{display:block!important;position:static!important;opacity:1!important;transform:none!important;font-size:15px;line-height:1.9}
+.beauty014-blade #air-study .air-notes b{display:block;font-weight:500;margin-bottom:8px}
+/* Keep miniatures in the paper margins, especially beside prose. */
+.beauty014-proportion :is(.opening-text,.reading-chapter){background-blend-mode:normal;}
+.beauty014-proportion .wallpaper-art{opacity:.25}
+.story-page .f40-hero{margin-bottom:clamp(55px,8vw,120px)}
+@supports (animation-timeline:view()){
+ @media (prefers-reduced-motion:no-preference){
+  .type01-page .type-hero>img{animation:paper-photo-recede linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+ }
+}
+@keyframes paper-photo-recede{from{transform:scale(1)}to{transform:scale(.94)}}
+@media(max-width:700px){
+ .type01-page .type-topline{padding-top:16px}
+ .type01-page .type-opening-paper{padding-top:35px}
+ .type01-page .type-opening-title{padding:0 0 20px}
+ .type01-page .type-opening-title h1{font-size:30px}
+ .type01-page .type-opening-title>p i{font-size:46px}
+ .type01-page .type-hero-foot small{font-size:11px}
+ .type01-page .type-lead{padding-top:85px}
+ .type01-page :is(.type-language,.type-comparison){background-image:linear-gradient(145deg,rgba(244,237,235,.94),rgba(230,224,235,.94)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg')}
+ .beauty014-blade #air-study .air-notes{grid-template-columns:1fr;gap:16px}
+ .beauty014-blade #air-study .air-notes p{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){.type01-page .type-hero>img{animation:none;transform:none}}
+/* Suppress artwork beneath the Jaguar opening and soften it under long reading. */
+.beauty014-language main .type-opening{background-image:linear-gradient(155deg,#e2dbe5,#f2eee9 75%)}
+.beauty014-language .type-lead{background-image:linear-gradient(90deg,rgba(244,240,238,.94),rgba(244,240,238,.97) 30%,rgba(244,240,238,.97) 70%,rgba(244,240,238,.94)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg')}
+.beauty014-proportion main :is(.opening-text,.reading-chapter){background-image:linear-gradient(90deg,rgba(240,240,232,.92),rgba(240,240,232,.98) 28%,rgba(240,240,232,.98) 72%,rgba(240,240,232,.92)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg')}
+/* The shared paper never sits behind opening photography; each car gets its own tint. */
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) main{background-image:none}
+.beauty014-blade main .story-intro{background-image:none}
+.beauty014-blade main .wallpaper-paper{background-image:linear-gradient(90deg,rgba(242,226,217,.88),rgba(242,226,217,.98) 28%,rgba(242,226,217,.98) 75%,rgba(242,226,217,.9)),url('/journal/assets/wallpaper/coral-blade-240.webp'),url('/journal/assets/wallpaper/coral-blade-240.webp'),url('/journal/assets/wallpaper/coral-blade-240.webp');background-size:100% 100%,130px auto,130px auto,130px auto;background-position:center,left 7%,right 50%,left 90%;background-repeat:no-repeat}
+.beauty014-proportion main .giulia-opening{background-image:linear-gradient(90deg,rgba(240,236,231,.93),rgba(240,236,231,.98) 30%,rgba(240,236,231,.98) 70%,rgba(240,236,231,.93)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg')}
+@supports (animation-timeline:view()){
+ @media (prefers-reduced-motion:no-preference){
+  .beauty014-blade .f40-hero>img,.beauty014-proportion .giulia-hero>img{animation:paper-photo-recede linear both;animation-timeline:view();animation-range:exit 0% exit 100%;transform-origin:center}
+ }
+}
+@media(prefers-reduced-motion:reduce){:is(.beauty014-blade .f40-hero,.beauty014-proportion .giulia-hero)>img{animation:none;transform:none}}
+.study-observations027{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:42px;max-width:1200px}
+.study-observations027 p{font-size:15px;line-height:1.9;max-width:27em}
+@media(max-width:700px){.study-observations027{grid-template-columns:1fr;gap:16px;margin-top:30px}}
+/* A translucent wash keeps the existing illustrations in the margin, not in the copy. */
+.beauty014-language main :is(.type-language,.type-comparison,.type-sources){background-image:linear-gradient(90deg,rgba(240,235,237,.96),rgba(240,235,237,.99) 30%,rgba(240,235,237,.99) 70%,rgba(240,235,237,.96)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:100% 100%,390px 1650px;background-position:center,center var(--miniature-paper-y,0px)}
+.beauty014-proportion main :is(.wallpaper-paper,.giulia-sources){background-image:linear-gradient(90deg,rgba(235,239,229,.96),rgba(235,239,229,.99) 30%,rgba(235,239,229,.99) 70%,rgba(235,239,229,.96)),url('/journal/assets/wallpaper/miniature-paper-mobile.svg');background-size:100% 100%,390px 1650px;background-position:center,center var(--miniature-paper-y,0px)}
+.beauty014-blade main .story-sources{background-image:linear-gradient(90deg,rgba(240,222,214,.96),rgba(240,222,214,.99) 30%,rgba(240,222,214,.99) 70%,rgba(240,222,214,.96)),url('/journal/assets/wallpaper/coral-blade-240.webp');background-size:100% 100%,120px auto;background-position:center,left bottom;background-repeat:no-repeat}
+.beauty014-blade .chapter-side>span{display:none}
+.beauty014-language .comparison-notes section>span{display:none}
+/* clip masks the shrinking image without creating a nested scroll container. */
+.type01-page .type-hero{overflow:clip}

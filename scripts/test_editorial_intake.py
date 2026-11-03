@@ -54,9 +54,13 @@ class EditorialIntakeTest(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(ValueError):
                 editorial_intake.prepare({**self.brief, field:'published'})
 
-    def test_missing_source_rejected(self):
-        with patch('editorial_intake.editorial.image_check'), self.assertRaises(ValueError):
-            editorial_intake.prepare({**self.brief, 'sources':[]})
+    def test_missing_factual_source_is_review_only(self):
+        with patch('editorial_intake.editorial.image_check'):
+            story = editorial_intake.prepare({**self.brief, 'sources':[]})
+            self.assertEqual(story['status'], 'review')
+            story['verification'] = {'status':'verified', 'reviewer':'editor', 'note':'reviewed', 'verified_at':'2020-01-01'}
+            with self.assertRaises(ValueError):
+                editorial_intake.editorial.validate_story(story, publish=True)
 
     def test_multiple_chapters_and_photographs_are_rendered(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -78,6 +82,27 @@ class EditorialIntakeTest(unittest.TestCase):
             self.assertIn('data-composition="inset"', html)
             self.assertEqual(html.count('>사진 출처</a>'), 2)
             self.assertIn('noindex,nofollow', html)
+
+    def test_simple_photo_sequence_and_direction_stay_review_only(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copyfile(Path(__file__).resolve().parents[1] / 'journal/assets/design/type01-arrival-800.webp', root / 'example.webp')
+            partials = root / 'journal/partials'; partials.mkdir(parents=True)
+            for name in ('navigation.html', 'footer-navigation.html'):
+                (partials / name).write_text('<nav></nav>')
+            brief = {**self.brief, 'photos':[self.brief['hero'], self.brief['hero']],
+                     'paper':'sage', 'art_direction':{'opening':'offset', 'car':'coral', 'miniatures':'trace', 'placement':'reading'}}
+            with patch.object(editorial_intake.editorial, 'ROOT', root):
+                story = editorial_intake.prepare(brief)
+                html = editorial_intake.editorial.render(story, preview=True)
+                self.assertEqual(html.count('>사진 출처</a>'), 3)
+                self.assertLess(html.index('class="es-hero"'), html.index('class="es-opening"'))
+                self.assertIn('data-opening="offset"', html)
+                self.assertIn('data-miniature-car="coral"', html)
+                self.assertEqual(story['status'], 'review')
+                with self.assertRaises(ValueError): editorial_intake.editorial.render(story)
+                with self.assertRaises(ValueError): editorial_intake.prepare({**brief, 'photos':[{'src':'/example.webp'}]})
+                with self.assertRaises(ValueError): editorial_intake.prepare({**brief, 'art_direction':{'opening':'invalid'}})
 
     def test_incomplete_chapter_or_ambiguous_body_is_rejected(self):
         brief = {k: v for k, v in self.brief.items() if k != 'body'}
