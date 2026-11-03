@@ -1,0 +1,16 @@
+/* The layer itself never captures input. */
+.thz-icons030 {position:fixed;inset:0;z-index:85;pointer-events:none;overflow:hidden;contain:layout style;isolation:isolate}
+.thz-icons030-car {position:absolute;left:0;top:0;width:62px;height:38px;padding:0;margin:0;border:0;background:none;opacity:0;pointer-events:none;appearance:none;-webkit-appearance:none;transform-origin:50% 50%;will-change:transform;-webkit-tap-highlight-color:transparent;transition:opacity .45s ease}
+.thz-icons030.is-visible .thz-icons030-car {opacity:1;pointer-events:auto;cursor:pointer}
+.thz-icons030.is-visible .thz-icons030-car.is-obscured {opacity:0;pointer-events:none}
+.thz-icons030-car:focus-visible {outline:2px solid #816f80;outline-offset:3px;border-radius:6px}
+.thz-icons030-body {position:absolute;inset:0;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.thz-icons030-car.is-transforming .thz-icons030-body {transform:scaleX(.96)}
+.thz-icons030-car img {position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;filter:drop-shadow(0 1px 1px rgba(24,20,22,.28));transition:opacity .8s ease,clip-path .8s cubic-bezier(.45,0,.2,1),transform .8s ease}
+.thz-icons030-next {opacity:0;clip-path:inset(0 100% 0 0);transform:scaleX(.96)}
+.thz-icons030-car.is-transforming .thz-icons030-current {opacity:.1;clip-path:inset(0 0 0 100%);transform:scaleX(1.03)}
+.thz-icons030-car.is-transforming .thz-icons030-next {opacity:1;clip-path:inset(0 0 0 0);transform:scaleX(1)}
+.thz-icons030-body::after {content:"";position:absolute;inset:7px 5px;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.4) 50%,transparent 62%);transform:translateX(-35%)}
+.thz-icons030-car.is-transforming .thz-icons030-body::after {animation:thz030-reflection .8s ease both}
+@keyframes thz030-reflection {15%{opacity:.5}85%{opacity:.3}100%{opacity:0;transform:translateX(35%)}}
+@media (prefers-reduced-motion:reduce), print {.thz-icons030{display:none!important}}

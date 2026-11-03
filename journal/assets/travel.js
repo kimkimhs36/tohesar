@@ -14,17 +14,17 @@
 })();
 
 
-/* Living Icons 029: independent decoration, never involved in navigation. */
+/* Living Icons 030: independent decoration, never involved in navigation. */
 (() => {
   if (location.pathname.startsWith('/creative/') ||
-      document.querySelector('script[data-living-icons029]')) return;
+      document.querySelector('script[data-living-icons030]')) return;
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = '/journal/assets/border-icons029.css?v=029';
+  css.href = '/journal/assets/border-icons030.css?v=030';
   document.head.append(css);
   const script = document.createElement('script');
-  script.src = '/journal/assets/border-icons029.js?v=029';
+  script.src = '/journal/assets/border-icons030.js?v=030';
   script.defer = true;
-  script.dataset.livingIcons029 = '';
+  script.dataset.livingIcons030 = '';
   document.head.append(script);
 })();
