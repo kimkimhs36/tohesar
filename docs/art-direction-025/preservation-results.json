@@ -1,0 +1,58 @@
+{
+  "source_hashes": {
+    "creative/cover-art-max-004/photo.css": true,
+    "creative/cover-art-max-004/cover.js": true,
+    "creative/cover-art-max-004/index.html": true,
+    "creative/cover-art-max-004/fonts.css": true,
+    "creative/cover-art-max-004/cover.css": true,
+    "journal/f40/index.html": true,
+    "journal/templates/giulia-body.html": true
+  },
+  "opening_pixels": {
+    "cover-375-top.png": {
+      "identical": true
+    },
+    "cover-390-top.png": {
+      "identical": true
+    },
+    "cover-430-top.png": {
+      "identical": true
+    },
+    "cover-768-top.png": {
+      "identical": true
+    },
+    "cover-1440-top.png": {
+      "identical": true
+    },
+    "f40-375-top.png": {
+      "identical": true
+    },
+    "f40-390-top.png": {
+      "identical": true
+    },
+    "f40-430-top.png": {
+      "identical": true
+    },
+    "f40-768-top.png": {
+      "identical": true
+    },
+    "f40-1440-top.png": {
+      "identical": true
+    },
+    "giulia-375-top.png": {
+      "identical": true
+    },
+    "giulia-390-top.png": {
+      "identical": true
+    },
+    "giulia-430-top.png": {
+      "identical": true
+    },
+    "giulia-768-top.png": {
+      "identical": true
+    },
+    "giulia-1440-top.png": {
+      "identical": true
+    }
+  }
+}

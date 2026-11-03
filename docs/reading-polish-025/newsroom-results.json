@@ -1,0 +1,61 @@
+{
+  "browser": "Chromium; actual Safari unavailable",
+  "checks": [
+    {
+      "width": 375,
+      "page": "/edition/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": false
+    },
+    {
+      "width": 375,
+      "page": "/edition/news/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": true
+    },
+    {
+      "width": 390,
+      "page": "/edition/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": false
+    },
+    {
+      "width": 390,
+      "page": "/edition/news/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": true
+    },
+    {
+      "width": 430,
+      "page": "/edition/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": false
+    },
+    {
+      "width": 430,
+      "page": "/edition/news/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": true
+    },
+    {
+      "width": 1440,
+      "page": "/edition/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": false
+    },
+    {
+      "width": 1440,
+      "page": "/edition/news/",
+      "overflow": false,
+      "pageerrors": [],
+      "filters_checked": true
+    }
+  ]
+}
