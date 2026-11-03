@@ -14,6 +14,10 @@
     /giulia/i.test(location.pathname) ? 3 : /jaguar|type-01/i.test(location.pathname) ? 4 : 0;
   const layer = document.createElement('div');
   layer.className = 'thz-icons030';
+  const effects = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  effects.setAttribute('class', 'thz-icons030-effects');
+  effects.setAttribute('aria-hidden', 'true');
+  layer.append(effects);
   const car = document.createElement('button');
   car.type = 'button';
   car.className = 'thz-icons030-car';
@@ -44,6 +48,7 @@
   let front = current, back = next, total = 0, distance = 0, last = 0, elapsed = 0;
   let frame = 0, timer = 0, morphTimer = 0, running = false, morphing = false, transformed = false;
   let controls = [], enabled = false, brakingUntil = 0, speed = 0, scrollFrame = 0;
+  let blocked = false, lastPuff = 0, lastTrack = 0, previousWheels = null, exhaustUntil = 0;
   let preloads, generation = 0;
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
   const smooth = t => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
@@ -75,14 +80,57 @@
     const angle = Math.atan2(ahead.y - point.y, ahead.x - point.x) * 180 / Math.PI;
     car.style.transform = `translate3d(${point.x.toFixed(2)}px,${point.y.toFixed(2)}px,0) translate(-50%,-50%) rotate(${angle.toFixed(2)}deg)`;
     // Hide before entering a control's hit area so the decoration never steals navigation.
-    const blocked = controls.some(r => point.x > r.left - 35 && point.x < r.right + 35 && point.y > r.top - 35 && point.y < r.bottom + 35);
+    blocked = controls.some(r => point.x > r.left - 35 && point.x < r.right + 35 && point.y > r.top - 35 && point.y < r.bottom + 35);
     car.classList.toggle('is-obscured', blocked);
     car.tabIndex = blocked ? -1 : 0;
+  }
+  function effectNode(name, className) {
+    const node = document.createElementNS('http://www.w3.org/2000/svg', name);
+    node.setAttribute('class', className);
+    node.addEventListener('animationend', () => node.remove(), {once:true});
+    effects.append(node);
+    return node;
+  }
+  function drawEffects(now, bend) {
+    if (blocked || morphing) { previousWheels = null; return; }
+    const at = ((distance % total) + total) % total;
+    const point = track.getPointAtLength(at);
+    const ahead = track.getPointAtLength((at + 1) % total);
+    const angle = Math.atan2(ahead.y - point.y, ahead.x - point.x);
+    const dx = Math.cos(angle), dy = Math.sin(angle);
+
+    // Tiny wisps while driving, with short pauses; a little more at departure.
+    const accelerating = elapsed < 2.5 || now < exhaustUntil;
+    if ((accelerating || elapsed % 7.5 < 5.5) && now - lastPuff > (accelerating ? 350 : 650)) {
+      lastPuff = now;
+      const puff = effectNode('g', 'thz-icons030-puff');
+      puff.setAttribute('transform', `translate(${(point.x - dx * 26).toFixed(1)} ${(point.y - dy * 26).toFixed(1)}) rotate(${(angle * 180 / Math.PI).toFixed(1)})`);
+      const cloud = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+      cloud.setAttribute('rx', '2.8'); cloud.setAttribute('ry', '1.7');
+      puff.append(cloud);
+    }
+
+    // A very light pair of short-lived traces only through a bend.
+    if (bend < .045 || speed < 20) { previousWheels = null; return; }
+    if (now - lastTrack < 110) return;
+    lastTrack = now;
+    const rearX = point.x - dx * 14, rearY = point.y - dy * 14;
+    const wheels = [-1, 1].map(side => ({x:rearX - dy * 8 * side, y:rearY + dx * 8 * side}));
+    if (previousWheels) wheels.forEach((wheel, i) => {
+      const previous = previousWheels[i];
+      // Discard discontinuities after resizing or a missed frame.
+      if (Math.hypot(wheel.x - previous.x, wheel.y - previous.y) > Math.max(24, speed * .3)) return;
+      const line = effectNode('line', 'thz-icons030-track');
+      line.setAttribute('x1', previous.x.toFixed(1)); line.setAttribute('y1', previous.y.toFixed(1));
+      line.setAttribute('x2', wheel.x.toFixed(1)); line.setAttribute('y2', wheel.y.toFixed(1));
+    });
+    previousWheels = wheels;
   }
   function morph() {
     if (!running || morphing) return;
     morphing = true;
     brakingUntil = performance.now() + 650;
+    exhaustUntil = brakingUntil + 1800;
     model = (model + 1) % models.length;
     back.src = paths[model];
     car.classList.add('is-transforming');
@@ -100,6 +148,7 @@
     generation++;
     clearTimeout(timer); clearTimeout(morphTimer); cancelAnimationFrame(frame);
     running = morphing = false;
+    effects.replaceChildren(); previousWheels = null;
     car.classList.remove('is-transforming');
     layer.classList.remove('is-visible');
     car.disabled = true;
@@ -134,9 +183,11 @@
     speed += (targetSpeed - speed) * Math.min(1, dt * 3);
     distance += speed * dt;
     paint();
+    drawEffects(now, bend);
     if (!transformed && distance > total * .55) { transformed = true; morph(); }
     if (distance >= total - 1) {
       running = false; layer.classList.remove('is-visible'); car.disabled = true;
+      effects.replaceChildren(); previousWheels = null;
       schedule(60000); return;
     }
     frame = requestAnimationFrame(tick);

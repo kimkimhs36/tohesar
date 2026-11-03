@@ -33,20 +33,24 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
         const el = document.querySelector('.thz-icons030-car'), points = [];
         for (let i=0; i<70; i++) {
           const r=el.getBoundingClientRect();
-          points.push({x:r.x,y:r.y,right:r.right,bottom:r.bottom,visible:document.querySelector('.thz-icons030').classList.contains('is-visible')});
+          points.push({x:r.x,y:r.y,right:r.right,bottom:r.bottom,visible:document.querySelector('.thz-icons030').classList.contains('is-visible'),
+            puff:document.querySelectorAll('.thz-icons030-puff').length, tracks:document.querySelectorAll('.thz-icons030-track').length});
           await new Promise(resolve => setTimeout(resolve, 70));
         }
         return points;
       });
       for (const r of samples.filter(r => r.visible)) assert(r.x >= -1 && r.y >= -1 && r.right <= viewport.width+1 && r.bottom <= viewport.height+1, JSON.stringify(r));
       assert(samples.some((p,i) => i && Math.abs(p.y-samples[0].y)>100), 'car should travel around a corner');
+      assert(samples.some(p => p.puff > 0), 'brief exhaust appears while driving');
+      if (viewport.width === 390) assert(samples.some(p => p.tracks >= 2), 'paired tire traces appear in a bend');
       await page.waitForFunction(() => document.querySelector('.thz-icons030.is-visible') && !document.querySelector('.thz-icons030-car').classList.contains('is-obscured'));
       const prior = await car.locator('.thz-icons030-current').getAttribute('src');
       await car.click({force:true});
       await page.waitForFunction(src => document.querySelector('.thz-icons030-current')?.getAttribute('src') !== src, prior, {timeout:3000});
       await page.emulateMedia({reducedMotion:'reduce'});
-      await page.waitForTimeout(100);
+      await page.waitForFunction(() => !document.querySelector('.thz-icons030.is-visible'), null, {timeout:3000});
       assert.equal(await page.locator('.thz-icons030.is-visible').count(),0);
+      assert.equal(await page.locator('.thz-icons030-effects > *').count(),0, 'effects are cleared when motion is reduced');
       await page.goto(base + '/');
       await page.locator('.home-feature-image').scrollIntoViewIfNeeded();
       assert.equal(await page.locator('.thz-icons030').count(),1);
