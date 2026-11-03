@@ -9,9 +9,17 @@
   const connection = navigator.connection;
   const test = window.__thzIcons030Test || {};
   const models = ['930', 'f40', 'countach', 'giulia', 'etype'];
+  const stateKey = 'tohesar-living-icons-visit-031';
+  let saved = null;
+  try {
+    const navigation = performance.getEntriesByType('navigation')[0];
+    if (navigation && navigation.type === 'reload') sessionStorage.removeItem(stateKey);
+    else saved = JSON.parse(sessionStorage.getItem(stateKey) || 'null');
+  } catch (_) {}
   const paths = models.map(name => '/journal/assets/living-icons/' + name + '.webp?v=030');
   let model = /\/f40(?:\/|$)/i.test(location.pathname) ? 1 :
     /giulia/i.test(location.pathname) ? 3 : /jaguar|type-01/i.test(location.pathname) ? 4 : 0;
+  if (saved && Number.isInteger(saved.model) && saved.model >= 0 && saved.model < models.length) model = saved.model;
   const layer = document.createElement('div');
   layer.className = 'thz-icons030';
   const effects = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -50,7 +58,7 @@
   let controls = [], enabled = false, brakingUntil = 0, speed = 0, scrollFrame = 0;
   let blocked = false, lastPuff = 0, lastTrack = 0, previousWheels = null, exhaustUntil = 0;
   let drag = null, returning = null, suppressClick = false, currentAngle = 0, coverShowing = null;
-  let preloads, generation = 0;
+  let preloads, generation = 0, started = false;
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
   const smooth = t => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
 
@@ -71,7 +79,7 @@
     updateControls();
   }
   function updateControls() {
-    controls = Array.from(document.querySelectorAll('nav a, nav button, header a, header button, [role="navigation"] a, [role="navigation"] button')).filter(el => el.getClientRects().length).map(el => el.getBoundingClientRect());
+    controls = Array.from(document.querySelectorAll('header a, header button, nav a, nav button, main a, main button, main input, main summary, main p, main h1, main h2, main h3, main h4, main figure img')).filter(el => el.getClientRects().length).map(el => el.getBoundingClientRect()).filter(r => r.bottom > 0 && r.top < innerHeight);
   }
   function paint() {
     if (!total) return;
@@ -97,7 +105,7 @@
     effects.querySelectorAll(clearTracks ? '.thz-icons030-puff, .thz-icons030-track' : '.thz-icons030-puff').forEach(node => node.remove());
   }
   function drawEffects(now, bend) {
-    if (blocked || morphing) { previousWheels = null; return; }
+    if (morphing) { previousWheels = null; return; }
     const at = ((distance % total) + total) % total;
     const point = track.getPointAtLength(at);
     const ahead = track.getPointAtLength((at + 1) % total);
@@ -204,8 +212,8 @@
       frame = requestAnimationFrame(tick); return;
     }
     elapsed += dt;
-    // Smooth departure and arrival; corner curvature naturally follows the path tangent.
-    const end = smooth((total - distance) / 110);
+    // The closed path has no artificial stop at the seam.
+    const end = 1;
     const start = smooth(elapsed / 2);
     const braking = now < brakingUntil ? .55 : 1;
     const point = track.getPointAtLength(distance % total);
@@ -216,15 +224,9 @@
     const bend = Math.abs(Math.atan2(Math.sin(b - a), Math.cos(b - a)));
     const targetSpeed = Math.max(8, 86 * Math.min(start, end) * braking * (1 - Math.min(.28, bend * .7))) * (test.speed || 1);
     speed += (targetSpeed - speed) * Math.min(1, dt * 3);
-    distance += speed * dt;
+    distance = (distance + speed * dt) % total;
     paint();
     drawEffects(now, bend);
-    if (!transformed && distance > total * .55) { transformed = true; morph(); }
-    if (distance >= total - 1) {
-      running = false; layer.classList.remove('is-visible'); car.disabled = true;
-      clearEffects(false); previousWheels = null;
-      schedule(18000); return;
-    }
     frame = requestAnimationFrame(tick);
   }
   async function begin() {
@@ -239,7 +241,20 @@
     }
     if (!enabled || request !== generation) return;
     front.src = paths[model];
-    layout(); distance = 0; speed = 0; elapsed = 0; transformed = false; last = performance.now();
+    layout();
+    if (!started && saved) {
+      distance = clamp(Number(saved.progress) || 0, 0, 1) * total;
+      speed = clamp(Number(saved.speed) || 0, 0, 100);
+      elapsed = Math.max(0, Number(saved.elapsed) || 0);
+      const width = document.documentElement.clientWidth || innerWidth, height = innerHeight;
+      if (Array.isArray(saved.tracks)) saved.tracks.slice(-800).forEach(coords => {
+        if (!Array.isArray(coords) || coords.length !== 4 || !coords.every(Number.isFinite)) return;
+        const line = effectNode('line', 'thz-icons030-track');
+        ['x1','y1','x2','y2'].forEach((key, i) => line.setAttribute(key, (coords[i] * (i % 2 ? height : width)).toFixed(1)));
+      });
+      saved = null;
+    }
+    started = true; last = performance.now();
     running = true; paint(); car.disabled = false;
     layer.classList.add('is-visible'); frame = requestAnimationFrame(tick);
   }
@@ -285,7 +300,16 @@
   reduced.addEventListener('change', updateEnabled);
   connection?.addEventListener?.('change', updateEnabled);
   document.addEventListener('visibilitychange', updateEnabled);
-  addEventListener('pagehide', () => cancel(true));
+  function saveVisit() {
+    if (!started && saved) return;
+    try {
+      const width = document.documentElement.clientWidth || innerWidth, height = innerHeight;
+      const tracks = Array.from(effects.querySelectorAll('.thz-icons030-track')).slice(-800).map(line =>
+        ['x1','y1','x2','y2'].map((key, i) => Number(line.getAttribute(key)) / (i % 2 ? height : width)));
+      sessionStorage.setItem(stateKey, JSON.stringify({model, progress: total ? ((distance % total) + total) % total / total : 0, speed, elapsed, tracks}));
+    } catch (_) {}
+  }
+  addEventListener('pagehide', () => { saveVisit(); cancel(false); });
   addEventListener('pageshow', updateEnabled);
   addEventListener('resize', () => { layout(); syncCover(); }, {passive:true});
   addEventListener('scroll', () => {

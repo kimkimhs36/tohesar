@@ -20,10 +20,10 @@
       document.querySelector('script[data-living-icons030]')) return;
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = '/journal/assets/border-icons030.css?v=030b';
+  css.href = '/journal/assets/border-icons030.css?v=031';
   document.head.append(css);
   const script = document.createElement('script');
-  script.src = '/journal/assets/border-icons030.js?v=030b';
+  script.src = '/journal/assets/border-icons030.js?v=031';
   script.defer = true;
   script.dataset.livingIcons030 = '';
   document.head.append(script);

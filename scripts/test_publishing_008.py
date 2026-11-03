@@ -32,7 +32,10 @@ class Publishing(unittest.TestCase):
         for name in ['journal/design/giulia/index.html', 'journal/issues/001/index.html']:
             rebuilt = (self.root/name).read_text()
             self.assertIn('/journal/assets/unified018.css', rebuilt, name)
-            self.assertIn('/journal/assets/miniature-paper.js', rebuilt, name)
+            if 'giulia' in name:
+                self.assertNotIn('/journal/assets/miniature-paper.js', rebuilt, name)
+            else:
+                self.assertIn('/journal/assets/miniature-paper.js', rebuilt, name)
         self.assertIn('/journal/assets/discovery025.css', (self.root/'index.html').read_text())
         self.assertIn('/journal/assets/atlas025.css', (self.root/'journal/design/index.html').read_text())
         archive=(self.root/'journal/issues/index.html').read_text();self.assertNotIn('DRAFT ONLY',archive)

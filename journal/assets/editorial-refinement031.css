@@ -1,0 +1,76 @@
+/* A quieter reading surface. The cover and the original photographs remain untouched. */
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) {--reading-width: 660px;}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) main {color:#343039}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.wallpaper-art,.type-lead::before) {display:none!important}
+.beauty014-blade main .wallpaper-paper,.beauty014-blade main .story-sources {background:#f1e4dd!important}
+.beauty014-proportion main :is(.wallpaper-paper,.opening-text,.reading-chapter,.giulia-opening,.giulia-sources) {background:#eeeee7!important;background-image:none!important}
+.beauty014-language main :is(.type-lead,.type-language,.type-comparison,.type-sources) {background:#eee9e9!important;background-image:none!important}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-opening p,.chapter-body p,.reading-column>p,.type-lead>p,.type-lead>div p,.type-columns>div p,.language-layout>div p,.type-reading p) {
+ font-size:17px;line-height:1.95;font-weight:400;letter-spacing:-.025em;word-break:keep-all;overflow-wrap:break-word
+}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.chapter-body p+p,.reading-column>p+p,.type-reading p+p) {margin-top:1.5em}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-opening,.chapter-body,.reading-column,.type-reading) {max-width:var(--reading-width)}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.reading-chapter>header>span,.type-chapter>header>.atlas-eyebrow,.type-study-intro>.atlas-eyebrow,.comparison-heading>.atlas-eyebrow,.surface-plate figcaption>span) {display:none}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.chapter-body h2,.reading-chapter h2,.type-chapter h2,.type-study-intro h2) {font-weight:400;letter-spacing:-.055em;line-height:1.45}
+.beauty014-blade .story-opening {margin:clamp(55px,8vw,100px) auto 12px}
+.beauty014-blade .story-chapter {display:block;max-width:var(--reading-width);padding:clamp(45px,6vw,85px) 0;margin:auto}
+.beauty014-blade .chapter-body h2 {font-size:clamp(26px,3vw,37px);margin-bottom:28px}
+.beauty014-blade #air-study {background:#e9d7cf!important}
+.beauty014-blade #air-study .air-copy {margin-bottom:32px}
+.beauty014-blade #air-study .air-copy h2 {font-size:clamp(28px,3.8vw,46px)}
+.beauty014-blade .story-sources {margin:0;padding:55px var(--edge) 70px}
+.beauty014-proportion .giulia-deck>p {font-size:17px;line-height:1.95}
+.beauty014-proportion .reading-chapter {padding-block:clamp(60px,8vw,105px)}
+.beauty014-proportion .reading-chapter>header {display:block;max-width:var(--reading-width);border:0;padding:0;margin:0 auto 30px}
+.beauty014-proportion .reading-chapter h2 {margin:0;font-size:clamp(29px,3.6vw,43px)}
+.proportion-editorial {padding:clamp(70px,9vw,120px) var(--edge);background:#dce3d8;color:#303b36}
+.proportion-editorial-heading {max-width:var(--reading-width);margin:0 auto 38px}
+.proportion-editorial-heading h2 {font-size:clamp(29px,4vw,46px);line-height:1.45;letter-spacing:-.055em;font-weight:400}
+.proportion-editorial-heading p {font-size:15px;line-height:1.9;margin-top:20px;word-break:keep-all}
+.proportion-editorial figure {max-width:1100px;margin:0 auto}
+.proportion-editorial figure img {display:block;width:100%;height:auto}
+.proportion-editorial figcaption {font-size:11px;line-height:1.8;margin-top:12px;color:#546158}
+.proportion-editorial figcaption a {text-decoration:underline;text-underline-offset:3px}
+.proportion-editorial-notes {max-width:var(--reading-width);margin:36px auto 0;font-size:16px;line-height:1.95;letter-spacing:-.025em;word-break:keep-all}
+.proportion-editorial-notes p+p {margin-top:1.2em}
+.beauty014-language .type-lead {display:block;max-width:var(--reading-width);margin:auto;padding:clamp(70px,9vw,110px) 0 10px}
+.beauty014-language .type-lead>p {margin-bottom:1.5em}
+.beauty014-language .type-fact {max-width:var(--reading-width);margin:25px auto 70px;padding:18px 0;background:none;border:0;border-top:1px solid #c8bec4;border-bottom:1px solid #c8bec4}
+.beauty014-language .type-fact .atlas-eyebrow {display:none}
+.beauty014-language .type-fact p {font-size:13px;margin-top:8px}
+.beauty014-language .type-fact small {font-size:11px}
+.beauty014-language .type-chapter h2,.beauty014-language .type-study-intro h2 {font-size:clamp(29px,3.8vw,46px);margin-top:0}
+.beauty014-language .type-pull {font-size:clamp(19px,2.3vw,28px);line-height:1.7}
+.beauty014-language .language-layout figure {position:static}
+.beauty014-language .type-study-intro {background:#65565d;color:#f6efed}
+.beauty014-language .type-study-intro>p {max-width:560px}
+.beauty014-language .comparison-heading>p {font-size:13px}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-sources,.giulia-sources,.type-sources) {background-image:none!important}
+:is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-sources h2,.giulia-sources h2,.type-sources h2) {font-size:20px;line-height:1.5;font-weight:400}
+@media(max-width:700px){
+ :is(.beauty014-blade,.beauty014-proportion,.beauty014-language) {--reading-width:100%}
+ :is(.beauty014-blade,.beauty014-proportion,.beauty014-language) :is(.story-opening p,.chapter-body p,.reading-column>p,.type-lead>p,.type-lead>div p,.type-columns>div p,.language-layout>div p,.type-reading p) {font-size:16.5px;line-height:1.9}
+ .beauty014-blade .story-opening {margin:50px auto 0;padding:0 var(--edge)}
+ .beauty014-blade .story-chapter {padding:48px var(--edge)}
+ .beauty014-blade .f40-hero {margin-bottom:0}
+ .beauty014-blade #air-study {padding-block:60px!important}
+ .beauty014-proportion .giulia-deck>p {font-size:16.5px;line-height:1.9}
+ .beauty014-proportion .reading-chapter {padding-block:60px}
+ .beauty014-proportion .reading-chapter>header {margin-bottom:24px}
+ .beauty014-proportion .reading-chapter h2 {font-size:28px}
+ .proportion-editorial {padding:65px var(--edge) 70px}
+ .proportion-editorial-heading {margin-bottom:28px}
+ .proportion-editorial-heading h2 {font-size:29px}
+ .proportion-editorial figure {margin-inline:calc(var(--edge) * -1)}
+ .proportion-editorial figcaption {padding-inline:var(--edge)}
+ .proportion-editorial-notes {font-size:16px;margin-top:30px}
+ .beauty014-language .type-lead {padding:65px var(--edge) 0}
+ .beauty014-language .type-fact {margin:24px var(--edge) 55px}
+ .beauty014-language .type-pull {font-size:20px;line-height:1.65}
+ .beauty014-language .type-chapter h2,.beauty014-language .type-study-intro h2 {font-size:29px}
+}
+/* Remove the repeated illustration and its blurred text backing from the reading pages. */
+.beauty014-language main :is(.type-chapter,.type-study-intro),
+.beauty014-proportion main :is(.surface-plate,.face-diptych) {background-image:none!important}
+:is(.beauty014-blade,.beauty014-proportion) .wallpaper-reading :is(.chapter-body,.story-opening,.reading-column)>p::before,
+.beauty014-language :is(.type-reading,.type-lead,.type-columns,.language-layout) p::before {display:none!important}

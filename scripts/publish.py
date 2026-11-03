@@ -109,7 +109,7 @@ def build():
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     from editorial_system import build as build_editorial
     build_editorial()
-    for script in ['build_article_cleanup026.py','build_realphotos026.py','build_reading027.py','build_cinematic028.py']:
+    for script in ['build_article_cleanup026.py','build_realphotos026.py','build_reading027.py','build_cinematic028.py','build_editorial_refinement031.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     links()
 
