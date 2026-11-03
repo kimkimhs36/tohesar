@@ -42,3 +42,23 @@ body:not(.cover-page) .site-header:has(.journal-index),body[data-page] .site-hea
 .journal-index nav>a[aria-current] strong::after{content:" · 현재";font-size:11px;letter-spacing:0}
 .es-header:has(.journal-index){position:sticky;top:0;z-index:100;background:var(--es-paper,#f4f0e9)}
 .es-footer nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+
+/* The journal's peach light shifts slowly behind the navigation. The 004 cover is untouched. */
+body > .site-header { isolation:isolate; }
+body > .site-header::before, body > .site-header::after {
+ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+}
+body > .site-header::before {
+ background:radial-gradient(ellipse at 20% 20%,#ffe4c7 0%,transparent 48%),linear-gradient(105deg,#efad9b 0%,#f7d1bb 52%,#dac9e5 100%);
+}
+body > .site-header::after {
+ background:radial-gradient(ellipse at 79% 35%,#ffe5c2 0%,transparent 48%),linear-gradient(105deg,#e8c6d8 0%,#f3b29c 54%,#f8d4b7 100%);
+ opacity:.42;
+}
+@media(prefers-reduced-motion:no-preference) {
+ body > .site-header::after { animation:nav-peach-light 18s ease-in-out infinite alternate; }
+ @keyframes nav-peach-light { from { opacity:.08; } to { opacity:.88; } }
+}
+@media(prefers-reduced-motion:reduce), print {
+ body > .site-header::after { animation:none; opacity:.42; }
+}
