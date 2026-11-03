@@ -1,0 +1,50 @@
+name: TOHEŞAR 029 — Living Icons QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'journal/assets/border-icons029*'
+      - 'journal/assets/border-icons029/**'
+      - 'journal/assets/travel.js'
+      - 'tests/living-icons029.cjs'
+      - '.github/workflows/living-icons029-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JS and SVG transparency
+        run: |
+          node --check journal/assets/travel.js
+          node --check journal/assets/border-icons029.js
+          node --check tests/living-icons029.cjs
+          python3 - <<'PY'
+          import glob,xml.etree.ElementTree as ET
+          paths=glob.glob('journal/assets/border-icons029/*.svg')
+          assert len(paths)==5,paths
+          for p in paths:
+              x=ET.parse(p).getroot()
+              assert x.get('viewBox')=='0 0 164 64',p
+              assert 'background' not in x.attrib,p
+          print('PASS 5 transparent car vectors')
+          PY
+          python3 scripts/publish.py check
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium webkit
+      - name: Run live-navigation browser checks
+        env:
+          BASE_URL: http://127.0.0.1:8765
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/tohesar-http.log 2>&1 &
+          sleep 2
+          node tests/living-icons029.cjs
+          node tests/navigation.cjs

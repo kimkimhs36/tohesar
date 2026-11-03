@@ -1,0 +1,67 @@
+/* TOHEŞAR 029: a single, occasional perimeter miniature.
+   Decorative by default; it never intercepts page navigation. */
+.thz-icons029 {
+  position:fixed;
+  inset:0;
+  z-index:85;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  contain:layout style;
+  isolation:isolate;
+}
+.thz-icons029-car {
+  position:absolute;
+  left:0;top:0;
+  width:56px;height:31px;
+  padding:0;margin:0;border:0;background:none;
+  opacity:0;
+  pointer-events:none;
+  appearance:none;-webkit-appearance:none;
+  transform-origin:50% 50%;
+  will-change:transform;
+  -webkit-tap-highlight-color:transparent;
+  transition:opacity .42s ease;
+}
+.thz-icons029.is-visible .thz-icons029-car {
+  opacity:.94;
+  pointer-events:auto;
+  cursor:pointer;
+}
+.thz-icons029-car:focus-visible {
+  outline:2px solid #816f80;
+  outline-offset:4px;border-radius:6px;
+}
+.thz-icons029-car img {
+  position:absolute;inset:0;
+  display:block;width:100%;height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  filter:drop-shadow(0 1px 1.4px rgba(34,23,36,.2));
+  transition:opacity .42s cubic-bezier(.22,1,.36,1), transform .42s cubic-bezier(.22,1,.36,1), filter .42s ease;
+}
+.thz-icons029-next { opacity:0;transform:scale(.87); }
+.thz-icons029-car.is-transforming .thz-icons029-current {
+  opacity:0;transform:scale(.91) translateY(1px);
+  filter:blur(.8px) drop-shadow(0 1px 2px rgba(34,23,36,.12));
+}
+.thz-icons029-car.is-transforming .thz-icons029-next {
+  opacity:1;transform:scale(1);filter:drop-shadow(0 1px 2px rgba(34,23,36,.2));
+}
+.thz-icons029-car::after {
+  content:"";position:absolute;inset:8px 2px;
+  border-radius:50%;opacity:0;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(244,222,210,.48),transparent 65%);
+  transform:scale(.7);
+  transition:opacity .3s,transform .3s;
+}
+.thz-icons029-car.is-transforming::after {opacity:.55;transform:scale(1.25)}
+@media (max-width:600px) {
+  .thz-icons029-car {width:47px;height:27px}
+}
+@media (prefers-reduced-motion:reduce) {
+  .thz-icons029{display:none!important}
+  .thz-icons029-car,.thz-icons029-car img {animation:none!important;transition:none!important}
+}
+@media print {.thz-icons029{display:none!important}}

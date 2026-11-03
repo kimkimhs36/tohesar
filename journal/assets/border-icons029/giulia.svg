@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 64" role="img" aria-label="Alfa Romeo Giulia miniature">
+<defs>
+<linearGradient id="paint" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7c8bf"/><stop offset=".4" stop-color="#506b72"/><stop offset="1" stop-color="#b7c8bf"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dbe7ed"/><stop offset=".45" stop-color="#687a87"/><stop offset="1" stop-color="#1b2932"/></linearGradient>
+</defs>
+<ellipse cx="82" cy="59" rx="72" ry="2.8" fill="#2b2232" opacity=".18"/>
+<path d="M8 44L24 40L45 38L56 23Q76 18 96 23L111 36L145 39Q156 43 159 48L159 52H8Z" fill="url(#paint)" stroke="#43565f" stroke-width="1.6"/>
+<path d="M53 38L60 25Q77 21 95 26L106 38Z" fill="url(#glass)" stroke="#47616c" stroke-width="1.1"/><path d="M83 23L86 38" stroke="#485861" stroke-width="1.4"/>
+<path d="M13 44L27 42M52 41H99M110 41L139 42" stroke="#dfeee9" stroke-width="1.5" opacity=".8"/><path d="M152 43L158 44" stroke="#f7edc7" stroke-width="3"/><path d="M9 46L15 45" stroke="#aa2d2c" stroke-width="2.6"/><path d="M148 47L151 50L154 47" fill="none" stroke="#d1dde0" stroke-width="1"/>
+<path d="M19 51H146" fill="none" stroke="#29232a" stroke-width="1.5" opacity=".5"/>
+<g fill="#1d1f23" stroke="#101115" stroke-width="1"><circle cx="39" cy="51" r="10.1"/><circle cx="125" cy="51" r="10.1"/></g>
+<g fill="#b3b5b9" stroke="#61666a" stroke-width="1.2"><circle cx="39" cy="51" r="6.1"/><circle cx="125" cy="51" r="6.1"/></g>
+<g fill="#f5f2ef" opacity=".8"><circle cx="39" cy="51" r="1.3"/><circle cx="125" cy="51" r="1.3"/></g>
+</svg>

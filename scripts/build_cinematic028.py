@@ -13,7 +13,8 @@ def build():
         text = path.read_text()
         # Avoid mixing the prior veil implementation with the new styles after deployment.
         text = text.replace('/journal/assets/travel.css"', '/journal/assets/travel.css?v=028"')
-        text = text.replace('/journal/assets/travel.js"', '/journal/assets/travel.js?v=028"')
+        text = text.replace('/journal/assets/travel.js"', '/journal/assets/travel.js?v=029"')
+        text = text.replace('/journal/assets/travel.js?v=028"', '/journal/assets/travel.js?v=029"')
         for asset in ASSETS:
             text = text.replace(asset, '')
         text = text.replace('</head>', ''.join(ASSETS) + '</head>', 1)

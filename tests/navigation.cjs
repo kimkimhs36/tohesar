@@ -15,7 +15,12 @@ async function homeSignature(page) {
   assert.equal(await page.locator('.cover-passage').count(), 1);
 }
 async function clean(page) {
-  await page.waitForTimeout(650);
+  // Cross-document View Transitions settle asynchronously; wait for actual cleanup
+  // rather than assuming every WebKit/Chromium runner finishes within 650ms.
+  await page.waitForFunction(() =>
+    !document.querySelector('[data-cinematic-shared]') &&
+    !document.querySelector('.travel-leaving,.travel-arriving'),
+    null, {timeout: 4000});
   assert.equal(await page.locator('[data-cinematic-shared]').count(), 0, 'temporary names must be cleared');
   assert.equal(await page.locator('.travel-leaving,.travel-arriving').count(), 0, 'no blocked veil');
 }

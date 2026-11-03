@@ -12,3 +12,19 @@
   clearLegacyPassage();
   addEventListener('pageshow', clearLegacyPassage);
 })();
+
+
+/* Living Icons 029: independent decoration, never involved in navigation. */
+(() => {
+  if (location.pathname.startsWith('/creative/') ||
+      document.querySelector('script[data-living-icons029]')) return;
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = '/journal/assets/border-icons029.css?v=029';
+  document.head.append(css);
+  const script = document.createElement('script');
+  script.src = '/journal/assets/border-icons029.js?v=029';
+  script.defer = true;
+  script.dataset.livingIcons029 = '';
+  document.head.append(script);
+})();
