@@ -21,7 +21,7 @@
 .beauty014-language .language-layout { align-items: start; gap: clamp(35px, 6vw, 90px); }
 .beauty014-language .type-study-intro { padding-block: clamp(60px, 7vw, 95px); }
 .beauty014-language .type-study-intro > :is(h2,p) { max-width: var(--reading-width); margin-inline: auto; }
-.beauty014-language .type-study-intro > p { margin-top: 24px; margin-bottom: 0; }
+.beauty014-language .type-study-intro > p { margin-top: 24px; margin-bottom: 0; font-size: 15px; line-height: 1.9; word-break: keep-all; overflow-wrap: break-word; }
 .beauty014-language .type-comparison { padding-block: 0 clamp(60px, 8vw, 105px); }
 .beauty014-language .comparison-heading { display: block; }
 .beauty014-language .comparison-heading > p { margin-top: 20px; }
@@ -37,6 +37,7 @@
 .beauty014-language .type-closing-photo figcaption { display: block; }
 .beauty014-language .type-closing-photo figcaption > span { display: block; }
 @media (max-width:700px) {
+ .beauty014-language .type-hero > img { aspect-ratio: 1.05; object-fit: cover; object-position: 52% 60%; }
  .beauty014-language .type-opening-paper { padding-top: 32px; padding-bottom: 38px; }
  .beauty014-language .type-opening-title > p i { font-size: 46px; }
  .beauty014-language .type-lead { padding: 64px var(--edge) 70px; }

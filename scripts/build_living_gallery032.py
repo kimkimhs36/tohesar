@@ -11,6 +11,8 @@ def build():
     s = s.replace(STYLE, '').replace('</head>', STYLE + '</head>', 1)
     s = re.sub(r'<aside class="type-fact">.*?</aside>\s*', '', s, flags=re.S)
     s = s.replace('<span>공식 발표와 독립적인 시각적 관찰을 구분한 디자인 에세이</span>', '')
+    s = s.replace('<span>© Jaguar Land Rover Limited · WebP 변환</span>', '<span>© Jaguar Land Rover Limited · WebP 변환 · 모바일 화면 크롭</span>', 1)
+    s = s.replace('사진은 크기 조정·WebP 변환했으며 비교 사진의 전체 프레임·종횡비·방향을 유지했습니다.', '사진은 크기 조정·WebP 변환했고 도입 사진은 모바일에서 화면에 맞춰 크롭했습니다. Type 00 사진은 전체 프레임·종횡비·방향을 유지했습니다.')
     s = re.sub(r'<p class="type-pull">.*?</p>\s*', '', s, flags=re.S)
     s = re.sub(r'<div class="comparison-heading">.*?</div>', '', s, count=1, flags=re.S)
     s = s.replace('같은 차의 전후 사진이 아닙니다.<br>서로 다른 역할을 가진 두 모델에서, 이어지는 생각을 살펴보세요.', 'Type 00은 디자인 비전 콘셉트, Type 01은 그 뒤를 잇는 양산 모델입니다.')
@@ -42,6 +44,9 @@ def build():
     PAGE.write_text(s)
     journal = ROOT / 'journal/index.html'
     j = journal.read_text()
+    guard = '<link rel="stylesheet" href="/journal/assets/cinematic028.css"><script src="/journal/assets/cinematic028.js" blocking="render"></script>'
+    if guard not in j:
+        j = j.replace('</head>', guard + '</head>', 1)
     j = re.sub(r'<a class="text-link" data-travel="" href="/journal/design/">디자인 아틀라스 둘러보기</a>', '', j)
     journal.write_text(j)
     newsroom = ROOT / 'edition/index.html'
