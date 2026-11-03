@@ -1,0 +1,6 @@
+/* iOS 26 Safari derives browser chrome tint from CSS background paint,
+   not reliably from meta[name="theme-color"].
+   COVER 004 stage and its photography remain unchanged. Only the root
+   canvas behind the authored cover is dark for Safari's color sampling. */
+html,body{background-color:#403b3d}
+/* The opening and the journal both have their own full-width paper layers. */
