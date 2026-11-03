@@ -12,9 +12,7 @@
   const stateKey = 'tohesar-living-icons-visit-031';
   let saved = null;
   try {
-    const navigation = performance.getEntriesByType('navigation')[0];
-    if (navigation && navigation.type === 'reload') sessionStorage.removeItem(stateKey);
-    else saved = JSON.parse(sessionStorage.getItem(stateKey) || 'null');
+    saved = JSON.parse(sessionStorage.getItem(stateKey) || 'null');
   } catch (_) {}
   const paths = models.map(name => '/journal/assets/living-icons/' + name + '.webp?v=030');
   let model = /\/f40(?:\/|$)/i.test(location.pathname) ? 1 :
