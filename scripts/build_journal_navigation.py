@@ -30,6 +30,13 @@ for page in files:
     if '/journal/assets/navigation.js' not in s:
         s = s.replace('</head>', '<script src="/journal/assets/navigation.js" defer></script></head>')
     # Only article interiors receive motion. The cinematic cover and openings remain authored.
+    # Article builders reconstruct <head>; restore the approved reading layer last,
+    # after 014 artwork, rather than depending on a previously generated HTML file.
+    if 'beauty014-' in s and page != 'journal/index.html':
+        if '/journal/assets/unified018.css' not in s:
+            s = s.replace('</head>', '<link rel="stylesheet" href="/journal/assets/unified018.css"></head>')
+        if '/journal/assets/miniature-paper.js' not in s:
+            s = s.replace('</head>', '<script src="/journal/assets/miniature-paper.js" defer></script></head>')
     article_pages = ('journal/911/', 'journal/f40/', 'journal/design/giulia/', 'journal/design/type-01/', 'journal/yokohama/', 'journal/stories/', 'edition/story/')
     if page.startswith(article_pages):
         if '/journal/assets/article-motion.css' not in s:
