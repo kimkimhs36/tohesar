@@ -24,8 +24,14 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       assert.match(await runner.locator('.thz-icons029-current').getAttribute('src'), /f40\.svg/);
       await page.waitForTimeout(7200);
       assert.equal(await page.locator('.thz-icons029.is-visible').count(),1,'perimeter car should appear');
+      const before = await runner.evaluate(el => ({disabled:el.disabled,css:el.className}));
       await runner.evaluate(el => el.click());
-      await page.waitForTimeout(550);
+      try {
+        await page.waitForFunction(() => document.querySelector('.thz-icons029-current')?.getAttribute('src')?.includes('countach.svg'), {timeout:3000});
+      } catch (error) {
+        const after = await runner.evaluate(el => ({disabled:el.disabled,css:el.className,images:[...el.querySelectorAll('img')].map(i=>({cls:i.className,src:i.getAttribute('src')}))}));
+        throw new Error('tap-to-morph not completed on '+name+' '+width+'; before='+JSON.stringify(before)+' after='+JSON.stringify(after)+' cause='+error.message);
+      }
       assert.match(await runner.locator('.thz-icons029-current').getAttribute('src'), /countach\.svg/);
       await page.emulateMedia({reducedMotion:'reduce'});
       await page.waitForTimeout(120);
