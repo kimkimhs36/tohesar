@@ -35,7 +35,7 @@ class Publishing(unittest.TestCase):
             if 'giulia' in name:
                 self.assertNotIn('/journal/assets/miniature-paper.js', rebuilt, name)
             else:
-                self.assertIn('/journal/assets/miniature-paper.js', rebuilt, name)
+                self.assertNotIn('/journal/assets/miniature-paper.js', rebuilt, name)
         self.assertIn('/journal/assets/discovery025.css', (self.root/'index.html').read_text())
         self.assertIn('/journal/assets/atlas025.css', (self.root/'journal/design/index.html').read_text())
         archive=(self.root/'journal/issues/index.html').read_text();self.assertNotIn('DRAFT ONLY',archive)

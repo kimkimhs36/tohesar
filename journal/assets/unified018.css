@@ -1022,3 +1022,9 @@ body[data-page="archive"] .archive-news-link{
 .beauty014-language .miniature-end-car{background-image:url('/journal/assets/wallpaper/blue-hour-240.webp')}
 @media(prefers-reduced-motion:no-preference){.miniature-end-car{animation:miniature-end-drift 17s ease-in-out infinite alternate}}
 @keyframes miniature-end-drift{from{transform:translate3d(-4px,1px,0) rotate(-1deg)}to{transform:translate3d(5px,-2px,0) rotate(1deg)}}
+
+/* Issue photographs and copy share a still paper; the living car remains independent. */
+.beauty014-issue main,
+.beauty014-issue main :is(.edition-preface,.edition-chapter,.edition-closing,#wallpaper-issue-curve,#wallpaper-issue-small) { background-image:none; }
+.beauty014-issue .wallpaper-reading .chapter-copy > p::before { display:none; }
+.beauty014-issue .edition-chapter .chapter-identity > span { font-family:Georgia,serif; letter-spacing:-.045em; }

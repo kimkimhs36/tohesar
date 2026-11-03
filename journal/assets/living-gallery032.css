@@ -1,0 +1,61 @@
+/* Jaguar: one photographic sequence, with the original frames and a quiet reading measure. */
+.beauty014-language { --reading-width: 660px; }
+.beauty014-language .type-opening-paper { background: #eae3e5; }
+.beauty014-language .type-opening-title h1 { line-height: 1.45; }
+.beauty014-language .type-byline { padding-bottom: 0; }
+.beauty014-language .type-lead { padding-bottom: clamp(60px, 8vw, 105px); }
+.beauty014-language .type-chapter { padding-block: clamp(64px, 8vw, 110px); }
+.beauty014-language .type-chapter > header,
+.beauty014-language .type-columns,
+.beauty014-language .comparison-heading,
+.beauty014-language .comparison-notes,
+.beauty014-language .type-reading { max-width: var(--reading-width); margin-inline: auto; }
+.beauty014-language .type-columns { display: block; margin-top: 32px; }
+.beauty014-language .type-columns > div p:last-child,
+.beauty014-language .language-layout > div p:last-child,
+.beauty014-language .type-reading p:last-child { margin-bottom: 0; }
+.beauty014-language .type-profile { max-width: 1300px; margin: clamp(45px, 7vw, 90px) auto 0; }
+.beauty014-language .type01-page figcaption, .beauty014-language figcaption, .beauty014-language .type-hero-foot small { font-size: 11px; line-height: 1.8; }
+.beauty014-language .type-profile figcaption { display: block; }
+.beauty014-language .type-profile figcaption > span { display: block; }
+.beauty014-language .language-layout { align-items: start; gap: clamp(35px, 6vw, 90px); }
+.beauty014-language .type-study-intro { padding-block: clamp(60px, 7vw, 95px); }
+.beauty014-language .type-study-intro > :is(h2,p) { max-width: var(--reading-width); margin-inline: auto; }
+.beauty014-language .type-study-intro > p { margin-top: 24px; margin-bottom: 0; }
+.beauty014-language .type-comparison { padding-block: 0 clamp(60px, 8vw, 105px); }
+.beauty014-language .comparison-heading { display: block; }
+.beauty014-language .comparison-heading > p { margin-top: 20px; }
+.beauty014-language .comparison-cars { display: block; max-width: 1100px; margin: 0 auto; }
+.beauty014-language .comparison-cars img { aspect-ratio: auto; object-fit: contain; background: transparent; }
+.beauty014-language .comparison-cars figcaption > b { font: 400 18px/1.4 Arial,sans-serif; margin-bottom: 4px; }
+.beauty014-language .comparison-notes { display: block; margin-top: clamp(45px, 6vw, 75px); }
+.beauty014-language .comparison-notes p { font-size: 17px; line-height: 1.95; letter-spacing: -.025em; word-break: keep-all; overflow-wrap: break-word; }
+.beauty014-language .comparison-notes p + p { margin-top: 1.5em; }
+.beauty014-language .type-reading { margin-top: 1.5em; }
+.beauty014-language .type-conclusion .type-closing-photo { max-width: 1300px; margin: clamp(50px, 8vw, 100px) auto 0; }
+.beauty014-language .type-closing-photo img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.beauty014-language .type-closing-photo figcaption { display: block; }
+.beauty014-language .type-closing-photo figcaption > span { display: block; }
+@media (max-width:700px) {
+ .beauty014-language .type-opening-paper { padding-top: 32px; padding-bottom: 38px; }
+ .beauty014-language .type-opening-title > p i { font-size: 46px; }
+ .beauty014-language .type-lead { padding: 64px var(--edge) 70px; }
+ .beauty014-language .type-chapter { padding-block: 60px 68px; }
+ .beauty014-language .type-profile { margin: 42px calc(var(--edge) * -1) 0; }
+ .beauty014-language .language-layout { display: flex; gap: 30px; }
+ .beauty014-language .language-layout figure { margin-inline: calc(var(--edge) * -1); }
+ .beauty014-language .language-layout figcaption { padding-inline: var(--edge); }
+ .beauty014-language .type-study-intro { padding-block: 60px; }
+ .beauty014-language .type-comparison { padding-block: 0 60px; }
+ .beauty014-language .comparison-cars { margin: 0 calc(var(--edge) * -1); }
+ .beauty014-language .comparison-cars figcaption { padding-inline: var(--edge); }
+ .beauty014-language .comparison-notes { margin-top: 42px; }
+ .beauty014-language .comparison-notes p { font-size: 16.5px; line-height: 1.9; }
+ .beauty014-language .type-conclusion .type-closing-photo { margin: 50px calc(var(--edge) * -1) 0; }
+}
+/* Text is the second material: ease the Korean spacing and give the model name a quieter voice. */
+.beauty014-language :is(.type-opening-title h1,.type-chapter h2,.type-study-intro h2) { letter-spacing: -.035em; }
+.beauty014-language :is(.type-lead p,.type-columns > div p,.language-layout > div p,.comparison-notes p,.type-reading p) { letter-spacing: -.012em; }
+.beauty014-language .type-opening-title > p i { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.045em; }
+
+.beauty014-language .comparison-cars figcaption small > span { display:block; }

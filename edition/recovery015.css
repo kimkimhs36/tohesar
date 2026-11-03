@@ -32,3 +32,5 @@ body[data-page] .site-header{position:relative;height:auto;min-height:76px;paddi
 }
 @media(max-width:360px){.logo{width:114px}.nav-journal{font-size:9px;margin-right:0}.nav-primary{gap:1px}.desk-feature-copy{padding-inline:20px}.desk-feature h2{font-size:26px}.front-wire-heading h2{font-size:27px}.desk-nav a{font-size:9px}.front-wire-item strong,.front-wire-item:first-child strong,.desk-main .wire-card strong{font-size:21px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+/* Korean editorial headlines use the same clear voice as the journal. */
+body[data-page] :is(.desk-feature h2,.archive-cards h2) {font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:400;letter-spacing:-.035em}
