@@ -1,0 +1,12 @@
+/* 032: optional Apple Music listening room for COVER 004. No cover assets changed. */
+.thz-music032{position:absolute;top:max(14px,env(safe-area-inset-top));right:var(--edge,24px);z-index:20;display:flex;flex-direction:column;align-items:flex-end;gap:9px;max-width:calc(100% - 32px)}
+.thz-music032-toggle{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(247,235,230,.54);border-radius:50%;background:rgba(36,33,42,.18);color:#f8ece7;box-shadow:0 1px 9px rgba(20,15,21,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:22px;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.thz-music032-toggle:hover,.thz-music032-toggle[aria-expanded="true"]{background:rgba(36,33,42,.5)}
+.thz-music032-toggle:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.thz-music032-panel{width:min(326px,calc(100vw - 32px));padding:13px;border:1px solid rgba(69,51,62,.12);border-radius:15px;background:rgba(249,246,243,.97);color:#3b323b;box-shadow:0 12px 38px rgba(30,24,32,.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.thz-music032-panel[hidden]{display:none}
+.thz-music032-title{margin:0 0 10px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;font-size:12px;font-weight:400;letter-spacing:-.01em}
+.thz-music032-iframe{display:block;width:100%;height:175px;border:0;border-radius:9px;background:#f3eef0}
+.thz-music032-note{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:10px 1px 0;font-size:10px;line-height:1.55;color:#685e66}
+.thz-music032-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+@media(prefers-reduced-transparency:reduce){.thz-music032-toggle{background:#47404b}.thz-music032-panel{background:#f9f6f3}}
