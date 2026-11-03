@@ -1,0 +1,121 @@
+/* Discovery has its own pacing; the cinematic cover and authored articles are independent. */
+.home-editorial{background:#eee8ed;color:#38313e;background-image:none}
+.home-editorial .home-intro{display:grid;grid-template-columns:1.25fr 1fr;align-items:end;gap:48px;padding-top:76px;padding-bottom:68px}
+.home-editorial .home-intro h1{font-size:clamp(40px,4.6vw,72px);line-height:1.25;letter-spacing:-.065em;margin:20px 0 0}
+.home-intro-note{justify-self:end;padding-bottom:5px}
+.home-intro-note>p{font-size:15px;line-height:1.95}
+.home-intro-note .home-link{margin-top:22px}
+.home-editorial .home-intro::before,.home-editorial .home-intro::after,.home-editorial .home-close::before,.home-editorial .home-close::after{display:none}
+.home-editorial .home-feature{padding-bottom:100px;align-items:center}
+.home-editorial .home-feature-copy h2{font-size:clamp(34px,3.4vw,54px);line-height:1.35;margin:18px 0 22px}
+.home-editorial .home-feature-copy{padding-top:10px}
+.home-editorial .home-pair{padding-top:70px;padding-bottom:90px;background:#f4f0e9}
+.home-editorial .home-pair article:nth-child(2){margin-top:100px}
+.home-editorial .home-pair article>p:not(.home-kicker){color:#625968}
+.home-editorial .home-paths{border-top:0;padding-top:58px;padding-bottom:58px;grid-template-columns:1.2fr 1fr}
+.home-editorial .home-paths h2{font-size:clamp(32px,3.7vw,52px)}
+.home-editorial .home-paths img{max-width:360px}
+.home-editorial .home-close{background:#e4dbe6;padding-top:60px;padding-bottom:60px;align-items:start}
+.home-editorial .home-close h2{font-size:clamp(30px,3.3vw,47px);margin-bottom:0}
+.home-editorial .home-close nav{width:44%;align-self:center}
+.home-editorial .home-close nav a{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:62px;padding:16px 0}
+.home-editorial .home-close nav a:first-child{border-top:1px solid var(--home-rule)}
+.home-editorial .home-close nav small{font-size:11px;margin:0;max-width:16em}
+.home-editorial .home-close nav span{font-size:19px;letter-spacing:-.04em}
+.home-editorial small{font-size:11px;line-height:1.85}
+.home-editorial a img{transition:filter .4s ease}
+@media(hover:hover){.home-editorial a:hover img{filter:brightness(1.035)}}
+
+/* The journal is a sequence of photographs, with quieter credits and a clear reading edge. */
+.recovery015-journal .journal-mast{padding-top:60px;padding-bottom:34px}
+.recovery015-journal .journal-mast h1{font-size:clamp(45px,5vw,76px);letter-spacing:-.065em;line-height:1.26}
+.recovery015-journal .mast-bottom p{font-size:14px;color:#6b606f}
+.recovery015-journal .section-nav{padding-bottom:16px;margin-bottom:28px;justify-content:flex-start;gap:35px}
+.recovery015-journal .section-nav a{font-size:12px;min-height:44px;display:inline-flex;align-items:center}
+.recovery015-journal .feature-copy .eyebrow{font-size:11px;letter-spacing:.07em}
+.recovery015-journal .feature-copy h2{line-height:1.35;letter-spacing:-.055em}
+.recovery015-journal :is(.feature-copy,.design-duet,.atlas-invitation,.city-invite-copy) small{font-size:11px;line-height:1.9;color:#766b79}
+.recovery015-journal .design{padding-top:70px;padding-bottom:75px;background:#f5f1ea}
+.recovery015-journal .design .section-heading{margin-bottom:34px}
+.recovery015-journal .design .section-heading h2{font-size:clamp(29px,3.4vw,46px);letter-spacing:-.055em}
+.recovery015-journal .design h3{font-size:clamp(27px,3vw,40px);line-height:1.4;font-weight:400;letter-spacing:-.055em}
+.recovery015-journal .design-duet .story-label{margin-top:22px;font-size:11px}
+.recovery015-journal .design-duet p{font-size:14px;line-height:1.95;max-width:29em;color:#625968}
+.recovery015-journal .design-duet small{display:block;margin-top:20px}
+.recovery015-journal .atlas-invitation{background:#ede6e8;padding-top:65px;padding-bottom:65px}
+.recovery015-journal .issue-invitation{margin:0;padding-top:45px;padding-bottom:45px;background:#f4f0e9}
+.recovery015-journal .latest{padding-top:65px;padding-bottom:65px}
+.recovery015-journal .mini-invitation{padding-top:58px;padding-bottom:58px}
+.recovery015-journal :is(.text-link,.city-invite-link){min-height:40px;line-height:1.6;display:inline-flex;align-items:center;font-size:12px}
+.recovery015-journal .news-arrow{display:none}
+
+/* Explore: a photographic contents page, sharing the paper without repeating a wallpaper. */
+body:has(.explore-list){--paper:#eee8ed;--ink:#38313e;--rule:#c8bac7}
+body:has(.explore-list) .map-header{background:#eee8ed}
+body:has(.explore-list) .map-intro{background:none;padding-top:65px;padding-bottom:58px}
+body:has(.explore-list) .map-intro::after{display:none}
+body:has(.explore-list) .map-intro h1{font-size:clamp(43px,5.6vw,78px);line-height:1.28}
+body:has(.explore-list) .map-intro>p:last-child{font-size:15px;max-width:30em;line-height:1.95;color:#625968}
+body:has(.explore-list) .explore-list{padding-bottom:65px}
+body:has(.explore-list) .explore-entry{padding-top:28px;padding-bottom:48px}
+body:has(.explore-list) .explore-copy h2{font-size:clamp(33px,3.4vw,49px);margin-bottom:15px}
+.explore-credit{display:block;font-size:10px;line-height:1.85;margin-top:13px;color:#766b79}
+.explore-credit a{text-decoration:underline;text-underline-offset:3px}
+body:has(.explore-list) .explore-image-art{background:#e1d5e2}
+body:has(.explore-list) .explore-entry-text{padding-bottom:15px}
+body:has(.explore-list) .map-footer{background:#e1d5e2}
+
+@media(max-width:700px){
+ .home-editorial .home-intro{display:block;padding-top:43px;padding-bottom:42px}
+ .home-editorial .home-intro h1{font-size:39px;line-height:1.3;margin-top:15px}
+ .home-intro-note{padding:0;margin-top:22px;width:100%;justify-self:stretch}
+ .home-intro-note>p{font-size:14px;line-height:1.85}
+ .home-intro-note>p br{display:none}
+ .home-intro-note .home-link{margin-top:15px;font-size:12px}
+ .home-editorial .home-feature{padding-bottom:60px}
+ .home-editorial .home-feature-copy{padding:26px 24px 0}
+ .home-editorial .home-feature-copy h2{font-size:36px;margin:14px 0 17px}
+ .home-editorial .home-feature-copy>p:not(.home-kicker){font-size:14px}
+ .home-editorial .home-feature-copy .home-link{margin-top:22px}
+ .home-editorial .home-pair{padding-top:45px;padding-bottom:52px}
+ .home-editorial .home-pair article:nth-child(2){margin:55px 0 0 7%}
+ .home-editorial .home-pair h2{font-size:32px;margin-top:12px}
+ .home-editorial .home-pair article>p:not(.home-kicker){font-size:14px}
+ .home-editorial .home-paths{display:grid;grid-template-columns:1fr;gap:0;padding-top:46px;padding-bottom:34px}
+ .home-editorial .home-paths h2{font-size:32px}
+ .home-editorial .home-paths img{width:78%;max-width:290px;margin-top:12px}
+ .home-editorial .home-close{padding-top:43px;padding-bottom:45px}
+ .home-editorial .home-close h2{font-size:32px;margin-top:15px}
+ .home-editorial .home-close nav{width:100%;margin-top:30px}
+ .home-editorial .home-close nav small{font-size:10px}
+ .recovery015-journal .journal-mast{padding-top:36px;padding-bottom:21px}
+ .recovery015-journal .journal-mast h1{font-size:42px;line-height:1.28;margin-bottom:18px}
+ .recovery015-journal .mast-bottom p{font-size:12px}
+ .recovery015-journal .section-nav{gap:30px;margin-bottom:22px;padding-bottom:8px}
+ .recovery015-journal .feature-copy{margin:0 24px 0 12%;padding-top:27px;padding-bottom:50px}
+ .recovery015-journal .feature-copy h2{font-size:34px}
+ .recovery015-journal .feature-copy small{font-size:10px}
+ .recovery015-journal .design{padding-top:45px;padding-bottom:50px}
+ .recovery015-journal .design .section-heading{display:block;margin-bottom:25px}
+ .recovery015-journal .design .section-heading .text-link{margin-top:7px}
+ .recovery015-journal .design .section-heading h2{font-size:30px}
+ .recovery015-journal .design-duet .design-small{width:88%;margin:44px 0 0 auto}
+ .recovery015-journal .design-duet h3{font-size:29px;margin-top:12px}
+ .recovery015-journal .design-duet p{font-size:13px;line-height:1.9}
+ .recovery015-journal .design-duet small{font-size:10px;margin-top:17px}
+ .recovery015-journal .atlas-invitation{padding-top:43px;padding-bottom:45px}
+ .recovery015-journal .atlas-invitation h2{font-size:34px}
+ .recovery015-journal .issue-invitation{padding-top:36px;padding-bottom:36px}
+ .recovery015-journal .latest{padding-top:43px;padding-bottom:43px}
+ .recovery015-journal .mini-invitation{padding-top:45px;padding-bottom:40px}
+ body:has(.explore-list) .map-intro{padding-top:43px;padding-bottom:42px}
+ body:has(.explore-list) .map-path{margin-bottom:24px;font-size:11px}
+ body:has(.explore-list) .map-intro h1{font-size:39px;margin-bottom:23px}
+ body:has(.explore-list) .map-intro>p:last-child{font-size:14px}
+ body:has(.explore-list) .explore-copy h2{font-size:32px}
+ body:has(.explore-list) .explore-copy p{font-size:14px;line-height:1.9}
+ body:has(.explore-list) .explore-entry:nth-child(2){margin-inline:7% 0}
+ body:has(.explore-list) .explore-entry:nth-child(3) .explore-image{max-height:420px;overflow:hidden}
+ body:has(.explore-list) .explore-entry:nth-child(3) img{width:100%;height:420px;object-fit:cover;object-position:center 62%}
+}
+@media(prefers-reduced-motion:reduce){.home-editorial a img{transition:none}}

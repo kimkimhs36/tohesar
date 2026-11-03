@@ -105,7 +105,7 @@ def build():
         body=destination('/'+item['body_file']).read_text()
         p.write_text('<!-- generated authored-story -->\n'+shell(item['title'],item['summary'],f'<div class="authored-story">{body}</div>'))
     check()
-    for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py','build_site_map.py','build_journal_navigation.py']:
+    for script in ['build_yokohama.py','build_giulia.py','build_journal_news.py','build_issues.py','build_design_atlas.py','build_world_continuity.py','build_wallpaper.py','build_editorial_world.py','build_beauty_editorial.py','build_site_map.py','build_journal_navigation.py','build_editorial025.py','build_newsroom_polish.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
     from editorial_system import build as build_editorial
     build_editorial()
