@@ -68,3 +68,9 @@
 /* The old combined pseudo-element selector is invalid; keep artwork out of prose. */
 .beauty014-language .type-lead::before { content: none; display: none; }
 .beauty014-language :is(.type-profile figcaption > span,.type-closing-photo figcaption > span,.language-layout figcaption,.language-layout figcaption small,.comparison-cars figcaption small) { font-size: 11px; line-height: 1.8; }
+
+/* Photo rhythm: context before detail, then a quieter measure for the observation. */
+.beauty014-language .language-preface { max-width: var(--reading-width); margin: 32px auto 0; }
+.beauty014-language .language-preface p { font-size: 17px; line-height: 1.95; letter-spacing: -.012em; word-break: keep-all; overflow-wrap: break-word; }
+.beauty014-language .language-preface p + p { margin-top: 1.5em; }
+@media(max-width:700px) { .beauty014-language .language-preface p { font-size: 16.5px; line-height: 1.9; } }

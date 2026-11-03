@@ -37,6 +37,36 @@ def build():
         paragraphs = re.findall(r'<p>.*?</p>', match.group(1), flags=re.S)
         return '<div class="comparison-notes">' + ''.join(paragraphs) + '</div>'
     s = re.sub(r'<div class="comparison-notes">(.*?)</div>\s*(?=<div class="type-reading">)', notes, s, count=1, flags=re.S)
+    # Place the profile after the first observation, then return to the analysis.
+    def first_chapter(match):
+        section = match.group()
+        if 'type-profile-preface' in section:
+            return section
+        photo = re.search(r'<figure class="type-profile">.*?</figure>', section, flags=re.S)
+        copy = re.search(r'<div class="type-columns"><div>(.*?)</div></div>', section, flags=re.S)
+        if not photo or not copy:
+            return section
+        paragraphs = re.findall(r'<p>.*?</p>', copy.group(1), flags=re.S)
+        assert len(paragraphs) == 3, 'Unexpected Jaguar profile passage'
+        image = photo.group()
+        section = section[:photo.start()] + section[photo.end():]
+        copy = re.search(r'<div class="type-columns"><div>.*?</div></div>', section, flags=re.S)
+        replacement = '<div class="type-columns type-profile-preface"><div>' + paragraphs[0] + '</div></div>' + image + '<div class="type-columns"><div>' + ''.join(paragraphs[1:]) + '</div></div>'
+        return section[:copy.start()] + replacement + section[copy.end():]
+    s = re.sub(r'<section class="type-chapter" id="long-bonnet">.*?</section>', first_chapter, s, count=1, flags=re.S)
+    # Two contextual paragraphs introduce the detail; the observations follow it.
+    def language_chapter(match):
+        section = match.group()
+        if 'class="language-preface"' in section:
+            return section
+        layout = re.search(r'<div class="language-layout">(<figure>.*?</figure>)<div>(.*?)</div></div>', section, flags=re.S)
+        if not layout:
+            return section
+        paragraphs = re.findall(r'<p>.*?</p>', layout.group(2), flags=re.S)
+        assert len(paragraphs) == 4, 'Unexpected Jaguar language passage'
+        replacement = '<div class="language-preface">' + ''.join(paragraphs[:2]) + '</div><div class="language-layout">' + layout.group(1) + '<div>' + ''.join(paragraphs[2:]) + '</div></div>'
+        return section[:layout.start()] + replacement + section[layout.end():]
+    s = re.sub(r'<section class="type-chapter type-language" id="different-language">.*?</section>', language_chapter, s, count=1, flags=re.S)
     # End the essay with the overhead photograph, after the final reflection.
     m = re.search(r'<figure class="type-closing-photo">.*?</figure>', s, flags=re.S)
     if m:
