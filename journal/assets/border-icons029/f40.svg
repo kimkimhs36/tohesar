@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 64" role="img" aria-label="Ferrari F40 miniature">
+<defs>
+<linearGradient id="paint" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ed5749"/><stop offset=".4" stop-color="#bd2629"/><stop offset="1" stop-color="#ed5749"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dbe7ed"/><stop offset=".45" stop-color="#687a87"/><stop offset="1" stop-color="#1b2932"/></linearGradient>
+</defs>
+<ellipse cx="82" cy="59" rx="72" ry="2.8" fill="#2b2232" opacity=".18"/>
+<path d="M7 39L21 35L44 30L61 21L93 18L116 30L145 35L156 39L158 51H9Z" fill="url(#paint)" stroke="#742124" stroke-width="1.5"/><path d="M140 34V21H151V23H144V35Z" fill="#ad2029" stroke="#6a2024" stroke-width="1.4"/><path d="M140 21H156V24H140Z" fill="#db4240" stroke="#662126" stroke-width="1"/>
+<path d="M56 30L64 23L92 21L108 30H56Z" fill="url(#glass)" stroke="#7a3334" stroke-width=".9"/><path d="M81 22L81 30" stroke="#3c3c43" stroke-width="1.6"/>
+<path d="M10 40L29 37M20 46H62M75 43H108M112 44H145" stroke="#fff1e4" opacity=".65" stroke-width="1.2"/><path d="M84 40H114L105 44H84Z" fill="#4b2328"/><path d="M147 41H157V45H147Z" fill="#f6b7a2"/><path d="M13 43H24" stroke="#f9d0ba" stroke-width="2.5"/>
+<path d="M19 51H146" fill="none" stroke="#29232a" stroke-width="1.5" opacity=".5"/>
+<g fill="#1d1f23" stroke="#101115" stroke-width="1"><circle cx="39" cy="51" r="10.1"/><circle cx="125" cy="51" r="10.1"/></g>
+<g fill="#b3b5b9" stroke="#61666a" stroke-width="1.2"><circle cx="39" cy="51" r="6.1"/><circle cx="125" cy="51" r="6.1"/></g>
+<g fill="#f5f2ef" opacity=".8"><circle cx="39" cy="51" r="1.3"/><circle cx="125" cy="51" r="1.3"/></g>
+</svg>
