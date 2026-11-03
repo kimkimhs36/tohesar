@@ -8,6 +8,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 STYLE = '<link rel="stylesheet" href="/journal/assets/discovery025.css">'
+SAFARI_TINT = '<link rel="stylesheet" href="/journal/assets/safari-cover-tint025.css">'
 
 
 def build():
@@ -35,7 +36,11 @@ def build():
     for name in ('index.html', 'journal/index.html', 'journal/explore/index.html', 'sitemap/index.html'):
         path = ROOT / name
         text = path.read_text().replace(STYLE, '')
-        path.write_text(text.replace('</head>', STYLE + '</head>'))
+        if name == 'index.html':
+            text = text.replace(SAFARI_TINT, '')
+            path.write_text(text.replace('</head>', STYLE + SAFARI_TINT + '</head>'))
+        else:
+            path.write_text(text.replace('</head>', STYLE + '</head>'))
     print('Rendered 025 discovery surfaces; cover and article openings untouched.')
 
 
