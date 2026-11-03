@@ -74,3 +74,18 @@
 .beauty014-proportion main :is(.surface-plate,.face-diptych) {background-image:none!important}
 :is(.beauty014-blade,.beauty014-proportion) .wallpaper-reading :is(.chapter-body,.story-opening,.reading-column)>p::before,
 .beauty014-language :is(.type-reading,.type-lead,.type-columns,.language-layout) p::before {display:none!important}
+/* Two photographic scenes: a warm paper edge and an unhurried, native passage. */
+.beauty014-blade .f40-hero figcaption {background:linear-gradient(180deg,#ead5cd,#f1e4dd);padding-bottom:20px}
+.beauty014-language .type-opening-paper {background:linear-gradient(180deg,#e9dfe0 0%,#eae3e6 48%,#eee9ea 100%)}
+/* Keep each composition still as the reader scrolls; the photograph itself is unchanged. */
+.beauty014-blade .f40-hero>img,.beauty014-language .type-hero>img {animation:none!important;transform:none!important}
+@media (prefers-reduced-motion:no-preference) {
+ :root[data-cinematic="f40"]::view-transition-group(journal-photo),
+ :root[data-cinematic="jaguar"]::view-transition-group(journal-photo) {
+  animation-duration:620ms;animation-timing-function:cubic-bezier(.25,.72,.25,1)
+ }
+ :root[data-cinematic="f40"]::view-transition-new(journal-title),
+ :root[data-cinematic="jaguar"]::view-transition-new(journal-title) {
+  animation-duration:420ms;animation-delay:110ms;animation-timing-function:cubic-bezier(.25,.72,.25,1)
+ }
+}

@@ -61,7 +61,7 @@ async function clean(page) {
           assert.equal(state.shared.length, 0, 'unavailable photographs safely skip sharing');
         }
         await clean(page);
-        await page.locator('.article-return026 a[href="/"]').click();
+        await page.locator('footer nav a[href="/"]').click();
         await page.waitForURL(base + '/');
         await clean(page); await homeSignature(page);
         await page.goBack(); await page.waitForURL('**' + story.path); await clean(page);
@@ -76,14 +76,14 @@ async function clean(page) {
     await reduced.goto(base + '/');
     await reduced.locator(stories[0].home).click(); await reduced.waitForURL('**' + stories[0].path);
     assert.equal(await reduced.locator('[data-cinematic-shared]').count(), 0);
-    await reduced.locator('.article-return026 a').click(); await reduced.waitForURL(base + '/'); await homeSignature(reduced);
+    await reduced.locator('footer nav a[href="/"]').click(); await reduced.waitForURL(base + '/'); await homeSignature(reduced);
     await reduced.close();
     const nojs = await browser.newPage({viewport:sizes[1],javaScriptEnabled:false});
     await nojs.goto(base + '/');
     await nojs.locator(stories[0].home).click(); await nojs.waitForURL('**' + stories[0].path);
     await nojs.waitForTimeout(1000);
-    await nojs.locator('.article-return026 a').evaluate(a => window.scrollTo({top:a.getBoundingClientRect().top + scrollY - 300, behavior:'instant'}));
-    await nojs.locator('.article-return026 a').click(); await nojs.waitForURL(base + '/'); await homeSignature(nojs);
+    await nojs.locator('footer nav a[href="/"]').evaluate(a => window.scrollTo({top:a.getBoundingClientRect().top + scrollY - 300, behavior:'instant'}));
+    await nojs.locator('footer nav a[href="/"]').click(); await nojs.waitForURL(base + '/'); await homeSignature(nojs);
     await nojs.close();
     const keyboard = await browser.newPage({viewport:sizes[1]});
     await keyboard.goto(base + '/'); await keyboard.locator(stories[0].home).focus();
@@ -94,7 +94,7 @@ async function clean(page) {
     await rapid.locator(stories[0].home).evaluate(a => { a.click(); a.click(); });
     // The second native click may cancel the first request before committing.
     await rapid.waitForURL('**' + stories[0].path).catch(() => rapid.waitForURL('**' + stories[0].path)); await clean(rapid);
-    await rapid.locator('.article-return026 a').evaluate(a => { a.click(); a.click(); });
+    await rapid.locator('footer nav a[href="/"]').evaluate(a => { a.click(); a.click(); });
     await rapid.emulateMedia({reducedMotion:'reduce'}); await rapid.waitForURL(base + '/').catch(() => rapid.waitForURL(base + '/')); await homeSignature(rapid);
     await rapid.close();
     console.log(`PASS ${engine}: reduced motion, JavaScript disabled, keyboard, repeated clicks`);
