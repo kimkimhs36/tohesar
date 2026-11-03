@@ -7,6 +7,7 @@
 | Jaguar 첫 장면 | [Before](before/jaguar-hero.png) | [After](after/jaguar-hero.png) |
 | Jaguar 도입과 타이포그래피 | [Before](before/jaguar-opening.png) | [After](after/jaguar-opening.png) |
 | 측면 사진 | [Before](before/jaguar-profile.png) | [After](after/jaguar-profile.png) |
+| 후면 디테일과 글의 순서 | [Before](before/jaguar-language.png) | [After](after/jaguar-language.png) |
 | Type 00에서 Type 01으로 | [Before](before/jaguar-comparison.png) | [After](after/jaguar-comparison.png) |
 | 마지막 사진과 본문 순서 | [Before](before/jaguar-closing.png) | [After](after/jaguar-closing.png) |
 | 저널 Jaguar 소개 | [Before](before/journal.png) | [After](after/journal.png) |
@@ -18,9 +19,11 @@
 
 ## 시각적 판단
 
-- [Type 7](https://type7.com/) 실제 지면의 사진이 페이지를 지배하는 크기와 분명한 제목 위계를 관찰했다. Type 7의 사진 위 대형 영문 타이틀이나 상업용 캐러셀을 재현하지 않고, 한글 가독성을 위해 Jaguar의 사진과 제목을 별도 영역에 두었다.
-- Awwwards Site of the Day 수상작 [S-2K](https://www.uicoach.io/inspirations/award-winning/s-2k)의 실제 수상 스크린샷에서 어두운 사진과 크고 작은 활자의 명확한 위계를 비교했다. 시선의 중심을 하나로 두는 원칙을 가져오되, 원본 이미지 위의 큰 장식 텍스트나 몰입형 모션은 적용하지 않았다. 모바일 도입 사진은 차체가 잘리지 않는 범위에서 좌우를 크롭했다. [M-Sport Raptor의 수상 기록](https://www.ryzeagency.co.uk/news/ryze-wins-site-of-the-day-for-m-sport-raptor-website/)도 확인했다.
+- [Type 7의 Drive Cinematic 기사](https://type7.com/blogs/stories/drive-cinematic)를 390px과 데스크톱에서 직접 살폈다. 모바일은 전체 너비 사진, 짧은 읽기 단락, 다시 사진으로 이어진다. 이를 참고해 Jaguar에서 측면 사진을 긴 해설 앞에 당기고, 후면 디테일은 맥락을 소개한 두 문단 뒤에 배치했다. 사진을 추가하거나 제목을 이미지에 겹치지 않았다.
+- Awwwards Site of the Day 수상작 [S-2K 제작 기록](https://www.ivorjian.com/s-2k)과 실제 모바일 화면을 확인했다. 시선을 한 사진에 집중하는 위계는 참고했지만, 모바일의 긴 속도계 로딩 및 실험적 동작은 자연스러운 독서에 맞지 않아 채택하지 않았다. 모바일 도입 사진은 차체가 잘리지 않는 범위에서 좌우를 크롭했다. [M-Sport Raptor의 수상 기록](https://www.ryzeagency.co.uk/news/ryze-wins-site-of-the-day-for-m-sport-raptor-website/)도 확인했다.
+- [American Society of Cinematographers의 Skyfall 촬영 인터뷰](https://theasc.com/article/skyfall-mi6-under-siege/)에서 빛의 출처와 어둠을 의식해 장면을 만드는 방식을 참고했다. 자동차 사진 자체의 황금빛 벽과 그림자를 살리고, 뒤의 어두운 면과 밝은 읽기 지면을 대비시켰다. Gunbarrel의 원형 그래픽이나 영화 장면은 재현하지 않았다.
 - Jaguar의 첫 사진에서 어두운 종이색으로 이어지는 명암과 밝은 본문, 다시 어두워지는 마지막 캡션으로 큰 시각적 리듬을 만들었다. 대표 사진 중복을 제거하고 Type 00 사진을 독립된 장면으로 놓았다. 조형 관찰선, 반복되는 풀쿼트와 소제목을 줄였다. 원문 사실과 인용은 유지하면서 이미 앞에서 설명한 반복 문장만 덜었다. 결론 뒤에 항공 사진을 배치해 마지막 시각 장면이 글을 마무리한다.
+- 저널 계열의 독립 지면 상단 바에는 피치·살구·연보라 색면이 천천히 교차하도록 했다. CSS 불투명도만 사용하며 메뉴 조작이나 스크롤을 가로채지 않고, reduced motion에서는 정지한다. COVER 004와 커버 안의 내비게이션은 적용 대상에서 제외했다.
 - 한글의 지나치게 좁은 자간을 완화하고 영문 차명을 세리프로, 캡션은 더 읽기 쉽게 조정했다. ISSUE 001의 흐릿한 반복 자동차 배경은 정지된 종이색으로 정리했으며, 별도의 주행 자동차는 유지했다. 저널에서 나란히 붙어 보이던 두 링크 중 중복 유도를 제거했다.
 
 ## 사진과 이용 조건

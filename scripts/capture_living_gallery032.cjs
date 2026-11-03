@@ -6,6 +6,7 @@ for(const [name,url,selector] of [
  ['jaguar-hero','/journal/design/type-01/',null],
  ['jaguar-opening','/journal/design/type-01/','.type-opening-paper'],
  ['jaguar-profile','/journal/design/type-01/','.type-profile'],
+ ['jaguar-language','/journal/design/type-01/','#different-language'],
  ['jaguar-comparison','/journal/design/type-01/','.type-study-intro'],
  ['jaguar-closing','/journal/design/type-01/','.type-closing-photo'],
  ['journal','/journal/','.atlas-invitation'],['issue','/journal/issues/001/','#chapter-04'],
