@@ -47,4 +47,4 @@ Jaguar의 도입·측면·후면·항공 사진과 Type 00은 기존 JLR 공식 
 - `tests/living-gallery032.cjs`: Chromium과 Playwright WebKit에서 375/390/430/1180px 주요 지면, 이미지 순서, 가로 넘침, 링크를 통한 이동·뒤로 가기·새로고침·흔적 보존·reduced motion 통과.
 - `tests/navigation.cjs`: Chromium 375/390/430/1180px에서 커버 이후 F40·Giulia·Jaguar 이동, 뒤로·앞으로·새로고침 통과. 430/1180px에서는 키보드, JavaScript 비활성화, 빠른 재클릭과 reduced motion도 통과. 초기 430px 시도는 병렬 부하 중 시간 초과였고 단독 재검증에서 통과했다.
 - `scripts/test_edition.py`, `scripts/test_reading.py`: 아카이브 및 뉴스 필터와 리더 기능 통과.
-- 브라우저 기반 테스트는 OS의 실제 iPhone Safari가 아니다. 운영 배포 및 main 병합은 수행하지 않았다.
+- 브라우저 기반 테스트는 OS의 실제 iPhone Safari가 아니다. 이 검토 이미지는 운영 배포 전 로컬에서 촬영했다.
