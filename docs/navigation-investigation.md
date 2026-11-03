@@ -1,0 +1,9 @@
+# Navigation investigation (2026-11-03)
+
+Main at investigation: 1c14c655e4e7867a415890a13cb3ba096827ff89. The live root HTML matched that commit byte for byte. GitHub Pages returned `Cache-Control: max-age=600`. This does not establish that cache caused the reported issue. Chromium at 390px loaded F40 and followed its home link; the reported older design did not appear. Full-page captures differed in lazy-loaded images, so image loading must be settled before visual comparison. Real iOS Safari and WebKit were not tested.
+
+Pages API reported legacy branch source `main` / `/`. Both the default Pages workflow and the custom editorial news workflow have successful deployments for the same commit. They are distinct build pipelines, and the custom one changes news.json. Their independent concurrency controls can race. A workflow-only change cannot disable the branch-source builder: switching Pages source to GitHub Actions is required after this branch is reviewed and before enabling the unified pipeline. Do not switch production settings before validating the pipeline. A stale-head check narrows, but does not eliminate, the race between the check and deploy. Asset URLs are not content-addressed; 600-second cached HTML and assets can still mix across deployments. These risks require further work and validation before merge.
+
+`travel.js` intercepted navigation and cleared its pending timer if reduced motion became enabled during the transition; this could strand a user. The change completes the pending navigation. BFCache pageshow resets transition state as before. This is a separate confirmed code defect, not a proven cause of the old-design report.
+
+Local browser smoke test: `BASE_URL=http://127.0.0.1:8000 node tests/navigation.cjs` (requires Playwright and browser installations). It does not cover the complete requested matrix or prove production cache consistency.
