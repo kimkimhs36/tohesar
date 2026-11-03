@@ -51,7 +51,7 @@
   let visibleImage = first, incomingImage = second;
   let raf = 0, timer = 0, morphTimer = 0, total = 0, duration = 20000;
   let timeStart = 0, running = false, lastCheckpoint = 0, morphing = false;
-  let fraction = 0, enabled = !reduced.matches && !dataSaver && document.visibilityState !== 'hidden';
+  let fraction = 0, halfWidth = 28, halfHeight = 15, enabled = !reduced.matches && !dataSaver && document.visibilityState !== 'hidden';
   const checkpoint = [0.23, 0.48, 0.73];
   const preloads = paths.map(src => { const img = new Image(); img.src = src; return img; });
 
@@ -61,9 +61,9 @@
     const safe = getComputedStyle(insetProbe);
     const safeTop = parseFloat(safe.paddingTop) || 0;
     const safeBottom = parseFloat(safe.paddingBottom) || 0;
-    const left = 10, right = width - 10;
-    const top = Math.max(14, safeTop + 8);
-    const bottom = height - Math.max(18, safeBottom + 8);
+    const left = 19, right = width - 19;
+    const top = Math.max(18, safeTop + 12);
+    const bottom = height - Math.max(21, safeBottom + 12);
     const radius = Math.min(28, (right - left) / 6, (bottom - top) / 6);
     const d = ['M',left+radius,top,'H',right-radius,
       'A',radius,radius,0,0,1,right,top+radius,
@@ -73,6 +73,8 @@
     track.setAttribute('d', d);
     total = track.getTotalLength();
     duration = Math.max(18500, total / 108 * 1000);
+    halfWidth = car.offsetWidth / 2;
+    halfHeight = car.offsetHeight / 2;
     paint(fraction);
   }
   function paint(p) {
@@ -82,7 +84,6 @@
     const point = track.getPointAtLength(at);
     const next = track.getPointAtLength((at + 1.5) % total);
     const angle = Math.atan2(next.y - point.y, next.x - point.x) * 180 / Math.PI;
-    const halfWidth = car.offsetWidth / 2, halfHeight = car.offsetHeight / 2;
     car.style.transform = 'translate3d(' + (point.x - halfWidth).toFixed(2) + 'px,' +
       (point.y - halfHeight).toFixed(2) + 'px,0) rotate(' + angle.toFixed(2) + 'deg)';
   }
