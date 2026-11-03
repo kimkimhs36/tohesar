@@ -27,7 +27,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       const before = await runner.evaluate(el => ({disabled:el.disabled,css:el.className}));
       await runner.evaluate(el => el.click());
       try {
-        await page.waitForFunction(() => document.querySelector('.thz-icons029-current')?.getAttribute('src')?.includes('countach.svg'), {timeout:3000});
+        await page.waitForFunction(() => document.querySelector('.thz-icons029-current')?.getAttribute('src')?.includes('countach.svg'), null, {timeout:3000});
       } catch (error) {
         const after = await runner.evaluate(el => ({disabled:el.disabled,css:el.className,images:[...el.querySelectorAll('img')].map(i=>({cls:i.className,src:i.getAttribute('src')}))}));
         throw new Error('tap-to-morph not completed on '+name+' '+width+'; before='+JSON.stringify(before)+' after='+JSON.stringify(after)+' cause='+error.message);
