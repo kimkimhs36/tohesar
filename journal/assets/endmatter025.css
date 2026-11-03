@@ -1,0 +1,31 @@
+/* The final pages of a story: shared rhythm, authored paper and miniatures remain. */
+aside.metadata-related{padding-block:clamp(58px,8vw,110px);font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+aside.metadata-related>div{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:clamp(32px,6vw,100px);row-gap:0;margin-top:35px}
+aside.metadata-related .continuation-story{min-width:0;min-height:120px;padding-block:25px;border-color:#b6acbd;text-decoration:none;justify-content:center}
+aside.metadata-related .continuation-story>div{gap:12px}
+aside.metadata-related .continuation-story span{font:400 13px/1.85 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;letter-spacing:-.02em;color:#665d6e;word-break:keep-all;overflow-wrap:anywhere}
+aside.metadata-related .continuation-story strong{font:italic 400 clamp(30px,3.4vw,48px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.035em;overflow-wrap:anywhere}
+aside.metadata-related .continuation-story small{font:400 11px/1.8 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;letter-spacing:0;color:#665d6e}
+aside.metadata-related .continuation-lead{display:block;grid-row:1 / span 4;padding-top:0;border-top:0}
+aside.metadata-related .continuation-lead img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:0;margin-bottom:27px}
+aside.metadata-related .continuation-credit{max-width:65ch;font-size:11px;line-height:1.9;letter-spacing:0;color:#665d6e;overflow-wrap:anywhere}
+aside.metadata-related .continuation-credit a{text-decoration:underline;text-underline-offset:3px}
+aside.metadata-related .continuation-return{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px}
+aside.metadata-related .continuation-return a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;line-height:1.8;text-decoration:underline;text-underline-offset:5px}
+:is(.story-sources,.giulia-sources,.type-sources) :is(p,li){font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;line-height:1.95;overflow-wrap:anywhere}
+:is(.story-sources,.giulia-sources,.type-sources) a{text-underline-offset:4px}
+aside.metadata-related a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+@media(max-width:700px){
+ aside.metadata-related{padding-block:58px 62px}
+ aside.metadata-related>div{display:block;margin-top:29px}
+ aside.metadata-related .continuation-story{display:block;min-height:0;padding-block:25px}
+ aside.metadata-related .continuation-lead{margin-bottom:12px;padding-top:0}
+ aside.metadata-related .continuation-lead img{margin-bottom:23px}
+ aside.metadata-related .continuation-story>div{gap:10px}
+ aside.metadata-related .continuation-story strong{font-size:32px;line-height:1.25}
+ aside.metadata-related .continuation-lead strong{font-size:39px}
+ aside.metadata-related .continuation-story span{font-size:13px;line-height:1.8}
+ aside.metadata-related .continuation-story small{font-size:11px}
+ aside.metadata-related .continuation-credit{font-size:10px}
+ aside.metadata-related .continuation-return{gap:5px 22px;margin-top:24px}
+}
