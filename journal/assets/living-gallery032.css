@@ -1,6 +1,10 @@
 /* Jaguar: one photographic sequence, with the original frames and a quiet reading measure. */
 .beauty014-language { --reading-width: 660px; }
-.beauty014-language .type-opening-paper { background: #eae3e5; }
+.beauty014-language .type-opening-paper { background: #302a2d; color: #f2eae6; }
+.beauty014-language .type-opening-title h1 em { color: #d1b8bd; }
+.beauty014-language .type-opening-title > p { color: #cbb7bd; }
+.beauty014-language .type-hero-foot small, .beauty014-language .type-byline { color: #c6b7b9; }
+.beauty014-language .type-byline { border-color: #766b6d; }
 .beauty014-language .type-opening-title h1 { line-height: 1.45; }
 .beauty014-language .type-byline { padding-bottom: 0; }
 .beauty014-language .type-lead { padding-bottom: clamp(60px, 8vw, 105px); }
@@ -34,7 +38,8 @@
 .beauty014-language .type-reading { margin-top: 1.5em; }
 .beauty014-language .type-conclusion .type-closing-photo { max-width: 1300px; margin: clamp(50px, 8vw, 100px) auto 0; }
 .beauty014-language .type-closing-photo img { aspect-ratio: auto; height: auto; object-fit: contain; }
-.beauty014-language .type-closing-photo figcaption { display: block; }
+.beauty014-language .type-closing-photo { background: #302a2d; }
+.beauty014-language .type-closing-photo figcaption { display: block; color: #d4c5c6; padding: 16px 22px 24px; }
 .beauty014-language .type-closing-photo figcaption > span { display: block; }
 @media (max-width:700px) {
  .beauty014-language .type-hero > img { aspect-ratio: 1.05; object-fit: cover; object-position: 52% 60%; }
@@ -60,3 +65,6 @@
 .beauty014-language .type-opening-title > p i { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.045em; }
 
 .beauty014-language .comparison-cars figcaption small > span { display:block; }
+/* The old combined pseudo-element selector is invalid; keep artwork out of prose. */
+.beauty014-language .type-lead::before { content: none; display: none; }
+.beauty014-language :is(.type-profile figcaption > span,.type-closing-photo figcaption > span,.language-layout figcaption,.language-layout figcaption small,.comparison-cars figcaption small) { font-size: 11px; line-height: 1.8; }
