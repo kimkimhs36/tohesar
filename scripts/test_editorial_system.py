@@ -110,13 +110,35 @@ class EditorialSystemTest(unittest.TestCase):
         self.assertIn(' 1600w', html)
         self.assertIn('width="1600" height="1178"', html)
         self.assertIn('aria-label="사진 출처: 차량의 &quot;측면&quot;"', html)
-        # A writer can provide an arbitrary small image without false 800/1600 descriptors.
+        # Intake can omit size metadata: the real local files reserve layout space.
         for key in ('width', 'height', 'src_small_width'):
             image.pop(key)
-        self.assertNotIn('srcset=', es.figure(image, 'es-hero'))
+        inferred = es.figure(image, 'es-hero')
+        self.assertIn('width="1600" height="1178"', inferred)
+        self.assertIn(' 800w, ', inferred)
+        self.assertIn('loading="lazy"', inferred)
+        self.assertNotIn('loading="lazy"', es.figure(image, 'es-hero', eager=True))
+        self.assertIn('fetchpriority="high"', es.figure(image, 'es-hero', eager=True))
         image['src_small_width'] = 500
         with self.assertRaisesRegex(ValueError, 'small image needs'):
             es.image_check(image)
+
+    def test_intrinsic_dimensions_use_local_photo_headers_and_fail_softly(self):
+        import struct
+        samples = {
+            'test.png': (b'\x89PNG\r\n\x1a\n' + b'\0' * 8 + struct.pack('>II', 640, 480), (640, 480)),
+            'test.gif': (b'GIF89a' + struct.pack('<HH', 320, 240), (320, 240)),
+            'test.jpg': (b'\xff\xd8\xff\xe0\x00\x04ab\xff\xc2\x00\x07\x08' + struct.pack('>HH', 480, 640), (640, 480)),
+            'test.webp': (b'RIFF' + b'\0' * 4 + b'WEBPVP8X' + b'\0' * 8 + (639).to_bytes(3, 'little') + (479).to_bytes(3, 'little'), (640, 480)),
+            'bad.jpg': (b'\xff\xd8\xff\xe0\0\0', None),
+            'truncated.webp': (b'RIFF\0\0\0\0WEBP', None),
+        }
+        for name, (data, expected) in samples.items():
+            with self.subTest(name=name):
+                (self.root / name).write_bytes(data)
+                self.assertEqual(es.intrinsic_dimensions('/' + name), expected)
+        self.assertIsNone(es.intrinsic_dimensions('/missing.webp'))
+        self.assertIsNone(es.intrinsic_dimensions('/../outside.webp'))
 
     def test_malformed_article_structure_is_rejected(self):
         self.story['chapters'][0]['paragraphs'] = '문단이어야 할 문자열'

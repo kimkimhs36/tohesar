@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 import json
 import re
+import struct
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'journal/data/editorial-stories.json'
@@ -140,10 +141,74 @@ def load_stories():
     return data['stories']
 
 
+def intrinsic_dimensions(src):
+    """Read common local photo headers without adding a runtime image dependency.
+
+    Unknown formats retain the writer's explicit dimensions. This is layout
+    metadata only; it does not validate image rights or decode the photograph.
+    """
+    path = ROOT / src.lstrip('/')
+    if not src.startswith('/') or '..' in src:
+        return None
+    try:
+        with path.open('rb') as photo:
+            header = photo.read(32)
+            if header.startswith(b'\x89PNG\r\n\x1a\n') and len(header) >= 24:
+                size = struct.unpack('>II', header[16:24])
+            elif header.startswith((b'GIF87a', b'GIF89a')) and len(header) >= 10:
+                size = struct.unpack('<HH', header[6:10])
+            elif header.startswith(b'RIFF') and header[8:12] == b'WEBP':
+                if header[12:16] == b'VP8X' and len(header) >= 30:
+                    size = (1 + int.from_bytes(header[24:27], 'little'),
+                            1 + int.from_bytes(header[27:30], 'little'))
+                elif header[12:16] == b'VP8L' and len(header) >= 25 and header[20] == 0x2f:
+                    bits = int.from_bytes(header[21:25], 'little')
+                    size = ((bits & 0x3fff) + 1, ((bits >> 14) & 0x3fff) + 1)
+                elif header[12:16] == b'VP8 ' and header[23:26] == b'\x9d\x01\x2a' and len(header) >= 30:
+                    size = tuple(n & 0x3fff for n in struct.unpack('<HH', header[26:30]))
+                else:
+                    return None
+            elif header.startswith(b'\xff\xd8'):
+                photo.seek(2)
+                while True:
+                    marker = photo.read(1)
+                    if marker != b'\xff':
+                        return None
+                    while marker == b'\xff':
+                        marker = photo.read(1)
+                    if not marker or marker in (b'\xd9', b'\xda'):
+                        return None
+                    raw_length = photo.read(2)
+                    if len(raw_length) != 2:
+                        return None
+                    length = int.from_bytes(raw_length, 'big')
+                    if length < 2:
+                        return None
+                    if marker[0] in (0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf):
+                        frame = photo.read(5)
+                        if len(frame) != 5:
+                            return None
+                        height, width = struct.unpack('>HH', frame[1:5])
+                        size = (width, height)
+                        break
+                    photo.seek(length - 2, 1)
+            else:
+                return None
+            return size if all(size) else None
+    except (OSError, ValueError, struct.error):
+        return None
+
+
 def figure(image, cls, eager=False):
+    # Common intake omits dimensions. Reserve the real photograph's space so
+    # loading a below-the-fold image does not move the text being read.
+    width, height = intrinsic_dimensions(image['src']) or (image.get('width'), image.get('height'))
+    small = intrinsic_dimensions(image['src_small']) if image.get('src_small') else None
+    small_width = small[0] if small else image.get('src_small_width')
     # Width descriptors must describe the actual files, not assumed 800/1600px sizes.
-    srcset = f' srcset="{esc(image["src_small"])} {image["src_small_width"]}w, {esc(image["src"])} {image["width"]}w" sizes="100vw"' if image.get('src_small_width') else ''
-    dimensions = f' width="{image["width"]}" height="{image["height"]}"' if image.get('width') and image.get('height') else ''
+    same_frame = not small or not height or abs(small[0] / small[1] - width / height) < .01
+    srcset = f' srcset="{esc(image["src_small"])} {small_width}w, {esc(image["src"])} {width}w" sizes="100vw"' if small_width and width and small_width < width and same_frame else ''
+    dimensions = f' width="{width}" height="{height}"' if width and height else ''
     loading = ' fetchpriority="high"' if eager else ' loading="lazy"'
     return (f'<figure class="{cls}"><img src="{esc(image["src"])}"{srcset}{dimensions} alt="{esc(image["alt"])}"{loading} decoding="async">'
             f'<figcaption class="es-caption">{esc(image["credit"])} · <a href="{esc(image["source_url"])}" aria-label="사진 출처: {esc(image["alt"])}">사진 출처</a> / '
