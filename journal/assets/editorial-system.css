@@ -226,3 +226,16 @@
 }
 @media(prefers-reduced-motion:reduce){.es-hero img{animation:none;transform:none}}
 .es-hero{overflow:clip}
+/* Keep the miniature paper alive very gently; the central reading lane stays clear. */
+.es-page[data-miniatures="trace"] .es-body::before{opacity:.22}
+.es-page[data-miniatures="atelier"] .es-body::before{opacity:.38}
+@media(prefers-reduced-motion:no-preference){
+ .es-page:not([data-miniatures="quiet"]) .es-body::before{animation:es-paper-breathe 28s ease-in-out infinite alternate}
+}
+@keyframes es-paper-breathe{from{transform:translate3d(-2px,0,0)}to{transform:translate3d(2px,3px,0)}}
+@media(prefers-reduced-motion:reduce){.es-body::before{animation:none;transform:none}}
+
+.es-page[data-miniature-car="butter"]{--es-car:url('/journal/assets/wallpaper/butter-club-240.webp')}
+.es-page[data-miniature-car="mint"]{--es-car:url('/journal/assets/wallpaper/mint-tour-240.webp')}
+.es-page[data-miniature-car="rose"]{--es-car:url('/journal/assets/wallpaper/rose-current-240.webp')}
+.es-page[data-miniature-car="tomato"]{--es-car:url('/journal/assets/wallpaper/tomato-open-240.webp')}

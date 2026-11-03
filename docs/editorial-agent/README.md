@@ -36,7 +36,7 @@ python3 scripts/publish.py check
 
 기본 미리보기는 실제 대표 사진을 먼저 보여준 뒤 TOHEŞAR 마스트헤드와 제목, 본문이 종이 위에 이어진다. 사진은 원본 비율을 유지한다. `body`와 `hero`만으로 충분하며, 추가 사진이 있으면 `photos` 배열에 `hero`와 같은 `src`, `alt`, `credit`, `source_url`, `licence_url` 객체를 넣는다. 이 사진들은 본문 뒤에 입력 순서대로 놓인다. 각 장에 사진을 배치하려면 기존 `chapters[].image` 또는 `chapters[].images`를 사용한다.
 
-필요할 때만 `paper` (`ivory`, `lilac`, `sage`, `peach`)와 `art_direction`을 지정한다. `opening`은 `full`(기본), `inset`, `offset`으로 사진의 너비와 위치를 조절하며 이미지를 임의로 자르지 않는다. `miniatures`는 `quiet`(없음), `trace`(기본), `atelier`(더 선명하게), `placement`는 `reading`(기본), `opening`, `both`다. 여기서 opening은 사진 위가 아닌 사진 다음의 제목 종이를 뜻한다. `car`는 `journal`(기본 기존 지면), `coral`, `sage`, `lilac`, `blue` 중 기존 일러스트를 선택한다. 예: `"art_direction": {"opening":"offset", "miniatures":"trace", "placement":"reading", "car":"sage"}`. 출처와 권리가 불명확한 사진 또는 사진처럼 보이는 AI 생성 자동차 이미지는 넣지 않는다.
+필요할 때만 `paper` (`ivory`, `lilac`, `sage`, `peach`)와 `art_direction`을 지정한다. `opening`은 `full`(기본), `inset`, `offset`으로 사진의 너비와 위치를 조절하며 이미지를 임의로 자르지 않는다. `miniatures`는 `quiet`(없음), `trace`(기본), `atelier`(더 선명하게), `placement`는 `reading`(기본), `opening`, `both`다. 여기서 opening은 사진 위가 아닌 사진 다음의 제목 종이를 뜻한다. `car`는 `journal`(기본 기존 지면), `coral`, `sage`, `lilac`, `blue`, `butter`, `mint`, `rose`, `tomato` 중 기존 일러스트를 선택한다. 예: `"art_direction": {"opening":"offset", "miniatures":"trace", "placement":"reading", "car":"sage"}`. 출처와 권리가 불명확한 사진 또는 사진처럼 보이는 AI 생성 자동차 이미지는 넣지 않는다.
 
 ## 본문 용어 설명
 
@@ -69,3 +69,5 @@ GitHub의 `workflow_dispatch`는 워크플로 파일이 기본 브랜치에 있�
 접수함은 정적 사이트 배포에서 제외하지만 Git 저장소에 커밋한 파일은 저장소 접근 권한을 가진 사람에게 보인다. 비밀 정보나 사용 허가가 없는 사진을 커밋하지 않는다.
 
 여러 `editorial_intake.py` 실행은 서로 직렬화된다. 다만 직접 JSON 파일을 편집하거나 다른 생성 도구를 동시에 실행하는 작업까지 직렬화하지는 않으므로 한 번에 하나의 작성 경로만 사용한다. 프로세스가 강제 종료되어 `.editorial-preview/<slug>/`만 남으면 데이터에 해당 기사가 이미 존재하는지 먼저 확인한 뒤, 데이터가 없는 고아 미리보기만 제거하고 재접수한다.
+
+미니카 벽지는 읽기 영역의 가장자리에서 낮은 밀도로 나타나며 천천히 움직인다. 기기의 동작 줄이기 설정에서는 정지한다. 기존 그림은 특정 모델의 정확한 재현으로 주장하지 않는다. 차종 전용 미니카가 필요하면 정확성과 사용 권리를 별도로 검토한 일러스트를 준비해야 한다.

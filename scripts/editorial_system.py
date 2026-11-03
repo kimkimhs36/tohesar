@@ -76,7 +76,7 @@ def validate_story(story, publish=False):
         raise ValueError(f'{slug}: invalid miniature art direction')
     if art.get('placement', 'reading') not in ('reading', 'opening', 'both'):
         raise ValueError(f'{slug}: invalid miniature placement')
-    if art.get('car', 'journal') not in ('journal', 'coral', 'sage', 'lilac', 'blue'):
+    if art.get('car', 'journal') not in ('journal', 'coral', 'sage', 'lilac', 'blue', 'butter', 'mint', 'rose', 'tomato'):
         raise ValueError(f'{slug}: invalid miniature car')
     if art.get('opening', 'full') not in ('full', 'inset', 'offset'):
         raise ValueError(f'{slug}: invalid opening composition')
