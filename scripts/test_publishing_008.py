@@ -45,7 +45,15 @@ class Publishing(unittest.TestCase):
         self.runcli('build')
         after={p:p.read_bytes() for p in files}
         changed=[str(p.relative_to(self.root)) for p in files if before[p]!=after[p]]
-        self.assertFalse(changed, 'Second build changed files: '+', '.join(changed[:30]))
+        differences=[]
+        for p in files:
+            if before[p] != after[p]:
+                a,b=before[p],after[p]
+                first=next((i for i in range(min(len(a),len(b))) if a[i]!=b[i]), min(len(a),len(b)))
+                differences.append(str(p.relative_to(self.root)) + " @" + str(first) +
+                                   " BEFORE=" + repr(a[max(0, first-35):first+65]) +
+                                   " AFTER=" + repr(b[max(0, first-35):first+65]))
+        self.assertFalse(changed, "Second build changed files: " + "; ".join(differences))
         self.assertEqual(self.data('issues.json')['issues'][-1]['status'],'draft')
     def test_bad_content_reference_blocks(self):
         d=self.data('issues.json');d['issues'][0]['chapters'][0]['content_id']='missing';self.save('issues.json',d);self.runcli('check',ok=False)
