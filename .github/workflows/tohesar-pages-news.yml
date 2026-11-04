@@ -6,7 +6,7 @@ on:
     - cron: '37 0,6,12,18 * * *'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -23,6 +23,20 @@ jobs:
       - name: Validate RSS parsing and failure behavior
         run: python3 -m unittest discover -s scripts -p "test_news.py"
       - uses: actions/configure-pages@v5
+      # The repository also has an automatic branch-based Pages deployment.
+      # Persist metadata to source HTML so either deploy pipeline publishes
+      # the same canonical/search directives. Do not rewrite article bodies.
+      - name: Materialize canonical SEO in source for both Pages pipelines
+        run: |
+          python3 scripts/seo.py --root .
+          python3 scripts/seo.py --root . --check
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -u
+            git commit -m "SEO 034: sync canonical metadata to published source"
+            git push origin HEAD:main
+          fi
       - name: Assemble existing official site without changing its files
         run: |
           mkdir -p _site
@@ -42,6 +56,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          test "$(gh api repos/${{ github.repository }}/commits/main --jq .sha)" = "$GITHUB_SHA"
+          test "$(gh api repos/${{ github.repository }}/commits/main --jq .sha)" = "$(git rev-parse HEAD)"
       - uses: actions/deploy-pages@v4
         id: deployment
