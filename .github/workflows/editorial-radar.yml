@@ -1,0 +1,55 @@
+name: TOHEŞAR Editorial Radar — hourly review candidates
+on:
+  schedule:
+    # GitHub scheduled workflows may start late; timestamps are checked in code.
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/news_candidates.py'
+      - 'scripts/test_news_candidates.py'
+      - 'scripts/news_pipeline.py'
+      - 'scripts/refresh_news.py'
+      - '.github/workflows/editorial-radar.yml'
+permissions:
+  contents: read
+concurrency:
+  group: tohesar-editorial-radar
+  cancel-in-progress: true
+jobs:
+  prepare-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test editorial candidate filtering and source provenance
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_news_candidates.py' -v
+          python3 -m unittest discover -s scripts -p 'test_news_pipeline.py' -v
+      - name: Check Korean journal publication source
+        run: python3 scripts/news_pipeline.py check
+      - name: Collect public headlines into an isolated temporary snapshot
+        env:
+          RADAR_TEMP: ${{ runner.temp }}
+        run: |
+          cp edition/data/news.json "$RADAR_TEMP/tohesar-wire.json"
+          if ! python3 scripts/refresh_news.py --output "$RADAR_TEMP/tohesar-wire.json"; then
+            echo "::warning::RSS refresh unavailable. Radar will reject a stale snapshot; nothing will be published."
+          fi
+      - name: Generate candidate-only report outside the public checkout
+        env:
+          RADAR_TEMP: ${{ runner.temp }}
+        run: |
+          python3 scripts/news_candidates.py \
+            --wire "$RADAR_TEMP/tohesar-wire.json" \
+            --curated journal/data/news.json \
+            --output "$RADAR_TEMP/tohesar-editorial-candidates.json" \
+            --max-age-hours 48 \
+            --limit 8
+      - name: Store review report only; never commit or deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: tohesar-radar-${{ github.run_id }}
+          path: ${{ runner.temp }}/tohesar-editorial-candidates.json
+          retention-days: 3
+          if-no-files-found: error
