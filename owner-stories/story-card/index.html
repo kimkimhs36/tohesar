@@ -60,7 +60,7 @@ h1 em{font-weight:400;color:#ac776a}
 <main>
 <div class="eyebrow">TOHEŞAR / COMMUNITY STUDIO / 001</div>
 <h1>Make it<br><em>your story.</em></h1>
-<p class="lead">당신의 차를 한 장의 작은 에디토리얼 작품으로. 사진과 이야기를 담아 인스타그램 스토리에서 공유하세요. <strong>사진은 서버로 업로드하지 않고 이 기기에서만 처리됩니다.</strong></p>
+<p class="lead">당신의 차를 한 장의 작은 에디토리얼 작품으로. 두 가지 에디토리얼 스타일과 사진·이야기를 조합해 인스타그램 스토리에서 공유하세요. <strong>사진은 서버로 업로드하지 않고 이 기기에서만 처리됩니다.</strong></p>
 <section class="studio" aria-label="스토리 카드 제작">
 <div class="editor">
 <label for="car-name">차량 이름 또는 모델
@@ -71,9 +71,14 @@ h1 em{font-weight:400;color:#ac776a}
 <div class="upload" id="photo-area"><strong id="photo-name">사진을 선택하거나 눌러 촬영하기</strong><small>JPG · PNG · HEIC 등 기기 지원 이미지, 최대 20MB<br>촬영·사용 권리가 있는 사진만 사용해 주세요.</small><input type="file" id="car-photo" accept="image/*" aria-label="내 자동차 사진 업로드"></div>
 </label>
 <div class="controls">
+<label for="car-layout">에디토리얼 스타일
+<select id="car-layout"><option value="cinema">CINEMATIC / 풀블리드</option><option value="gallery">GALLERY / 화보 프레임</option></select>
+</label>
 <label for="car-tone">사진 분위기
 <select id="car-tone"><option value="film">SOFT FILM</option><option value="neutral">NEUTRAL</option><option value="mono">MONOCHROME</option></select>
 </label>
+<label for="car-horizontal">사진 가로 위치
+<input id="car-horizontal" type="range" min="0" max="100" value="50" aria-label="사진 위치 좌우 조절"></label>
 <label for="car-position">사진 세로 위치
 <input id="car-position" type="range" min="0" max="100" value="50" aria-label="사진 위치 위아래 조절"></label>
 </div>
