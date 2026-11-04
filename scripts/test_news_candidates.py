@@ -87,7 +87,7 @@ class RadarTests(unittest.TestCase):
         invalid = [
             entry(fact_checked=True),
             entry(source="Untrusted Site", title="Porsche new design"),
-            entry(source_id="unknown", title="Another new concept"),
+            dict(entry(title="Another new concept"), source_id="unknown"),
             entry(language="xx", title="Design model debut"),
         ]
         self.assertEqual(len(self.choose(invalid)["candidates"]), 0)
