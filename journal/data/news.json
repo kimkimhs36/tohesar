@@ -1,8 +1,26 @@
 {
   "schema_version": 1,
-  "verified_at": "2026-10-28",
+  "verified_at": "2026-11-04",
   "mode": "curated-snapshot",
   "items": [
+    {
+      "id": "porsche-pcm-new-generation-20261103",
+      "title": "포르쉐가 다시 설계한 차 안의 디지털 경험",
+      "published_at": "2026-11-03",
+      "manufacturer": "Porsche",
+      "topic": "industry",
+      "source": "Porsche Newsroom",
+      "source_title": "New operating concept with enhanced performance and an expanded digital ecosystem for the 911, Taycan, Panamera and Cayenne",
+      "url": "https://newsroom.porsche.com/en/2026/products/porsche-new-infotainment-generation-mib4-43640.html",
+      "summary": "포르쉐가 911·타이칸·파나메라·카이엔을 위한 차세대 PCM을 발표했다. 새 하드웨어는 최대 5배의 연산 성능을 내세우며, AI 음성 조작과 3D 지도, Apple Music 공간 음향 등으로 차 안의 디지털 경험을 확장한다.",
+      "image": null,
+      "image_usage": "외부 보도 이미지는 사용하지 않음",
+      "status": "published",
+      "verification": "Porsche Newsroom 2026-11-03 공식 발표 페이지에서 모델 4종, 새 PCM 및 최대 5배 컴퓨팅 성능, AI Voice Pilot, 3D 지도, Apple Music 공간 음향 기능 확인. 출시·적용 시점은 추정하지 않음.",
+      "registered_at": "2026-11-04",
+      "fact_check_status": "verified",
+      "verified_at": "2026-11-04"
+    },
     {
       "id": "porsche-technologies-20261021",
       "title": "엔지니어링과 디지털, 하나의 이름으로",
