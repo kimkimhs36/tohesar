@@ -70,10 +70,11 @@ def prior_signatures(curated: dict) -> tuple[set, set]:
 
 
 def report(wire: dict, curated: dict, *, now: datetime,
-           max_age_hours: int = 48, limit: int = 8) -> dict:
+           max_age_hours: int = 48, limit: int = 8,
+           min_priority: int = 10) -> dict:
     if now.tzinfo is None:
         raise ValueError("An aware UTC time is required")
-    if not 1 <= max_age_hours <= 168 or not 1 <= limit <= 30:
+    if not 1 <= max_age_hours <= 168 or not 1 <= limit <= 30 or not 0 <= min_priority <= 100:
         raise ValueError("Invalid report bounds")
     now = now.astimezone(timezone.utc)
     base = {
@@ -86,7 +87,7 @@ def report(wire: dict, curated: dict, *, now: datetime,
                  "내용·발표일·모델명·사진 권리는 원문을 열고 다시 검증해야 합니다. "
                  "이 파일은 발행이나 AI 자동 승인에 사용할 수 없습니다."),
         "candidates": [],
-        "counts": {"seen": 0, "valid_recent": 0, "previously_covered": 0},
+        "counts": {"seen": 0, "valid_recent": 0, "previously_covered": 0, "low_priority": 0},
         "wire_status": None,
         "source_snapshot_at": None,
         "warnings": [],
@@ -158,6 +159,9 @@ def report(wire: dict, curated: dict, *, now: datetime,
                  + (5 if SIGNALS.search(title) else 0)
                  - (12 if LOW_VALUE.search(title) else 0)
                  + max(0, int((max_age_hours - age.total_seconds() / 3600) / 8)))
+        if score < min_priority:
+            base["counts"]["low_priority"] += 1
+            continue
         candidates.append({
             "id": entry.get("id") if isinstance(entry.get("id"), str) else "",
             "headline": title,
@@ -202,6 +206,8 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--max-age-hours", type=int, default=48)
     parser.add_argument("--limit", type=int, default=8)
+    parser.add_argument("--min-priority", type=int, default=10,
+                        help="Do not send weak industry headlines to editorial review")
     opts = parser.parse_args()
 
     destination = opts.output.resolve()
@@ -213,7 +219,8 @@ def main() -> None:
         wire = json.loads(opts.wire.read_text(encoding="utf-8"))
         curated = json.loads(opts.curated.read_text(encoding="utf-8"))
         output = report(wire, curated, now=datetime.now(timezone.utc),
-                        max_age_hours=opts.max_age_hours, limit=opts.limit)
+                        max_age_hours=opts.max_age_hours, limit=opts.limit,
+                        min_priority=opts.min_priority)
     except (OSError, ValueError, TypeError) as error:
         parser.exit(1, f"Radar blocked: {error}\n")
 
@@ -222,6 +229,7 @@ def main() -> None:
                            encoding="utf-8")
     print(f"RADAR 037: {len(output['candidates'])} unverified review candidates; "
           f"{output['counts']['previously_covered']} already covered; "
+          f"{output['counts']['low_priority']} below editorial threshold; "
           f"warnings={len(output['warnings'])}; artifact={destination}")
 
 

@@ -16,6 +16,7 @@ TOHEŞAR already has a tested 036 Korean editorial publisher and a scheduled RSS
 5. Skip publication on slow news days; no forced quota. Long-form essays still require editorial review.
 
 ## Operational details
+- Minimum editorial relevance score is 10 by default; low-value business/job-cut headlines are omitted from candidate artifacts even when recent. The cutoff affects **review selection only**, not any published article or newsroom RSS page.
 - GitHub cron is best-effort and may run late. Code checks timestamp freshness rather than assuming cron precision.
 - An all-source outage preserves an old snapshot, but the radar rejects stale or unconfirmed refreshes.
 - The source feed may be partial if some publishers fail; the report explicitly records the snapshot state and never claims cross-source factual verification.

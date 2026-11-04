@@ -45,6 +45,7 @@ jobs:
             --curated journal/data/news.json \
             --output "$RADAR_TEMP/tohesar-editorial-candidates.json" \
             --max-age-hours 48 \
+            --min-priority 10 \
             --limit 8
       - name: Store review report only; never commit or deploy
         uses: actions/upload-artifact@v4

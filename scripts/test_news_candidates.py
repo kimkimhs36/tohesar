@@ -135,6 +135,22 @@ class RadarTests(unittest.TestCase):
         result = self.choose([industry, design])
         self.assertEqual(result["candidates"][0]["headline"], design["title"])
 
+    def test_irrelevant_job_cuts_are_excluded_even_if_recent(self):
+        story = entry("motor1", "BMW Is Reportedly Cutting 1,800 Jobs In China",
+                      path="/news/bmw-jobs-in-china", category="industry")
+        output = self.choose([story])
+        self.assertEqual(output["candidates"], [])
+        self.assertEqual(output["counts"]["low_priority"], 1)
+
+    def test_low_priority_cutoff_can_be_tuned_for_review_only(self):
+        story = entry("porsche", "Porsche factory update",
+                      path="/en/industry/factory", category="industry")
+        strict = self.choose([story], min_priority=50)
+        open_review = self.choose([story], min_priority=0)
+        self.assertEqual(strict["candidates"], [])
+        self.assertEqual(len(open_review["candidates"]), 1)
+        self.assertFalse(open_review["publication_permitted"])
+
     def test_repeat_runs_are_deterministic_with_fixed_now(self):
         items = [entry(path="/a", title="Porsche new design A"),
                  entry("bmw", "BMW concept vehicle", path="/b")]
