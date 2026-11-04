@@ -53,6 +53,10 @@ jobs:
           python3 scripts/seo.py --root _site --check
       - name: Validate site and source integrity
         run: python3 scripts/test_edition.py --root _site
+      - name: Verify GitHub Pages storage budget and block accidental draft exposure
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_site_budget.py' -v
+          python3 scripts/site_budget.py --root _site --max-mib 850
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
