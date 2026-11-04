@@ -34,3 +34,9 @@
 @media(max-width:760px){.owner-tracks__grid,.owner-apply__layout{grid-template-columns:1fr}.owner-track{min-height:215px}.owner-track h3{font-size:34px}.owner-tracks .section{padding-top:78px;padding-bottom:88px}.owner-apply__layout{gap:46px}.owner-form__actions button{flex:1 1 160px}}
 @media(max-width:380px){.owner-form__actions{flex-direction:column}.owner-track{padding:23px}}
 @media(prefers-reduced-motion:reduce){.owner-apply *,.owner-tracks *{animation:none!important;transition:none!important}}
+
+/* Editorial footnote is not a numbered step; prevent the grid from crushing text. */
+.owner-apply__steps > .owner-preview{display:block;grid-template-columns:none;min-width:0;border-bottom:0;padding:28px 0 0}
+.owner-preview p{margin:0 0 18px;max-width:460px;overflow-wrap:break-word}
+.owner-preview button{display:inline-flex;align-items:center;justify-content:flex-start;max-width:100%;white-space:normal;text-align:left}
+.owner-form button{font-family:inherit}
