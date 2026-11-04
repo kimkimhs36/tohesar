@@ -16,7 +16,7 @@ outside source is true, that photos are licensed, or that an editor approved it.
 from __future__ import annotations
 
 import argparse
-from datetime import date
+from datetime import date, datetime
 from html import escape
 from pathlib import Path
 import ipaddress
@@ -25,6 +25,7 @@ import os
 import re
 import tempfile
 from urllib.parse import unquote, urlsplit
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = Path("journal/data/news.json")
@@ -33,6 +34,11 @@ TOPICS = {"design": "DESIGN", "industry": "INDUSTRY", "culture": "CULTURE"}
 START, END = "<!-- NEWS:START -->", "<!-- NEWS:END -->"
 ID_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 DATE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}\Z")
+
+
+def editorial_today() -> date:
+    """News is edited in Korea; do not reject a KST date while Actions is still on UTC yesterday."""
+    return datetime.now(ZoneInfo("Asia/Seoul")).date()
 
 
 class PublicationError(ValueError):
@@ -50,7 +56,7 @@ def checked_date(value, field: str, *, allow_future=False) -> date:
         result = date.fromisoformat(value)
     except ValueError as exc:
         raise PublicationError(f"{field}: invalid calendar date") from exc
-    require(allow_future or result <= date.today(), f"{field}: future date")
+    require(allow_future or result <= editorial_today(), f"{field}: future date")
     return result
 
 
