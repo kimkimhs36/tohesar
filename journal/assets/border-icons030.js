@@ -140,12 +140,25 @@
     if (marks.length > 800) for (let i = 0; i < marks.length - 800; i++) marks[i].remove();
     previousWheels = wheels;
   }
-  function morph() {
+  async function morph() {
     if (!running || morphing) return;
     morphing = true;
+    const request = generation;
+    const candidate = (model + 1) % models.length;
+    // An uncached WebP must not fade out the current car while Safari decodes
+    // the next one. Only begin the crossfade after its image is fully decoded.
+    try {
+      if (!preloads) throw new Error('Miniatures not preloaded');
+      await preloads[candidate].decode();
+    } catch (_) {
+      if (request === generation) morphing = false;
+      return;
+    }
+    if (request !== generation) return; // cancelled, page hidden, cover returned
+    if (!running || !enabled) { morphing = false; return; }
+    model = candidate;
     brakingUntil = performance.now() + 650;
     exhaustUntil = brakingUntil + 1800;
-    model = (model + 1) % models.length;
     back.src = paths[model];
     car.classList.add('is-transforming');
     clearTimeout(morphTimer);
