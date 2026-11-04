@@ -1,6 +1,6 @@
-# TOHEŞAR / 90-DAY CULTURE GROWTH PILOT
-**Decision log · 2026-11-04 → 2027-02-04**
-**Status:** execution blueprint, no follower-growth guarantee; no changes to production main.
+# TOHEŞAR / THE DAWON PROMISE — BIRTHDAY GROWTH SPRINT
+**Fixed deadline · 2026-11-04 → 2027-01-28 (before January 29 birthday)**
+**Status:** execution blueprint, no follower-growth guarantee; no changes to production main. **Historical commitment:** on 2026-11-01 the founder promised friend Im Dawon to grow TOHEŞAR into a successful brand before earning the driver's license / January 29 birthday. This is not an arbitrary 90-day marketing exercise; the 2027-01-29 deadline is fixed. The precise public numerical threshold for 'success' has not been previously agreed and must not be fabricated.
 
 ## Objective
 Turn TOHEŞAR from a beautiful automotive web experiment into a recognizable name among real automotive owners and photographers. Primary outcome: strangers willingly submit/accept vehicle features, share their personal TOHEŞAR page, return and recommend. Product income is secondary this quarter.
@@ -24,7 +24,7 @@ Turn TOHEŞAR from a beautiful automotive web experiment into a recognizable nam
 5. Return: credible archive of people, modifications and aesthetic choices
 6. Earn: sticker / apparel offer after credible demand, not before.
 
-## Timeline and measurable checkpoints
+## Timeline and measurable checkpoints — THE DAWON PROMISE DEADLINE IS 2027-01-29
 ### Days 1–7 / 4–11 Nov
 - [x] Create feature branch `feature/owner-stories-growth-pilot-20261104`
 - [x] Write nonpublished `owner-stories/index.html` applicant page (noindex until review)
@@ -42,11 +42,17 @@ Turn TOHEŞAR from a beautiful automotive web experiment into a recognizable nam
 - Target: cumulative 10 owner stories and 3 genuine co-created posts with owner/photographer permission.
 - Pilot photo & sticker handoff on 2–3 willing vehicles or personal items after stock arrives, no free-sticker promise before stock.
 - Improve page based on measured mobile link clicks and response, not guesses.
-### Days 61–90 / 4 Jan–4 Feb
+### Final sprint / 4 Jan–28 Jan (deadline is BEFORE 29 Jan)
 - Aim for 15–20 total published stories and 5 owner shares; not a promise.
 - Give best editorial themes recurring names/series: 'THE LINE', 'THE GARAGE', 'WHY THIS WHEEL'.
 - Evaluate >3 independent re-shares, >10 unsolicited inbound queries, repeated site visits, and first ethically completed paid sticker transactions where lawful.
 - If metrics fail, change subject/outreach value proposition first rather than rebuilding the entire website.
+
+## Completion evidence by 2027-01-28
+- Publish real owner-approved editorial collaborations and log actual reach/traffic from nonfriends rather than asserting that 'success' has been achieved because a landing page exists.
+- Have at least one actually completed physical sticker placement or clearly document the financial/supplier blocker without implying completion.
+- Collect audience evidence, creator shares, first genuine inbound collaboration, and any paid customer transactions if they occur. These are *internal evidence targets*, not a retroactive claim about what Dawon specifically demanded.
+- On the birthday, present the founder's actual work and verified results to Dawon. Never promise a specific follower total, revenue or virality before data confirms it.
 
 ## Key metrics (collect starting baselines, no fabricated rates)
 - Outreach log: attempts / replies / acceptances / publish permissions / links shared / reposts
