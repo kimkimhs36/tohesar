@@ -111,6 +111,9 @@ def build():
     build_editorial()
     for script in ['build_article_cleanup026.py','build_realphotos026.py','build_reading027.py','build_cinematic028.py','build_editorial_refinement031.py','build_living_gallery032.py']:
         subprocess.run([sys.executable,str(ROOT/'scripts'/script)],cwd=ROOT,check=True)
+    # Maintain canonical search metadata after all article/build transforms.
+    from seo import run as build_seo
+    build_seo(ROOT, False)
     links()
 
 def new_issue(number,title):

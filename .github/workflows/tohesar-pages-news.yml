@@ -29,6 +29,10 @@ jobs:
           tar --exclude=.git --exclude=_site --exclude=.github --exclude=docs --exclude=scripts --exclude=./journal/inbox -cf - . | (cd _site && tar xf -)
       - name: Refresh attributed public feeds; retain snapshot on failure
         run: python3 scripts/refresh_news.py --output _site/edition/data/news.json
+      - name: Curate public search metadata and canonical sitemap
+        run: |
+          python3 scripts/seo.py --root _site
+          python3 scripts/seo.py --root _site --check
       - name: Validate site and source integrity
         run: python3 scripts/test_edition.py --root _site
       - uses: actions/upload-pages-artifact@v3

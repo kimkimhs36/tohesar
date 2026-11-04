@@ -1,0 +1,26 @@
+name: TOHEŞAR SEO 034 quality gate
+on:
+  pull_request:
+    paths:
+      - 'scripts/seo.py'
+      - 'scripts/test_seo.py'
+      - 'scripts/publish.py'
+      - '.github/workflows/tohesar-pages-news.yml'
+      - '.github/workflows/seo-qa.yml'
+      - 'journal/data/**'
+      - '**/*.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-search-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test canonical, archive and metadata behavior
+        run: python3 -m unittest discover -s scripts -p 'test_seo.py' -v
+      - name: Apply production-equivalent SEO pass and verify idempotence
+        run: |
+          python3 scripts/seo.py --root .
+          python3 scripts/seo.py --root . --check
