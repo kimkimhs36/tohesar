@@ -5,7 +5,7 @@
   const canvas=byId('story-canvas'),ctx=canvas?.getContext('2d');
   if(!ctx)return;
   const model=byId('car-name'),story=byId('car-caption'),input=byId('car-photo');
-  const tone=byId('car-tone'),position=byId('car-position'),status=byId('card-status');
+  const tone=byId('car-tone'),position=byId('car-position'),horizontal=byId('car-horizontal'),layout=byId('car-layout'),status=byId('card-status');
   const uploadText=byId('photo-name');
   const W=1080,H=1920;
   let photo=null,objectURL=null,pending=false,ready=false;
@@ -42,7 +42,60 @@
     }
     return{lines,size};
   };
+
+  /* Printed-photo editorial direction: an intentional alternative to the cinema full-bleed.
+     No generic card grids, decorative neon, or tuning-era OEM+ branding. */
+  function drawGallery(){
+    ready=false;
+    ctx.fillStyle='#f4ece5';ctx.fillRect(0,0,W,H);
+    const subtle=ctx.createLinearGradient(0,0,W,H);
+    subtle.addColorStop(0,'rgba(226,188,170,.22)');
+    subtle.addColorStop(.57,'rgba(250,249,241,0)');
+    subtle.addColorStop(1,'rgba(171,199,187,.26)');
+    ctx.fillStyle=subtle;ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#253a37';ctx.textBaseline='alphabetic';ctx.textAlign='left';
+    ctx.font='400 49px Georgia,serif';ctx.fillText('TOHEŞAR',65,103);
+    ctx.textAlign='right';ctx.font='500 23px Arial,sans-serif';
+    ctx.fillText('OWNER STORIES  /  001',1015,102);ctx.textAlign='left';
+    ctx.strokeStyle='rgba(37,58,55,.46)';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(65,140);ctx.lineTo(1015,140);ctx.stroke();
+    const x=65,y=239,pw=950,ph=1050;
+    const photoWash=ctx.createLinearGradient(x,y,x+pw,y+ph);
+    photoWash.addColorStop(0,'#a4b7ad');photoWash.addColorStop(.58,'#d4d5c5');
+    photoWash.addColorStop(1,'#dcb1a7');
+    ctx.fillStyle=photoWash;ctx.fillRect(x,y,pw,ph);
+    if(photo&&photo.naturalWidth&&photo.naturalHeight){
+      const w=photo.naturalWidth,h=photo.naturalHeight,scale=Math.max(pw/w,ph/h);
+      const sw=pw/scale,sh=ph/scale;
+      ctx.save();ctx.filter={film:'saturate(.82) contrast(.96) sepia(.07)',neutral:'saturate(.96)',mono:'grayscale(1) contrast(1.08)'}[tone.value]||'none';
+      ctx.drawImage(photo,(w-sw)*Number(horizontal.value)/100,(h-sh)*Number(position.value)/100,sw,sh,x,y,pw,ph);
+      ctx.restore();
+    } else {
+      ctx.save();ctx.strokeStyle='rgba(248,247,239,.48)';
+      for(let n=0;n<4;n++){ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(780,740,230+n*93,385+n*100,-.3,0,Math.PI*2);ctx.stroke();}
+      ctx.fillStyle='rgba(36,62,56,.75)';ctx.font='400 125px Georgia,serif';
+      ctx.fillText('YOUR CAR',112,950);ctx.restore();
+    }
+    // Photo credit placeholder is intentionally omitted: only the user can verify authorship.
+    ctx.fillStyle='#253a37';ctx.font='500 21px Arial,sans-serif';
+    ctx.fillText('AN AUTOMOTIVE PORTRAIT',68,1352);
+    const name=wrap((model.value||'My Automotive Story').slice(0,44),940,2,n=>'400 '+n+'px Georgia,serif',87,55);
+    const top=name.lines.length>1?1454:1500;
+    ctx.fillStyle='#213632';ctx.font='400 '+name.size+'px Georgia,serif';
+    name.lines.forEach((v,i)=>ctx.fillText(v,65,top+i*name.size*1.06));
+    const copy=wrap((story.value||'Every curve has a story.').slice(0,115),940,3,n=>'400 '+n+'px Arial,sans-serif',33,25);
+    const copyTop=top+(name.lines.length-1)*name.size*1.06+67;
+    ctx.fillStyle='#576760';ctx.font='400 '+copy.size+'px Arial,sans-serif';
+    copy.lines.forEach((v,i)=>ctx.fillText(v,68,copyTop+i*copy.size*1.42));
+    ctx.strokeStyle='#91a79d';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(65,1795);ctx.lineTo(1015,1795);ctx.stroke();
+    ctx.fillStyle='#253a37';ctx.font='400 27px Georgia,serif';
+    ctx.fillText('Every curve has a story.',65,1853);
+    ctx.textAlign='right';ctx.font='500 20px Arial,sans-serif';ctx.fillText('TOHESAR.COM',1013,1852);
+    ctx.textAlign='left';ready=true;
+  }
+
   function draw(){
+    if(layout.value==='gallery'){drawGallery();return;}
     ready=false;
     const wash=ctx.createLinearGradient(0,0,W,H);
     wash.addColorStop(0,'#adc5b9');wash.addColorStop(.5,'#d6ded4');wash.addColorStop(1,'#e5b9a9');
@@ -52,7 +105,7 @@
       const sw=W/scale,sh=H/scale;
       ctx.save();
       ctx.filter={film:'saturate(.82) contrast(.96) sepia(.07)',neutral:'saturate(.96)',mono:'grayscale(1) contrast(1.08)'}[tone.value]||'none';
-      ctx.drawImage(photo,(w-sw)/2,(h-sh)*Number(position.value)/100,sw,sh,0,0,W,H);
+      ctx.drawImage(photo,(w-sw)*Number(horizontal.value)/100,(h-sh)*Number(position.value)/100,sw,sh,0,0,W,H);
       ctx.restore();
     }else{
       ctx.strokeStyle='rgba(253,247,241,.3)';ctx.lineWidth=2;
@@ -113,7 +166,7 @@
     try{await navigator.share({files:[file],title:'TOHEŞAR OWNER STORIES',text:'내 자동차의 이야기 — tohesar.com/owner-stories/'});say('공유 화면을 열었어요.')}
     catch(e){if(e?.name!=='AbortError')say('공유할 수 없어요. PNG 저장을 이용하세요.')}
   }
-  for(const el of [model,story,tone,position])el.addEventListener('input',render);
+  for(const el of [model,story,tone,position,horizontal,layout])el.addEventListener('input',render);
   input.addEventListener('change',()=>choose(input.files?.[0]));
   byId('save').addEventListener('click',download);
   byId('share').addEventListener('click',share);
