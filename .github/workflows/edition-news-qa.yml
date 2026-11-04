@@ -37,6 +37,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate Python collection and publisher provenance
         run: python3 -m unittest discover -s scripts -p 'test_news.py' -v
+      - name: Verify curated-news safety and deterministic publishing
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_news_pipeline.py' -v
+          python3 scripts/news_pipeline.py check
       - name: Test editorial publication safety and miniature visual modes
         run: python3 -m unittest discover -s scripts -p 'test_editorial_system.py' -v
       - name: Validate static HTML, links, attribution and root preservation
