@@ -43,6 +43,8 @@ jobs:
           python3 scripts/news_pipeline.py check
       - name: Test editorial publication safety and miniature visual modes
         run: python3 -m unittest discover -s scripts -p 'test_editorial_system.py' -v
+      - name: Ensure legacy publishing and generated magazine remain stable
+        run: python3 -m unittest discover -s scripts -p 'test_publishing_008.py' -v
       - name: Validate static HTML, links, attribution and root preservation
         run: python3 scripts/test_edition.py --root .
       - name: Check published editorial metadata and local journal links
