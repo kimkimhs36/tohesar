@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f2ece6">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="나만의 자동차 사진으로 TOHEŞAR OWNER STORIES 공유 카드를 만들어 보세요. 사진은 기기 밖으로 전송되지 않습니다.">
+<title>STORY CARD — TOHEŞAR OWNER STORIES</title>
+<link rel="icon" href="/assets/cedilla-favicon.svg" type="image/svg+xml">
+<style>
+/* Keep the journal and the share-card studio in the same native page-transition system. */
+@view-transition{navigation:auto}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms!important}}
+:root{--ink:#263533;--paper:#f2ece6;--quiet:#67716f;--line:#cec9c2;--peach:#dfb5a6;--mint:#bdcec7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #9c6656;outline-offset:4px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:calc(22px + env(safe-area-inset-top)) clamp(22px,5vw,76px) 18px;border-bottom:1px solid var(--line)}
+.brand{font:400 18px/1 Georgia,"Times New Roman",serif;letter-spacing:.13em;text-decoration:none}
+.nav a:last-child{font-size:11px;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid #a2aba6;padding-bottom:5px}
+main{max-width:1390px;margin:0 auto;padding:clamp(40px,6.5vw,94px) clamp(22px,5vw,76px) 112px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#6c7974}
+h1{font:400 clamp(53px,9vw,130px)/.97 Georgia,"Times New Roman",serif;letter-spacing:-.065em;margin:22px 0 18px}
+h1 em{font-weight:400;color:#ac776a}
+.lead{font-size:clamp(14px,1.7vw,17px);line-height:1.95;letter-spacing:-.035em;max-width:610px;color:#58635f;margin:0 0 56px}
+.studio{display:grid;grid-template-columns:minmax(0,.91fr) minmax(0,1.09fr);align-items:start;gap:clamp(40px,7vw,105px)}
+.editor{border-top:1px solid #aeb8b2;padding-top:28px;display:grid;gap:22px}
+.editor label{font-size:12px;font-weight:600;letter-spacing:-.025em;display:grid;gap:10px}
+.editor input:not([type=file]),.editor textarea,.editor select{background:#ffffffa3;color:#263533;border:1px solid #bbc5bd;border-radius:0;min-height:50px;padding:13px 14px;font-size:15px;width:100%;outline-offset:3px}
+.editor select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#627771 50%),linear-gradient(135deg,#627771 50%,transparent 50%);background-position:calc(100% - 21px) 50%,calc(100% - 16px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.editor textarea{min-height:95px;resize:vertical}
+.upload{position:relative;border:1px dashed #899e94;background:linear-gradient(120deg,#ecd7cb,#e9efeb);min-height:110px;padding:25px;align-content:center;text-align:center}
+.upload input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}
+.upload strong{display:block;font-size:13px;margin-bottom:8px}.upload small{display:block;font-size:11px;color:#5e7067;line-height:1.7}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.controls label{min-width:0}
+.editor input[type=range]{width:100%;accent-color:#647c72;min-height:28px}
+.notice{font-size:11px;color:#6a7671;line-height:1.9;margin:0;max-width:500px}
+.actions{display:flex;flex-wrap:wrap;gap:11px}
+.actions button{background:#233837;color:#f7f1e9;border:1px solid #233837;min-height:51px;padding:0 19px;font-size:12px;letter-spacing:.02em}
+.actions button.secondary{background:transparent;color:#253b38}
+.actions button:disabled{opacity:.5;cursor:not-allowed}
+.status{font-size:12px;color:#526c5e;line-height:1.7;min-height:1.3em}
+.preview-column{display:flex;flex-direction:column;align-items:center;gap:13px}
+.preview-top{width:100%;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.12em;color:#64706c}
+.preview-frame{position:relative;width:min(100%,420px);aspect-ratio:9/16;background:#202d2e;box-shadow:0 28px 75px #37433e30;overflow:hidden}
+.preview-frame canvas{width:100%;height:100%;display:block}
+.preview-bottom{font:11px/1.7 sans-serif;color:#687874;text-align:center}
+.foot{max-width:1390px;margin:0 auto;padding:24px clamp(22px,5vw,76px) 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;font-size:11px;color:#76827c}
+.foot a{text-underline-offset:4px}
+@media(max-width:820px){.studio{grid-template-columns:1fr}.preview-column{grid-row:1}.preview-frame{max-width:325px}.lead{margin-bottom:34px}.studio{gap:39px}}
+@media(max-width:420px){h1{font-size:clamp(49px,14vw,70px)}.controls{grid-template-columns:1fr 1fr}.actions button{flex:1}.preview-frame{max-width:270px}main{padding-bottom:70px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script src="/owner-stories/story-card/card.js" defer></script>
+</head>
+<body>
+<header class="nav"><a class="brand" href="/" aria-label="TOHEŞAR 홈">TOHEŞAR</a><a href="/owner-stories/">← OWNER STORIES</a></header>
+<main>
+<div class="eyebrow">TOHEŞAR / COMMUNITY STUDIO / 001</div>
+<h1>Make it<br><em>your story.</em></h1>
+<p class="lead">당신의 차를 한 장의 작은 에디토리얼 작품으로. 두 가지 에디토리얼 스타일과 사진·이야기를 조합해 인스타그램 스토리에서 공유하세요. <strong>사진은 서버로 업로드하지 않고 이 기기에서만 처리됩니다.</strong></p>
+<section class="studio" aria-label="스토리 카드 제작">
+<div class="editor">
+<label for="car-name">차량 이름 또는 모델
+<input id="car-name" maxlength="44" autocomplete="off" value="My Automotive Story" placeholder="예: Audi A5 B8 · 2008"></label>
+<label for="car-caption">이 자동차를 좋아하는 이유
+<textarea id="car-caption" maxlength="115" placeholder="가장 좋아하는 디자인의 한 장면을 적어보세요.">Every curve has a story.</textarea></label>
+<label for="car-photo">내 자동차 사진 (선택)
+<div class="upload" id="photo-area"><strong id="photo-name">사진을 선택하거나 눌러 촬영하기</strong><small>JPG · PNG · HEIC 등 기기 지원 이미지, 최대 20MB<br>촬영·사용 권리가 있는 사진만 사용해 주세요.</small><input type="file" id="car-photo" accept="image/*" aria-label="내 자동차 사진 업로드"></div>
+</label>
+<div class="controls">
+<label for="car-layout">에디토리얼 스타일
+<select id="car-layout"><option value="cinema">CINEMATIC / 풀블리드</option><option value="gallery">GALLERY / 화보 프레임</option></select>
+</label>
+<label for="car-tone">사진 분위기
+<select id="car-tone"><option value="film">SOFT FILM</option><option value="neutral">NEUTRAL</option><option value="mono">MONOCHROME</option></select>
+</label>
+<label for="car-horizontal">사진 가로 위치
+<input id="car-horizontal" type="range" min="0" max="100" value="50" aria-label="사진 위치 좌우 조절"></label>
+<label for="car-position">사진 세로 위치
+<input id="car-position" type="range" min="0" max="100" value="50" aria-label="사진 위치 위아래 조절"></label>
+</div>
+<p class="notice">사진이 없어도 텍스트 기반 카드를 만들 수 있어요. 이 이미지는 참여를 알리는 개인 공유용 카드이며 TOHEŞAR에 실제로 차주 신청이 접수되거나 콘텐츠 게재가 확정되는 것은 아닙니다.</p>
+<div class="actions"><button type="button" id="save">PNG 저장 · 1080×1920</button><button type="button" id="share" class="secondary">이미지 공유하기 ↗</button></div>
+<div class="status" id="card-status" role="status" aria-live="polite"></div>
+</div>
+<div class="preview-column">
+<div class="preview-top"><span>STORY CARD / PREVIEW</span><span>09 : 16</span></div>
+<div class="preview-frame"><canvas width="1080" height="1920" id="story-canvas" role="img" aria-label="생성된 TOHEŞAR 자동차 스토리 카드 미리보기"></canvas></div>
+<div class="preview-bottom">1080 × 1920 · Instagram Story 비율<br>화면은 축소 미리보기이며 실제 저장 이미지는 고해상도입니다.</div>
+</div>
+</section>
+</main>
+<footer class="foot"><span>TOHEŞAR — INDEPENDENT AUTOMOTIVE CULTURE</span><a href="/owner-stories/">당신의 자동차 이야기 제안하기 ↗</a></footer>
+</body>
+</html>
