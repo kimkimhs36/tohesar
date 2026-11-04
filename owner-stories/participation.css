@@ -51,3 +51,17 @@
 .owner-preview__actions button.owner-form__copy:hover{color:#fff;border-color:#fff}
 .owner-preview__actions button.owner-form__copy:focus-visible{outline:2px solid #edd0bb;outline-offset:4px}
 @media(max-width:420px){.owner-preview__actions{align-items:stretch;flex-direction:column;gap:6px}.owner-preview__actions button.owner-form__copy{width:max-content;max-width:100%}}
+
+/* A restrained bridge from editorial gallery to shareable owner-made art */
+.owner-storymaker{background:#e4e8e1;color:#283936;border-top:1px solid #c5cec7;border-bottom:1px solid #c5cec7}
+.owner-storymaker__inner{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(220px,.55fr);gap:clamp(24px,5vw,90px);align-items:end;padding-top:80px!important;padding-bottom:88px!important}
+.owner-storymaker__inner h2{font:400 clamp(38px,6.4vw,82px)/1.12 Georgia,"Times New Roman",serif;letter-spacing:-.065em;margin:14px 0 22px}
+.owner-storymaker__inner h2 em{font-weight:400;color:#a87061}
+.owner-storymaker__inner p:not(.eyebrow){max-width:520px;font-size:14px;line-height:1.95;color:#4d625c;margin:0}
+.owner-storymaker__action{display:grid;gap:12px;padding-bottom:8px}
+.owner-storymaker__action a{display:flex;align-items:center;justify-content:space-between;gap:18px;text-decoration:none;background:#263a38;color:#f6ede5;padding:19px 21px;min-height:58px;font-size:12px;letter-spacing:.025em}
+.owner-storymaker__action a:focus-visible{outline:2px solid #a87061;outline-offset:5px}
+.owner-storymaker__action a:hover{background:#3d5551}
+.owner-storymaker__action small{font-size:10px;line-height:1.6;color:#577067}
+@media(max-width:760px){.owner-storymaker__inner{grid-template-columns:1fr;padding-top:66px!important;padding-bottom:72px!important}.owner-storymaker__inner h2{font-size:clamp(42px,10vw,64px)}.owner-storymaker__action{max-width:390px}}
+@media(prefers-reduced-motion:reduce){.owner-storymaker *{transition:none!important}}
