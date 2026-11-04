@@ -8,12 +8,12 @@ import unittest
 
 from news_pipeline import (
     PublicationError, canonical_source, expected_html, render_pages,
-    validate, render, select_front,
+    validate, render, select_front, editorial_today,
 )
 
 
 def fixture_item(identifier="new-porsche", title="새로운 자동차 소식", **changes):
-    today = date.today().isoformat()
+    today = editorial_today().isoformat()
     item = {
         "id": identifier,
         "title": title,
@@ -117,7 +117,7 @@ class PipelineTests(unittest.TestCase):
                     validate(self.root)
 
     def test_rejects_future_published_date(self):
-        tomorrow = (date.today() + timedelta(days=1)).isoformat()
+        tomorrow = (editorial_today() + timedelta(days=1)).isoformat()
         self.save([fixture_item(published_at=tomorrow)])
         with self.assertRaisesRegex(PublicationError, "future date"):
             validate(self.root)
