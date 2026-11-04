@@ -38,3 +38,13 @@ Testing on the authorized `TEAM-BKIT` PC using Playwright, with the Owner Storie
 
 ## Success measure after launch
 A shareable story card is an **acquisition mechanism**, not proof of growth by itself. Measure unique shared-link visitors, owner submissions, actual published collaborations and repeat shares. Prioritize creative quality and real collaborations over adding more speculative features.
+
+## Art direction revision — two published-in-branch visual layouts
+
+- Added a **CINEMATIC** full-bleed mode and **GALLERY** print-like, ivory framed layout. The second is deliberately photo-book/editorial rather than an OEM+ / tuning-era theme.
+- Added independent horizontal and vertical picture crop positions, without uploading any photos.
+- On authorized PC, fetched latest isolated branch into clean dedicated worktree `Documents/TOHESAR_STUDIO/owner-stories-pr27` using portable Git; original Genesis worktree untouched.
+- Ran direct browser tests in Chrome + WebKit, viewports **320, 390, 768**. For each engine and viewport, verified **both design modes**: 12 PNG exports at exactly **1080×1920**, 12 successful render transitions, no horizontal overflow, **0 page JavaScript errors**, 0 non-GET requests.
+- Visually inspected `story2-webkit-390-gallery.png`: ivory margin, full-width framed photography, TOHEŞAR masthead, clean large model typography and readable caption, no clipped title/footnote in the sample.
+- Image export files and screenshot references are in local `Documents/TOHESAR_REMOTE_TEST_20261104` only. They are QA artifacts; the real OWNER STORIES public gallery is **not deployed**.
+- Test image is licensed editorial photography from existing repo and NOT represented as a real owner submission; photo publishing and actual collaborator identity still require rights checks.
