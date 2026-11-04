@@ -9,6 +9,9 @@
 <title>STORY CARD — TOHEŞAR OWNER STORIES</title>
 <link rel="icon" href="/assets/cedilla-favicon.svg" type="image/svg+xml">
 <style>
+/* Keep the journal and the share-card studio in the same native page-transition system. */
+@view-transition{navigation:auto}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms!important}}
 :root{--ink:#263533;--paper:#f2ece6;--quiet:#67716f;--line:#cec9c2;--peach:#dfb5a6;--mint:#bdcec7}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
