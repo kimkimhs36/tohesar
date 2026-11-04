@@ -85,7 +85,7 @@
   function render(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;draw()})}
   async function choose(file){
     if(!file)return;
-    if(!file.type.startsWith('image/'))return say('이미지 파일을 선택해 주세요.');
+    const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);\n    if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage)))return say('이미지 파일을 선택해 주세요.');
     if(file.size>20*1024*1024)return say('20MB 이하의 이미지를 선택해 주세요.');
     if(objectURL)URL.revokeObjectURL(objectURL);
     objectURL=URL.createObjectURL(file);
