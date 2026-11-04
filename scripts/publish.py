@@ -42,6 +42,9 @@ def check():
             assert date.fromisoformat(n['published_at'])<=date.today(),'Future news announcement'
             assert n['topic'] in ['design','culture','industry'],'News topic'
             if n.get('image'):assert n.get('image_source') and n.get('image_licence'),'Image rights missing'
+    # Centralized, stricter editorial-news source and provenance checks.
+    from news_pipeline import validate as validate_editorial_news
+    validate_editorial_news(ROOT)
     print(f'CHECK PASS: {len(issues)} editions, {len(content)} stories, {len(news)} news records. No status changed.')
 
 def links():

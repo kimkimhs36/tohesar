@@ -36,6 +36,17 @@ class SeoTests(unittest.TestCase):
             self.assertEqual(first, seo.transform(first, root, "/world/", {}))
             self.assertEqual(first.split("<body>")[1], old.split("<body>")[1])
 
+    def test_repeated_builder_whitespace_is_normalized_without_touching_body(self):
+        old = ('<html><head><title>Legacy</title><script src="/script.js"></script>'
+               '\n\n\n<link rel="stylesheet" href="/style.css"></head>'
+               '<body><p>Preserve this exact reading layout.</p></body></html>')
+        with tempfile.TemporaryDirectory() as temp:
+            first = seo.transform(old, Path(temp), "/legacy/", {})
+            self.assertIn('</script>\n<link', first)
+            self.assertNotIn('</script>\n\n<link', first)
+            self.assertEqual(first, seo.transform(first, Path(temp), "/legacy/", {}))
+            self.assertEqual(first.split("<body>")[1], old.split("<body>")[1])
+
     def test_sitemap_has_only_canonical_public_routes(self):
         xml = seo.sitemap({"/": {}, "/journal/f40/": {}})
         self.assertIn("https://tohesar.com/journal/f40/", xml)

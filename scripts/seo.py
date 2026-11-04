@@ -267,6 +267,10 @@ def transform(markup: str, root: Path, route: str, pages: dict) -> str:
 
     indexed = route in pages
     head = clean_head(match.group(2), indexed)
+    # Legacy article builders reinsert style tags and leave an additional blank
+    # line in <head> on every rebuild. Normalize only inter-tag whitespace so
+    # repeated builds are byte-for-byte stable without changing styles/content.
+    head = re.sub(r"(?<=>)\n[ \t]*\n+(?=[ \t]*<)", "\n", head)
     block = (
         meta_block(root, route, pages[route], title_of(markup))
         if indexed
