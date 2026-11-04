@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tohesar.com/</loc></url>
+  <url><loc>https://tohesar.com/edition/</loc></url>
+  <url><loc>https://tohesar.com/edition/archive/</loc></url>
+  <url><loc>https://tohesar.com/edition/news/</loc></url>
+  <url><loc>https://tohesar.com/history/</loc></url>
+  <url><loc>https://tohesar.com/journal/</loc></url>
+  <url><loc>https://tohesar.com/journal/911/</loc></url>
+  <url><loc>https://tohesar.com/journal/design/</loc></url>
+  <url><loc>https://tohesar.com/journal/design/giulia/</loc></url>
+  <url><loc>https://tohesar.com/journal/design/type-01/</loc></url>
+  <url><loc>https://tohesar.com/journal/explore/</loc></url>
+  <url><loc>https://tohesar.com/journal/f40/</loc></url>
+  <url><loc>https://tohesar.com/journal/issues/</loc></url>
+  <url><loc>https://tohesar.com/journal/issues/001/</loc></url>
+  <url><loc>https://tohesar.com/journal/miniatures/</loc></url>
   <url><loc>https://tohesar.com/journal/yokohama/</loc></url>
   <url><loc>https://tohesar.com/symbol/</loc></url>
-  <url><loc>https://tohesar.com/history/</loc></url>
 </urlset>
