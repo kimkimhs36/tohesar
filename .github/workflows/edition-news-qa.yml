@@ -45,6 +45,12 @@ jobs:
         run: python3 -m unittest discover -s scripts -p 'test_editorial_system.py' -v
       - name: Ensure legacy publishing and generated magazine remain stable
         run: python3 -m unittest discover -s scripts -p 'test_publishing_008.py' -v
+      - name: Verify future Pages artifact fits free hosting and hides drafts
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_site_budget.py' -v
+          mkdir -p _site
+          tar --exclude=.git --exclude=_site --exclude=.github --exclude=docs --exclude=scripts --exclude=./journal/inbox -cf - . | (cd _site && tar xf -)
+          python3 scripts/site_budget.py --root _site --max-mib 850
       - name: Validate static HTML, links, attribution and root preservation
         run: python3 scripts/test_edition.py --root .
       - name: Check published editorial metadata and local journal links
