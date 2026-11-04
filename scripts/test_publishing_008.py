@@ -42,7 +42,10 @@ class Publishing(unittest.TestCase):
         self.assertIn('/journal/assets/atlas025.css', (self.root/'journal/design/index.html').read_text())
         archive=(self.root/'journal/issues/index.html').read_text();self.assertNotIn('DRAFT ONLY',archive)
         files=list((self.root/'journal').rglob('*.html'));before={p:p.read_bytes() for p in files}
-        self.runcli('build');self.assertEqual(before,{p:p.read_bytes() for p in files})
+        self.runcli('build')
+        after={p:p.read_bytes() for p in files}
+        changed=[str(p.relative_to(self.root)) for p in files if before[p]!=after[p]]
+        self.assertFalse(changed, 'Second build changed files: '+', '.join(changed[:30]))
         self.assertEqual(self.data('issues.json')['issues'][-1]['status'],'draft')
     def test_bad_content_reference_blocks(self):
         d=self.data('issues.json');d['issues'][0]['chapters'][0]['content_id']='missing';self.save('issues.json',d);self.runcli('check',ok=False)
