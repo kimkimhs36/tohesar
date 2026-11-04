@@ -182,14 +182,18 @@
     layer.classList.remove('is-visible');
     car.disabled = true;
   }
-  function ready() {
+  function coverInView() {
     const cover = document.getElementById('cover');
-    if (!cover) return true;
+    if (!cover) return false;
     const rect = cover.getBoundingClientRect();
-    return rect.bottom <= 0 || rect.top >= innerHeight;
+    // On iPhone Safari, toolbar collapse and rubber-band scrolling repeatedly
+    // cross the zero-pixel boundary. A 28px hysteresis avoids hide/show flashes.
+    const margin = coverShowing === null ? 0 : coverShowing ? -28 : 28;
+    return rect.bottom > margin && rect.top < innerHeight - margin;
   }
+  function ready() { return !coverInView(); }
   function syncCover() {
-    const showing = !ready();
+    const showing = coverInView();
     if (showing === coverShowing) return;
     coverShowing = showing;
     layer.classList.toggle('is-cover-hidden', showing);
