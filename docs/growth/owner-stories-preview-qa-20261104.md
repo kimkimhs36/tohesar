@@ -26,3 +26,11 @@
 - `index.html` (branch only): one call-to-action and stylesheet, preserves existing cinematic hero; optional Index link.
 
 No paid advertising, outreach, public deployment, production file overwrite or external data disclosure occurred.
+
+## Functional follow-up (same day, remote PC)
+- Corrected a missing `participation.js` and `participation.css` inclusion in `owner-stories/index.html`; corrected Open Graph metadata line breaks.
+- Branch ref content on the raw GitHub CDN was briefly stale. For the final QA, the browser fixture fetched a **specific immutable commit**, `f9de26cc49bef46b9a02dcdbd114ecb2f6c1028b`, not the stale branch raw endpoint.
+- Verified script fetched (HTTP 200) and executed on Chrome.
+- Tested widths 320, 375, 390, 430, 768, 1024. All: homepage CTA linked to owner-stories, no horizontal overflow, 3 editorial track cards, form valid after filling, clipboard-copy status displayed and clipboard contained `tohesar@gmail.com`. Privacy-preserving client-only implementation.
+- Existing homepage navigation transition warning still surfaced in these automated tests, despite successful navigation. Investigate in release QA, especially on actual iPhone Safari.
+- **Not deployed to production; no user email was sent** (testing clipboard only).
