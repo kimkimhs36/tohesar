@@ -31,7 +31,8 @@ SIGNALS = re.compile(
 )
 LOW_VALUE = re.compile(
     r"\b(earnings|quarterly|dividend|recall|discount|coupon|"
-    r"shares|stocks|lawsuit|sales figures|insurance|"
+    r"shares|stocks|lawsuit|sales figures|insurance|jobs?|"
+    r"layoffs?|workforce|redundancies|staffing|employment|"
     r"top [0-9]+|best deals)\b", re.I
 )
 
@@ -155,6 +156,11 @@ def report(wire: dict, curated: dict, *, now: datetime,
         if category not in CATEGORIES:
             continue
         base["counts"]["valid_recent"] += 1
+        # RSS category labels are headline heuristics: a job-cut story can be
+        # misclassified as "new-cars". Do not rely on that tag alone.
+        if LOW_VALUE.search(title) and not SIGNALS.search(title):
+            base["counts"]["low_priority"] += 1
+            continue
         score = (CATEGORIES[category] + SOURCE_SCORES.get(source_id, 0)
                  + (5 if SIGNALS.search(title) else 0)
                  - (12 if LOW_VALUE.search(title) else 0)

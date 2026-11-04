@@ -137,10 +137,17 @@ class RadarTests(unittest.TestCase):
 
     def test_irrelevant_job_cuts_are_excluded_even_if_recent(self):
         story = entry("motor1", "BMW Is Reportedly Cutting 1,800 Jobs In China",
-                      path="/news/bmw-jobs-in-china", category="industry")
+                      path="/news/bmw-jobs-in-china", category="new-cars")
         output = self.choose([story])
         self.assertEqual(output["candidates"], [])
         self.assertEqual(output["counts"]["low_priority"], 1)
+
+    def test_headline_heuristics_cannot_reclassify_layoffs_as_new_cars(self):
+        story = entry("motor1", "Nissan layoffs impact global workforce",
+                      path="/news/nissan-workforce-2026", category="new-cars")
+        result = self.choose([story], min_priority=0)
+        self.assertFalse(result["candidates"])
+        self.assertEqual(result["counts"]["low_priority"], 1)
 
     def test_low_priority_cutoff_can_be_tuned_for_review_only(self):
         story = entry("porsche", "Porsche factory update",
