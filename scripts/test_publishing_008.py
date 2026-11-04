@@ -6,7 +6,9 @@ class Publishing(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
         shutil.copy(ROOT/'index.html',self.root/'index.html')
-        for name in ['scripts','journal']:
+        # SEO 034 requires curated public routes to exist even in a disposable test checkout.
+        # Copy them, do not symlink: a build must never mutate the real repository.
+        for name in ['scripts','journal','history','symbol','sitemap']:
             shutil.copytree(ROOT/name,self.root/name,ignore=shutil.ignore_patterns('__pycache__'))
         for name in ['assets','edition','creative']:(self.root/name).symlink_to(ROOT/name,target_is_directory=True)
         # 011 articles cite the public provenance/collection document. Keep the
