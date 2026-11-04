@@ -1,0 +1,36 @@
+/* Owner Stories 001: editorial tracks + low-friction email application */
+.owner-tracks{background:linear-gradient(155deg,#efdfd5 0%,#f9f6f2 44%,#dde7e3 100%);color:#20292b}
+.owner-tracks .section{padding-top:90px;padding-bottom:108px}
+.owner-tracks__intro{font-size:clamp(15px,1.8vw,18px);line-height:1.8;max-width:540px;color:#536060;margin:0 0 46px}
+.owner-tracks__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.owner-track{min-height:295px;padding:26px 26px 32px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #273b3a27;background:rgba(255,255,255,.3)}
+.owner-track::after{content:"";position:absolute;right:-80px;bottom:-110px;width:240px;height:240px;border:1px solid #65797543;border-radius:50%;box-shadow:0 0 0 25px rgba(117,140,136,.09),0 0 0 55px rgba(117,140,136,.07);pointer-events:none}
+.owner-track__num{font:14px/1 Georgia,serif;color:#697775}
+.owner-track__text{position:relative;z-index:1}
+.owner-track h3{margin:0 0 12px;font:400 clamp(26px,3vw,42px)/1 Georgia,serif;letter-spacing:-.04em}
+.owner-track p{margin:0;max-width:260px;font-size:13px;line-height:1.9;letter-spacing:-.04em;color:#526360}
+.owner-apply{background:#202e30;color:#ece9e1}
+.owner-apply__intro{max-width:620px;color:#b9c9c2;line-height:1.8;font-size:14px}
+.owner-apply__layout{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);gap:clamp(36px,5vw,100px);margin-top:48px}
+.owner-form{display:grid;gap:18px}
+.owner-form label{font-size:12px;letter-spacing:-.025em;display:grid;gap:9px;color:#eaece5}
+.owner-form input,.owner-form textarea,.owner-form select{width:100%;font:400 15px/1.5 sans-serif;border:1px solid #d0dcd34f;border-radius:0;background:#293d3f;color:#f7f5ef;padding:13px 15px;min-height:47px;outline-offset:3px}
+.owner-form textarea{min-height:124px;resize:vertical}
+.owner-form select option{background:#293d3f}
+.owner-form input::placeholder,.owner-form textarea::placeholder{color:#bbc7c0}
+.owner-form input:focus-visible,.owner-form textarea:focus-visible,.owner-form select:focus-visible{outline:2px solid #edd0bb}
+.owner-form__actions{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch;margin-top:6px}
+.owner-form button{font:600 12px/1.5 sans-serif;cursor:pointer;border-radius:0;min-height:49px;padding:13px 17px;border:1px solid #ebd9ca;background:#e9ddd2;color:#172b2d}
+.owner-form button:hover{background:#fff5e8}
+.owner-form button.owner-form__copy{background:transparent;color:#ebd9ca}
+.owner-form__note{font-size:11px;line-height:1.8;color:#b8c8bf;max-width:510px}
+.owner-form__status{font-size:12px;line-height:1.6;min-height:1.3em;color:#f0d2c3}
+.owner-apply__steps{border-top:1px solid #dde9e441;align-self:start}
+.owner-apply__steps > div{padding:20px 0;border-bottom:1px solid #dde9e441;display:grid;grid-template-columns:34px 1fr;gap:13px;line-height:1.85;font-size:13px;color:#d8e0d7}
+.owner-apply__steps b{font:17px Georgia,serif;color:#edcfc0}
+.owner-apply__steps small{display:block;margin-top:7px;font-size:11px;color:#a9bbb2;line-height:1.85}
+.owner-preview{margin-top:36px;padding:24px 0 0;border-top:1px solid #d0dcd352;color:#b9ccc2;font-size:12px;line-height:1.85}
+.owner-preview a{color:#e7d5c8;text-underline-offset:4px}
+@media(max-width:760px){.owner-tracks__grid,.owner-apply__layout{grid-template-columns:1fr}.owner-track{min-height:215px}.owner-track h3{font-size:34px}.owner-tracks .section{padding-top:78px;padding-bottom:88px}.owner-apply__layout{gap:46px}.owner-form__actions button{flex:1 1 160px}}
+@media(max-width:380px){.owner-form__actions{flex-direction:column}.owner-track{padding:23px}}
+@media(prefers-reduced-motion:reduce){.owner-apply *,.owner-tracks *{animation:none!important;transition:none!important}}
