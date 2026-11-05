@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#efe9e5">
+<meta name="theme-color" content="#e9e4ee">
 <meta name="robots" content="index,follow,max-image-preview:large"> 
 <link rel="canonical" href="https://tohesar.com/owner-stories/">
 <meta property="og:site_name" content="TOHEŞAR">
@@ -49,19 +49,17 @@ main{overflow:hidden}.section{max-width:1260px;margin:0 auto;padding:110px clamp
 </style>
 <link rel="stylesheet" href="/owner-stories/participation.css">
 <link rel="stylesheet" href="/owner-stories/art-direction-20261105.css">
+<link rel="stylesheet" href="/owner-stories/journal-language.css">
+<script src="/owner-stories/intake-config.js" defer></script>
 <script src="/owner-stories/participation.js" defer></script>
 </head>
 <body class="owner-landing">
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<nav aria-label="상단 이동"><a class="brand" href="/" aria-label="TOHEŞAR 홈"><img class="brand-art" src="/assets/wordmark.svg" width="128" height="29" alt="TOHEŞAR"></a><a class="navlink" href="/journal/">JOURNAL ↗</a></nav>
+<header class="owner-header"><a href="/" aria-label="TOHEŞAR 커버"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a><details class="owner-index"><summary aria-label="사이트 메뉴">Index</summary><nav aria-label="TOHEŞAR 전체 탐색"><a href="/journal/"><strong>저널</strong><small>기사와 특집호</small></a><a href="/journal/explore/"><strong>둘러보기</strong><small>디자인 · 미니카 · 시각 문화</small></a><a href="/edition/"><strong>뉴스룸</strong><small>자동차 소식</small></a><a href="/sitemap/">전체 구조 보기</a></nav></details></header>
+<div class="owner-mast"><h1>자동차와<br>그 사람의 이야기.</h1><p>한 사람의 취향과 시간을 담아.</p></div>
 <header class="hero">
 <div class="hero-photo" role="img" aria-label="옆모습의 선이 드러난 Alfa Romeo Giulia 사진"></div>
-<div class="hero-body">
-<p class="eyebrow">TOHEŞAR / OWNER STORIES — PILOT 001</p>
-<h1>Every<br><span>curve</span><br>has a story.</h1>
-<div class="hero-bottom"><p>자동차는 한 사람의 취향을 닮아간다.<br>당신이 선택한 선과 변화를 기록합니다.</p><a class="cta" href="#join">내 차의 이야기 제안하기 <span aria-hidden="true">↗</span></a></div>
-</div>
-<div class="credit">이미지: <a href="https://www.pexels.com/photo/alfa-romeo-giulia-in-side-view-26756716/" rel="noopener noreferrer" target="_blank">Owen.outdoors / Pexels</a> · 대표 이미지, 참여 차량 아님</div>
+<div class="hero-body"><p class="eyebrow">TOHEŞAR / OWNER STORIES · 001</p><h2>당신의 차에도<br>이야기가 있습니다<span>.</span></h2><div class="hero-bottom"><p>자동차는 한 사람의 취향을 닮아갑니다.<br>당신이 선택한 선과 변화를 기록합니다.</p><a class="cta" href="#join">내 차의 이야기 제안하기 <span aria-hidden="true">↗</span></a></div><div class="credit">사진: <a href="https://www.pexels.com/photo/alfa-romeo-giulia-in-side-view-26756716/" rel="noopener noreferrer" target="_blank">Owen.outdoors / Pexels</a> · 대표 이미지, 참여 차량 아님</div></div>
 </header>
 <main id="main">
 <section class="manifesto"><div class="section">
@@ -99,9 +97,17 @@ main{overflow:hidden}.section{max-width:1260px;margin:0 auto;padding:110px clamp
 <select id="owner-theme" name="theme"><option value="THE LINE — 차의 아름다운 형태">THE LINE — 차의 아름다운 형태</option><option value="THE BUILD — 나만의 튜닝과 선택">THE BUILD — 나만의 튜닝과 선택</option><option value="THE MEMORY — 자동차와 함께한 기억">THE MEMORY — 자동차와 함께한 기억</option></select></label>
 <label for="owner-story">이 차에 대해 들려주고 싶은 이야기
 <textarea id="owner-story" name="story" placeholder="이 차를 좋아하게 된 계기나, 가장 마음에 드는 부분을 짧게 적어주세요." minlength="8" maxlength="700" required></textarea></label>
+<div class="owner-online" data-owner-online hidden>
+<p>온라인 제안을 선택하면 입력한 내용과 연락처가 제안 처리 및 답변을 위해 전달됩니다. 보안 확인에는 Cloudflare가 사용됩니다. 사진은 보내지 않습니다.</p>
+<label for="owner-contact">답변받을 이메일 또는 Instagram 아이디<input id="owner-contact" name="contact" maxlength="254" autocomplete="email" disabled></label>
+<label class="owner-online__consent"><input type="checkbox" name="consent" disabled> 제안 처리와 답변을 위한 연락처 사용에 동의합니다.</label>
+<div data-owner-challenge></div>
+<button type="button" data-owner-send disabled>온라인으로 제안하기 ↗</button>
+</div>
+<button type="button" class="owner-online-prepare" data-owner-prepare hidden>온라인 제안 준비하기 ↗</button>
 <div class="owner-form__actions"><button type="submit">메일 앱으로 제안하기 ↗</button><button type="button" class="owner-form__copy" data-owner-copy>제안 내용 복사</button></div>
 <p class="owner-form__status" data-owner-status role="status" aria-live="polite"></p>
-<p class="owner-form__note">제안 버튼은 메일 앱을 열어 초안을 만들어요. <strong>메일 앱에서 직접 보내기를 눌러야 접수</strong>됩니다. 이 페이지에 입력한 내용은 웹 서버에 저장·전송하지 않아요. 사진 사용과 공개는 별도 동의를 받고 진행합니다.</p>
+<p class="owner-form__note">메일 앱 버튼은 초안을 만들어요. <strong>메일 앱에서 직접 보내기를 눌러야 접수</strong>됩니다. 온라인 제안은 별도로 선택하고 동의할 때만 전송됩니다. 사진 사용과 공개는 별도 동의를 받고 진행합니다.</p>
 <noscript><p class="owner-form__note">브라우저에서 입력 기능을 사용할 수 없다면 <a href="mailto:tohesar@gmail.com?subject=OWNER%20STORIES%20%EC%B0%B8%EC%97%AC%20%EC%A0%9C%EC%95%88">tohesar@gmail.com에 직접 메일 보내기</a>를 이용해 주세요.</p></noscript>
 </form>
 </div>
@@ -114,5 +120,5 @@ main{overflow:hidden}.section{max-width:1260px;margin:0 auto;padding:110px clamp
 </div>
 </div></section>
 </main>
-<footer class="footer"><span>© TOHEŞAR 2026 · INDEPENDENT AUTOMOTIVE CULTURE</span><span><a href="/">HOME</a> &nbsp; <a href="/journal/">JOURNAL</a> &nbsp; <a href="mailto:tohesar@gmail.com">CONTACT</a></span></footer>
+<footer class="owner-footer"><a href="/journal/" aria-label="TOHEŞAR Journal"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a><p>자동차를 바라보는 또 하나의 시선.<br>Design, places &amp; the things that stay.</p><nav aria-label="하단 메뉴"><a href="/journal/">저널</a><a href="/owner-stories/">OWNER STORIES</a><a href="/edition/">뉴스룸</a><a href="/sitemap/">전체 구조</a><a href="mailto:tohesar@gmail.com">CONTACT</a></nav><small>© TOHEŞAR 2026 · INDEPENDENT AUTOMOTIVE CULTURE</small><img class="owner-footer__symbol" src="/assets/cedilla-icon.svg" width="50" height="50" alt=""></footer>
 </body></html>

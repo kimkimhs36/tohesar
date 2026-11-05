@@ -66,22 +66,22 @@
      No generic card grids, decorative neon, or tuning-era OEM+ branding. */
   function drawGallery(){
     ready=false;
-    ctx.fillStyle='#f4ece5';ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#e9e4ee';ctx.fillRect(0,0,W,H);
     const subtle=ctx.createLinearGradient(0,0,W,H);
-    subtle.addColorStop(0,'rgba(226,188,170,.22)');
-    subtle.addColorStop(.57,'rgba(250,249,241,0)');
-    subtle.addColorStop(1,'rgba(171,199,187,.26)');
+    subtle.addColorStop(0,'rgba(233,228,238,0)');
+    subtle.addColorStop(.57,'rgba(233,228,238,0)');
+    subtle.addColorStop(1,'rgba(233,228,238,0)');
     ctx.fillStyle=subtle;ctx.fillRect(0,0,W,H);
-    ctx.fillStyle='#253a37';ctx.textBaseline='alphabetic';ctx.textAlign='left';
+    ctx.fillStyle='#343143';ctx.textBaseline='alphabetic';ctx.textAlign='left';
     paintWordmark(65,67,246,true);
     ctx.textAlign='right';ctx.font='500 23px Arial,sans-serif';
     ctx.fillText('OWNER STORIES  /  001',1015,102);ctx.textAlign='left';
-    ctx.strokeStyle='rgba(37,58,55,.46)';ctx.lineWidth=2;
+    ctx.strokeStyle='rgba(52,49,67,.46)';ctx.lineWidth=2;
     ctx.beginPath();ctx.moveTo(65,140);ctx.lineTo(1015,140);ctx.stroke();
     const x=65,y=239,pw=950,ph=1050;
     const photoWash=ctx.createLinearGradient(x,y,x+pw,y+ph);
-    photoWash.addColorStop(0,'#a4b7ad');photoWash.addColorStop(.58,'#d4d5c5');
-    photoWash.addColorStop(1,'#dcb1a7');
+    photoWash.addColorStop(0,'#d4c9da');photoWash.addColorStop(.58,'#e9e4ee');
+    photoWash.addColorStop(1,'#efcebd');
     ctx.fillStyle=photoWash;ctx.fillRect(x,y,pw,ph);
     if(photo&&photo.naturalWidth&&photo.naturalHeight){
       const w=photo.naturalWidth,h=photo.naturalHeight,scale=Math.max(pw/w,ph/h);
@@ -91,32 +91,32 @@
       ctx.restore();
     } else {
       // A restrained typographic print, not AI-looking circles or a fake owner photograph.
-      ctx.fillStyle='#e6e1d8';ctx.fillRect(x,y,pw,ph);
-      ctx.strokeStyle='rgba(49,66,59,.22)';ctx.lineWidth=2;
+      ctx.fillStyle='#f5f1eb';ctx.fillRect(x,y,pw,ph);
+      ctx.strokeStyle='rgba(52,49,67,.22)';ctx.lineWidth=2;
       ctx.beginPath();ctx.moveTo(x+70,y+90);ctx.lineTo(x+pw-70,y+90);ctx.stroke();
-      ctx.fillStyle='#75827b';ctx.font='500 25px Arial,sans-serif';
+      ctx.fillStyle='#686172';ctx.font='500 25px Arial,sans-serif';
       ctx.fillText('A SPACE FOR YOUR PHOTOGRAPH',x+70,y+145);
-      ctx.fillStyle='#2d433c';ctx.font='italic 400 128px Georgia,serif';
+      ctx.fillStyle='#343143';ctx.font='italic 400 128px Georgia,serif';
       ctx.fillText('Every',x+66,y+440);
       ctx.fillText('curve',x+66,y+573);
-      ctx.fillStyle='#a77a68';ctx.fillText('has a',x+66,y+706);
-      ctx.fillStyle='#2d433c';ctx.fillText('story.',x+66,y+839);
-      ctx.fillStyle='#6d7972';ctx.font='400 26px Arial,sans-serif';
+      ctx.fillStyle='#9f709b';ctx.fillText('has a',x+66,y+706);
+      ctx.fillStyle='#343143';ctx.fillText('story.',x+66,y+839);
+      ctx.fillStyle='#686172';ctx.font='400 26px Arial,sans-serif';
       ctx.fillText('ADD A PHOTO TO MAKE THIS YOURS',x+70,y+ph-90);
     }
     // Photo credit placeholder is intentionally omitted: only the user can verify authorship.
-    ctx.fillStyle='#253a37';ctx.font='500 21px Arial,sans-serif';
+    ctx.fillStyle='#343143';ctx.font='500 21px Arial,sans-serif';
     ctx.fillText('AN AUTOMOTIVE PORTRAIT',68,1352);
     const name=wrap((model.value||'My Automotive Story').slice(0,44),940,2,n=>'400 '+n+'px Georgia,serif',87,55);
     const top=name.lines.length>1?1454:1500;
-    ctx.fillStyle='#213632';ctx.font='400 '+name.size+'px Georgia,serif';
+    ctx.fillStyle='#343143';ctx.font='400 '+name.size+'px Georgia,serif';
     name.lines.forEach((v,i)=>ctx.fillText(v,65,top+i*name.size*1.06));
     const copy=wrap((story.value||'Every curve has a story.').slice(0,115),940,3,n=>'400 '+n+'px Arial,sans-serif',33,25);
     const copyTop=top+(name.lines.length-1)*name.size*1.06+67;
-    ctx.fillStyle='#576760';ctx.font='400 '+copy.size+'px Arial,sans-serif';
+    ctx.fillStyle='#686172';ctx.font='400 '+copy.size+'px Arial,sans-serif';
     copy.lines.forEach((v,i)=>ctx.fillText(v,68,copyTop+i*copy.size*1.42));
-    ctx.strokeStyle='#91a79d';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(65,1795);ctx.lineTo(1015,1795);ctx.stroke();
-    ctx.fillStyle='#253a37';ctx.font='400 27px Georgia,serif';
+    ctx.strokeStyle='#b8aebf';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(65,1795);ctx.lineTo(1015,1795);ctx.stroke();
+    ctx.fillStyle='#343143';ctx.font='400 27px Georgia,serif';
     ctx.fillText('Every curve has a story.',65,1853);
     ctx.textAlign='right';ctx.font='500 20px Arial,sans-serif';ctx.fillText('TOHESAR.COM',1013,1852);
     ctx.textAlign='left';ready=true;

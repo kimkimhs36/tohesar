@@ -1,0 +1,25 @@
+name: OWNER STORIES foundation QA
+on:
+  pull_request:
+    paths:
+      - 'owner-stories/**'
+      - 'owner-stories-service/**'
+      - 'tests/owner-stories-browser.cjs'
+      - '.github/workflows/owner-stories-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  service:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax and mocked service tests
+        run: |
+          node --check owner-stories-service/api/submit.js
+          node --check owner-stories/participation.js
+          node --check owner-stories/story-card/card.js
+          npm test --prefix owner-stories-service
