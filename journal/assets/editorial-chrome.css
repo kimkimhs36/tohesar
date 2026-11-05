@@ -1,0 +1,16 @@
+/* The same small, readable wayfinding on the journal and Owner Stories. */
+.site-header:has(.site-shortcuts), .owner-header:has(.site-shortcuts) { gap: 12px; }
+.site-shortcuts { display:flex; align-items:center; gap:clamp(12px,2vw,27px); margin-left:auto; white-space:nowrap; }
+.site-shortcuts a { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; color:inherit; text-decoration:none; font:400 12px/1.4 "Noto Sans KR","Apple SD Gothic Neo",sans-serif; letter-spacing:-.025em; }
+.site-shortcuts a:hover { color:#806679; }
+.site-shortcuts a:focus-visible { outline:2px solid #79578a; outline-offset:3px; }
+@media (max-width:700px) {
+ .site-header:has(.site-shortcuts), .owner-header:has(.site-shortcuts) { gap:9px; }
+ .site-shortcuts { gap:12px; }
+ .site-shortcuts a { font-size:11px; }
+}
+@media (max-width:360px) {
+ .site-header:has(.site-shortcuts) .brand, .owner-header:has(.site-shortcuts)>a img { width:100px; }
+ .site-shortcuts { gap:9px; }
+ .site-shortcuts a { font-size:11px; }
+}

@@ -142,3 +142,13 @@ body:has(.explore-list) .map-footer{background:#e1d5e2}
 .recovery015-journal .city026>div>p:first-child{font-size:11px;color:#756877}
 .recovery015-journal .city026 a{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid currentColor;font-size:12px;margin-top:24px}
 @media(max-width:700px){.recovery015-journal .city026{padding-top:65px;padding-bottom:68px}.recovery015-journal .city026 h2{font-size:36px}}
+
+/* Clarify the two editorial entry points without changing their URLs. */
+.home-edition-label, .journal-orientation { display:block; margin:0 0 14px; color:#686172; font:10px/1.6 Arial,"Noto Sans KR",sans-serif; letter-spacing:.07em; }
+.home-guide { display:flex; flex-wrap:wrap; gap:0 22px; margin-top:18px; }
+.home-guide a { display:inline-flex; align-items:center; gap:9px; min-height:44px; color:inherit; font-size:12px; text-decoration:none; border-bottom:1px solid #a99dae; }
+.home-guide a:focus-visible { outline:2px solid #79578a; outline-offset:4px; }
+.home-guide a:hover { color:#806679; }
+.recovery015-journal .journal-mast .journal-orientation { margin-bottom:18px; }
+.recovery015-journal .design-large .image-link { aspect-ratio:1.28; }
+.recovery015-journal .design-large .image-link img { width:100%; height:100%; object-fit:cover; object-position:center 55%; }

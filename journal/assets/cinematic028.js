@@ -6,9 +6,11 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const key = 'tohesar-photo-passage-028';
   const stories = {
-    '/journal/f40/': { id: 'f40', home: '.home-feature-image img', photo: '.f40-hero > img', title: '.story-intro' },
-    '/journal/design/giulia/': { id: 'giulia', home: '.home-pair article:nth-child(1) > a img', photo: '.giulia-hero > img', title: '.giulia-name' },
-    '/journal/design/type-01/': { id: 'jaguar', home: '.home-pair article:nth-child(2) > a img', photo: '.type-hero > img', title: '.type-opening-paper' }
+    // The openings use different photographs from the home cards: fade the
+    // page normally rather than morphing one vehicle photograph into another.
+    '/journal/f40/': { id: 'f40', shared: false, home: '.home-feature-image img', photo: '.f40-hero > img', title: '.story-intro' },
+    '/journal/design/giulia/': { id: 'giulia', shared: false, home: '.home-pair article:nth-child(1) > a img', photo: '.giulia-hero > img', title: '.giulia-name' },
+    '/journal/design/type-01/': { id: 'jaguar', shared: false, home: '.home-pair article:nth-child(2) > a img', photo: '.type-hero > img', title: '.type-opening-paper' }
   };
   let selected = null;
   const clear = () => {
@@ -37,6 +39,7 @@
     if (!link || link.target || link.hasAttribute('download')) return;
     const target = new URL(link.href, location.href);
     const story = target.origin === location.origin && stories[target.pathname];
+    if (story && story.shared === false) return;
     const photo = story && document.querySelector(story.home);
     if (photo && link.contains(photo) && photo.complete && photo.naturalWidth) selected = { path: target.pathname, photo };
   });

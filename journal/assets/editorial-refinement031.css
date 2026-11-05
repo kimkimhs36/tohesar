@@ -89,3 +89,7 @@
   animation-duration:420ms;animation-delay:110ms;animation-timing-function:cubic-bezier(.25,.72,.25,1)
  }
 }
+
+/* Keep the model name in balance with the rest of the editorial typography. */
+.beauty014-proportion .giulia-name h1 { font-size:clamp(76px,11vw,158px); }
+@media(max-width:700px) { .beauty014-proportion .giulia-name h1 { font-size:clamp(68px,21vw,92px); } }

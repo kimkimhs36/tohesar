@@ -79,9 +79,13 @@ def build():
     PAGE.write_text(s)
     journal = ROOT / 'journal/index.html'
     j = journal.read_text()
-    guard = '<link rel="stylesheet" href="/journal/assets/cinematic028.css"><script src="/journal/assets/cinematic028.js" blocking="render"></script>'
-    if guard not in j:
-        j = j.replace('</head>', guard + '</head>', 1)
+    # Normalize the two assets independently. Another stylesheet may have been
+    # inserted between them, so looking only for an adjacent pair duplicates
+    # the transition resources on the first rebuild.
+    cinematic_css = '<link rel="stylesheet" href="/journal/assets/cinematic028.css">'
+    cinematic_js = '<script src="/journal/assets/cinematic028.js" blocking="render"></script>'
+    j = j.replace(cinematic_css, '').replace(cinematic_js, '')
+    j = j.replace('</head>', cinematic_css + cinematic_js + '</head>', 1)
     j = re.sub(r'<a class="text-link" data-travel="" href="/journal/design/">디자인 아틀라스 둘러보기</a>', '', j)
     journal.write_text(j)
     newsroom = ROOT / 'edition/index.html'

@@ -1,3 +1,4 @@
+@import url("/journal/assets/editorial-chrome.css");
 @import url("/journal/assets/endmatter025.css");
 /* One editorial navigation system, shared by the cover continuation and journal. */
 .site-header{position:relative;z-index:15}
@@ -62,3 +63,7 @@ body > .site-header::after {
 @media(prefers-reduced-motion:reduce), print {
  body > .site-header::after { animation:none; opacity:.42; }
 }
+
+/* The reading pages share the cover's quiet paper instead of animated chrome. */
+:is(.recovery015-journal,.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language) > .site-header::before,
+:is(.recovery015-journal,.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language) > .site-header::after { display:none; }

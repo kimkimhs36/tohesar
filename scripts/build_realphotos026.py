@@ -1,7 +1,7 @@
 """Remove photographic AI scenes from active pages. Run LAST after legacy generators.
 
-Drawn miniature artwork is retained. No new photo permissions are asserted: the
-911 photograph reuses the existing COVER asset and its recorded attribution.
+Drawn miniature artwork is retained. The 911 article and COVER use separate
+licensed photographs, with attribution and source links beside each image.
 """
 from pathlib import Path
 from html import escape
@@ -10,6 +10,8 @@ ROOT=Path(__file__).resolve().parents[1]
 PHOTO='/assets/cover-911-valentin-kremer.jpg'
 ALT='벽돌 건물 앞의 검은 Porsche 911. 세부 연식과 모델은 확인되지 않음.'
 CREDIT='사진 Valentin Kremer / Unsplash · 세부 모델 미확인 · <a href="https://unsplash.com/photos/mhrZmA_2eEg">원본 사진</a> / <a href="https://unsplash.com/license">Unsplash License</a>'
+ARTICLE_PHOTO='/journal/assets/editorial-fresh/911-story-jerry-1200.webp'
+ARTICLE_CREDIT='사진 Jerry Kavan / Unsplash · 촬영자 설명: 964 · <a href="https://unsplash.com/photos/black-porsche-911-parked-in-garage-wTTDIVnYzkE">원본 사진</a> / <a href="https://unsplash.com/license">Unsplash License</a> · 크기 조절 및 WebP 변환'
 AI=r'/assets/yokohama-[^"\s<>]+'
 def real_img(eager=False):
     return f'<img src="{PHOTO}" alt="{ALT}" width="1200" height="1989" decoding="async" '+('fetchpriority="high"' if eager else 'loading="lazy"')+'>'
@@ -35,9 +37,9 @@ def strip_scenes(s):
     s=re.sub(r'<img\b[^>]*src="'+AI+r'"[^>]*>','',s)
     s=re.sub(r'<meta\b[^>]*(?:property|name)="(?:og:image|twitter:image)"[^>]*'+AI+r'[^>]*>','',s)
     return s
-# The 911 essay retains a single genuine photograph, clearly not a 1963/964 record.
+# The 911 essay uses a genuine photograph, not historical evidence of the 1963 car.
 p=ROOT/'journal/911/index.html';s=p.read_text()
-s=re.sub(r'<figure class="story-hero">.*?</figure>',lambda _:f'<figure class="story-hero">{real_img(True)}<figcaption>{CREDIT}</figcaption></figure>',s,flags=re.S)
+s=re.sub(r'<figure class="story-hero">.*?</figure>',lambda _:f'<figure class="story-hero"><img src="{ARTICLE_PHOTO}" srcset="/journal/assets/editorial-fresh/911-story-jerry-800.webp 800w, {ARTICLE_PHOTO} 1200w" sizes="(max-width:700px) 100vw, 650px" alt="따뜻한 조명의 차고에 주차된 검은 Porsche 911" width="1200" height="1800" decoding="async" fetchpriority="high"><figcaption>{ARTICLE_CREDIT}</figcaption></figure>',s,flags=re.S)
 s=strip_scenes(s)
 # Legacy wallpaper rebuilds use this boundary to preserve chapter grouping.
 # Retain a nonvisual, image-free marker rather than breaking the next build.
@@ -47,7 +49,9 @@ if '<figure class="story-wide">' not in s:
         raise ValueError('911 opening wallpaper boundary missing')
     s=s.replace(boundary,boundary+'<figure class="story-wide"></figure>',1)
 s=re.sub(r'<aside class="metadata-related">.*?</aside>','',s,flags=re.S)
-s=s.replace('요코하마 이미지는 기존 TOHEŞAR의 AI 보조 비주얼 스터디입니다. 실제 촬영 사진이나 특정 연식·사양의 정확한 재현이 아니며, 디자인 사료로 사용하지 않았습니다.', '도입 사진은 Valentin Kremer가 촬영한 Porsche 911입니다. 세부 모델과 연식은 확인되지 않았으며, 본문에서 다루는 1963년 차량이나 964의 사료 사진으로 제시하지 않습니다.')
+disclosure = '도입 사진은 Jerry Kavan이 촬영한 Porsche 911입니다. 촬영자는 964로 설명하지만 세부 사양은 별도로 확인되지 않았으며, 1963년 차량의 사료 사진으로 제시하지 않습니다.'
+for old in ('요코하마 이미지는 기존 TOHEŞAR의 AI 보조 비주얼 스터디입니다. 실제 촬영 사진이나 특정 연식·사양의 정확한 재현이 아니며, 디자인 사료로 사용하지 않았습니다.', '도입 사진은 Valentin Kremer가 촬영한 Porsche 911입니다. 세부 모델과 연식은 확인되지 않았으며, 본문에서 다루는 1963년 차량이나 964의 사료 사진으로 제시하지 않습니다.'):
+    s=s.replace(old, disclosure)
 s=re.sub(r'<p class="continuation-credit">.*?AI 보조 비주얼 픽션.*?</p>','',s,flags=re.S)
 style911='<style id="realphotos026-911">.story-hero>img{width:min(100%,650px);height:auto;max-height:none;object-fit:contain;margin-inline:auto}.story-hero figcaption{display:block;max-width:650px;margin-inline:auto;font-size:11px;line-height:1.9}.story-wide:empty{display:none}.drive-layout{display:block}.drive-explanation{max-width:680px;margin-inline:auto}</style>'
 s=re.sub(r'<style id="realphotos026-911">.*?</style>','',s,flags=re.S)

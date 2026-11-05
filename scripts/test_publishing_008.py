@@ -8,9 +8,12 @@ class Publishing(unittest.TestCase):
         shutil.copy(ROOT/'index.html',self.root/'index.html')
         # SEO 034 requires curated public routes to exist even in a disposable test checkout.
         # Copy them, do not symlink: a build must never mutate the real repository.
-        for name in ['scripts','journal','history','symbol','sitemap']:
+        for name in ['scripts','journal','history','symbol','sitemap','owner-stories','edition']:
             shutil.copytree(ROOT/name,self.root/name,ignore=shutil.ignore_patterns('__pycache__'))
-        for name in ['assets','edition','creative']:(self.root/name).symlink_to(ROOT/name,target_is_directory=True)
+        # The build rewrites edition HTML. Copy it instead of symlinking so the
+        # test never changes a developer's working tree; owner-stories is a
+        # real navigation target and must exist in the fixture too.
+        for name in ['assets','creative']:(self.root/name).symlink_to(ROOT/name,target_is_directory=True)
         # 011 articles cite the public provenance/collection document. Keep the
         # isolated fixture faithful to that link; link validation stays enabled.
         review=self.root/'docs/wallpaper-011-review'
@@ -39,6 +42,14 @@ class Publishing(unittest.TestCase):
             else:
                 self.assertNotIn('/journal/assets/miniature-paper.js', rebuilt, name)
         self.assertIn('/journal/assets/discovery025.css', (self.root/'index.html').read_text())
+        for name, expected in {
+            'index.html': ('f40-home-luca', 'giulia-home-niescioruk', 'type01-home-jlr', 'class="home-guide"'),
+            'journal/index.html': ('911-journal-abhinand', 'f40-journal-federico', 'giulia-journal-panyukov', 'type01-journal-jlr', 'journal-orientation'),
+            'journal/911/index.html': ('911-story-jerry', 'Jerry Kavan'),
+            'journal/f40/index.html': ('f40-story-michael', 'Michael Hutchinson'),
+        }.items():
+            generated = (self.root/name).read_text()
+            for marker in expected: self.assertIn(marker, generated, name)
         self.assertIn('/journal/assets/atlas025.css', (self.root/'journal/design/index.html').read_text())
         archive=(self.root/'journal/issues/index.html').read_text();self.assertNotIn('DRAFT ONLY',archive)
         files=list((self.root/'journal').rglob('*.html'));before={p:p.read_bytes() for p in files}

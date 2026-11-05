@@ -1028,3 +1028,7 @@ body[data-page="archive"] .archive-news-link{
 .beauty014-issue main :is(.edition-preface,.edition-chapter,.edition-closing,#wallpaper-issue-curve,#wallpaper-issue-small) { background-image:none; }
 .beauty014-issue .wallpaper-reading .chapter-copy > p::before { display:none; }
 .beauty014-issue .edition-chapter .chapter-identity > span { font-family:Georgia,serif; letter-spacing:-.045em; }
+
+/* Reduce decoration behind the long 911 reading surface. */
+.beauty014-curve .wallpaper-art, .beauty014-curve .wallpaper-provenance { display:none!important; }
+:is(body.recovery015-journal,body.beauty014-curve,body.beauty014-blade,body.beauty014-proportion,body.beauty014-language) > .site-header { background:#e9e4ee; color:#343143; border-bottom-color:#b8aebf; }

@@ -25,6 +25,9 @@ def build():
         s = s.replace('</head>', metadata+'</head>', 1)
         date = escape(item['published_at'].replace('-', '.'))
         if ident == 'ferrari-f40':
+            hero = (ROOT/'journal/partials/f40-hero-fresh.html').read_text().strip()
+            s, count = re.subn(r'<figure class="f40-hero">.*?</figure>', lambda _: hero, s, count=1, flags=re.S)
+            assert count == 1, 'Missing F40 hero'
             s = re.sub(r'(<div class="story-topline">).*?(</div>)', r'\1<span>' + ('ISSUE '+escape(issue['number']) if issue else '저널') + r'</span><span>'+date+r'</span>\2', s, count=1, flags=re.S)
             s = re.sub(r'<span>2026\.10\.28 · 약 4분</span>', '<span>약 4분</span>', s)
             s = re.sub(r'<div class="chapter-side">.*?</div>', '', s, flags=re.S)

@@ -1,3 +1,4 @@
+@import url("/journal/assets/editorial-chrome.css");
 /* Journal home visual language, scoped to the two Owner Stories pages. */
 body.owner-landing, body.story-studio {
   --ink:#343143; --paper:#e9e4ee; --muted:#686172; --edge:clamp(22px,4.5vw,76px);
@@ -40,6 +41,9 @@ body.story-studio .upload{background:#efcebd;border-color:#b8aebf}
 
 .story-studio .skip{position:absolute;top:-100px;left:1rem;z-index:30;background:#f5f1eb;color:#343143;padding:1rem}
 .story-studio .skip:focus{top:1rem}
+/* Override the landing page's full-width hero nav for the small header links. */
+.owner-header nav.site-shortcuts{position:static;inset:auto;width:auto;height:auto;padding:0;margin-left:auto;justify-content:flex-start;background:transparent;color:inherit}
+.owner-header nav.site-shortcuts a{color:inherit;text-decoration:none}
 /* Reading rhythm and detail, following the journal's restrained print language. */
 .owner-mast{padding-top:clamp(25px,3.5vw,52px)}
 .owner-mast__meta{display:flex;justify-content:space-between;gap:20px;padding-bottom:15px;margin-bottom:22px;border-bottom:1px solid #b8aebf;color:#686172;font:9px/1.6 Arial,sans-serif;letter-spacing:.09em}
