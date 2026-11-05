@@ -27,7 +27,7 @@
   wordmark.onload=()=>{wordmarkReady=true;render()};
   wordmark.onerror=()=>{wordmarkReady=false;wordmarkFailed=true;say('공식 로고를 불러오지 못했어요. 연결을 확인하고 새로고침해 주세요.');};
   wordmark.src='/assets/wordmark.svg';
-  let photo=null,objectURL=null,pending=false,ready=false,selectionId=0;
+  let photo=null,objectURL=null,pending=false,ready=false,selectionId=0,decoding=false;
   const say=s=>{status.textContent=s};
   const wrap=(text,width,maxLines,font,initial=90,min=30)=>{
     const words=String(text).replace(/\s+/g,' ').trim().split(' ');
@@ -182,15 +182,18 @@
     // Otherwise a slow previous image could replace the user's latest choice.
     const request=++selectionId;
     if(!file)return;
+    decoding=true;
+    say('새 사진을 불러오는 중이에요. 완료된 뒤 저장하거나 공유해 주세요.');
     const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
-    if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage)))return say('이미지 파일을 선택해 주세요.');
-    if(file.size>20*1024*1024)return say('20MB 이하의 이미지를 선택해 주세요.');
+    if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage))){decoding=false;return say('이미지 파일을 선택해 주세요.');}
+    if(file.size>20*1024*1024){decoding=false;return say('20MB 이하의 이미지를 선택해 주세요.');}
     // A second selection may finish before the first. Only the latest may replace the canvas.
     const url=URL.createObjectURL(file);
     try{
       const img=new Image();
       await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
       if(request!==selectionId)return;
+      decoding=false;
       const previousURL=objectURL;
       photo=img;objectURL=url;
       if(previousURL)URL.revokeObjectURL(previousURL);
@@ -199,7 +202,7 @@
       say('사진을 불러왔어요. 색감과 위치를 조절해 보세요.');
       render();
     }catch(e){
-      if(request===selectionId)say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.');
+      if(request===selectionId){decoding=false;say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.');}
     }finally{
       if(objectURL!==url)URL.revokeObjectURL(url);
     }
@@ -211,6 +214,7 @@
     canvas.toBlob(resolve,'image/png');
   });
   async function download(){
+    if(decoding)return say('새 사진을 불러오는 중이에요. 완료된 뒤 저장해 주세요.');
     if(!wordmarkReady)return say(wordmarkFailed?'공식 로고를 불러오지 못했어요. 새로고침 후 다시 시도해 주세요.':'공식 로고를 불러오는 중이에요. 잠시 후 다시 저장해 주세요.');
     const data=await blob();if(!data)return say('이미지를 생성하지 못했어요.');
     const url=URL.createObjectURL(data),a=document.createElement('a');
@@ -219,6 +223,7 @@
     say('1080×1920 PNG를 생성했어요. 모바일에서 저장이 안 되면 공유 버튼을 이용하세요.');
   }
   async function share(){
+    if(decoding)return say('새 사진을 불러오는 중이에요. 완료된 뒤 공유해 주세요.');
     if(!wordmarkReady)return say(wordmarkFailed?'공식 로고를 불러오지 못했어요. 새로고침 후 다시 시도해 주세요.':'공식 로고를 불러오는 중이에요. 잠시 후 다시 공유해 주세요.');
     // Web Share requires transient user activation (especially on iOS Safari).
     // Awaiting canvas.toBlob() before navigator.share() can consume that gesture.
