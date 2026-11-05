@@ -34,6 +34,7 @@ const routes = ['/', '/journal/', '/journal/911/', '/journal/f40/', '/journal/de
    await page.close();
   }
   const page=await browser.newPage({viewport:{width:390,height:850},reducedMotion:'reduce'});
+  const journeyErrors=[];page.on('pageerror',e=>journeyErrors.push({url:page.url(),message:e.message}));
   await page.route('**/*', r=>r.request().url().startsWith(base) ? r.continue() : r.abort());
   for (const path of ['/journal/explore/','/journal/yokohama/','/journal/design/','/journal/miniatures/','/journal/issues/','/edition/','/sitemap/']) {
    await page.goto(base+path,{waitUntil:'domcontentloaded'});
@@ -67,8 +68,17 @@ const routes = ['/', '/journal/', '/journal/911/', '/journal/f40/', '/journal/de
   const storyJaguar=await page.locator('.type-hero img').getAttribute('src');
   assert.equal(new Set([homeJaguar,indexJaguar,storyJaguar]).size,3,'Jaguar home, journal and story use distinct photos');
   await page.locator('.site-header > a').first().click();await page.waitForURL(base+'/');
+  await page.waitForTimeout(500);
+  assert.deepEqual(journeyErrors,[],'no uncaught errors during cross-page transitions');
   console.log('PASS home → journal → story → owner → journal → story → cover; distinct photographs');
   await page.close();
+  const animated=await browser.newPage({viewport:{width:390,height:850},reducedMotion:'no-preference'});
+  const transitionErrors=[];animated.on('pageerror',e=>transitionErrors.push(e.message));
+  await animated.route('**/*', r=>r.request().url().startsWith(base) ? r.continue() : r.abort());
+  await animated.goto(base+'/journal/');await animated.locator('.featured a[href="/journal/911/"]').first().click();await animated.waitForURL('**/journal/911/');
+  await animated.locator('.site-shortcuts a[href="/owner-stories/"]').click();await animated.waitForURL('**/owner-stories/');
+  await animated.waitForTimeout(500);assert.deepEqual(transitionErrors,[],'animated page transitions must not reject');
+  await animated.close();console.log('PASS animated journal → article → owner transitions');
   const nojs=await browser.newPage({viewport:{width:390,height:850},javaScriptEnabled:false});
   await nojs.route('**/*', r=>r.request().url().startsWith(base) ? r.continue() : r.abort());
   await nojs.goto(base+'/journal/');await nojs.locator('.site-shortcuts a[href="/owner-stories/"]').click();await nojs.waitForURL('**/owner-stories/');

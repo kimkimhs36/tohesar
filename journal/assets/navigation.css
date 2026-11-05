@@ -1,5 +1,8 @@
 @import url("/journal/assets/editorial-chrome.css");
 @import url("/journal/assets/endmatter025.css");
+/* All shared-navigation destinations opt in, so the browser can complete a
+   cross-page transition when a reader moves from the journal into an article. */
+@view-transition { navigation:auto; }
 /* One editorial navigation system, shared by the cover continuation and journal. */
 .site-header{position:relative;z-index:15}
 .journal-index{font:400 12px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink,#343143)}

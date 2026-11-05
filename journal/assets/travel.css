@@ -1,2 +1,2 @@
-/* Documents opt in individually. All other links use ordinary navigation. */
-@view-transition{navigation:none}
+/* Documents opt in individually. Without an opt-in the browser uses ordinary
+   navigation; do not override a shared navigation stylesheet's opt-in. */
