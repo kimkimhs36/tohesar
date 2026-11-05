@@ -181,7 +181,9 @@
     // Invalidate any older decode even when the new selection is unsupported.
     // Otherwise a slow previous image could replace the user's latest choice.
     const request=++selectionId;
-    if(!file)return;
+    // A cancelled picker may emit change without a file. Clear any stale loading
+    // state so the previously rendered card remains exportable.
+    if(!file){decoding=false;return;}
     decoding=true;
     say('새 사진을 불러오는 중이에요. 완료된 뒤 저장하거나 공유해 주세요.');
     const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
