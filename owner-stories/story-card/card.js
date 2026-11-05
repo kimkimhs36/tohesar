@@ -169,7 +169,14 @@
     ctx.textAlign='right';ctx.font='500 20px Arial,sans-serif';ctx.fillText('TOHESAR.COM / OWNER-STORIES',1007,1836);
     ctx.textAlign='left';ready=true;
   }
-  function render(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;draw()})}
+  function render(){
+    // Invalidate the last completed frame immediately: an export can be requested
+    // before the scheduled preview repaint has run.
+    ready=false;
+    if(pending)return;
+    pending=true;
+    requestAnimationFrame(()=>{pending=false;draw()});
+  }
   async function choose(file){
     // Invalidate any older decode even when the new selection is unsupported.
     // Otherwise a slow previous image could replace the user's latest choice.
@@ -197,7 +204,12 @@
       if(objectURL!==url)URL.revokeObjectURL(url);
     }
   }
-  const blob=()=>new Promise(resolve=>{if(!ready)draw();canvas.toBlob(resolve,'image/png')});
+  const blob=()=>new Promise(resolve=>{
+    // Export the current form state, not the last animation-frame preview.
+    // Drawing synchronously also covers a rapid edit -> Save/Share gesture.
+    draw();
+    canvas.toBlob(resolve,'image/png');
+  });
   async function download(){
     const data=await blob();if(!data)return say('이미지를 생성하지 못했어요.');
     const url=URL.createObjectURL(data),a=document.createElement('a');
@@ -215,7 +227,12 @@
   for(const el of [model,story,tone,position,horizontal,layout])el.addEventListener('input',render);
   // Native button remains keyboard-operable; the hidden file input owns the picker.
   quickUpload?.addEventListener('click',()=>input.click());
-  input.addEventListener('change',()=>choose(input.files?.[0]));
+  input.addEventListener('change',()=>{
+    const selected=input.files?.[0];
+    // Allow choosing the same file again after a failed decode or a retry.
+    input.value='';
+    choose(selected);
+  });
   byId('save').addEventListener('click',download);
   byId('share').addEventListener('click',share);
   addEventListener('pagehide',()=>{if(objectURL)URL.revokeObjectURL(objectURL)},{once:true});
