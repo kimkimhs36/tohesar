@@ -202,6 +202,8 @@
     catch(e){if(e?.name!=='AbortError')say('공유할 수 없어요. PNG 저장을 이용하세요.')}
   }
   for(const el of [model,story,tone,position,horizontal,layout])el.addEventListener('input',render);
+  // Native button remains keyboard-operable; the hidden file input owns the picker.
+  quickUpload?.addEventListener('click',()=>input.click());
   input.addEventListener('change',()=>choose(input.files?.[0]));
   byId('save').addEventListener('click',download);
   byId('share').addEventListener('click',share);
