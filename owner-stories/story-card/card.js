@@ -11,7 +11,7 @@
   const W=1080,H=1920;
   // Always reproduce the official TOHEŞAR artwork; do not redraw the Ş as generic type.
   const wordmark=new Image();
-  let wordmarkReady=false;
+  let wordmarkReady=false,wordmarkFailed=false;
   function paintWordmark(x,y,width,dark=false){
     if(wordmarkReady){
       ctx.save();
@@ -25,7 +25,7 @@
     }
   }
   wordmark.onload=()=>{wordmarkReady=true;render()};
-  wordmark.onerror=()=>{wordmarkReady=false};
+  wordmark.onerror=()=>{wordmarkReady=false;wordmarkFailed=true;say('공식 로고를 불러오지 못했어요. 연결을 확인하고 새로고침해 주세요.');};
   wordmark.src='/assets/wordmark.svg';
   let photo=null,objectURL=null,pending=false,ready=false,selectionId=0;
   const say=s=>{status.textContent=s};
@@ -211,6 +211,7 @@
     canvas.toBlob(resolve,'image/png');
   });
   async function download(){
+    if(!wordmarkReady)return say(wordmarkFailed?'공식 로고를 불러오지 못했어요. 새로고침 후 다시 시도해 주세요.':'공식 로고를 불러오는 중이에요. 잠시 후 다시 저장해 주세요.');
     const data=await blob();if(!data)return say('이미지를 생성하지 못했어요.');
     const url=URL.createObjectURL(data),a=document.createElement('a');
     a.href=url;a.download='TOHESAR-OWNER-STORY.png';document.body.appendChild(a);a.click();a.remove();
@@ -218,6 +219,7 @@
     say('1080×1920 PNG를 생성했어요. 모바일에서 저장이 안 되면 공유 버튼을 이용하세요.');
   }
   async function share(){
+    if(!wordmarkReady)return say(wordmarkFailed?'공식 로고를 불러오지 못했어요. 새로고침 후 다시 시도해 주세요.':'공식 로고를 불러오는 중이에요. 잠시 후 다시 공유해 주세요.');
     // Web Share requires transient user activation (especially on iOS Safari).
     // Awaiting canvas.toBlob() before navigator.share() can consume that gesture.
     // Encode synchronously so the native share sheet is requested in the click task.
