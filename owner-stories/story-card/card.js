@@ -181,7 +181,7 @@
     // Invalidate any older decode even when the new selection is unsupported.
     // Otherwise a slow previous image could replace the user's latest choice.
     const request=++selectionId;
-    if(!file)return;
+    if(!file){decoding=false;say('사진 선택을 취소했어요. 현재 화면을 계속 사용할 수 있어요.');return;}
     decoding=true;
     say('새 사진을 불러오는 중이에요. 완료된 뒤 저장하거나 공유해 주세요.');
     const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);

@@ -4,6 +4,10 @@
   const form = document.querySelector('[data-owner-form]');
   if (!form) return;
   const status = document.querySelector('[data-owner-status]');
+  const draftButton = form.querySelector('button[type=submit]');
+  const copyControl = form.querySelector('[data-owner-copy]');
+  if (draftButton) draftButton.disabled = false;
+  if (copyControl) copyControl.disabled = false;
   const email = 'tohesar@gmail.com';
   const MAX_DETAIL = 700;
   const setStatus = (message) => {

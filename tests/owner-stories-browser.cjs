@@ -24,8 +24,25 @@ const base = process.env.OWNER_TEST_BASE || 'http://127.0.0.1:8765';
      }
     }
    }
+   await page.goto(base+'/journal/',{waitUntil:'networkidle'});
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'journal at '+width);
+   const invitation=page.locator('.owner-journal-invite');assert.equal(await invitation.count(),1);
+   await invitation.scrollIntoViewIfNeeded();if(width===390)await invitation.screenshot({path:'/tmp/owner-journal-invite.png'});
+   await invitation.getByRole('link',{name:/차주의 이야기 제안하기/}).click();await page.waitForURL('**/owner-stories/');
+   assert.equal(await page.locator('[data-owner-prepare]').isVisible(),false);
    assert.deepEqual(errors,[]);assert.deepEqual(posts,[]);await page.close();
   }
+  const nojs=await browser.newPage({javaScriptEnabled:false});await nojs.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());
+  await nojs.goto(base+'/owner-stories/');assert.equal(await nojs.locator('[data-owner-form] button[type=submit]').isDisabled(),true);
+  assert.match(await nojs.locator('[data-owner-form]').getAttribute('action'),/^mailto:/);assert.match(await nojs.locator('noscript a').getAttribute('href'),/^mailto:/);await nojs.close();
+  const race=await browser.newPage();
+  await race.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());
+  await race.addInitScript(()=>{const src=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');Object.defineProperty(HTMLImageElement.prototype,'src',{...src,set(value){if(value.startsWith('blob:'))setTimeout(()=>src.set.call(this,value),800);else src.set.call(this,value)}});});
+  await race.goto(base+'/owner-stories/story-card/');
+  await race.locator('#car-photo').setInputFiles({name:'slow.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64')});
+  await race.locator('#save').click();assert.match(await race.locator('#card-status').textContent(),/불러오는 중/);
+  await race.locator('#car-photo').dispatchEvent('change');
+  const afterCancel=race.waitForEvent('download');await race.locator('#save').click();await afterCancel;await race.close();
   const draft=await browser.newPage();await draft.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());
   await draft.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{value:{writeText:async value=>{window.copiedDraft=value}}});});
   await draft.goto(base+'/owner-stories/');assert.equal(await draft.locator('[data-owner-prepare]').isVisible(),false);
@@ -55,6 +72,6 @@ const base = process.env.OWNER_TEST_BASE || 'http://127.0.0.1:8765';
   await page.evaluate(()=>window.testWidget['expired-callback']());assert.equal(await page.locator('[data-owner-send]').isDisabled(),true);
   malformed=true;await page.evaluate(()=>window.testWidget.callback('fresh-third-token'));await page.locator('[data-owner-send]').click();
   await page.waitForFunction(()=>document.querySelector('[data-owner-status]').textContent.includes('확인하지 못했어요'));assert.equal(calls.length,3);
-  await page.close();console.log('PASS: Chromium 320/390/768/1024, local-only photo studio and mocked online retry/consent');
+  await page.close();console.log('PASS: Chromium 320/390/768/1024, journal journey, local-only photo studio and mocked online retry/consent');
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});

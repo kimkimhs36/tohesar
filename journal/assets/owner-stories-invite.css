@@ -1,0 +1,10 @@
+/* A quiet invitation in the journal's existing editorial palette. */
+.recovery015-journal .owner-journal-invite{padding:clamp(56px,7vw,100px) var(--edge);background:#efcebd;color:#343143}
+.owner-journal-invite__inner{max-width:1500px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:clamp(32px,7vw,100px)}
+.owner-journal-invite__label{margin:0 0 24px;color:#686172;font:10px/1.7 Arial,sans-serif;letter-spacing:.09em}
+.recovery015-journal .owner-journal-invite h2{margin:0;font:400 clamp(32px,4vw,58px)/1.42 "Noto Sans KR",sans-serif;letter-spacing:-.065em}
+.owner-journal-invite h2 span{color:#9f709b}.owner-journal-invite__copy{max-width:430px}
+.owner-journal-invite__copy p{margin:0 0 20px;font-size:13px;line-height:1.95;word-break:keep-all}
+.owner-journal-invite__copy>a{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:44px;border-bottom:1px solid currentColor;font-size:12px;text-decoration:none}
+.owner-journal-invite__copy>a:focus-visible{outline:2px solid #79578a;outline-offset:4px}.owner-journal-invite__copy small{display:block;margin-top:14px;color:#665b68;font-size:11px;line-height:1.8}
+@media(max-width:700px){.owner-journal-invite__inner{grid-template-columns:1fr;gap:24px}.recovery015-journal .owner-journal-invite h2{font-size:clamp(29px,8vw,36px)}.owner-journal-invite__copy p{font-size:12px}}
