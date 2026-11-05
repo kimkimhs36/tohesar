@@ -97,3 +97,21 @@ test('oversized image is rejected and does not block text-only card export', asy
   assert.match(h.elements.get('card-status').textContent,/20MB/);
   await h.save(); assert.equal(h.downloads,1);
 });
+
+
+test('cancelling photo selection clears pending decode and preserves text-card export', async () => {
+  const h = harness();
+  const pending = await h.select('slow.jpg');
+  const input = h.elements.get('car-photo');
+  input.files = [];
+  h.handlers.get('car-photo:change')();
+  await h.tick();
+  await h.save();
+  assert.equal(h.downloads, 1);
+  pending.complete();
+  await h.tick();
+  assert.notEqual(h.elements.get('photo-name').textContent, 'slow.jpg');
+  assert.ok(h.revoked.includes(pending.src));
+  await h.save();
+  assert.equal(h.downloads, 2);
+});
