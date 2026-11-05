@@ -218,9 +218,21 @@
     say('1080×1920 PNG를 생성했어요. 모바일에서 저장이 안 되면 공유 버튼을 이용하세요.');
   }
   async function share(){
-    const data=await blob();if(!data)return say('이미지를 생성하지 못했어요.');
-    const file=new File([data],'TOHESAR-OWNER-STORY.png',{type:'image/png'});
-    if(!navigator.share||!navigator.canShare||!navigator.canShare({files:[file]}))return say('이 브라우저에서는 이미지 직접 공유를 지원하지 않아요. PNG 저장을 이용하세요.');
+    // Web Share requires transient user activation (especially on iOS Safari).
+    // Awaiting canvas.toBlob() before navigator.share() can consume that gesture.
+    // Encode synchronously so the native share sheet is requested in the click task.
+    if(!navigator.share||!navigator.canShare)return say('이 브라우저에서는 이미지 직접 공유를 지원하지 않아요. PNG 저장을 이용하세요.');
+    let file;
+    try{
+      draw(); // Include the very latest form edits in the exported card.
+      const dataURL=canvas.toDataURL('image/png');
+      const base64=dataURL.split(',')[1];
+      if(!base64)throw new Error('PNG encoding failed');
+      const binary=atob(base64),bytes=new Uint8Array(binary.length);
+      for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
+      file=new File([bytes],'TOHESAR-OWNER-STORY.png',{type:'image/png'});
+    }catch(e){return say('이미지를 생성하지 못했어요. PNG 저장을 다시 시도해 주세요.');}
+    if(!navigator.canShare({files:[file]}))return say('이 브라우저에서는 이미지 직접 공유를 지원하지 않아요. PNG 저장을 이용하세요.');
     try{await navigator.share({files:[file],title:'TOHEŞAR OWNER STORIES',text:'내 자동차의 이야기 — tohesar.com/owner-stories/'});say('공유 화면을 열었어요.')}
     catch(e){if(e?.name!=='AbortError')say('공유할 수 없어요. PNG 저장을 이용하세요.')}
   }
