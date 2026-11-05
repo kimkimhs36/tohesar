@@ -171,12 +171,14 @@
   }
   function render(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;draw()})}
   async function choose(file){
+    // Invalidate any older decode even when the new selection is unsupported.
+    // Otherwise a slow previous image could replace the user's latest choice.
+    const request=++selectionId;
     if(!file)return;
     const looksLikeImage=/\\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
     if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage)))return say('이미지 파일을 선택해 주세요.');
     if(file.size>20*1024*1024)return say('20MB 이하의 이미지를 선택해 주세요.');
     // A second selection may finish before the first. Only the latest may replace the canvas.
-    const request=++selectionId;
     const url=URL.createObjectURL(file);
     try{
       const img=new Image();
