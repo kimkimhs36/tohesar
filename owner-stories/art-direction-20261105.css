@@ -187,8 +187,11 @@ body.story-studio .quick-upload {
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    text-align: left;
   }
-  body.story-studio .quick-upload:focus-within {
+  body.story-studio .quick-upload:focus-visible {
     outline: 2px solid #9a695f;
     outline-offset: 3px;
   }
