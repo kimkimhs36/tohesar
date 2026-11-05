@@ -1,0 +1,226 @@
+/* TOHEŞAR / OWNER STORIES — Editorial art direction study 01
+   Mobile-first visual correction, layered over the functional pilot.
+   No changes to application logic, data flow, or production homepage. */
+
+body.owner-landing .brand-art,
+body.story-studio .brand-art {
+  width: 128px;
+  height: auto;
+  display: block;
+}
+body.story-studio .brand-art {
+  filter: brightness(0) saturate(100%);
+}
+body.owner-landing .owner-tracks {
+  background: #f0ece6;
+}
+body.owner-landing .owner-track {
+  background: #f9f6f1;
+  border-color: rgba(33, 44, 43, .15);
+}
+body.owner-landing .owner-track::after {
+  display: none;
+}
+body.owner-landing .manifesto {
+  background: #f5f0e9;
+}
+body.owner-landing .owner-storymaker {
+  background: #ebe7df;
+  border-color: #d0cdc5;
+}
+body.owner-landing .owner-storymaker__inner h2 em {
+  color: #9a695f;
+}
+body.story-studio {
+  background: #f5f0e9;
+}
+body.story-studio .preview-frame {
+  border: 1px solid #c8c2ba;
+  box-shadow: 0 16px 42px rgba(43, 47, 42, .14);
+}
+body.story-studio .upload {
+  background: #ece8de;
+  border: 1px solid #b6b8ae;
+}
+body.story-studio .quick-upload {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  /* The photograph, not oversized lettering, must lead the page. */
+  body.owner-landing .hero {
+    min-height: 0;
+    display: grid;
+    grid-template-rows: clamp(300px, 43svh, 430px) auto;
+    align-items: stretch;
+    overflow: hidden;
+    background: #f5f0e9;
+    color: #24332e;
+  }
+  body.owner-landing .hero-photo {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    grid-row: 1;
+    background-position: 50% 52%;
+    background-size: cover;
+    filter: saturate(.84) contrast(1.015) brightness(.96);
+  }
+  body.owner-landing .hero::before {
+    z-index: 1;
+    inset: 0 0 auto;
+    height: 125px;
+    background: linear-gradient(180deg, rgba(18,28,28,.5), rgba(18,28,28,0));
+    pointer-events: none;
+  }
+  body.owner-landing .hero::after {
+    display: none;
+  }
+  body.owner-landing .hero-body {
+    position: relative;
+    grid-row: 2;
+    padding: 32px 23px 46px;
+    display: block;
+    max-width: none;
+    width: 100%;
+  }
+  body.owner-landing .hero .eyebrow {
+    color: #6a7670;
+    font-size: 9px;
+    letter-spacing: .17em;
+  }
+  body.owner-landing .hero h1 {
+    font-size: clamp(51px, 13.8vw, 67px);
+    line-height: .94;
+    letter-spacing: -.065em;
+    margin: 15px 0 22px;
+    color: #273833;
+  }
+  body.owner-landing .hero h1 span {
+    color: #aa7669;
+  }
+  body.owner-landing .hero-bottom {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 19px;
+  }
+  body.owner-landing .hero-bottom p {
+    color: #4d5d56;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  body.owner-landing .hero .cta {
+    width: 100%;
+    padding: 0 20px;
+    min-height: 51px;
+    margin: 0;
+    background: #263a36;
+    color: #f8f0e7;
+  }
+  body.owner-landing .hero .cta:hover {
+    background: #354e47;
+  }
+  body.owner-landing .hero .credit {
+    z-index: 2;
+    top: calc(clamp(300px, 43svh, 430px) - 22px);
+    right: 12px;
+    bottom: auto;
+    color: #f5f1e9;
+    font-size: 8px;
+    text-shadow: 0 1px 6px rgba(0,0,0,.5);
+  }
+  body.owner-landing nav {
+    padding-top: calc(18px + env(safe-area-inset-top));
+  }
+  body.owner-landing .section {
+    padding-top: 72px;
+    padding-bottom: 76px;
+  }
+  body.owner-landing .section-title {
+    font-size: clamp(38px, 10.3vw, 53px);
+    line-height: 1.09;
+  }
+  body.owner-landing .owner-track {
+    min-height: 185px;
+  }
+  body.owner-landing .owner-tracks .section {
+    padding-block: 72px;
+  }
+  body.owner-landing .owner-storymaker__inner {
+    padding-top: 70px !important;
+    padding-bottom: 74px !important;
+  }
+
+  /* Start with the owner's photo, then let the editorial tooling follow. */
+  body.story-studio .nav {
+    padding: calc(15px + env(safe-area-inset-top)) 22px 15px;
+  }
+  body.story-studio .brand-art {
+    width: 112px;
+  }
+  body.story-studio main {
+    padding: 26px 22px 76px;
+  }
+  body.story-studio h1 {
+    font-size: clamp(43px, 12vw, 62px);
+    letter-spacing: -.067em;
+    line-height: .96;
+    margin: 13px 0 15px;
+  }
+  body.story-studio .lead {
+    font-size: 12px;
+    line-height: 1.75;
+    margin-bottom: 16px;
+    max-width: 520px;
+  }
+  body.story-studio .quick-upload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    margin: 0 0 27px;
+    padding: 12px 18px;
+    background: #253a36;
+    color: #faf3ec;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    text-align: left;
+  }
+  body.story-studio .quick-upload:focus-visible {
+    outline: 2px solid #9a695f;
+    outline-offset: 3px;
+  }
+  body.story-studio .studio {
+    gap: 24px;
+  }
+  body.story-studio .preview-frame {
+    max-width: 226px;
+  }
+  body.story-studio .preview-column {
+    gap: 8px;
+  }
+  body.story-studio .preview-top {
+    font-size: 9px;
+  }
+  body.story-studio .preview-bottom {
+    font-size: 10px;
+  }
+  body.story-studio .editor {
+    padding-top: 24px;
+    gap: 19px;
+  }
+}
+@media (max-width: 360px) {
+  body.owner-landing .hero-body { padding-inline: 19px; }
+  body.owner-landing .hero h1 { font-size: 50px; }
+  body.story-studio main { padding-inline: 18px; }
+  body.story-studio .preview-frame { max-width: 212px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.owner-landing .hero .cta { transition: none; }
+}
