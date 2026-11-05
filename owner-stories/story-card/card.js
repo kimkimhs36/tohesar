@@ -7,7 +7,26 @@
   const model=byId('car-name'),story=byId('car-caption'),input=byId('car-photo');
   const tone=byId('car-tone'),position=byId('car-position'),horizontal=byId('car-horizontal'),layout=byId('car-layout'),status=byId('card-status');
   const uploadText=byId('photo-name');
+  const quickUpload=document.querySelector('.quick-upload');
   const W=1080,H=1920;
+  // Always reproduce the official TOHEŞAR artwork; do not redraw the Ş as generic type.
+  const wordmark=new Image();
+  let wordmarkReady=false;
+  function paintWordmark(x,y,width,dark=false){
+    if(wordmarkReady){
+      ctx.save();
+      if(dark)ctx.filter='brightness(0)';
+      ctx.drawImage(wordmark,x,y,width,width*255/1109);
+      ctx.restore();
+    }else{
+      ctx.fillStyle=dark?'#253a37':'#f6eee4';
+      ctx.font='400 49px Georgia,serif';
+      ctx.fillText('TOHEŞAR',x,y+48);
+    }
+  }
+  wordmark.onload=()=>{wordmarkReady=true;render()};
+  wordmark.onerror=()=>{wordmarkReady=false};
+  wordmark.src='/assets/wordmark.svg';
   let photo=null,objectURL=null,pending=false,ready=false;
   const say=s=>{status.textContent=s};
   const wrap=(text,width,maxLines,font,initial=90,min=30)=>{
@@ -54,7 +73,7 @@
     subtle.addColorStop(1,'rgba(171,199,187,.26)');
     ctx.fillStyle=subtle;ctx.fillRect(0,0,W,H);
     ctx.fillStyle='#253a37';ctx.textBaseline='alphabetic';ctx.textAlign='left';
-    ctx.font='400 49px Georgia,serif';ctx.fillText('TOHEŞAR',65,103);
+    paintWordmark(65,67,246,true);
     ctx.textAlign='right';ctx.font='500 23px Arial,sans-serif';
     ctx.fillText('OWNER STORIES  /  001',1015,102);ctx.textAlign='left';
     ctx.strokeStyle='rgba(37,58,55,.46)';ctx.lineWidth=2;
@@ -71,10 +90,19 @@
       ctx.drawImage(photo,(w-sw)*Number(horizontal.value)/100,(h-sh)*Number(position.value)/100,sw,sh,x,y,pw,ph);
       ctx.restore();
     } else {
-      ctx.save();ctx.strokeStyle='rgba(248,247,239,.48)';
-      for(let n=0;n<4;n++){ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(780,740,230+n*93,385+n*100,-.3,0,Math.PI*2);ctx.stroke();}
-      ctx.fillStyle='rgba(36,62,56,.75)';ctx.font='400 125px Georgia,serif';
-      ctx.fillText('YOUR CAR',112,950);ctx.restore();
+      // A restrained typographic print, not AI-looking circles or a fake owner photograph.
+      ctx.fillStyle='#e6e1d8';ctx.fillRect(x,y,pw,ph);
+      ctx.strokeStyle='rgba(49,66,59,.22)';ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(x+70,y+90);ctx.lineTo(x+pw-70,y+90);ctx.stroke();
+      ctx.fillStyle='#75827b';ctx.font='500 25px Arial,sans-serif';
+      ctx.fillText('A SPACE FOR YOUR PHOTOGRAPH',x+70,y+145);
+      ctx.fillStyle='#2d433c';ctx.font='italic 400 128px Georgia,serif';
+      ctx.fillText('Every',x+66,y+440);
+      ctx.fillText('curve',x+66,y+573);
+      ctx.fillStyle='#a77a68';ctx.fillText('has a',x+66,y+706);
+      ctx.fillStyle='#2d433c';ctx.fillText('story.',x+66,y+839);
+      ctx.fillStyle='#6d7972';ctx.font='400 26px Arial,sans-serif';
+      ctx.fillText('ADD A PHOTO TO MAKE THIS YOURS',x+70,y+ph-90);
     }
     // Photo credit placeholder is intentionally omitted: only the user can verify authorship.
     ctx.fillStyle='#253a37';ctx.font='500 21px Arial,sans-serif';
@@ -108,17 +136,23 @@
       ctx.drawImage(photo,(w-sw)*Number(horizontal.value)/100,(h-sh)*Number(position.value)/100,sw,sh,0,0,W,H);
       ctx.restore();
     }else{
-      ctx.strokeStyle='rgba(253,247,241,.3)';ctx.lineWidth=2;
-      for(let n=0;n<5;n++){ctx.beginPath();ctx.ellipse(850,660,270+n*95,490+n*90,.15,0,Math.PI*2);ctx.stroke()}
-      ctx.fillStyle='#324e4c';ctx.font='400 150px Georgia,serif';
-      ctx.fillText('YOUR',72,750);ctx.fillText('CAR.',72,900);
+      // Text-only remains an intentional artwork and can be shared without a photo.
+      ctx.fillStyle='#b5c9bb';ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#344d43';ctx.fillRect(0,0,W,19);
+      ctx.strokeStyle='rgba(40,65,55,.18)';ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(70,290);ctx.lineTo(W-70,290);ctx.stroke();
+      ctx.font='italic 400 155px Georgia,serif';ctx.fillStyle='#294238';
+      ctx.fillText('Every',72,680);
+      ctx.fillText('curve',72,835);
+      ctx.fillText('has a',72,990);
+      ctx.fillText('story.',72,1145);
     }
     const shade=ctx.createLinearGradient(0,0,0,H);
     shade.addColorStop(0,'rgba(12,29,31,.7)');shade.addColorStop(.2,'rgba(12,29,31,.06)');
     shade.addColorStop(.49,'rgba(12,29,31,.02)');shade.addColorStop(.65,'rgba(12,29,31,.45)');
     shade.addColorStop(1,'rgba(10,25,28,.94)');ctx.fillStyle=shade;ctx.fillRect(0,0,W,H);
     ctx.fillStyle='#f6eee4';ctx.textAlign='left';ctx.textBaseline='alphabetic';
-    ctx.font='400 49px Georgia,serif';ctx.fillText('TOHEŞAR',72,112);
+    paintWordmark(72,68,246,false);
     ctx.strokeStyle='rgba(252,241,232,.65)';ctx.lineWidth=2;
     ctx.beginPath();ctx.moveTo(72,146);ctx.lineTo(1009,146);ctx.stroke();
     ctx.font='500 22px Arial,sans-serif';ctx.fillText('OWNER STORIES   /   COMMUNITY 001',72,196);
@@ -147,6 +181,7 @@
       const img=new Image();
       await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=objectURL});
       photo=img;uploadText.textContent=file.name.slice(0,65);
+      if(quickUpload)quickUpload.firstChild.textContent='다른 사진 선택하기 ';
       say('사진을 불러왔어요. 색감과 위치를 조절해 보세요.');
     }catch(e){photo=null;say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.')}
     render();
