@@ -27,7 +27,7 @@
   wordmark.onload=()=>{wordmarkReady=true;render()};
   wordmark.onerror=()=>{wordmarkReady=false};
   wordmark.src='/assets/wordmark.svg';
-  let photo=null,objectURL=null,pending=false,ready=false;
+  let photo=null,objectURL=null,pending=false,ready=false,selectionId=0;
   const say=s=>{status.textContent=s};
   const wrap=(text,width,maxLines,font,initial=90,min=30)=>{
     const words=String(text).replace(/\s+/g,' ').trim().split(' ');
@@ -172,19 +172,28 @@
   function render(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;draw()})}
   async function choose(file){
     if(!file)return;
-    const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
+    const looksLikeImage=/\\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
     if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage)))return say('이미지 파일을 선택해 주세요.');
     if(file.size>20*1024*1024)return say('20MB 이하의 이미지를 선택해 주세요.');
-    if(objectURL)URL.revokeObjectURL(objectURL);
-    objectURL=URL.createObjectURL(file);
+    // A second selection may finish before the first. Only the latest may replace the canvas.
+    const request=++selectionId;
+    const url=URL.createObjectURL(file);
     try{
       const img=new Image();
-      await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=objectURL});
-      photo=img;uploadText.textContent=file.name.slice(0,65);
+      await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
+      if(request!==selectionId)return;
+      const previousURL=objectURL;
+      photo=img;objectURL=url;
+      if(previousURL)URL.revokeObjectURL(previousURL);
+      uploadText.textContent=file.name.slice(0,65);
       if(quickUpload)quickUpload.firstChild.textContent='다른 사진 선택하기 ';
       say('사진을 불러왔어요. 색감과 위치를 조절해 보세요.');
-    }catch(e){photo=null;say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.')}
-    render();
+      render();
+    }catch(e){
+      if(request===selectionId)say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.');
+    }finally{
+      if(objectURL!==url)URL.revokeObjectURL(url);
+    }
   }
   const blob=()=>new Promise(resolve=>{if(!ready)draw();canvas.toBlob(resolve,'image/png')});
   async function download(){
