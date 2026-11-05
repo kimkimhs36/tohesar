@@ -1,0 +1,99 @@
+/* Deterministic browser-API contract tests for OWNER STORIES card editor.
+   Run: node --test tests/owner-stories-card.test.cjs */
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const vm = require('node:vm');
+const fs = require('node:fs');
+const path = require('node:path');
+const source = fs.readFileSync(path.join(__dirname, '..', 'owner-stories', 'story-card', 'card.js'), 'utf8');
+
+function harness() {
+  const handlers = new Map();
+  const elements = new Map();
+  const ids = ['story-canvas', 'car-name', 'car-caption', 'car-photo', 'car-tone', 'car-position', 'car-horizontal', 'car-layout', 'card-status', 'photo-name', 'save', 'share'];
+  for (const id of ids) elements.set(id, { value: '', textContent: '', files: [], addEventListener(type, cb) { handlers.set(`${id}:${type}`, cb); }, click() {} });
+  const ctx = new Proxy({ createLinearGradient: () => ({ addColorStop() {} }), measureText: s => ({width: s.length * 20}) }, { get(target, key) { return key in target ? target[key] : () => {}; } });
+  const canvas = elements.get('story-canvas');
+  canvas.getContext = () => ctx;
+  canvas.toBlob = cb => cb(new Blob(['png'], {type:'image/png'}));
+  canvas.toDataURL = () => 'data:image/png;base64,cG5n';
+  elements.get('car-layout').value = 'cinematic';
+  elements.get('car-tone').value = 'neutral';
+  elements.get('car-position').value = '50';
+  elements.get('car-horizontal').value = '50';
+  const imageRequests = [];
+  class ImageMock {
+    constructor() { this.naturalWidth = 1600; this.naturalHeight = 1200; }
+    set src(value) { this._src = value; imageRequests.push(this); }
+    get src() { return this._src; }
+    complete() { this.onload?.(); }
+    fail() { this.onerror?.(new Error('decode')); }
+  }
+  let urlIndex = 0;
+  const revoked = [];
+  let shares = 0, downloads = 0;
+  const quick = { firstChild: {textContent: ''}, addEventListener(type, cb) {handlers.set(`quick:${type}`,cb);} };
+  const document = {
+    getElementById: id => elements.get(id), querySelector: () => quick,
+    createElement: () => ({click(){downloads++;},remove(){}}),
+    body: {appendChild() {}}
+  };
+  const context = {
+    document, Image: ImageMock, Blob, Uint8Array, File: class {constructor(parts,name,options){this.parts=parts;this.name=name;this.type=options.type;}},
+    URL: {createObjectURL: () => `blob:test-${++urlIndex}`, revokeObjectURL: url => revoked.push(url)},
+    navigator: {canShare: () => true, share: async () => {shares++;}},
+    requestAnimationFrame: cb => cb(), setTimeout: () => {}, addEventListener: () => {},
+    atob: s => Buffer.from(s,'base64').toString('binary'),
+  };
+  vm.runInNewContext(source, context, {filename:'card.js'});
+  imageRequests.shift().complete(); // Official wordmark loaded.
+  const tick = () => new Promise(resolve => setImmediate(resolve));
+  async function select(name, type='image/jpeg', size=1000) {
+    const input = elements.get('car-photo');
+    input.files = [{name,type,size}];
+    handlers.get('car-photo:change')();
+    await tick();
+    return imageRequests.at(-1);
+  }
+  return {elements, handlers, imageRequests, select, tick, revoked,
+    async save() {await handlers.get('save:click')();},
+    async share() {await handlers.get('share:click')();},
+    get shares(){return shares;},get downloads(){return downloads;}};
+}
+
+test('export is blocked while a new photo is decoding, then permitted', async () => {
+  const h = harness();
+  const img = await h.select('car.jpg');
+  await h.save(); await h.share();
+  assert.equal(h.downloads, 0); assert.equal(h.shares, 0);
+  img.complete(); await h.tick();
+  await h.save(); await h.share();
+  assert.equal(h.downloads, 1); assert.equal(h.shares, 1);
+});
+
+test('older image completion cannot replace the latest selection', async () => {
+  const h = harness();
+  const first = await h.select('old.jpg');
+  const second = await h.select('new.jpg');
+  second.complete(); await h.tick();
+  first.complete(); await h.tick();
+  assert.equal(h.elements.get('photo-name').textContent, 'new.jpg');
+  assert.ok(h.revoked.includes(first.src));
+  await h.save(); assert.equal(h.downloads, 1);
+});
+
+test('decode failure and unsupported files do not strand export in loading state', async () => {
+  const h = harness();
+  const broken = await h.select('broken.jpg');
+  broken.fail(); await h.tick();
+  await h.save(); assert.equal(h.downloads, 1);
+  await h.select('document.txt','text/plain');
+  await h.save(); assert.equal(h.downloads, 2);
+});
+
+test('oversized image is rejected and does not block text-only card export', async () => {
+  const h = harness();
+  await h.select('huge.jpg','image/jpeg',21*1024*1024);
+  assert.match(h.elements.get('card-status').textContent,/20MB/);
+  await h.save(); assert.equal(h.downloads,1);
+});
