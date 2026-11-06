@@ -188,8 +188,14 @@
     if(!file){decoding=false;return;}
     decoding=true;
     say('새 사진을 불러오는 중이에요. 완료된 뒤 저장하거나 공유해 주세요.');
-    const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
-    if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage))){decoding=false;return say('이미지 파일을 선택해 주세요.');}
+    // Raster photos only. A broad image/* check also accepts SVG/XML and other
+    // formats whose embedded resources or canvas behaviour we cannot guarantee.
+    // On iOS, supported HEIC files may arrive with an empty MIME type: in that
+    // narrow case use the original filename extension as a fallback.
+    const supportedTypes=new Set(['image/jpeg','image/png','image/webp','image/gif','image/avif','image/heic','image/heif']);
+    const mime=String(file.type||'').toLowerCase().trim();
+    const supportedExtension=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(String(file.name||''));
+    if(!(mime?supportedTypes.has(mime):supportedExtension)){decoding=false;return say('JPG·PNG·HEIC 등 지원되는 사진 파일을 선택해 주세요. SVG는 지원하지 않아요.');}
     if(file.size>20*1024*1024){decoding=false;return say('20MB 이하의 이미지를 선택해 주세요.');}
     // A second selection may finish before the first. Only the latest may replace the canvas.
     const url=URL.createObjectURL(file);
