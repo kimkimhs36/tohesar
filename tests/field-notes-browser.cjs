@@ -26,6 +26,15 @@ const checks=[
           const root=document.documentElement;
           return {overflow:root.scrollWidth-root.clientWidth,viewport:root.clientWidth};
         });
+        if(layout.overflow>2){
+          const offenders=await page.evaluate(()=>{
+            const w=document.documentElement.clientWidth;
+            return [...document.body.querySelectorAll('*')]
+              .map(el=>({tag:el.tagName,cls:String(el.className||'').slice(0,90),width:Math.round(el.getBoundingClientRect().width),right:Math.round(el.getBoundingClientRect().right),left:Math.round(el.getBoundingClientRect().left)}))
+              .filter(el=>el.right>w+2||el.left< -2).slice(0,12);
+          });
+          console.error('OVERFLOW-DIAGNOSTICS '+engine+' '+width+': '+JSON.stringify(offenders));
+        }
         assert.ok(layout.overflow<=2,engine+' '+width+' horizontal overflow '+JSON.stringify(layout));
         for(const chapter of checks){
           const c=page.locator('#'+chapter.id);
