@@ -7,6 +7,7 @@
   const chapters=[...document.querySelectorAll('[data-chapter]')];
   const nav=[...document.querySelectorAll('[data-chapter-link]')];
   if (!tracker || !chapters.length) return;
+  root.classList.add('has-reading-progress');
   let scheduled=false;
   function updateProgress(){
     scheduled=false;
