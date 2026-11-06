@@ -1,0 +1,53 @@
+name: TOHEŞAR real continued-reading QA
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'journal/assets/reading-continuity.js'
+      - 'journal/assets/home-editorial.css'
+      - 'journal/911/index.html'
+      - 'journal/f40/index.html'
+      - 'journal/design/giulia/index.html'
+      - 'journal/design/type-01/index.html'
+      - 'journal/field-notes/001/index.html'
+      - 'tests/reading-continuity-browser.cjs'
+      - '.github/workflows/reading-continuity-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-continued-reading:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate continuity logic
+        run: |
+          node --check journal/assets/reading-continuity.js
+          node --check tests/reading-continuity-browser.cjs
+      - name: Install Chromium and WebKit
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium webkit
+      - name: Exercise reading state, saved position and personalized large card
+        env:
+          BASE_URL: http://127.0.0.1:8765
+          SCREENSHOT_DIR: /tmp/tohesar-continued-reading
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/reading-continuity-http.log 2>&1 &
+          sleep 2
+          node tests/reading-continuity-browser.cjs
+      - name: Save screenshots of the actual personalized card
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tohesar-personalized-reading-qa
+          path: /tmp/tohesar-continued-reading/
+          if-no-files-found: ignore
+          retention-days: 7
