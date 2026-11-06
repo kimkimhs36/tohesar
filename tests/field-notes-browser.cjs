@@ -59,6 +59,7 @@ const checks=[
         await page.keyboard.press('Enter');
         await page.waitForFunction(()=>location.hash==='#article');
         assert.equal(await page.locator('main#article').count(),1,'skip target exists');
+        assert.equal(await page.evaluate(()=>document.activeElement?.id),'article',engine+' '+width+' skip actually moves keyboard focus');
         const chapterLink=page.locator('a[data-chapter-link][href="#chapter-giulia"]');
         await chapterLink.focus();
         await page.keyboard.press('Enter');
@@ -98,6 +99,7 @@ const checks=[
         const response=await noJS.goto(base+'/journal/field-notes/001/',{waitUntil:'load',timeout:30000});
         assert.equal(response.status(),200,engine+' no-JS HTTP');
         assert.equal(await noJS.locator('[data-chapter]').count(),3,engine+' no-JS chapters');
+        assert.equal(await noJS.locator('[data-read-progress]').isVisible(),false,engine+' no-JS must not display a fake zero-percent progress bar');
         assert.match(await noJS.locator('main h1').innerText(),/어떤 차는/);
         assert.equal(await noJS.locator('a[href="#chapter-giulia"]').count(),1,engine+' no-JS chapter navigation');
         assert.equal(await noJS.locator('a[href="/journal/"]').count()>0,true,engine+' no-JS return path');
