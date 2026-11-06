@@ -1,0 +1,46 @@
+name: TOHEŞAR FIELD NOTES visual/browser QA
+on:
+  pull_request:
+    paths:
+      - 'journal/field-notes/**'
+      - 'journal/assets/field-notes-entry.css'
+      - 'index.html'
+      - 'journal/index.html'
+      - 'tests/field-notes-browser.cjs'
+      - '.github/workflows/field-notes-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate source and editorial links
+        run: |
+          node --check journal/field-notes/001/feature.js
+          node --check tests/field-notes-browser.cjs
+          python3 scripts/publish.py check
+      - name: Install supported browser engines
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium webkit
+      - name: Test design at mobile, tablet and desktop widths
+        env:
+          BASE_URL: http://127.0.0.1:8765
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/tohesar-field-notes.log 2>&1 &
+          sleep 2
+          node tests/field-notes-browser.cjs
+      - name: Preserve actual screenshots for editorial review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: field-notes-review-captures
+          path: artifacts/field-notes/
+          if-no-files-found: ignore
+          retention-days: 7
