@@ -6,6 +6,7 @@ on:
       - 'owner-stories/story-card/**'
       - 'owner-stories/art-direction-20261105.css'
       - 'tests/owner-stories-card.test.cjs'
+      - 'tests/owner-stories-browser.test.cjs'
       - '.github/workflows/owner-stories-card-qa.yml'
   workflow_dispatch:
 
@@ -28,3 +29,36 @@ jobs:
           node --check tests/owner-stories-card.test.cjs
       - name: Run deterministic photo, logo, crop and share tests
         run: node --test tests/owner-stories-card.test.cjs
+
+  browser-qa:
+    name: Chromium + WebKit responsive studio
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Playwright and browser runtimes
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Run responsive, editor and real PNG export QA
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/tohesar-story-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/owner-stories/story-card/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node --check tests/owner-stories-browser.test.cjs
+          node --test tests/owner-stories-browser.test.cjs
+      - name: Preserve browser screenshots for actual visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: owner-stories-browser-qa
+          path: test-artifacts/owner-stories-browser/
+          if-no-files-found: warn
+          retention-days: 7
