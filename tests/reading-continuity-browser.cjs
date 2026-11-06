@@ -66,6 +66,26 @@ async function assertNoOverflow(page,tag){
         path:path.join(folder,name+'-390-real-giulia-continue.png'),animations:'disabled'
       });
 
+      // The real, personalized feature — not only the default F40 — must
+      // remain generously sized on the smallest phone and iPad landscape.
+      for(const size of [
+        {name:'iphone-small-320',width:320,height:700,minImageWidth:275},
+        {name:'ipad-landscape-1194',width:1194,height:834,minImageWidth:420}
+      ]){
+        await page.setViewportSize({width:size.width,height:size.height});
+        await page.locator('.home-feature').scrollIntoViewIfNeeded();
+        await assertNoOverflow(page,name+' '+size.name);
+        const imageWidth=await page.locator('[data-reading-image]').evaluate(img=>img.getBoundingClientRect().width);
+        assert.ok(imageWidth>=size.minImageWidth,name+' '+size.name+
+          ' featured car photo shrank unexpectedly: '+imageWidth);
+        assert.equal(await page.locator('[data-reading-action]').getAttribute('href'),'/journal/design/giulia/');
+        await page.locator('.home-feature').screenshot({
+          path:path.join(folder,name+'-'+size.name+'-real-giulia-continue.png'),
+          animations:'disabled'
+        });
+      }
+      await page.setViewportSize({width,height});
+
       // "Continue" must return to the stored place, not simply the article top.
       await page.locator('[data-reading-action]').click();
       await page.waitForURL('**/journal/design/giulia/',{timeout:15000});
