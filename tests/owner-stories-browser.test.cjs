@@ -17,7 +17,7 @@ const origin = process.env.TOHESAR_QA_ORIGIN || 'http://127.0.0.1:4173';
 const url = origin + '/owner-stories/story-card/';
 const output = path.join(process.cwd(), 'test-artifacts', 'owner-stories-browser');
 const widths = [320, 390, 768, 1024];
-const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLTTAAAAABJRU5ErkJggg==', 'base64');
+const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAIAAAC0SDtlAAAAF0lEQVR4nGOMrM5nIAUwkaR6VAOtNAAAOycBVa5OsfEAAAAASUVORK5CYII=', 'base64');
 fs.mkdirSync(output, { recursive: true });
 
 function attachErrors(page, found) {
