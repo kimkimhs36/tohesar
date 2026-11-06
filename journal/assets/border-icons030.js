@@ -140,12 +140,25 @@
     if (marks.length > 800) for (let i = 0; i < marks.length - 800; i++) marks[i].remove();
     previousWheels = wheels;
   }
-  function morph() {
+  async function morph() {
     if (!running || morphing) return;
     morphing = true;
+    const request = generation;
+    const candidate = (model + 1) % models.length;
+    // An uncached WebP must not fade out the current car while Safari decodes
+    // the next one. Only begin the crossfade after its image is fully decoded.
+    try {
+      if (!preloads) throw new Error('Miniatures not preloaded');
+      await preloads[candidate].decode();
+    } catch (_) {
+      if (request === generation) morphing = false;
+      return;
+    }
+    if (request !== generation) return; // cancelled, page hidden, cover returned
+    if (!running || !enabled) { morphing = false; return; }
+    model = candidate;
     brakingUntil = performance.now() + 650;
     exhaustUntil = brakingUntil + 1800;
-    model = (model + 1) % models.length;
     back.src = paths[model];
     car.classList.add('is-transforming');
     clearTimeout(morphTimer);
@@ -169,14 +182,18 @@
     layer.classList.remove('is-visible');
     car.disabled = true;
   }
-  function ready() {
+  function coverInView() {
     const cover = document.getElementById('cover');
-    if (!cover) return true;
+    if (!cover) return false;
     const rect = cover.getBoundingClientRect();
-    return rect.bottom <= 0 || rect.top >= innerHeight;
+    // On iPhone Safari, toolbar collapse and rubber-band scrolling repeatedly
+    // cross the zero-pixel boundary. A 28px hysteresis avoids hide/show flashes.
+    const margin = coverShowing === null ? 0 : coverShowing ? -28 : 28;
+    return rect.bottom > margin && rect.top < innerHeight - margin;
   }
+  function ready() { return !coverInView(); }
   function syncCover() {
-    const showing = !ready();
+    const showing = coverInView();
     if (showing === coverShowing) return;
     coverShowing = showing;
     layer.classList.toggle('is-cover-hidden', showing);
