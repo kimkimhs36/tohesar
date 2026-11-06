@@ -1,0 +1,30 @@
+name: TOHEŞAR OWNER STORIES card QA
+
+on:
+  pull_request:
+    paths:
+      - 'owner-stories/story-card/**'
+      - 'owner-stories/art-direction-20261105.css'
+      - 'tests/owner-stories-card.test.cjs'
+      - '.github/workflows/owner-stories-card-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  card-contract:
+    name: Card upload / export regression
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check owner-stories/story-card/card.js
+          node --check tests/owner-stories-card.test.cjs
+      - name: Run deterministic photo, logo, crop and share tests
+        run: node --test tests/owner-stories-card.test.cjs
