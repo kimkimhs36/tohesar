@@ -27,7 +27,7 @@
   wordmark.onload=()=>{wordmarkReady=true;render()};
   wordmark.onerror=()=>{wordmarkReady=false;wordmarkFailed=true;say('공식 로고를 불러오지 못했어요. 연결을 확인하고 새로고침해 주세요.');};
   wordmark.src='/assets/wordmark.svg';
-  let photo=null,objectURL=null,pending=false,ready=false,selectionId=0,decoding=false;
+  let photo=null,objectURL=null,pendingURL=null,pending=false,ready=false,selectionId=0,decoding=false;
   const say=s=>{status.textContent=s};
   const wrap=(text,width,maxLines,font,initial=90,min=30)=>{
     const words=String(text).replace(/\s+/g,' ').trim().split(' ');
@@ -181,6 +181,8 @@
     // Invalidate any older decode even when the new selection is unsupported.
     // Otherwise a slow previous image could replace the user's latest choice.
     const request=++selectionId;
+    // A canceled or replaced decode may never fire load/error: release its blob now.
+    if(pendingURL){URL.revokeObjectURL(pendingURL);pendingURL=null;}
     // A cancelled picker may emit change without a file. Clear any stale loading
     // state so the previously rendered card remains exportable.
     if(!file){decoding=false;return;}
@@ -191,10 +193,12 @@
     if(file.size>20*1024*1024){decoding=false;return say('20MB 이하의 이미지를 선택해 주세요.');}
     // A second selection may finish before the first. Only the latest may replace the canvas.
     const url=URL.createObjectURL(file);
+    pendingURL=url;
     try{
       const img=new Image();
       await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
       if(request!==selectionId)return;
+      pendingURL=null;
       decoding=false;
       const previousURL=objectURL;
       photo=img;objectURL=url;
@@ -206,7 +210,7 @@
     }catch(e){
       if(request===selectionId){decoding=false;say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.');}
     }finally{
-      if(objectURL!==url)URL.revokeObjectURL(url);
+      if(pendingURL===url){pendingURL=null;URL.revokeObjectURL(url);}
     }
   }
   const blob=()=>new Promise(resolve=>{
@@ -256,6 +260,6 @@
   });
   byId('save').addEventListener('click',download);
   byId('share').addEventListener('click',share);
-  addEventListener('pagehide',()=>{if(objectURL)URL.revokeObjectURL(objectURL)},{once:true});
+  addEventListener('pagehide',()=>{if(objectURL)URL.revokeObjectURL(objectURL);if(pendingURL)URL.revokeObjectURL(pendingURL)},{once:true});
   draw();
 })();
