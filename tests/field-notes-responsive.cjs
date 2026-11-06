@@ -56,6 +56,22 @@ async function checkPage(browser,engine,viewport,route,entry){
       const all=await page.locator('.mast__links a').evaluateAll(els=>els.map(x=>({name:x.innerText,x:x.getBoundingClientRect().x,right:x.getBoundingClientRect().right})));
       assert.ok(all.every(x=>x.x>=-2&&x.right<=viewport.width+2),`${engine} ${viewport.name}: clipped chapter links: ${JSON.stringify(all)}`);
     }
+    if(entry){
+      // Scrolling activates loading=lazy; a screenshot taken immediately after
+      // scrollIntoView may show two empty photo placeholders even with 0px overflow.
+      // Wait for the actual paintable image bytes, not just DOM presence.
+      await page.locator('.field-entry').scrollIntoViewIfNeeded();
+      const loaded=await page.locator('.field-entry__visual img').evaluateAll(async imgs=>{
+        await Promise.all(imgs.map(async img=>{
+          img.loading='eager';
+          try{await img.decode()}catch(_){}
+        }));
+        return imgs.map(img=>({src:img.currentSrc||img.src,width:img.naturalWidth,height:img.naturalHeight}));
+      });
+      assert.equal(loaded.length,3,engine+' '+viewport.name+' entry must display three photographs');
+      assert.ok(loaded.every(img=>img.width>0&&img.height>0),
+        engine+' '+viewport.name+' entry must decode all 3 photos: '+JSON.stringify(loaded));
+    }
     if(viewport.name==='iphone-390'||viewport.name==='ipad-landscape'){
       fs.mkdirSync(shotDir,{recursive:true});
       if(entry){
