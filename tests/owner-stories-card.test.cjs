@@ -106,6 +106,8 @@ test('cancelling photo selection clears pending decode and preserves text-card e
   input.files = [];
   h.handlers.get('car-photo:change')();
   await h.tick();
+  // The canceled image may never emit load/error; its blob must already be freed.
+  assert.ok(h.revoked.includes(pending.src));
   await h.save();
   assert.equal(h.downloads, 1);
   pending.complete();
