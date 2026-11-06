@@ -43,7 +43,7 @@
       image:'/journal/assets/giulia/front-1600.webp',
       srcset:'',
       width:1600,height:845,
-      alt:'붉은 Alfa Romeo Giulia 앞부분의 차체 비례를 보여 주는 사진',
+      alt:'Alfa Romeo Giulia 앞부분의 차체 비례를 보여 주는 사진',
       credit:'Vauxford',
       creditUrl:'https://commons.wikimedia.org/wiki/File:2017_Alfa_Romeo_Giulia_V6_Biturbo_Automatic_3.0_Front.jpg',
       license:'CC BY-SA 4.0',
