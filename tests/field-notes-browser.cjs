@@ -66,6 +66,8 @@ const checks=[
         assert.equal(await page.locator('#chapter-giulia h2').count(),1,'chapter anchor target exists');
         const progress=await page.locator('[data-read-progress]').getAttribute('aria-valuenow');
         assert.ok(Number(progress)>=0&&Number(progress)<=100,'accessible progress range');
+        // Restore the actual cover before taking cover screenshots.
+        await page.evaluate(()=>{history.replaceState(null,'',location.pathname);scrollTo(0,0)});
         assert.deepEqual(errors,[],engine+' '+width+' client errors');
         if(width===390||width===1440){
           await page.screenshot({path:'artifacts/field-notes/'+engine+'-'+width+'-cover.png',animations:'disabled'});
