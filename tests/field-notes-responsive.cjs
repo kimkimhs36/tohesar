@@ -58,7 +58,12 @@ async function checkPage(browser,engine,viewport,route,entry){
     }
     if(viewport.name==='iphone-390'||viewport.name==='ipad-landscape'){
       fs.mkdirSync(shotDir,{recursive:true});
-      await page.screenshot({path:path.join(shotDir,`${engine}-${viewport.name}-${entry?'entry':'article'}.png`),fullPage:entry?false:true,animations:'disabled'});
+      if(entry){
+        // Review the actual new entry module, not the existing cinematic homepage cover.
+        await page.locator('.field-entry').screenshot({path:path.join(shotDir,`${engine}-${viewport.name}-entry.png`),animations:'disabled'});
+      }else{
+        await page.screenshot({path:path.join(shotDir,`${engine}-${viewport.name}-article.png`),fullPage:true,animations:'disabled'});
+      }
     }
     assert.deepEqual(errors,[],`${engine} ${viewport.name} browser errors`);
     console.log('PASS',engine,viewport.name,entry?'entry':'article','docWidth='+metrics.scroll);
