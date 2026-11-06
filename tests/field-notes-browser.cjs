@@ -51,6 +51,21 @@ const checks=[
           assert.ok(img.loaded,engine+' '+width+' broken image: '+img.src);
           assert.ok(img.alt,engine+' '+width+' missing alt: '+img.src);
         }
+        // Real keyboard / in-page navigation: not just link presence.
+        // The skip link must land at the article main landmark.
+        const skip=page.locator('a.skip[href="#article"]');
+        assert.equal(await skip.count(),1,engine+' '+width+' accessible skip link');
+        await skip.focus();
+        await page.keyboard.press('Enter');
+        await page.waitForFunction(()=>location.hash==='#article');
+        assert.equal(await page.locator('main#article').count(),1,'skip target exists');
+        const chapterLink=page.locator('a[data-chapter-link][href="#chapter-giulia"]');
+        await chapterLink.focus();
+        await page.keyboard.press('Enter');
+        await page.waitForFunction(()=>location.hash==='#chapter-giulia');
+        assert.equal(await page.locator('#chapter-giulia h2').count(),1,'chapter anchor target exists');
+        const progress=await page.locator('[data-read-progress]').getAttribute('aria-valuenow');
+        assert.ok(Number(progress)>=0&&Number(progress)<=100,'accessible progress range');
         assert.deepEqual(errors,[],engine+' '+width+' client errors');
         if(width===390||width===1440){
           await page.screenshot({path:'artifacts/field-notes/'+engine+'-'+width+'-cover.png',animations:'disabled'});
@@ -74,6 +89,18 @@ const checks=[
         await page.close();
         console.log('PASS '+engine+' '+entry.label+' -> field notes');
       }
+      // Editorial integrity without JavaScript: readable copy, all three
+      // chapters and navigation must remain available in the static document.
+      const noJS=await browser.newPage({viewport:{width:390,height:844},javaScriptEnabled:false});
+      try{
+        const response=await noJS.goto(base+'/journal/field-notes/001/',{waitUntil:'load',timeout:30000});
+        assert.equal(response.status(),200,engine+' no-JS HTTP');
+        assert.equal(await noJS.locator('[data-chapter]').count(),3,engine+' no-JS chapters');
+        assert.match(await noJS.locator('main h1').innerText(),/어떤 차는/);
+        assert.equal(await noJS.locator('a[href="#chapter-giulia"]').count(),1,engine+' no-JS chapter navigation');
+        assert.equal(await noJS.locator('a[href="/journal/"]').count()>0,true,engine+' no-JS return path');
+        console.log('PASS '+engine+' no-JS article reading and navigation');
+      }finally{await noJS.close()}
     }finally{await browser.close()}
   }
 })().catch(err=>{console.error(err);process.exitCode=1});
