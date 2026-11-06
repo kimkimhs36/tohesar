@@ -7,17 +7,22 @@ const fs = require('node:fs');
 const path = require('node:path');
 const source = fs.readFileSync(path.join(__dirname, '..', 'owner-stories', 'story-card', 'card.js'), 'utf8');
 
-function harness() {
+function harness({loadWordmark=true}={}) {
   const handlers = new Map();
   const elements = new Map();
   const ids = ['story-canvas', 'car-name', 'car-caption', 'car-photo', 'car-tone', 'car-position', 'car-horizontal', 'car-layout', 'card-status', 'photo-name', 'save', 'share'];
   for (const id of ids) elements.set(id, { value: '', textContent: '', files: [], addEventListener(type, cb) { handlers.set(`${id}:${type}`, cb); }, click() {} });
-  const ctx = new Proxy({ createLinearGradient: () => ({ addColorStop() {} }), measureText: s => ({width: s.length * 20}) }, { get(target, key) { return key in target ? target[key] : () => {}; } });
+  const drawCalls = [];
+  const ctx = new Proxy({
+    createLinearGradient: () => ({ addColorStop() {} }),
+    measureText: s => ({width: s.length * 20}),
+    drawImage: (...args) => { drawCalls.push(args); }
+  }, { get(target, key) { return key in target ? target[key] : () => {}; } });
   const canvas = elements.get('story-canvas');
   canvas.getContext = () => ctx;
   canvas.toBlob = cb => cb(new Blob(['png'], {type:'image/png'}));
   canvas.toDataURL = () => 'data:image/png;base64,cG5n';
-  elements.get('car-layout').value = 'cinematic';
+  elements.get('car-layout').value = 'gallery'; // Match actual HTML default.
   elements.get('car-tone').value = 'neutral';
   elements.get('car-position').value = '50';
   elements.get('car-horizontal').value = '50';
@@ -46,7 +51,7 @@ function harness() {
     atob: s => Buffer.from(s,'base64').toString('binary'),
   };
   vm.runInNewContext(source, context, {filename:'card.js'});
-  imageRequests.shift().complete(); // Official wordmark loaded.
+  if (loadWordmark) imageRequests.shift().complete(); // Official wordmark loaded.
   const tick = () => new Promise(resolve => setImmediate(resolve));
   async function select(name, type='image/jpeg', size=1000) {
     const input = elements.get('car-photo');
@@ -55,7 +60,7 @@ function harness() {
     await tick();
     return imageRequests.at(-1);
   }
-  return {elements, handlers, imageRequests, select, tick, revoked,
+  return {elements, handlers, imageRequests, select, tick, revoked, drawCalls,
     async save() {await handlers.get('save:click')();},
     async share() {await handlers.get('share:click')();},
     get shares(){return shares;},get downloads(){return downloads;}};
@@ -116,4 +121,52 @@ test('cancelling photo selection clears pending decode and preserves text-card e
   assert.ok(h.revoked.includes(pending.src));
   await h.save();
   assert.equal(h.downloads, 2);
+});
+
+test('SVG photos are rejected even when renamed JPG; the raster canvas remains exportable', async () => {
+  const h = harness();
+  const count = h.imageRequests.length;
+  await h.select('unsafe.svg', 'image/svg+xml');
+  assert.equal(h.imageRequests.length, count);
+  assert.match(h.elements.get('card-status').textContent, /SVG/);
+  await h.select('unsafe.jpg', 'image/svg+xml');
+  assert.equal(h.imageRequests.length, count);
+  await h.save();
+  assert.equal(h.downloads, 1);
+});
+
+test('HEIC with empty iPhone MIME is allowed by the filename fallback', async () => {
+  const h = harness();
+  const image = await h.select('IMG_2026.HEIC', '');
+  image.complete(); await h.tick();
+  assert.equal(h.elements.get('photo-name').textContent, 'IMG_2026.HEIC');
+  await h.save();
+  assert.equal(h.downloads, 1);
+});
+
+test('official wordmark must finish loading before saving or sharing any card', async () => {
+  const h = harness({loadWordmark:false});
+  await h.save(); await h.share();
+  assert.equal(h.downloads, 0);
+  assert.equal(h.shares, 0);
+  h.imageRequests.shift().complete();
+  await h.save(); await h.share();
+  assert.equal(h.downloads, 1);
+  assert.equal(h.shares, 1);
+});
+
+test('gallery is tested as the real default: photo crop stays in its print frame', async () => {
+  const h = harness();
+  const image = await h.select('photo.png', 'image/png');
+  image.complete(); await h.tick();
+  const photoDraws = h.drawCalls.filter(args => args.length === 9);
+  assert.ok(photoDraws.length > 0);
+  assert.deepEqual(photoDraws.at(-1).slice(5), [65, 239, 950, 1050]);
+});
+
+test('native sharing starts before yielding user activation to a microtask', async () => {
+  const h = harness();
+  const promise = h.handlers.get('share:click')();
+  assert.equal(h.shares, 1, 'navigator.share should be invoked synchronously');
+  await promise;
 });
