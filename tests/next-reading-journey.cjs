@@ -31,7 +31,10 @@ async function run(browser,name,viewport){
         await img.decode();
         return {width:img.naturalWidth,height:img.naturalHeight,rect:img.getBoundingClientRect().toJSON()};
       });
-      assert.ok(decoded.width>=500&&decoded.height>=400,story.from+' next image is decoded');
+      // naturalWidth is density-corrected when srcset uses w descriptors;
+      // an original 800×533 image can report ~367×244 CSS px at 390px.
+      assert.ok(decoded.width>=150&&decoded.height>=100,
+        story.from+' next image decoded with natural dimensions '+decoded.width+'×'+decoded.height);
       assert.ok(decoded.rect.width>200&&decoded.rect.right<=viewport.width+2,story.from+' next image is not clipped');
       assert.equal(await next.locator('figcaption a').count(),2,'photo author and license links stay visible');
       assert.ok(await next.locator('.next-reading__foot a[href="/journal/"]').isVisible());
