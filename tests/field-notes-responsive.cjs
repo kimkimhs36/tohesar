@@ -53,8 +53,27 @@ async function checkPage(browser,engine,viewport,route,entry){
       assert.equal(await page.locator('[data-chapter]').count(),3);
       const nav=await page.locator('.mast__links a').count();
       assert.equal(nav,5,'all navigation links remain available on narrow phones');
-      const all=await page.locator('.mast__links a').evaluateAll(els=>els.map(x=>({name:x.innerText,x:x.getBoundingClientRect().x,right:x.getBoundingClientRect().right})));
-      assert.ok(all.every(x=>x.x>=-2&&x.right<=viewport.width+2),`${engine} ${viewport.name}: clipped chapter links: ${JSON.stringify(all)}`);
+      // Count alone was insufficient: a narrow-screen CSS rule hid OWNER STORIES
+      // while the element remained in the DOM and the old test still passed.
+      const all=await page.locator('.mast__links a').evaluateAll(els=>els.map(link=>{
+        const rect=link.getBoundingClientRect();
+        const style=getComputedStyle(link);
+        return {name:link.innerText,x:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,
+          width:rect.width,height:rect.height,display:style.display,
+          visibility:style.visibility,opacity:Number(style.opacity)};
+      }));
+      assert.ok(all.every(link=>link.display!=='none'&&link.visibility!=='hidden'&&link.opacity>0),
+        `${engine} ${viewport.name}: a navigation link is hidden: ${JSON.stringify(all)}`);
+      assert.ok(all.every(link=>link.x>=-2&&link.right<=viewport.width+2&&link.width>=24),
+        `${engine} ${viewport.name}: clipped or tiny navigation links: ${JSON.stringify(all)}`);
+      const minTouchHeight=viewport.width<=360?40:32;
+      assert.ok(all.every(link=>link.height>=minTouchHeight),
+        `${engine} ${viewport.name}: navigation touch targets are too short: ${JSON.stringify(all)}`);
+      for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++){
+        const a=all[i],b=all[j];
+        const overlaps=a.x<b.right-1&&b.x<a.right-1&&a.top<b.bottom-1&&b.top<a.bottom-1;
+        assert.ok(!overlaps,`${engine} ${viewport.name}: overlapping navigation links ${a.name} / ${b.name}`);
+      }
     }
     if(entry){
       // Scrolling activates loading=lazy; a screenshot taken immediately after
