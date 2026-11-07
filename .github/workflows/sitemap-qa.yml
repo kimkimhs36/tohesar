@@ -1,0 +1,28 @@
+name: TOHEŞAR public reading map QA
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'sitemap/index.html'
+      - 'scripts/build_site_map.py'
+      - 'scripts/test_sitemap_coverage.py'
+      - '.github/workflows/sitemap-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  published-navigation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify HTML destinations, authoring generator and accessible menu
+        run: |
+          python -m py_compile scripts/build_site_map.py
+          python -m unittest scripts.test_sitemap_coverage -v
