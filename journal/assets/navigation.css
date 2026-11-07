@@ -200,3 +200,53 @@ body:has(.journal-index[open]) :is(main:not(:has(.journal-index)),.home-editoria
 @media(prefers-reduced-motion:reduce){
   .journal-index>summary .thz-menu-icon>span{transition:none}
 }
+
+/* Bespoke Yokohama navigation is a genuine header, not a floating illustration. */
+body .city-nav:has(.journal-index){
+  position:sticky!important;top:0!important;z-index:150!important;
+  display:flex!important;justify-content:space-between!important;align-items:center!important;
+  gap:clamp(6px,2vw,22px)!important;min-height:68px!important;height:auto!important;
+  padding:calc(11px + env(safe-area-inset-top)) max(18px,env(safe-area-inset-right),3.7vw) 11px max(18px,env(safe-area-inset-left),3.7vw)!important;
+  border-bottom:1px solid var(--thz-shell-rule)!important;
+  background:var(--thz-shell-paper)!important;color:var(--thz-shell-ink)!important;
+  box-sizing:border-box!important;
+}
+body .city-nav:has(.journal-index)>a:first-child{
+  width:clamp(112px,15vw,169px)!important;max-width:34vw!important;
+  flex:0 1 auto!important;line-height:1!important;display:flex!important;align-items:center!important;
+}
+body .city-nav:has(.journal-index)>a:first-child img{
+  width:100%!important;max-width:100%!important;height:auto!important;
+  filter:brightness(0)!important;opacity:1!important;
+}
+body .city-nav:has(.journal-index) .site-shortcuts{margin-left:auto;gap:clamp(8px,1.8vw,24px)}
+body .city-nav:has(.journal-index) .site-shortcuts a{
+  display:inline-flex;min-height:44px;align-items:center;
+  color:var(--thz-shell-ink);text-decoration:none;font-size:clamp(10px,1vw,12px);
+}
+body[data-page] .site-header:has(.journal-index) .nav-primary{
+  display:flex!important;align-items:center!important;gap:8px!important;
+  margin:0 0 0 auto!important;flex:0 1 auto!important;
+}
+body[data-page] .site-header:has(.journal-index) .nav-primary .search-open,
+body .article-bar:has(.journal-index) .article-search{
+  display:inline-flex!important;align-items:center;justify-content:center;
+  width:44px;min-width:44px;min-height:44px;color:var(--thz-shell-ink)!important;
+  border:1px solid rgba(95,80,102,.25)!important;background:rgba(255,255,255,.28)!important;
+  border-radius:999px!important;font-size:12px!important;
+}
+/* Only the menu, not the entire article, is the iOS modal scroll surface. */
+body:has(.city-nav .journal-index[open])::before{background:rgba(36,32,44,.13)}
+@media(max-width:700px){
+  body .city-nav:has(.journal-index){
+    min-height:68px!important;gap:clamp(5px,1.8vw,12px)!important;
+    padding:calc(10px + env(safe-area-inset-top)) max(13px,env(safe-area-inset-right),3.7vw) 10px max(13px,env(safe-area-inset-left),3.7vw)!important;
+  }
+  body .city-nav:has(.journal-index)>a:first-child{width:clamp(103px,28vw,137px)!important}
+  body[data-page] .site-header:has(.journal-index) .nav-primary .search-open{
+    width:38px;min-width:38px;min-height:44px;
+  }
+}
+@media(max-width:370px){
+  body .city-nav:has(.journal-index)>a:first-child{width:103px!important}
+}
