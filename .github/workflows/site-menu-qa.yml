@@ -1,0 +1,58 @@
+name: TOHEŞAR global menu and iPhone Safari stability
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'journal/assets/navigation.css'
+      - 'journal/assets/navigation.js'
+      - 'journal/assets/menu-motion.css'
+      - 'journal/assets/next-reading.css'
+      - 'journal/partials/navigation.html'
+      - 'scripts/build_journal_navigation.py'
+      - '**/index.html'
+      - 'tests/site-menu-stability-browser.cjs'
+      - 'tests/navigation-motion-browser.cjs'
+      - '.github/workflows/site-menu-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  safari-and-multiroute:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check script syntax
+        run: |
+          node --check journal/assets/navigation.js
+          node --check tests/site-menu-stability-browser.cjs
+          node --check tests/navigation-motion-browser.cjs
+          python3 -m py_compile scripts/build_journal_navigation.py
+      - name: Rebuild shared navigation from canonical source
+        run: python3 scripts/build_journal_navigation.py
+      - name: Install real Chromium and WebKit browser engines
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium webkit
+      - name: Serve the static site and exercise swipe/menu regressions
+        env:
+          BASE_URL: http://127.0.0.1:8765
+          SCREENSHOT_DIR: /tmp/tohesar-menu-review
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/tohesar-menu-http.log 2>&1 &
+          sleep 2
+          node tests/site-menu-stability-browser.cjs
+      - name: Save actual screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tohesar-global-menu-safari-and-chromium
+          path: /tmp/tohesar-menu-review/
+          if-no-files-found: ignore
+          retention-days: 7
