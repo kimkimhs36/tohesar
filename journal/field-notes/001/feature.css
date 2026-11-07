@@ -129,5 +129,23 @@ img{max-width:100%;display:block}figure,blockquote{margin:0}
 }
 
 
-/* 320px compact Safari: keep the wordmark and three chapter links, avoid mast overflow. */
-@media(max-width:360px){.mast__links a:last-child{display:none}.mast{gap:9px}}
+/* Compact iPhone navigation: all five destinations remain visible and touch-sized.
+   Split the utility links and chapter links into calm, readable editorial rows. */
+@media(max-width:360px){
+  .mast{gap:7px}
+  .mast__links{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-areas:"journal stories stories" "one two three";
+    justify-items:stretch;
+    gap:0 5px;
+    font-size:10px;
+    letter-spacing:.025em;
+  }
+  .mast__links a{min-height:44px;padding:8px 2px;justify-content:center}
+  .mast__links a:nth-child(1){grid-area:journal;justify-content:flex-start}
+  .mast__links a:nth-child(2){grid-area:one}
+  .mast__links a:nth-child(3){grid-area:two}
+  .mast__links a:nth-child(4){grid-area:three}
+  .mast__links a:nth-child(5){grid-area:stories;justify-content:flex-end}
+}
