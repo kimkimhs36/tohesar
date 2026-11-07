@@ -38,3 +38,28 @@
 @keyframes home-car-drift{from{transform:translate3d(-5px,2px,0) rotate(-2deg)}to{transform:translate3d(6px,-3px,0) rotate(1deg)}}
 @media(max-width:700px){.home-intro::before{right:-34px;top:13%;width:135px;opacity:.3}.home-intro::after{right:7%;bottom:3%;width:115px;opacity:.23}.home-close::before{left:auto;right:-30px;top:5%;width:125px;opacity:.24}.home-close::after{left:52%;bottom:3%;width:115px;opacity:.2}}
 @media(prefers-reduced-motion:reduce){.home-intro::before,.home-intro::after,.home-close::before,.home-close::after{animation:none}}
+
+/* READING CONTINUITY — this prominent editorial slot now follows the last
+   article actually opened on this device. A static F40 recommendation remains
+   when there is no local history or JavaScript is unavailable. */
+.home-feature[data-reading-feature] [hidden]{display:none!important}
+.home-feature[data-reading-feature] .home-feature-image{display:block;min-width:0}
+.home-feature[data-reading-feature] .home-feature-image img{width:100%;height:auto;max-width:100%;object-fit:cover}
+.home-feature[data-reading-feature] .home-feature-copy{min-width:0}
+.home-feature[data-reading-feature] .home-reading-status{
+  font-size:clamp(11px,1.15vw,13px);line-height:1.8;
+  letter-spacing:.01em;color:#716674;margin:clamp(18px,3vw,32px) 0 8px;
+}
+.home-feature[data-reading-feature] .home-reading-meter{
+  height:3px;width:min(100%,300px);position:relative;margin:0 0 7px;
+  background:rgba(96,85,99,.17);overflow:hidden;
+}
+.home-feature[data-reading-feature] .home-reading-meter::after{
+  content:"";display:block;height:100%;width:var(--resume-percent,0%);
+  background:#a27b75;
+}
+.home-feature[data-reading-feature] .home-feature-copy .home-link{min-height:40px}
+@media(max-width:700px){
+  .home-feature[data-reading-feature] .home-reading-status{margin-top:18px;font-size:12px}
+  .home-feature[data-reading-feature] .home-reading-meter{width:100%;max-width:340px}
+}

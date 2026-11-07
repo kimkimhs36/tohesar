@@ -1,0 +1,49 @@
+name: TOHEŞAR FIELD NOTES responsive browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'journal/field-notes/**'
+      - 'journal/assets/field-notes-entry.css'
+      - 'journal/index.html'
+      - 'index.html'
+      - 'tests/field-notes-responsive.cjs'
+      - '.github/workflows/field-notes-responsive.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  viewport-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify JavaScript source
+        run: |
+          node --check journal/field-notes/001/feature.js
+          node --check tests/field-notes-responsive.cjs
+      - name: Install Chromium and WebKit browser engines
+        run: |
+          npm install --no-save playwright@1.57.0
+          npx playwright install --with-deps chromium webkit
+      - name: Check 320–1440px fluid layout and capture screenshots
+        env:
+          BASE_URL: http://127.0.0.1:8765
+          SCREENSHOT_DIR: /tmp/tohesar-field-notes-qa
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/tohesar-field-notes-server.log 2>&1 &
+          sleep 2
+          node tests/field-notes-responsive.cjs
+      - name: Preserve screenshot evidence for design review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tohesar-field-notes-viewport-screenshots
+          path: /tmp/tohesar-field-notes-qa/
+          if-no-files-found: ignore
+          retention-days: 7

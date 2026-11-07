@@ -1,0 +1,125 @@
+/* TOHEŞAR — real responsive browser contract for FIELD NOTES 001.
+   BASE_URL=http://127.0.0.1:8765 node tests/field-notes-responsive.cjs
+   Tests geometry, not subjective artistic approval; screenshots are review artifacts. */
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const {chromium,webkit}=require('playwright');
+const base=(process.env.BASE_URL||'http://127.0.0.1:8765').replace(/\/$/,'');
+const shotDir=process.env.SCREENSHOT_DIR||path.join(__dirname,'..','.qa-field-notes');
+const viewports=[
+  {name:'iphone-se-320',width:320,height:680},
+  {name:'iphone-375',width:375,height:812},
+  {name:'iphone-390',width:390,height:844},
+  {name:'iphone-430',width:430,height:932},
+  {name:'iphone-landscape',width:844,height:390},
+  {name:'ipad-portrait',width:768,height:1024},
+  {name:'ipad-landscape',width:1194,height:834},
+  {name:'desktop',width:1440,height:900},
+];
+function approxBounds(rect,w,margin=2){
+  return rect.x>=-margin && rect.right<=w+margin && rect.width>0;
+}
+async function checkPage(browser,engine,viewport,route,entry){
+  const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height},deviceScaleFactor:1,hasTouch:viewport.width<900,isMobile:engine==='webkit'&&viewport.width<900});
+  const page=await context.newPage();
+  const errors=[];
+  page.on('pageerror',err=>errors.push(String(err)));
+  try{
+    const response=await page.goto(base+route,{waitUntil:'networkidle',timeout:30000});
+    assert.equal(response.status(),200,engine+' '+route+' HTTP');
+    await page.locator(entry?'.field-entry__grid':'.contact-sheet').waitFor();
+    await page.evaluate(()=>document.fonts.ready);
+    const metrics=await page.evaluate(({entry})=>{
+      const box=sel=>{const r=document.querySelector(sel)?.getBoundingClientRect();if(!r)return null;return {x:r.x,right:r.right,y:r.y,bottom:r.bottom,width:r.width,height:r.height}};
+      return {
+        viewport:innerWidth,scroll:document.documentElement.scrollWidth,bodyScroll:document.body.scrollWidth,
+        visual:box(entry?'.field-entry__media':'.contact-sheet'),
+        copy:box(entry?'.field-entry__copy':'.opening h1'),
+        allLinks:entry?null:[...document.querySelectorAll('.mast__links a')].map(a=>({text:a.innerText,rect:box('.mast__links')})),
+        photo:entry?box('.field-entry__visual'):box('.contact-sheet'),
+        title:box(entry?'.field-entry h2':'.opening h1'),
+      };
+    },{entry});
+    assert.ok(metrics.scroll<=metrics.viewport+2,`${engine} ${viewport.name} ${route}: horizontal document overflow ${metrics.scroll}>${metrics.viewport}`);
+    assert.ok(metrics.bodyScroll<=metrics.viewport+2,`${engine} ${viewport.name} ${route}: body overflow`);
+    assert.ok(approxBounds(metrics.visual,viewport.width),`${engine} ${viewport.name} image outside viewport: ${JSON.stringify(metrics.visual)}`);
+    assert.ok(approxBounds(metrics.title,viewport.width),`${engine} ${viewport.name} headline outside viewport: ${JSON.stringify(metrics.title)}`);
+    if(entry && viewport.width<=860){
+      assert.ok(metrics.visual.bottom<=metrics.copy.y+5,`${engine} ${viewport.name}: photo did not move above editorial text`);
+    }
+    if(!entry){
+      assert.equal(await page.locator('[data-chapter]').count(),3);
+      const nav=await page.locator('.mast__links a').count();
+      assert.equal(nav,5,'all navigation links remain available on narrow phones');
+      // Count alone was insufficient: a narrow-screen CSS rule hid OWNER STORIES
+      // while the element remained in the DOM and the old test still passed.
+      const all=await page.locator('.mast__links a').evaluateAll(els=>els.map(link=>{
+        const rect=link.getBoundingClientRect();
+        const style=getComputedStyle(link);
+        return {name:link.innerText,x:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,
+          width:rect.width,height:rect.height,display:style.display,
+          visibility:style.visibility,opacity:Number(style.opacity)};
+      }));
+      assert.ok(all.every(link=>link.display!=='none'&&link.visibility!=='hidden'&&link.opacity>0),
+        `${engine} ${viewport.name}: a navigation link is hidden: ${JSON.stringify(all)}`);
+      assert.ok(all.every(link=>link.x>=-2&&link.right<=viewport.width+2&&link.width>=24),
+        `${engine} ${viewport.name}: clipped or tiny navigation links: ${JSON.stringify(all)}`);
+      const minTouchHeight=viewport.width<=360?40:32;
+      assert.ok(all.every(link=>link.height>=minTouchHeight),
+        `${engine} ${viewport.name}: navigation touch targets are too short: ${JSON.stringify(all)}`);
+      for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++){
+        const a=all[i],b=all[j];
+        const overlaps=a.x<b.right-1&&b.x<a.right-1&&a.top<b.bottom-1&&b.top<a.bottom-1;
+        assert.ok(!overlaps,`${engine} ${viewport.name}: overlapping navigation links ${a.name} / ${b.name}`);
+      }
+    }
+    if(entry){
+      // Scrolling activates loading=lazy; a screenshot taken immediately after
+      // scrollIntoView may show two empty photo placeholders even with 0px overflow.
+      // Wait for the actual paintable image bytes, not just DOM presence.
+      await page.locator('.field-entry').scrollIntoViewIfNeeded();
+      const loaded=await page.locator('.field-entry__visual img').evaluateAll(async imgs=>{
+        await Promise.all(imgs.map(async img=>{
+          img.loading='eager';
+          try{await img.decode()}catch(_){}
+        }));
+        return imgs.map(img=>({src:img.currentSrc||img.src,width:img.naturalWidth,height:img.naturalHeight}));
+      });
+      assert.equal(loaded.length,3,engine+' '+viewport.name+' entry must display three photographs');
+      assert.ok(loaded.every(img=>img.width>0&&img.height>0),
+        engine+' '+viewport.name+' entry must decode all 3 photos: '+JSON.stringify(loaded));
+    }
+    if(viewport.name==='iphone-390'||viewport.name==='ipad-landscape'){
+      fs.mkdirSync(shotDir,{recursive:true});
+      if(entry){
+        // Review the actual new entry module, not the existing cinematic homepage cover.
+        await page.locator('.field-entry').screenshot({path:path.join(shotDir,`${engine}-${viewport.name}-entry.png`),animations:'disabled'});
+      }else{
+        await page.screenshot({path:path.join(shotDir,`${engine}-${viewport.name}-article.png`),fullPage:true,animations:'disabled'});
+      }
+    }
+    assert.deepEqual(errors,[],`${engine} ${viewport.name} browser errors`);
+    console.log('PASS',engine,viewport.name,entry?'entry':'article','docWidth='+metrics.scroll);
+  }finally{await context.close();}
+}
+async function main(){
+  let failures=0,passes=0;
+  for(const [engine,browserType] of [['chromium',chromium],['webkit',webkit]]){
+    let browser;
+    try{browser=await browserType.launch({headless:true,args:engine==='chromium'?['--no-sandbox']:[]});}
+    catch(e){console.error('BROWSER UNAVAILABLE',engine,e.message);process.exitCode=1;return;}
+    try{
+      for(const viewport of viewports){
+        for(const [route,entry] of [['/journal/field-notes/001/',false],['/journal/',true],['/',true]]){
+          try{await checkPage(browser,engine,viewport,route,entry);passes++}
+          catch(e){failures++;console.error('FAIL',engine,viewport.name,route,e.message);}
+        }
+      }
+    }finally{await browser.close();}
+  }
+  console.log('TOHEŞAR UI QA results:',passes,'pass /',failures,'fail');
+  if(failures)process.exitCode=1;
+}
+main().catch(e=>{console.error(e);process.exitCode=1});
