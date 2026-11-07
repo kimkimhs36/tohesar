@@ -47,7 +47,7 @@
     if(event.cancelable)event.preventDefault();
   }
   function maintainScroll(){
-    if(locked&&Math.abs(scrollY-lockedY)>1)scrollTo({top:lockedY,behavior:'instant'});
+    if(locked&&Math.abs(scrollY-lockedY)>1)scrollTo(0,lockedY);
   }
   function lockDocument(){
     if(locked)return;
@@ -69,7 +69,7 @@
     removeEventListener('scroll',maintainScroll);
     // In iOS Safari restoring the previous scrollY is important after scrolling
     // inside a menu or dismissing the keyboard.
-    if(Math.abs(scrollY-lockedY)>1)scrollTo({top:lockedY,behavior:'instant'});
+    if(Math.abs(scrollY-lockedY)>1)scrollTo(0,lockedY);
   }
   function positionPanel(){
     if(!menu.open||closing)return;
