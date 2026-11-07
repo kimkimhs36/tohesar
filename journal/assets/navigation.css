@@ -96,7 +96,7 @@ body > .site-header::after {
    These rules intentionally affect shared navigation, not any page's artwork. */
 :root{--thz-shell-paper:#e9e4ee;--thz-shell-ink:#343143;--thz-shell-rule:#c9becd}
 :root.thz-menu-open,body.thz-menu-open{
-  overflow:hidden!important;overscroll-behavior:none!important;
+  overflow:hidden!important;overscroll-behavior:none!important;scroll-behavior:auto!important;
 }
 body :is(.site-header,.owner-header,.article-bar,.es-header):has(.journal-index){
   position:sticky!important;top:0!important;z-index:150!important;
