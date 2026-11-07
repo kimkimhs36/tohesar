@@ -18,16 +18,32 @@
   const active=menu.querySelector(`a[href="${section}"]`);
   if(active)active.setAttribute('aria-current',active.pathname===path?'page':'location');
 
-  let closing=false, timer=0, positionFrame=0, locked=false, lockedY=0;
+  let closing=false, timer=0, positionFrame=0, locked=false, lockedY=0, touchStartY=0;
   const root=document.documentElement;
   const eventOptions={passive:false};
 
   function setSummaryName(){
     summary.setAttribute('aria-label',menu.open?'전체 메뉴 닫기':'전체 메뉴 열기');
   }
+  panel.addEventListener('touchstart',event=>{
+    if(event.touches.length)touchStartY=event.touches[0].clientY;
+  },{passive:true});
   function stopBackgroundScroll(event){
-    // Panel stays scrollable; the document beneath it never receives a swipe.
-    if(panel.contains(event.target))return;
+    // WebKit can hand overscroll at either edge of a short menu back to
+    // the document. Cancel only at the edge, preserving inner panel scrolling.
+    if(panel.contains(event.target)){
+      if(event.type==='touchmove'&&event.touches.length){
+        const dy=event.touches[0].clientY-touchStartY;
+        const atStart=panel.scrollTop<=1;
+        const atEnd=panel.scrollTop+panel.clientHeight>=panel.scrollHeight-1;
+        if(panel.scrollHeight<=panel.clientHeight+1||
+           (dy>0&&atStart)||(dy<0&&atEnd)){
+          if(event.cancelable)event.preventDefault();
+        }
+        touchStartY=event.touches[0].clientY;
+      }
+      return;
+    }
     if(event.cancelable)event.preventDefault();
   }
   function maintainScroll(){
@@ -57,7 +73,7 @@
   }
   function positionPanel(){
     if(!menu.open||closing)return;
-    const header=menu.closest('.site-header,.owner-header,.es-header,.article-bar')||summary.parentElement;
+    const header=menu.closest('.site-header,.owner-header,.es-header,.article-bar,.city-nav')||summary.parentElement;
     const viewport=window.visualViewport;
     const offsetTop=viewport?.offsetTop||0;
     const height=viewport?.height||window.innerHeight;
