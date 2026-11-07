@@ -27,7 +27,7 @@
   wordmark.onload=()=>{wordmarkReady=true;render()};
   wordmark.onerror=()=>{wordmarkReady=false;wordmarkFailed=true;say('공식 로고를 불러오지 못했어요. 연결을 확인하고 새로고침해 주세요.');};
   wordmark.src='/assets/wordmark.svg';
-  let photo=null,objectURL=null,pending=false,ready=false,selectionId=0,decoding=false;
+  let photo=null,objectURL=null,pendingURL=null,pending=false,ready=false,selectionId=0,decoding=false;
   const say=s=>{status.textContent=s};
   const wrap=(text,width,maxLines,font,initial=90,min=30)=>{
     const words=String(text).replace(/\s+/g,' ').trim().split(' ');
@@ -181,18 +181,30 @@
     // Invalidate any older decode even when the new selection is unsupported.
     // Otherwise a slow previous image could replace the user's latest choice.
     const request=++selectionId;
+    // A canceled or replaced decode may never fire load/error: release its blob now.
+    if(pendingURL){URL.revokeObjectURL(pendingURL);pendingURL=null;}
+    // A cancelled picker may emit change without a file. Clear any stale loading
+    // state so the previously rendered card remains exportable.
     if(!file){decoding=false;say('사진 선택을 취소했어요. 현재 화면을 계속 사용할 수 있어요.');return;}
     decoding=true;
     say('새 사진을 불러오는 중이에요. 완료된 뒤 저장하거나 공유해 주세요.');
-    const looksLikeImage=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(file.name);
-    if(!(file.type.startsWith('image/') || (!file.type && looksLikeImage))){decoding=false;return say('이미지 파일을 선택해 주세요.');}
+    // Raster photos only. A broad image/* check also accepts SVG/XML and other
+    // formats whose embedded resources or canvas behaviour we cannot guarantee.
+    // On iOS, supported HEIC files may arrive with an empty MIME type: in that
+    // narrow case use the original filename extension as a fallback.
+    const supportedTypes=new Set(['image/jpeg','image/png','image/webp','image/gif','image/avif','image/heic','image/heif']);
+    const mime=String(file.type||'').toLowerCase().trim();
+    const supportedExtension=/\.(?:jpe?g|png|webp|gif|avif|heic|heif)$/i.test(String(file.name||''));
+    if(!(mime?supportedTypes.has(mime):supportedExtension)){decoding=false;return say('JPG·PNG·HEIC 등 지원되는 사진 파일을 선택해 주세요. SVG는 지원하지 않아요.');}
     if(file.size>20*1024*1024){decoding=false;return say('20MB 이하의 이미지를 선택해 주세요.');}
     // A second selection may finish before the first. Only the latest may replace the canvas.
     const url=URL.createObjectURL(file);
+    pendingURL=url;
     try{
       const img=new Image();
       await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
       if(request!==selectionId)return;
+      pendingURL=null;
       decoding=false;
       const previousURL=objectURL;
       photo=img;objectURL=url;
@@ -204,7 +216,7 @@
     }catch(e){
       if(request===selectionId){decoding=false;say('이 사진을 열 수 없어요. JPG 또는 PNG로 다시 시도해 주세요.');}
     }finally{
-      if(objectURL!==url)URL.revokeObjectURL(url);
+      if(pendingURL===url){pendingURL=null;URL.revokeObjectURL(url);}
     }
   }
   const blob=()=>new Promise(resolve=>{
@@ -254,6 +266,6 @@
   });
   byId('save').addEventListener('click',download);
   byId('share').addEventListener('click',share);
-  addEventListener('pagehide',()=>{if(objectURL)URL.revokeObjectURL(objectURL)},{once:true});
+  addEventListener('pagehide',()=>{if(objectURL)URL.revokeObjectURL(objectURL);if(pendingURL)URL.revokeObjectURL(pendingURL)},{once:true});
   draw();
 })();

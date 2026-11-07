@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head>
+<head><style data-navigation-transition>@view-transition{navigation:auto}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#e9e4ee">
@@ -10,8 +10,6 @@
 <link rel="stylesheet" href="/creative/cover-art-max-004/fonts.css">
 <style>
 /* Keep the journal and the share-card studio in the same native page-transition system. */
-@view-transition{navigation:auto}
-@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms!important}}
 :root{--ink:#263533;--paper:#f2ece6;--quiet:#67716f;--line:#cec9c2;--peach:#dfb5a6;--mint:#bdcec7}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
@@ -37,6 +35,7 @@ h1 em{font-weight:400;color:#ac776a}
 .controls label{min-width:0}
 .editor input[type=range]{width:100%;accent-color:#647c72;min-height:28px}
 .notice{font-size:11px;color:#6a7671;line-height:1.9;margin:0;max-width:500px}
+.notice a{color:inherit;text-decoration:underline;text-underline-offset:3px}.notice a:focus-visible{outline:2px solid #79578a;outline-offset:4px}
 .actions{display:flex;flex-wrap:wrap;gap:11px}
 .actions button{background:#233837;color:#f7f1e9;border:1px solid #233837;min-height:51px;padding:0 19px;font-size:12px;letter-spacing:.02em}
 .actions button.secondary{background:transparent;color:#253b38}
@@ -56,13 +55,24 @@ h1 em{font-weight:400;color:#ac776a}
 <link rel="stylesheet" href="/owner-stories/art-direction-20261105.css">
 <link rel="stylesheet" href="/owner-stories/journal-language.css?v=20261105b">
 <script src="/owner-stories/story-card/card.js" defer></script>
+<link rel="stylesheet" href="/journal/assets/navigation.css?v=20261105b">
+<script src="/journal/assets/navigation.js" defer></script>
+<link rel="stylesheet" href="/journal/assets/cinematic028.css">
+<script src="/journal/assets/cinematic028.js" blocking="render"></script>
 <!-- TOHESAR SEO:BEGIN -->
 <meta name="robots" content="noindex,follow">
 <!-- TOHESAR SEO:END -->
 </head>
 <body class="story-studio">
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<header class="owner-header"><a href="/" aria-label="TOHEŞAR 커버"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a><nav class="site-shortcuts" aria-label="주요 메뉴"><a href="/journal/">저널</a><a href="/owner-stories/">차주 이야기</a></nav><details class="owner-index"><summary aria-label="사이트 메뉴">Index</summary><nav aria-label="TOHEŞAR 전체 탐색"><a href="/journal/"><strong>저널</strong><small>기사와 특집호</small></a><a href="/owner-stories/"><strong>OWNER STORIES</strong><small>차주의 이야기</small></a><a href="/edition/"><strong>뉴스룸</strong><small>자동차 소식</small></a><a href="/sitemap/">전체 구조 보기</a></nav></details></header>
+<header class="owner-header"><a href="/" aria-label="TOHEŞAR 커버"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a><nav class="site-shortcuts" aria-label="주요 메뉴"><a href="/journal/">저널</a><a href="/owner-stories/">차주 이야기</a></nav><details class="owner-index journal-index"><summary aria-label="사이트 메뉴">Index</summary>
+<nav aria-label="TOHEŞAR 전체 탐색">
+<a href="/journal/"><strong>저널</strong><small>기사와 특집호</small></a>
+<a href="/journal/explore/"><strong>둘러보기</strong><small>디자인 · 미니카 · 시각 문화</small></a>
+<a href="/edition/"><strong>뉴스룸</strong><small>자동차 소식</small></a>
+<a href="/owner-stories/"><strong>차주의 이야기</strong><small>OWNER STORIES 참여하기</small></a>
+<a class="index-cover" href="/sitemap/">전체 구조 보기</a>
+</nav></details></header>
 <main id="main">
 <div class="eyebrow">TOHEŞAR / COMMUNITY STUDIO / 001</div>
 <h1>당신의 차를<br>한 장의 이야기로<span>.</span></h1>
@@ -89,7 +99,7 @@ h1 em{font-weight:400;color:#ac776a}
 <label for="car-position">사진 세로 위치
 <input id="car-position" type="range" min="0" max="100" value="50" aria-label="사진 위치 위아래 조절"></label>
 </div>
-<p class="notice">사진이 없어도 텍스트 기반 카드를 만들 수 있어요. 이 이미지는 참여를 알리는 개인 공유용 카드이며 TOHEŞAR에 실제로 차주 신청이 접수되거나 콘텐츠 게재가 확정되는 것은 아닙니다.</p>
+<p class="notice">사진이 없어도 텍스트 기반 카드를 만들 수 있어요. 이 이미지는 참여를 알리는 개인 공유용 카드이며 TOHEŞAR에 실제로 차주 신청이 접수되거나 콘텐츠 게재가 확정되는 것은 아닙니다. <a href="/owner-stories/#join">차주 이야기 제안하기 ↗</a></p>
 <div class="actions"><button type="button" id="save">PNG 저장 · 1080×1920</button><button type="button" id="share" class="secondary">이미지 공유하기 ↗</button></div>
 <div class="status" id="card-status" role="status" aria-live="polite"></div>
 </div>

@@ -6,6 +6,7 @@
     '.story-chapter h2', '.chapter-body > p', '.reading-chapter h2', '.reading-column > p',
     '.type-chapter h2', '.type-columns > div > p', '.type-reading > p', '.language-layout > div > p',
     '.es-section h2', '.es-section p', '.es-section-image',
+    '.field-notes-page .chapter__writing h2', '.field-notes-page .chapter__writing > p',
     '.city-chapter-heading h2', '.city-prose > p', '.city-printed-paragraph',
     '.article-body > h2', '.article-body > p', 'main figure',
     '.story-sources > p', '.giulia-sources > p', '.type-sources > p',
@@ -15,7 +16,7 @@
   const protectedScenes = [
     '.story-intro', '.story-hero', '.f40-hero', '.f40-article-image',
     '.giulia-opening', '.type-opening', '.type-hero', '.es-opening', '.es-hero',
-    '.city-opening', '.article-intro', '.article-cover',
+    '.city-opening', '.article-intro', '.article-cover', '.field-notes-page .opening',
     '.motion-sequence', '.design-study', '[data-design-study]', '[data-proportion-study]',
     '.wallpaper-art', '[data-wallpaper-car]'
   ].join(',');

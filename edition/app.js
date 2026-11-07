@@ -59,7 +59,8 @@ function renderWire(){
  if(more)more.hidden=shown.length>=matches.length;
 }
 async function loadWire(){
- const list=by('wire-list'),state=by('wire-state');if(!list)return;
+ const list=by('wire-list'),state=by('wire-state'),scroller=by('wire-scroller');if(!list)return;
+ scroller?.setAttribute('aria-busy','true');
  if(state)state.textContent='수집 기록 확인 중';
  try{
   const response=await fetch(base+'data/news.json',{cache:'no-cache'});
@@ -80,7 +81,7 @@ async function loadWire(){
   wireItems=[];renderWire();
   if(state)state.textContent='연결 지연 · 공식 출처에서 원문 확인';
   const health=by('feed-health');if(health)health.textContent='헤드라인 데이터에 접속할 수 없습니다.';
- }
+ }finally{scroller?.removeAttribute('aria-busy');}
 }
 for(const name of ['wire-query','wire-publisher','wire-topic']){
  const input=by(name);
@@ -115,20 +116,44 @@ if(by('wire-list')){
  loadWire();
 }
 const archiveQuery=by('archive-query'),archiveTopic=by('archive-topic');
+const archiveControls=document.querySelector('.archive-controls');
+const normalizeArchive=value=>String(value||'').normalize('NFKC').toLocaleLowerCase().replace(/[\s\-–—]/g,'');
 function filterArchive(){
- const query=(archiveQuery?.value||'').trim().toLocaleLowerCase(),topic=archiveTopic?.value||'all';
+ const terms=(archiveQuery?.value||'').trim().split(/\s+/).filter(Boolean).map(normalizeArchive);
+ const topic=archiveTopic?.value||'all';
  let count=0;
  document.querySelectorAll('[data-archive-item]').forEach(item=>{
   const matchesTopic=topic==='all'||item.dataset.topics.split(' ').includes(topic);
-  const matchesQuery=!query||(item.textContent+' '+item.dataset.keywords).toLocaleLowerCase().includes(query);
+  const text=normalizeArchive(item.textContent+' '+item.dataset.keywords);
+  const matchesQuery=terms.every(term=>text.includes(term));
   item.hidden=!(matchesTopic&&matchesQuery);if(!item.hidden)count++;
  });
  const state=by('archive-count');if(state)state.textContent=count+'편의 이야기';
  const empty=by('archive-empty');if(empty)empty.hidden=count>0;
 }
-archiveQuery?.addEventListener('input',filterArchive);archiveTopic?.addEventListener('change',filterArchive);
-by('archive-reset')?.addEventListener('click',()=>{if(archiveQuery)archiveQuery.value='';if(archiveTopic)archiveTopic.value='all';filterArchive();archiveQuery?.focus()});
-if(archiveQuery)filterArchive();
+function saveArchiveURL(){
+ try{
+  const url=new URL(location.href),q=archiveQuery.value.trim(),topic=archiveTopic.value;
+  if(q)url.searchParams.set('q',q);else url.searchParams.delete('q');
+  if(topic!=='all')url.searchParams.set('topic',topic);else url.searchParams.delete('topic');
+  history.replaceState(history.state,'',url);
+ }catch(_){/* Filtering remains available if browser history is restricted. */}
+}
+function readArchiveURL(){
+ const params=new URL(location.href).searchParams;
+ archiveQuery.value=(params.get('q')||'').slice(0,100);
+ const topic=params.get('topic');
+ archiveTopic.value=[...archiveTopic.options].some(option=>option.value===topic)?topic:'all';
+ filterArchive();
+}
+if(archiveQuery&&archiveTopic&&archiveControls){
+ archiveQuery.addEventListener('input',()=>{filterArchive();saveArchiveURL()});
+ archiveTopic.addEventListener('change',()=>{filterArchive();saveArchiveURL()});
+ by('archive-reset')?.addEventListener('click',()=>{archiveQuery.value='';archiveTopic.value='all';filterArchive();saveArchiveURL();archiveQuery.focus()});
+ addEventListener('popstate',readArchiveURL);
+ readArchiveURL();
+ archiveControls.hidden=false;
+}
 const menuButton=document.querySelector('.menu-button'), menu=by('mobile-menu');
 function closeMenu(){if(menu){if(menu.contains(document.activeElement))menuButton?.focus();menu.hidden=true;}if(menuButton){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','메뉴 열기')}}
 if(menuButton&&menu){menuButton.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기')});menu.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target)&&!menuButton.contains(e.target))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()})}

@@ -28,6 +28,27 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       await page.waitForSelector('.thz-icons030.is-visible');
       assert.match(await car.locator('.thz-icons030-current').getAttribute('src'), /f40\.webp/);
       await page.waitForFunction(() => !document.querySelector('.thz-icons030-car').classList.contains('is-obscured'));
+      // A car crossing an article link may lose pointer events, but must NOT fade.
+      // Reproduce the old mobile flicker caused by toggling is-obscured.
+      await page.waitForFunction(() => Number(getComputedStyle(document.querySelector('.thz-icons030-car')).opacity) > .98);
+      const overlap = await car.evaluate(el => {
+        const oldTransition = el.style.transition, wasBlocked = el.classList.contains('is-obscured');
+        el.style.transition = 'none';
+        el.classList.add('is-obscured');
+        const css = getComputedStyle(el), result = {opacity:Number(css.opacity),hit:css.pointerEvents};
+        if (!wasBlocked) el.classList.remove('is-obscured');
+        el.style.transition = oldTransition;
+        return result;
+      });
+      assert.equal(overlap.opacity,1, 'car must not disappear while crossing text or links');
+      assert.equal(overlap.hit,'none', 'car must not steal link taps');
+      if (viewport.width === 390) {
+        // iPhone browser chrome changes the available visual viewport height.
+        await page.setViewportSize({width:390,height:760});
+        await page.waitForTimeout(100);
+        assert.equal(await car.evaluate(el => Number(getComputedStyle(el).opacity)), 1, 'mobile toolbar resize must not flash car');
+        await page.setViewportSize(viewport);
+      }
       // Sample the actual transformed hit target during a lap, including corners.
       const samples = await page.evaluate(async () => {
         const el = document.querySelector('.thz-icons030-car'), points = [];
@@ -94,6 +115,38 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:8000';
       console.log(`PASS ${name} ${viewport.width}x${viewport.height}: path, tap, reduced motion, history`);
       await page.close();
     }
+    // Safari may take time to decode a newly selected miniature. Keep the
+    // current car solid until the next WebP is ready to crossfade.
+    const decodePage = await browser.newPage({viewport:{width:390,height:844}});
+    const decodeErrors = [];
+    decodePage.on('pageerror', error => decodeErrors.push(error.message));
+    await decodePage.addInitScript(() => {
+      window.__thzIcons030Test = {delay:0};
+      const nativeDecode = HTMLImageElement.prototype.decode;
+      HTMLImageElement.prototype.decode = function() {
+        if ((this.src || '').includes('/countach.webp'))
+          return new Promise((resolve, reject) => setTimeout(() => nativeDecode.call(this).then(resolve, reject), 1200));
+        return nativeDecode.call(this);
+      };
+    });
+    await decodePage.goto(base + '/journal/f40/');
+    await decodePage.waitForSelector('.thz-icons030.is-visible');
+    const changingCar = decodePage.locator('.thz-icons030-car');
+    assert.match(await changingCar.locator('.thz-icons030-current').getAttribute('src'), /f40\.webp/);
+    // This check targets asynchronous image decoding; pointer safety is tested above.
+    // A forced pointer click can hit an underlying link when the car is obscured.
+    await changingCar.dispatchEvent('click');
+    await decodePage.waitForTimeout(200);
+    assert.match(await changingCar.locator('.thz-icons030-current').getAttribute('src'),
+      /f40\.webp/, 'old image remains while next is decoding');
+    assert.equal(await changingCar.evaluate(el => el.classList.contains('is-transforming')),
+      false, 'do not crossfade to an undecoded image');
+    await decodePage.waitForFunction(() =>
+      (document.querySelector('.thz-icons030-current')?.getAttribute('src') || '').includes('countach.webp'),
+      null, {timeout:6000});
+    assert.deepEqual(decodeErrors, []);
+    await decodePage.close();
+
     for (const [url, model] of [['/journal/design/giulia/','giulia'],['/journal/design/type-01/','etype']]) {
       const page = await browser.newPage();
       await page.addInitScript(() => { window.__thzIcons030Test={delay:0}; });

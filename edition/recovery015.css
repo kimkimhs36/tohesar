@@ -1,6 +1,8 @@
+@import url("/journal/assets/journal-tokens.css");
 /* TOHEŞAR 015 — the newsroom is a service within the Journal, with its own desk.
    The collection, search, categories, article and archive engines are unchanged. */
-:root{--ink:#34313e;--body:#635b67;--mute:#746b77;--line:#bdb1bc;--bone:#f5f1ea;--pale:#f5f1ea;--green:#806a82;--desk-paper:#e6dfec;--peach:#efcfbd;--desk-edge:clamp(22px,4.5vw,76px)}
+:root{--ink:var(--journal-ink);--body:var(--journal-muted);--mute:#746b77;--line:var(--journal-rule);--bone:#f5f1ea;--pale:#f5f1ea;--green:#806a82;--desk-paper:#e6dfec;--peach:#efcfbd;--desk-edge:clamp(22px,4.5vw,76px)}
+body[data-page]{--bone:var(--journal-paper);--pale:var(--journal-paper);--desk-paper:#e2dae6;--peach:var(--journal-peach);--sans:var(--journal-font);--serif:var(--journal-font)}
 body{background:var(--bone);color:var(--ink);overflow-x:visible}::selection{background:#e6cedd;color:#302c3b}
 body[data-page] .site-header{position:relative;height:auto;min-height:76px;padding:calc(12px + env(safe-area-inset-top)) var(--desk-edge) 12px;background:var(--bone);color:var(--ink);border-bottom:1px solid var(--line)}.logo{width:145px}.logo img{filter:brightness(0);opacity:.85}.nav-primary{gap:17px}.nav-journal{font-size:11px;display:flex;align-items:center;min-height:44px;margin-right:5px}.icon-button,.menu-button{border-radius:0;border:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;width:44px;height:44px}.menu-button span{background:var(--ink)}.menu-panel{top:calc(100% - 1px);right:var(--desk-edge);background:var(--bone);box-shadow:0 15px 25px #302c3b12;border:1px solid var(--line)}.menu-panel a{border-color:var(--line)}.menu-panel a span,.menu-kicker{color:var(--body)}
 .newsroom-mast{padding:23px var(--desk-edge) 18px}.desk-register,.desk-mast-foot{display:flex;align-items:center;justify-content:space-between;gap:20px}.desk-register{font:9px/1.7 var(--sans);letter-spacing:.08em;color:var(--body)}.newsroom-mast h1{font:400 clamp(68px,9vw,135px)/1.15 var(--serif);letter-spacing:-.055em;margin:15px 0 12px}.newsroom-mast h1>span{color:#a47d93}.desk-mast-foot p{font-size:12px;margin:0;line-height:1.8}.desk-mast-foot>a{font-size:11px;min-height:44px;display:flex;align-items:center}.desk-nav{display:flex;gap:40px;margin:0 var(--desk-edge);border-block:1px solid var(--line)}.desk-nav a{display:flex;align-items:center;gap:18px;font-size:11px;min-height:46px}.desk-nav span{font-size:8px;color:var(--body)}.desk-nav a:last-child{margin-left:auto}
@@ -34,3 +36,7 @@ body[data-page] .site-header{position:relative;height:auto;min-height:76px;paddi
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 /* Korean editorial headlines use the same clear voice as the journal. */
 body[data-page] :is(.desk-feature h2,.archive-cards h2) {font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-weight:400;letter-spacing:-.035em}
+
+/* Keep the loading surface and dated status steady during initial feed decoding. */
+.news-index-main .wire-scroll[aria-busy="true"]{min-height:220px}
+@media(max-width:700px){.news-index-main .wire-heading{min-height:72px}}

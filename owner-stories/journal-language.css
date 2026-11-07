@@ -1,14 +1,12 @@
+@import url("/journal/assets/journal-tokens.css");
 @import url("/journal/assets/editorial-chrome.css");
 /* Journal home visual language, scoped to the two Owner Stories pages. */
 body.owner-landing, body.story-studio {
-  --ink:#343143; --paper:#e9e4ee; --muted:#686172; --edge:clamp(22px,4.5vw,76px);
+  --ink:var(--journal-ink); --paper:var(--journal-paper); --muted:var(--journal-muted); --edge:clamp(22px,4.5vw,76px);
   background:var(--paper); color:var(--ink); font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;
 }
 .owner-header{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:25px;min-height:68px;padding:calc(11px + env(safe-area-inset-top)) var(--edge) 11px;border-bottom:1px solid #b8aebf;background:#e9e4ee}
 .owner-header>a{display:block;line-height:0}.owner-header>a img{display:block;width:clamp(118px,14vw,146px);max-width:44vw;height:auto;filter:brightness(0);opacity:.85}
-.owner-index{position:relative;font:11px Arial,sans-serif}.owner-index summary{cursor:pointer;min-height:44px;display:flex;align-items:center;gap:10px;list-style:none}.owner-index summary::-webkit-details-marker{display:none}.owner-index summary::after{content:'+';font-size:18px}.owner-index[open] summary::after{content:'−'}
-body .owner-index nav{position:absolute;top:100%;right:0;left:auto;width:min(310px,calc(100vw - 44px));display:block;padding:8px 20px;background:#f5f1eb;color:#343143;border:1px solid #b8aebf;box-shadow:0 20px 40px #3431431f}
-.owner-index nav a{display:block;padding:15px 0;border-bottom:1px solid #b8aebf;color:inherit;text-decoration:none;min-height:44px}.owner-index nav a:last-child{border:0}.owner-index nav strong,.owner-index nav small{display:block}.owner-index nav strong{font-size:13px;font-weight:500}.owner-index nav small{margin-top:4px;font-size:10px;color:#686172}
 .owner-header a:focus-visible,.owner-header summary:focus-visible,.owner-footer a:focus-visible,body.owner-landing :is(a,button,input,textarea,select):focus-visible,body.story-studio :is(a,button,input,textarea,select):focus-visible{outline:2px solid #79578a;outline-offset:4px}
 .owner-mast{padding:30px var(--edge) 16px}.owner-mast h1{margin:0 0 18px;font:500 clamp(52px,8.8vw,140px)/1.1 "Noto Sans KR",sans-serif;letter-spacing:-.09em}.owner-mast p{margin:0;font-size:12px;line-height:1.8}
 body.owner-landing .hero{display:grid;grid-template-columns:1.4fr 1fr;align-items:center;min-height:0;margin:24px var(--edge) 70px;background:transparent;color:var(--ink);overflow:visible;isolation:auto}

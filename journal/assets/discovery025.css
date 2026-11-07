@@ -50,8 +50,8 @@
 .recovery015-journal .news-arrow{display:none}
 
 /* Explore: a photographic contents page, sharing the paper without repeating a wallpaper. */
-body:has(.explore-list){--paper:#eee8ed;--ink:#38313e;--rule:#c8bac7}
-body:has(.explore-list) .map-header{background:#eee8ed}
+body:has(.explore-list){--paper:var(--journal-paper);--ink:var(--journal-ink);--rule:var(--journal-rule)}
+body:has(.explore-list) .map-header{background:var(--journal-paper)}
 body:has(.explore-list) .map-intro{background:none;padding-top:65px;padding-bottom:58px}
 body:has(.explore-list) .map-intro::after{display:none}
 body:has(.explore-list) .map-intro h1{font-size:clamp(43px,5.6vw,78px);line-height:1.28}

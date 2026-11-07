@@ -25,10 +25,19 @@ def build():
     home.write_text(text)
     journal = ROOT / 'journal/index.html'
     text = journal.read_text()
+    presence = (ROOT / 'journal/partials/journal-resume-presence.html').read_text(encoding='utf-8').strip()
+    text = re.sub(r'<script data-reading-presence>.*?</script>', '', text, flags=re.S)
+    text, count = re.subn(r'(<head(?:\s[^>]*)?>)', lambda m: m[1] + presence, text, count=1)
+    assert count == 1, 'Missing journal head'
     text = re.sub(r'<nav\b[^>]*class="section-nav"[^>]*>.*?</nav>', '', text, flags=re.S)
     text = re.sub(r'<link\b[^>]*href="/assets/yokohama-bluehour\.webp"[^>]*/?>', '', text)
     feature = (ROOT / 'journal/partials/journal-feature026.html').read_text().strip()
     text = re.sub(r'<section\b(?=[^>]*class="featured")(?=[^>]*id="featured")[^>]*>.*?</section>', lambda _: feature, text, count=1, flags=re.S)
+    # Keep the reading continuation in the generated journal as well as its source.
+    resume = (ROOT / 'journal/partials/journal-resume.html').read_text(encoding='utf-8').strip()
+    text = re.sub(r'<!-- JOURNAL:RESUME:START -->.*?<!-- JOURNAL:RESUME:END -->\s*', '', text, flags=re.S)
+    text, count = re.subn(r'(<section\b(?=[^>]*class="featured")(?=[^>]*id="featured")[^>]*>)', lambda m: resume + '\n' + m[1], text, count=1)
+    assert count == 1, 'Missing journal featured section'
     # Keep the discovery photographs and their credits together across rebuilds.
     for name in ('f40', 'giulia'):
         cls = 'design-large' if name == 'f40' else 'design-small'

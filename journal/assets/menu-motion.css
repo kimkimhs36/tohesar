@@ -1,0 +1,18 @@
+/* The menu remains native and visible without JavaScript. */
+@media (prefers-reduced-motion:no-preference){
+ .journal-index[open]>nav{transform-origin:top right;animation:journal-menu-in 440ms cubic-bezier(.22,1,.36,1) both}
+ .journal-index.opens-up[open]>nav{transform-origin:bottom right;animation-name:journal-menu-in-up}
+ .journal-index.is-closing>nav{pointer-events:none;animation:journal-menu-out 190ms cubic-bezier(.4,0,1,1) both}
+ body:has(.journal-index[open])::before{animation:journal-veil-in 360ms ease both}
+ body:has(.journal-index.is-closing)::before{animation:journal-veil-out 190ms ease both}
+ body:has(.journal-index[open]) :is(main:not(:has(.journal-index)),.home-editorial,footer){animation:journal-content-soften 360ms ease both}
+ body:has(.journal-index.is-closing) :is(main:not(:has(.journal-index)),.home-editorial,footer){animation:journal-content-clear 190ms ease both}
+ @keyframes journal-menu-in{from{opacity:0;filter:blur(9px);transform:translateY(-7px) scale(.985)}to{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}}
+ @keyframes journal-menu-in-up{from{opacity:0;filter:blur(9px);transform:translateY(7px) scale(.985)}to{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}}
+ @keyframes journal-menu-out{from{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}to{opacity:0;filter:blur(5px);transform:translateY(-5px) scale(.99)}}
+ @keyframes journal-veil-in{from{opacity:0}to{opacity:1}}
+ @keyframes journal-veil-out{from{opacity:1}to{opacity:0}}
+ @keyframes journal-content-soften{from{filter:blur(0)}to{filter:blur(7px)}}
+ @keyframes journal-content-clear{from{filter:blur(7px)}to{filter:blur(0)}}
+}
+@media (prefers-reduced-motion:reduce){.journal-index[open]>nav{animation:none!important}}

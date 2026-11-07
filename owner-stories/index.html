@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head>
+<head><style data-navigation-transition>@view-transition{navigation:auto}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#e9e4ee">
@@ -21,9 +21,6 @@
 <link rel="preload" as="image" href="/owner-stories/assets/city-light-erik-mclean.jpg" fetchpriority="high">
 <style>
 /* This document opts into the same native cross-page transition as the journal. */
-@view-transition{navigation:auto}
-@media(prefers-reduced-motion:no-preference){::view-transition-old(root){animation:owner-page-out 140ms ease-in both}::view-transition-new(root){animation:owner-page-in 300ms ease-out both}@keyframes owner-page-out{to{opacity:0}}@keyframes owner-page-in{from{opacity:0}to{opacity:1}}}
-@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms!important}}
 :root{--ink:#20292b;--paper:#f3eee9;--muted:#757875;--peach:#eacabd;--mint:#aebfba;--edge:rgba(32,41,43,.18)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}a:focus-visible{outline:2px solid #b66f57;outline-offset:5px}.skip{position:absolute;top:-100px;left:1rem;z-index:20;background:white;padding:1rem}.skip:focus{top:1rem}
 nav{position:absolute;z-index:3;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:calc(22px + env(safe-area-inset-top)) clamp(22px,5vw,70px) 16px;color:#fff}
@@ -52,19 +49,30 @@ main{overflow:hidden}.section{max-width:1260px;margin:0 auto;padding:110px clamp
 <link rel="stylesheet" href="/owner-stories/journal-language.css?v=20261105b">
 <script src="/owner-stories/intake-config.js" defer></script>
 <script src="/owner-stories/participation.js" defer></script>
+<link rel="stylesheet" href="/journal/assets/navigation.css?v=20261105b">
+<script src="/journal/assets/navigation.js" defer></script>
+<link rel="stylesheet" href="/journal/assets/cinematic028.css">
+<script src="/journal/assets/cinematic028.js" blocking="render"></script>
 <!-- TOHESAR SEO:BEGIN -->
 <meta name="robots" content="noindex,follow">
 <!-- TOHESAR SEO:END -->
 </head>
 <body class="owner-landing">
 <a class="skip" href="#main">본문으로 건너뛰기</a>
-<header class="owner-header"><a href="/" aria-label="TOHEŞAR 커버"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a><nav class="site-shortcuts" aria-label="주요 메뉴"><a href="/journal/">저널</a><a href="/owner-stories/">차주 이야기</a></nav><details class="owner-index"><summary aria-label="사이트 메뉴">Index</summary><nav aria-label="TOHEŞAR 전체 탐색"><a href="/journal/"><strong>저널</strong><small>기사와 특집호</small></a><a href="/journal/explore/"><strong>둘러보기</strong><small>디자인 · 미니카 · 시각 문화</small></a><a href="/owner-stories/"><strong>차주의 이야기</strong><small>OWNER STORIES 참여하기</small></a><a href="/edition/"><strong>뉴스룸</strong><small>자동차 소식</small></a><a href="/sitemap/">전체 구조 보기</a></nav></details></header>
+<header class="owner-header"><a href="/" aria-label="TOHEŞAR 커버"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a><nav class="site-shortcuts" aria-label="주요 메뉴"><a href="/journal/">저널</a><a href="/owner-stories/">차주 이야기</a></nav><details class="owner-index journal-index"><summary aria-label="사이트 메뉴">Index</summary>
+<nav aria-label="TOHEŞAR 전체 탐색">
+<a href="/journal/"><strong>저널</strong><small>기사와 특집호</small></a>
+<a href="/journal/explore/"><strong>둘러보기</strong><small>디자인 · 미니카 · 시각 문화</small></a>
+<a href="/edition/"><strong>뉴스룸</strong><small>자동차 소식</small></a>
+<a href="/owner-stories/"><strong>차주의 이야기</strong><small>OWNER STORIES 참여하기</small></a>
+<a class="index-cover" href="/sitemap/">전체 구조 보기</a>
+</nav></details></header>
+<main id="main">
 <div class="owner-mast"><div class="owner-mast__meta"><span>TOHEŞAR JOURNAL</span><span>OWNER STORIES / 001</span></div><h1>자동차와<br>그 사람의 이야기<span>.</span></h1><p>한 사람의 취향과 시간을 담아.</p></div>
 <header class="hero">
 <div class="hero-photo" role="img" aria-label="도시의 빛 속에 주차된 스포츠카 사진"></div>
 <div class="hero-body"><p class="eyebrow">TOHEŞAR / OWNER STORIES · 001</p><h2>당신의 차에도<br>이야기가 있습니다<span>.</span></h2><div class="hero-bottom"><p>자동차는 한 사람의 취향을 닮아갑니다.<br>당신이 선택한 선과 변화를 기록합니다.</p><a class="cta" href="#join">내 차의 이야기 제안하기 <span aria-hidden="true">↗</span></a></div><div class="credit">사진: <a href="https://www.pexels.com/photo/sleek-sports-car-parked-on-urban-street-40046432/" rel="noopener noreferrer" target="_blank">Erik Mclean / Pexels</a> · 대표 이미지, 참여 차량 아님</div></div>
 </header>
-<main id="main">
 <section class="manifesto"><div class="section">
 <p class="eyebrow">01 / A publication built around people</p>
 <h2 class="section-title">차보다 먼저,<br>그 차를 선택한 사람.</h2>

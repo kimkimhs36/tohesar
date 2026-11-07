@@ -46,20 +46,6 @@ body:not(:has(.sequence)) .site-header .nav-journal,
 }
 body:not(:has(.sequence)) .journal-index,
 .journal-flow .journal-index{color:var(--thz-ink)}
-body:not(:has(.sequence)) .journal-index nav,
-.journal-flow .journal-index nav{
-  background:var(--thz-paper-light);
-  color:var(--thz-ink);
-  border-color:var(--thz-rule);
-  box-shadow:0 20px 40px rgba(52,49,67,.12)
-}
-body:not(:has(.sequence)) .journal-index nav>a,
-.journal-flow .journal-index nav>a{
-  border-color:var(--thz-rule);
-  color:var(--thz-ink)
-}
-body:not(:has(.sequence)) .journal-index nav>a:hover,
-.journal-flow .journal-index nav>a:hover{background-color:rgba(239,206,189,.28);opacity:1}
 body[data-page] .menu-panel{
   background:var(--thz-paper-light);
   border-color:var(--thz-rule);
@@ -812,6 +798,11 @@ body[data-page="archive"] .archive-cards .archive-type-cover{
   margin-bottom:22px;
   background:transparent;
 }
+/* Reserve each original photo's proportions before lazy decoding. */
+body[data-page="archive"] .archive-cards>a>img[src$="f40-800.webp"]{aspect-ratio:auto 800 / 435}
+body[data-page="archive"] .archive-cards>a>img[src$="porsche-911-800.webp"]{aspect-ratio:auto 800 / 561}
+body[data-page="archive"] .archive-cards>a>img[src$="giulia/profile-800.webp"]{aspect-ratio:auto 1600 / 1067}
+body[data-page="archive"] .archive-cards>a>img[src$="type01-arrival-800.webp"]{aspect-ratio:auto 800 / 589}
 body[data-page="archive"] .archive-cards>a>small{
   display:block;
   font:400 10px/1.65 Arial,sans-serif;

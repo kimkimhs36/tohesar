@@ -1,0 +1,17 @@
+/* A quiet, local-only continuation within the journal's existing paper. */
+.journal-resume[hidden]{display:none!important}
+/* Reserve the personalized strip before the deferred reader script arrives. */
+html.reading-pending .journal-resume[hidden]{display:flex!important;visibility:hidden;box-sizing:border-box;min-height:calc(100.6px + clamp(29.7px,3.375vw,45.9px))}
+.journal-resume{max-width:1500px;margin:12px auto 38px;padding:24px clamp(24px,4.5vw,76px);display:flex;align-items:end;justify-content:space-between;gap:20px 36px;border-block:1px solid var(--journal-rule,#b8aebf);color:var(--journal-ink,#343143);font-family:var(--journal-font,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif)}
+.journal-resume__copy{min-width:0}
+.journal-resume__eyebrow{margin:0 0 8px;color:var(--journal-muted,#686172);font-size:11px;line-height:1.6;letter-spacing:.02em}
+.journal-resume__eyebrow span{margin-left:8px;color:var(--journal-accent,#9f709b)}
+.journal-resume h2{margin:0;font-size:clamp(22px,2.5vw,34px);font-weight:400;line-height:1.35;letter-spacing:-.055em;word-break:keep-all;overflow-wrap:anywhere}
+.journal-resume__note{margin:8px 0 0;color:var(--journal-muted,#686172);font-size:10px;line-height:1.7}
+.journal-resume__actions{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px}
+.journal-resume__actions a,.journal-resume__actions button{display:inline-flex;align-items:center;min-height:44px;font-family:inherit;font-size:12px;font-weight:400;line-height:1.5;letter-spacing:-.02em;color:inherit;cursor:pointer}
+.journal-resume__actions a{gap:14px;border-bottom:1px solid currentColor;text-decoration:none}
+.journal-resume__actions button{border:0;padding:0;background:none;color:var(--journal-muted,#686172);text-decoration:underline;text-underline-offset:4px}
+.journal-resume__actions :is(a,button):focus-visible{outline:2px solid #79578a;outline-offset:4px}
+.journal-resume__status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:700px){html.reading-pending .journal-resume[hidden]{display:block!important;min-height:173.7px}.journal-resume{display:block;margin:10px 22px 30px;padding:20px 0 18px;gap:0}.journal-resume h2{font-size:23px}.journal-resume__actions{margin-top:8px}.journal-resume__actions a,.journal-resume__actions button{font-size:11px}}

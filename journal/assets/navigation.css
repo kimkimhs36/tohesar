@@ -1,5 +1,7 @@
+@import url("/journal/assets/menu-motion.css");
 @import url("/journal/assets/editorial-chrome.css");
 @import url("/journal/assets/endmatter025.css");
+@import url("/journal/assets/editorial-controls.css");
 /* All shared-navigation destinations opt in, so the browser can complete a
    cross-page transition when a reader moves from the journal into an article. */
 @view-transition { navigation:auto; }
@@ -10,28 +12,48 @@
 .journal-index summary::-webkit-details-marker{display:none}
 .journal-index summary>span{font:400 19px/1 Arial,sans-serif;transition:transform .18s}
 .journal-index[open] summary>span{transform:rotate(45deg)}
-.journal-index nav{
- position:absolute;top:calc(100% - 1px);right:var(--edge,24px);z-index:120;
- width:min(368px,calc(100vw - 36px));max-height:calc(100vh - 92px);max-height:calc(100svh - 92px - env(safe-area-inset-bottom, 0px));
- overflow-y:auto;overscroll-behavior:contain;
- padding:25px 25px 18px;
- color:var(--thz-ink,#343143);background:var(--thz-paper-light,#f5f1eb);
- border:1px solid var(--thz-rule,#c8bdc5);box-shadow:0 18px 35px rgba(41,34,47,.11)
+/* An atmospheric veil keeps the words readable over photographs and text. */
+body:has(.journal-index[open])::before{
+ content:"";position:fixed;inset:0;z-index:90;pointer-events:none;
+ background:rgba(226,218,229,.48);
 }
+body:has(.journal-index[open]) :is(.site-header,.owner-header,.article-bar,.es-header){z-index:110}
+body:has(.journal-index[open]) .journal-flow:has(.journal-index[open]){z-index:110}
+/* Soften the page itself: WebKit can expose unblurred text through a backdrop. */
+body:has(.journal-index[open]) :is(main:not(:has(.journal-index)),.home-editorial,footer){filter:blur(7px)}
+.journal-index nav{
+ display:block;position:absolute;top:calc(100% - 3px);right:var(--edge,24px);left:auto;z-index:120;isolation:isolate;
+ box-sizing:border-box;width:min(405px,calc(100vw - 20px));max-height:calc(100vh - 92px);max-height:min(calc(100svh - 92px - env(safe-area-inset-bottom, 0px)),var(--index-space,100svh));
+ overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;
+ padding:42px 39px 38px;color:var(--thz-ink,#343143);border:0;box-shadow:none;counter-reset:index-item;
+ /* Draw the cloud on the panel itself: WebKit may paint pseudo-layers behind the page. */
+ background:
+  radial-gradient(ellipse 52% 27% at 48% 24%,rgba(244,237,244,.87),rgba(244,237,244,.65) 48%,transparent 100%),
+  radial-gradient(ellipse 52% 29% at 52% 50%,rgba(239,231,242,.85),rgba(239,231,242,.62) 48%,transparent 100%),
+  radial-gradient(ellipse 50% 22% at 48% 73%,rgba(243,232,237,.83),rgba(243,232,237,.59) 48%,transparent 100%);
+}
+.journal-index.opens-up nav{top:auto;bottom:calc(100% - 3px)}
+.journal-index.is-compact nav{padding-top:10px;padding-bottom:10px}
+.journal-index.is-compact nav>a{min-height:44px}
+.journal-index.is-compact nav>.index-cover{min-height:44px;margin-top:0}
 .index-caption{display:block;margin-bottom:17px;font:400 10px/1.7 Arial,sans-serif;letter-spacing:.04em;color:#746b78}
-.journal-index nav>a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;border-top:1px solid var(--thz-rule,#c8bdc5);color:inherit;text-decoration:none;transition:color .16s}
-.journal-index nav>a>strong{font:400 20px/1.4 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:-.045em;white-space:nowrap}
-.journal-index nav small{font:400 11px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#746b78;text-align:right;letter-spacing:-.01em}
-.journal-index nav>a:hover,.journal-index nav>a[aria-current]{color:#8b667e}
-.journal-index nav>.index-cover{min-height:46px;margin-top:9px;justify-content:flex-start;font-size:11px;letter-spacing:-.015em}
+.journal-index nav>a{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px;padding:0 3px;border:0;border-bottom:1px solid rgba(101,83,103,.15);color:inherit;text-decoration:none;transition:color .25s ease,transform .25s ease}
+.journal-index nav>a:not(.index-cover){counter-increment:index-item}
+.journal-index nav>a>strong{font:400 21px/1.4 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:-.05em;white-space:nowrap}
+.journal-index nav>a>strong::before{content:"0" counter(index-item);display:inline-block;width:29px;color:#967f92;font:9px/1 Arial,sans-serif;letter-spacing:.04em;vertical-align:middle}
+.journal-index nav small{font:400 10px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#665b6b;text-align:right;letter-spacing:-.01em;word-break:keep-all;overflow-wrap:normal}
+.journal-index nav>a:hover{color:#805d78;transform:translateX(4px)}
+.journal-index nav>a[aria-current]{color:#8b667e}
+.journal-index nav>.index-cover{min-height:44px;margin-top:12px;justify-content:flex-start;border:0;font-size:11px;letter-spacing:-.015em}
+.journal-index nav>.index-cover::after{content:"↗";margin-left:8px}
 .journal-index summary:focus-visible,.journal-index nav>a:focus-visible{outline:2px solid #806776;outline-offset:3px}
 .visual-page .journal-index summary{color:inherit}
 .visual-page .journal-index nav{color:#343143}
 @media(max-width:700px){
  .journal-index summary{font-size:12px;gap:9px}
- .journal-index nav{width:min(350px,calc(100vw - 30px));right:var(--edge,22px);padding:20px 22px 15px}
- .journal-index nav>a{min-height:61px}
- .journal-index nav>a>strong{font-size:18px}
+ .journal-index nav{width:min(380px,calc(100vw - 16px));right:8px;padding:38px 35px 35px}
+ .journal-index nav>a{min-height:62px}
+ .journal-index nav>a>strong{font-size:19px}
  .journal-index nav small{font-size:10px}
  .header-journal{font-size:11px}
 }
@@ -68,5 +90,7 @@ body > .site-header::after {
 }
 
 /* The reading pages share the cover's quiet paper instead of animated chrome. */
-:is(.recovery015-journal,.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language) > .site-header::before,
-:is(.recovery015-journal,.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language) > .site-header::after { display:none; }
+:is(.recovery015-journal,.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.field-notes-page,[data-page],:has(.explore-list)) > .site-header::before,
+:is(.recovery015-journal,.beauty014-curve,.beauty014-blade,.beauty014-proportion,.beauty014-language,.field-notes-page,[data-page],:has(.explore-list)) > .site-header::after { display:none; }
+
+@media(max-width:360px){.journal-index nav{padding-inline:29px}.journal-index nav>a{gap:6px}.journal-index nav>a>strong{font-size:18px}.journal-index nav>a>strong::before{width:25px}.journal-index nav small{max-width:105px;font-size:9px;line-height:1.4}}

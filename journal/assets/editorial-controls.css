@@ -1,0 +1,71 @@
+/* The journal's paper, ink and gentle edges for the site's interactive controls. */
+:root{
+ --thz-control-paper:rgba(250,246,249,.68);
+ --thz-control-line:rgba(103,85,106,.28);
+ --thz-control-ink:#393344;
+ --thz-control-ease:cubic-bezier(.22,1,.36,1);
+}
+
+body.owner-landing .owner-form :is(input:not([type=checkbox]),textarea,select),
+body.story-studio .editor :is(input:not([type=file]):not([type=range]),textarea,select),
+body[data-page] :is(.archive-controls,.wire-filters) :is(input,select),
+body.atlas-page .atlas-search input{
+ color:var(--thz-control-ink);background:var(--thz-control-paper);
+ border:1px solid var(--thz-control-line);border-radius:15px;
+ min-height:52px;padding:14px 17px;font-family:inherit;font-size:16px;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
+ transition:background-color .24s ease,border-color .24s ease,box-shadow .24s ease;
+}
+body.owner-landing .owner-form :is(input:not([type=checkbox]),textarea,select):focus,
+body.story-studio .editor :is(input:not([type=file]):not([type=range]),textarea,select):focus,
+body[data-page] :is(.archive-controls,.wire-filters) :is(input,select):focus,
+body.atlas-page .atlas-search input:focus{
+ background:rgba(255,252,254,.9);border-color:#987d99;
+ box-shadow:0 0 0 3px rgba(155,121,154,.16);
+}
+body.owner-landing .owner-form :is(input,textarea)::placeholder,
+body.story-studio .editor :is(input,textarea)::placeholder{color:#827787;opacity:1}
+body.owner-landing .owner-form textarea,body.story-studio .editor textarea{border-radius:18px}
+body.story-studio .editor select{appearance:auto;-webkit-appearance:menulist;background-image:none;color-scheme:light}
+body.owner-landing .owner-form__status,body.owner-landing .owner-form__note{margin:0}
+
+body.owner-landing .owner-form button,
+body.owner-landing .owner-preview__actions button,
+body.story-studio :is(.actions button,.quick-upload),
+body[data-page] :is(.archive-controls button,.wire-reset),
+body.atlas-page :is(.atlas-search button,.form-filters button,.atlas-empty button){
+ border-radius:999px;min-height:48px;padding:12px 20px;font-family:inherit;
+ transition:background-color .24s ease,border-color .24s ease,color .24s ease,transform .24s var(--thz-control-ease);
+}
+body.owner-landing .owner-form button,
+body.story-studio :is(.actions button,.quick-upload){
+ background:#3d3749;color:#fbf7f9;border:1px solid #3d3749;font-size:12px;font-weight:500;
+}
+body.owner-landing .owner-form button.owner-form__copy,
+body.story-studio .actions button.secondary,
+body.owner-landing .owner-preview__actions button,
+body[data-page] :is(.archive-controls button,.wire-reset){
+ background:rgba(250,246,249,.34);color:#393344;border:1px solid rgba(103,85,106,.38);
+}
+body.owner-landing .owner-preview__actions button{min-height:44px;padding:10px 17px}
+body.owner-landing .owner-form button:disabled,
+body.story-studio .actions button:disabled{opacity:.54;cursor:not-allowed}
+@media(hover:hover){
+ body.owner-landing .owner-form button:not(:disabled):hover,
+ body.story-studio :is(.actions button,.quick-upload):not(:disabled):hover{background:#5a4b60;border-color:#5a4b60;color:#fff;transform:translateY(-2px)}
+ body.owner-landing .owner-preview__actions button:hover,
+ body[data-page] :is(.archive-controls button,.wire-reset):hover{background:rgba(255,251,254,.7);border-color:#897488}
+}
+body.owner-landing .hero-body{border-radius:24px}
+body.owner-landing .owner-online{border-radius:20px}
+body.story-studio .upload{border:1px solid var(--thz-control-line);border-radius:20px;background:var(--thz-control-paper)}
+body.story-studio .upload:focus-within{outline:2px solid #79578a;outline-offset:4px}
+body.story-studio .actions button{flex:1 1 145px}
+@media(max-width:380px){body.owner-landing .owner-form__actions button{flex:0 0 auto;width:100%}}
+@media(prefers-reduced-motion:reduce){
+ body.owner-landing .owner-form :is(input,textarea,select,button),
+ body.owner-landing .owner-preview__actions button,
+ body.story-studio .editor :is(input,textarea,select),body.story-studio :is(.actions button,.quick-upload),
+ body[data-page] :is(.archive-controls,.wire-filters) :is(input,select,button),
+ body.atlas-page :is(.atlas-search input,.atlas-search button,.form-filters button){transition:none}
+}
