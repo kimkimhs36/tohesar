@@ -19,7 +19,7 @@ const shots=process.env.SCREENSHOT_DIR||path.resolve('artifacts/menu');fs.mkdirS
      await page.waitForTimeout(370);
      assert.equal(await panel.evaluate(e=>getComputedStyle(e).animationName),'journal-menu-in');
      const filter=await page.locator('main').first().evaluate(e=>getComputedStyle(e).filter);
-     assert.ok(Number(/blur\(([\d.]+)px\)/.exec(filter)?.[1]||0)>=5,'the page softens behind a sharp menu: '+filter);
+     assert.equal(filter,'none','menu never blurs the article behind it');
      const rect=await panel.evaluate(e=>{let r=e.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width,height:r.height}});
      assert.ok(rect.left>=-2&&rect.right<=width+2&&rect.width>150,name+' '+width+' '+label+' '+JSON.stringify(rect));
      assert.ok(await panel.locator('a:visible').count()>=4);
@@ -52,9 +52,9 @@ const shots=process.env.SCREENSHOT_DIR||path.resolve('artifacts/menu');fs.mkdirS
    const home=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
    await home.goto(base+'/');const homeSummary=home.locator('.journal-index summary');
    await homeSummary.scrollIntoViewIfNeeded();await homeSummary.click();
-   await home.waitForFunction(()=>document.querySelector('.journal-index').style.getPropertyValue('--index-space'));
+   await home.waitForFunction(()=>document.querySelector('.journal-index').style.getPropertyValue('--thz-menu-height'));
    assert.equal(await home.locator('main').evaluate(e=>getComputedStyle(e).filter),'none');
-   assert.match(await home.locator('.home-editorial').evaluate(e=>getComputedStyle(e).filter),/blur\(7px\)/);
+   assert.equal(await home.locator('.home-editorial').evaluate(e=>getComputedStyle(e).filter),'none','home article no longer ghosts through the menu');
    let bounds=await home.locator('.journal-index nav').evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom}});
    assert.ok(bounds.top>=-2&&bounds.bottom<=846,'home Index remains within the viewport: '+JSON.stringify(bounds));
    await home.locator('.journal-index nav a[href="/journal/"]').click();await home.waitForURL('**/journal/');
@@ -62,7 +62,7 @@ const shots=process.env.SCREENSHOT_DIR||path.resolve('artifacts/menu');fs.mkdirS
    const short=await browser.newPage({viewport:{width:320,height:568},reducedMotion:'reduce'});
    await short.goto(base+'/');const shortSummary=short.locator('.journal-index summary');
    await shortSummary.scrollIntoViewIfNeeded();await shortSummary.click();
-   await short.waitForFunction(()=>document.querySelector('.journal-index').style.getPropertyValue('--index-space'));
+   await short.waitForFunction(()=>document.querySelector('.journal-index').style.getPropertyValue('--thz-menu-height'));
    bounds=await short.locator('.journal-index nav').evaluate(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom}});
    assert.ok(bounds.top>=-2&&bounds.bottom<=570,'short viewport keeps the Index reachable: '+JSON.stringify(bounds));
    const items=await short.locator('.journal-index nav a').evaluateAll(links=>links.map(link=>{const r=link.getBoundingClientRect();return {top:r.top,bottom:r.bottom,height:r.height}}));

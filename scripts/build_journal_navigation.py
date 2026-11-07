@@ -6,7 +6,17 @@ nav = (ROOT / 'journal/partials/navigation.html').read_text().strip()
 footer = (ROOT / 'journal/partials/footer-navigation.html').read_text().strip()
 shortcuts = '<nav class="site-shortcuts" aria-label="주요 메뉴"><a href="/journal/">저널</a><a href="/owner-stories/">차주 이야기</a></nav>'
 transition = '<style data-navigation-transition>@view-transition{navigation:auto}</style>'
-shortcut_pages = {'index.html', 'journal/index.html', 'journal/911/index.html', 'journal/f40/index.html', 'journal/design/giulia/index.html', 'journal/design/type-01/index.html'}
+# One navigation surface across the published journal, not one per article.
+# Newsroom keeps its native search control and the same global menu.
+shortcut_pages = {
+    'index.html', 'journal/index.html', 'journal/911/index.html',
+    'journal/f40/index.html', 'journal/design/giulia/index.html',
+    'journal/design/type-01/index.html', 'journal/design/index.html',
+    'journal/explore/index.html', 'journal/issues/index.html',
+    'journal/miniatures/index.html', 'journal/visual/index.html',
+    'journal/yokohama/index.html', 'journal/news/index.html',
+    'sitemap/index.html', 'journal/issues/001/index.html',
+}
 files = ['index.html', 'journal/index.html', 'journal/911/index.html', 'journal/f40/index.html', 'journal/news/index.html', 'journal/visual/index.html', 'journal/miniatures/index.html', 'journal/design/index.html', 'journal/design/type-01/index.html', 'journal/design/giulia/index.html', 'journal/issues/index.html', 'journal/yokohama/index.html', 'journal/explore/index.html', 'sitemap/index.html', 'edition/index.html', 'edition/news/index.html', 'edition/archive/index.html']
 files += [str(p.relative_to(ROOT)) for p in (ROOT / 'journal/issues').glob('*/index.html')]
 files += [str(p.relative_to(ROOT)) for p in (ROOT / 'journal/stories').glob('*/index.html')]
@@ -42,10 +52,11 @@ for page in files:
         s = s.replace('</head>', '<link rel="stylesheet" href="/journal/assets/navigation.css"></head>')
     # Browsers can keep the shared chrome for ten minutes on Pages. Changing
     # the version here makes a new navigation layout arrive with its markup.
-    s = re.sub(r'/journal/assets/navigation\.css(?:\?v=[A-Za-z0-9._-]+)?', '/journal/assets/navigation.css?v=20261105b', s)
+    s = re.sub(r'/journal/assets/navigation\.css(?:\?v=[A-Za-z0-9._-]+)?', '/journal/assets/navigation.css?v=20261108', s)
     s = re.sub(r'/journal/assets/travel\.css(?:\?v=[A-Za-z0-9._-]+)?', '/journal/assets/travel.css?v=20261105b', s)
     if '/journal/assets/navigation.js' not in s:
-        s = s.replace('</head>', '<script src="/journal/assets/navigation.js" defer></script></head>')
+        s = s.replace('</head>', '<script src="/journal/assets/navigation.js?v=20261108" defer></script></head>')
+    s = re.sub(r'/journal/assets/navigation\.js(?:\?v=[A-Za-z0-9._-]+)?', '/journal/assets/navigation.js?v=20261108', s)
     # Article generators reconstruct heads; retain the local reading layer.
     reading_pages = {'index.html', 'journal/index.html', 'journal/911/index.html', 'journal/f40/index.html', 'journal/design/giulia/index.html', 'journal/design/type-01/index.html', 'journal/issues/001/index.html'}
     if page == 'journal/index.html':
