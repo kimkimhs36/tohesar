@@ -1,0 +1,53 @@
+{
+  "style": "TOHESAR OBJECT LAB / 04 OFFSET SHELL",
+  "rev": "R01",
+  "status": "UNAPPROVED TECHNICAL DESIGN REFERENCE / NOT A CUTTABLE PATTERN",
+  "logo_original_git_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "logo_path_exact": true,
+  "sample_block": "BLOCK 0 relaxed; no S/M/L claim before actual sample",
+  "physical_material": "target compact jersey 240-260 gsm / NOT PURCHASED OR VERIFIED",
+  "panel_construction": "front A upper, B lower diagonal joined; back C full",
+  "color_targets": [
+    "graphite charcoal",
+    "deep-petrol charcoal"
+  ],
+  "stitch_test": "proposed four-thread overlock diagonal join + 2.5mm topstitch trial",
+  "allowances_test": {
+    "side_and_panel_seam_mm": 10,
+    "hem_turn_mm": 25,
+    "right_front_hem_extension_mm": 16
+  },
+  "artwork": {
+    "source": "GitHub original vector",
+    "width_mm": 78,
+    "x_from_left_side_seam_mm": 55,
+    "above_finished_hem_mm": 105,
+    "spot_or_ink_color": "ivory reference"
+  },
+  "fit_targets_mm": {
+    "HPS to hem": 710,
+    "Half chest": 610,
+    "Shoulder width": 570,
+    "Sleeve length": 235,
+    "Sleeve opening flat": 220,
+    "Half hem": 605,
+    "Neck rib depth": 28,
+    "Diagonal front join at wearer left": 395,
+    "Diagonal front join at wearer right": 270,
+    "Original wordmark width": 78,
+    "Art from left side seam": 55,
+    "Art above finished hem": 105
+  },
+  "unknowns": [
+    "pattern maker curve lengths, sewing length and allowances",
+    "ribs and shrinkage",
+    "final sample size and maker",
+    "fabric origin / fiber composition",
+    "tag folding and price",
+    "apparel master signoff",
+    "price including VAT/shipping",
+    "user purchase permission"
+  ],
+  "order": "NOT PLACED",
+  "sample": "NOT MADE"
+}
