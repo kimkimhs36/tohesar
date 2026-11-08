@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOHEŞAR / OBJECT LAB — FIRST DROP ATELIER</title>
+<style>
+:root{--ink:#15201b;--paper:#e9e7df;--mute:#7e847d;--line:#bbbeb5;--acid:#c1cbb6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #768a70;outline-offset:3px}
+.top{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:#e9e7df;position:sticky;top:0;z-index:10;border-bottom:1px solid #c9c9c0}
+.top img{width:167px;filter:brightness(0) saturate(100%)}.top a{font-size:10px;letter-spacing:.16em;font-weight:700;margin-left:27px}.top .tag{border:1px solid #455049;padding:9px 12px;white-space:nowrap}
+.hero{min-height:690px;display:grid;grid-template-columns:47% 53%;background:var(--ink);color:#f1efe7}
+.herocopy{padding:9vw 5vw 55px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.eyebrow{font-size:11px;letter-spacing:.23em;font-weight:700;text-transform:uppercase}.hero h1{font-size:clamp(58px,7.5vw,138px);font-weight:500;line-height:.86;letter-spacing:-.075em;margin:70px 0 40px}
+.hero h1 em{font-style:normal;font-family:Georgia,serif;font-weight:400}.hero p{font-size:14px;line-height:1.8;max-width:360px;color:#c2c7be}
+.herofoot{display:flex;align-items:end;justify-content:space-between;gap:18px}.herofoot a{border-bottom:1px solid #e1e6db;padding-bottom:10px;letter-spacing:.18em;font-size:11px;font-weight:700}
+.heroimg{min-height:660px;position:relative;overflow:hidden;background:#8f918a}
+.heroimg img{width:100%;height:100%;object-fit:cover;object-position:center 45%;filter:grayscale(.1) contrast(1.03);transition:transform .65s}
+.heroimg:hover img{transform:scale(1.025)}
+.heroimg .frame{position:absolute;left:26px;top:27px;right:26px;bottom:27px;border:1px solid #ffffff85;pointer-events:none}
+.heroimg .stamp{position:absolute;right:35px;bottom:38px;background:#15201bcc;color:#f3f1e6;padding:15px 19px;letter-spacing:.14em;font-size:11px}
+.intro{padding:105px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:8vw}
+.intro h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,5vw,78px);line-height:1.02;letter-spacing:-.055em;margin:23px 0}
+.intro p{font-size:17px;line-height:1.8;color:#565b55;max-width:560px}
+.intro .small{align-self:end;border-top:1px solid #b3b8ac;padding-top:25px;font-size:13px;line-height:1.8}
+.catalog{padding:30px 5vw 130px}.sectionhead{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid #919a8c;padding:25px 0 38px;gap:12px}
+.sectionhead h2{font-size:clamp(34px,4.5vw,66px);font-weight:450;letter-spacing:-.065em;line-height:1.1;margin:0}
+.sectionhead span{font-size:11px;letter-spacing:.2em}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.product{padding:0;text-align:left;border:0;background:transparent;color:inherit}
+.product .photo{position:relative;background:#c1bfb7;overflow:hidden;aspect-ratio:4/5}
+.product .photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .45s}
+.product:hover .photo img{transform:scale(1.05)}.product.active .photo{outline:3px solid #283b31;outline-offset:-3px}
+.product .num{position:absolute;top:18px;left:18px;background:#e9e7dfc9;padding:8px 10px;font-size:10px;letter-spacing:.2em}
+.product .names{display:flex;justify-content:space-between;margin-top:18px;gap:10px}
+.product strong{font-size:14px;letter-spacing:-.02em;font-weight:650}.product small{display:block;margin-top:8px;font-size:11px;color:#71766f}
+.detail{background:#17231e;color:#e9ece4;display:grid;grid-template-columns:1fr 1fr;min-height:700px}
+.detail .imgpane{background:#a6a79d;position:relative;min-height:700px;overflow:hidden}
+.detail .imgpane img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:opacity .22s}
+.imgpane .ticker{position:absolute;bottom:22px;left:25px;right:25px;display:flex;justify-content:space-between;color:#f6f2ed;background:#17231eaa;padding:12px;font-size:10px;letter-spacing:.15em}
+.detailbody{padding:65px clamp(28px,7vw,115px);display:flex;flex-direction:column;justify-content:center}
+.overline{color:#acb7aa;font-size:11px;letter-spacing:.23em}.detail h3{font-weight:450;font-size:clamp(50px,6vw,104px);line-height:.95;letter-spacing:-.075em;margin:32px 0 20px}
+.detail .desc{font-family:Georgia,serif;font-size:22px;font-style:italic;color:#c5cfc4;margin:0 0 45px}
+.switches{display:flex;gap:9px;margin:0 0 40px;flex-wrap:wrap}
+.switches button{background:transparent;color:#c3cdc2;border:1px solid #6e7a70;padding:14px 24px;font-size:11px;letter-spacing:.2em;font-weight:700}
+.switches button.sel{background:#dce2d5;color:#19271f;border-color:#dce2d5}
+.spec{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-top:1px solid #46564a;font-size:13px}
+.spec span:first-child{color:#a4b1a3;white-space:nowrap}.spec span:last-child{text-align:right}
+.note{border-left:2px solid #adbfab;padding-left:17px;font-size:12px;color:#aebcad;line-height:1.8;margin-top:36px}
+.accessories{background:#deddd5;padding:105px 5vw 110px}
+.accGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.acc{padding:23px;background:#eeeae2;min-height:345px;display:flex;flex-direction:column;justify-content:space-between}
+.acc .render{height:250px;display:flex;justify-content:center;align-items:center;padding:14px}
+.acc .render img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(7px 11px 9px #2c33242d)}
+.acc strong{font-size:12px;letter-spacing:.04em}.acc p{font-size:11px;color:#72776f;margin:6px 0 0}
+.release{padding:140px 5vw;background:#e7e3d9}
+.release .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:70px}
+.release h2{font-size:clamp(56px,7vw,126px);font-weight:480;letter-spacing:-.09em;line-height:.89;margin:30px 0 30px}
+.release p{font-size:16px;line-height:1.85;max-width:560px;color:#596057}
+.release .gates{border-top:1px solid #929d91}
+.release .gates .gate{display:flex;justify-content:space-between;border-bottom:1px solid #929d91;padding:22px 0;font-size:13px;gap:20px}
+.gate span:last-child{font-size:10px;font-weight:700;letter-spacing:.1em;color:#986e61}
+footer{background:#15211b;color:#f0f2e8;padding:52px 5vw 40px}
+footer img{width:min(460px,75vw);margin:40px 0 65px}
+footer .bottom{display:flex;justify-content:space-between;color:#9da99e;font-size:11px;letter-spacing:.08em;border-top:1px solid #506153;padding-top:25px;gap:12px}
+@media(max-width:1120px){.cards{grid-template-columns:repeat(2,1fr)}.accGrid{grid-template-columns:repeat(3,1fr)}.detailbody{padding:50px}}
+@media(max-width:760px){.top nav a:not(:first-child){display:none}.herocopy .eyebrow{max-width:290px;overflow-wrap:anywhere;line-height:1.6;letter-spacing:.12em}.herofoot .eyebrow{display:none}.top{height:66px;padding:0 22px}.top img{width:135px}.top a{margin-left:13px;font-size:9px}.top .tag{display:none}.hero{grid-template-columns:1fr}.herocopy{padding:55px 25px;min-height:420px}.hero h1{font-size:72px;margin:35px 0}.heroimg{height:480px;min-height:0}.intro{padding:75px 24px;grid-template-columns:1fr;gap:16px}.catalog{padding:25px 22px 75px}.cards{gap:10px}.detail{grid-template-columns:1fr}.detail .imgpane{min-height:540px}.detailbody{padding:55px 24px}.accGrid{grid-template-columns:repeat(2,1fr);gap:8px}.accessories{padding:75px 22px}.acc{min-height:290px;padding:12px}.acc .render{height:205px}.release{padding:90px 24px}.release .wrap{grid-template-columns:1fr;gap:50px}footer{padding:55px 25px}.sectionhead h2{font-size:38px}.sectionhead span{font-size:9px}}
+</style>
+</head>
+<body>
+<header class="top"><a href="#top" aria-label="TOHESAR Home"><img src="BRAND-ORIGINAL.svg" alt="TOHEŞAR wordmark"></a><nav><a href="#collection">COLLECTION</a><a href="#details">STUDIES</a><a href="#objects">OBJECTS</a><a href="SAMPLE-LAB.html">SAMPLE LAB</a><a href="06_SIGNATURE_R02/04R02-ATELIER.html">04.R02 ATELIER</a><a class="tag" href="#release">PROTOTYPE ONLY</a></nav></header>
+<section id="top" class="hero">
+<div class="herocopy"><div><div class="eyebrow">OBJECT LAB / SEASON ZERO &nbsp;·&nbsp; GARMENT EXPERIMENT NO. 001</div><h1>MADE<br>TO <em>BE</em><br>WORN.</h1><p>Garment form, engineered restraint, and a quiet mark. The first object studies of TOHEŞAR. Before a product becomes a promise, it must become a real sample.</p></div><div class="herofoot"><a href="#collection">EXPLORE THE FIRST DROP&nbsp; ↓</a><div class="eyebrow">00 / UNRELEASED</div></div></div>
+<div class="heroimg"><img src="01_PRODUCT_IMAGES/04-FRONT-DESIGN-REVIEW.png" alt="OFFSET SHELL prototype design illustration"><div class="frame"></div><div class="stamp">04 / OFFSET SHELL &nbsp; | &nbsp; PATTERN STUDY</div></div>
+</section>
+<section class="intro"><div><div class="eyebrow">DESIGN MANIFESTO / 001</div><h2>Identity lives<br>in the <i>details.</i></h2></div><div class="small"><p>Not louder prints. Different proportions. A slightly shifted seam. A label that feels intentional. A restrained identity that only appears where it belongs.</p><p>The graphics use the unchanged original TOHEŞAR vector artwork. The garments remain proposed designs until physical prototypes and supplier specifications are verified.</p></div></section>
+<section class="catalog" id="collection"><div class="sectionhead"><h2>THE STUDIES <span style="font-size:19px;vertical-align:top">/ 04</span></h2><span>SEASON ZERO — EXPERIMENTAL GARMENTS</span></div>
+<div class="cards">
+<button class="product active" data-index="0" onclick="selectStyle(0);location.hash='details'"><div class="photo"><img src="01_PRODUCT_IMAGES/01-FRONT-DESIGN-REVIEW.png" alt="Shadow Uniform concept"><span class="num">STUDY 01</span></div><div class="names"><strong>SHADOW UNIFORM</strong><strong>01</strong></div><small>WASHED CHARCOAL / FIRST SAMPLE</small></button>
+<button class="product" data-index="1" onclick="selectStyle(1);location.hash='details'"><div class="photo"><img src="01_PRODUCT_IMAGES/02-FRONT-DESIGN-REVIEW.png" alt="Reverse Archive concept"><span class="num">STUDY 02</span></div><div class="names"><strong>REVERSE ARCHIVE</strong><strong>02</strong></div><small>CHALK BONE / GRAPHIC STUDY</small></button>
+<button class="product" data-index="2" onclick="selectStyle(2);location.hash='details'"><div class="photo"><img src="01_PRODUCT_IMAGES/03-FRONT-DESIGN-REVIEW.png" alt="Night Field concept"><span class="num">STUDY 03</span></div><div class="names"><strong>NIGHT FIELD</strong><strong>03</strong></div><small>DEEP PETROL / TYPE STUDY</small></button>
+<button class="product" data-index="3" onclick="selectStyle(3);location.hash='details'"><div class="photo"><img src="01_PRODUCT_IMAGES/04-FRONT-DESIGN-REVIEW.png" alt="Offset Shell concept"><span class="num">STUDY 04</span></div><div class="names"><strong>OFFSET SHELL</strong><strong>04</strong></div><small>ASYMMETRIC PANELS / CUSTOM PATTERN</small></button>
+</div></section>
+<section class="detail" id="details"><div class="imgpane"><img id="detailImage" src="01_PRODUCT_IMAGES/01-FRONT-DESIGN-REVIEW.png" alt="Selected concept front design"><div class="ticker"><span id="fileCaption">01 / FRONT STUDY</span><span>SCHEMATIC / NOT A GARMENT PHOTO</span></div></div>
+<div class="detailbody"><div class="overline" id="studyIndex">STUDY 01 / FOUR STUDIES</div><h3 id="studyName">SHADOW<br>UNIFORM</h3><p class="desc" id="studyPoem">The essential one.</p>
+<div class="switches"><button class="sel" data-face="FRONT" onclick="setFace('FRONT')">FRONT</button><button data-face="BACK" onclick="setFace('BACK')">BACK</button></div>
+<div class="spec"><span>BODY</span><span id="studyColor">WASHED CHARCOAL</span></div>
+<div class="spec"><span>DECORATION</span><span id="studyArt">82mm ORIGINAL VECTOR / CHEST</span></div>
+<div class="spec"><span>CONSTRUCTION</span><span id="studyCut">BOXY PROPORTIONS / DROPPED SHOULDER TARGET</span></div>
+<div class="spec"><span>SAMPLE STATE</span><span id="studyState">NOT MANUFACTURED</span></div>
+<div class="note">No prices, stock, garments, sizing or material claims are confirmed. This showroom is a functioning internal design preview, not a checkout page. Final apparel logo master and printer acceptance remain subject to approval.</div>
+</div></section>
+<section class="accessories" id="objects"><div class="sectionhead"><h2>SMALL OBJECTS.</h2><span>DESIGN CONTINUES OFF THE GARMENT</span></div>
+<div class="accGrid">
+<div class="acc"><div class="render"><img src="03_PACKAGING/NECKLABEL-60x30MM-PROOF.png" alt="Neck label original vector"></div><div><strong>01 / NECK LABEL</strong><p>60 × 30mm / artwork study</p></div></div>
+<div class="acc"><div class="render"><img src="03_PACKAGING/SIDETAB-40x18MM-PROOF.png" alt="Side woven label artwork"></div><div><strong>02 / SIDE TAB</strong><p>40 × 18mm / size to verify</p></div></div>
+<div class="acc"><div class="render"><img src="03_PACKAGING/HANGTAG-FRONT-55x95MM-PROOF.png" alt="Hangtag front"></div><div><strong>03 / HANGTAG FACE</strong><p>55 × 95mm / reference trim</p></div></div>
+<div class="acc"><div class="render"><img src="03_PACKAGING/HANGTAG-BACK-55x95MM-PROOF.png" alt="Hangtag back with mandatory-information placeholders"></div><div><strong>04 / HANGTAG REVERSE</strong><p>Legal fields remain unverified</p></div></div>
+<div class="acc"><div class="render"><img src="03_PACKAGING/PAPER-BAND-240x50MM-PROOF.png" alt="Packaging band"></div><div><strong>05 / PAPER BAND</strong><p>240 × 50mm / trim to verify</p></div></div>
+</div></section>
+<section class="release" id="release"><div class="wrap"><div><div class="eyebrow">OBJECT LAB / PHYSICAL FIRST</div><h2>THE NEXT<br>MOVE IS<br><i>REAL.</i></h2><p>01 SHADOW UNIFORM is the low-risk first sample: one blank, one print, a fit test, and a wash test. 04 OFFSET SHELL is the signature direction: it needs pattern-making and sewing feasibility before it can be priced.</p></div>
+<div><div class="eyebrow" style="margin-bottom:28px">PRODUCTION RELEASE GATES</div><div class="gates">
+<div class="gate"><span>ORIGINAL VECTOR GEOMETRY</span><span>VERIFIED</span></div>
+<div class="gate"><span>FINAL APPAREL MASTER APPROVAL</span><span>PENDING</span></div>
+<div class="gate"><span>BLANK / CUT & SEW VALIDATION</span><span>PENDING</span></div>
+<div class="gate"><span>PHYSICAL PRINT + FIT SAMPLE</span><span>NOT MADE</span></div>
+<div class="gate"><span>VAT + SHIPPING TOTAL</span><span>NOT QUOTED</span></div>
+<div class="gate"><span>USER ORDER AUTHORIZATION</span><span>NOT GIVEN</span></div></div>
+<p><a href="06_SIGNATURE_R02/04R02-ATELIER.html" style="display:inline-block;border:1px solid #566958;padding:17px 20px;color:#213629;background:#dde4d6;font-size:12px;font-weight:700;letter-spacing:.08em">EXPLORE SIGNATURE GARMENT / R02 ↗</a></p><p><a href="SAMPLE-LAB.html" style="display:inline-block;border:1px solid #566958;padding:17px 20px;color:#213629;background:#dde4d6;font-size:12px;font-weight:700;letter-spacing:.08em">OPEN SAMPLE LAB / COST &amp; MEASUREMENTS ↗</a></p><p style="font-size:12px">The sticker project remains a separate approved-gate workflow. Product images are digital schematic concepts, not photographed or manufactured merchandise.</p></div></div></section>
+<footer><div class="eyebrow">SEASON ZERO — OBJECT LAB</div><img src="BRAND-ORIGINAL.svg" alt="TOHEŞAR original master path"><div class="bottom"><span>FIRST DROP ATELIER / INTERNAL PROTOTYPE</span><span>NO ORDER · NO PAYMENT · NO PUBLIC RELEASE</span></div></footer>
+<script>
+var styles=[
+{id:'01',name:'SHADOW UNIFORM',poem:'The essential one.',color:'WASHED CHARCOAL',art:'82mm ORIGINAL VECTOR / LEFT CHEST',cut:'BOXY FIT TARGET / STANDARD BLANK',state:'FIRST PHYSICAL SAMPLE CANDIDATE'},
+{id:'02',name:'REVERSE ARCHIVE',poem:'One quiet side, one visible side.',color:'CHALK BONE',art:'58mm LOW FRONT + 218mm UPPER BACK',cut:'RELAXED FIT TARGET / TWO PRINTS',state:'DESIGN STUDY'},
+{id:'03',name:'NIGHT FIELD',poem:'Color as the graphic.',color:'DEEP PETROL',art:'174mm ORIGINAL VECTOR / CENTER',cut:'BOXY FIT TARGET / STANDARD BLANK',state:'DESIGN STUDY'},
+{id:'04',name:'OFFSET SHELL',poem:'A line that changes the whole form.',color:'WASHED BLACK / DEEP PETROL',art:'78mm ORIGINAL VECTOR / LOWER PANEL',cut:'DIAGONAL YOKE / DOUBLE HEM / CUSTOM PATTERN',state:'BESPOKE CUT-AND-SEW CONCEPT'}
+];
+var selected=0,face='FRONT';
+function selectStyle(n){selected=n;face='FRONT';update();}
+function setFace(f){face=f;update();}
+function update(){
+var s=styles[selected];document.getElementById('studyIndex').textContent='STUDY '+s.id+' / FOUR STUDIES';
+document.getElementById('studyName').textContent=s.name;
+document.getElementById('studyPoem').textContent=s.poem;
+document.getElementById('studyColor').textContent=s.color;
+document.getElementById('studyArt').textContent=s.art;
+document.getElementById('studyCut').textContent=s.cut;
+document.getElementById('studyState').textContent=s.state;
+document.getElementById('fileCaption').textContent=s.id+' / '+face+' STUDY';
+document.getElementById('detailImage').src='01_PRODUCT_IMAGES/'+s.id+'-'+face+'-DESIGN-REVIEW.png';
+document.querySelectorAll('.product').forEach(function(b){b.classList.toggle('active',Number(b.dataset.index)===selected)});
+document.querySelectorAll('[data-face]').forEach(function(b){b.classList.toggle('sel',b.dataset.face===face)});
+}update();
+</script></body></html>
