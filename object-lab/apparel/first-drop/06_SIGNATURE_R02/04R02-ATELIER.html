@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOHEŞAR — 04 / OFFSET SHELL R02 | Atelier Edition</title><meta name="description" content="TOHEŞAR OBJECT LAB / engineered garment study 04.R02. Internal concept; not manufactured.">
+<style>
+:root{--forest:#162821;--dark:#17241f;--cream:#e9e8e1;--line:#bac4b9;--muted:#768278;--pale:#f2f0e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--cream);margin:0;color:var(--forest);font:14px/1.55 'Segoe UI','Malgun Gothic',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #759481;outline-offset:4px}
+.topbar{height:80px;display:flex;justify-content:space-between;align-items:center;padding:0 5vw;background:#e9e8e1;border-bottom:1px solid #c1c8bf;position:sticky;top:0;z-index:10;gap:20px}
+.logo{width:185px;filter:brightness(0)}.toplinks{display:flex;align-items:center;gap:30px;font-size:10px;letter-spacing:.17em;font-weight:700}.provisional{border:1px solid #68756b;padding:10px 14px}
+.chapter{font-size:11px;letter-spacing:.26em;font-weight:700;color:#8aa491}
+.hero{display:grid;grid-template-columns:43% 57%;min-height:min(830px,90vh);background:var(--forest);color:#e7e9df}
+.heroCopy{padding:clamp(38px,5.5vw,96px) 4.9vw 55px;display:flex;flex-direction:column;justify-content:space-between;min-height:720px}
+.hero h1{font-family:Georgia,serif;letter-spacing:-.075em;font-size:clamp(65px,7vw,120px);line-height:.95;font-weight:400;margin:38px 0 40px}
+.hero h1 i{font-weight:400}.hero .intro{color:#c1cdc1;max-width:460px;font-size:17px;line-height:1.8}
+.hero small{letter-spacing:.12em;color:#8d9f90;font-size:10px}.sep{border-top:1px solid #5a7061;padding-top:20px}
+.heroPreview{background:#dcd9d1;position:relative;overflow:hidden;min-height:720px}
+.heroPreview img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;transition:opacity .3s ease}
+.corner{position:absolute;top:26px;right:28px;z-index:2;border:1px solid #677568;background:#e9ebe1ca;color:#1b3325;letter-spacing:.16em;padding:13px 15px;font-size:10px}
+.imageFooter{position:absolute;bottom:28px;right:30px;left:30px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.15em;color:#e4eade;text-shadow:0 1px 7px #14251c;z-index:2}
+.imageFooter span{background:#1a2925c9;padding:8px}
+.edition{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:26px 0 17px}
+.swatch{border:1px solid #849789;background:transparent;color:#dfe8dc;text-align:left;display:flex;align-items:center;padding:12px 10px;gap:13px;font-size:11px;letter-spacing:.1em;transition:background .2s}
+.swatch[aria-pressed=true]{background:#e0e6db;color:#162b20}.colorDot{width:26px;height:26px;border:1px solid #a6aa9f;flex:none}
+.actions{display:flex;gap:10px;flex-wrap:wrap}.pill{border:1px solid #839688;color:#d9e5d8;background:none;font-weight:700;letter-spacing:.12em;padding:12px 22px;font-size:11px}
+.pill[aria-pressed=true]{background:#e1e6dc;color:#14251b}
+.ruler{display:flex;justify-content:space-between;border-top:1px solid #8ca293;padding-top:16px;margin-top:28px;font-size:11px;color:#a3b9a6;letter-spacing:.1em}
+.narrative{padding:130px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:start}
+.narrative h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(54px,6.4vw,107px);letter-spacing:-.07em;line-height:.97;margin:24px 0}
+.narrative p{font-size:17px;color:#596c5c;line-height:1.9;max-width:560px}
+.narrative .rule{height:1px;background:#aebdad;margin:26px 0}
+.inspect{padding:95px 5vw;background:#23372c;color:#e9eee5}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:40px;border-bottom:1px solid #536e58;padding-bottom:20px}
+.sectionhead h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,5vw,82px);letter-spacing:-.045em;line-height:1.05;margin:20px 0 0}
+.sectionhead small{letter-spacing:.16em;color:#a9c3ab;font-size:11px}
+.inspectGrid{display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center}
+.inspectFrame{background:#d9d6cf;position:relative}.inspectFrame img{width:100%;display:block}.maplist{counter-reset:num}
+.mapitem{border-top:1px solid #5e7966;padding:22px 0 27px}
+.mapitem .n{font-size:11px;letter-spacing:.16em;color:#bdd1bd}.mapitem h3{font-size:21px;font-weight:550;margin:10px 0}.mapitem p{font-size:13px;line-height:1.8;color:#b4c6b5}
+.trims{padding:100px 5vw;background:#e1e1d8}.trimsGrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.trims img{width:100%;display:block;background:#dde0d4}
+.trims aside{align-self:center}.trims h2{font-family:Georgia,serif;font-size:clamp(45px,5.4vw,85px);line-height:1.03;letter-spacing:-.055em;font-weight:400;margin:20px 0}
+.trims p{line-height:1.85;color:#536859;font-size:16px}
+.specs{padding:112px 5vw;background:#eae8df}.specGrid{display:grid;grid-template-columns:1fr 1fr;gap:4vw}
+.specGrid h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.05em;font-size:clamp(48px,6vw,90px);margin:22px 0}
+.specGrid p{font-size:15px;line-height:1.8;color:#586a5b;max-width:520px}
+.rows{border-top:1px solid #a0b2a3}.specRow{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #b7c7b6;padding:22px 0;font-size:13px}
+.specRow label{color:#617464}.specRow b{text-align:right;max-width:60%;font-size:12px}
+.techLink{display:inline-flex;border:1px solid #314c3b;padding:18px 26px;letter-spacing:.08em;font-size:12px;font-weight:700;margin-top:36px}
+.techLink:hover{background:#203e2a;color:#fff}
+.production{background:#14271d;color:#e9eee4;padding:110px 5vw;display:grid;grid-template-columns:1.1fr .9fr;gap:7vw}
+.production h2{font-family:Georgia,serif;font-size:clamp(59px,7vw,119px);line-height:.9;letter-spacing:-.07em;font-weight:400;margin:32px 0}
+.production p{color:#bacbb9;line-height:1.95;font-size:15px}.gates{border-top:1px solid #52735a}
+.gate{display:flex;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid #36543e;font-size:12px;letter-spacing:.06em}
+.gate span:last-child{font-size:10px;color:#d7ad9e;font-weight:700;white-space:nowrap}
+footer{background:#0f1b14;padding:60px 5vw 45px;color:#a1b5a5}
+footer .footlogo{width:min(520px,85vw);filter:brightness(0) invert(1);margin:30px 0 75px}
+footer .low{border-top:1px solid #445749;padding-top:25px;display:flex;justify-content:space-between;gap:18px;font-size:11px;letter-spacing:.07em}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.heroCopy{min-height:590px}.heroPreview{height:590px;min-height:0}.narrative,.inspectGrid,.trimsGrid,.specGrid,.production{grid-template-columns:1fr}.narrative{padding:90px 28px;gap:20px}.inspect,.trims,.specs,.production{padding:85px 28px}.toplinks a:not(:last-child){display:none}.ruler{gap:20px}}
+@media(max-width:550px){.topbar{height:66px;padding:0 21px}.logo{width:142px}.heroCopy{padding:45px 27px 38px;min-height:650px}.hero h1{font-size:74px}.heroPreview{height:520px}.edition{grid-template-columns:1fr}.hero .intro{font-size:15px}.sectionhead{display:block}.sectionhead small{display:block;margin:15px 0}.inspectGrid{gap:28px}.specRow b{max-width:56%}.production{gap:20px}.narrative h2{font-size:63px}.footlogo{width:85vw}.footlogo{margin-bottom:40px}footer .low{flex-direction:column}.hero small{line-height:1.7}}
+</style></head>
+<body>
+<header class="topbar"><a href="../INDEX.html" aria-label="TOHEŞAR showroom home"><img class="logo" src="../BRAND-ORIGINAL.svg" alt="TOHEŞAR original wordmark"></a><nav class="toplinks"><a href="#form">FORM</a><a href="#anatomy">ANATOMY</a><a href="../SAMPLE-LAB.html">SAMPLE LAB</a><a class="provisional" href="#make">INTERNAL CONCEPT / UNRELEASED</a></nav></header>
+<section class="hero" id="form">
+<div class="heroCopy">
+<div><div class="chapter">OBJECT LAB &nbsp;/&nbsp; ENGINEERED GARMENT &nbsp;/&nbsp; 04.R02</div><h1>Quiet.<br>Until<br><i>you look.</i></h1><p class="intro">One line changes the whole shirt. A concealed shift from upper shell to lower panel. A small signature. Nothing decorative that doesn't belong to the construction.</p></div>
+<div><div class="chapter">TWO MATERIAL DIRECTIONS / ONE PATTERN IDEA</div>
+<div class="edition"><button id="swA" class="swatch" aria-pressed="true" onclick="setEdition('A')"><span class="colorDot" style="background:#303733"></span>01 / MONOLITH TONAL</button><button id="swB" class="swatch" aria-pressed="false" onclick="setEdition('B')"><span class="colorDot" style="background:#1b3833"></span>02 / PETROL INTERFERENCE</button></div>
+<div class="actions"><button class="pill" id="frontBtn" aria-pressed="true" onclick="setFace('FRONT')">FRONT</button><button class="pill" id="backBtn" aria-pressed="false" onclick="setFace('BACK')">BACK</button></div>
+<div class="ruler"><span>RESEARCH PROTOTYPE / 04.R02</span><span>NOT FOR SALE</span></div></div>
+</div>
+<div class="heroPreview"><img id="heroImg" src="04R02-A-FRONT.png" alt="TOHEŞAR 04.R02 Monolith tonal front technical fashion illustration"><div class="corner">R02 / DESIGN STUDY</div><div class="imageFooter"><span id="imageLabel">04-A / FRONT</span><span>VECTOR-LOCKED ORIGINAL MARK</span></div></div></section>
+<section class="narrative"><div><div class="chapter">01 / WHY IT EXISTS</div><h2>Shape,<br>not<br>noise.</h2></div><div><p>기존의 작은 로고 티셔츠는 제작 경험을 쌓는 첫 샘플로 남겨두고, OFFSET SHELL에는 브랜드만의 옷 형태를 부여했어. 가슴을 크게 가로지르는 프린트 대신, 실제 서로 다른 앞판을 연결하는 곡선이 핵심이야.</p><div class="rule"></div><p>너무 스포티한 스트라이프나 노골적인 자동차 그래픽 대신, 부드러운 사선과 원단 표면의 대비로 긴장감을 만들도록 제안했어. 실제 접합선이 자연스럽게 보일지는 샘플을 만들어서 확인해야 해.</p></div></section>
+<section class="inspect" id="anatomy"><div class="sectionhead"><div><div class="chapter">02 / THE CONSTRUCTION</div><h2>The anatomy<br>of a line.</h2></div><small>DIFFERENCE IS IN THE SEAM</small></div>
+<div class="inspectGrid"><div class="inspectFrame"><img src="04R02-DETAIL-STUDIES.png" alt="Engineered seam and unchanged original TOHEŞAR vector detail drawing"></div>
+<div class="maplist"><div class="mapitem"><div class="n">01 / ARC</div><h3>Curved diagonal join</h3><p>서로 다른 2개 앞판을 연결하는 곡선. 두 패널의 봉제선 길이와 시접은 패턴사가 검증해야 해.</p></div><div class="mapitem"><div class="n">02 / INK</div><h3>Original lower wordmark</h3><p>서체를 재구성하지 않고 GitHub 원본 경로를 사용했어. 인쇄 위치와 실제 크기는 샘플에서 측정 후 확정.</p></div><div class="mapitem"><div class="n">03 / BODY</div><h3>Uninterrupted back</h3><p>등판은 깨끗하게 남겨서 앞면 절개가 과잉 장식이 되지 않도록 균형을 맞춰.</p></div></div></div></section>
+<section class="trims"><div class="trimsGrid"><img src="../03_PACKAGING/NECKLABEL-60x30MM-PROOF.png" alt="Exact source-locked TOHEŞAR necklabel preview" style="max-height:550px;object-fit:contain"><aside><div class="chapter" style="color:#65776a">03 / THE UNSEEN PARTS</div><h2>It should feel<br>considered.</h2><p>목 뒤의 라벨, 옆선의 작은 위빙 탭, 안쪽 봉제의 마찰감까지 제품을 정의해. 현재 만든 라벨 벡터는 외형 검토용이며, 소재·원산지·세탁법 등 표시 정보는 실제 공급업체 확인 전까지 채우지 않아.</p><a class="techLink" href="../03_PACKAGING/HANGTAG-FRONT-55x95MM-PROOF.svg">VIEW HANGTAG VECTOR ↗</a></aside></div></section>
+<section class="specs"><div class="specGrid"><div><div class="chapter">04 / MANUFACTURING INTENT</div><h2>Ready to<br>question.</h2><p>디자이너 브랜드의 본질은 멋진 목업을 만드는 것이 아니라, 그 형태가 실제 옷에서도 성립하는지 확인하는 데 있어. 이 페이지의 디자인은 제작 확정 사양이 아니라 패턴사에게 보여줄 구체적인 제안이야.</p><a class="techLink" href="../05_OFFSET_SHELL_ENG/04-OFFSET-SHELL-TECHPACK-R01-NO-CUTTING.pdf">OPEN ENGINEERING TECHPACK ↗</a></div><div class="rows">
+<div class="specRow"><label>STYLE</label><b>04.R02 / OFFSET SHELL</b></div>
+<div class="specRow"><label>SHAPE</label><b>RELAXED BOXY / DROPPED SHOULDER TARGET</b></div>
+<div class="specRow"><label>FRONT</label><b>2 PANELS / CURVED JOIN / TOPSTITCH STUDY</b></div>
+<div class="specRow"><label>BACK</label><b>CLEAN SINGLE BODY</b></div>
+<div class="specRow"><label>FABRIC</label><b>240–260 GSM COTTON JERSEY TARGET, UNVERIFIED</b></div>
+<div class="specRow"><label>INK</label><b>ONE-COLOR ORIGINAL VECTOR, SIZE PENDING</b></div>
+<div class="specRow"><label>RELEASE</label><b>NO PHYSICAL SAMPLE / NO VERIFIED MANUFACTURER</b></div></div></div></section>
+<section class="production" id="make"><div><div class="chapter">05 / BECOMING REAL</div><h2>Prototype<br>before<br>promise.</h2><p>스티커 001과 별도로, 의류에서는 실제 입어보는 1장부터 시작해야 해. 01 기본형으로 원단·인쇄 품질을 검증하고, 04 커스텀 패턴의 견적과 제작 가능성을 별도로 확인하는 순서가 합리적이야.</p><a class="techLink" style="color:#e9eee4;border-color:#688571" href="../SAMPLE-LAB.html">GO TO SAMPLE LAB ↗</a></div><div><div class="chapter">PRODUCTION GATES</div><div class="gates">
+<div class="gate"><span>ORIGINAL BRAND VECTOR PATH</span><span>VERIFIED</span></div>
+<div class="gate"><span>APPAREL MASTER OWNER APPROVAL</span><span>PENDING</span></div>
+<div class="gate"><span>PHYSICAL PATTERN MAKER REVIEW</span><span>NOT DONE</span></div>
+<div class="gate"><span>FABRIC MATCH + SEAM TEST</span><span>NOT DONE</span></div>
+<div class="gate"><span>FULL SAMPLE QUOTE WITH TAX/SHIPPING</span><span>NOT RECEIVED</span></div>
+<div class="gate"><span>PHYSICAL SAMPLE & WASH TEST</span><span>NOT MADE</span></div>
+<div class="gate"><span>ORDER AND PAYMENT</span><span>NOT AUTHORIZED</span></div></div></div></section>
+<footer><div class="chapter">TOHEŞAR / OBJECT LAB / SEASON ZERO</div><img class="footlogo" src="../BRAND-ORIGINAL.svg" alt="TOHEŞAR original logo"><div class="low"><span>04.R02 ENGINEERED GARMENT EXPERIMENT</span><span>INTERNAL DESIGN ONLY · NO PURCHASE · NO PUBLIC RELEASE</span></div></footer>
+<script>
+var edition='A',face='FRONT';
+function renderProduct(){
+var img=document.getElementById('heroImg');
+img.src='04R02-'+edition+'-'+face+'.png';
+img.alt='TOHEŞAR R02 edition '+edition+', '+face.toLowerCase()+' concept drawing';
+document.getElementById('imageLabel').textContent='04-'+edition+' / '+face;
+document.getElementById('swA').setAttribute('aria-pressed',String(edition==='A'));
+document.getElementById('swB').setAttribute('aria-pressed',String(edition==='B'));
+document.getElementById('frontBtn').setAttribute('aria-pressed',String(face==='FRONT'));
+document.getElementById('backBtn').setAttribute('aria-pressed',String(face==='BACK'));
+}
+function setEdition(x){edition=x;renderProduct()}
+function setFace(x){face=x;renderProduct()}
+renderProduct();
+</script>
+</body></html>
