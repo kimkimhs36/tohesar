@@ -57,3 +57,20 @@ Official price reference (not checkout): [Oprintme short-sleeve catalogue](https
 
 **Business next action:** (1) test garment preference with real people without collecting identity information, (2) confirm a suitable first-sample blank's complete price and print area in a vendor editor, (3) decide on 01 sample after approved master and explicit order consent, (4) keep bespoke 04 as patternmaker-led development. Do not treat anonymous sample feedback as actual preorders or demand commitments.
 
+
+## QA milestone — 2026-11-09 / STICKER AND APPAREL GATE UPGRADES
+
+### Sticker 001 production engineering
+Working sticker branch: `object-lab/sticker-001-proof-20261108`.
+- Official Publog cutter supports inner/outer 0.5, 1 or 2mm offsets. Given desired final sticker 100×30, 104×34mm black/ivory artwork + **inner 2mm** offers nominal 100×30 and 2mm black trim bleed. See `object-lab/sticker-001/104x34-AUTO-CUT-INWARD2-SINGLE-ARTWORK-NOT-APPROVED.svg`.
+- A cautious 140×200 sheet 4-up uses artwork y=12/51/90/129, 5mm graphic gaps, safe barcode clearance. Exact original SVG logo path verified across 4 copies. This is a candidate only, NOT vendor editor accepted.
+- `object-lab/sticker-001/STICKER001-300DPI-EXPORT-LAB-UNAPPROVED.html` embeds source-locked single and sheet SVGs, implements browser PNG export with 300dpi pHYs metadata and alpha checks. JS syntax and synthetic pHYs chunk tests pass; full browser raster/download did not run while TEAM-BKIT remote was offline.
+- `object-lab/sticker-001/verify_4up_inward2.js` and `4UP-INWARD2-PRINT-GATE-AND-QC-20261109.md` record repeatable geometry and source checks, options and remaining release gates.
+- Publog website source: https://www.publog.co.kr/sub_fancy/diy_sticker.s2.asp?opt1=syn&opt2=9 . Actual yupo+matte checkout total and cutter interpretation remain UNVERIFIED. No orders.
+
+### Apparel preference and economics regression
+- Portable test tool at `object-lab/apparel/first-drop/DROP-VALIDATION-PORTABLE.html` includes source-locked vector illustrations, local-only anonymous votes, CSV download, blank-first cost estimator, fixed-cost breakeven and internal release gates. It is not a sales page.
+- Added `verify_drop_validation.js` which exercises product selection, one-click duplicate blocking, score stats, local storage and synthetic direct-cost/margin/fixed-cost arithmetic without any personal or actual vendor data.
+- Tool-side deterministic mock-DOM exercises showed **one recorded synthetic 04A vote, 100% 4–5 score ratio for the single test record, reset between respondents, 27,000 KRW synthetic direct cost, 13,000 KRW synthetic contribution and 3-unit fixed-cost recovery**. These are **TEST FIXTURES**, not user sales metrics or real costs. Full browser rendering remained untested this cloud-only run.
+
+**Operational next action:** Prioritize completing one exact actual vendor editor preview and an all-in quote rather than producing further status/review documents. If the remote PC is offline, continue GitHub source development and keep vendor verification PENDING. Preserve both feature branches and explicit user approval gates.
