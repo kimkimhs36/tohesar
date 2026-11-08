@@ -1,0 +1,45 @@
+# TOHEŞAR OBJECT LAB — RESUME POINT (2026-11-09)
+
+## Start here
+This is the **latest source backup for APPAREL FIRST DROP R02**. This feature branch is not main and not publicly released. Source-of-truth art master approval remains pending. We have not ordered, paid, contacted outside vendors, or provided personal info.
+
+GitHub branch: `object-lab/apparel-first-drop-r02-20261109`
+Repo: `kimkimhs36/tohesar`
+Source vector: repository `assets/wordmark.svg`, git blob SHA `e9b299f8d797625b3704103c08ea1aede5c5ea05`. Original logo d path MUST remain exact; never redraw Ş or recreate branding text.
+
+## Windows local full snapshot
+Computer: TEAM-BKIT
+Folder: `C:\Users\kimki\Documents\TOHESAR-FIRST-DROP-ATELIER`
+Archive: `C:\Users\kimki\Documents\TOHESAR-FIRST-DROP-ATELIER\TOHESAR-FIRST-DROP-LATEST-R02-BACKUP.zip`
+Archive size: 5,822,059 bytes. ZIP contains 77 files; integrity checked.
+Archive SHA256: `f0965ae1cb9cac272880a2e4316cb5ff7e04d4a48b347ac31bc8663a5f8d9e74`.
+This zip contains screenshots, PNGs and PDF preproduction technical packs (not all binary files are on GitHub).
+
+## Source backup on this branch
+- `INDEX.html`: FIRST DROP collection showcase for 4 concepts.
+- `SAMPLE-LAB.html`: offline sample workflow with 01 vs 04, proposed POM vs actual measured values, price input, gates and local-only data. No checkout.
+- `BRAND-ORIGINAL.svg`: identical official website source logo asset.
+- `06_SIGNATURE_R02/04R02-ATELIER.html`: separate 04.R02 editorial comparison page.
+- `06_SIGNATURE_R02/04R02-{A,B}-{FRONT,BACK}.svg`: exact source-logo path / color and construction variant drawings. Images can be rendered from SVGs if needed; local zip also has .png.
+- `06_SIGNATURE_R02/04R02-DETAIL-STUDIES.svg` and `06_SIGNATURE_R02/build_signature_r02.py`: component art and reproducible artwork generation script.
+- `05_OFFSET_SHELL_ENG/04-FRONT-BACK-ENGINEERING-R01.svg`, `04-TECH-SPEC-DRAFT.json`, `04-PROPOSED-{BOM,POM}.csv`, `04-SEWING-ORDER.csv`, `build_offset_shell_r01.py`: technical draft. NOT final cuttable pattern.
+
+## Current design decision
+- **01 SHADOW UNIFORM**: best low-risk first physical sample, 82mm original front wordmark on supplier-chosen blank, after actual supplier/size/price confirmation.
+- **04 OFFSET SHELL R02**: separate custom cut-and-sew design; 2 front panels with curved diagonal join, simple unprinted back, small low-front original wordmark and side tab.
+- Two R02 treatments: A MONOLITH / TONAL preferred as restrained main; B PETROL / INTERRUPTION exploration.
+- 04 construction cannot be accomplished with standard print-on-blank; requires patternmaker consultation and sample first.
+- 12 provisional POM targets, 9 provisional BOM components, and 16 sewing/validation steps in source materials, NOT physical measurements or approved tolerance/grade. User signature garment master not approved.
+- All source claims are internal proof. No physical sample, no certified garment price or production acceptance. No orders or vendor outreach.
+
+## Work after PC power-off
+1. Can continue reviewing/editing source SVG, HTML, PY, and specs via this GitHub branch using connected GitHub tools without accessing the remote PC.
+2. To regenerate raster images, reconnect TEAM-BKIT and execute existing build scripts (Windows Python 3.12 with Pillow and resvg_py available on that device) or run a comparable local environment. Running the showroom files straight from GitHub without restoring local PNG/packaging images will not supply all imagery.
+3. Use local zip as full fidelity recovery when remote computer is reconnected.
+4. Next meaningful task: compare A/B with real material feasibility; source blank/actual quoted supplier for 01; patternmaker feasibility for 04 after user approves any outreach. Do not fabricate quotes.
+5. DO NOT create unrelated apparel concepts simply to increase counts; optimize actual product design and prototypes.
+
+## Sticker 001 is separate
+The 100x30mm black/ivory original wordmark small-run sticker remains handled under `object-lab/sticker-001-proof-20261108` with a max 50,000 KRW budget, vendor editor/cutline and all-in total not yet verified. No purchase without explicit approval. Clothing budget is NOT implicitly 50,000 KRW.
+
+**Safety of backup:** GitHub contains source, local zip contains full visuals. Do not claim files have been merged into main, deployed, ordered, or manufactured.
