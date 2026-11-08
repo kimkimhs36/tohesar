@@ -1,0 +1,13 @@
+﻿ID,Measurement,Target mm,Proposed tolerance mm,How to measure,Actual mm,Status
+01,HPS to hem,710,10,Measure HPS at neckline to finished hem,,UNMEASURED
+02,Half chest,610,10,"2.5cm below armhole seam, laid flat",,UNMEASURED
+03,Shoulder width,570,10,Shoulder tip to shoulder tip,,UNMEASURED
+04,Sleeve length,235,10,Shoulder seam to sleeve end,,UNMEASURED
+05,Sleeve opening flat,220,7,"Finished cuff, laid flat",,UNMEASURED
+06,Half hem,605,10,Finished body width at hem,,UNMEASURED
+07,Neck rib depth,28,3,Finished sewn rib depth,,UNMEASURED
+08,Diagonal front join at wearer left,395,10,HPS down to seam at side edge,,UNMEASURED
+09,Diagonal front join at wearer right,270,10,HPS down to seam at side edge,,UNMEASURED
+10,Original wordmark width,78,2,True vector art width; not typography,,UNMEASURED
+11,Art from left side seam,55,5,Check clearance from diagonal join,,UNMEASURED
+12,Art above finished hem,105,5,Lower edge of artwork to hem,,UNMEASURED
