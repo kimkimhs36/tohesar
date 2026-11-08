@@ -1,0 +1,46 @@
+name: STICKER 001 original-vector preflight
+on:
+  push:
+    branches:
+      - object-lab/print-production-studio-20261109
+    paths:
+      - 'object-lab/production-studio/**'
+      - '.github/workflows/sticker-001-preflight.yml'
+  pull_request:
+    paths:
+      - 'object-lab/production-studio/**'
+      - '.github/workflows/sticker-001-preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-source-locked-artwork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout actual GitHub sources
+        uses: actions/checkout@v4
+      - name: Python version
+        run: python3 --version
+      - name: Fail-closed source provenance and SVG structural preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 object-lab/production-studio/preflight_sticker_001.py | tee sticker-001-preflight-report.json
+      - name: Sheet geometry feasibility (NOT vendor acceptance)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 object-lab/production-studio/sticker_sheet_fit.py | tee sticker-001-sheet-fit-report.txt
+      - name: Preserve QC evidence, even if tests fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sticker-001-preflight-evidence
+          path: |
+            sticker-001-preflight-report.json
+            sticker-001-sheet-fit-report.txt
+          if-no-files-found: warn
+          retention-days: 30
