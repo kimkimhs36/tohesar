@@ -43,3 +43,17 @@ This zip contains screenshots, PNGs and PDF preproduction technical packs (not a
 The 100x30mm black/ivory original wordmark small-run sticker remains handled under `object-lab/sticker-001-proof-20261108` with a max 50,000 KRW budget, vendor editor/cutline and all-in total not yet verified. No purchase without explicit approval. Clothing budget is NOT implicitly 50,000 KRW.
 
 **Safety of backup:** GitHub contains source, local zip contains full visuals. Do not claim files have been merged into main, deployed, ordered, or manufactured.
+
+## Latest independent development milestone — 2026-11-09 / FIRST DROP VALIDATION LAB
+Cloud GitHub branch now includes **three new artifacts** (after the earlier full local snapshot):
+1. `01-SHADOW-SOURCE-LOCKED-FRONT.svg` — official logo path preserved in one first-sample garment illustration.
+2. `DROP-VALIDATION-LAB.html` — designed multi-file internal research app, using original SVG assets, three-option anonymous product preference testing, locally stored votes, CSV export, fully blank supplier-quote unit economics with fixed-cost break-even, production gates and links to relevant vendor catalogue.
+3. `DROP-VALIDATION-PORTABLE.html` — self-contained ~98 KB offline-capable version with **six inline SVG image occurrences**, no broken relative asset paths, JavaScript syntax compiled successfully. This is the simplest file to download and open on another computer. Local storage may behave differently under some file:// browser policies; users can export CSV and JSON to preserve tests.
+`INDEX.html` on this GitHub branch also links DROP CONTROL and the portable version.
+
+Official price reference (not checkout): [Oprintme short-sleeve catalogue](https://www.ohprint.me/apparel/store/tshirt-shortsleeves/overview), observed 2026-11-09, lists UA 20s heavyweight oversized at **KRW 26,500~** and Comfort Colors washed relaxed at **KRW 21,500~**. These are public starting prices, **not** manufacturer-confirmed TOHEŞAR printing/shipping/tax totals. No one-piece selected option, fabric gsm, logo print acceptance, or payment verified.
+
+**Environment boundary:** R02 feature branch was updated through the connected GitHub app while remote PC availability became unreliable. These latest cloud additions are not guaranteed to be in the earlier TEAM-BKIT ZIP snapshot. Restore latest HTML and source SVG from this branch when the PC reconnects. No public website deployment or main merge was performed.
+
+**Business next action:** (1) test garment preference with real people without collecting identity information, (2) confirm a suitable first-sample blank's complete price and print area in a vendor editor, (3) decide on 01 sample after approved master and explicit order consent, (4) keep bespoke 04 as patternmaker-led development. Do not treat anonymous sample feedback as actual preorders or demand commitments.
+
