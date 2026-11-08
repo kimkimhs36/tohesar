@@ -37,7 +37,11 @@ def main():
     checks["single_exact_original_vector"]=len(paths)==1 and len(refpaths)==1 and paths[0].get("d")==refpaths[0].get("d")
     checks["ivory_vector"]=len(paths)==1 and paths[0].get("fill")=="#F8F2E7"
     checks["no_live_text_or_external_image"]=not (find(sticker,"text") or find(sticker,"image") or find(sticker,"foreignObject") or find(sticker,"use"))
-    checks["no_external_url"]=b"http://" not in s.replace(b"http://www.w3.org/2000/svg",b"") and b"https://" not in s
+    checks["no_external_url"]=not any(
+        (key.lower().endswith("href") and not value.startswith("#"))
+        or ("url(" in value.lower() and ("http:" in value.lower() or "https:" in value.lower()))
+        for node in sticker.iter() for key,value in node.attrib.items()
+    )
     # Provisional bleed artwork is independent from nominal trim, and has no cutline.
     checks["bleed_canvas_106x36mm"]=(bleed.get("width"),bleed.get("height"),bleed.get("viewBox"))==("106mm","36mm","0 0 106 36")
     br=find(bleed,"rect")
