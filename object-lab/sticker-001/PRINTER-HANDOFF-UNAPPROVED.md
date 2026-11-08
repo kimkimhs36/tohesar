@@ -27,3 +27,16 @@
 - Indoor/personal-objects use only. No automobile paint claims.
 
 Do not order, send personal data, or send external messages without explicit user approval.
+
+
+## 2026-11-09 / NEW PRIORITY: 4-UP INNER-2MM CANDIDATE
+
+Prior 5-up 100×30 cut-line artwork remains a **historical proof**, not the preferred first material trial. Official Publog now states that auto-cut direction may be **inside or outside** an image, with offsets **0.5, 1 or 2mm**. For a nominal final 100×30 sticker while retaining 2mm black bleed, the better first editor test is one 104×34mm original black+ivory upload with **inside 2mm** cut. Four images with 5mm spacing fit the 140×200 sheet safe region; five such 104×34mm images cannot fit under the conservative 5mm gap rule.
+
+Current proposed sources:
+- `104x34-AUTO-CUT-INWARD2-SINGLE-ARTWORK-NOT-APPROVED.svg`
+- `140x200-4UP-INWARD2-ARTWORK-LAYOUT-NOT-APPROVED.svg`
+- `STICKER001-300DPI-EXPORT-LAB-UNAPPROVED.html` for actual transparent PNG conversion in a browser
+- `4UP-INWARD2-PRINT-GATE-AND-QC-20261109.md` for geometry, vendor evidence and release gates
+
+Never send the magenta QC cutline overlay as print art. The official website vector still requires separate final product-master approval. Actual vendor editor recognition and yupo/matte VAT+shipping checkout remain UNVERIFIED. No order, payment or messages authorized.
