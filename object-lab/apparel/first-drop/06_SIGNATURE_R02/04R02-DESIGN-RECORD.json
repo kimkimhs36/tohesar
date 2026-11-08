@@ -1,0 +1,38 @@
+{
+  "revision": "04.R02",
+  "purpose": "real creative variation of construction, no previous sample manufactured",
+  "styles": [
+    {
+      "id": "A",
+      "name": "MONOLITH / TONAL",
+      "upper": "#343936",
+      "lower": "#252e2a",
+      "edge": "#8a998d",
+      "ink": "#e7e5d9",
+      "note": "Same tone, engineered seam, logo quietly placed",
+      "priority": "DESIGN PREFERENCE"
+    },
+    {
+      "id": "B",
+      "name": "PETROL / INTERRUPTION",
+      "upper": "#353b37",
+      "lower": "#1a3330",
+      "edge": "#a1b4a6",
+      "ink": "#e9e5da",
+      "note": "Deep-petrol panel, tonal blackened upper jersey",
+      "priority": "COLOR STUDY"
+    }
+  ],
+  "source_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "exact_brand_vector": true,
+  "development": "diagonal front seam; clean back; original 1-color low-front wordmark; woven tab",
+  "risks": [
+    "factory pattern approval",
+    "fabric body compatibility",
+    "strain and puckering on diagonal seam",
+    "sewing allowance / size grading",
+    "wash/shrink before releasing"
+  ],
+  "no_order": true,
+  "real_prototype": false
+}
