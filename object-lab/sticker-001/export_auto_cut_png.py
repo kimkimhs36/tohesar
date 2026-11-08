@@ -29,7 +29,7 @@ def paths(p: Path):
 def main():
     raw = SOURCE.read_bytes()
     # Git blob SHA, not ordinary file SHA.
-    blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\\0" + raw).hexdigest()
+    blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
     if blob != EXPECTED_SHA1:
         raise RuntimeError(f"Brand source changed: {blob}")
     if paths(SOURCE) != paths(ART):
