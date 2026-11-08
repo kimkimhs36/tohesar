@@ -15,7 +15,7 @@ EXPECTED_STICKER_BLOB="e9e445ddc5b4e762c3d454bcf3947bde6108899c"
 EXPECTED_ORIGINAL_BLOB="e9b299f8d797625b3704103c08ea1aede5c5ea05"
 NS="{http://www.w3.org/2000/svg}"
 def blobsha(data):
-    return hashlib.sha1(f"blob {len(data)}\\0".encode()+data).hexdigest()
+    return hashlib.sha1((f"blob {len(data)}".encode()+bytes([0]))+data).hexdigest()
 def find(root,name):
     return [x for x in root.iter() if x.tag==NS+name]
 def main():
