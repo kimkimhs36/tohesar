@@ -7,6 +7,7 @@ on:
       - .github/workflows/object-lab-sample-fit-r03-qa.yml
       - object-lab/apparel/first-drop/SAMPLE-LAB.html
       - object-lab/apparel/first-drop/verify_sample_lab_r03.cjs
+      - object-lab/apparel/first-drop/verify_sample_lab_browser_r03.cjs
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,3 +22,44 @@ jobs:
           node-version: '22'
       - name: Verify original-source blank sizing 01-first UI and no false release claims
         run: node object-lab/apparel/first-drop/verify_sample_lab_r03.cjs
+  real-browser-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Playwright and real Chromium browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd object-lab/apparel/first-drop
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Actually render 01 Shadow in desktop+mobile and exercise fit, state and links
+        run: node object-lab/apparel/first-drop/verify_sample_lab_browser_r03.cjs
+      - name: Archive real-browser screenshot and QC evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: object-lab-shadow-01-real-browser-r03-preview
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            object-lab/apparel/first-drop/exports/01-shadow-uniform/sample-lab-browser-proof-r03/*.png
+            object-lab/apparel/first-drop/exports/01-shadow-uniform/sample-lab-browser-proof-r03/BROWSER-R03-QC.json
+      - name: Preserve actual Chromium screenshot proof on feature branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/object-lab/apparel-first-drop-r02-20261109'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add object-lab/apparel/first-drop/exports/01-shadow-uniform/sample-lab-browser-proof-r03/*.png
+          git add object-lab/apparel/first-drop/exports/01-shadow-uniform/sample-lab-browser-proof-r03/BROWSER-R03-QC.json
+          if ! git diff --cached --quiet; then
+            git commit -m "object-lab: archive real Chromium Shadow R03 desktop-mobile screenshots [skip ci]"
+            git push
+          fi
