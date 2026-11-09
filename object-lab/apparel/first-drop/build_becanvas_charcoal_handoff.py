@@ -115,7 +115,7 @@ Quantity: 1 piece
 Size: UNDECIDED, do not assume user's size
 Product manufacturer evidence: https://becanvas.co.kr/shop_view/254
 Potential 1-piece printer / options:
-https://sendicode.com/product/detail.html?product_no=16416
+https://sendicode.com/product/becanvas-%EB%B9%84%EC%BA%94%EB%B2%84%EC%8A%A4-%ED%94%BC%EA%B7%B8%EB%A8%BC%ED%8A%B8-32%EC%88%98-2%ED%95%A9-275gsm-%EB%B0%98%ED%8C%94/16416/
 Seller's published page shows 15,000 KRW *base item price*, a <=10cm print
 option, color/size selectors, 5 file uploads <=5MB each, minimum 1 unit.
 Seller's published delivery policy: 3,500 KRW below 200,000 KRW.
