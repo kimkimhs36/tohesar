@@ -28,6 +28,24 @@ function compare(target){
  deltas:values.map((value,i)=>Math.round((value-target[i])*10)/10)
  })).sort((a,b)=>a.distance-b.distance);
 }
+// Conservative ±3 cm seller-measurement uncertainty, not a probability or fit guarantee.
+function uncertainty(target, candidate, tolerance=3){
+ const bounds=candidate.values.reduce((acc,value,i)=>{
+  const delta=Math.abs(value-target[i]),w=weights[i];
+  acc.min+=w*Math.max(0,delta-tolerance);
+  acc.max+=w*(delta+tolerance);
+  return acc;
+ },{min:0,max:0});
+ return {size:candidate.size,min:Math.round(bounds.min*10)/10,max:Math.round(bounds.max*10)/10};
+}
+function ambiguousCandidates(target, ranked){
+ const bounds=ranked.map(r=>uncertainty(target,r));
+ // An alternative is possible when its optimistic distance beats the
+ // incumbent's pessimistic distance. This is deliberately conservative.
+ const best=ranked[0].size;
+ const incumbent=bounds.find(b=>b.size===best);
+ return bounds.filter(b=>b.min<=incumbent.max+1e-9).map(b=>b.size);
+}
 function render(){
  const el=document.getElementById('result');
  const target=fields.map(id=>Number(document.getElementById(id).value));
@@ -45,6 +63,11 @@ function render(){
  }
  el.replaceChildren();
  const p=document.createElement('p');p.textContent='입력한 티셔츠와 치수가 가장 가까운 후보: '+rows[0].size+' (미승인 · 판매자 공시치수만 비교).';el.append(p,table);
+ const possibilities=ambiguousCandidates(target,rows);
+ const warning=document.createElement('p');
+ warning.className='muted';
+ warning.textContent='판매자 치수의 ±3cm 오차를 보수적으로 적용하면 최상위 후보가 바뀔 수 있는 사이즈: '+possibilities.join(', ')+'. 이 목록은 가능한 범위를 넓게 잡은 경고이며 재고·착용감·실제 발생 확률을 뜻하지 않습니다.';
+ el.append(warning);
 }
 document.getElementById('compare').addEventListener('click',render);render();
 </script></body></html>
