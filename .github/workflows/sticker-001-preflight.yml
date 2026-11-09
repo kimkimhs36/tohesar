@@ -29,6 +29,11 @@ jobs:
         run: |
           set -euo pipefail
           python3 object-lab/production-studio/preflight_sticker_001.py | tee sticker-001-preflight-report.json
+      - name: Negative mutation regression suite (original artwork must remain unchanged)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s object-lab/production-studio -p 'test_sticker_001_preflight.py' -v 2>&1 | tee sticker-001-mutation-tests.txt
       - name: Sheet geometry feasibility (NOT vendor acceptance)
         shell: bash
         run: |
@@ -42,5 +47,6 @@ jobs:
           path: |
             sticker-001-preflight-report.json
             sticker-001-sheet-fit-report.txt
+            sticker-001-mutation-tests.txt
           if-no-files-found: warn
           retention-days: 30
