@@ -1,0 +1,29 @@
+{
+  "status": "PASS_BROWSER_FILE_RENDER",
+  "environment": "Playwright Chromium from actual GitHub source offline",
+  "testedAt": "2026-11-09T07:33:56.451Z",
+  "desktop": {
+    "viewport": [
+      1440,
+      1000
+    ],
+    "loadedExistingEngineeringSvg": true,
+    "defaultRoute": "01",
+    "sourceBasedSizeChart": true,
+    "persistentOwnedShirtMeasurements": true,
+    "photo": "SHADOW-R03-DESKTOP-1440.png"
+  },
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "scrollWidth": 461,
+    "innerWidth": 461,
+    "noHorizontalOverflow": true,
+    "photo": "SHADOW-R03-MOBILE-390.png"
+  },
+  "outsideUploads": false,
+  "checkout": false,
+  "physicalGarment": false
+}
