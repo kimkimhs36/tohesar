@@ -1,0 +1,62 @@
+# TOHEŞAR OBJECT LAB — 01 SHADOW UNIFORM / REAL SUPPLIER SELECTOR 2026-11-09
+**Evidence captured by an authorized Chrome installation on TEAM-BKIT remote Windows computer, 2026-11-09 ~19:09–19:16 KST. This is seller UI testing, not vendor acceptance, physical print, final quote, reservation, cart, payment or order.**
+
+## Advance over previous public-price research
+Actual Chromium (Puppeteer) inspected **real product selectors** for three publicly reachable candidates without login, entering personal information, sending messages, uploading artwork, adding to cart, or purchasing. Each page returned HTTP 200. Screen captures + machine-readable DOM evidence were saved locally to `C:\Users\kimki\Documents\TOHESAR-FIRST-DROP-ATELIER\07_VENDOR_REAL_ORDER_GATE\`. Those paths are on the user's remote PC, **NOT committed GitHub files or universally accessible URLs**. Never fabricate a downloadable GitHub PNG from their existence.
+
+### WEFORM × BECANVAS 32수 2합 pigment, product #10462
+Visited exact seller page:
+https://oasisent1.cafe24.com/product/detail.html?product_no=10462
+
+**Directly observed (Chrome, not a search excerpt):**
+- Actual first option select `#product_option_id1` displays **차콜**, value `2226`, enabled among 6 colors (black, charcoal, blue, khaki, brown, burgundy).
+- Second select `#product_option_id2` includes **S/M/L/XL, all without stated surcharge**, value `2244` for **M**, **2XL and 3XL +₩3,300**.
+- Selected **charcoal + M** only as a **test variant**, NOT user-approved size. Seller dynamic item summary showed **shirt subtotal ₩15,000**, and publicly displayed **ordinary delivery ₩3,000** for orders below ₩100,000.
+- Selected `빠른 인쇄 (DTF)` successfully: blue/active radio style. Its own additional option list contains **왼가슴 +₩2,000** (`addproduct_option_id_10596_1` value `P0000PRO000A`). Uploaded file format guidance says **JPG, PNG, AI, PSD, max 10MB**, but **no original artwork was shared with seller**.
+- **Important live UI blocker:** After selecting DTF the custom '2. 인쇄 위치 선택' box remained **visibly blank** in headless Chrome; summary said `선택된 인쇄 위치가 없습니다.`. Selecting the separately existing Cafe24 native '왼가슴' dropdown did **not** register a custom print position. Clicking local `옵션선택` (NOT purchase/cart) left total at zero/no position; no page JS exception or alert appeared. **This is an observed failure in this tested browser, not proof that checkout is universally broken.**
+- Consequently the ₩15,000+₩2,000+₩3,000 = **₩20,000 remains conditional arithmetic**, **NOT** a tested payable one-piece checkout quote. *82mm actual DTF print area*, stock allocation, VAT treatment at checkout, supplier proof of accurate Ş, garment master approval are all **not verified**.
+- Saved local screenshots:
+  - `PUBLIC-WEFORM_BECANVAS-NO-ORDER.png` (live seller base selector)
+  - `WEFORM-CHARCOAL-M-SELECTED-NO-CART.png` (actual chosen color+size subtotal)
+  - `WEFORM-CHARCOAL-M-DTF-PRINT-OPTIONS-LOWER.png` (DTF active; empty print location UI)
+  - `WEFORM-M-DTF-POSITION-GATE-AFTER-OPTION.png` (unresolved gate)
+- Saved local browser captures:
+  - `PUBLIC-SELECTOR-EVIDENCE-20261109.json`
+  - `WEFORM-CHARCOAL-M-SELECTOR-PROOF.json`
+  - `WEFORM-CHARCOAL-M-DTF-LEFT-CHEST-NO-ORDER.json`
+  - `WEFORM-M-DTF-POSITION-GATE.json`
+- Do **not** spend more runs forcing WEFORM's blank custom location unless there is a real verified new capability or site fix.
+
+### BODATEE BECANVAS pigment, SKU 1000000842 / pivot
+Seller page: https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842
+
+- Opened live **색상 & 수량 설정** panel in Chrome without cart/order confirmation.
+- Observed clickable **차콜** swatch `li.color_choose[title="차콜"]`, with style reference RGB-ish `#565656`. This is a web swatch, **not physical dye/washed color measurement**.
+- Body explicitly labels **16,900원 / 1장 소량가** while a larger **14,900원 / 30장이상 할인가** appears in the selection drawer. Never quote ₩14,900 as a one-piece final price.
+- Publicly described **275gsm, 100% cotton, pigment dye, S–3XL**, transfer printing availability and a 1-piece path. Its print quality, exact charcoal inventory, and one-logo print+delivery all-in final total still unverified. Previous sources conflict about shipping (product detail 'free' vs general policy ₩5,000), so actual seller checkout controls.
+- Captured `PUBLIC-BODATEE_BECANVAS-NO-ORDER.png`, `BODATEE-COLOR-SIZE-SELECTOR-NO-ORDER.png`, related selector JSON in the same local folder.
+- Seller warns that very thin strokes may be modified for printing; our original brand `d` path/Ş may **not** be altered without explicit owner approval.
+
+### Ohprintme Printstar 14s check
+- Actual page https://www.ohprint.me/products/701001001105 responded HTTP 200 and confirmed size selection takes place at the design-editor stage.
+- This is **not** equivalent to approved washed pigment-charcoal SHADOW 01; keep as backup for testing, not force substitution simply because editor is accessible.
+
+## Physical release checklist after current real screen inspection
+| Gate | Real state |
+| --- | --- |
+| Official original path preserved / 82mm candidate exist | YES in existing GitHub assets |
+| Current actual WEFORM charcoal selector exposed | YES |
+| Test size M price dynamically displayed | YES / unapproved test size |
+| DTF type visibly selectable | YES |
+| LEFT CHEST extra fee option listed | YES / custom position not accepted |
+| Real left-chest added to seller payable order | **NO** |
+| Successful original 600DPI PNG vendor upload / 82mm Ş visual proof | **NO** |
+| Vendor-confirmed unit quote including print + tax + shipping | **NO** |
+| Chosen wearer size and actual stock reservation | **NO** |
+| Owner approved final garment artwork | **NO** |
+| Order/payment/address/external communication | **NO** |
+| Physical sample delivered/worn/wash tested | **NO** |
+
+**Next meaningful action:** Within seller's non-committal interface, test BODATEE charcoal + an illustrative one-piece size and print options to get actual **ink+delivery charge** or switch to another credible 1-piece manufacturer with an actually functioning selector. If login or external logo upload is required, do not silently submit unapproved artwork or PII. Obtain user product-master approval and actual color/size/total evidence before ordering. Do not merge into `main` or use sticker's ₩50,000 budget for clothing.
+
+**Original identity:** repository `assets/wordmark.svg` source Git blob `e9b299f8d797625b3704103c08ea1aede5c5ea05`. Existing 600DPI and preproduction ZIP are on separate Object Lab branches; unchanged in this run.
