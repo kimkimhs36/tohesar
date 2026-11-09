@@ -29,7 +29,11 @@ Official product: https://o-sean.io/category/item/AP-048 ; source checked 2026-1
 | 2XL | 78 | 68.5 | 70 | 59 |
 | 3XL | 81 | 71 | 72 | 60 |
 
-**Pricing caution:** AP-048's ₩31,800 displayed unit price is explicitly accompanied by a **1,000-piece pricing context**; NOT a verified one-piece actual sample quote. The vendor's sample color/size choice, exact 70mm one-color ivory print, proof, VAT, packaging and delivered total remain unverified. Do not request payment approval.
+**Actual anonymous 1-piece selector evidence (2026-11-09, Chrome):**
+- Seller options selected: **차콜 / M / 1개 / 앞면 인쇄 소형 2–10cm**. M is a **probe size**, NOT a user-approved fit. Screenshot `05-OSEAN-CHARCOAL-M-PRINTED-PRICE-PROOF.png`, detailed DOM state `05-OSEAN-CHARCOAL-M-QTY1-GATE.json`.
+- On-page real **estimated subtotal before VAT**: blank + packaging **₩56,860**, small front print **₩3,500**, box **₩1,300**, 1-box shipping **₩3,000** = **₩64,660 (VAT 별도)**. No external file upload, no checkout, no seller contact.
+- This is NOT a final printable TOHEŞAR quote: the **exact original 70mm logo**, ivory pigment, zipper-side positioning and production method have **not** been seller proofed; tax and any additional processing/checkout charges are NOT confirmed. Do not request payment approval.
+- Important: the website's `₩31,800` starting figure refers to the **1,000-piece pricing context**; don't substitute it for this 1-piece selector estimate. The website's static garment photo may remain a different color even while **차콜** is selected.
 
 Published turnaround: around 14 days **from proof approval**, not guaranteed purchase-to-door delivery. Washed pigment shade varies; first wash separately in cold water, no dryer.
 
@@ -38,14 +42,14 @@ Marpple's **BECANVAS pigment oversized pullover hoodie**: 70% cotton/30% polyest
  
 ## Real production sequence, no loop
 1. **Done**: new category source verified, real fabric specification + size chart and exact original vector 70mm print candidate generated.
-2. **Not done**: verify selected seller's single charcoal zip piece stock/size and one-piece **actual price**; do not equate 1,000-piece price with small order.
+2. **Partly done**: one-piece charcoal / M (probe size) + small-front-print seller estimate **₩64,660 VAT excluded** verified in Chrome. Actual inventory, user-selected size, VAT-inclusive final payable, artwork acceptance and one-piece proof remain open; no order. Do not equate 1,000-piece price with small-order quote.
 3. **Not done**: supplier sees original logo at real 70mm scale beside zipper, explicitly accepts fine letter/Ş contours, ivory color and garment position; obtain vendor proof.
 4. **Not done**: seller-issued shipping/VAT/print-inclusive final 1 piece total + owner's approval before any upload/contact/order/PII.
 5. **Not done**: receive and assess fabric shade, zipper and slider, double hood, sizing, logo width/color, seam clearances and first/third wash cracking/shrink; photographs before any "finished" statement.
 
 ## Evidence / files
-- Source `../BRAND-ORIGINAL.svg`, Git blob SHA1 **e9b299f8d797625b3704103c08ea1aede5c5ea05**.
+- Source GitHub `assets/wordmark.svg`; local exact-copy `BRAND-ORIGINAL.svg` (Git blob identical), Git blob SHA1 **e9b299f8d797625b3704103c08ea1aede5c5ea05**.
 - `build_05.py` recreates graphics with **exact source path** and rasterizes vendor candidate. `05-BUILD-QC.json` includes hashes, pixel dimensions, selected warnings.
 - `05-REVIEW.html` displays local front/back visual review.
-- **No actual sample, order, vendor upload, vendor contact, production approval, seller total or customer payment**.
+- **No actual sample, order, vendor upload, vendor contact, production approval, VAT-inclusive final payable or customer payment**. The verified ₩64,660 figure is a seller configurator subtotal *before tax* only.
 - The owner's pre-existing 04 OFFSET SHELL R02 remains a **separate bespoke cut-and-sew** pattern project; the 05 zip blank does not replace its construction development.

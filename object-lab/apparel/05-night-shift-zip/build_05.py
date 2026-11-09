@@ -3,7 +3,8 @@ from xml.etree import ElementTree as ET
 from PIL import Image
 import hashlib,io,json,resvg_py
 out=Path(__file__).resolve().parent
-raw=(out.parent/'BRAND-ORIGINAL.svg').read_bytes()
+masters=[out.parents[2]/'assets'/'wordmark.svg',out/'BRAND-ORIGINAL.svg',out.parent/'BRAND-ORIGINAL.svg']
+raw=next(p for p in masters if p.exists()).read_bytes()
 blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
 assert blob=='e9b299f8d797625b3704103c08ea1aede5c5ea05'
 r=ET.fromstring(raw); original=[x for x in r.iter() if x.tag.endswith('}path')]

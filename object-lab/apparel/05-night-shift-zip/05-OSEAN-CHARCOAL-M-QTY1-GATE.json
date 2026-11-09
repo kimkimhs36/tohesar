@@ -1,0 +1,354 @@
+{
+  "at": "2026-11-09T12:03:01.800Z",
+  "seller": "O-SEAN",
+  "product": "AP-048",
+  "noOrder": true,
+  "noContact": true,
+  "noUpload": true,
+  "actions": [
+    {
+      "step": "color-options",
+      "body": [
+        "빈티지 피그먼트 워싱 후드 집업",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "31,800원",
+        "사이즈 정보",
+        "색상",
+        "블랙",
+        "블랙",
+        "차콜",
+        "사이즈",
+        "수량",
+        "1장부터 주문 가능",
+        "블랙 / 사이즈",
+        "기본가 (기본 포장 포함)",
+        "33,360,000원",
+        "인쇄비",
+        "0원",
+        "0원",
+        "52,000원",
+        "배송비 (박스 40개)",
+        "120,000원",
+        "1,000장",
+        "57,032,000원",
+        "예상 금액",
+        "33,532,000원",
+        "(VAT 별도)",
+        "색상",
+        "사이즈",
+        "1장부터 가능한 소량 제작 주문이 필요하신 분",
+        "수량",
+        "색상",
+        "사이즈별 인원",
+        "색상\t6색\t3색\t3색",
+        "사이즈\tS~3XL",
+        "블랙 · 차콜 · 샌드 베이지 세 가지 색입니다.",
+        "블랙과 차콜은 워싱 느낌이 진하고, 샌드 베이지는 은은하게 바랬습니다.",
+        "블랙",
+        "차콜",
+        "블랙 · M",
+        "차콜 · M",
+        "차콜 · M",
+        "블랙 · XL",
+        "사이즈가 어떻게 되나요?",
+        "사이즈\t총장(A)\t가슴단면(B)\t어깨너비(C)\t소매길이(D)",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "색상"
+      ],
+      "inputs": [
+        {
+          "aria": "사이트 검색",
+          "value": ""
+        },
+        {
+          "aria": "수량 직접 입력",
+          "value": "1,000"
+        }
+      ],
+      "menus": [
+        {
+          "tag": "BUTTON",
+          "txt": "블랙",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"true\" class=\"flex items-center gap-3.5 px-3 py-[7px] rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"w-6 h-"
+        },
+        {
+          "tag": "BUTTON",
+          "txt": "차콜",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center gap-3.5 px-3 py-[7px] rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"w-6 h"
+        },
+        {
+          "tag": "BUTTON",
+          "txt": "샌드 베이지",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center gap-3.5 px-3 py-[7px] rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"w-6 h"
+        }
+      ]
+    },
+    {
+      "step": "size-options",
+      "body": [
+        "빈티지 피그먼트 워싱 후드 집업",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "31,800원",
+        "사이즈 정보",
+        "색상",
+        "차콜",
+        "사이즈",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "수량",
+        "1장부터 주문 가능",
+        "차콜 / 사이즈",
+        "기본가 (기본 포장 포함)",
+        "33,360,000원",
+        "인쇄비",
+        "0원",
+        "0원",
+        "52,000원",
+        "배송비 (박스 40개)",
+        "120,000원",
+        "1,000장",
+        "57,032,000원",
+        "예상 금액",
+        "33,532,000원",
+        "(VAT 별도)",
+        "색상",
+        "사이즈",
+        "1장부터 가능한 소량 제작 주문이 필요하신 분",
+        "수량",
+        "색상",
+        "사이즈별 인원",
+        "색상\t6색\t3색\t3색",
+        "사이즈\tS~3XL",
+        "블랙 · 차콜 · 샌드 베이지 세 가지 색입니다.",
+        "블랙과 차콜은 워싱 느낌이 진하고, 샌드 베이지는 은은하게 바랬습니다.",
+        "블랙",
+        "차콜",
+        "블랙 · M",
+        "차콜 · M",
+        "차콜 · M",
+        "블랙 · XL",
+        "사이즈가 어떻게 되나요?",
+        "사이즈\t총장(A)\t가슴단면(B)\t어깨너비(C)\t소매길이(D)"
+      ],
+      "inputs": [
+        {
+          "aria": "사이트 검색",
+          "value": ""
+        },
+        {
+          "aria": "수량 직접 입력",
+          "value": "1,000"
+        }
+      ],
+      "menus": [
+        {
+          "tag": "BUTTON",
+          "txt": "S",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center h-10 px-3 rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"text-[14px] text-"
+        },
+        {
+          "tag": "BUTTON",
+          "txt": "M",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center h-10 px-3 rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"text-[14px] text-"
+        },
+        {
+          "tag": "BUTTON",
+          "txt": "L",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center h-10 px-3 rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"text-[14px] text-"
+        },
+        {
+          "tag": "BUTTON",
+          "txt": "XL",
+          "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center h-10 px-3 rounded bg-transparent border-0 cursor-pointer text-left hover:bg-[#FAF8F3]\"><span class=\"text-[14px] text-"
+        }
+      ]
+    },
+    {
+      "step": "final-anonymous-onepiece",
+      "body": [
+        "빈티지 피그먼트 워싱 후드 집업",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "53,800원",
+        "사이즈 정보",
+        "색상",
+        "차콜",
+        "사이즈",
+        "M",
+        "수량",
+        "1장부터 주문 가능",
+        "차콜 / M",
+        "기본가 (기본 포장 포함)",
+        "56,860원",
+        "인쇄비",
+        "0원",
+        "0원",
+        "1,300원",
+        "배송비 (박스 1개)",
+        "3,000원",
+        "1장",
+        "예상 금액",
+        "61,160원",
+        "(VAT 별도)",
+        "색상",
+        "사이즈",
+        "1장부터 가능한 소량 제작 주문이 필요하신 분",
+        "수량",
+        "색상",
+        "사이즈별 인원",
+        "색상\t6색\t3색\t3색",
+        "사이즈\tS~3XL",
+        "블랙 · 차콜 · 샌드 베이지 세 가지 색입니다.",
+        "블랙과 차콜은 워싱 느낌이 진하고, 샌드 베이지는 은은하게 바랬습니다.",
+        "블랙",
+        "차콜",
+        "블랙 · M",
+        "차콜 · M",
+        "차콜 · M",
+        "블랙 · XL",
+        "사이즈가 어떻게 되나요?",
+        "사이즈\t총장(A)\t가슴단면(B)\t어깨너비(C)\t소매길이(D)",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "색상",
+        "블랙 · 차콜 · 샌드 베이지 (3색)",
+        "사이즈"
+      ],
+      "inputs": [
+        {
+          "aria": "사이트 검색",
+          "value": ""
+        },
+        {
+          "aria": "수량 직접 입력",
+          "value": "1"
+        }
+      ],
+      "menus": []
+    },
+    {
+      "step": "charcoal-M-onepiece-smallprint-estimate",
+      "body": [
+        "빈티지 피그먼트 워싱 후드 집업",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "57,300원",
+        "사이즈 정보",
+        "색상",
+        "차콜",
+        "사이즈",
+        "M",
+        "수량",
+        "1장부터 주문 가능",
+        "차콜 / M",
+        "60,360원",
+        "기본가 (기본 포장 포함)",
+        "56,860원",
+        "인쇄비",
+        "3,500원",
+        "0원",
+        "1,300원",
+        "배송비 (박스 1개)",
+        "3,000원",
+        "1장",
+        "예상 금액",
+        "64,660원",
+        "(VAT 별도)",
+        "색상",
+        "사이즈",
+        "1장부터 가능한 소량 제작 주문이 필요하신 분",
+        "수량",
+        "색상",
+        "사이즈별 인원",
+        "색상\t6색\t3색\t3색",
+        "사이즈\tS~3XL",
+        "블랙 · 차콜 · 샌드 베이지 세 가지 색입니다.",
+        "블랙과 차콜은 워싱 느낌이 진하고, 샌드 베이지는 은은하게 바랬습니다.",
+        "블랙",
+        "차콜",
+        "블랙 · M",
+        "차콜 · M",
+        "차콜 · M",
+        "블랙 · XL",
+        "사이즈가 어떻게 되나요?",
+        "사이즈\t총장(A)\t가슴단면(B)\t어깨너비(C)\t소매길이(D)",
+        "빈티지 피그먼트 워싱 후드 집업",
+        "색상",
+        "블랙 · 차콜 · 샌드 베이지 (3색)"
+      ],
+      "inputs": [
+        {
+          "aria": "사이트 검색",
+          "value": ""
+        },
+        {
+          "aria": "수량 직접 입력",
+          "value": "1"
+        },
+        {
+          "aria": "수량",
+          "value": "1"
+        }
+      ],
+      "menus": []
+    }
+  ],
+  "errors": [],
+  "selectedCharcoal": true,
+  "selectedM": true,
+  "qtyOne": true,
+  "printDropdown": "<button type=\"button\" aria-expanded=\"false\" class=\"w-full flex items-center gap-3 min-h-[44px] px-4 bg-transparent border-0 cursor-pointer text-left text-[#1A1A1A]\"><span class=\"flex-none whitespace-nowrap text-[15px] font-medium\">인쇄</span><span class=\"flex-1 min-w-0 text-right text-[14px] truncate text-[#888780]\">없음</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#9A9AA6\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"flex-none\" style=\"transform:rotate(0deg);transition:transform 240ms cubic-bezier(0.22,1,0.36,1)\"><path d=\"",
+  "printMethods": [
+    {
+      "tag": "BUTTON",
+      "text": "인쇄 소형 2~10cm\n+3,500원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">인쇄 소형 <span class=\"text-[12px] font-normal text-[#888780]\">2~10cm</span></span><span class=\"text-[13px] font-medium text-[#"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "인쇄 중형 10~20cm\n+5,800원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">인쇄 중형 <span class=\"text-[12px] font-normal text-[#888780]\">10~20cm</span></span><span class=\"text-[13px] font-medium text-["
+    },
+    {
+      "tag": "BUTTON",
+      "text": "인쇄 대형 20~28cm\n+9,300원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">인쇄 대형 <span class=\"text-[12px] font-normal text-[#888780]\">20~28cm</span></span><span class=\"text-[13px] font-medium text-["
+    },
+    {
+      "tag": "BUTTON",
+      "text": "자수 소형 2~8cm\n+5,800원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">자수 소형 <span class=\"text-[12px] font-normal text-[#888780]\">2~8cm</span></span><span class=\"text-[13px] font-medium text-[#5"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "와펜 소형 5cm\n+8,100원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">와펜 소형 <span class=\"text-[12px] font-normal text-[#888780]\">5cm</span></span><span class=\"text-[13px] font-medium text-[#5F5"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "인쇄 소형 2~10cm\n+3,500원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">인쇄 소형 <span class=\"text-[12px] font-normal text-[#888780]\">2~10cm</span></span><span class=\"text-[13px] font-medium text-[#"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "인쇄 중형 10~20cm\n+5,800원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">인쇄 중형 <span class=\"text-[12px] font-normal text-[#888780]\">10~20cm</span></span><span class=\"text-[13px] font-medium text-["
+    },
+    {
+      "tag": "BUTTON",
+      "text": "인쇄 대형 20~28cm\n+9,300원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">인쇄 대형 <span class=\"text-[12px] font-normal text-[#888780]\">20~28cm</span></span><span class=\"text-[13px] font-medium text-["
+    },
+    {
+      "tag": "BUTTON",
+      "text": "자수 소형 2~8cm\n+5,800원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">자수 소형 <span class=\"text-[12px] font-normal text-[#888780]\">2~8cm</span></span><span class=\"text-[13px] font-medium text-[#5"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "와펜 소형 5cm\n+8,100원",
+      "outer": "<button type=\"button\" role=\"option\" aria-selected=\"false\" class=\"flex items-center justify-between gap-3 h-9 px-3 rounded border-0 text-left bg-transparent hover:bg-[#FAF8F3] cursor-pointer\"><span class=\"flex-1 min-w-0 whitespace-nowrap text-[14px] text-[#1A1A1A] font-normal\">와펜 소형 <span class=\"text-[12px] font-normal text-[#888780]\">5cm</span></span><span class=\"text-[13px] font-medium text-[#5F5"
+    }
+  ],
+  "selectedSmallPrint": true,
+  "quoteScroll": true
+}
