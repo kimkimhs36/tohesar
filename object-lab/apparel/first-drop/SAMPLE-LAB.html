@@ -42,14 +42,36 @@ footer strong{font-weight:700;letter-spacing:.1em;color:#e7eee6}
 @media(max-width:800px){header img{width:137px}.hero{grid-template-columns:1fr}.hero img{height:330px;object-fit:contain}.grid,.fields,.checks{grid-template-columns:1fr}.moneyrow{grid-template-columns:1fr 145px}.card{margin-top:14px}.headline h1{font-size:55px}}
 </style></head><body>
 <header><img src="BRAND-ORIGINAL.svg" alt="TOHEŞAR original wordmark"><a href="INDEX.html">← FIRST DROP SHOWROOM</a></header>
-<section class="hero"><div class="headline"><div class="meta">OBJECT LAB / DEVELOPMENT TOOL / VERSION R01</div><h1>From idea<br>to sample.</h1><p>예쁜 시안을 실제로 입을 수 있는 제품으로 바꾸기 위한 개발 화면. 임시 디자인 치수, 샘플 실측, 실제 업체 견적, 승인 조건을 한곳에서 관리한다. 입력 내용은 이 컴퓨터의 브라우저에만 저장되며 외부에 전송하지 않는다.</p></div><img src="05_OFFSET_SHELL_ENG/04-FRONT-BACK-ENGINEERING-R01.png" alt="Offset Shell detailed engineered front and back concept"></section>
+<section class="hero"><div class="headline"><div class="meta">OBJECT LAB / DEVELOPMENT TOOL / VERSION R03 / 01-FIRST-SAMPLE</div><h1>From idea<br>to sample.</h1><p>예쁜 시안을 실제로 입을 수 있는 제품으로 바꾸기 위한 개발 화면. 임시 디자인 치수, 샘플 실측, 실제 업체 견적, 승인 조건을 한곳에서 관리한다. 입력 내용은 이 컴퓨터의 브라우저에만 저장되며 외부에 전송하지 않는다.</p></div><img src="05_OFFSET_SHELL_ENG/04-FRONT-BACK-ENGINEERING-R01.svg" alt="Offset Shell detailed engineered front and back concept"></section>
 <main>
-<section class="card"><div class="label">01 / DEVELOPMENT ROUTE</div><h2>어떤 샘플을 만들까?</h2><p class="sub">기본형 01은 무지 티셔츠 1장에 인쇄해 핏과 내구성을 시험하는 경로이고, 04는 절개선을 실제로 봉제해야 하는 패턴 개발 경로다. 현재 업체 가격과 실물 상품은 모두 미확인이다.</p>
+<section class="card"><div class="label">01 / DEVELOPMENT ROUTE</div><h2>어떤 샘플을 만들까?</h2><p class="sub">기본형 01은 무지 티셔츠 1장에 인쇄해 핏과 내구성을 시험하는 경로이고, 04는 절개선을 실제로 봉제해야 하는 패턴 개발 경로다. 01은 실물용 후보 바디·공개 단가·사이즈표가 확보됐지만 차콜 재고, 원본 로고의 실제 업체 인쇄 승인, 배송 포함 결제 직전 총액은 아직 미확인이다.</p>
 <div class="tabs"><button id="tab01" onclick="setStyle('01')">01 / SHADOW — 기성 바디 + 인쇄</button><button id="tab04" onclick="setStyle('04')">04 / OFFSET — 패턴 + 재단 + 봉제</button></div>
 <div class="break"></div><div class="grid"><div><div class="label">SELECTED ROUTE</div><h2 id="styleTitle">04 / OFFSET SHELL</h2><p class="sub" id="styleNote"></p></div><div><div class="label">LOCAL STATE</div><div class="total"><span>설계 단계</span><strong id="stage">미승인</strong></div><p class="statusline">이 화면에서 버튼을 누른다고 주문이 접수되거나 결제되는 것은 아니다.</p></div></div></section>
 <section class="card"><div class="label">02 / PATTERN & FIT DEVELOPMENT</div><h2>기준 치수 ↔ 실제 샘플 실측</h2>
 <p class="sub">04의 치수는 <strong>가상 시제품 기준 BLOCK 0</strong> 제안값이며, S/M/L 등 판매용 사이즈를 의미하지 않는다. 샘플을 만들기 전 실제 측정값 칸은 비워두는 게 맞다. 공차도 임시 검토 기준이다.</p>
 <div class="tableWrap"><table><thead><tr><th>측정 위치</th><th>제안 mm</th><th>제안 공차</th><th>실측 mm</th><th>검사</th></tr></thead><tbody id="measureRows"></tbody></table></div><p class="statusline">실측값이 없으면 합격 판정하지 않는다. 01 기성 바디는 업체의 실제 사이즈표를 직접 기입해야 한다.</p></section>
+<section class="card" id="blankFit" hidden>
+<div class="label">02A / TRUE GARMENT FIT • PUBLIC MANUFACTURER CHART</div><h2>01 SHADOW / 실제 바디 치수 비교</h2>
+<p class="sub">BECANVAS 32수 2합 피그먼트 바디(보다티 상품코드 1000000842)의 공개 실측표를 사용한다. 배송된 제품이나 착용 테스트의 실측값이 아니며 제조 공차 ±2~3cm가 있을 수 있다. 본인이 가지고 있는 티셔츠를 바닥에 펼쳐 측정한 값과 비교하자. 체형·키·몸무게만으로 사이즈를 확정하지 않는다.</p>
+<div class="grid"><div><label class="field" for="fitSize">검토 사이즈 (추천/승인 아님)
+<select id="fitSize" onchange="set(key('fitSize'),this.value); updateFit()" style="background:white;padding:12px;border:1px solid #b8c5b6;color:#173021">
+<option value="">— 먼저 기준 티셔츠 측정 —</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option><option value="3XL">3XL</option>
+</select></label>
+<div class="fields" style="margin-top:14px">
+<label class="field">내 티셔츠 어깨너비 (cm)<input id="fitShoulder" inputmode="decimal" type="number" min="1" step="0.1" placeholder="실측 필요" oninput="set(key('fitShoulder'),this.value);updateFit()"></label>
+<label class="field">내 티셔츠 가슴 단면 (cm)<input id="fitChest" inputmode="decimal" type="number" min="1" step="0.1" placeholder="실측 필요" oninput="set(key('fitChest'),this.value);updateFit()"></label>
+<label class="field">내 티셔츠 총장 (cm)<input id="fitLength" inputmode="decimal" type="number" min="1" step="0.1" placeholder="실측 필요" oninput="set(key('fitLength'),this.value);updateFit()"></label>
+<label class="field">내 티셔츠 소매길이 (cm)<input id="fitSleeve" inputmode="decimal" type="number" min="1" step="0.1" placeholder="실측 필요" oninput="set(key('fitSleeve'),this.value);updateFit()"></label>
+</div><p class="statusline" style="margin-top:12px">기준 옷은 세탁 후 가장 마음에 드는 핏을 가진 티셔츠로 측정. 몸 둘레가 아니라 <strong>옷 자체의 평면 치수</strong>야.</p></div>
+<div><div class="tableWrap"><table style="min-width:420px"><thead><tr><th>구분</th><th>업체 제공</th><th>내 옷 대비</th></tr></thead><tbody id="fitTable"><tr><td colspan="3">사이즈를 선택하면 출처 기반 차이가 표시됨</td></tr></tbody></table></div><p class="statusline" id="fitDecision" role="status">비교 전 — 업체 재고, 사이즈 선택, 착용감 모두 미확인</p></div></div>
+<div class="break"></div>
+<div class="label">02B / ONE-PIECE VENDOR ROUTE — ADVERTISED COMPONENTS ONLY</div>
+<div class="grid">
+<div><strong>WEFORM / BECANVAS 피그먼트</strong><p class="sub">티셔츠 ₩15,000 · 왼가슴 DTF ₩2,000 · 일반 배송 ₩3,000 = <strong>공개 구성요소 합산 ₩20,000</strong> (실제 결제 금액/재고/인쇄 품질 미확인). PNG 최대 10MB, 업로드 전 색상·사이즈 선택 필요.</p><a href="https://oasisent1.cafe24.com/product/detail.html?product_no=10462" target="_blank" rel="noopener noreferrer">WEFORM 업체 상품 보기 ↗</a></div>
+<div><strong>BODATEE / BECANVAS 차콜</strong><p class="sub">1~5장 의류 단가 ₩16,900 + 일반 배송 ₩5,000 = <strong>인쇄 전 공개 합산 ₩21,900</strong>. 색상 차콜이 사진·옵션으로 소개돼 있지만 실제 크기별 선택·인쇄비·배송 포함 총액 미확인. 인쇄 주문은 회원 절차 필요.</p><a href="https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842" target="_blank" rel="noopener noreferrer">BODATEE 실측표와 상품 보기 ↗</a></div>
+</div>
+<p class="statusline" style="margin-top:14px">2026-11-09 공개 페이지 기준. 이 숫자는 견적 입력칸에 자동 입력하지 않으며 원본 로고 업체 업로드, 주문, 결제는 실행되지 않는다.</p>
+</section>
 <section class="grid">
 <section class="card"><div class="label">03 / SOURCE-BASED COSTING</div><h2>견적을 직접 받아 기록</h2><p class="sub">아래 숫자는 모두 빈칸으로 시작한다. 공급업체 확인 없이 임의 가격을 채우지 않는다. 실제 세금·배송 포함 견적은 항목별로 직접 기록한다.</p>
 <div id="quoteRows"></div><div class="total"><span id="totalLabel">아직 확인된 총액 없음</span><strong id="totalValue">—</strong></div>
@@ -62,19 +84,45 @@ footer strong{font-weight:700;letter-spacing:.1em;color:#e7eee6}
 </section></section>
 <section class="card"><div class="label">05 / DESIGN TO MANUFACTURE</div><h2>제작 도면과 다음 실제 행동</h2>
 <div class="grid"><div><p class="sub">04 전용 기술 자료는 앞뒤 도면, 12개 POM, 부품 9종 BOM, 16개 봉제 작업 순서, 제작 게이트로 구성돼 있어. 패턴사가 검증하지 않은 사양을 업체에 확정 지시로 전달하면 안 돼.</p>
-<div class="actions"><button class="secondary" onclick="location.href='05_OFFSET_SHELL_ENG/04-FRONT-BACK-ENGINEERING-R01.svg'">기술 도면 보기</button><button class="secondary" onclick="location.href='05_OFFSET_SHELL_ENG/04-OFFSET-SHELL-TECHPACK-R01-NO-CUTTING.pdf'">PDF 사양서 열기</button></div></div>
+<div class="actions"><button class="secondary" onclick="location.href='05_OFFSET_SHELL_ENG/04-FRONT-BACK-ENGINEERING-R01.svg'">기술 도면 보기</button><button class="secondary" onclick="location.href='05_OFFSET_SHELL_ENG/04-TECH-SPEC-DRAFT.json'">04 기술 스펙 원문</button><button class="secondary" onclick="location.href='exports/01-shadow-uniform/SHADOW01-82MM-A4-PRINT-AT-100PCT-UNAPPROVED.pdf'">01 실물 배율 인쇄 PDF</button></div></div>
 <div><label class="field">디자이너 메모 / 실제 피드백<textarea id="notes" rows="5" placeholder="원단/절개/핏/어깨/색상에 대한 의견"></textarea></label><p class="sub" style="font-size:12px">현재는 최종 확정 주문서가 아니라 반복 개발 기록이다.</p></div></div>
 <div class="actions"><button onclick="save()">이 PC에 기록 저장</button><button onclick="exportJSON()">제작 기록 JSON 내보내기</button><button class="secondary" onclick="if(confirm('이 브라우저에 저장된 개발 기록을 초기화할까?')) resetAll()">로컬 기록 초기화</button></div>
 <div class="statusline" id="saveState">브라우저 내부 저장. 온라인 서버나 외부 업체로 데이터 전송하지 않음.</div>
 </section></main>
-<footer><strong>TOHEŞAR / OBJECT LAB</strong><p>DESIGN IS NOT MANUFACTURE. FIRST PHYSICAL SAMPLE, THEN OBJECT VALIDATION.</p><p>공식 스티커 001 예산 5만원은 의류 견적에 적용하지 않는다. 의류 샘플은 별도 견적과 승인 후 제작한다. 브랜드 원본 벡터 경로는 기존 GitHub 소스와 동일해야 한다.</p></footer>
+<footer><strong>TOHEŞAR / OBJECT LAB / SAMPLE FIRST</strong><p>DESIGN IS NOT MANUFACTURE. FIRST PHYSICAL SAMPLE, THEN OBJECT VALIDATION.</p><p>공식 스티커 001 예산 5만원은 의류 견적에 적용하지 않는다. 의류 샘플은 별도 견적과 승인 후 제작한다. 브랜드 원본 벡터 경로는 기존 GitHub 소스와 동일해야 한다.</p></footer>
 <script>
 const styleData={
 '01':{title:'01 / SHADOW UNIFORM',note:'실제 무지 티셔츠 바디 1장을 구입해 82mm 가슴 프린트를 시험하는 경로. 사이즈·핏은 공급업체 실물과 크기표 확인 전 미확정.',measures:[],costs:['무지 티셔츠 바디','프린트 1장','라벨 / 부자재','배송비','세금 / 기타']},
 '04':{title:'04 / OFFSET SHELL',note:'앞 2패널 비대칭 사선 접합 + 클린 백 + 비대칭 밑단. 커스텀 패턴 제작 의뢰가 필요하며, 기존 무지 티셔츠 전사만으로 만들 수 없음.',measures:[['HPS → 밑단',710,10],['가슴 단면',610,10],['어깨너비',570,10],['소매 길이',235,10],['소매 입구 단면',220,7],['밑단 단면',605,10],['넥립 완성폭',28,3],['사선 결합 왼쪽',395,10],['사선 결합 오른쪽',270,10],['원본 로고 가로폭',78,2],['로고 ↔ 왼쪽 옆솔기',55,5],['로고 ↔ 밑단',105,5]],costs:['패턴 설계 / 수정','그래파이트 원단','딥 페트롤 원단','재단 / 봉제 공임','프린트 1장','라벨 / 부자재','배송비','세금 / 기타']}
 };
-const checks=['최종 의류 워드마크 마스터 원본 승인','패턴사 또는 인쇄업체 제작 가능성 검증','원단 / 바디 소재 및 치수 확인','실물 샘플 제작 및 수령','핏·봉제·프린트 착용 및 세탁 테스트','업체 총액 / 배송 / 세금 확인','사진 및 품질 기록 확보','사용자 최종 주문 승인 별도 확인'];
-let current='04';
+const checksByRoute={
+'01':['사용자 승인된 최종 의류 워드마크 마스터','정확한 차콜 재고와 1장 사이즈 옵션 확인','원본 82mm Ş 로고 업체 업로드·미리보기 통과','인쇄비+부가세+배송 포함 실제 최종 금액 확인','사용자가 주문과 개인정보 제공에 명시적 동의','실물 샘플 주문·수령 기록 확보','핏·열자국·표면 촉감·세탁 1회 및 3회 QC','전/후면·로고 실측 사진 촬영'],
+'04':['의류 워드마크 마스터 승인','패턴사/봉제업체 패턴 구현 가능성 검증','소재/봉제 구조와 실제 POM 확인','패턴 기반 실물 샘플 제작 및 수령','핏·봉제·소재 착용 및 세탁 테스트','실제 봉제·원단·부자재·배송·세금 견적 확인','제품 실측·앞뒤 디테일 사진 확보','사용자 주문/개인정보 제공 명시적 승인']
+};
+const checks=checksByRoute['01'];
+const blankChart={S:{shoulder:52,chest:55,sleeve:21,length:68.5},M:{shoulder:54,chest:58,sleeve:21,length:71},L:{shoulder:56,chest:61,sleeve:22,length:73.5},XL:{shoulder:58,chest:64,sleeve:23,length:76},'2XL':{shoulder:61,chest:67,sleeve:24,length:78.5},'3XL':{shoulder:64,chest:70,sleeve:25,length:81}};
+function compareBlankFit(size, own) {
+ if(!Object.prototype.hasOwnProperty.call(blankChart,size)) return null;
+ const info=[['어깨너비','shoulder'],['가슴 단면','chest'],['총장','length'],['소매길이','sleeve']].map(([name,k])=>{
+  const actual=own[k]===''||own[k]===null||own[k]===undefined?null:Number(own[k]);
+  const valid=actual!==null&&Number.isFinite(actual)&&actual>0&&actual<200;
+  const expected=blankChart[size][k]; return {name,key:k,expected,own:valid?actual:null,delta:valid?Number((expected-actual).toFixed(1)):null};
+ });
+ return info;
+}
+function updateFit() {
+ const panel=document.getElementById('blankFit'); if(!panel) return;
+ panel.hidden=current!=='01';if(current!=='01')return;
+ const size=document.getElementById('fitSize').value;
+ const own={shoulder:document.getElementById('fitShoulder').value,chest:document.getElementById('fitChest').value,length:document.getElementById('fitLength').value,sleeve:document.getElementById('fitSleeve').value};
+ const rows=compareBlankFit(size,own), table=document.getElementById('fitTable'),decision=document.getElementById('fitDecision');
+ if(!rows){table.innerHTML='<tr><td colspan="3">사이즈 선택 전 — 현재 1장 구매 가능한 크기는 확인되지 않았어</td></tr>';decision.textContent='아직 사이즈 추천·승인 없음';return}
+ table.innerHTML=rows.map(m=>'<tr><td>'+m.name+'</td><td>'+m.expected+' cm</td><td>'+(m.delta===null?'실측 입력 필요':(m.delta>0?'+':'')+m.delta+' cm')+'</td></tr>').join('');
+ const complete=rows.every(m=>m.delta!==null);
+ decision.textContent=complete?'내 기준 티셔츠 대비 크기 차이 계산 완료(업체 공차 ±2~3cm 제외). 이것은 착용 추천·구매 승인·재고 보증이 아니야.':'공개 실측값으로 비교 중. 남은 기준 티셔츠 치수를 입력해.';
+}
+
+let current='01';
 let state={};let persistent=true;
 try{const v=localStorage.getItem('tohesar_apparel_lab_r01');if(v)state=JSON.parse(v)}catch(e){persistent=false}
 function key(suffix){return current+'-'+suffix}
@@ -82,20 +130,21 @@ function val(k){return state[k]===undefined?'':state[k]}
 function set(k,v){state[k]=v;try{localStorage.setItem('tohesar_apparel_lab_r01',JSON.stringify(state))}catch(e){persistent=false}if(k.includes('cost-'))updateTotal();if(k.includes('measure-'))updateChecks();if(k.includes('gate-'))updateGate()}
 function money(n){return Math.round(n).toLocaleString('ko-KR')+'원'}
 function setStyle(id){current=id;document.getElementById('tab01').classList.toggle('sel',id==='01');document.getElementById('tab04').classList.toggle('sel',id==='04');
-let d=styleData[id];document.getElementById('styleTitle').textContent=d.title;document.getElementById('styleNote').textContent=d.note;document.getElementById('stage').textContent='샘플 전 / 검증 중';
+let d=styleData[id];document.getElementById('blankFit').hidden=id!=='01';document.getElementById('styleTitle').textContent=d.title;document.getElementById('styleNote').textContent=d.note;document.getElementById('stage').textContent='샘플 전 / 검증 중';
 document.getElementById('measureRows').innerHTML=d.measures.length?d.measures.map((m,i)=>'<tr><td>'+m[0]+'</td><td>'+m[1]+'</td><td>±'+m[2]+'</td><td><input type="number" step="0.1" min="0" value="'+val(key('measure-'+i))+'" oninput="set(key(\'measure-'+i+'\'),this.value)"></td><td class="result" id="measure-result-'+i+'">미측정</td></tr>').join(''):'<tr><td colspan="5">01은 공급업체의 실제 바디 사이즈표가 필요해. 검증 전 임의 치수를 제공하지 않음.</td></tr>';
 document.getElementById('quoteRows').innerHTML=d.costs.map((n,i)=>'<div class="moneyrow"><label>'+n+'</label><input inputmode="decimal" type="number" min="0" step="1" placeholder="미확인" value="'+val(key('cost-'+i))+'" oninput="set(key(\'cost-'+i+'\'),this.value)"></div>').join('');
-document.getElementById('checks').innerHTML=checks.map((label,i)=>'<label class="check"><input type="checkbox" '+(val(key('gate-'+i))?'checked':'')+' onchange="set(key(\'gate-'+i+'\'),this.checked)"><span>'+label+'</span></label>').join('');
+document.getElementById('checks').innerHTML=checksByRoute[id].map((label,i)=>'<label class="check"><input type="checkbox" '+(val(key('gate-'+i))?'checked':'')+' onchange="set(key(\'gate-'+i+'\'),this.checked)"><span>'+label+'</span></label>').join('');
 for(let n of ['supplier','quoteDate','quoteProof','notes'])document.getElementById(n).value=val(key(n));
-updateTotal();updateChecks();updateGate()}
+for(let [field,part] of [['fitSize','fitSize'],['fitShoulder','fitShoulder'],['fitChest','fitChest'],['fitLength','fitLength'],['fitSleeve','fitSleeve']]) document.getElementById(field).value=val(key(part));
+updateTotal();updateChecks();updateGate();updateFit()}
 function updateTotal(){const costs=styleData[current].costs;let any=false,complete=true,total=0;costs.forEach((_,i)=>{const x=val(key('cost-'+i));if(x===''){complete=false;return}const a=Number(x);if(!Number.isFinite(a)||a<0){complete=false;return}any=true;total+=a});
 document.getElementById('totalLabel').textContent=!any?'아직 확인된 총액 없음':complete?'입력 항목 합계 (아직 업체 검증 전)':'입력한 항목 부분 합계 / 총액 아님';
 document.getElementById('totalValue').textContent=any?money(total):'—'}
 function updateChecks(){if(current==='01')return;styleData['04'].measures.forEach((m,i)=>{const cell=document.getElementById('measure-result-'+i);if(!cell)return;const x=val(key('measure-'+i));if(x===''){cell.textContent='미측정';cell.className='result muted';return}const err=Math.abs(Number(x)-m[1]);const pass=Number.isFinite(err)&&err<=m[2];cell.textContent=pass?'제안범위 내':'재검토 필요';cell.className='result '+(pass?'good':'warning')})}
-function updateGate(){let n=checks.filter((_,i)=>!!val(key('gate-'+i))).length;document.getElementById('gateResult').textContent=n+' / '+checks.length}
+function updateGate(){let items=checksByRoute[current];let n=items.filter((_,i)=>!!val(key('gate-'+i))).length;document.getElementById('gateResult').textContent=n+' / '+items.length}
 function save(){['supplier','quoteDate','quoteProof','notes'].forEach(n=>set(key(n),document.getElementById(n).value));document.getElementById('saveState').textContent=persistent?'이 PC 브라우저에 저장했어.':'현재 브라우저가 로컬 저장을 차단했어. JSON 내보내기로 보관해.'}
 function exportJSON(){save();let data={product:'TOHESAR apparel development / not an order',date:new Date().toISOString(),style:current,sourceOriginalGitBlob:'e9b299f8d797625b3704103c08ea1aede5c5ea05',data:state,verifiedByVendor:false,orderPlaced:false};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='TOHESAR-APPAREL-'+current+'-SAMPLE-REVIEW.json';a.click();URL.revokeObjectURL(url)}
 function resetAll(){state={};try{localStorage.removeItem('tohesar_apparel_lab_r01')}catch(e){}setStyle(current)}
 ['supplier','quoteDate','quoteProof','notes'].forEach(n=>document.getElementById(n).addEventListener('change',e=>set(key(n),e.target.value)));
-setStyle('04');
+setStyle('01');
 </script></body></html>
