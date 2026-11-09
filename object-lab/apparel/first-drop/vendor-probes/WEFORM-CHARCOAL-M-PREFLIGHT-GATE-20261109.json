@@ -1,0 +1,58 @@
+{
+  "object_lab": "01 SHADOW UNIFORM",
+  "date_utc": "2026-11-09T11:26:54.605Z",
+  "evidence_kind": "real retailer configurator browser DOM; not quote, upload, sample, order, or owner approved product master",
+  "supplier": "WEFORM",
+  "sku_url": "https://oasisent1.cafe24.com/product/detail.html?product_no=10462",
+  "test_configuration": {
+    "blank": "BECANVAS pigment tee",
+    "color": "차콜",
+    "size": "M (test only, not owner-approved size)",
+    "quantity": 1,
+    "print": "빠른 인쇄 (DTF)",
+    "supplemental_selection": "왼가슴 (+₩2,000원)",
+    "separate_required_seller_position_toggle": {
+      "selector": ".pos-chk-box[data-pos-id=\"1\"]",
+      "data_name": "왼가슴",
+      "data_price_krw": 2000,
+      "selected": false
+    }
+  },
+  "seller_current_state": {
+    "displayed_blank_krw": 15000,
+    "displayed_print_increment_krw": 0,
+    "displayed_product_total_krw": 15000,
+    "print_location_summary": "선택된 인쇄 위치가 없습니다.",
+    "meaning": "Ink surcharge is NOT applied; 15,000 is NOT an ink-inclusive selected option or total paid."
+  },
+  "verification": {
+    "color": true,
+    "size": true,
+    "dtf": true,
+    "supplementary_left_chest_option": true,
+    "position_card_price_discovered": true,
+    "position_card_selected": false,
+    "exact_82mm_logo_supplier_upload": false,
+    "supplier_preview": false,
+    "ink_inclusive_checkout_total": false,
+    "shipping_inclusive_checkout_total": false,
+    "master_approved": false,
+    "order": false,
+    "contact": false,
+    "pii": false
+  },
+  "source_art": {
+    "master": "assets/wordmark.svg",
+    "master_github_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+    "candidate": "object-lab/apparel/first-drop/01-SHADOW-CHEST-82MM-ORIGINAL-PATH-IVORY.svg",
+    "raster": "object-lab/production-studio/exports/01-shadow-uniform/SHADOW-UNIFORM-01-82mm-IVORY-600DPI.png on separate object-lab/print-production-studio-20261109 branch; vendor acceptance not verified"
+  },
+  "local_test": {
+    "browser": "Windows headless Chrome using Puppeteer",
+    "script": "object-lab/apparel/first-drop/vendor-probes/weform-position-dom-readonly.cjs",
+    "browser_result": "node --check completed; Puppeteer completed no page errors; structural gates 5/5 true",
+    "screenshot": "object-lab/apparel/first-drop/vendor-probes/WEFORM-CHARCOAL-M-DTF-NO-CHECKOUT.png"
+  },
+  "next_blocker": "Read-only vendor UI cannot yet apply LEFT-CHEST toggle and confirm printed all-in 1-unit payable; stop repeating this stalled UI action. Pivot to a supplier that permits a verified upload preview and delivered price without personal information, otherwise retain PENDING.",
+  "safety": "No cart, payment, shipping address, registration, external file upload or vendor communication."
+}
