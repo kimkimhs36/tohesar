@@ -96,3 +96,31 @@ Working sticker branch: `object-lab/sticker-001-proof-20261108`.
 
 **Only next priority**: exact product configurator and genuine pre-checkout price (1× *charcoal* chosen size, left-chest one 82mm original Ş ivory, VAT, delivery) with a seller-generated upload/preview where permitted. If WEFORM unavailable, use BODATEE or 11st identified BECANVAS charcoal, without repeating prior failed static page. Since browser interactivity is unavailable in chat and TEAM-BKIT remote is offline, **do not fake this gate or advance to order approval**. No supplier messages, external uploads, payment, personal-data use, or `main` mutation without owner consent.
 
+
+## 2026-11-09 / SHADOW SAMPLE LAB R03 — physical garment sizing + actual Chromium proof
+
+### Real material change, not another concept mock
+- Modified the **existing** `SAMPLE-LAB.html` rather than inventing a new site or redoing the brand master.
+- The initial tab now opens **01 SHADOW UNIFORM**, not 04. Added actual BODATEE supplier's six-size flat garment chart S–3XL to compare shoulder / half-chest / sleeve / body-length of **a personally measured favorite T-shirt**, not the user's body measurements. Blank/invalid self-measurements remain unknown; all deltas are marked **not purchase recommendations, stock or production certification**.
+- Added **WEFORM BECANVAS** supplier product link and ₩15,000 blank / ₩2,000 one-left-chest DTF / ₩3,000 normal delivery **published arithmetic = ₩20,000 only**, explicitly not a selected color/size checkout quote. At BODATEE, corrected a price conflict: its *specific SKU page* advertises **delivery free (plus region-specific extra)** while a *generic seller FAQ* mentions ₩5,000 base under 20 pcs. Shipping for one configured SKU therefore **UNCONFIRMED**; do NOT quote old ₩21,900 as certain.
+- Fixed a broken hero PNG reference by pointing it at the **existing SVG**, and fixed a nonexistent 04 techpack PDF link by pointing it to the actual 04 technical JSON. Added already-created **A4 82mm actual-size PDF proof** link and product-specific sample acceptance gates (sample delivery; exact original Ş; heat press marking on pigment dye; surface touch; pre/post wash, photography).
+- Source of truth record for the vendor conflict: `vendors/01-SHADOW-REAL-ONE-PIECE-PRICE-ROUTES-20261109.md`. 04 OFFSET SHELL independent pattern construction untouched; sticker PR #35 untouched; no main/prod changes.
+
+### Reproducible tests with actual observable receipts
+- Static/DOM regressions: `node object-lab/apparel/first-drop/verify_sample_lab_r03.cjs`.
+- **Actual Playwright Chromium desktop/mobile**: `node object-lab/apparel/first-drop/verify_sample_lab_browser_r03.cjs`, automatically exercised on GitHub Actions; **real source SVG loads**; 01 default; size M vs owned tee gives shoulder +4cm/chest +3cm/length +2cm/sleeve +1cm; local persistence survives reload; 04 independent tab still works; no JS errors.
+- A real mobile overflow bug was caught: CSS grid min-content caused a **461px page on 390px device** and original test falsely compared innerWidth (which expanded). Fixed CSS min-width of grid children and updated test to compare actual Playwright **390px device viewport**. Verified **scrollWidth = 390px** with no overflow. Desktop 1440px passed.
+- GitHub Actions successful browser+unit run: https://github.com/kimkimhs36/tohesar/actions/runs/42580332858 .
+- Real persisted Chromium screenshots (NOT generated visual mockups):
+  - `exports/01-shadow-uniform/sample-lab-browser-proof-r03/SHADOW-R03-DESKTOP-1440.png`
+  - `exports/01-shadow-uniform/sample-lab-browser-proof-r03/SHADOW-R03-MOBILE-390.png`
+  - `exports/01-shadow-uniform/sample-lab-browser-proof-r03/BROWSER-R03-QC.json`
+- Browser screenshot save also solved an actual CI race: pinned ubuntu-24.04 for Playwright 1.55 compatibility (ubuntu-latest had switched to ubuntu-26.04); added CI serialisation and safe GitHub rebase before pushing, with no forced overwrite.
+- Authentic wordmark untouched; SVG/DPI/PNG preproduction original proofs from prior run intact.
+
+### Next SINGLE physical blocker
+**Obtain one actually configured and verified vendor proof, not another UI/review app.**
+1. On WEFORM's verified product page https://oasisent1.cafe24.com/product/%EB%B9%84%EC%BA%94%EB%B2%84%EC%8A%A4-%ED%94%BC%EA%B7%B8%EB%A8%BC%ED%8A%B8-%EB%B0%98%ED%8C%94-%ED%8B%B0%EC%85%94%EC%B8%A0-32%EC%88%98-2%ED%95%A9/10462/category/95/display/1/ confirm selected **washed charcoal + measured size + 1 quantity**; 82mm ivory **original Ş PNG** at exact dimensions; single left-chest DTF fee; actual shipping + VAT + total **in seller system**.
+2. If WEFORM has SOLD OUT or no suitable color/print area, pivot to BODATEE SKU 1000000842 or another 1-piece matched-pigment seller, without presenting generic prices as final checkout.
+3. Given browser interaction unavailable in chat, TEAM-BKIT Remote Desktop is **OFFLINE**; supplier chooser/PNG upload/payment was NOT executed and cannot be certified by CI. Never contact sellers/upload source externally, provide PII, order or pay without explicit owner approval. Garment final master remains unapproved; no physical sample received/worn/washed.
+
