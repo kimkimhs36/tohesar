@@ -1,0 +1,44 @@
+{
+  "project": "TOHESAR OBJECT LAB / SHADOW UNIFORM 01",
+  "createdAtKst": "2026-11-09",
+  "analysis": "Source-locked vector 82mm DTF thin-feature scan; geometric cross-sections NOT vendor print acceptance",
+  "originalSource": "assets/wordmark.svg",
+  "originalBlobSha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "artworkSource": "object-lab/apparel/first-drop/01-SHADOW-CHEST-82MM-ORIGINAL-PATH-IVORY.svg",
+  "artworkBlobSha1": "c4160648feb1d74d4b2af663b8755984a2ac77fa",
+  "originalPathEqual": true,
+  "vendorSpecificTest": false,
+  "referenceGuideline": "https://help.housedtf.com/portal/en/kb/articles/artwork-guidelines-18-9-2024",
+  "referenceThresholdNotWeformGuarantee": true,
+  "thresholdInterpretation": "0.5 mm is cited from an independent DTF supplier; tiny contour tapers can count as narrow sections and are not automatically detached, unsupported thin strokes",
+  "outcome": "HOLD_FOR_PHYSICAL_DTF_PROOF_AND_VENDOR_REVIEW_NOT_A_PASS_OR_FAIL",
+  "sampleRequired": true,
+  "scanlineSampling": "Half-unit line scans in original SVG viewBox, even-odd compound path fill",
+  "sourceContours": 8,
+  "sourceEdges": 979,
+  "physicalCanvasMm": [
+    82,
+    18.854824
+  ],
+  "inkBoundsMm": {
+    "width": 81.556,
+    "height": 18.485
+  },
+  "referenceThinLimitMm": 0.5,
+  "scanlineX": {
+    "inkAreaMm2": 416.792,
+    "narrowSliceAreaMm2": 4.951,
+    "narrowSliceAreaPct": 1.188,
+    "narrowCrossSections": 306,
+    "allCrossSections": 2458,
+    "minimumObservedSectionMm": 0.037
+  },
+  "scanlineY": {
+    "inkAreaMm2": 416.792,
+    "narrowSliceAreaMm2": 14.549,
+    "narrowSliceAreaPct": 3.491,
+    "narrowCrossSections": 900,
+    "allCrossSections": 2012,
+    "minimumObservedSectionMm": 0.037
+  }
+}
