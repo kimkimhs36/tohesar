@@ -1,0 +1,40 @@
+{
+  "product": "05 NIGHT SHIFT ZIP",
+  "sourceGitBlob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "logo_exact_path": true,
+  "logo_width_mm": 70,
+  "logo_height_mm": 16.095581605049595,
+  "png_size": [
+    1654,
+    381
+  ],
+  "png_dpi": [
+    599.9988,
+    599.9988
+  ],
+  "png_sha256": "38f4f815fbd3e6754e7d57b6d7485d0d795b301e536a420a725fce70d9d3d2f6",
+  "artifacts": [
+    {
+      "side": "FRONT",
+      "svg": "05-FRONT-DESIGN-UNAPPROVED.svg",
+      "raster": "05-FRONT-DESIGN-UNAPPROVED.png",
+      "original_path_count": 1,
+      "sha256": "f9dfe01865233bd684e2d0b0d7502d08b873609ebadd4c9708e7ca042604ee8f"
+    },
+    {
+      "side": "BACK",
+      "svg": "05-BACK-DESIGN-UNAPPROVED.svg",
+      "raster": "05-BACK-DESIGN-UNAPPROVED.png",
+      "original_path_count": 0,
+      "sha256": "5d4fdd0be6ae8ced3ccafe344810797d03e8ec0ece563180ae623ef51a85fea3"
+    }
+  ],
+  "seller": "O-SEAN AP-048",
+  "supplier_website": "https://o-sean.io/category/item/AP-048",
+  "supplier_physical_sample": false,
+  "seller_print_acceptance": false,
+  "retailer_one_piece_final_quote": false,
+  "owner_master_approval": false,
+  "prototype_delivered": false,
+  "graphic_is_schematic": true
+}
