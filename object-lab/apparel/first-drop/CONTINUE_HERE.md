@@ -124,3 +124,20 @@ Working sticker branch: `object-lab/sticker-001-proof-20261108`.
 2. If WEFORM has SOLD OUT or no suitable color/print area, pivot to BODATEE SKU 1000000842 or another 1-piece matched-pigment seller, without presenting generic prices as final checkout.
 3. Given browser interaction unavailable in chat, TEAM-BKIT Remote Desktop is **OFFLINE**; supplier chooser/PNG upload/payment was NOT executed and cannot be certified by CI. Never contact sellers/upload source externally, provide PII, order or pay without explicit owner approval. Garment final master remains unapproved; no physical sample received/worn/washed.
 
+
+## 2026-11-09 19:23 KST / REMOTE CHROME LIVE VENDOR 1× CHARCOAL ADVANCE
+
+**This run is actual seller configurator interaction and evidence, not more generic web/catalog research.**
+- Remote TEAM-BKIT connection confirmed ONLINE. Isolated real Google Chrome launched with Puppeteer. No existing browser account/session, user data, external messages or seller artwork uploads accessed.
+- **WEFORM**: actual live product #10462 selected `차콜 (2226)` + test size `M (2244)`, resulting shirt subtotal 15,000 KRW. Chose actual DTF option. The print-location UI remained blank and `선택된 인쇄 위치가 없습니다` persisted; its separate native option still lists left-chest +2,000 KRW, but it did not register. Conditional 20,000 arithmetic is **NOT final usable quote**. In that browser, no print-position proof or 82mm upload acceptance. Stop retrying same broken UI.
+- **BODATEE**: SKU 1000000842 color swatch `차콜` selected in real color/quantity pane. Input `data-size=M,data-optno=47433`, test quantity 1, **actual dynamically calculated seller subtotal 16,900 KRW for 1 shirt**, print/packaging 0, not shipping. Size M just a test, **not a user choice**. Print + VAT/delivery total, actual stock, 82mm original upload, seller final proof **UNKNOWN**. Seller 2XL/3XL +3,500 KRW, differing from WEFORM's +3,300 KRW.
+- Ohprintme Printstar detail opened as tertiary fallback, but it isn't a verified washed-charcoal substitute.
+- **NEW preserved screenshot evidence on this GitHub feature branch**:
+  - `vendors/real-browser-proof-20261109/BODATEE-CHARCOAL-M-ONEPIECE-16900.png` (real seller UI, not illustration; blob `cabdeffea2bcdfa7a772900144abe8c94422e9ad`)
+  - `vendors/real-browser-proof-20261109/WEFORM-CHARCOAL-M-DTF-POSITION-PENDING.png` (real active DTF UI showing empty position; blob `bd42facb274566cd6ace37655eb52ed6047ea4ca`)
+  - Written source-selector evidence `vendors/SHADOW01-REAL-BROWSER-SELECTOR-20261109-KST.md`.
+  - More raw JSON and original screenshots/scripts remain on user's **local remote computer** at `C:\Users\kimki\Documents\TOHESAR-FIRST-DROP-ATELIER\07_VENDOR_REAL_ORDER_GATE\` (not committed unless listed above).
+- No original artwork/path `assets/wordmark.svg`, SVG/600DPI candidate, 04 construction, sticker PR #35, `main` or production deploy was modified. No order, payments, addresses, contacts or external upload executed.
+
+**ONE NEXT BLOCKER**: find a seller that can actually accept a **single washed charcoal pigment blank + 82mm unaltered ivory wordmark at correct scale**, return a **real ink-inclusive VAT+shipping precheckout total** and a preview that preserves Ş. BODATEE is current active pivot; its print options may require account/after-order artwork proof. Do not ask for purchase approval without proven total. If interactive supplier cannot provide no-PII estimate, state and pivot rather than endlessly re-testing UI.
+
