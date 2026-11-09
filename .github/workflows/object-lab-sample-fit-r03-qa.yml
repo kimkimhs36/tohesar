@@ -1,0 +1,23 @@
+name: OBJECT LAB / Apparel sample R03 actual-fit regression
+on:
+  push:
+    branches:
+      - object-lab/apparel-first-drop-r02-20261109
+    paths:
+      - .github/workflows/object-lab-sample-fit-r03-qa.yml
+      - object-lab/apparel/first-drop/SAMPLE-LAB.html
+      - object-lab/apparel/first-drop/verify_sample_lab_r03.cjs
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sample-fit-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify original-source blank sizing 01-first UI and no false release claims
+        run: node object-lab/apparel/first-drop/verify_sample_lab_r03.cjs
