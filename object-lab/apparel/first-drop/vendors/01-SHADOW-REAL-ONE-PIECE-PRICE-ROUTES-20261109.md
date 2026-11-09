@@ -11,7 +11,7 @@ Prioritize **WEFORM × BECANVAS 32s double-ply pigment shirt** as the conditiona
 - Manufacturer independently lists **BECANVAS 32s 2ply pigment charcoal** product: https://becanvas.co.kr/shop_view/?idx=254 . Brand's ₩15,000 VAT-included minimum recommended resale price is NOT seller checkout, and does not prove WEFORM has charcoal in stock.
 
 ### Route B — BODATEE, real charcoal option and garment measurements
-- Exact SKU https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842 ; BECANVAS 32수 2합 피그먼트 오버핏. Public color swatches show **차콜** explicitly among six color choices. Published **1~5 pcs ₩16,900/pc**, **standard shipping ₩5,000**; seller FAQ says retail prices include VAT. **₩21,900 shirt + shipping only (no printing)**. Public product supports one-piece price tier, while specific stock/print configuration remains unverified.
+- Exact SKU https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842 ; BECANVAS 32수 2합 피그먼트 오버핏. Public color swatches show **차콜** explicitly among six color choices. Published **1~5 pcs ₩16,900/pc**. **Shipping source conflict**: the *specific product page* currently displays **배송정보 무료 지역별 추가배송**, whereas seller's *general delivery FAQ* states **₩5,000 base delivery** below 20 items; the exact 1-piece checkout delivery fee is **UNVERIFIED**. ₩16,900 is the public garment price **before print**, and ₩21,900 is only a conditional older-FAQ sum, **NOT an accepted checkout**. Public product supports one-piece price tier, while specific stock/print configuration remains unverified.
 - Product material stated by seller: pigment dyed, **100% cotton 275 gsm**, S–3XL. Allowed print types: screen printing, embroidery, transfer, flock. Exact small one-color ivory original mark printing price UNKNOWN.
 - Seller's published flat measurements (cm; shoulder / half-chest / sleeve / body length):
   - S: 52 / 55 / 21 / 68.5
@@ -30,7 +30,7 @@ Prioritize **WEFORM × BECANVAS 32s double-ply pigment shirt** as the conditiona
 | Retailer | Base garment | Known left-chest print | Standard shipping | Public component result | Actual selected-SKU payable |
 | --- | ---: | --- | ---: | --- | --- |
 | WEFORM | ₩15,000 | DTF ₩2,000 | ₩3,000 | **₩20,000 conditional illustrated sum** | UNKNOWN: option inventory/SOLD OUT, upload and tax |
-| BODATEE | ₩16,900 | Fee UNKNOWN | ₩5,000 | **₩21,900 before ink** (advertised VAT-inclusive retail) | UNKNOWN: member-only final order |
+| BODATEE | ₩16,900 | Fee UNKNOWN | **product says free; generic FAQ ₩5,000** | **No reliable one-piece delivered subtotal** | UNKNOWN: member-only final order |
 | Sendicode | ₩15,000 | Fee UNKNOWN | ₩3,500 | **₩18,500 before ink** | UNKNOWN: SOLD OUT ambiguity |
 
 ## Real art, QA, approval
@@ -41,3 +41,6 @@ Prioritize **WEFORM × BECANVAS 32s double-ply pigment shirt** as the conditiona
 
 ## Impact relative to last run
 Added a public **named ₩2,000 single chest print option**, a vendor with an advertised ₩20,000 component sum (not a checkout), a confirmed BODATEE charcoal color presentation and complete S–3XL garment size chart, plus a physical full-size A4 original-path print-scale proof. This is not the previous SOLD OUT warning or another blank-price repetition.
+
+### 2026-11-09 independent shipping conflict check (latest override)
+BODATEE SKU 1000000842 product result explicitly labels 배송정보 **무료 지역별 추가배송**: https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842&mtn=20%5E%7C%5E%ED%8A%B8%EB%9E%9C%EB%94%94%ED%95%9C+%EC%98%A4%EB%B2%84%ED%95%8F+%EC%B6%94%EC%B2%9C%5E%7C%5Ey . Seller's generic shipping policy result says 기본배송료 5,000원, free from 20 pieces: https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000412 . Product-specific selection may override generic FAQ; cannot conclude until checkout. The sample lab was corrected to show both rather than asserting ₩21,900 payable. This correction supersedes previous unqualified 5,000 KRW mentions in older records.
