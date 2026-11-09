@@ -23,7 +23,7 @@ jobs:
       - name: Verify original-source blank sizing 01-first UI and no false release claims
         run: node object-lab/apparel/first-drop/verify_sample_lab_r03.cjs
   real-browser-preview:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: write
