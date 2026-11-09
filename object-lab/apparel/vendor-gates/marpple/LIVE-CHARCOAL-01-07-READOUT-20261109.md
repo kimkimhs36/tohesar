@@ -22,7 +22,7 @@
 
 The vendor's built-in tutorial popup **“이미지 업로드”** covered the color selector. Clicking the selectbox while the overlay was open failed and left the initial default colors appearing sold out (01 khaki; 07 sand beige). After closing the visible onboarding overlay and selecting **charcoal** in the actual color dropdown, all six sizes became enabled on BOTH products. **Do not conclude all stock is unavailable from the default-color state.**
 
-Saved on TEAM-BKIT at `C:\\Users\\kimki\\Documents\\TOHESAR-FIRST-DROP-ATELIER\\07_VENDOR_REAL_ORDER_GATE\\`:
+Saved on TEAM-BKIT at `%USERPROFILE%\Documents\\TOHESAR-FIRST-DROP-ATELIER\\07_VENDOR_REAL_ORDER_GATE\\`:
 - `marpple-8178-onboarding-fix.cjs`, `MARPPLE-8178-CHARCOAL-AFTER-OVERLAY-NO-ORDER.json/.png`
 - `marpple-9337-onboarding-fix.cjs`, `MARPPLE-9337-CHARCOAL-AFTER-OVERLAY-NO-ORDER.json/.png`
 - Earlier failed selector probes (before overlay fix) are **superseded** by these successful charcoal-configurator results.
