@@ -1,0 +1,58 @@
+name: OBJECT LAB / SHADOW 01 real print PNG export
+
+on:
+  push:
+    branches:
+      - object-lab/print-production-studio-20261109
+    paths:
+      - .github/workflows/object-lab-shadow-print-exports.yml
+      - object-lab/production-studio/export_shadow_uniform_assets.py
+      - object-lab/production-studio/WORDMARK-WEB-SOURCE-REFERENCE.svg
+      - object-lab/production-studio/SHADOW-UNIFORM-01-CHEST-82mm-CANDIDATE.svg
+  pull_request:
+    paths:
+      - .github/workflows/object-lab-shadow-print-exports.yml
+      - object-lab/production-studio/export_shadow_uniform_assets.py
+      - object-lab/production-studio/WORDMARK-WEB-SOURCE-REFERENCE.svg
+      - object-lab/production-studio/SHADOW-UNIFORM-01-CHEST-82mm-CANDIDATE.svg
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export-and-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deterministic vector renderer
+        run: python -m pip install 'CairoSVG==2.8.2' 'Pillow>=11,<13'
+      - name: Verify Git originals and create transparent 300/600 DPI PNG
+        run: python object-lab/production-studio/export_shadow_uniform_assets.py
+      - name: Archive built PNGs, manifest and source for QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: shadow-uniform-01-source-locked-print-exports
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            object-lab/production-studio/exports/01-shadow-uniform/*.png
+            object-lab/production-studio/exports/01-shadow-uniform/MANIFEST.json
+            object-lab/production-studio/SHADOW-UNIFORM-01-CHEST-82mm-CANDIDATE.svg
+      - name: Preserve valid binary print candidates in feature branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/object-lab/print-production-studio-20261109'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add object-lab/production-studio/exports/01-shadow-uniform/
+          if ! git diff --cached --quiet; then
+            git commit -m "object-lab: store verified 82mm chest PNG exports [skip ci]"
+            git push
+          fi
