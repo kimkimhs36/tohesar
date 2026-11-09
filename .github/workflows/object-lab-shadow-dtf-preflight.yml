@@ -1,0 +1,51 @@
+name: OBJECT LAB / SHADOW 01 original-vector DTF preflight
+
+on:
+  push:
+    branches:
+      - object-lab/apparel-first-drop-r02-20261109
+    paths:
+      - .github/workflows/object-lab-shadow-dtf-preflight.yml
+      - object-lab/apparel/first-drop/verify_82mm_dtf_preflight.js
+      - object-lab/apparel/first-drop/01-SHADOW-CHEST-82MM-ORIGINAL-PATH-IVORY.svg
+      - object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-DTF-VECTOR-PREFLIGHT-20261109.json
+      - assets/wordmark.svg
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  geometry-not-manufacturing-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check the original SVG, 82 mm dimensions and DTF slice geometry
+        shell: bash
+        run: |
+          set -euo pipefail
+          node object-lab/apparel/first-drop/verify_82mm_dtf_preflight.js > "$RUNNER_TEMP/source-geometry-result.json"
+          cat "$RUNNER_TEMP/source-geometry-result.json"
+      - name: Verify against the preserved measured 0.5mm cross-section report
+        shell: bash
+        run: |
+          set -euo pipefail
+          node -e '
+            const fs=require("node:fs"),a=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/source-geometry-result.json","utf8"));
+            const b=JSON.parse(fs.readFileSync("object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-DTF-VECTOR-PREFLIGHT-20261109.json","utf8"));
+            if(a.sourceGitBlob!==b.originalBlobSha1||!a.originalPathUnchanged||a.printedSampleTested||b.vendorSpecificTest)throw Error("Source/approval guard mismatch");
+            for(const key of ["sourceContours","sourceEdges","inkBoundsMm","scanlineX","scanlineY"]){
+              if(JSON.stringify(a[key])!==JSON.stringify(b[key]))throw Error("Preflight measurement drift in "+key);
+            }
+            console.log("SOURCE-LOCKED DTF CROSS-SECTIONS VERIFIED; NO VENDOR PRINT CERTIFICATION");
+          '
+      - name: Archive measured QC evidence for owner review
+        uses: actions/upload-artifact@v4
+        with:
+          name: shadow-01-82mm-dtf-geometric-qc-unapproved
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-DTF-VECTOR-PREFLIGHT-20261109.json
