@@ -30,8 +30,14 @@
   "comparison": {
     "id": 9337,
     "name": "Pigment oversized sweatshirt / 400gsm",
-    "charcoalAllSizesSoldOut": true,
-    "displayedUnitPriceKRW": 26900
+    "charcoalAllSizesSoldOut": false,
+    "displayedUnitPriceKRW": 26900,
+    "initialSoldOutWasLoadingState": true,
+    "afterInventorySettledAllSixSizesEnabled": true,
+    "mSizeSelectionVerifiedInTwoIndependentRuns": true,
+    "cartButtonEnabledAfterMSelection": true,
+    "stockUiTransitionObserved": "Immediately after color click sizes show temporary sold out; after 0.4-1.8 s they become enabled; stable through 8 s in two independent browser runs",
+    "stockNeedsRecheckAtOrderTime": true
   },
   "printArtwork": {
     "physicalWidthMm": 82,
@@ -58,5 +64,6 @@
     "Single-color ivory legibility and printing method",
     "Printing charge including setup, VAT and shipping as payable quote",
     "Real post-production photograph and wash QC"
-  ]
+  ],
+  "verificationAddendum": "2026-11-09 repeat timeline browser QA: SKU 9337 charcoal initially false sold-out while options are loading; do NOT exclude this SKU as out of stock."
 }
