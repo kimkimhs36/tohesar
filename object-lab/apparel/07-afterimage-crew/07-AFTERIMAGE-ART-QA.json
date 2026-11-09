@@ -1,0 +1,26 @@
+{
+  "collection": "TOHEŞAR OBJECT LAB",
+  "product": "07 AFTERIMAGE CREW",
+  "source_path_sha256": "b7d36711e60d94465d0587e4a4e4100fba1217a2157865995717ca8c23b0d93d",
+  "art_svg_sha256": "b22e83fd22969a91aea3be31b3d8d1f52b401b1e8d67e569a9fe6d9a740733f4",
+  "art_width_mm": 82,
+  "art_height_mm": 31.2768,
+  "png_size": [
+    2500,
+    954
+  ],
+  "alpha_bbox": [
+    4,
+    4,
+    2491,
+    895
+  ],
+  "transparent": true,
+  "one_surface_print_candidate": true,
+  "vendor_color_choice": "charcoal",
+  "vendor_art_uploaded": false,
+  "vendor_art_approved": false,
+  "real_print_charge_verified": false,
+  "final_quote_verified": false,
+  "ordered": false
+}
