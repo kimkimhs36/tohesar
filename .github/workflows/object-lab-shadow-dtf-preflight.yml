@@ -13,7 +13,7 @@ on:
       - object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-A4-PRINT-AT-100PCT-UNAPPROVED.pdf
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   geometry-not-manufacturing-acceptance:
     runs-on: ubuntu-latest
@@ -84,3 +84,17 @@ jobs:
           path: |
             object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-DTF-VECTOR-PREFLIGHT-20261109.json
             ${{ runner.temp }}/shadow01-82mm-a4-actual-pdf-render.png
+      - name: Preserve actual PDFium-rendered original-vector preview in feature branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/object-lab/apparel-first-drop-r02-20261109'
+        shell: bash
+        run: |
+          set -euo pipefail
+          target=object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-A4-PDFIUM-RENDERED-PROOF-UNAPPROVED.png
+          cp "$RUNNER_TEMP/shadow01-82mm-a4-actual-pdf-render.png" "$target"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$target"
+          if ! git diff --cached --quiet; then
+            git commit -m "object-lab: preserve independently rendered actual 82mm PDF paper proof [skip ci]"
+            git push
+          fi
