@@ -69,3 +69,12 @@
 - QC record: `vendor-handoff/HANDOFF-QC-RESULT.json`.
 - This is a **preproduction owner's review packet**, not permission to upload third-party vendor or manufacture/order. Size selected, actual charcoal stock/choice, manufacturer's tagged fiber/origin, ink/printing method, positioning proof, print fee, VAT/one-piece all-in checkout **PENDING**. No supplier contact, external file share, order, payment or personal details.
 - Next action: vendor-editor real selection + preview and final delivered quote without personal information. Stop further source PNG regeneration or concept designs until a physical sample/order blocker has been resolved.
+
+
+## 2026-11-09 15:13 KST / DIRECT SELLER PAGE RECHECK — STOCK STATUS BLOCKER
+
+**Important qualification of prior supplier handoff:** The exact Sendicode BECANVAS 275gsm product page (https://sendicode.com/product/becanvas-%EB%B9%84%EC%BA%94%EB%B2%84%EC%8A%A4-%ED%94%BC%EA%B7%B8%EB%A8%BC%ED%8A%B8-32%EC%88%98-2%ED%95%A9-275gsm-%EB%B0%98%ED%8C%94/16416/) exposes selectors for color/size, one-piece minimum, 10cm print, and uploads, **BUT the page's raw public rendering simultaneously displays `SOLD OUT` adjacent to the purchase/cart controls**. This may be a static template state or actual inventory unavailability. **DO NOT treat the route as orderable or available in charcoal** until live color/size option and cart are verified. The text-rendered page cannot show dynamic options or checkout. This is a **real purchase blocker** not just an omitted quote. Observed via direct seller page 2026-11-09.
+
+**New supplier-published production lead time:** printed orders are listed as **2–7 business days AFTER proof approval**; blank orders as **2–5 business days**. This is a published production/dispatch estimate, NOT a promised delivery date. Seller states final discounted payment is confirmed at checkout; public page currently shows 0 total before selection. Supplier's 2021-05-06 print guide is an image attachment, not text-extracted specifications, so do not infer print method, color matching, bleed, or file acceptance from it.
+
+**Disposition:** Keep the verified physical ZIP, source hash and original artwork untouched. Mark Sendicode as `candidate / inventory UNVERIFIED / checkout UNVERIFIED / possible SOLD OUT`. If options/cart cannot be confirmed, **pivot to another actual one-piece printer for the same charcoal garment**, not another identical public-page price lookup. Do not approve or place any order.
