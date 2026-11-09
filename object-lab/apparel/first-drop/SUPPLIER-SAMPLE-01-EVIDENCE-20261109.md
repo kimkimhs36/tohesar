@@ -53,3 +53,19 @@
 - CI proof: https://github.com/kimkimhs36/tohesar/actions/runs/42553373736 — GitHub job rendered, checked original path, and committed binary file. Manifest: `exports/01-shadow-uniform/FRONT-PLACEMENT-MANIFEST.json`.
 - Vendor-requested asset pair is now physically available: (1) 82mm transparent 600DPI `SHADOW-UNIFORM-01-82mm-IVORY-600DPI.png` in `object-lab/print-production-studio-20261109`; (2) full-front placement reference PNG in this apparel R02 branch.
 - **External sharing NOT permitted before explicit owner approval.** Printed ink, exact shirt blank/size/color, manufacturer acceptance and final checkout total are still not confirmed. Do not restart artwork/mocks from scratch: use these real files.
+
+
+## 2026-11-09 / PRODUCT MATCH BREAKTHROUGH & REAL VENDOR BUNDLE (CI passed)
+**Actual matched manufacturer's CHARCOAL pigment blank** — BECANVAS 32수 2합 피그먼트 반팔티 (차콜): https://becanvas.co.kr/shop_view/254 . Official product exists with named charcoal color, public reference retail price 15,000 KRW *including VAT* (manufacturer's minimum recommended resale price, NOT a verified offer). Other vendor material specifications agree on 275 gsm, 100% cotton, 32s double-ply, S–3XL, relaxed/overfit construction: https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842 . (Some listings may disagree on origin; do not claim domestic production or origin until verified from actual sewn-in label.)
+
+**Specific one-piece customized print route**: https://sendicode.com/product/detail.html?product_no=16416 — base **15,000 KRW** published price, minimum quantity **1**, explicit `소형인쇄(10cm이하)` option (our original 82mm source vector qualifies dimensionally for this listed category), color+size selectors and upload **up to five files, 5 MB max each**. Sendicode official store delivery policy: https://sendicode.com/shopinfo/guide.html shows **3,500 KRW delivery for orders under 200,000 KRW**. Thus published 15,000 + 3,500 = 18,500 KRW is a **baseline subtotal excluding optional 82mm printing charges, any color/size surcharges, checkout/VAT adjustments and real selectable inventory**. This is NOT a final customer checkout or all-in quote; seller's actual charcoal selector and print acceptance have NOT been tested.
+
+**New actual owner-review handoff ZIP** from 2026-11-09:
+- `vendor-handoff/TOHESAR-SHADOW01-BECANVAS-CHARCOAL-INTAKE-UNAPPROVED.zip`
+- 123,431 bytes; SHA256 **`1defbb80115a6e0fe5633c7afcb77b7e6c1ee156f98379cb43a975ce9b639020`**; Git blob SHA1 `fecc5e1b8bae9571853182242d65861a8c87a19f`.
+- Contains **real 600DPI original-path 82mm transparent logo PNG**, **original 82mm SVG**, **existing actual 1900×2240px front placement reference PNG**, **one-piece supplier intake instruction text**, **source/provenance manifest**.
+- All PNGs independently checked for source SHA256, original SVG checked for exact Git blob and Ş path SHA256, 600DPI metadata verified, each upload file under 5 MB, actual ZIP CRC and round-trip payload compared.
+- GitHub Actions workflow and successful run: https://github.com/kimkimhs36/tohesar/actions/runs/42569623679 (all build, archive, and GitHub preservation steps succeeded).
+- QC record: `vendor-handoff/HANDOFF-QC-RESULT.json`.
+- This is a **preproduction owner's review packet**, not permission to upload third-party vendor or manufacture/order. Size selected, actual charcoal stock/choice, manufacturer's tagged fiber/origin, ink/printing method, positioning proof, print fee, VAT/one-piece all-in checkout **PENDING**. No supplier contact, external file share, order, payment or personal details.
+- Next action: vendor-editor real selection + preview and final delivered quote without personal information. Stop further source PNG regeneration or concept designs until a physical sample/order blocker has been resolved.
