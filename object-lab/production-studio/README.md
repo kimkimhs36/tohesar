@@ -58,3 +58,17 @@ PNG pHYs encodes rounded pixels-per-meter; slight rounding error is inherent. Th
 
 ## Files and verification
 All five objects are tracked in GitHub under `object-lab/production-studio/`. SHA values listed above are Git blob IDs, not SHA-256 file digests.
+
+
+## 2026-11-09 — 01 SHADOW UNIFORM real raster export CI verified
+- Source-locked deterministic script: `export_shadow_uniform_assets.py` (CairoSVG + Pillow). Rejects altered Git blob/path, non-original ivory, live text and changed physical dimensions.
+- GitHub Actions workflow: `.github/workflows/object-lab-shadow-print-exports.yml`.
+- Actual CI run success: https://github.com/kimkimhs36/tohesar/actions/runs/42545237967 (GitHub actions job export, binary artifact, and feature branch save all passed).
+- Actual created and committed **binary files** (not mockups):
+  - `exports/01-shadow-uniform/SHADOW-UNIFORM-01-82mm-IVORY-300DPI.png`: 969×223px, 300DPI, 22,397 bytes, SHA256 `bdb0e96737350f4715274acd25f24f3d711cb81d62606265c6e3ce6e4b01ccf7`
+  - `exports/01-shadow-uniform/SHADOW-UNIFORM-01-82mm-IVORY-600DPI.png`: 1937×445px, 600DPI, 46,533 bytes, SHA256 `cb41377e235346bd8786029e89edeb5567bcd61006a8226d0800184b9e3e847c`
+  - `exports/01-shadow-uniform/MANIFEST.json` contains versioned dimensions, source path SHA256, verified source Git SHA1, alpha and color QC and explicitly unapproved release state.
+- Artwork: ivory `#f8f2e7`, 82 × 18.854824mm, transparent. Logo geometry is source-identical; no recreated Ş. GitHub website mark identity with owner's garment-approved master is still **NOT verified**.
+- Still **NOT vendor-print-ready**: actual vendor import/print preview, selected blank color/size and one-item all-in checkout cost, shipping, placement approval, garment sample/fit/wash QC, owner order approval all pending.
+- Public observed starting prices remain UA 20s heavyweight oversized `₩26,500~` vs Comfort Colors washed relaxed `₩21,500~` on https://www.ohprint.me/apparel/store/tshirt-shortsleeves/overview ; not actual selected-options totals.
+- No order/payment/PII/external message; no site deployment or main merge.
