@@ -12,14 +12,14 @@
 ## New geometry check — what can and cannot be concluded
 Let `x` be the finished *seam-line* horizontal distance between the diagonal join's two side intersections, not the upper chest width or the cut-edge width. Let `Δy=395-270=125 mm` be the proposed side-height difference. **Only if** the seam-line is a straight segment on a flat, unstrained front and the two HPS measurements share a common horizontal reference, the seam-line length is `L=sqrt(x²+125²)` and angle to horizontal is `atan(125/x)`. A nonstraight curved join requires walking its actual curve, not this formula.
 
-| Hypothetical seam-line width x | Straight seam length L | Angle | Length over horizontal |
+| Hypothetical front seam-line width x | Straight seam length L | Angle | Length over horizontal |
 |---:|---:|---:|---:|
-| 1100 mm | 1107.08 mm | 6.48° | 7.08 mm |
-| 1210 mm | 1216.44 mm | 5.90° | 6.44 mm |
-| 1220 mm | 1226.39 mm | 5.85° | 6.39 mm |
-| 1250 mm | 1256.23 mm | 5.71° | 6.23 mm |
+| 550 mm | 564.03 mm | 12.80° | 14.03 mm |
+| 605 mm | 617.78 mm | 11.67° | 12.78 mm |
+| 610 mm | 622.68 mm | 11.58° | 12.68 mm |
+| 650 mm | 661.91 mm | 10.89° | 11.91 mm |
 
-**1220 mm is twice the 610 mm half-chest POM; it is NOT a measured seam-line width.** The diagonal crosses the torso below the chest POM line; the pattern's taper, seam intersection, curvature, and asymmetry can change `x`. No final length, angle, or seam placement is approved by this table. Do not add 10 mm seam allowances to the diagonal centerline length as a substitute for walking the actual offset cut edges.
+**610 mm is the garment's flat half-chest width, a plausible reference for one front panel, but NOT a measured width at the diagonal join.** The diagonal crosses the torso below the chest POM line; taper, seam intersection, curvature and asymmetry can change `x`. In particular, DO NOT double the half-chest width to 1220 mm: that is the full body circumference, not the width of one front diagonal seam. No final length, angle, or seam placement is approved by this table. Do not add 10 mm seam allowances to the diagonal centerline length as a substitute for walking the actual offset cut edges.
 
 ## Factory decision procedure — R02 first pattern-maker handoff
 1. Select and label a physical size block and washed fabric swatches first. R01 BLOCK 0 is a reference, **not a wearable S/M/L grading system**. Record garment fiber %, knit structure, GSM and before/after wash dimensions for both A and B fabrics; different shrinkage can distort the diagonal.
