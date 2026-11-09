@@ -1,0 +1,30 @@
+{
+  "archive_name": "TOHESAR-SHADOW01-BECANVAS-CHARCOAL-INTAKE-UNAPPROVED.zip",
+  "size_bytes": 123431,
+  "sha256": "1defbb80115a6e0fe5633c7afcb77b7e6c1ee156f98379cb43a975ce9b639020",
+  "files": [
+    {
+      "name": "01_LOGO_82mm_IVORY_TRANSPARENT_600DPI.png",
+      "sha256": "cb41377e235346bd8786029e89edeb5567bcd61006a8226d0800184b9e3e847c",
+      "bytes": 46533
+    },
+    {
+      "name": "02_LOGO_82mm_SOURCE_VECTOR.svg",
+      "sha256": "5ae46197b54a17329774aaa9dfa676475c52e279f7b1d475b1f4e249105e80d4",
+      "bytes": 7925
+    },
+    {
+      "name": "03_FRONT_CONCEPT_REFERENCE_NOT_MEASURED.png",
+      "sha256": "f9620398fb4ced6a6a45d7dab91b157382900980342961cdebca8fb3d87e091b",
+      "bytes": 89752
+    },
+    {
+      "name": "04_PRODUCTION_INTAKE_READ_ME_FIRST.txt",
+      "sha256": "26e15af175b29a680a0c7e9d4c26da1093fcaf23717fe7c0fc3c9c356809b58d",
+      "bytes": 2982
+    }
+  ],
+  "ready_for_owner_review": true,
+  "not_approved_for_external_vendor_upload": true,
+  "vendor_checkout_verified": false
+}
