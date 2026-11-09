@@ -1,0 +1,62 @@
+{
+  "report": "TOHESAR OBJECT LAB 01 SHADOW / Marpple live anonymous feasibility",
+  "sampleStatus": "not-approved not-ordered",
+  "observedAt": "2026-11-09T14:44:20.463Z",
+  "product": {
+    "supplier": "MARPPLE",
+    "brand": "Becanvas",
+    "name": "Pigment oversized T-shirt",
+    "id": 8178,
+    "url": "https://www.marpple.com/kr/product/detail?bp_id=8178",
+    "selectedColor": "charcoal",
+    "selectedSize": "M (test option only)",
+    "quantity": 1,
+    "displayedUnitPriceKRW": 15700,
+    "displayedBaseShippingKRW": 3000,
+    "prePrintShippingArithmeticKRW": 18700,
+    "quoteIsFinal": false,
+    "exactArtworkQuote": false,
+    "logoPlaced": false,
+    "cartButtonEnabled": true,
+    "availableSizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL\n+4,000",
+      "3XL\n+4,000"
+    ]
+  },
+  "comparison": {
+    "id": 9337,
+    "name": "Pigment oversized sweatshirt / 400gsm",
+    "charcoalAllSizesSoldOut": true,
+    "displayedUnitPriceKRW": 26900
+  },
+  "printArtwork": {
+    "physicalWidthMm": 82,
+    "pixelDimensions": [
+      2500,
+      575
+    ],
+    "alphaTransparent": true,
+    "sourcePathSHA256": "b7d36711e60d94465d0587e4a4e4100fba1217a2157865995717ca8c23b0d93d",
+    "officialLogoSourceSha256": "17d4ac8b0e3f13d8b4e76e5c335a9ee42a603136401d8fa81422b70ae5337d20",
+    "exportScript": "object-lab/apparel/01-shadow/vendor-export/export_marpple_01_shadow.py"
+  },
+  "security": {
+    "logoUploaded": false,
+    "cart": false,
+    "checkout": false,
+    "payment": false,
+    "contact": false,
+    "personalInfoUsed": false
+  },
+  "stillUnknown": [
+    "Actual 82mm chest placement acceptance",
+    "Artwork accepted after upload",
+    "Single-color ivory legibility and printing method",
+    "Printing charge including setup, VAT and shipping as payable quote",
+    "Real post-production photograph and wash QC"
+  ]
+}
