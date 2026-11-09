@@ -21,3 +21,27 @@
 1. In Korean product editor, check real charcoal/washed color availability and exact size/measurements, upload the 600 DPI PNG, set chest logo at 82 mm, capture vendor preview/acceptance and exact print region.
 2. Read item + ink/printing charge + VAT + shipping **all-in single unit total** from pre-checkout, without entering personal data.
 3. Ask the user one approval question only with those confirmed details. Never imply this document proves a checkout price.
+
+
+## 2026-11-09 / new real 1-piece published-price route — Brotherco TEST-ONE
+**New evidence, not a final checkout confirmation.** Source: https://brotherco.net/test-one (official, checked 2026-11-09).
+- Dedicated **one-piece sample** service, `프리미엄 티셔츠 + 단면 인쇄` price **₩20,000**, explicitly **VAT included** on this page.
+- Published shipping **₩4,000**, so **₩24,000 is the mathematical subtotal only for the base 1-piece package**, if no other options or fees are applied.
+- The page separately lists **색상변경 +₩5,000** and says **오버사이즈 별도추가금**. Whether washed charcoal is an option, whether the color surcharge applies, and the precise oversized charge remain **unverified**.
+- Production intake described as KakaoTalk conversation. **No message has been sent.** Brand original vector 82 mm + print-placement visual can be supplied only after explicit user permission for external messaging.
+- Different Brotherco page https://brotherco.net/vendingmachine advertises a **different 30,000 KRW, VAT-excluded 1-sided print package + 4,000 shipping**, with conflicting 20,000 and 30,000 headlines on that page itself. **Do not silently combine or substitute package quotes.**
+- **Suitability:** public low-volume pricing and already-generated original logo assets make this a genuinely useful route for 1-piece print-process testing. But unknown fabric make/weight, precise garment color, blank size chart, editor preview, final checkout, and full extras mean it is **NOT** an approved 01 SHADOW UNIFORM production base. Do not call it washed charcoal or a perfect match.
+- Existing known artwork is already generated and CI-verified (no need for new redrawing): GitHub branch `object-lab/print-production-studio-20261109`, paths `object-lab/production-studio/exports/01-shadow-uniform/SHADOW-UNIFORM-01-82mm-IVORY-600DPI.png` and `SHADOW-UNIFORM-01-CHEST-82mm-CANDIDATE.svg`; logo geometry preserved. Owner-approved **garment master equivalence still pending**.
+- Rejection rule: if test-one service has no suitable dark garment or cannot deliver exact 82 mm original ivory print, do not compromise the product vision just to secure this lower public starting total.
+
+### Comparison / decision state
+| Route | Published price | VAT | Shipping | Actual tested editor / print | Key unresolved need |
+| --- | --- | --- | --- | --- | --- |
+| Brotherco TEST-ONE | ₩20,000 for base 1-piece + 1 print | Included on TEST-ONE listing | ₩4,000 | **NO** | Actual color, oversized charge, fabric, printed logo QC, no-contact policy |
+| Ohprintme Comfort Colors washed relaxed | ₩21,500 starting | Verify final seller checkout | Verify final seller checkout | **NO** | Washed charcoal specifically offered? 82mm upload acceptance |
+| Ohprintme UA 20s heavyweight oversized | ₩26,500 starting | Verify final seller checkout | Verify final seller checkout | **NO** | Dark color, exact size and print total |
+| Ohprintme Printstar 14s relaxed | ₩18,900 advertised 1-unit white page | Verify final seller checkout | Verify final seller checkout | **NO** | Dark color, no washed finish proven |
+
+**Release gates:** `base-listing-verified: YES`, `published-shipping-known: YES (TEST-ONE)`, `selected-SKU-color-size-verified: NO`, `82mm preview: NO`, `approved-apparel-master: NO`, `actual delivered checkout: NO`, `owner authorization/order/payment/PII/contact: NO`, `sample received/worn/wash-tested/photo: NO`.
+
+**Next legitimate move:** verify a suitable dark/washed **actual garment option**, correct size and a vendor-generated preview/price with no personal data, or pivot from TEST-ONE to Ohprintme. Do not send any KakaoTalk messages without explicit prior approval. Never infer a full checkout from published package math.
