@@ -10,6 +10,7 @@ on:
       - object-lab/apparel/first-drop/01-SHADOW-CHEST-82MM-ORIGINAL-PATH-IVORY.svg
       - object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-DTF-VECTOR-PREFLIGHT-20261109.json
       - assets/wordmark.svg
+      - object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-A4-PRINT-AT-100PCT-UNAPPROVED.pdf
   workflow_dispatch:
 permissions:
   contents: read
@@ -41,6 +42,39 @@ jobs:
             }
             console.log("SOURCE-LOCKED DTF CROSS-SECTIONS VERIFIED; NO VENDOR PRINT CERTIFICATION");
           '
+      - name: Render A4 82mm source-locked PDF and check the actual pixel proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install 'pypdfium2>=4.30,<5' 'Pillow>=11,<13'
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import pypdfium2 as pdfium
+          from PIL import Image
+          source=Path('object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-A4-PRINT-AT-100PCT-UNAPPROVED.pdf')
+          doc=pdfium.PdfDocument(str(source))
+          assert len(doc)==1, 'Expected one A4 proof page'
+          page=doc[0]
+          w,h=page.get_size()
+          assert abs(w-595.27559)<.05 and abs(h-841.88976)<.05, (w,h)
+          image=page.render(scale=2).to_pil().convert('RGB')
+          pt=72/25.4*2
+          def px(xmm,ymm): return image.getpixel((round(xmm*pt),round(ymm*pt)))
+          dark=px(40,50)
+          assert all(15<=v<=90 for v in dark), ('Dark shirt reference block missing',dark)
+          # The original ivory graphic is rasterized by PDFium, not rebuilt from text.
+          box=image.crop((round(64*pt),round(68.5*pt),round(146*pt),round(88*pt)))
+          ivory=sum(1 for r,g,b in box.getdata() if r>215 and g>210 and b>195 and r-b>8)
+          assert ivory>500, ('Original ivory vector not visibly rendered',ivory)
+          # 100 mm in the PDF must paint a continuous black physical calibration line.
+          for mmx in (55,80,105,130,155):
+              assert max(px(mmx,181))<100, ('Calibration bar point not painted',mmx,px(mmx,181))
+          dest=Path(os.environ['RUNNER_TEMP'])/'shadow01-82mm-a4-actual-pdf-render.png'
+          image.save(dest)
+          print('A4 PDF RENDER PASS:',image.size,'charcoal',dark,'ivory pixel count',ivory,'image',dest)
+          print('This verifies technical PDF appearance, NOT ink/cloth/DTF manufacturer acceptance.')
+          PY
       - name: Archive measured QC evidence for owner review
         uses: actions/upload-artifact@v4
         with:
@@ -49,3 +83,4 @@ jobs:
           if-no-files-found: error
           path: |
             object-lab/apparel/first-drop/exports/01-shadow-uniform/SHADOW01-82MM-DTF-VECTOR-PREFLIGHT-20261109.json
+            ${{ runner.temp }}/shadow01-82mm-a4-actual-pdf-render.png
