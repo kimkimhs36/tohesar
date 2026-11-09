@@ -64,7 +64,9 @@ def verify_png(data: bytes, expected_sha: str, size: tuple[int, int], alpha: boo
             xdpi, ydpi = im.info.get("dpi", (0, 0))
             if abs(xdpi - 600) > 1 or abs(ydpi - 600) > 1:
                 raise ValueError("Physical 600 DPI metadata missing")
-        im.verify()
+    # Pillow requires verify() on a freshly opened, untouched handle.
+    with Image.open(io.BytesIO(data)) as checksum_image:
+        checksum_image.verify()
 
 
 def write_zip(path: Path, files: dict[str, bytes]):
