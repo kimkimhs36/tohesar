@@ -12,6 +12,20 @@ await sleep(700);await snap('dtf-before-position');
 const op=await p.$('#addproduct_option_id_10596_1');if(op){await p.select('#addproduct_option_id_10596_1','P0000PRO000A');out.actions.push('selected supplemental chest option');await sleep(900)}
 await snap('dtf-after-supplemental');
 const pos=await p.$('.pos-chk-box[data-pos-id="1"]');out.positionCardFound=!!pos;out.actions.push('inspected position card only; DID NOT activate or upload');
+out.configuration=await p.evaluate(()=>({
+ selectedColor:document.querySelector('#product_option_id1')?.selectedOptions[0]?.textContent.trim()||null,
+ selectedSize:document.querySelector('#product_option_id2')?.selectedOptions[0]?.textContent.trim()||null,
+ dtfActive:[...document.querySelectorAll('.opt-radio-box')].some(x=>x.classList.contains('active')&&x.innerText.includes('빠른 인쇄 (DTF)')),
+ supplementalChest:document.querySelector('#addproduct_option_id_10596_1')?.selectedOptions[0]?.textContent.trim()||null,
+ positionCardPrice:Number(document.querySelector('.pos-chk-box[data-pos-id="1"]')?.dataset.price||NaN),
+ positionCardSelected:document.querySelector('.pos-chk-box[data-pos-id="1"]')?.classList.contains('active')||false,
+ supplierDisplayedBase:document.querySelector('#tnt-base-price-display')?.innerText||null,
+ supplierDisplayedInk:document.querySelector('#tnt-add-price-display')?.innerText||null,
+ supplierDisplayedTotal:document.querySelector('#tnt-total-price-display')?.innerText||null,
+ emptyPrintSummary:(document.querySelector('.summary-tags')?.innerText||'').includes('선택된 인쇄 위치가 없습니다')
+}));
+out.gates={charcoal:out.configuration.selectedColor==='차콜',sizeM:out.configuration.selectedSize==='M',dtf:out.configuration.dtfActive,leftChestOption:/왼가슴/.test(out.configuration.supplementalChest||''),leftChestCard:out.positionCardFound&&out.configuration.positionCardPrice===2000,editorPreviewAccepted:false,uploaded:false,checkoutTotalConfirmed:false};
+out.gates.structurePass=Object.values(out.gates).slice(0,5).every(Boolean);
 await p.screenshot({path:path.join(__dirname,'WEFORM-PRINT-DOM-SAFE.png')});
 }catch(e){out.errors.push(String(e.stack||e).slice(0,1400))}
 fs.writeFileSync(path.join(__dirname,'WEFORM-PRINT-DOM-READONLY.json'),JSON.stringify(out,null,2));
