@@ -45,3 +45,11 @@
 **Release gates:** `base-listing-verified: YES`, `published-shipping-known: YES (TEST-ONE)`, `selected-SKU-color-size-verified: NO`, `82mm preview: NO`, `approved-apparel-master: NO`, `actual delivered checkout: NO`, `owner authorization/order/payment/PII/contact: NO`, `sample received/worn/wash-tested/photo: NO`.
 
 **Next legitimate move:** verify a suitable dark/washed **actual garment option**, correct size and a vendor-generated preview/price with no personal data, or pivot from TEST-ONE to Ohprintme. Do not send any KakaoTalk messages without explicit prior approval. Never infer a full checkout from published package math.
+
+
+## 2026-11-09 / vendor intake graphic is NOW an actual verified PNG
+- Existing garment flatlay `01-SHADOW-SOURCE-LOCKED-FRONT.svg` was rendered WITHOUT modifying its style/paths. The true logo path was checked against the authentic repository SVG; there are four SVG paths total in the flatlay, but exactly one matches the original wordmark path.
+- **Actual export**: `exports/01-shadow-uniform/SHADOW-01-VENDOR-FRONT-PLACEMENT-REFERENCE-R02.png` — **1900×2240 px**, **89,752 bytes**, SHA256 `f9620398fb4ced6a6a45d7dab91b157382900980342961cdebca8fb3d87e091b`. This is an illustration to show intended product composition, **not an actual garment photo or a physical placement ruler**.
+- CI proof: https://github.com/kimkimhs36/tohesar/actions/runs/42553373736 — GitHub job rendered, checked original path, and committed binary file. Manifest: `exports/01-shadow-uniform/FRONT-PLACEMENT-MANIFEST.json`.
+- Vendor-requested asset pair is now physically available: (1) 82mm transparent 600DPI `SHADOW-UNIFORM-01-82mm-IVORY-600DPI.png` in `object-lab/print-production-studio-20261109`; (2) full-front placement reference PNG in this apparel R02 branch.
+- **External sharing NOT permitted before explicit owner approval.** Printed ink, exact shirt blank/size/color, manufacturer acceptance and final checkout total are still not confirmed. Do not restart artwork/mocks from scratch: use these real files.
