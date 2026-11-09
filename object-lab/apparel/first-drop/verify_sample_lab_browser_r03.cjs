@@ -48,10 +48,17 @@ fs.mkdirSync(out,{recursive:true});
   await mobile.locator('#fitSize').selectOption('S');
   await mobile.locator('#fitChest').fill('55');
   await mobile.screenshot({path:path.join(out,'SHADOW-R03-MOBILE-390.png'),fullPage:true});
-  const overflow=await mobile.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,innerWidth:window.innerWidth}));
-  assert(overflow.scrollWidth<=overflow.innerWidth+4,'Unexpected mobile horizontal overflow: '+JSON.stringify(overflow));
+  const overflow=await mobile.evaluate(()=>({
+    scrollWidth:document.documentElement.scrollWidth,
+    clientWidth:document.documentElement.clientWidth,
+    innerWidth:window.innerWidth,
+    overflowCandidates:[...document.querySelectorAll('body *')].filter(el=>el.getBoundingClientRect().right>395).slice(0,12).map(el=>({tag:el.tagName,id:el.id||null,className:typeof el.className==='string'?el.className:'',right:Math.round(el.getBoundingClientRect().right)}))
+  }));
+  const actualViewportWidth=mobile.viewportSize().width;
+  assert.equal(actualViewportWidth,390);
+  assert(overflow.scrollWidth<=actualViewportWidth+4,'Actual iPhone 390px viewport overflow: '+JSON.stringify(overflow));
   assert.equal(failures.length,0,'Unexpected JavaScript errors: '+failures.join(' ; '));
-  const result={status:'PASS_BROWSER_FILE_RENDER',environment:'Playwright Chromium from actual GitHub source offline',testedAt:new Date().toISOString(),desktop:{viewport:[1440,1000],loadedExistingEngineeringSvg:imageLoaded,defaultRoute:'01',sourceBasedSizeChart:true,persistentOwnedShirtMeasurements:true,photo:'SHADOW-R03-DESKTOP-1440.png'},mobile:{viewport:[390,844],scrollWidth:overflow.scrollWidth,innerWidth:overflow.innerWidth,noHorizontalOverflow:true,photo:'SHADOW-R03-MOBILE-390.png'},outsideUploads:false,checkout:false,physicalGarment:false};
+  const result={status:'PASS_BROWSER_FILE_RENDER',environment:'Playwright Chromium from actual GitHub source offline',testedAt:new Date().toISOString(),desktop:{viewport:[1440,1000],loadedExistingEngineeringSvg:imageLoaded,defaultRoute:'01',sourceBasedSizeChart:true,persistentOwnedShirtMeasurements:true,photo:'SHADOW-R03-DESKTOP-1440.png'},mobile:{viewport:[390,844],scrollWidth:overflow.scrollWidth,viewportWidth:actualViewportWidth,reportedInnerWidth:overflow.innerWidth,noHorizontalOverflow:true,photo:'SHADOW-R03-MOBILE-390.png'},outsideUploads:false,checkout:false,physicalGarment:false};
   fs.writeFileSync(path.join(out,'BROWSER-R03-QC.json'),JSON.stringify(result,null,2)+'\n');
   console.log('PASS / real browser desktop+mobile sample-lab:',JSON.stringify(result));
  } finally { await browser.close(); }
