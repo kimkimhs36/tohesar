@@ -60,3 +60,16 @@ Seller page: https://m.bodatee.com/goods/goods_view.php?goodsNo=1000000842
 **Next meaningful action:** Within seller's non-committal interface, test BODATEE charcoal + an illustrative one-piece size and print options to get actual **ink+delivery charge** or switch to another credible 1-piece manufacturer with an actually functioning selector. If login or external logo upload is required, do not silently submit unapproved artwork or PII. Obtain user product-master approval and actual color/size/total evidence before ordering. Do not merge into `main` or use sticker's ₩50,000 budget for clothing.
 
 **Original identity:** repository `assets/wordmark.svg` source Git blob `e9b299f8d797625b3704103c08ea1aede5c5ea05`. Existing 600DPI and preproduction ZIP are on separate Object Lab branches; unchanged in this run.
+
+
+## SECOND CHROME PASS — BODATEE quantity 1, new browser screenshots preserved in GitHub
+Observed 2026-11-09 ~19:21 KST on TEAM-BKIT in an isolated browser session:
+- Clicked the **차콜** chip in the supplier's size+quantity panel; actual `input.cntInp[data-color="차콜"][data-size="M"]` existed with option ID **47433**, no displayed size surcharge. Entered **1** as an **illustrative test quantity only**.
+- The **seller's own live dynamic total** became: **총 상품금액 (장당 16,900원) 16,900원**, **총수량 1장**, **인쇄/포장 0원**, **총 합계금액 16,900원**. This is **blank-shirt subtotal before print and shipping**, NOT a delivered or printable checkout. No account, cart commit, personal address, artwork upload, external message, payment, or order.
+- BODATEE charcoal size S/M/L/XL use zero displayed size option surcharge; **2XL/3XL +₩3,500** in this seller, which differs from WEFORM's own +₩3,300.
+- Selected product base evidence survived real page interactions and is more informative than stale 30-piece headline ₩14,900. Seller may still reject inventory or change price at checkout.
+- Actual source screenshots now **committed in GitHub** (rather than only local PC):
+  - [BODATEE real 1× charcoal M calculated 16,900 KRW blank subtotal](../vendors/real-browser-proof-20261109/BODATEE-CHARCOAL-M-ONEPIECE-16900.png), binary Git blob SHA `cabdeffea2bcdfa7a772900144abe8c94422e9ad`.
+  - [WEFORM DTF print-location UI is empty even after choosing charcoal/M and print type](../vendors/real-browser-proof-20261109/WEFORM-CHARCOAL-M-DTF-POSITION-PENDING.png), Git blob SHA `bd42facb274566cd6ace37655eb52ed6047ea4ca`.
+- Screenshot/source-image creation does not prove actual garment texture, real sample delivery, print quality, usable logo upload or supplier print acceptance.
+- **Next verified blocker remains printed 1-piece final cost**: BODATEE dynamically priced blank 16,900 KRW + unresolved print + conflicting delivery guidance, together with supplier approval of the 82mm **unchanged Ş** artwork. Do not ask the owner to pay based on a blank-subtotal preview.
