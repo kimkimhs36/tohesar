@@ -1,0 +1,44 @@
+{
+  "project": "TOHEŞAR OBJECT LAB",
+  "auditDateKST": "2026-11-10",
+  "status": "saved automation v5 configuration verified, runtime behavior NOT yet verified",
+  "automation": {
+    "id": "6ae7f1d57354819194ace4338515dd45",
+    "title": "TOHEŞAR Object Lab",
+    "promptVersion": "v5",
+    "isEnabled": true,
+    "schedule": "BEGIN:VEVENT\nDTSTART:20261107T040456Z\nRRULE:FREQ=HOURLY\nEND:VEVENT",
+    "timingMode": "condition_watch",
+    "timezone": "Asia/Seoul",
+    "nextRunTime": null,
+    "environmentSelection": "inherited",
+    "environments": null,
+    "updatedAtUtc": "2026-11-09T16:31:11.527611+00:00",
+    "lastRecordedRunId": "eef93534-bfb8-832b-8407-b424dd270187",
+    "lastRecordedRunStartedUtc": "2026-11-09T13:10:49.058314Z",
+    "lastRecordedRunCompletedUtc": "2026-11-09T13:11:13.000892Z",
+    "lastRunTimeFieldUtc": "2026-11-09T15:16:13.268421+00:00"
+  },
+  "audit": {
+    "staticPasses": 9,
+    "staticTotal": 9,
+    "promptAndGitHubExactMatch": true,
+    "source": "object-lab/automation/TOHESAR_OBJECT_LAB_AUTOPILOT_V5_20261110.md",
+    "existingTaskUpdatedNotDuplicated": true,
+    "pr38ActualHeadAtPromptRecheck": "9c19820e8865ecc45b9c1c6fb49fcaeb437b3df2",
+    "pr38StackedOn": "object-lab/06-afterhours-longsleeve-20261109",
+    "pr38Draft": true,
+    "runtimeV5ExecutedAfterUpdate": false,
+    "modelNameKnown": false,
+    "thinkingEffortKnown": false,
+    "cloudExecutorIdentityKnown": false,
+    "confirmedNextRunTimeKnown": false
+  },
+  "interpretation": [
+    "9/9 means configuration/prompt assertions passed, NOT model speed, effort or future run execution.",
+    "Latest known completed run was older than v4/v5 prompt updates; cannot attribute its work to v5.",
+    "next_run_time is null and inherited environment has no resolved details, so PC-off automated execution cannot be independently guaranteed from the configuration.",
+    "Hourly RRULE and enabled state preserved. If next run fails or is absent, check scheduled task in ChatGPT and connectors/approval requirements.",
+    "Never hardcode this saved PR head as future state. Query live branch HEAD every execution."
+  ]
+}
