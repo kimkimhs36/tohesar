@@ -1,0 +1,18 @@
+{
+  "status": "PREPRODUCTION_VENDOR_PLACEMENT_REFERENCE_NOT_PRINT_MASTER",
+  "output": "SHADOW-01-VENDOR-FRONT-PLACEMENT-REFERENCE-R02.png",
+  "size_px": [
+    1900,
+    2240
+  ],
+  "logo_original_path_sha256": "b7d36711e60d94465d0587e4a4e4100fba1217a2157865995717ca8c23b0d93d",
+  "web_source_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "existing_flatlay_blob_sha1": "ea10bd3ee4c3056440637dd59554b051372775da",
+  "artwork_redrawn": false,
+  "actual_chest_position_mm_verified": false,
+  "supplier_blank_color_available_verified": false,
+  "vendor_upload_verified": false,
+  "vendor_approved": false,
+  "source_illustration_not_real_tee_photo": true,
+  "file_sha256": "f9620398fb4ced6a6a45d7dab91b157382900980342961cdebca8fb3d87e091b"
+}
