@@ -8,6 +8,12 @@ on:
       - 'object-lab/production-studio/export_sticker_centered_r03.py'
       - 'object-lab/production-studio/test_export_sticker_centered_r03.py'
       - '.github/workflows/sticker-001-centered-r03-production-proof.yml'
+  pull_request:
+    paths:
+      - 'object-lab/production-studio/STICKER-001-R03-*.svg'
+      - 'object-lab/production-studio/export_sticker_centered_r03.py'
+      - 'object-lab/production-studio/test_export_sticker_centered_r03.py'
+      - '.github/workflows/sticker-001-centered-r03-production-proof.yml'
   workflow_dispatch:
 permissions:
   contents: write
