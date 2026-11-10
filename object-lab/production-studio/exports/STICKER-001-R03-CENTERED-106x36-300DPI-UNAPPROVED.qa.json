@@ -27,9 +27,8 @@
     334
   ],
   "previous_min_rectangular_art_clearance_mm": "3.44580703",
-  "improved_min_rectangular_art_clearance_mm": "4.422903515",
-  "clearance_gain_mm": "0.977096485",
-  "after_hypothetical_3mm_trim_drift_min_mm": "1.422903515",
+  "improved_min_rectangular_art_clearance_mm": "4",
+  "after_hypothetical_3mm_trim_drift_min_mm": "1",
   "geometry": {
     "trim": {
       "artwork_canvas_mm": [
@@ -42,8 +41,10 @@
       ],
       "ink_path_exact_source": true,
       "art_box_y_mm": "4.422903515",
-      "nominal_art_box_clearance_mm": "4.422903515",
-      "clearance_after_hypothetical_3mm_shift_mm": "1.422903515"
+      "clearance_after_hypothetical_3mm_shift_mm": "1",
+      "horizontal_art_box_clearance_mm": "4",
+      "vertical_art_box_clearance_mm": "4.422903515",
+      "global_min_rectangular_art_clearance_mm": "4"
     },
     "bleed": {
       "artwork_canvas_mm": [
@@ -56,13 +57,20 @@
       ],
       "ink_path_exact_source": true,
       "art_box_y_mm": "7.422903515",
-      "nominal_art_box_clearance_mm": "4.422903515",
-      "clearance_after_hypothetical_3mm_shift_mm": "1.422903515"
+      "clearance_after_hypothetical_3mm_shift_mm": "1",
+      "horizontal_art_box_clearance_mm": "4",
+      "vertical_art_box_clearance_mm": "4.422903515",
+      "global_min_rectangular_art_clearance_mm": "4"
     }
   },
   "warning": "Calculated only. No physical cutter tolerance, safe-zone, rounded-corner or artwork method approved.",
   "actual_vendor_cutline_verified": false,
   "original_art_vendor_upload": false,
   "owner_release_approval": false,
-  "order_or_payment": false
+  "order_or_payment": false,
+  "vertical_rectangular_art_clearance_mm": "4.422903515",
+  "global_clearance_gain_mm": "0.55419297",
+  "vertical_clearance_gain_mm": "0.977096485",
+  "after_hypothetical_3mm_trim_drift_vertical_mm": "1.422903515",
+  "qa_correction": "Net minimum of the four rectangular artwork-box margins is limited by 4mm horizontal sides; vertical-only clearance is 4.422903515mm. Corrected after actual successful 7-test CI run 42751145828. PNG bytes unchanged."
 }
