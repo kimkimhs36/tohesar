@@ -1,0 +1,86 @@
+{
+  "schema": "TOHESAR-01-SHADOW-FIRST-SAMPLE-PLACEMENT-GATE-v1",
+  "date": "2026-11-11",
+  "status": "PROPOSED_INTERNAL_ONLY_NOT_VENDOR_APPROVED",
+  "product": {
+    "sku": 8178,
+    "shade": "washed charcoal",
+    "material": "cotton 100%, 275gsm (seller snapshot)",
+    "art": "original ivory #F8F2E7 TOHEŞAR Ş, visible width 82mm",
+    "source": "existing source-locked PNG; no new art or external upload"
+  },
+  "geometry": {
+    "datum": "center-front garment fold and bottom of front collar seam, garment laid flat without stretch",
+    "proposal": {
+      "visibleArtworkWidthMm": 82,
+      "visibleWidthToleranceMm": 1,
+      "centerlineDeviationMaxMm": 3,
+      "artworkTopBelowCollarSeamMm": 90,
+      "verticalToleranceMm": 5,
+      "rotationAbsoluteMaxDegrees": 2
+    },
+    "measurementInstructions": "Lay garment flat; mark center front from collar center and hem midpoint; measure artwork's visible outer bounds, not PNG canvas; measure vertical gap from front collar seam's lowest center point to topmost visible artwork; photo with ruler before washing.",
+    "supplierSizingSnapshotCm": {
+      "S": {
+        "length": 68.5,
+        "shoulder": 52,
+        "chestFlat": 55,
+        "sleeve": 21
+      },
+      "M": {
+        "length": 71,
+        "shoulder": 54,
+        "chestFlat": 58,
+        "sleeve": 21
+      }
+    },
+    "derived": {
+      "S_logoToFlatChestWidthPercent": 14.9091,
+      "M_logoToFlatChestWidthPercent": 14.1379,
+      "S_nominalSideMarginIfCenteredMm": 234,
+      "M_nominalSideMarginIfCenteredMm": 249,
+      "nominalChestDifferenceMm": 30,
+      "sellerDisclosedGarmentMeasurementToleranceCm": "1–3; exact direction/axis not established"
+    },
+    "warning": "Seller nominal flat chest width is not the printable front-panel width; margins are geometric reference only, not print-area approval."
+  },
+  "sampleAcceptance": [
+    {
+      "id": "G1",
+      "gate": "Supplier accepts artwork file, print zone and 82mm visible size",
+      "state": "UNVERIFIED"
+    },
+    {
+      "id": "G2",
+      "gate": "Actual image-art price, shipping and taxes quoted for chosen size",
+      "state": "UNVERIFIED"
+    },
+    {
+      "id": "G3",
+      "gate": "Owner chooses garment size based on a reference tee",
+      "state": "UNAPPROVED"
+    },
+    {
+      "id": "G4",
+      "gate": "Printer confirms process, ivory opacity/underbase, pretreatment and wash instructions",
+      "state": "UNVERIFIED"
+    },
+    {
+      "id": "G5",
+      "gate": "Physical one-piece sample inspected against placement proposal, seam interference, wash/handfeel",
+      "state": "NOT_RUN"
+    }
+  ],
+  "productionRules": [
+    "No vendor logo upload without owner permission",
+    "No order, checkout, payment or vendor messaging",
+    "Do not interpret generic-text editor price as actual image quote",
+    "If supplier rejects 90mm placement, record vendor-supported datum before changing artwork",
+    "No size approval based solely on S/M nominal chart"
+  ],
+  "evidence": [
+    "object-lab/apparel/vendor-gates/marpple/VERIFIED-SIZE-CHARTS-4SKU-20261110.json",
+    "object-lab/apparel/01-shadow/vendor-export/README-MARPPLE-01-SHADOW.md"
+  ],
+  "nextAction": "Obtain owner permission separately for original logo vendor upload; before that, use anonymous supplier print-area information to check whether 82mm centered front at proposed vertical position is allowed."
+}
