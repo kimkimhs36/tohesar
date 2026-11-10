@@ -63,7 +63,7 @@ def main():
  # Installing only the app preserves NVS, radio calibration, bootloader and partition table.
  run(a.port,'write_flash','--flash_mode','keep','--flash_freq','keep','--flash_size','keep',offset,file)
  run(a.port,'verify_flash',offset,file)
- print('Write and readback verification complete. Disconnect, remove GPIO0–GND, then power cycle manually.')
+ print('Write and readback verification complete. Disconnect, remove GPIO0-GND, then power cycle manually.')
 
 if __name__=='__main__':
  try:main()

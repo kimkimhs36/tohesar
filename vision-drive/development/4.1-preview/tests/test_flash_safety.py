@@ -1,6 +1,7 @@
 """Use fake flash files only; these tests never open a COM port."""
 import hashlib
 import importlib.util
+import io
 import json
 import sys
 from pathlib import Path
@@ -93,3 +94,18 @@ def test_restore_rejects_corrupt_backup_before_writing(monkeypatch, tmp_path):
     with pytest.raises(RuntimeError, match='Backup size, MAC or SHA-256'):
         flash.main()
     assert calls == []
+
+
+def test_verified_result_prints_on_cp949_windows_console(monkeypatch, tmp_path):
+    backup = make_backup(tmp_path)
+    monkeypatch.setattr(flash, 'mac', lambda port: 'aa:bb:cc:dd:ee:ff')
+    monkeypatch.setattr(flash, 'run', lambda port, *args: None)
+    monkeypatch.setattr(sys, 'argv', ['flash', 'restore', '--port', 'MOCK-NEVER-OPEN',
+                                     '--backup', str(backup), '--confirm', 'RESTORE'])
+    raw = io.BytesIO()
+    output = io.TextIOWrapper(raw, encoding='cp949')
+    with monkeypatch.context() as patch:
+        patch.setattr(sys, 'stdout', output)
+        flash.main()
+        output.flush()
+    assert b'Write and readback verification complete' in raw.getvalue()
