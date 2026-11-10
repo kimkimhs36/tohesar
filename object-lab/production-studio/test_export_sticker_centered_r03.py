@@ -46,7 +46,7 @@ class CenteredStickerR03Tests(unittest.TestCase):
             root=ET.fromstring(content)
             for kind in ("text","image","use","foreignObject"):
                 self.assertEqual(list(root.iter(r03.NS+kind)),[])
-            self.assertNotIn("http://",content)
+            self.assertNotIn("href=",content)
             self.assertIn("NOT APPROVED FOR PRINT",content)
 
     def test_actual_png_size_digest_and_no_approval(self):
