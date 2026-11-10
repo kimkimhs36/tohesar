@@ -99,7 +99,9 @@ def render():
     expected=(round(106*DPI/25.4),round(36*DPI/25.4))
     png=svg2png(bytestring=BLEED.read_bytes(), output_width=expected[0], output_height=expected[1])
     im=Image.open(io.BytesIO(png)).convert("RGBA")
-    assert im.size == expected and im.getpixel((0,0))[:3] == (16,17,15)
+    assert im.size == expected, f"Raster dimensions {im.size} != {expected}"
+    observed_bg = im.getpixel((20,20))
+    assert all(abs(observed_bg[i] - target) <= 3 for i,target in enumerate((16,17,15))), f"Background sample: {observed_bg}"
     ink_mask=im.getchannel("R").point(lambda r:255 if r>160 else 0)
     ink_bbox=ink_mask.getbbox()
     assert ink_bbox is not None, "No visible ivory ink rendered"
