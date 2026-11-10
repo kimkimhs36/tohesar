@@ -2,12 +2,19 @@
 """Read-only production artwork gate. Requires Pillow; never contacts vendors."""
 import argparse
 import json
+import hashlib
 from math import isfinite
 from PIL import Image
 
-def inspect(path, target_ink_mm=82.0):
+EXPECTED_SOURCE_BLOB_SHA1 = '899d2014d8c247fe7e7774b65b6371c6315f72f9'  # original committed PNG Git blob
+
+def inspect(path, target_ink_mm=82.0, expected_blob_sha1=EXPECTED_SOURCE_BLOB_SHA1):
     if not isfinite(target_ink_mm) or not 0 < target_ink_mm <= 300:
         raise ValueError("Ink width must be finite and within (0,300] mm")
+    with open(path, 'rb') as fp:
+        original_bytes = fp.read()
+    git_blob_sha1 = hashlib.sha1(b'blob ' + str(len(original_bytes)).encode('ascii') + b'\x00' + original_bytes).hexdigest()
+    source_integrity_pass = git_blob_sha1 == expected_blob_sha1
     with Image.open(path) as source:
         if source.format != "PNG" or source.mode != "RGBA":
             raise ValueError("Expected genuine RGBA PNG, not flattened RGB")
@@ -36,13 +43,16 @@ def inspect(path, target_ink_mm=82.0):
         "fullOpacityRgbColors": [list(x) for x in sorted(rgb)[:12]],
         "fullOpacityRgbDistinctCount": len(rgb),
         "geometryPass": geometry_pass,
+        "sourceGitBlobSha1": git_blob_sha1,
+        "expectedSourceGitBlobSha1": expected_blob_sha1,
+        "originalSourceIntegrityPass": source_integrity_pass,
         "opaqueIvoryPass": color_pass,
         "nearOpaquePixelCount": near_opaque_count,
         "nonIvoryNearOpaquePixelCount": non_ivory_opaque_count,
-        "localPreflightPass": geometry_pass and color_pass,
+        "localPreflightPass": geometry_pass and color_pass and source_integrity_pass,
         "vendorPrintApproved": False, "physicalPositionApproved": False,
         "printMethodVerified": False,
-        "warning": "Only local raster geometry. Alpha thresholds, print underbase, placement, vendor scaling and final quote are unverified."
+        "warning": "Source-locked local raster check. Alpha thresholds, print underbase, placement, vendor scaling and final quote are unverified."
     }
 
 def main():
