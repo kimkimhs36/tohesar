@@ -18,5 +18,22 @@
     "actualVendorEditor": "NOT_RUN",
     "physicalPrint": "NOT_RUN"
   },
-  "nextAction": "Check whether editor scales transparent PNG canvas or trims transparent border; if canvas-based, use 82.4286mm canvas to achieve nominal 82mm visible art; obtain vendor proof before approval."
+  "nextAction": "Prioritize G0 placement choice and G1 anonymous vendor print-zone feasibility. Do not delay the sample merely to calibrate 0.4264mm inside the proposed +/-1mm tolerance; verify actual editor scaling before any artwork upload.",
+  "acceptanceToleranceReconciliation": {
+    "source": "01-SHADOW-FIRST-SAMPLE-PLACEMENT-ACCEPTANCE-20261111.json: proposed visible width 82mm +/-1mm",
+    "nominalCanvas82mmVisibleWidthMm": 81.5736,
+    "absoluteErrorFromTargetMm": 0.4264,
+    "internalProposedWidthRangeMm": [
+      81,
+      83
+    ],
+    "withinProposedWidthTolerance": true,
+    "manufacturingDecision": "An editor canvas setting of 82.0mm yields 81.5736mm visible width under the stated alpha-bbox assumption, which ALREADY PASSES the proposed 82+/-1mm width gate. Do not block a sample or demand sub-millimetre adjustment solely on this 0.4264mm difference. If the editor reports visible-art width or trims alpha, set visible artwork to 82mm directly. If it measures full canvas, 82.428629mm is an optional exact nominal calibration only if the UI supports that precision.",
+    "caveats": [
+      "The internal +/-1mm tolerance is not vendor-approved and does not prove print feasibility.",
+      "Antialiased low-alpha edge pixels may not produce perceptible ink; physical print width requires real measurement.",
+      "G0 placement selection and G1 vendor print-zone approval remain BLOCKED/UNVERIFIED."
+    ],
+    "test": "PASS JavaScript: 82*2487/2500=81.5736, abs(82-81.5736)=0.4264 <=1"
+  }
 }
