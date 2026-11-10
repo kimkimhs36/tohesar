@@ -87,8 +87,10 @@ def verify_geometry() -> dict:
                          "trim_mm":["100","30"],
                          "ink_path_exact_source":True,
                          "art_box_y_mm":str(actual_y),
-                         "nominal_art_box_clearance_mm":str(CENTER_Y),
-                         "clearance_after_hypothetical_3mm_shift_mm":str(CENTER_Y-DRIFT_MM)}
+                         "horizontal_art_box_clearance_mm":str(left),
+                         "vertical_art_box_clearance_mm":str(CENTER_Y),
+                         "global_min_rectangular_art_clearance_mm":str(min(left,right,top,bottom)),
+                         "clearance_after_hypothetical_3mm_shift_mm":str(min(left,right,top,bottom)-DRIFT_MM)}
     assert CENTER_Y > OLD_BOTTOM_MM
     return result
 
@@ -129,9 +131,12 @@ def render():
         "png_bytes":OUTPUT.stat().st_size,
         "visible_ivory_bbox_approx_px":list(ink_bbox),
         "previous_min_rectangular_art_clearance_mm":str(OLD_BOTTOM_MM),
-        "improved_min_rectangular_art_clearance_mm":str(CENTER_Y),
-        "clearance_gain_mm":str(CENTER_Y-OLD_BOTTOM_MM),
-        "after_hypothetical_3mm_trim_drift_min_mm":str(CENTER_Y-DRIFT_MM),
+        "improved_min_rectangular_art_clearance_mm":str(min(D(4),CENTER_Y)),
+        "vertical_rectangular_art_clearance_mm":str(CENTER_Y),
+        "global_clearance_gain_mm":str(min(D(4),CENTER_Y)-OLD_BOTTOM_MM),
+        "vertical_clearance_gain_mm":str(CENTER_Y-OLD_BOTTOM_MM),
+        "after_hypothetical_3mm_trim_drift_min_mm":str(min(D(4),CENTER_Y)-DRIFT_MM),
+        "after_hypothetical_3mm_trim_drift_vertical_mm":str(CENTER_Y-DRIFT_MM),
         "geometry":checks,
         "warning":"Calculated only. No physical cutter tolerance, safe-zone, rounded-corner or artwork method approved.",
         "actual_vendor_cutline_verified":False,
