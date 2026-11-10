@@ -23,8 +23,12 @@ class CenteredStickerR03Tests(unittest.TestCase):
         r=r03.verify_geometry()
         self.assertEqual(r["trim"]["artwork_canvas_mm"],["100","30"])
         self.assertEqual(r["bleed"]["artwork_canvas_mm"],["106","36"])
-        self.assertEqual(r["trim"]["nominal_art_box_clearance_mm"],"4.422903515")
-        self.assertEqual(r["bleed"]["nominal_art_box_clearance_mm"],"4.422903515")
+        self.assertEqual(r["trim"]["vertical_art_box_clearance_mm"],"4.422903515")
+        self.assertEqual(r["trim"]["horizontal_art_box_clearance_mm"],"4")
+        self.assertEqual(r["trim"]["global_min_rectangular_art_clearance_mm"],"4")
+        self.assertEqual(r["bleed"]["vertical_art_box_clearance_mm"],"4.422903515")
+        self.assertEqual(r["bleed"]["global_min_rectangular_art_clearance_mm"],"4")
+        self.assertEqual(r["bleed"]["clearance_after_hypothetical_3mm_shift_mm"],"1")
 
     def test_center_is_maximin_vertical_margin(self):
         original_bottom=D("30")-D("5.4")-D("21.15419297")
@@ -38,6 +42,7 @@ class CenteredStickerR03Tests(unittest.TestCase):
         for displacement in [D("0"),D("1.5"),D("3")]:
             self.assertGreaterEqual(centered-displacement,0)
         self.assertGreater(centered-D("3"),D("1"))
+        self.assertEqual(min(D("4"),centered)-D("3"),D("1"))
         self.assertLess(centered-D("4.5"),0)
 
     def test_svg_has_no_live_text_cutline_or_vendor_links(self):
@@ -54,7 +59,11 @@ class CenteredStickerR03Tests(unittest.TestCase):
         self.assertEqual(report["png_dimensions_px"],[1252,425])
         self.assertEqual(report["source_git_blob_sha1"],r03.ORIGINAL_BLOB)
         self.assertEqual(report["png_sha256"],hashlib.sha256(r03.OUTPUT.read_bytes()).hexdigest())
-        self.assertEqual(report["improved_min_rectangular_art_clearance_mm"],"4.422903515")
+        self.assertEqual(report["improved_min_rectangular_art_clearance_mm"],"4")
+        self.assertEqual(report["vertical_rectangular_art_clearance_mm"],"4.422903515")
+        self.assertEqual(report["global_clearance_gain_mm"],"0.55419297")
+        self.assertEqual(report["vertical_clearance_gain_mm"],"0.977096485")
+        self.assertEqual(report["after_hypothetical_3mm_trim_drift_min_mm"],"1")
         for key in ("actual_vendor_cutline_verified","original_art_vendor_upload",
                     "owner_release_approval","order_or_payment"):
             self.assertIs(report[key],False)
