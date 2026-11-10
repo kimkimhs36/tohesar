@@ -42,9 +42,24 @@
       "nominalChestDifferenceMm": 30,
       "sellerDisclosedGarmentMeasurementToleranceCm": "1–3; exact direction/axis not established"
     },
-    "warning": "Seller nominal flat chest width is not the printable front-panel width; margins are geometric reference only, not print-area approval."
+    "warning": "Seller nominal flat chest width is not the printable front-panel width; margins are geometric reference only, not print-area approval.",
+    "placementDecision": {
+      "status": "BLOCKED_CONFLICTING_SOURCE_INSTRUCTIONS",
+      "reason": "README-MARPPLE-01-SHADOW.md requires left-chest placement; this JSON specifies centered-front datum. These are materially different placements and must not be treated as equivalent.",
+      "sourceA": "object-lab/apparel/01-shadow/vendor-export/README-MARPPLE-01-SHADOW.md (left-chest)",
+      "sourceB": "this JSON geometry datum (center-front)",
+      "approvedPlacement": null,
+      "allowedForVendorProof": false,
+      "action": "Select either centered-front or left-chest placement by explicit owner design decision; then define the matching horizontal measurement datum and verify seller print zone before logo upload.",
+      "caution": "The 90mm collar offset and +/-3mm centerline tolerance currently apply only to the centered-front proposal. They are NOT valid left-chest instructions."
+    }
   },
   "sampleAcceptance": [
+    {
+      "id": "G0",
+      "gate": "Owner resolves center-front versus left-chest contradiction and approves measurement datum",
+      "state": "BLOCKED"
+    },
     {
       "id": "G1",
       "gate": "Supplier accepts artwork file, print zone and 82mm visible size",
@@ -82,5 +97,5 @@
     "object-lab/apparel/vendor-gates/marpple/VERIFIED-SIZE-CHARTS-4SKU-20261110.json",
     "object-lab/apparel/01-shadow/vendor-export/README-MARPPLE-01-SHADOW.md"
   ],
-  "nextAction": "Obtain owner permission separately for original logo vendor upload; before that, use anonymous supplier print-area information to check whether 82mm centered front at proposed vertical position is allowed."
+  "nextAction": "Resolve G0 placement conflict before any supplier print proof. Then verify seller print zone anonymously; owner permission is separately required before logo upload."
 }
