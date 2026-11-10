@@ -1,0 +1,56 @@
+name: Sticker 001 R03 - centered print raster physical-size QA
+on:
+  push:
+    branches:
+      - object-lab/print-production-studio-20261109
+    paths:
+      - 'object-lab/production-studio/STICKER-001-R03-*.svg'
+      - 'object-lab/production-studio/export_sticker_centered_r03.py'
+      - 'object-lab/production-studio/test_export_sticker_centered_r03.py'
+      - '.github/workflows/sticker-001-centered-r03-production-proof.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sticker-001-centered-r03
+  cancel-in-progress: false
+jobs:
+  generate-and-audit:
+    if: github.repository == 'kimkimhs36/tohesar'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install fixed vector-rendering tools
+        run: python -m pip install 'Pillow==11.3.0' 'CairoSVG==2.8.2'
+      - name: Render real 300DPI PNG preserving original Ş path
+        run: python object-lab/production-studio/export_sticker_centered_r03.py
+      - name: Run 7 tests (path, symmetry, bleed, real raster and approval gates)
+        working-directory: object-lab/production-studio
+        run: python -m unittest -v test_export_sticker_centered_r03
+      - name: Archive successful artwork and quality report
+        uses: actions/upload-artifact@v4
+        with:
+          name: STICKER-001-R03-CENTERED-300DPI-INTERNAL-UNAPPROVED
+          path: |
+            object-lab/production-studio/exports/STICKER-001-R03-CENTERED-106x36-300DPI-UNAPPROVED.png
+            object-lab/production-studio/exports/STICKER-001-R03-CENTERED-106x36-300DPI-UNAPPROVED.qa.json
+          if-no-files-found: error
+      - name: Preserve output in feature branch without overwriting someone else's commits
+        if: github.event_name == 'push' && github.ref == 'refs/heads/object-lab/print-production-studio-20261109'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add object-lab/production-studio/exports/STICKER-001-R03-CENTERED-106x36-300DPI-UNAPPROVED.png
+          git add object-lab/production-studio/exports/STICKER-001-R03-CENTERED-106x36-300DPI-UNAPPROVED.qa.json
+          if git diff --cached --quiet; then
+            echo 'No change to image bytes, skipping commit.'
+          else
+            git commit -m 'build(object-lab sticker): save source-locked centered R03 PNG and evidence [skip ci]'
+            git push origin HEAD:"$GITHUB_REF_NAME"
+          fi
