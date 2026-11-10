@@ -1,0 +1,22 @@
+{
+  "schema": "TOHESAR-01-SHADOW-ALPHA-TO-PRINT-WIDTH-v1",
+  "date": "2026-11-11",
+  "status": "INTERNAL_GEOMETRY_ONLY_NOT_VENDOR_APPROVED",
+  "artwork": "existing original ivory TOHEŞAR transparent PNG, no modifications",
+  "sourceEvidence": "README-MARPPLE-01-SHADOW.md alpha bounding box [4,4,2491,569], PNG 2500x575",
+  "assumption": "Pillow-style alpha bounding box right boundary is exclusive; actual print software must measure artwork visible edge",
+  "canvasWidthPx": 2500,
+  "visibleAlphaWidthPx": 2487,
+  "targetVisibleWidthMm": 82,
+  "canvasWidthIfVisibleTargetMm": 82.428629,
+  "visibleWidthIfCanvasSetTo82mm": 81.5736,
+  "visibleShortfallIfCanvasSetTo82mm": 0.4264,
+  "nominalPpiAtVisible82mm": 770.363,
+  "gate": "Do not treat PNG canvas width as visible ink width. Verify image bounding-box behavior and vendor editor's displayed physical width; print location remains BLOCKED pending owner choice left-chest versus centered-front.",
+  "tests": {
+    "arithmetic": "PASS in JavaScript",
+    "actualVendorEditor": "NOT_RUN",
+    "physicalPrint": "NOT_RUN"
+  },
+  "nextAction": "Check whether editor scales transparent PNG canvas or trims transparent border; if canvas-based, use 82.4286mm canvas to achieve nominal 82mm visible art; obtain vendor proof before approval."
+}
