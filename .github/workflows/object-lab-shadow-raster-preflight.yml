@@ -1,0 +1,31 @@
+name: Object Lab 01 Shadow raster production preflight
+on:
+  push:
+    branches:
+      - object-lab/01-shadow-marpple-print-proof-20261109
+    paths:
+      - 'object-lab/apparel/01-shadow/vendor-export/shadow_print_raster_gate_r01.py'
+      - 'object-lab/apparel/01-shadow/vendor-export/test_shadow_print_raster_gate_r01.py'
+      - 'object-lab/apparel/01-shadow/vendor-export/01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png'
+      - '.github/workflows/object-lab-shadow-raster-preflight.yml'
+  workflow_dispatch:
+jobs:
+  digital-raster-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Unit regression tests
+        run: python -m unittest discover -s object-lab/apparel/01-shadow/vendor-export -p 'test_shadow_print_raster_gate_r01.py' -v
+      - name: Inspect actual existing 2500px PNG
+        run: |
+          python object-lab/apparel/01-shadow/vendor-export/shadow_print_raster_gate_r01.py \
+            object-lab/apparel/01-shadow/vendor-export/01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png \
+            --json-out shadow-raster-preflight-receipt.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shadow-raster-digital-preflight
+          path: shadow-raster-preflight-receipt.json
