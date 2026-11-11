@@ -15,9 +15,9 @@ ART_X, ART_Y = D("4"), D("5.4")
 ART_W, ART_H = D("92"), D("21.15419297")
 
 def audit(drift):
-    """Worst-case independent X/Y trim offset ±drift; positive drift in mm."""
+    """Worst-case independent X/Y trim offset 짹drift; positive drift in mm."""
     drift=D(str(drift))
-    if drift < 0 or not drift.is_finite():
+    if not drift.is_finite() or drift < 0:
         raise ValueError("drift must be finite and nonnegative")
     left=ART_X
     right=TRIM_W-(ART_X+ART_W)
