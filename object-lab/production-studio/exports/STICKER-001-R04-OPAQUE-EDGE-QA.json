@@ -1,0 +1,45 @@
+{
+  "status": "PASS_REAL_BINARY_EDGE_FIX_ONLY",
+  "input_name": "STICKER-001-R03-CENTERED-106x36-300DPI-UNAPPROVED.png",
+  "input_sha256": "da9043612fa1b2ecf901636683ff89c82e29f8c9a3357818b84de32c3d5201a4",
+  "output_name": "STICKER-001-R04-OPAQUE-EDGE-106x36-300DPI-UNAPPROVED.png",
+  "output_sha256": "f7ceb58fc3110571e622d7ed3e125c68561678622e52861a72557fe0be8f1a76",
+  "output_bytes": 29622,
+  "dimensions_pixels": [
+    1252,
+    425
+  ],
+  "nominal_canvas_mm": [
+    106,
+    36
+  ],
+  "nominal_dpi": 300,
+  "actual_png_reported_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "background": "#10110F",
+  "ivory_artwork_unchanged": true,
+  "left_right_outer_column_filled": true,
+  "analysis": {
+    "original": {
+      "pixel_count": 532100,
+      "nonopaque_edge_pixels": 850,
+      "alpha_extrema": [
+        178,
+        255
+      ],
+      "edge_columns_only": true
+    },
+    "new_nonopaque_pixels": 0,
+    "changed_pixels": 850,
+    "interior_pixels_exact": 531250,
+    "style_or_original_glyph_changed": false
+  },
+  "actual_vendor_cutline_verified": false,
+  "actual_physical_print_test": "NOT_RUN",
+  "vendor_upload": false,
+  "owner_release_approved": false,
+  "ordered": false,
+  "note": "Source R03 visual stays unchanged in 1250 inner columns; repaired exactly 425px each of left and right PNG border. Not evidence that original tiny antialias artifact caused a physical printing defect."
+}
