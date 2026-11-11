@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-11-11T02:47:04.218Z",
+  "ranAt": "2026-11-11T10:15:21.542Z",
   "test": "01 SHADOW placement review live Chrome",
   "desktop": [
     {
@@ -7,6 +7,16 @@
       "passed": true,
       "leftPct": 70.6897,
       "widthPct": 14.1379
+    },
+    {
+      "case": "real seller 380x480mm guide, conditional 29mm margin at 120mm",
+      "passed": true,
+      "marginMm": 29
+    },
+    {
+      "case": "140mm lateral offset warns about only 9mm remaining",
+      "passed": true,
+      "marginMm": 9
     },
     {
       "case": "center front and isolated 90mm datum",
@@ -28,6 +38,16 @@
       "passed": true,
       "leftPct": 70.6897,
       "widthPct": 14.1379
+    },
+    {
+      "case": "real seller 380x480mm guide, conditional 29mm margin at 120mm",
+      "passed": true,
+      "marginMm": 29
+    },
+    {
+      "case": "140mm lateral offset warns about only 9mm remaining",
+      "passed": true,
+      "marginMm": 9
     },
     {
       "case": "center front and isolated 90mm datum",

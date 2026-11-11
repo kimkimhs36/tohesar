@@ -12,6 +12,7 @@
 .placement-fabric{width:100%;height:185px;background:#303532;position:relative;border:2px solid #6f766a;overflow:hidden}
 .placement-fabric:before{content:'';position:absolute;left:50%;top:0;height:100%;border-left:1px dashed #949b8d}
 .placement-fabric:after{content:'GARMENT FLAT CHEST WIDTH — NOT PRINT ZONE';position:absolute;bottom:9px;left:10px;font:9px Arial,sans-serif;color:#9caba0;letter-spacing:.1em}
+.print-zone-overlay{position:absolute;top:23px;bottom:28px;transform:translateX(-50%);border-left:1.5px dashed #e8ad7f;border-right:1.5px dashed #e8ad7f;pointer-events:none;opacity:.9}
 .placement-graphic{position:absolute;top:64px;transform:translateX(-50%);height:auto}
 .placement-graphic svg{display:block;width:100%;height:auto}
 .placement-empty{position:absolute;top:40px;left:20px;font-size:12px;color:#d6d6cb}
@@ -29,8 +30,11 @@
  </div>
  <div><div class="placement-fabric" id="placementFabric" aria-label="판매자 가슴 단면 대비 82mm 로고 비율 개념도">
  <div id="placementEmpty" class="placement-empty">검토할 위치를 선택하면 원본 Ş 로고가 표시됩니다.</div>
+ <div id="printZoneOverlay" class="print-zone-overlay" aria-hidden="true"></div>
  <div id="placementGraphic" class="placement-graphic" hidden></div>
  </div><p class="placement-note" id="placementScale">가슴 단면 기반 단순 비율 개념도. 실제 의류 패턴·인쇄 가능 영역·목선 위치가 아닙니다.</p>
+ <p class="placement-note" id="printZoneEvidence"><strong>공급업체 공식 도식: 앞·뒤 인쇄 영역 가로 380mm × 세로 480mm.</strong> <a href="https://s3.marpple.co/files/u_3136606/2025/5/original/9ccf2ad4d9fc9d4ddf486b3df5fb12ad55cab5471.png" target="_blank" rel="noopener noreferrer">원본 공개 안내 이미지</a> · 2026-11-11 확인. 점선은 가로 방향에 한정한 비율이며, 상품 사이즈별 기준점/정확한 출력 좌표는 미승인입니다.</p>
+ <p class="placement-note" id="printZoneFit" aria-live="polite">후보 위치를 선택하면 공급업체 공개 인쇄 영역의 가로 폭에 대한 조건부 여유를 계산합니다. 제조 허용 여부를 뜻하지 않습니다.</p>
  <p class="placement-note">도식의 세로 위치는 임의 표시입니다. 기존 정중앙안의 목선부터 90mm 제안값을 왼쪽 가슴안에 자동 적용하지 않습니다. 로고 윤곽은 이 문서의 원본 Ş SVG를 복제하여 사용합니다.</p></div>
  </section><section class="details"><div class="detail-col"><div class="sectionlabel"><span>03 / Fit & condition</span><span>vendor chart, cm</span></div><h3 id="sizeTitle">테스트 색상 · 차콜</h3><div class="sizebar" id="sizes" aria-label="검사 당시 사이즈 상태"></div><table class="tabledetail"><tr><td>길이 / M 기준</td><td id="measureLength"></td></tr><tr><td>어깨 / M 기준</td><td id="measureShoulder"></td></tr><tr><td>가슴 너비 / M 기준</td><td id="measureChest"></td></tr><tr><td>소매 길이 / M 기준</td><td id="measureSleeve"></td></tr></table><p class="comment" id="sizeComment"></p></div><div class="detail-col"><div class="sectionlabel"><span>04 / Release checklist</span><span>Approval not granted</span></div><div class="gates"><div class="product-flag">오늘의 상태: 설계·견적 사전검증</div><ol><li>정식 로고 원본 파일 검증 <span class="badge-inline">내부 완료</span></li><li>인쇄 영역에 82mm 및 Ş 적용 <span class="badge-inline">미검증</span></li><li>업체 원본 인쇄비·인쇄방식 확인 <span class="badge-inline">미검증</span></li><li>샘플 사이즈·완성품 견적 승인 <span class="badge-inline">미승인</span></li><li>실제 주문·수령·착용·세탁 검수 <span class="badge-inline">미진행</span></li></ol></div><p class="comment">기본 텍스트 테스트는 브라우저에서만 수행됐습니다. 업체에 로고 업로드·연락·주문·결제·개인정보 전송은 하지 않았습니다.</p></div></section><footer class="endnote"><p><strong>TOHEŞAR — PRIVATE OBJECT LAB</strong><br>편집기 검증: 2026-11-09 UTC / 2026-11-10 KST. 가격·재고는 변동됩니다. 이 화면은 샘플 제작 결정을 지원하는 내부 연구 기록이며 주문·구매 화면이 아닙니다.</p><div class="actionlinks"><a id="artLink" target="_blank" rel="noopener noreferrer">현재 제품 원본 아트 보기</a><a href="https://github.com/kimkimhs36/tohesar/pull/38" target="_blank" rel="noopener noreferrer">검증 PR #38</a></div></footer></main><script>
 const products=[
@@ -81,7 +85,8 @@ function render(){
  el('stockLabel').textContent='MARPPLE #'+d.sku+' / TEST ONLY';
 }
 
-const placementReview={mode:null,offsetMm:100}; // Explicit candidate, never automatic owner approval.
+const placementReview={mode:null,offsetMm:100}; // Owner approval never inferred.
+const vendorPrintGuide={widthMm:380,heightMm:480,sha256:'56e380e68d20601860cd11b3d22044eea7a35dd661c41b3d0d6ae65dee44a59a',observedDate:'2026-11-11',source:'https://s3.marpple.co/files/u_3136606/2025/5/original/9ccf2ad4d9fc9d4ddf486b3df5fb12ad55cab5471.png'}; // Explicit candidate, never automatic owner approval.
 const originalPreview=document.querySelector('svg.brandmark').cloneNode(true);
 originalPreview.removeAttribute('class');originalPreview.setAttribute('aria-hidden','true');
 el('placementGraphic').appendChild(originalPreview);
@@ -101,7 +106,13 @@ function renderPlacement(d,chosen){
  // Front view: wearer's left is on the viewer's right of the center line.
  el('placementGraphic').style.left=(50+100*centerOffsetMm/chestWidthMm)+'%';
  el('placementGraphic').style.width=(100*inkWidthMm/chestWidthMm)+'%';
- el('placementScale').textContent=chosen+' 가슴 단면 '+chestWidthMm+' mm · 가시 로고 '+inkWidthMm+' mm · 너비 비율 '+(100*inkWidthMm/chestWidthMm).toFixed(2)+'% · 프린트 허용 영역은 미확인';
+ el('printZoneOverlay').style.left='50%';
+ el('printZoneOverlay').style.width=(100*vendorPrintGuide.widthMm/chestWidthMm)+'%';
+ const horizontalMarginMm=selected?vendorPrintGuide.widthMm/2-Math.abs(centerOffsetMm)-inkWidthMm/2:null;
+ el('printZoneFit').textContent=horizontalMarginMm===null
+ ?'공식 공개 인쇄 영역 380×480mm · 후보 미선택 · 실제 배치 승인 보류'
+ :'가로 폭 380mm, 원본 잉크 폭 82mm, 중심 이동 '+centerOffsetMm+'mm 가정 시 양쪽 최솟값 '+horizontalMarginMm.toFixed(1)+'mm / '+(horizontalMarginMm<15?'가로 여유 적음: 재검토 권장':'가로 치수상 내부 배치 가능')+' · 단, 실제 허용 위치와 수직 시작점은 미확인';
+ el('placementScale').textContent=chosen+' 가슴 단면 '+chestWidthMm+' mm · 가시 로고 '+inkWidthMm+' mm · 너비 비율 '+(100*inkWidthMm/chestWidthMm).toFixed(2)+'% · 공개된 인쇄 영역 치수만 확인 · 실제 위치/원점 미검증';
  el('placementState').textContent=!selected?'배치 미선택 · G0 승인 보류':selected==='left-chest'
  ?'왼쪽 가슴 검토안 · 중심선에서 착용자 왼쪽 '+placementReview.offsetMm+' mm · 목선 간격 미확정 · 미승인'
  :'정중앙 검토안 · 중심선 0 mm · 목선부터 상단 90 ±5 mm는 내부 제안값 · 미승인';
@@ -118,7 +129,7 @@ el('exportSampleBrief').addEventListener('click',()=>{
    notPayableQuote:true
   },
   artwork:{name:'TOHEŞAR original Ş path',proposedWidthMm:82,supplierApproved:false,uploadedToSupplier:false},
-  placementReview:d.id==='01'?{status:'UNAPPROVED_REVIEW_ONLY',candidate:placementReview.mode,ownerApproved:false,supplierPrintZoneConfirmed:false,horizontalDatum:'center front; positive toward wearer left',lateralOffsetMm:placementReview.mode==='left-chest'?placementReview.offsetMm:placementReview.mode==='center-front'?0:null,visibleLogoWidthMm:82,verticalNeckOffsetMm:placementReview.mode==='center-front'?90:null,verticalDatumApproved:false}:null,
+  placementReview:d.id==='01'?{status:'UNAPPROVED_REVIEW_ONLY',candidate:placementReview.mode,ownerApproved:false,supplierPrintZoneConfirmed:false,publishedZoneMm:[380,480],publishedZoneSource:vendorPrintGuide.source,publishedZoneImageSha256:vendorPrintGuide.sha256,conditionalHorizontalClearanceMm:placementReview.mode===null?null:190-Math.abs(placementReview.mode==='left-chest'?placementReview.offsetMm:0)-41,verticalPrintOriginKnown:false,horizontalDatum:'center front; positive toward wearer left',lateralOffsetMm:placementReview.mode==='left-chest'?placementReview.offsetMm:placementReview.mode==='center-front'?0:null,visibleLogoWidthMm:82,verticalNeckOffsetMm:placementReview.mode==='center-front'?90:null,verticalDatumApproved:false}:null,
   approvals:{production:false,artwork:false,size:false,payment:false},notes:'This document is a working UNAPPROVED preproduction review. No order or payment.'};
  const a=document.createElement('a');const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.href=url;a.download='TOHESAR-'+d.id+'-'+size+'-SAMPLE-PREFLIGHT-NOT-APPROVED.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
 });
