@@ -1,0 +1,139 @@
+{
+  "at": "2026-11-11T02:49:17.708Z",
+  "checks": [
+    {
+      "viewport": "desktop",
+      "id": "01",
+      "size": "L",
+      "length": 73.5,
+      "state": {
+        "active": "01",
+        "shownSize": "L",
+        "shownLength": "73.5 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE L HAS NO VERIFIED EDITOR PRICE. BELOW: M TEST ONLY.",
+        "scroll": 1440,
+        "viewport": 1440
+      }
+    },
+    {
+      "viewport": "desktop",
+      "id": "07",
+      "size": "XL",
+      "length": 75,
+      "state": {
+        "active": "07",
+        "shownSize": "XL",
+        "shownLength": "75 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE XL HAS NO VERIFIED EDITOR PRICE. BELOW: M TEST ONLY.",
+        "scroll": 1440,
+        "viewport": 1440
+      }
+    },
+    {
+      "viewport": "desktop",
+      "id": "05A",
+      "size": "XL",
+      "length": 75,
+      "state": {
+        "active": "05A",
+        "shownSize": "XL",
+        "shownLength": "75 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE XL HAS NO VERIFIED EDITOR PRICE. BELOW: S TEST ONLY.",
+        "scroll": 1440,
+        "viewport": 1440
+      }
+    },
+    {
+      "viewport": "desktop",
+      "id": "05B",
+      "size": "2XL",
+      "length": 75,
+      "state": {
+        "active": "05B",
+        "shownSize": "2XL",
+        "shownLength": "75 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE 2XL HAS NO VERIFIED EDITOR PRICE. BELOW: M TEST ONLY.",
+        "scroll": 1440,
+        "viewport": 1440
+      }
+    },
+    {
+      "viewport": "desktop",
+      "export": "TOHESAR-05B-2XL-SAMPLE-PREFLIGHT-NOT-APPROVED.json",
+      "briefApproved": false,
+      "downloaded": true
+    },
+    {
+      "viewport": "iphone",
+      "id": "01",
+      "size": "L",
+      "length": 73.5,
+      "state": {
+        "active": "01",
+        "shownSize": "L",
+        "shownLength": "73.5 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE L HAS NO VERIFIED EDITOR PRICE. BELOW: M TEST ONLY.",
+        "scroll": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "viewport": "iphone",
+      "id": "07",
+      "size": "XL",
+      "length": 75,
+      "state": {
+        "active": "07",
+        "shownSize": "XL",
+        "shownLength": "75 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE XL HAS NO VERIFIED EDITOR PRICE. BELOW: M TEST ONLY.",
+        "scroll": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "viewport": "iphone",
+      "id": "05A",
+      "size": "XL",
+      "length": 75,
+      "state": {
+        "active": "05A",
+        "shownSize": "XL",
+        "shownLength": "75 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE XL HAS NO VERIFIED EDITOR PRICE. BELOW: S TEST ONLY.",
+        "scroll": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "viewport": "iphone",
+      "id": "05B",
+      "size": "2XL",
+      "length": 75,
+      "state": {
+        "active": "05B",
+        "shownSize": "2XL",
+        "shownLength": "75 cm",
+        "price": "—PRICE NOT VERIFIED",
+        "warning": "SELECTED SIZE 2XL HAS NO VERIFIED EDITOR PRICE. BELOW: M TEST ONLY.",
+        "scroll": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "viewport": "iphone",
+      "export": "TOHESAR-05B-2XL-SAMPLE-PREFLIGHT-NOT-APPROVED.json",
+      "briefApproved": false,
+      "downloaded": true
+    }
+  ],
+  "errors": [],
+  "networkRequests": []
+}
