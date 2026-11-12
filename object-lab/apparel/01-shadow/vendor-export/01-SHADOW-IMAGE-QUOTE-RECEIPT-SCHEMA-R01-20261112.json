@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "01 SHADOW actual image-print evidence receipt (strict, NOT an order approval)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sku",
+    "garmentColor",
+    "size",
+    "quantity",
+    "artworkType",
+    "artboardWidthMm",
+    "inkWidthMeasuredMm",
+    "printMethod",
+    "underbase",
+    "placementReference",
+    "placementXmm",
+    "placementYmm",
+    "currency",
+    "unitPrintedPrice",
+    "shippingPrice",
+    "taxHandling",
+    "totalPayable",
+    "evidenceCapturedAt",
+    "evidenceUrlOrLocalRef",
+    "ownerArtworkUploadApproved",
+    "ownerSampleSizeApproved",
+    "orderApproved"
+  ],
+  "properties": {
+    "sku": {
+      "const": 8178
+    },
+    "garmentColor": {
+      "const": "차콜"
+    },
+    "size": {
+      "enum": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ]
+    },
+    "quantity": {
+      "const": 1
+    },
+    "artworkType": {
+      "const": "ORIGINAL_TOHESAR_IMAGE_NOT_NATIVE_TEXT"
+    },
+    "artboardWidthMm": {
+      "type": "number",
+      "minimum": 81.5,
+      "maximum": 82.5
+    },
+    "inkWidthMeasuredMm": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 100
+    },
+    "printMethod": {
+      "type": "string",
+      "minLength": 3
+    },
+    "underbase": {
+      "enum": [
+        "CONFIRMED_WHITE_UNDERBASE",
+        "CONFIRMED_NO_UNDERBASE"
+      ]
+    },
+    "placementReference": {
+      "type": "string",
+      "minLength": 5
+    },
+    "placementXmm": {
+      "type": "number"
+    },
+    "placementYmm": {
+      "type": "number"
+    },
+    "currency": {
+      "const": "KRW"
+    },
+    "unitPrintedPrice": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "shippingPrice": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "taxHandling": {
+      "enum": [
+        "VAT_INCLUDED",
+        "VAT_SEPARATE_EXPLICITLY_ITEMIZED"
+      ]
+    },
+    "totalPayable": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "evidenceCapturedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidenceUrlOrLocalRef": {
+      "type": "string",
+      "minLength": 6
+    },
+    "ownerArtworkUploadApproved": {
+      "const": true
+    },
+    "ownerSampleSizeApproved": {
+      "const": true
+    },
+    "orderApproved": {
+      "const": false
+    }
+  }
+}
