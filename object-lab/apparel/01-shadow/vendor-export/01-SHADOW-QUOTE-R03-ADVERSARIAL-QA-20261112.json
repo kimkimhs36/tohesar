@@ -1,0 +1,82 @@
+{
+  "at": "2026-11-12",
+  "prior_head": "926d575459e2ab8b9bcb9ab17042340c6dcdd084",
+  "tests": [
+    {
+      "name": "synthetic structurally valid, not authenticity proof",
+      "pass": true,
+      "release": true,
+      "issues": []
+    },
+    {
+      "name": "placeholder fake proof",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "PLACEHOLDER_EVIDENCE_REF"
+      ]
+    },
+    {
+      "name": "negative x",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "INVALID_placementXmm"
+      ]
+    },
+    {
+      "name": "negative y",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "INVALID_placementYmm"
+      ]
+    },
+    {
+      "name": "oversized placement",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "INVALID_placementXmm"
+      ]
+    },
+    {
+      "name": "zero print price",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "ZERO_PRINTED_PRICE_REQUIRES_VENDOR_CONFIRMATION"
+      ]
+    },
+    {
+      "name": "zero total",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "ZERO_PRINTED_PRICE_REQUIRES_VENDOR_CONFIRMATION",
+        "ZERO_TOTAL_REQUIRES_VENDOR_CONFIRMATION"
+      ]
+    },
+    {
+      "name": "tax arithmetic mismatch",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "TOTAL_ARITHMETIC_MISMATCH"
+      ]
+    },
+    {
+      "name": "text not logo",
+      "pass": true,
+      "release": false,
+      "issues": [
+        "INVALID_artworkType"
+      ]
+    }
+  ],
+  "executed": "Live GitHub connector JavaScript runtime evaluated exact modified CJS source",
+  "node_executable": "NOT RUN",
+  "vendor_quote": "NOT VERIFIED",
+  "note": "A structurally passing hypothetical receipt is not independently authenticated seller evidence; require original vendor screenshot or immutable receipt checked by human.",
+  "external_upload": false
+}

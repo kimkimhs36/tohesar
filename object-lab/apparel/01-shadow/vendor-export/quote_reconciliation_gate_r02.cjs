@@ -13,9 +13,12 @@ function reconcileQuote(r){
  if(!(typeof r.inkWidthMeasuredMm==="number"&&Number.isFinite(r.inkWidthMeasuredMm)&&r.inkWidthMeasuredMm>0&&r.inkWidthMeasuredMm<=100))issues.push("INK_WIDTH_UNVERIFIED");
  for(const k of ["printMethod","placementReference","evidenceUrlOrLocalRef"]){if(typeof r[k]!=="string"||r[k].trim().length<6)issues.push("MISSING_"+k);}
  if(!["CONFIRMED_WHITE_UNDERBASE","CONFIRMED_NO_UNDERBASE"].includes(r.underbase))issues.push("UNDERBASE_UNVERIFIED");
- for(const k of ["placementXmm","placementYmm"]){if(typeof r[k]!=="number"||!Number.isFinite(r[k]))issues.push("MISSING_"+k);}
+ for(const k of ["placementXmm","placementYmm"]){if(typeof r[k]!=="number"||!Number.isFinite(r[k])||r[k]<0||r[k]>1000)issues.push("INVALID_"+k);}
+ if(typeof r.evidenceUrlOrLocalRef==="string"&&/(hypothetical|placeholder|dummy|example|test[-_ ]|not[-_ ]?verified|no[-_ ]vendor[-_ ]proof)/i.test(r.evidenceUrlOrLocalRef))issues.push("PLACEHOLDER_EVIDENCE_REF");
  if(typeof r.evidenceCapturedAt!=="string"||!/^20\d\d-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?(?:Z|[+-]\d\d:\d\d)$/.test(r.evidenceCapturedAt)||Number.isNaN(Date.parse(r.evidenceCapturedAt)))issues.push("TIMESTAMP_UNVERIFIED");
  for(const k of ["unitPrintedPrice","shippingPrice","totalPayable"]){if(!integer(r[k]))issues.push("INVALID_"+k);}
+ if(integer(r.unitPrintedPrice)&&r.unitPrintedPrice===0)issues.push("ZERO_PRINTED_PRICE_REQUIRES_VENDOR_CONFIRMATION");
+ if(integer(r.totalPayable)&&r.totalPayable===0)issues.push("ZERO_TOTAL_REQUIRES_VENDOR_CONFIRMATION");
  if(!["VAT_INCLUDED","VAT_SEPARATE_EXPLICITLY_ITEMIZED"].includes(r.taxHandling))issues.push("TAX_HANDLING_UNVERIFIED");
  if(r.taxHandling==="VAT_SEPARATE_EXPLICITLY_ITEMIZED"&&!integer(r.taxAmount))issues.push("VAT_AMOUNT_NOT_ITEMIZED");
  if(r.taxHandling==="VAT_INCLUDED"&&r.taxAmount!==undefined&&r.taxAmount!==0)issues.push("VAT_INCLUDED_DOUBLE_COUNT_RISK");
