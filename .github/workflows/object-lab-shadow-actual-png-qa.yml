@@ -45,6 +45,13 @@ jobs:
           assert raster['vendor_logo_uploaded'] is False
           print('PASS: real repository binary, source hash, ivory pixels, alpha and no vendor approval claims')
           PY
+      - name: Verify independently measured original PNG pixel receipt (fail closed)
+        run: |
+          python object-lab/apparel/01-shadow/vendor-export/check_shadow_real_png_receipt_r03.py \
+            object-lab/apparel/01-shadow/vendor-export/source-provenance-receipt.json \
+            object-lab/apparel/01-shadow/vendor-export/source-raster-receipt.json
+      - name: Run exact pixel receipt regression tests
+        run: python -m unittest discover -s object-lab/apparel/01-shadow/vendor-export -p 'test_check_shadow_real_png_receipt_r03.py' -v
       - name: Run existing raster regression tests
         run: python -m unittest discover -s object-lab/apparel/01-shadow/vendor-export -p 'test_shadow_print_raster_gate_r01.py' -v
       - name: Publish non-sensitive QA receipts (not production approval)
