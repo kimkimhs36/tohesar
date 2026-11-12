@@ -1,0 +1,158 @@
+{
+  "schema": "TOHESAR-object-lab-supplier-evidence-v1",
+  "product": "05 NIGHT SHIFT ZIP",
+  "observed_local_date": "2026-11-10",
+  "scope": "Public product info and size-chart research only. No vendor contact, logo upload, editor checkout or physical inspection.",
+  "target": {
+    "construction": "pigment charcoal two-way zip hoodie",
+    "fabric_gsm": 400,
+    "fiber": "cotton 70% / polyester 30%"
+  },
+  "observations": {
+    "marpple_9362": {
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=9362",
+      "vendor_sku": "9362",
+      "manufacturer": "BECANVAS",
+      "two_way_zip": true,
+      "pigment": true,
+      "fiber_cotton_pct": 70,
+      "fiber_poly_pct": 30,
+      "gsm": null,
+      "gsm_source_statement": "not published in inspected MARPPLE product info",
+      "sizes_cm_length_shoulder_chest_sleeve": {
+        "S": [
+          69,
+          62,
+          58.5,
+          55
+        ],
+        "M": [
+          71,
+          64,
+          61,
+          56
+        ],
+        "L": [
+          73,
+          66,
+          63.5,
+          57
+        ],
+        "XL": [
+          75,
+          68,
+          66,
+          58
+        ],
+        "2XL": [
+          78,
+          70,
+          68.5,
+          59
+        ],
+        "3XL": [
+          81,
+          72,
+          71,
+          60
+        ]
+      },
+      "historical_no_logo_blank_price_krw": 35900,
+      "historical_generic_text_price_krw": 43900,
+      "historical_price_test_size": "S",
+      "historical_base_shipping_krw": 3000,
+      "vendor_logo_quote_verified": false
+    },
+    "bodatee_1000001018": {
+      "url": "https://www.bodatee.com/goods/goods_view.php?goodsNo=1000001018",
+      "vendor_sku": "1000001018",
+      "manufacturer": "BECANVAS",
+      "two_way_zip": true,
+      "pigment": true,
+      "color_names_seen": [
+        "샌드베이지",
+        "차콜",
+        "블랙"
+      ],
+      "fiber_cotton_pct": 70,
+      "fiber_poly_pct": 30,
+      "gsm": 400,
+      "one_piece_blank_price_krw": 41600,
+      "vat_included_in_displayed_tier": true,
+      "price_min_qty": 1,
+      "price_max_qty": 5,
+      "logo_print_fee_krw": null,
+      "shipping_krw": null,
+      "actual_one_piece_logo_total_krw": null
+    },
+    "croom_400gsm_zip": {
+      "url": "https://croom.kr/products/cprod_8ba485de52c5ae4467bfd008",
+      "manufacturer": "BECANVAS",
+      "two_way_zip": true,
+      "pigment": true,
+      "fiber_cotton_pct": 70,
+      "fiber_poly_pct": 30,
+      "gsm": 400,
+      "selected_display_color": "블랙",
+      "displayed_promo_price_krw": 28300,
+      "one_piece_charcoal_image_logo_quote_verified": false,
+      "sizes_cm_length_chest_sleeve": {
+        "S": [
+          69,
+          58.5,
+          55
+        ],
+        "M": [
+          71,
+          61,
+          56
+        ],
+        "L": [
+          73,
+          63.5,
+          66
+        ],
+        "XL": [
+          75,
+          66,
+          58
+        ],
+        "2XL": [
+          78,
+          68.5,
+          59
+        ],
+        "3XL": [
+          81,
+          71,
+          60
+        ]
+      },
+      "size_chart_warning": "L sleeve 66 cm conflicts with MARPPLE 57 cm and CROOM adjacent 56/58; not an independently confirmed typo"
+    },
+    "wooriwear_pgzh": {
+      "url": "https://www.wooriwear.com/product",
+      "public_code": "PGZH",
+      "manufacturer": "BECANVAS",
+      "title": "pigment oversized two-way zip hoodie",
+      "gsm": null,
+      "listed_starting_price_krw": 34900,
+      "supplier_cross_sku_link_verified": false
+    }
+  },
+  "cross_seller_identity": {
+    "product_family_400gsm_corroborated": true,
+    "same_manufacturer_name_zip_pigment_fiber": true,
+    "marpple_9362_is_exact_same_400gsm_manufacturer_style_confirmed": false,
+    "supplier_mapping_model_code_confirmed": false,
+    "require_maker_style_code_or_official_label_before_marpple_gsm_claim": true
+  },
+  "editor_and_order_gates": {
+    "owner_original_logo_upload_approved": false,
+    "supplier_original_logo_print_approved": false,
+    "exact_size_selected": false,
+    "actual_complete_quote_confirmed": false,
+    "ordering_approved": false,
+    "physical_sample_exists": false
+  }
+}
