@@ -53,6 +53,56 @@ jobs:
           python3 scripts/seo.py --root _site --check
       - name: Validate site and source integrity
         run: python3 scripts/test_edition.py --root _site
+      - name: Reject public links into directories excluded from Pages
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import unquote, urljoin, urlsplit
+          import posixpath
+
+          root = Path('_site')
+          excluded = ('docs', 'scripts', '.github', 'journal/inbox')
+          attrs = {'a': 'href', 'area': 'href', 'link': 'href',
+                   'script': 'src', 'img': 'src', 'iframe': 'src',
+                   'source': 'src', 'form': 'action'}
+
+          class Refs(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.refs = []
+
+              def handle_starttag(self, tag, attributes):
+                  name = attrs.get(tag)
+                  ref = dict(attributes).get(name) if name else None
+                  if ref:
+                      self.refs.append(ref)
+
+          failures = []
+          pages = sorted(root.rglob('*.html'))
+          if not pages:
+              raise SystemExit('FAIL: No HTML in assembled Pages artifact')
+          count = 0
+          for page in pages:
+              route = '/' + page.relative_to(root).as_posix()
+              if route.endswith('/index.html'):
+                  route = route[:-len('index.html')]
+              parser = Refs()
+              parser.feed(page.read_text(encoding='utf-8'))
+              for ref in parser.refs:
+                  count += 1
+                  target = urlsplit(urljoin('https://tohesar.com' + route, ref.strip()))
+                  if target.scheme not in ('http', 'https') or target.hostname not in ('tohesar.com', 'www.tohesar.com'):
+                      continue
+                  path = posixpath.normpath(unquote(target.path)).lstrip('/')
+                  if any(path == d or path.startswith(d + '/') for d in excluded):
+                      failures.append((page.relative_to(root).as_posix(), ref))
+          for source, ref in failures:
+              print(f'BROKEN-PUBLIC-REF {source} -> {ref}')
+          if failures:
+              raise SystemExit(f'FAIL: {len(failures)} links point into excluded build folders')
+          print(f'PASS: {len(pages)} published HTML pages, {count} references; no excluded-folder links')
+          PY
       - name: Verify GitHub Pages storage budget and block accidental draft exposure
         run: |
           python3 -m unittest discover -s scripts -p 'test_site_budget.py' -v
