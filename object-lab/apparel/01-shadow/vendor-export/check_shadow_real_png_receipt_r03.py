@@ -26,17 +26,23 @@ EXPECTED = {
 }
 
 
+def require_equal(label, actual, expected):
+    # Explicit failure, including under python -O where assert is disabled.
+    if type(actual) is not type(expected) or actual != expected:
+        raise ValueError(f"Receipt mismatch for {label}: {actual!r} != {expected!r}")
+
+
 def verify(provenance, raster):
-    assert provenance["source_identity_verified"] is True
-    assert provenance["source_git_blob_sha1"] == "899d2014d8c247fe7e7774b65b6371c6315f72f9"
-    assert provenance["dimensions_px"] == [2500, 575]
+    if not isinstance(provenance, dict) or not isinstance(raster, dict):
+        raise ValueError("Both receipts must be JSON objects")
+    require_equal("source_identity_verified", provenance.get("source_identity_verified"), True)
+    require_equal("source_git_blob_sha1", provenance.get("source_git_blob_sha1"), "899d2014d8c247fe7e7774b65b6371c6315f72f9")
+    require_equal("dimensions_px", provenance.get("dimensions_px"), [2500, 575])
     for key, expected in EXPECTED.items():
-        assert type(raster.get(key)) is type(expected) and raster[key] == expected, (
-            key, raster.get(key), expected
-        )
-    assert raster["partial_alpha_internal_channel_delta_limit"] == 16
-    assert raster["alpha_coverage_equivalent_pixels"] == 387663.58
-    assert raster["effective_ppi_at_82mm"] == round(2500 * 25.4 / 82, 2)
+        require_equal(key, raster.get(key), expected)
+    require_equal("partial_alpha_internal_channel_delta_limit", raster.get("partial_alpha_internal_channel_delta_limit"), 16)
+    require_equal("alpha_coverage_equivalent_pixels", raster.get("alpha_coverage_equivalent_pixels"), 387663.58)
+    require_equal("effective_ppi_at_82mm", raster.get("effective_ppi_at_82mm"), round(2500 * 25.4 / 82, 2))
     return True
 
 
