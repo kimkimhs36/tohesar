@@ -2,7 +2,7 @@ import copy
 import json
 import unittest
 from pathlib import Path
-from validate_catalogue_dimensions_r04 import inspect, DATA
+from validate_catalogue_dimensions_r04 import inspect, DATA, main
 
 class CatalogueGateTests(unittest.TestCase):
     @classmethod
@@ -36,6 +36,16 @@ class CatalogueGateTests(unittest.TestCase):
     def test_rejects_changed_dimension_order(self):
         x = self.fresh()
         x["dimensions"][0], x["dimensions"][1] = x["dimensions"][1], x["dimensions"][0]
+        with self.assertRaises(ValueError): inspect(x)
+    def test_main_exit_nonzero_when_production_on_hold(self):
+        self.assertEqual(main(), 2)
+    def test_rejects_unapproved_order_flag(self):
+        x = self.fresh()
+        x["release"]["order_approved"] = True
+        with self.assertRaises(ValueError): inspect(x)
+    def test_rejects_unapproved_artwork_flag(self):
+        x = self.fresh()
+        x["release"]["artwork_upload_approved"] = True
         with self.assertRaises(ValueError): inspect(x)
     def test_rejects_unsubstantiated_release(self):
         x = self.fresh()
