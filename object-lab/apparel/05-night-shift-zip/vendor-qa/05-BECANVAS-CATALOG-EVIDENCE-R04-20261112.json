@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "captured_date_kst": "2026-11-12",
+  "status": "PUBLIC_CATALOG_CORROBORATION__MANUFACTURER_ID_NOT_VERIFIED",
+  "dimensions": [
+    "length_cm",
+    "shoulder_cm",
+    "chest_flat_cm",
+    "sleeve_cm"
+  ],
+  "marpple_9362": {
+    "url": "https://www.marpple.com/kr/product/detail?bp_id=9362",
+    "brand": "BECANVAS",
+    "two_way": true,
+    "pigment": true,
+    "cotton_pct": 70,
+    "polyester_pct": 30,
+    "advertised_gsm": null,
+    "manufacturer_style_code": null,
+    "sizes": {
+      "S": [
+        69,
+        62,
+        58.5,
+        55
+      ],
+      "M": [
+        71,
+        64,
+        61,
+        56
+      ],
+      "L": [
+        73,
+        66,
+        63.5,
+        57
+      ],
+      "XL": [
+        75,
+        68,
+        66,
+        58
+      ],
+      "2XL": [
+        78,
+        70,
+        68.5,
+        59
+      ],
+      "3XL": [
+        81,
+        72,
+        71,
+        60
+      ]
+    },
+    "chart_observed_date": "2026-11-10"
+  },
+  "bodatee_1000001018": {
+    "url": "https://www.bodatee.com/goods/goods_view.php?goodsNo=1000001018",
+    "brand": "BECANVAS",
+    "two_way": true,
+    "pigment": true,
+    "cotton_pct": 70,
+    "polyester_pct": 30,
+    "advertised_gsm": 400,
+    "manufacturer_style_code": null,
+    "sizes": {
+      "S": [
+        69,
+        62,
+        58.5,
+        55
+      ],
+      "M": [
+        71,
+        64,
+        61,
+        56
+      ],
+      "L": [
+        73,
+        66,
+        53.5,
+        57
+      ],
+      "XL": [
+        75,
+        68,
+        66,
+        58
+      ],
+      "2XL": [
+        78,
+        70,
+        68.5,
+        59
+      ],
+      "3XL": [
+        81,
+        72,
+        71,
+        60
+      ]
+    },
+    "blank_krw_public": 41600,
+    "vat_included_as_listed": true,
+    "base_shipping_krw_public": 5000
+  },
+  "independent_catalog_corroboration": [
+    {
+      "url": "https://croom.kr/",
+      "claims": [
+        "BECANVAS",
+        "pigment",
+        "french-terry",
+        "2way",
+        "400gsm"
+      ]
+    },
+    {
+      "url": "https://www.brotherco.net/shop_view/?idx=127",
+      "claims": [
+        "BECANVAS",
+        "pigment",
+        "70/30",
+        "400gsm"
+      ],
+      "same_exact_zip_model_unconfirmed": true
+    }
+  ],
+  "release": {
+    "catalogue_400gsm_for_similar_product": true,
+    "marpple_9362_manufacturer_match": false,
+    "physical_gsm_measured": false,
+    "size_L_conflict_resolved": false,
+    "artwork_upload_approved": false,
+    "order_approved": false
+  },
+  "note": "All figures are dated public catalogue observations, not real-time stock, a factory certificate or a real printed quote."
+}
