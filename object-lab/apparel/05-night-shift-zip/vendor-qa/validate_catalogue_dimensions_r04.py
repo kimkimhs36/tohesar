@@ -32,13 +32,15 @@ def inspect(data):
     release = data["release"]
     if release.get("marpple_9362_manufacturer_match") is not False or release.get("size_L_conflict_resolved") is not False:
         raise ValueError("unsubstantiated manufacturer/size release")
+    if release.get("artwork_upload_approved") is not False or release.get("order_approved") is not False:
+        raise ValueError("unapproved external artwork/order release")
     return {"compared_dimensions": 24, "matching_dimensions": 24-len(discrepancies), "discrepancies": discrepancies, "production_gate": "HOLD"}
 
 def main():
     result = inspect(json.loads(DATA.read_text(encoding="utf-8")))
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    # Fail closed on any mismatch: this is an intentional nonzero QA result.
-    return 1 if result["discrepancies"] else 0
+    # HOLD is not a successful production gate, even when charts happen to match.
+    return 2 if result["production_gate"] == "HOLD" else (1 if result["discrepancies"] else 0)
 
 if __name__ == "__main__":
     sys.exit(main())
