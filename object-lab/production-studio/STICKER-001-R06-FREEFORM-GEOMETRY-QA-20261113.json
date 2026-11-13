@@ -1,0 +1,91 @@
+{
+  "schema": "TOHESAR-STICKER-001-R06-PUBLIC-SUPPLIER-FREEFORM-GEOMETRY",
+  "dateKst": "2026-11-13",
+  "product": "Sticker 001, 100x30mm intended kiss-cut finished sticker",
+  "evidenceClass": "Exploratory source-aligned geometry, not vendor accepted or owner-approved",
+  "readOnlyPrimarySource": "https://www.redprinting.co.kr/ko/guide3/view/freeform-sticker",
+  "supplierRouteSelected": false,
+  "priorOriginalSourceBlob": "ecaa3fbb2ae952369194ab973f2de40c431cab37",
+  "webWordmarkSourceBlob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "originalPathCharacters": 7319,
+  "sourcePathExactlyEqual": true,
+  "dimensionsMm": {
+    "artwork": [
+      110,
+      40
+    ],
+    "paperTrim": [
+      106,
+      36
+    ],
+    "kissCut": [
+      100,
+      30
+    ],
+    "artworkToTrimPerEdge": 2,
+    "trimToKissCutPerEdge": 3,
+    "artworkToKissCutPerEdge": 5,
+    "logoNominalBox": {
+      "x": 9,
+      "y": 9.422903515,
+      "w": 92,
+      "h": 21.15419297
+    },
+    "safetyMm": 2
+  },
+  "observedMinimumNominalLogoClearanceMm": {
+    "x": 4,
+    "y": 4.422903515
+  },
+  "sourceGuideExample": {
+    "workMm": [
+      154,
+      104
+    ],
+    "trimMm": [
+      150,
+      100
+    ],
+    "kissCutMm": [
+      144,
+      94
+    ],
+    "inwardSafeMm": 2,
+    "cutToTrimMinMm": 3
+  },
+  "counterexample": "Old 106x36mm artboard used as full working sheet around 100x30mm cutline leaves only 3mm working-edge clearance, not the source example's 5mm.",
+  "QA": {
+    "method": "actual ECMAScript arithmetic/string-integrity assertions in connected runtime",
+    "pass": 15,
+    "fail": 0,
+    "checks": [
+      "R03 path equals exact Git wordmark path",
+      "R06 single unmodified original path",
+      "R06 physical artboard 110x40",
+      "opaque black full-field authored",
+      "vector shifted 2 mm, not rescaled",
+      "original design nominal width 92",
+      "cutline 100x30 at 5,5",
+      "2mm artboard-to-trim each side",
+      "3mm trim-to-cutline each side",
+      "5mm work-to-cutline each side",
+      "logo box >=2mm inside cutline",
+      "existing 106x36 alone fails 5mm cutline offset",
+      "no logo leaked into cutline file",
+      "no scripts / foreign images / external art refs",
+      "no supplier logo upload/order capability"
+    ]
+  },
+  "limitations": [
+    "Guide applies to freeform kiss-cut sheet product, not a universal sticker bleed rule",
+    "No real printer-selected product, required PDF layer separation, CMYK M100, vendor import or cutter calibration",
+    "SVG is two separate reviewable source pieces; NOT production-qualified print PDF",
+    "No physical print, cutter trial, registration measurement, VAT-inclusive quote, purchase or logo upload"
+  ],
+  "approval": {
+    "ownerArtUpload": false,
+    "vendorPrintProof": false,
+    "ownerProductionSiteChoice": false,
+    "order": false
+  }
+}
