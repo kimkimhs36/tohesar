@@ -21,6 +21,22 @@ assert names == {"인쇄", "반칼"}, f"unexpected layer names: {names}"
 pix = page.get_pixmap(matrix=fitz.Matrix(300 / 72, 300 / 72), alpha=False)
 assert pix.width >= 1299 and pix.height >= 472, (pix.width, pix.height)
 assert len(set(pix.samples[:min(len(pix.samples), 300000)])) > 1, "raster appears uniform in sampled bytes"
+# Reject a formally valid PDF that renders no actual ink or cutline. The earlier
+# nonuniform-byte sample could pass on white/near-white raster noise alone.
+# RGB samples are used only as an internal raster sanity gate, NOT color approval.
+channels = pix.n
+assert channels == 3, f"expected RGB raster, got {channels} channels"
+raw = memoryview(pix.samples)
+ink_pixels = 0
+magenta_pixels = 0
+for pos in range(0, len(raw), channels):
+    red, green, blue = raw[pos], raw[pos + 1], raw[pos + 2]
+    if max(red, green, blue) < 180:
+        ink_pixels += 1
+    if red > 170 and green < 130 and blue > 100 and red > green + 60:
+        magenta_pixels += 1
+assert ink_pixels >= 100, f"artwork absent or nearly blank: {ink_pixels} dark pixels"
+assert magenta_pixels >= 100, f"cutline absent or not magenta: {magenta_pixels} pixels"
 png = OUT / "STICKER-001-R07-300DPI-INDEPENDENT-UNAPPROVED.png"
 pix.save(str(png))
 result = {
@@ -29,6 +45,8 @@ result = {
     "page_mm": [round(x, 4) for x in mm],
     "layer_names": sorted(names),
     "raster_px": [pix.width, pix.height],
+    "dark_ink_pixels": ink_pixels,
+    "magenta_cutline_pixels": magenta_pixels,
     "raster_png": png.name,
     "vendor_approval": False,
     "physical_print": False,
