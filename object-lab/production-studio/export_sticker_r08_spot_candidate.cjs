@@ -14,26 +14,27 @@ function buildPdf(svg,masterSvg){
  if(pts!==979||contours!==8||closures!==8)throw Error("SOURCE_PATH_COUNT_CHANGED");
  const stream=[
   "q","/OC /Printing BDC","0.062745 0.066667 0.058824 rg",`0 0 ${F(110*mm)} ${F(40*mm)} re f`,"0.972549 0.949020 0.905882 rg",...lines,"f*","EMC","Q",
-  "q","/OC /KissCut BDC","/CS_CutSpot CS","1 SCN","0.5 w","0 J","0 j",`${F(5*mm)} ${F(5*mm)} ${F(100*mm)} ${F(30*mm)} re S`,"EMC","Q",""
+  "q","/OC /KissCut BDC","/GSKissOverprint gs","/CS_CutSpot CS","1 SCN","0.5 w","0 J","0 j",`${F(5*mm)} ${F(5*mm)} ${F(100*mm)} ${F(30*mm)} re S`,"EMC","Q",""
  ].join("\n");
  const unicode=s=>"FEFF"+[...s].map(c=>c.charCodeAt(0).toString(16).padStart(4,"0")).join("").toUpperCase();
  const objs=[
  `<< /Type /Catalog /Pages 2 0 R /OCProperties << /OCGs [6 0 R 7 0 R] /D << /Order [6 0 R 7 0 R] /ON [6 0 R 7 0 R] /BaseState /ON >> >> >>`,
  "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
- `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${F(110*mm)} ${F(40*mm)}] /Resources << /Properties << /Printing 6 0 R /KissCut 7 0 R >> /ColorSpace << /CS_CutSpot 8 0 R >> >> /Contents 4 0 R >>`,
+ `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${F(110*mm)} ${F(40*mm)}] /Resources << /Properties << /Printing 6 0 R /KissCut 7 0 R >> /ColorSpace << /CS_CutSpot 8 0 R >> /ExtGState << /GSKissOverprint 10 0 R >> >> /Contents 4 0 R >>`,
  `<< /Length ${stream.length} >>\nstream\n${stream}endstream`,
  "<< /Title (TOHESAR STICKER001 R07 UNAPPROVED VECTOR PDF) /Producer (TOHESAR Source Locked R07) >>",
  `<< /Type /OCG /Name <${unicode("인쇄")}> /Intent /View >>`,
  `<< /Type /OCG /Name <${unicode("반칼")}> /Intent /View >>`,
  `[/Separation /KissCut /DeviceCMYK 9 0 R]`,
- `<< /FunctionType 2 /Domain [0 1] /C0 [0 0 0 0] /C1 [0 1 0 0] /N 1 >>`
+ `<< /FunctionType 2 /Domain [0 1] /C0 [0 0 0 0] /C1 [0 1 0 0] /N 1 >>`,
+ "<< /Type /ExtGState /OP true /op true /OPM 1 >>"
  ];
  let pdf="%PDF-1.5\n%\xE2\xE3\xCF\xD3\n";const offsets=[0];
  objs.forEach((o,index)=>{offsets.push(pdf.length);pdf+=`${index+1} 0 obj\n${o}\nendobj\n`});
- const start=pdf.length;pdf+="xref\n0 10\n0000000000 65535 f \n";
- for(let k=1;k<=9;k++)pdf+=String(offsets[k]).padStart(10,"0")+" 00000 n \n";
- pdf+=`trailer\n<< /Size 10 /Root 1 0 R /Info 5 0 R >>\nstartxref\n${start}\n%%EOF\n`;
- return {pdf,info:{bytes:pdf.length,sourcePathChars:d.length,sourcePathVertices:pts,closedContours:contours,pdfVersion:"1.5",pageMm:[110,40],cutlineMm:[100,30],cutlineInsetMm:5,cutlineStrokePt:0.5,printOcg:"인쇄",kisscutOcg:"반칼",cutlineInk:"Separation /KissCut, CMYK alternate C0 M100 Y0 K0",printArtwork:"DeviceRGB, NOT CALIBRATED",xrefOffset:start}};
+ const start=pdf.length;pdf+="xref\n0 11\n0000000000 65535 f \n";
+ for(let k=1;k<=10;k++)pdf+=String(offsets[k]).padStart(10,"0")+" 00000 n \n";
+ pdf+=`trailer\n<< /Size 11 /Root 1 0 R /Info 5 0 R >>\nstartxref\n${start}\n%%EOF\n`;
+ return {pdf,info:{bytes:pdf.length,sourcePathChars:d.length,sourcePathVertices:pts,closedContours:contours,pdfVersion:"1.5",pageMm:[110,40],cutlineMm:[100,30],cutlineInsetMm:5,cutlineStrokePt:0.5,printOcg:"인쇄",kisscutOcg:"반칼",cutlineInk:"Separation /KissCut, CMYK alternate C0 M100 Y0 K0, overprint OPM1 (unapproved)",printArtwork:"DeviceRGB, NOT CALIBRATED",xrefOffset:start}};
 }
 const work=__dirname;
 const source=fs.readFileSync(path.join(work,"STICKER-001-R06-FREEFORM-110x40mm-ART-UNAPPROVED.svg"),"utf8");
