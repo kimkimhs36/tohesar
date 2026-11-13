@@ -29,14 +29,37 @@ assert channels == 3, f"expected RGB raster, got {channels} channels"
 raw = memoryview(pix.samples)
 ink_pixels = 0
 magenta_pixels = 0
+magenta_min_x = pix.width
+magenta_min_y = pix.height
+magenta_max_x = -1
+magenta_max_y = -1
 for pos in range(0, len(raw), channels):
     red, green, blue = raw[pos], raw[pos + 1], raw[pos + 2]
     if max(red, green, blue) < 180:
         ink_pixels += 1
     if red > 170 and green < 130 and blue > 100 and red > green + 60:
         magenta_pixels += 1
+        pixel_index = pos // channels
+        x, y = pixel_index % pix.width, pixel_index // pix.width
+        magenta_min_x = min(magenta_min_x, x)
+        magenta_min_y = min(magenta_min_y, y)
+        magenta_max_x = max(magenta_max_x, x)
+        magenta_max_y = max(magenta_max_y, y)
 assert ink_pixels >= 100, f"artwork absent or nearly blank: {ink_pixels} dark pixels"
 assert magenta_pixels >= 100, f"cutline absent or not magenta: {magenta_pixels} pixels"
+# Reject arbitrary magenta marks in place of the expected inset cutline.
+magenta_bbox_mm = [
+    magenta_min_x * 25.4 / 300,
+    magenta_min_y * 25.4 / 300,
+    (magenta_max_x + 1) * 25.4 / 300,
+    (magenta_max_y + 1) * 25.4 / 300,
+]
+expected_cutline_bbox_mm = [5, 5, 105, 35]
+cutline_bbox_tolerance_mm = 0.7
+assert all(abs(actual - expected) <= cutline_bbox_tolerance_mm
+           for actual, expected in zip(magenta_bbox_mm, expected_cutline_bbox_mm)), (
+    f"magenta raster is not the expected inset 100x30mm cutline: {magenta_bbox_mm}"
+)
 png = OUT / "STICKER-001-R07-300DPI-INDEPENDENT-UNAPPROVED.png"
 pix.save(str(png))
 result = {
@@ -47,6 +70,9 @@ result = {
     "raster_px": [pix.width, pix.height],
     "dark_ink_pixels": ink_pixels,
     "magenta_cutline_pixels": magenta_pixels,
+    "magenta_cutline_bbox_mm": [round(v, 3) for v in magenta_bbox_mm],
+    "expected_cutline_bbox_mm": expected_cutline_bbox_mm,
+    "cutline_bbox_tolerance_mm": cutline_bbox_tolerance_mm,
     "raster_png": png.name,
     "vendor_approval": False,
     "physical_print": False,
