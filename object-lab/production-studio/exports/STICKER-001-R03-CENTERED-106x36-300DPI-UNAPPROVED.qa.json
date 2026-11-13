@@ -1,0 +1,76 @@
+{
+  "product": "TOHEŞAR Sticker 001",
+  "status": "INTERNAL_CENTERED_R03_PRINT_ART_CANDIDATE_NOT_VENDOR_APPROVED",
+  "source_git_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "exact_original_vector_path_preserved": true,
+  "new_design_decision": "Center original 92mm x 21.15419297mm wordmark box vertically on nominal 100x30mm trim, no rescale",
+  "nominal_trim_mm": [
+    100,
+    30
+  ],
+  "provisional_full_bleed_mm": 3,
+  "canvas_mm": [
+    106,
+    36
+  ],
+  "png_dimensions_px": [
+    1252,
+    425
+  ],
+  "png_dpi_nominal": 300,
+  "png_sha256": "da9043612fa1b2ecf901636683ff89c82e29f8c9a3357818b84de32c3d5201a4",
+  "png_bytes": 31043,
+  "visible_ivory_bbox_approx_px": [
+    85,
+    90,
+    1164,
+    334
+  ],
+  "previous_min_rectangular_art_clearance_mm": "3.44580703",
+  "improved_min_rectangular_art_clearance_mm": "4",
+  "after_hypothetical_3mm_trim_drift_min_mm": "1",
+  "geometry": {
+    "trim": {
+      "artwork_canvas_mm": [
+        "100",
+        "30"
+      ],
+      "trim_mm": [
+        "100",
+        "30"
+      ],
+      "ink_path_exact_source": true,
+      "art_box_y_mm": "4.422903515",
+      "clearance_after_hypothetical_3mm_shift_mm": "1",
+      "horizontal_art_box_clearance_mm": "4",
+      "vertical_art_box_clearance_mm": "4.422903515",
+      "global_min_rectangular_art_clearance_mm": "4"
+    },
+    "bleed": {
+      "artwork_canvas_mm": [
+        "106",
+        "36"
+      ],
+      "trim_mm": [
+        "100",
+        "30"
+      ],
+      "ink_path_exact_source": true,
+      "art_box_y_mm": "7.422903515",
+      "clearance_after_hypothetical_3mm_shift_mm": "1",
+      "horizontal_art_box_clearance_mm": "4",
+      "vertical_art_box_clearance_mm": "4.422903515",
+      "global_min_rectangular_art_clearance_mm": "4"
+    }
+  },
+  "warning": "Calculated only. No physical cutter tolerance, safe-zone, rounded-corner or artwork method approved.",
+  "actual_vendor_cutline_verified": false,
+  "original_art_vendor_upload": false,
+  "owner_release_approval": false,
+  "order_or_payment": false,
+  "vertical_rectangular_art_clearance_mm": "4.422903515",
+  "global_clearance_gain_mm": "0.55419297",
+  "vertical_clearance_gain_mm": "0.977096485",
+  "after_hypothetical_3mm_trim_drift_vertical_mm": "1.422903515",
+  "qa_correction": "Net minimum of the four rectangular artwork-box margins is limited by 4mm horizontal sides; vertical-only clearance is 4.422903515mm. Corrected after actual successful 7-test CI run 42751145828. PNG bytes unchanged."
+}

@@ -1,0 +1,57 @@
+{
+  "dateKst": "2026-11-14",
+  "state": "UNAPPROVED_INTERNAL_SPOT_SEPARATION_TEST",
+  "pdfBytes": 23591,
+  "pdfSha256": "b63a7c9154edd48e6ca519d2822ae37c77b3e2d09f750c49d69057b903859c27",
+  "pdfVersion": "1.5",
+  "mediaBoxMm": [
+    110.000004,
+    40.0
+  ],
+  "sourceOriginalLogo": "git blob e9b299f8d797625b3704103c08ea1aede5c5ea05, retained by R08 source-locked generator",
+  "cutline": "spot /KissCut /Separation with DeviceCMYK M100 fallback, 0.5pt, OPM1 overprint",
+  "cutlineBBoxMmMeasured": [
+    4.9077,
+    4.9049,
+    105.0077,
+    35.0106
+  ],
+  "render": {
+    "method": "PyMuPDF",
+    "dpi": 300,
+    "pixelSize": [
+      1300,
+      473
+    ],
+    "darkPixelCount": 530012,
+    "ivoryPixelCount": 69934,
+    "magentaPixelCount": 6140,
+    "pngSha256": "9f9098236941ecef868e00b0b1c0474fff41666a25cc70db18c280e1a13647a7"
+  },
+  "checks": {
+    "sourceShaLockedOnGeneration": "PASS",
+    "separationSpot": "PASS",
+    "OCGPrintKisscut": "PASS",
+    "pageSize110x40": "PASS",
+    "overprint": "PASS",
+    "cutline100x30Inset5Within0.7mm": "PASS",
+    "darkIvoryAndMagentaRendered": "PASS"
+  },
+  "notRun": [
+    "Independent OCG on/off raster isolation (PyMuPDF set_layer yielded identical PNGs)",
+    "Adobe Illustrator PDF separation review",
+    "PDF/X conversion",
+    "Adobe Acrobat preflight",
+    "printer spot name acceptance",
+    "ICC calibrated color",
+    "actual vendor artwork upload",
+    "physical print/cut",
+    "supplier quote/order"
+  ],
+  "vendorRequirementsReference": [
+    "https://www.redprinting.co.kr/ko/guide3/view/freeform-sticker",
+    "https://www.redprinting.co.kr/ko/guide3/view/finishing-overview"
+  ],
+  "vendorApproval": false,
+  "ownerApproved": false
+}

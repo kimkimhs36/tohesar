@@ -1,0 +1,47 @@
+{
+  "product": "TOHESAR OBJECT LAB / 01 SHADOW UNIFORM",
+  "master_approval": false,
+  "press_ready": false,
+  "vector_geometry_unmodified": true,
+  "source_git_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "chest_vector_git_blob_sha1": "c4160648feb1d74d4b2af663b8755984a2ac77fa",
+  "source_path_sha256": "b7d36711e60d94465d0587e4a4e4100fba1217a2157865995717ca8c23b0d93d",
+  "size_mm": {
+    "width": 82,
+    "height": 18.854824
+  },
+  "color": "#f8f2e7",
+  "background": "transparent",
+  "vendor_print_placement_verified": false,
+  "vendor_import_verified": false,
+  "exports": [
+    {
+      "name": "SHADOW-UNIFORM-01-82mm-IVORY-300DPI.png",
+      "dpi": 300,
+      "pixels": [
+        969,
+        223
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "file_sha256": "bdb0e96737350f4715274acd25f24f3d711cb81d62606265c6e3ce6e4b01ccf7",
+      "bytes": 22397
+    },
+    {
+      "name": "SHADOW-UNIFORM-01-82mm-IVORY-600DPI.png",
+      "dpi": 600,
+      "pixels": [
+        1937,
+        445
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "file_sha256": "cb41377e235346bd8786029e89edeb5567bcd61006a8226d0800184b9e3e847c",
+      "bytes": 46533
+    }
+  ]
+}
