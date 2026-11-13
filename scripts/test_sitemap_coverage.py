@@ -22,7 +22,7 @@ class SiteMapQA(unittest.TestCase):
           "/journal/","/journal/911/","/journal/f40/",
           "/journal/design/giulia/","/journal/design/type-01/",
           "/journal/field-notes/001/","/journal/issues/001/",
-          "/edition/","/owner-stories/","/owner-stories/story-card/",
+          "/edition/","/owner-stories/","/owner-stories/story-card/","/contact/",
         )
         for route in required:
             with self.subTest(route=route):

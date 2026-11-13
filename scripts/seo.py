@@ -31,6 +31,10 @@ SECTIONS = {
         "TOHEŞAR 자동차 디자인 저널. Porsche 911, Ferrari F40, Alfa Romeo Giulia, Jaguar 디자인 에세이와 독립 특집호를 읽어보세요.",
         "/assets/cover-911-valentin-kremer.jpg",
     ),
+    "/contact/": (
+        "TOHEŞAR의 공식 연락 및 협업 안내. 자동차 디자인 에디토리얼 제안, 사진과 차주 이야기, 협업 문의를 받습니다.",
+        None,
+    ),
     "/journal/design/": (
         "자동차의 곡선, 쐐기형 차체, 그랜드 투어러의 비례를 사진과 글로 읽는 TOHEŞAR 디자인 아틀라스.",
         "/journal/assets/giulia/profile-1600.webp",

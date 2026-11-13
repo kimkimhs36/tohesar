@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f2ece9">
+<title>CONTACT / COLLABORATE — TOHEŞAR</title>
+<link rel="icon" href="/assets/cedilla-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/journal/assets/navigation.css?v=20261108">
+<script src="/journal/assets/navigation.js?v=20261108" defer></script>
+<style>
+:root{color-scheme:light;--ink:#322d37;--muted:#746b76;--stroke:rgba(63,54,64,.2);--paper:#f5f0eb;--accent:#906f84}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased;background:radial-gradient(ellipse 56% 38% at 10% 7%,rgba(249,208,190,.55),transparent 83%),radial-gradient(ellipse 67% 44% at 86% 35%,rgba(220,207,231,.64),transparent 84%),linear-gradient(145deg,#fbf7f1 0%,#f4edf1 58%,#f9f5ef 100%);min-height:100vh}
+a{color:inherit}button{font:inherit}.skip{position:absolute;top:-100px;left:12px;z-index:1000;background:#fff;padding:12px}.skip:focus{top:12px}
+.contact-header{position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1650px;margin:auto;padding:24px clamp(24px,5.4vw,100px);border-bottom:1px solid var(--stroke)}
+.brand{display:block;width:clamp(142px,20vw,205px);flex-shrink:0}.brand img{display:block;width:100%;height:auto}.header-right{display:flex;align-items:center;gap:clamp(12px,3vw,40px)}.header-right>a{font-size:11px;letter-spacing:.06em;text-decoration:none;white-space:nowrap}.header-right>a:hover{text-decoration:underline}
+.journal-index{font-size:12px}.journal-index summary{min-height:44px}.journal-index nav{right:0}.journal-index nav a{text-decoration:none}
+.hero{max-width:1650px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(24px,5.4vw,100px) clamp(64px,8vw,115px)}
+.eyebrow,.serial{font:500 11px/1.5 Arial,sans-serif;letter-spacing:.12em;color:var(--muted)}.eyebrow span{display:inline-block;width:33px;height:1px;background:currentColor;vertical-align:middle;margin:0 12px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,.28fr);align-items:end;gap:clamp(20px,5vw,88px);margin-top:34px}
+h1{margin:0;font-weight:400;line-height:1.13;letter-spacing:-.085em;font-size:clamp(47px,7.8vw,124px);word-break:keep-all}
+h1 em{display:block;font-family:Georgia,"Times New Roman",serif;letter-spacing:-.065em;font-weight:400;font-size:.92em;color:#8e7186;font-style:italic;line-height:1.25;margin-top:.07em}
+.hero-side{padding-bottom:16px;border-top:1px solid var(--stroke)}.hero-side p{font-size:clamp(13px,1.15vw,17px);line-height:1.95;word-break:keep-all}.hero-side small{font-size:10px;color:var(--muted);letter-spacing:.07em}
+.contact-stage{max-width:1650px;margin:0 auto;padding:0 clamp(24px,5.4vw,100px)}.stage-head{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--stroke);padding:18px 0 26px}.stage-head p{margin:0;font-size:11px;color:var(--muted)}.stage-head b{font-size:11px;font-weight:500;letter-spacing:.1em}
+.mail-block{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:end;padding:clamp(26px,5vw,66px);border:1px solid rgba(105,83,105,.19);background:rgba(255,255,255,.4);box-shadow:0 12px 55px rgba(91,76,93,.035)}
+.mail-block .micro{font-size:10px;letter-spacing:.12em;color:var(--muted)}.mail-block h2{margin:18px 0 20px;font-weight:400;font-size:clamp(28px,4.7vw,72px);line-height:1.12;letter-spacing:-.06em;overflow-wrap:anywhere}.mail-block p{margin:0;line-height:1.8;color:var(--muted);font-size:13px;word-break:keep-all}.mail-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.primary,.secondary{min-height:48px;border:1px solid var(--ink);padding:13px 20px;display:inline-flex;justify-content:center;align-items:center;gap:18px;font-size:12px;letter-spacing:-.01em;text-decoration:none;cursor:pointer;white-space:nowrap}.primary{background:var(--ink);color:#fff}.primary:hover{background:#655569}.secondary{background:transparent;color:var(--ink)}.secondary:hover{background:rgba(255,255,255,.7)}.copy-status{min-height:20px;font-size:11px;color:#65596b;margin-top:10px}
+.routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(70px,10vw,142px);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
+.route{min-height:250px;padding:28px clamp(16px,2.3vw,40px) 42px 0;display:flex;flex-direction:column;justify-content:space-between;gap:26px;text-decoration:none;transition:background .2s,padding-left .2s}
+.route+.route{border-left:1px solid var(--stroke);padding-left:clamp(16px,2.3vw,40px)}.route .num{font:11px/1.4 Arial,sans-serif;letter-spacing:.12em;color:var(--muted)}.route h3{font-size:clamp(25px,3vw,43px);font-weight:400;letter-spacing:-.065em;line-height:1.25;margin:0 0 12px}.route p{font-size:13px;line-height:1.8;color:var(--muted);margin:0;word-break:keep-all}.route .arrow{font-size:25px;font-weight:300;display:inline-block;transition:transform .2s}.route:hover .arrow{transform:translate(5px,-5px)}.route:focus-visible,.primary:focus-visible,.secondary:focus-visible,a:focus-visible{outline:2px solid #8d7087;outline-offset:3px}
+.bottom{max-width:1650px;margin:0 auto;padding:clamp(85px,12vw,165px) clamp(24px,5.4vw,100px) 65px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,6vw,90px)}.bottom h2{font-size:clamp(35px,5.7vw,80px);font-weight:400;line-height:1.18;letter-spacing:-.075em;margin:16px 0 0}.bottom h2 em{font-family:Georgia,serif;font-weight:400;color:#987f90}.bottom-copy{border-top:1px solid var(--stroke);padding-top:24px}.bottom-copy p{font-size:15px;line-height:1.9;word-break:keep-all;margin:0 0 24px}.bottom-copy .privacy{font-size:12px;color:var(--muted);margin-top:24px;line-height:1.8}
+.contact-footer{max-width:1650px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px clamp(24px,5.4vw,100px) 35px;border-top:1px solid var(--stroke);font:10px/1.5 Arial,sans-serif;letter-spacing:.08em;color:var(--muted)}.contact-footer nav{display:flex;gap:20px}.contact-footer a{text-decoration:none}.contact-footer a:hover{text-decoration:underline}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-side{max-width:480px}.mail-block{grid-template-columns:1fr}.mail-actions{margin-top:12px}.routes{grid-template-columns:1fr}.route{min-height:200px;padding:30px 0}.route+.route{border-left:0;border-top:1px solid var(--stroke);padding:30px 0}.bottom{grid-template-columns:1fr}.contact-footer{flex-wrap:wrap}}
+@media(max-width:480px){.contact-header{padding:16px 20px}.header-right{gap:10px}.header-right>a{display:none}.hero{padding:68px 22px 55px}.hero-grid{margin-top:25px}h1{font-size:clamp(43px,11.4vw,57px)}.contact-stage{padding:0 20px}.mail-block{padding:25px 20px}.mail-block h2{font-size:clamp(27px,8vw,39px)}.mail-actions{display:grid;grid-template-columns:1fr 1fr}.primary,.secondary{padding:12px 10px;font-size:11px;gap:7px}.bottom{padding:95px 20px 60px}.contact-footer{padding:20px}.contact-footer nav{gap:12px}.hero-side{padding-top:13px}.route{min-height:180px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.route,.route .arrow{transition:none}}
+</style>
+<!-- TOHESAR SEO:BEGIN -->
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://tohesar.com/contact/">
+<meta name="description" content="TOHEŞAR의 공식 연락 및 협업 안내. 자동차 디자인 에디토리얼 제안, 사진과 차주 이야기, 협업 문의를 받습니다.">
+<meta property="og:site_name" content="TOHEŞAR">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CONTACT / COLLABORATE — TOHEŞAR">
+<meta property="og:description" content="TOHEŞAR의 공식 연락 및 협업 안내. 자동차 디자인 에디토리얼 제안, 사진과 차주 이야기, 협업 문의를 받습니다.">
+<meta property="og:url" content="https://tohesar.com/contact/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CONTACT / COLLABORATE — TOHEŞAR">
+<meta name="twitter:description" content="TOHEŞAR의 공식 연락 및 협업 안내. 자동차 디자인 에디토리얼 제안, 사진과 차주 이야기, 협업 문의를 받습니다.">
+<script type="application/ld+json" data-tohesar-seo="034">{"@context":"https://schema.org","@type":"WebPage","@id":"https://tohesar.com/contact/#webpage","url":"https://tohesar.com/contact/","inLanguage":"ko-KR","name":"CONTACT / COLLABORATE — TOHEŞAR","description":"TOHEŞAR의 공식 연락 및 협업 안내. 자동차 디자인 에디토리얼 제안, 사진과 차주 이야기, 협업 문의를 받습니다.","isPartOf":{"@id":"https://tohesar.com/#website"}}</script>
+<!-- TOHESAR SEO:END -->
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header contact-header">
+  <a class="brand" href="/" aria-label="TOHEŞAR 홈"><img src="/assets/wordmark.svg" width="1109" height="255" alt="TOHEŞAR"></a>
+  <div class="header-right"><a href="/journal/">JOURNAL</a>
+    <details class="journal-index"><summary aria-label="전체 메뉴 열기"><span class="thz-menu-icon" aria-hidden="true"><span></span><span></span></span><span class="thz-label-menu">메뉴</span><span class="thz-label-close">닫기</span></summary>
+      <nav aria-label="TOHEŞAR 전체 탐색">
+        <a href="/journal/"><strong>저널</strong><small>기사와 특집호</small></a>
+        <a href="/journal/explore/"><strong>둘러보기</strong><small>디자인 · 미니카 · 시각 문화</small></a>
+        <a href="/edition/"><strong>뉴스룸</strong><small>자동차 소식</small></a>
+        <a href="/owner-stories/"><strong>차주의 이야기</strong><small>OWNER STORIES 참여하기</small></a>
+        <a href="/contact/" aria-current="page"><strong>연락하기</strong><small>제안 · 협업 · 문의</small></a>
+        <a class="index-cover" href="/sitemap/">전체 구조 보기</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" aria-labelledby="contact-title">
+    <div class="eyebrow">TOHEŞAR <span aria-hidden="true"></span> CONTACT / COLLABORATE · 001</div>
+    <div class="hero-grid">
+      <h1 id="contact-title">좋은 이야기는<br><em>대화에서 시작된다.</em></h1>
+      <div class="hero-side"><p>자동차의 형태와 그 주변의 문화를 기록합니다. 함께 살펴보고 싶은 자동차, 사진, 장소, 그리고 새로운 협업에 관한 이야기를 기다립니다.</p><small>INDEPENDENT AUTOMOTIVE CULTURE</small></div>
+    </div>
+  </section>
+  <section class="contact-stage" aria-labelledby="mail-title">
+    <div class="stage-head"><b>01 — DIRECT CHANNEL</b><p>지금 실제로 연락 가능한 주소</p></div>
+    <div class="mail-block">
+      <div><span class="micro">TOHEŞAR / EMAIL</span><h2 id="mail-title">tohesar@gmail.com</h2><p>제안 내용을 편하게 보내주세요. 제출 양식이나 회원가입 없이 메일로 직접 연결됩니다.</p></div>
+      <div><div class="mail-actions">
+        <a class="primary" href="mailto:tohesar@gmail.com?subject=TOHESAR%20%7C%20Inquiry">메일 작성하기 <span aria-hidden="true">↗</span></a>
+        <button class="secondary" type="button" id="copy-email">주소 복사 <span aria-hidden="true">↗</span></button>
+      </div><p class="copy-status" id="copy-status" role="status" aria-live="polite"></p></div>
+    </div>
+    <div class="routes" aria-label="연락 유형">
+      <a class="route" href="/owner-stories/"><span class="num">01 / OWNER STORIES</span><div><h3>당신의 차에도<br>이야기가 있다면.</h3><p>실차 사진, 기억, 소유 경험을 함께 기록하는 차주 이야기 참여.</p></div><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="route" href="mailto:tohesar@gmail.com?subject=TOHESAR%20%7C%20Collaboration"><span class="num">02 / COLLABORATION</span><div><h3>새로운 장면을<br>함께 만든다면.</h3><p>자동차 문화, 디자인, 사진·영상, 브랜드와의 협업 제안.</p></div><span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="route" href="mailto:tohesar@gmail.com?subject=TOHESAR%20%7C%20Editorial"><span class="num">03 / EDITORIAL</span><div><h3>남기고 싶은<br>하나의 기록.</h3><p>기사 제보, 출처 제공, 내용 정정 및 편집 관련 문의.</p></div><span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="bottom" aria-labelledby="bottom-title">
+    <div><div class="serial">02 — BEYOND THE PAGE</div><h2 id="bottom-title">이어지는 시선.<br><em>Beyond the page.</em></h2></div>
+    <div class="bottom-copy"><p>사이트 밖에서도 TOHEŞAR의 시선은 계속됩니다. 새로운 작업과 자동차 이야기는 Instagram에서 만나보세요.</p><a class="primary" href="https://www.instagram.com/tohesar/" target="_blank" rel="noopener noreferrer">Instagram @tohesar <span aria-hidden="true">↗</span></a><p class="privacy">제보에 사진이나 자료를 첨부할 경우 해당 자료를 공유할 권한이 있는지 확인해 주세요. 받은 자료를 공개 콘텐츠로 사용할 때는 별도 사용 허락을 확인합니다. 메일 작성 버튼은 메일 앱을 여는 기능이며 자동 전송이나 별도 서버 저장은 하지 않습니다.</p></div>
+  </section>
+</main>
+<footer class="contact-footer"><span>© TOHEŞAR 2026 · INDEPENDENT AUTOMOTIVE CULTURE</span><nav aria-label="하단 링크"><a href="/">HOME</a><a href="/journal/">JOURNAL</a><a href="/owner-stories/">OWNER STORIES</a></nav></footer>
+<script>
+(() => {
+  const button=document.getElementById('copy-email');
+  const status=document.getElementById('copy-status');
+  button.addEventListener('click',async()=>{
+    try{
+      if(!navigator.clipboard?.writeText)throw new Error('unsupported');
+      await navigator.clipboard.writeText('tohesar@gmail.com');
+      status.textContent='이메일 주소를 복사했습니다.';
+    }catch(error){
+      status.textContent='복사가 지원되지 않으면 주소를 길게 눌러 복사해 주세요.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
