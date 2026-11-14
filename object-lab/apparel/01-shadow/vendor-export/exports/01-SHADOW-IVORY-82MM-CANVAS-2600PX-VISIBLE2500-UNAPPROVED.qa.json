@@ -1,0 +1,42 @@
+{
+  "product": "TOHEŞAR / 01 SHADOW UNIFORM",
+  "status": "UNAPPROVED_INTERNAL_RASTER_QA_NOT_VENDOR_ACCEPTED",
+  "source_svg_sha256": "17d4ac8b0e3f13d8b4e76e5c335a9ee42a603136401d8fa81422b70ae5337d20",
+  "source_git_blob_sha1": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "source_path_sha256": "b7d36711e60d94465d0587e4a4e4100fba1217a2157865995717ca8c23b0d93d",
+  "source_letterforms_changed": false,
+  "output_file": "object-lab/apparel/01-shadow/vendor-export/exports/01-SHADOW-IVORY-82MM-CANVAS-2600PX-VISIBLE2500-UNAPPROVED.png",
+  "png_sha256": "a075632cb8ce37e244884716b93cba8f3a2149d512aee8e3a8c50c4b1bb5a0be",
+  "png_bytes": 63038,
+  "canvas_px": [
+    2600,
+    598
+  ],
+  "visible_alpha_bbox_px": [
+    4,
+    4,
+    2591,
+    591
+  ],
+  "visible_alpha_width_px": 2587,
+  "transparent_margins_px_left_top_right_bottom": [
+    4,
+    4,
+    9,
+    7
+  ],
+  "nominal_canvas_width_mm": 82.0,
+  "nominal_visible_ink_width_mm_if_canvas_82mm": 81.59,
+  "embedded_dpi_approx": 805.36,
+  "prior_2500px_canvas_visible_ink_px": 2487,
+  "marpple_2500_visible_ink_recommendation_met": true,
+  "actual_logo_print_quote_verified": false,
+  "physical_print_or_wash_tested": false,
+  "owner_logo_upload_approved": false,
+  "vendor_logo_uploaded": false,
+  "seller_print_method_verified": false,
+  "user_size_approved": false,
+  "order_or_payment": false,
+  "source_guideline_url": "https://www.marpple.com/kr/faq/image-preparation",
+  "disclaimer": "MARPPLE recommends >=2500px excluding transparent padding, not a guaranteed acceptance rule. PNG raster resolution and metadata cannot prove ink opacity, method, exact size or printer acceptance."
+}

@@ -1,0 +1,23 @@
+{
+  "sku": "8178",
+  "color": "charcoal",
+  "size": null,
+  "quantity": 1,
+  "artwork_width_mm": 82,
+  "placement_from_center_mm": null,
+  "placement_from_hps_mm": null,
+  "print_method": null,
+  "ink_color": "ivory #f8f2e7",
+  "base_krw": 15700,
+  "print_krw": null,
+  "shipping_krw": 3000,
+  "vat_krw": null,
+  "other_fees_krw": null,
+  "seller_confirmed_total_krw": null,
+  "seller_quote_date": null,
+  "seller_artwork_approved": false,
+  "seller_placement_approved": false,
+  "owner_size_approved": false,
+  "owner_upload_approved": false,
+  "owner_order_approved": false
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-12",
+  "source_head": "2703e7b35f6c7b7a19c6bb8061c4ad42c0d04fb4",
+  "tests": {
+    "all_critical_fields_required": true,
+    "disallows_unexpected_fields": true,
+    "explicitly_rejects_generic_text": true,
+    "forces_exact_sku": true,
+    "requires_true_upload_permission": true,
+    "requires_owner_size_approval": true,
+    "does_not_authorize_order": true,
+    "requires_real_print_method": true,
+    "requires_ink_measurement": true,
+    "requires_tax_shipping_total": true,
+    "incomplete_evidence_fails_closed": true
+  },
+  "passed": 11,
+  "failed": 0,
+  "pending_incompatible_fields": [
+    "size",
+    "artworkType",
+    "inkWidthMeasuredMm",
+    "printMethod",
+    "underbase",
+    "placementReference",
+    "placementXmm",
+    "placementYmm",
+    "unitPrintedPrice",
+    "shippingPrice",
+    "taxHandling",
+    "totalPayable",
+    "evidenceCapturedAt",
+    "evidenceUrlOrLocalRef",
+    "ownerArtworkUploadApproved",
+    "ownerSampleSizeApproved"
+  ],
+  "notes": "Structural JS checks only; independent JSON Schema validator NOT RUN; supplier proof NOT RUN; no artwork uploaded"
+}

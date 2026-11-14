@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<title>01 SHADOW physical placement proof — placeholder only, not vendor artwork</title>
+<rect width="210" height="297" fill="white"/>
+<g font-family="Arial,sans-serif" fill="#111">
+<text x="15" y="18" font-size="5">TOHESAR / 01 SHADOW / 1:1 PAPER PLACEMENT PROOF</text>
+<text x="15" y="26" font-size="3.5">A4 PRINT: 100% / ACTUAL SIZE. Disable Fit to page.</text>
+<text x="15" y="32" font-size="3.5">Measure the 100 mm calibration bar with a ruler before use.</text>
+<text x="15" y="53" font-size="3.6">100 mm reference: must measure 100 mm physically.</text>
+<text x="15" y="67" font-size="3.6">82 mm full image envelope; NOT vendor printable zone.</text>
+<text x="20" y="101" font-size="3.6">Full art canvas: 82.000 x 18.860 mm</text>
+<text x="20" y="107" font-size="3.6">Saved alpha bounds: 81.574 x 18.532 mm (estimated)</text>
+<text x="20" y="113" font-size="3.6">Dotted box = alpha extent; no proprietary art included.</text>
+<text x="15" y="132" font-size="4">CUT OUT THE 82 mm BOX ONLY AFTER CALIBRATION PASSES.</text>
+<text x="15" y="143" font-size="3.6">Place paper on real blank garment at left chest; record:</text>
+<text x="15" y="154" font-size="3.6">Size: ______    CF-to-art-left: ______ mm</text>
+<text x="15" y="162" font-size="3.6">HPS-to-art-top: ______ mm    Flat garment: YES / NO</text>
+<text x="15" y="170" font-size="3.6">Actual flat chest: ______ mm    Position: APPROVE / REJECT</text>
+<text x="15" y="184" font-size="3.6">CF = center front; HPS = high point shoulder.</text>
+<text x="15" y="195" font-size="3.6">Paper test only; not supplier-approved print method or placement.</text>
+<text x="15" y="211" font-size="4.5">DO NOT SEND AS FINAL PRINT ARTWORK.</text>
+<text x="15" y="225" font-size="3.6">No logo, third-party upload, purchase or seller approval.</text>
+<text x="15" y="239" font-size="3.6">If calibration differs from 100 mm, reprint at 100%.</text>
+</g>
+<g fill="none" stroke="#222" stroke-width=".3">
+<rect x="15" y="40" width="100" height="7"/>
+<line x1="15" y1="38" x2="15" y2="49"/>
+<line x1="115" y1="38" x2="115" y2="49"/>
+<rect x="20" y="75" width="82" height="18.86" stroke-width=".5"/>
+<rect x="20.1312" y="75.1312" width="81.5736" height="18.532" stroke="#777" stroke-width=".2" stroke-dasharray="1.2 1.2"/>
+</g>
+</svg>

@@ -1,0 +1,76 @@
+{
+  "schema": "TOHESAR-01-8178-PUBLIC-PRINT-ZONE-EVIDENCE-v1",
+  "observedAtUtc": "2026-11-11T10:09:33.785Z",
+  "productSku": 8178,
+  "productType": "BeCanvas pigment oversized t-shirt",
+  "evidenceType": "Seller public product print-area infographic; independently downloaded and visually inspected from real TEAM-BKIT Chrome.",
+  "productPageUrl": "https://www.marpple.com/kr/product/detail?bp_id=8178",
+  "supplierGuideImageUrl": "https://s3.marpple.co/files/u_3136606/2025/5/original/9ccf2ad4d9fc9d4ddf486b3df5fb12ad55cab5471.png",
+  "sourceImageSha256": "56e380e68d20601860cd11b3d22044eea7a35dd661c41b3d0d6ae65dee44a59a",
+  "sourceImagePixels": [
+    1921,
+    822
+  ],
+  "sourceImageCopiedIntoRepo": false,
+  "publishedPrintZoneMm": {
+    "front": [
+      380,
+      480
+    ],
+    "back": [
+      380,
+      480
+    ]
+  },
+  "printSizeClaimKind": "Public general product diagram, not per-ordered-size press approval",
+  "logoVisibleWidthTargetMm": 82,
+  "horizontalFeasibilityOnly": {
+    "assumePrintRegionCenteredOnGarmentFold": true,
+    "assume82mmInkSymmetricAroundLogoCenter": true,
+    "printHalfWidthMm": 190,
+    "inkHalfWidthMm": 41,
+    "hypotheticalWearerLeftOffsetScenarios": [
+      {
+        "offsetMm": 0,
+        "conditionalMinHorizontalMarginMm": 149
+      },
+      {
+        "offsetMm": 60,
+        "conditionalMinHorizontalMarginMm": 89
+      },
+      {
+        "offsetMm": 100,
+        "conditionalMinHorizontalMarginMm": 49
+      },
+      {
+        "offsetMm": 120,
+        "conditionalMinHorizontalMarginMm": 29
+      },
+      {
+        "offsetMm": 140,
+        "conditionalMinHorizontalMarginMm": 9
+      }
+    ],
+    "internalCautionThresholdMm": 15,
+    "thresholdVendorApproved": false
+  },
+  "unverified": [
+    "Actual left/right and top/bottom press datum on a physical size",
+    "Owner choice left-chest versus center-front and exact lateral/vertical offsets",
+    "Supplier acceptance of actual uploaded original PNG and process",
+    "Supplier-specific tolerance or edge safety margin",
+    "Whether this generic diagram applies without adjustments to every size/color",
+    "Final price including actual image ink, VAT, shipping, quantity",
+    "Real print, wash, wear and measurement"
+  ],
+  "gates": {
+    "publicGeneralPrintZoneDimensionsSeen": true,
+    "actualPlacementApproved": false,
+    "logoVendorUploadApproved": false,
+    "precise82mmArtworkFitConfirmedBySupplier": false,
+    "garmentSizeOwnerApproved": false,
+    "priceVerified": false,
+    "productionRelease": false
+  },
+  "note": "380x480mm is seller-published front/back print zone. The scenario margins depend on unverified centering assumptions; not a vendor approval, physical measurement or purchase authorization."
+}

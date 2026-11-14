@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-12",
+  "source_ref": "ed3ae35280fa2d20bd7bf65ca1dbe90bde7a7606",
+  "source_svg_blob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "run_type": "executed V8 static source/geometry checks",
+  "checks": {
+    "source_blob_locked": true,
+    "original_vector_exactly_embedded_once": true,
+    "a4_mm": true,
+    "art_canvas_width_82": true,
+    "art_aspect_ratio": true,
+    "alpha_bbox_ink_math": true,
+    "horizontal_ruler_100": true,
+    "vertical_ruler_50": true,
+    "cut_patch_112_by_55": true,
+    "self_contained_vector": true,
+    "unapproved_flags": true
+  },
+  "pass_count": 11,
+  "fail_count": 0,
+  "geometry_mm": {
+    "canvas_w": 82,
+    "canvas_h": 18.85482416591524,
+    "estimated_visible_ink_w": 81.5736,
+    "ruler_h": 100,
+    "ruler_v": 50,
+    "swatch_w": 112,
+    "swatch_h": 55
+  },
+  "not_run": [
+    "physical A4 paper print or ruler measurement",
+    "owner garment size selection and actual shirt placement",
+    "MARPPLE logo upload, supplier proof, full quote, physical fit/wash"
+  ],
+  "vendor_uploaded": false,
+  "owner_approved_size": false,
+  "order_approved": false
+}

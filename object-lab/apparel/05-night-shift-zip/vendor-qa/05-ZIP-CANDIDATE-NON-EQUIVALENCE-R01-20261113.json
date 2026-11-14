@@ -1,0 +1,146 @@
+{
+  "status": "INTERNAL_COMPARISON_ONLY_NOT_MANUFACTURING_APPROVAL",
+  "snapshot_date": "2026-11-10",
+  "generated_date": "2026-11-13",
+  "source": "object-lab/apparel/vendor-gates/marpple/VERIFIED-SIZE-CHARTS-4SKU-20261110.json",
+  "product": "05 NIGHT SHIFT ZIP",
+  "premium_9362": {
+    "two_way_zip": "seller-listed",
+    "fabric": "cotton 70% polyester 30%",
+    "gsm": "UNVERIFIED",
+    "test_S_blank_krw": 35900,
+    "test_S_generic_text_krw": 43900,
+    "listed_shipping_krw": 3000,
+    "logo_quote": "UNKNOWN"
+  },
+  "budget_9371": {
+    "two_way_zip": "UNVERIFIED",
+    "fabric": "outer cotton 57.2% polyester 42.8%; lining polyester 95.6% spandex 4.4%",
+    "gsm": "UNVERIFIED",
+    "test_M_blank_krw": 21600,
+    "test_M_generic_text_krw": 29600,
+    "listed_shipping_krw": 3000,
+    "logo_quote": "UNKNOWN"
+  },
+  "comparable_sizes": [
+    {
+      "size": "M",
+      "two_way_9362_cm": {
+        "length": 71,
+        "shoulder": 64,
+        "chest_flat": 61,
+        "sleeve": 56
+      },
+      "bonded_9371_cm": {
+        "length": 69,
+        "shoulder": 60,
+        "chest_flat": 59,
+        "sleeve": 53
+      },
+      "two_way_minus_bonded_cm": {
+        "length": 2,
+        "shoulder": 4,
+        "chest_flat": 2,
+        "sleeve": 3
+      },
+      "chest_circumference_difference_cm": 4
+    },
+    {
+      "size": "L",
+      "two_way_9362_cm": {
+        "length": 73,
+        "shoulder": 66,
+        "chest_flat": 63.5,
+        "sleeve": 57
+      },
+      "bonded_9371_cm": {
+        "length": 71,
+        "shoulder": 63,
+        "chest_flat": 62,
+        "sleeve": 54
+      },
+      "two_way_minus_bonded_cm": {
+        "length": 2,
+        "shoulder": 3,
+        "chest_flat": 1.5,
+        "sleeve": 3
+      },
+      "chest_circumference_difference_cm": 3
+    },
+    {
+      "size": "XL",
+      "two_way_9362_cm": {
+        "length": 75,
+        "shoulder": 68,
+        "chest_flat": 66,
+        "sleeve": 58
+      },
+      "bonded_9371_cm": {
+        "length": 73,
+        "shoulder": 66,
+        "chest_flat": 65,
+        "sleeve": 55
+      },
+      "two_way_minus_bonded_cm": {
+        "length": 2,
+        "shoulder": 2,
+        "chest_flat": 1,
+        "sleeve": 3
+      },
+      "chest_circumference_difference_cm": 2
+    },
+    {
+      "size": "2XL",
+      "two_way_9362_cm": {
+        "length": 78,
+        "shoulder": 70,
+        "chest_flat": 68.5,
+        "sleeve": 59
+      },
+      "bonded_9371_cm": {
+        "length": 75,
+        "shoulder": 69,
+        "chest_flat": 68,
+        "sleeve": 56
+      },
+      "two_way_minus_bonded_cm": {
+        "length": 3,
+        "shoulder": 1,
+        "chest_flat": 0.5,
+        "sleeve": 3
+      },
+      "chest_circumference_difference_cm": 1
+    },
+    {
+      "size": "3XL",
+      "two_way_9362_cm": {
+        "length": 81,
+        "shoulder": 72,
+        "chest_flat": 71,
+        "sleeve": 60
+      },
+      "bonded_9371_cm": {
+        "length": 77,
+        "shoulder": 72,
+        "chest_flat": 71,
+        "sleeve": 57
+      },
+      "two_way_minus_bonded_cm": {
+        "length": 4,
+        "shoulder": 0,
+        "chest_flat": 0,
+        "sleeve": 3
+      },
+      "chest_circumference_difference_cm": 0
+    }
+  ],
+  "decision": "DO_NOT_SUBSTITUTE_9371_FOR_9362_WITHOUT_EXPLICIT_REDESIGN",
+  "blocked_by": [
+    "9362 gsm evidence",
+    "9362 required size availability",
+    "left-panel printable region dimensions and transfer method",
+    "original art upload approval",
+    "one-piece original image quote",
+    "owner size approval"
+  ]
+}

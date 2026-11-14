@@ -1,0 +1,107 @@
+{
+  "topic": "TOHEŞAR OBJECT LAB / public MARPPLE editor native-text price QA",
+  "observedAtUtc": {
+    "main": "2026-11-09T15:13:47.508Z",
+    "zip": "2026-11-09T15:17:44.905Z",
+    "extra": "2026-11-09T15:19:08.376Z"
+  },
+  "method": "isolated anonymous Chrome; select garment color and test size, add site-native generic text once, return from text pane, read displayed unit amount; do not upload TOHEŞAR branding",
+  "notAnActualLogoQuote": true,
+  "externalBrandUpload": false,
+  "cart": false,
+  "checkout": false,
+  "orders": false,
+  "contact": false,
+  "personalData": false,
+  "observations": [
+    {
+      "sku": 8178,
+      "group": "01 SHADOW candidate",
+      "color": "차콜",
+      "size": "M test only",
+      "garmentAmountKRW": 15700,
+      "withGenericTextKRW": 23700,
+      "genericTextDeltaKRW": 8000,
+      "listedShippingKRW": 3000,
+      "artworkApproved": false
+    },
+    {
+      "sku": 9337,
+      "group": "07 AFTERIMAGE candidate",
+      "color": "차콜",
+      "size": "M test only",
+      "garmentAmountKRW": 26900,
+      "withGenericTextKRW": 34900,
+      "genericTextDeltaKRW": 8000,
+      "listedShippingKRW": 3000,
+      "artworkApproved": false
+    },
+    {
+      "sku": 9362,
+      "group": "05 NIGHT SHIFT 2WAY alternative",
+      "color": "차콜",
+      "selectedSizeTest": "S",
+      "enabledSizes": [
+        "S",
+        "XL"
+      ],
+      "disabledSizes": [
+        "M",
+        "L",
+        "2XL",
+        "3XL"
+      ],
+      "garmentAmountKRW": 35900,
+      "withGenericTextKRW": 43900,
+      "genericTextDeltaKRW": 8000,
+      "listedShippingKRW": 3000,
+      "artworkApproved": false
+    },
+    {
+      "sku": 9370,
+      "group": "05 fleece alternative",
+      "color": "챠콜 그레이",
+      "selectedSizeTest": null,
+      "enabledSizes": [],
+      "disabledSizes": [
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "garmentAmountKRW": 25900,
+      "withGenericTextKRW": null,
+      "genericTextDeltaKRW": null,
+      "listedShippingKRW": 3000,
+      "artworkApproved": false
+    },
+    {
+      "sku": 9371,
+      "group": "05 budget bonded alternative",
+      "color": "챠콜 그레이",
+      "selectedSizeTest": "M",
+      "enabledSizes": [
+        "M",
+        "2XL",
+        "3XL"
+      ],
+      "disabledSizes": [
+        "L",
+        "XL"
+      ],
+      "garmentAmountKRW": 21600,
+      "withGenericTextKRW": 29600,
+      "genericTextDeltaKRW": 8000,
+      "listedShippingKRW": 3000,
+      "artworkApproved": false
+    }
+  ],
+  "notes": [
+    "For 01 and 07, base and after-text values are actual UI observations; print delta is their numeric difference, not a verified TOHEŞAR image-logo fee",
+    "9362 two-way zip charcoal S/XL selectable, M/L/2XL/3XL disabled after color load",
+    "9370 exact seller color label is 챠콜 그레이; all M–3XL disabled at inspection; no text quote attempted",
+    "9371 is not two-way and not equivalent construction to 05 signature garment; test M available",
+    "VAT, fulfillment, official 82mm logo positioning and final payment total remain unknown"
+  ]
+}
