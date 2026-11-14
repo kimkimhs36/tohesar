@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-12",
+  "version": "R05",
+  "source_head": "59d8a7cd00ab0f725da8f32daa6b1e384dde2853",
+  "scenarios": [
+    {
+      "margin": 0,
+      "gap": 0,
+      "trim": 6,
+      "bleed": 5,
+      "validated_with": "independent JS floor-division geometry",
+      "calcTrim": 6,
+      "calcBleed": 5
+    },
+    {
+      "margin": 5,
+      "gap": 3,
+      "trim": 5,
+      "bleed": 4,
+      "validated_with": "independent JS floor-division geometry",
+      "calcTrim": 5,
+      "calcBleed": 4
+    },
+    {
+      "margin": 5,
+      "gap": 5,
+      "trim": 5,
+      "bleed": 4,
+      "validated_with": "independent JS floor-division geometry",
+      "calcTrim": 5,
+      "calcBleed": 4
+    },
+    {
+      "margin": 10,
+      "gap": 5,
+      "trim": 5,
+      "bleed": 4,
+      "validated_with": "independent JS floor-division geometry",
+      "calcTrim": 5,
+      "calcBleed": 4
+    }
+  ],
+  "js_arithmetic_scenarios_passed": 4,
+  "python_unittest": "NOT RUN IN THIS CONNECTOR SESSION",
+  "vendor_approved": false,
+  "artwork_changed": false,
+  "external_upload": false
+}

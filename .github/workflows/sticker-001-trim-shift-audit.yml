@@ -1,0 +1,30 @@
+name: Sticker 001 - Trim Shift Geometry
+on:
+  push:
+    branches: [object-lab/print-production-studio-20261109]
+    paths:
+      - 'object-lab/production-studio/sticker_001_trim_shift_audit.py'
+      - 'object-lab/production-studio/test_sticker_001_trim_shift_audit.py'
+      - '.github/workflows/sticker-001-trim-shift-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test geometric counterexamples
+        working-directory: object-lab/production-studio
+        run: python -m unittest -v test_sticker_001_trim_shift_audit
+      - name: Generate actual internal drift audit
+        run: python object-lab/production-studio/sticker_001_trim_shift_audit.py --drift-mm 1.5 > sticker-001-trim-drift-1p5mm.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sticker-001-trim-drift-unapproved
+          path: sticker-001-trim-drift-1p5mm.json
+          if-no-files-found: error

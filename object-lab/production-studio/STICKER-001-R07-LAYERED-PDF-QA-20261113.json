@@ -1,0 +1,107 @@
+{
+  "dateKst": "2026-11-13",
+  "project": "STICKER_001_R07",
+  "state": "UNAPPROVED_INTERNAL_BINARY_PDF",
+  "sourceHead": "c6d40eab4d54af724fd939d7285e3126a02f330e",
+  "sourceSvgBlob": "46275eec9e61ec2e2a7b872f09271580c95cf396",
+  "sourceMasterBlob": "e9b299f8d797625b3704103c08ea1aede5c5ea05",
+  "createdPdf": {
+    "bytes": 23217,
+    "sourcePathChars": 7319,
+    "sourcePathVertices": 979,
+    "closedContours": 8,
+    "pdfVersion": "1.5",
+    "pageMm": [
+      110,
+      40
+    ],
+    "cutlineMm": [
+      100,
+      30
+    ],
+    "cutlineInsetMm": 5,
+    "cutlineStrokePt": 0.5,
+    "printOcg": "인쇄",
+    "kisscutOcg": "반칼",
+    "cutlineInk": "DeviceCMYK C0 M100 Y0 K0",
+    "printArtwork": "DeviceRGB, NOT CALIBRATED",
+    "xrefOffset": 22980
+  },
+  "actualTestCount": 17,
+  "tests": [
+    {
+      "name": "pdf15",
+      "passed": true
+    },
+    {
+      "name": "byteString",
+      "passed": true
+    },
+    {
+      "name": "mmMediaBox",
+      "passed": true
+    },
+    {
+      "name": "twoOCG",
+      "passed": true
+    },
+    {
+      "name": "namedPrinting",
+      "passed": true
+    },
+    {
+      "name": "namedKisscut",
+      "passed": true
+    },
+    {
+      "name": "actualMarkedContent",
+      "passed": true
+    },
+    {
+      "name": "cmykMagenta",
+      "passed": true
+    },
+    {
+      "name": "strokePt",
+      "passed": true
+    },
+    {
+      "name": "cutlineGeometry",
+      "passed": true
+    },
+    {
+      "name": "unchangedVector",
+      "passed": true
+    },
+    {
+      "name": "noImageFonts",
+      "passed": true
+    },
+    {
+      "name": "xrefAccurate",
+      "passed": true
+    },
+    {
+      "name": "startxref",
+      "passed": true
+    },
+    {
+      "name": "contentLength",
+      "passed": true
+    },
+    {
+      "name": "pdfTrailer",
+      "passed": true
+    },
+    {
+      "name": "sourceBlobUnchanged",
+      "passed": true
+    }
+  ],
+  "independentPdfRender": "NOT_RUN",
+  "independentNode": "NOT_RUN",
+  "supplierApproval": "NOT_RUN",
+  "ownerSelectedSupplier": false,
+  "externalUpload": false,
+  "order": false
+}

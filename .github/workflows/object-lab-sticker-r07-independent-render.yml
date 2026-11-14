@@ -1,0 +1,32 @@
+name: Sticker 001 R07 independent MuPDF render
+on:
+  push:
+    branches:
+      - object-lab/print-production-studio-20261109
+    paths:
+      - 'object-lab/production-studio/exports/STICKER-001-R07-LAYERED-110x40mm-UNAPPROVED.pdf'
+      - 'object-lab/production-studio/verify_sticker_r07_independent_render.py'
+      - '.github/workflows/object-lab-sticker-r07-independent-render.yml'
+  workflow_dispatch:
+jobs:
+  independent-render:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install independent PDF renderer
+        run: python -m pip install 'pymupdf==1.26.7'
+      - name: Render and validate real committed PDF
+        run: python object-lab/production-studio/verify_sticker_r07_independent_render.py "$RUNNER_TEMP/sticker-proof"
+      - name: Retain reviewable raster and QA record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sticker-r07-independent-render-unapproved
+          path: ${{ runner.temp }}/sticker-proof/
+          if-no-files-found: warn
+          retention-days: 14
