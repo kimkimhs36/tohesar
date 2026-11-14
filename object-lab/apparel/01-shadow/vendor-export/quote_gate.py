@@ -30,6 +30,7 @@ def evaluate(q):
     try:
         quote_date=q.get('seller_quote_date')
         if not isinstance(quote_date,str) or date.fromisoformat(quote_date).isoformat()!=quote_date:raise ValueError()
+        if date.fromisoformat(quote_date)>date.today():blockers.append('FUTURE_SELLER_QUOTE_DATE')
     except ValueError:blockers.append('INVALID_SELLER_QUOTE_DATE')
     for k in ('seller_artwork_approved','seller_placement_approved','owner_size_approved','owner_upload_approved','owner_order_approved'):
         if q.get(k) is not True:blockers.append('NOT_APPROVED:'+k)
