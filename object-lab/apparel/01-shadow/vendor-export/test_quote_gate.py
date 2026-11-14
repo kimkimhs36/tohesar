@@ -19,4 +19,19 @@ class TestGate(unittest.TestCase):
         q=sample();q['artwork_width_mm']=81.57;self.assertIn('ARTWORK_WIDTH_NOT_82MM',evaluate(q)['blockers'])
     def test_negative_placement_blocked(self):
         q=sample();q['placement_from_hps_mm']=-1;self.assertIn('INVALID_PLACEMENT:placement_from_hps_mm',evaluate(q)['blockers'])
+    def test_zero_print_quote_blocked(self):
+        q=sample();q['print_krw']=0;q['seller_confirmed_total_krw']=18700
+        self.assertIn('PRINT_PRICE_NOT_POSITIVE',evaluate(q)['blockers'])
+    def test_bool_quantity_blocked(self):
+        q=sample();q['quantity']=True
+        self.assertIn('QUANTITY_NOT_ONE',evaluate(q)['blockers'])
+    def test_noncanonical_date_blocked(self):
+        q=sample();q['seller_quote_date']='tomorrow'
+        self.assertIn('INVALID_SELLER_QUOTE_DATE',evaluate(q)['blockers'])
+    def test_blank_print_method_blocked(self):
+        q=sample();q['print_method']='   '
+        self.assertIn('INVALID_FIELD:print_method',evaluate(q)['blockers'])
+    def test_width_numeric_string_allowed(self):
+        q=sample();q['artwork_width_mm']='82.00'
+        self.assertEqual(evaluate(q)['status'],'READY_FOR_HUMAN_REVIEW')
 if __name__=='__main__':unittest.main()
