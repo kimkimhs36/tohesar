@@ -1,0 +1,27 @@
+{
+  "title": "TOHEŞAR 01 SHADOW / MARPPLE file-format preflight (not uploaded)",
+  "generated_at_utc": "2026-11-09T14:41:57.867235+00:00",
+  "official_source_url": "https://raw.githubusercontent.com/kimkimhs36/tohesar/object-lab/06-afterhours-longsleeve-20261109/assets/wordmark.svg",
+  "source_svg_sha256": "17d4ac8b0e3f13d8b4e76e5c335a9ee42a603136401d8fa81422b70ae5337d20",
+  "source_path_sha256": "b7d36711e60d94465d0587e4a4e4100fba1217a2157865995717ca8c23b0d93d",
+  "source_path_character_count": 7319,
+  "art_width_mm": 82.0,
+  "art_height_mm": 18.85482,
+  "png_pixels": [
+    2500,
+    575
+  ],
+  "png_alpha_bbox": [
+    4,
+    4,
+    2491,
+    569
+  ],
+  "png_has_transparent_background": true,
+  "png_approx_embedded_dpi": 774.39,
+  "vendor_note": "MARPPLE editor accepts PNG/JPG; exact on-garment 82mm placement must be set manually in editor and approved by vendor. Pixel/dpi metadata alone does not enforce print size.",
+  "owner_approval": "NOT APPROVED",
+  "uploaded": false,
+  "price_verified": false,
+  "ordered": false
+}
