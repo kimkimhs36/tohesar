@@ -35,6 +35,10 @@ SECTIONS = {
         "TOHEŞAR의 공식 연락 및 협업 안내. 자동차 디자인 에디토리얼 제안, 사진과 차주 이야기, 협업 문의를 받습니다.",
         None,
     ),
+    "/owner-stories/": (
+        "TOHEŞAR OWNER STORIES. 소유한 자동차의 형태와 기억을 기록하는 참여형 자동차 문화 저널. 차주 이야기 제안과 Instagram DM 참여 안내.",
+        "/owner-stories/assets/city-light-erik-mclean.jpg",
+    ),
     "/journal/design/": (
         "자동차의 곡선, 쐐기형 차체, 그랜드 투어러의 비례를 사진과 글로 읽는 TOHEŞAR 디자인 아틀라스.",
         "/journal/assets/giulia/profile-1600.webp",

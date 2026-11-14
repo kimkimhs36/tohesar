@@ -76,5 +76,23 @@ class SeoTests(unittest.TestCase):
             self.assertEqual(pages["/journal/f40/"]["kind"], "article")
 
 
+    def test_owner_stories_public_invitation_is_search_indexable(self):
+        self.assertIn("/owner-stories/", seo.SECTIONS)
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            image = root / "owner-stories/assets/city-light-erik-mclean.jpg"
+            image.parent.mkdir(parents=True)
+            image.write_bytes(b"fixture")
+            pages = {"/owner-stories/": {"description": seo.SECTIONS["/owner-stories/"][0], "image": seo.SECTIONS["/owner-stories/"][1], "kind": "section"}}
+            source = HTML.replace("</head>", '<meta name="description" content="old"></head>')
+            result = seo.transform(source, root, "/owner-stories/", pages)
+            self.assertIn('rel="canonical" href="https://tohesar.com/owner-stories/"', result)
+            self.assertIn('content="index,follow,max-image-preview:large"', result)
+            self.assertIn("city-light-erik-mclean.jpg", result)
+            self.assertNotIn('content="noindex,follow"', result)
+            self.assertEqual(result, seo.transform(result, root, "/owner-stories/", pages))
+            self.assertIn("https://tohesar.com/owner-stories/", seo.sitemap(pages))
+
+
 if __name__ == "__main__":
     unittest.main()
