@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<title>06 AFTER HOURS - cuff and sleeve construction decision R01 - NOT APPROVED</title>
+<rect width="1200" height="760" fill="#f0ede6"/>
+<g font-family="Arial,sans-serif" fill="#222824"><text x="56" y="58" font-size="29" font-weight="bold">06 / AFTER HOURS</text><text x="56" y="86" font-size="15">SLEEVE + CUFF CONSTRUCTION STUDY R01 — NOT A PATTERN / NOT FACTORY APPROVED</text></g>
+<g stroke="#323934" stroke-width="3" stroke-linejoin="round">
+<path d="M120 173 L420 173 L382 430 L165 430 Z" fill="#464c48"/>
+<path d="M165 430 L382 430 L377 510 L170 510 Z" fill="#272e2a"/>
+<path d="M164 430 L383 430" stroke="#d0c7b8" stroke-dasharray="8 5"/>
+<path d="M650 173 L950 173 L912 430 L695 430 Z" fill="#464c48"/>
+<path d="M695 430 L912 430 L907 510 L700 510 Z" fill="#272e2a"/>
+<path d="M695 430 L912 430" stroke="#d0c7b8" stroke-dasharray="8 5"/>
+<path d="M804 430 L804 510" stroke="#a4ada6" stroke-dasharray="5 6"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#252b27">
+<text x="120" y="144" font-size="20" font-weight="bold">A / STANDARD BLANK CUFF</text><text x="650" y="144" font-size="20" font-weight="bold">B / CUSTOM LONG RIB CUFF</text>
+<text x="120" y="548" font-size="15">Existing vendor cuff, unchanged.</text><text x="650" y="548" font-size="15">Separate cut-and-sew sample required.</text>
+<text x="120" y="576" font-size="13">No claimed new pattern or trim.</text><text x="650" y="576" font-size="13">Rib recovery and seam bulk must be tested.</text>
+</g>
+<g stroke="#b05c43" stroke-width="2" fill="none"><path d="M270 450 L475 391 L555 391"/><path d="M803 470 L997 390 L1105 390"/></g>
+<g font-family="Arial,sans-serif" fill="#8b4636" font-size="14"><text x="457" y="378">vendor seam</text><text x="987" y="377">rib join / stretch</text></g>
+<line x1="56" y1="612" x2="1144" y2="612" stroke="#929991"/>
+<g font-family="Arial,sans-serif" fill="#242b27" font-size="15">
+<text x="56" y="643">DECISION: A for 1-piece core feasibility. B remains UNAPPROVED signature candidate.</text>
+<text x="56" y="673">MEASURE ON REAL GARMENT: sleeve length (HPS to cuff), cuff relaxed circumference, cuff height, sleeve opening.</text>
+<text x="56" y="701">SEW TEST B: measure rib stretch/recovery; match sleeve opening; mark quarter notches; join rib loop; attach; inspect twisting.</text>
+<text x="56" y="729">No fabric GSM, seam allowance, tolerance, shrinkage, supplier price, or real cuff dimensions are verified here.</text>
+</g>
+</svg>
