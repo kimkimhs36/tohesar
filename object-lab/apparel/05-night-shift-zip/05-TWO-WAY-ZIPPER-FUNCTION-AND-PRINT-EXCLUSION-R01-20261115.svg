@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+<title>TOHEŞAR 05 NIGHT SHIFT ZIP — two-way zipper construction and panel-print exclusion study R01</title>
+<rect width="1200" height="900" fill="#f4f1ea"/>
+<g font-family="Arial,sans-serif" fill="#1c2826">
+<text x="60" y="62" font-size="29" font-weight="bold">05 / NIGHT SHIFT ZIP</text>
+<text x="60" y="94" font-size="16">TWO-WAY ZIPPER · PRINT ZONE · CONSTRUCTION STUDY R01</text>
+<text x="60" y="120" font-size="13" fill="#a04335">UNAPPROVED — diagram only; not a supplier-verified pattern or physical sample</text>
+<text x="60" y="166" font-size="20">01 — FRONT FLAT / HARDWARE FIRST</text>
+</g>
+<!-- front garment, generic technical geometry not claimed as existing product -->
+<path d="M202 215 L300 176 L344 208 L415 208 L460 176 L558 215 L633 354 L570 397 L521 324 L521 741 L239 741 L239 324 L190 397 L127 354 Z" fill="#343b3b" stroke="#101d1d" stroke-width="3"/>
+<path d="M300 176 Q335 141 379 170 Q421 141 460 176 L415 208 L344 208 Z" fill="#424949" stroke="#101d1d" stroke-width="3"/>
+<path d="M379 171 L379 741" stroke="#d4d0c6" stroke-width="14"/>
+<path d="M379 171 L379 741" stroke="#232b2b" stroke-width="5" stroke-dasharray="5 4"/>
+<rect x="370" y="354" width="18" height="28" rx="3" fill="#b4b4ac" stroke="#131b1a" stroke-width="2"/>
+<rect x="370" y="687" width="18" height="28" rx="3" fill="#b4b4ac" stroke="#131b1a" stroke-width="2"/>
+<path d="M239 741 L521 741" stroke="#1b2322" stroke-width="10"/>
+<path d="M275 542 L337 542 L337 610 L275 610 Z M421 542 L485 542 L485 610 L421 610 Z" fill="none" stroke="#6b7370" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="285" y="290" width="65" height="23" rx="2" fill="none" stroke="#dfcfb4" stroke-width="2" stroke-dasharray="5 4"/>
+<g font-family="Arial,sans-serif" fill="#172320" font-size="15">
+<text x="655" y="225" font-size="19">DESIGN INTENT</text>
+<text x="655" y="255">• Seller-listed 2-way zipper is a real functional requirement.</text>
+<text x="655" y="282">• Upper slider: normal open / close movement.</text>
+<text x="655" y="309">• Lower slider: hem vent when seated or cycling.</text>
+<text x="655" y="336">• Quiet chest artwork: illustrative box only, NOT approved print.</text>
+<text x="655" y="363">• Front-pocket and zipper clearance must be measured.</text>
+<text x="655" y="405" fill="#a04335">DO NOT infer printable area from this drawing.</text>
+<text x="655" y="440">Candidate: MARPPLE 9362 (seller-listed 400gsm, 2-way).</text>
+<text x="655" y="467">Actual blank dimensions, artwork location and wash QC pending.</text>
+</g>
+<path d="M370 368 L626 368" stroke="#b78b5e" stroke-width="2"/>
+<path d="M388 701 L626 701" stroke="#b78b5e" stroke-width="2"/>
+<g font-family="Arial,sans-serif" fill="#1c2826" font-size="14">
+<text x="640" y="695">LOWER SLIDER: TEST OPENING FROM HEM</text>
+<text x="640" y="718">Check slider stops, tape twist and hem distortion</text>
+</g>
+<line x1="60" y1="770" x2="1140" y2="770" stroke="#c5c2b8"/>
+<g font-family="Arial,sans-serif" fill="#1c2826">
+<text x="60" y="806" font-size="20">02 — PHYSICAL SAMPLE RELEASE TEST</text>
+<text x="60" y="832" font-size="15">Cycle both sliders 20 times; record snags, tape rippling, hem rise, seated comfort, and print/zipper clearance in mm.</text>
+<text x="60" y="855" font-size="15">The 20-cycle count is an internal screening proposal, NOT an industry standard or supplier guarantee.</text>
+<text x="60" y="880" font-size="13" fill="#a04335">No original logo, proprietary pattern, manufacturer approval, or test result represented.</text>
+</g>
+</svg>
