@@ -1,0 +1,25 @@
+name: Object Lab 05 supplier-evidence check
+on:
+  push:
+    branches:
+      - object-lab/05-night-shift-zip-r01-20261109
+    paths:
+      - 'object-lab/apparel/05-night-shift-zip/supplier-proof/**'
+      - '.github/workflows/object-lab-05-supplier-proof.yml'
+  pull_request:
+    paths:
+      - 'object-lab/apparel/05-night-shift-zip/supplier-proof/**'
+      - '.github/workflows/object-lab-05-supplier-proof.yml'
+permissions:
+  contents: read
+jobs:
+  verify-public-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check supplier observations, size chart anomaly, and explicit nonapproval
+        run: node object-lab/apparel/05-night-shift-zip/supplier-proof/verify_05_cross_seller_evidence.js
