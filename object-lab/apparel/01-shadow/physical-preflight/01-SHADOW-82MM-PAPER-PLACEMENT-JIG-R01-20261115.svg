@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<title>TOHEŞAR 01 SHADOW 82mm print-placement paper jig R01</title>
+<desc>1:1 printable paper preflight template, NO ORIGINAL LOGO, not a vendor print proof. Nominal art canvas 82mm x 18.86mm based on source 2500x575. Full alpha bounding width would be 81.5736mm, with vendor cropping and ink visibility unverified.</desc>
+<rect width="210" height="297" fill="#fff"/>
+<text x="15" y="17" font-family="Arial" font-size="6.5" font-weight="bold" fill="#222">TOHEŞAR / 01 SHADOW / PAPER JIG R01</text>
+<text x="15" y="24" font-family="Arial" font-size="3.5" fill="#8c4736">INTERNAL / 100% PRINT ONLY / NOT A GARMENT PATTERN OR VENDOR PROOF</text>
+<text x="15" y="35" font-family="Arial" font-size="4.2">CUTOUT A — 82.00 mm IMAGE CANVAS, NOT 82 mm CONFIRMED INK</text>
+<rect x="18" y="42" width="100" height="40" fill="#f2f1ed" stroke="#888" stroke-dasharray="2 2"/>
+<rect x="27" y="50" width="82" height="18.86000" fill="#dcdad3" stroke="#222" stroke-width=".35"/>
+<path d="M27 59.43h82 M68 50v18.86" stroke="#8c4736" stroke-width=".25" stroke-dasharray="2 2"/>
+<text x="68" y="60.8" font-family="Arial" font-size="3" text-anchor="middle" fill="#333">PLACE ORIGINAL ART HERE</text>
+<text x="68" y="64.8" font-family="Arial" font-size="2.7" text-anchor="middle" fill="#333">NO LOGO REDRAWN</text>
+<text x="68" y="74" font-family="Arial" font-size="3" text-anchor="middle">82.00 x 18.86 mm</text>
+<text x="18" y="89" font-family="Arial" font-size="3.1">Cut the INNER 82 mm rectangle only. Outer grey region is a handling margin.</text>
+<text x="15" y="104" font-family="Arial" font-size="4.2">CUTOUT B — 82.42863 mm CANVAS (82 mm ALPHA-BOX WIDTH HYPOTHESIS)</text>
+<rect x="18" y="111" width="100" height="40" fill="#f2f1ed" stroke="#888" stroke-dasharray="2 2"/>
+<rect x="27" y="119" width="82.42863" height="18.95858" fill="#dcdad3" stroke="#222" stroke-width=".35"/>
+<path d="M27 128.48h82.42863 M68.214 119v18.9586" stroke="#8c4736" stroke-width=".25" stroke-dasharray="2 2"/>
+<text x="68.2" y="130" font-family="Arial" font-size="3" text-anchor="middle">CANVAS-BASED EDITOR ONLY</text>
+<text x="68.2" y="134" font-family="Arial" font-size="2.7" text-anchor="middle">NOT SUPPLIER ACCEPTED</text>
+<text x="68.2" y="144" font-family="Arial" font-size="3" text-anchor="middle">82.42863 x 18.9586 mm</text>
+<text x="15" y="164" font-family="Arial" font-size="4.2">LAY-FLAT MEASUREMENT — PLACE PAPER ON ACTUAL GARMENT</text>
+<text x="15" y="174" font-family="Arial" font-size="3.4">1. Fold garment to mark center front; mark wearer's LEFT shoulder high point (HPS).</text>
+<text x="15" y="181" font-family="Arial" font-size="3.4">2. Place either cutout on LEFT chest. Photograph flat with ruler and record:</text>
+<text x="18" y="187" font-family="Arial" font-size="3.4">HPS to paper top: ______ mm   |   center-front to paper center: ______ mm</text>
+<text x="15" y="194" font-family="Arial" font-size="3.4">3. Check whether logo rectangle intersects folds, sleeve, rib or supplier print zone.</text>
+<path d="M20 199h100" stroke="#242b29" stroke-width=".4"/><path d="M20 199v6" stroke="#242b29" stroke-width=".25"/><text x="20" y="209" text-anchor="middle" font-size="2.7">0</text><path d="M25 199v3" stroke="#242b29" stroke-width=".25"/><path d="M30 199v6" stroke="#242b29" stroke-width=".25"/><path d="M35 199v3" stroke="#242b29" stroke-width=".25"/><path d="M40 199v6" stroke="#242b29" stroke-width=".25"/><text x="40" y="209" text-anchor="middle" font-size="2.7">20</text><path d="M45 199v3" stroke="#242b29" stroke-width=".25"/><path d="M50 199v6" stroke="#242b29" stroke-width=".25"/><path d="M55 199v3" stroke="#242b29" stroke-width=".25"/><path d="M60 199v6" stroke="#242b29" stroke-width=".25"/><text x="60" y="209" text-anchor="middle" font-size="2.7">40</text><path d="M65 199v3" stroke="#242b29" stroke-width=".25"/><path d="M70 199v6" stroke="#242b29" stroke-width=".25"/><path d="M75 199v3" stroke="#242b29" stroke-width=".25"/><path d="M80 199v6" stroke="#242b29" stroke-width=".25"/><text x="80" y="209" text-anchor="middle" font-size="2.7">60</text><path d="M85 199v3" stroke="#242b29" stroke-width=".25"/><path d="M90 199v6" stroke="#242b29" stroke-width=".25"/><path d="M95 199v3" stroke="#242b29" stroke-width=".25"/><path d="M100 199v6" stroke="#242b29" stroke-width=".25"/><text x="100" y="209" text-anchor="middle" font-size="2.7">80</text><path d="M105 199v3" stroke="#242b29" stroke-width=".25"/><path d="M110 199v6" stroke="#242b29" stroke-width=".25"/><path d="M115 199v3" stroke="#242b29" stroke-width=".25"/><path d="M120 199v6" stroke="#242b29" stroke-width=".25"/><text x="120" y="209" text-anchor="middle" font-size="2.7">100</text>
+<text x="123" y="203" font-family="Arial" font-size="3.2">100 mm scale</text>
+<text x="15" y="225" font-family="Arial" font-size="4.2">OBSERVATION RECORD — DO NOT INFER FROM ILLUSTRATIONS</text>
+<text x="15" y="235" font-family="Arial" font-size="3.4">Blank size: ______   |   Actual chest flat: ______ mm   |   Body length: ______ mm</text>
+<text x="15" y="244" font-family="Arial" font-size="3.4">Chosen A / B: ______   |   Paper placement photo: ______   |   Date: ______</text>
+<text x="15" y="253" font-family="Arial" font-size="3.4">Supplier accepted artwork / print zone: NOT RUN   |   Fabric/wash test: NOT RUN</text>
+<text x="15" y="266" font-family="Arial" font-size="3.3" fill="#8c4736">IMPORTANT: PAPER JIG DOES NOT PROVE ACTUAL INK, COLOR, OPACITY,</text>
+<text x="15" y="272" font-family="Arial" font-size="3.3" fill="#8c4736">SUPPLIER SIZE CONTROL, WASH PERFORMANCE OR WEARER FIT.</text>
+<text x="15" y="284" font-family="Arial" font-size="3">Source image aspect 2500:575. Alpha bbox 2487 px wide. Original logo intentionally omitted.</text>
+<text x="15" y="290" font-family="Arial" font-size="3">NO upload / vendor contact / order / checkout. Internal preflight candidate only.</text>
+</svg>
