@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<title>04 OFFSET SHELL R01 — two seam finish trials (not a garment pattern)</title>
+<rect width="210" height="297" fill="#faf9f5"/>
+<g font-family="Arial,sans-serif" fill="#202b27">
+<text x="12" y="14" font-size="6.1" font-weight="bold">04 OFFSET SHELL / SEAM FINISH TRIAL</text>
+<text x="12" y="21" font-size="3.3">TOHEŞAR OBJECT LAB  |  R01 / UNAPPROVED / 2026-11-15</text>
+<text x="12" y="28" font-size="3.1">Two 160 mm straight stitch-line trials; same fabric, needle, stitch length and handling.</text>
+<text x="12" y="33" font-size="3.1">NOT a production pattern. Use offcuts, not the official artwork or a garment.</text>
+<text x="12" y="44" font-size="4.4" font-weight="bold">A  /  FOUR-THREAD OVERLOCK + PRESS TO LOWER PANEL</text>
+<text x="12" y="49" font-size="3">Test bulk, seam visibility and wash-induced puckering. No tape.</text>
+<text x="12" y="135" font-size="4.4" font-weight="bold">B  /  SAME SEAM + LIGHTWEIGHT STABILIZING TAPE</text>
+<text x="12" y="140" font-size="3">Test whether tape prevents waviness or instead stiffens the diagonal.</text>
+</g>
+<!-- Two 180 x 22 mm trial strips per option. Each has 160mm stitchline from x=25 to 185, with 10mm ends. -->
+<g stroke="#26352e" stroke-width=".3">
+<rect x="15" y="55" width="180" height="20" fill="#d7ded9"/>
+<rect x="15" y="80" width="180" height="20" fill="#d1d0ca"/>
+<rect x="15" y="146" width="180" height="20" fill="#d7ded9"/>
+<rect x="15" y="171" width="180" height="20" fill="#d1d0ca"/>
+</g>
+<g stroke="#25362d" stroke-width=".5" stroke-dasharray="3 2">
+<line x1="25" y1="65" x2="185" y2="65"/>
+<line x1="25" y1="181" x2="185" y2="181"/>
+<line x1="25" y1="90" x2="185" y2="90"/>
+<line x1="25" y1="156" x2="185" y2="156"/>
+</g>
+<!-- A upper bottom stitch line y65 => 10mm bottom allowance; A lower top y90 => 10mm top allowance -->
+<!-- B upper bottom stitch line y156 => 10mm bottom allowance; B lower top y181 => 10mm top allowance -->
+<g stroke="#a4503f" stroke-width=".75">
+<path d="M65 62v6 M105 62v6 M145 62v6 M65 87v6 M105 87v6 M145 87v6"/>
+<path d="M65 153v6 M105 153v6 M145 153v6 M65 178v6 M105 178v6 M145 178v6"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#24312c" font-size="3.1">
+<text x="16" y="53">UPPER A / cut strip 180 × 20 mm</text>
+<text x="16" y="79">LOWER A / cut strip 180 × 20 mm</text>
+<text x="16" y="105">Align red notches at 40/80/120 mm from stitch-line start. Sew on dashed lines.</text>
+<text x="16" y="110">Overlock raw edges together; press allowance toward lower panel.</text>
+<text x="16" y="115">Observe seam roll, ridge, and distortion before/after laundering.</text>
+<text x="16" y="144">UPPER B / cut strip 180 × 20 mm</text>
+<text x="16" y="170">LOWER B / cut strip 180 × 20 mm</text>
+<text x="16" y="196">Apply removable trial tape to upper seam allowance only, without stretch.</text>
+<text x="16" y="201">Tape width/composition = record actual chosen material; no supplier spec assumed.</text>
+<text x="16" y="206">Sew same as A. Compare drape, ridge, puckering and laundering.</text>
+<text x="12" y="219" font-size="4" font-weight="bold">CONTROLLED RECORD (write actual values)</text>
+<text x="12" y="227">Fabric composition / knit / GSM (seller vs measured): ____________________________</text>
+<text x="12" y="234">Cut direction relative to wale/grain (A and B must match): _______________________</text>
+<text x="12" y="241">Needle / thread / stitch length / overlock settings: _____________________________</text>
+<text x="12" y="248">Tape type / width / adhesion / wash compatibility: _____________________________</text>
+<text x="12" y="255">A seam waviness / thickness / comfort / wash: ________________________________</text>
+<text x="12" y="262">B seam waviness / thickness / comfort / wash: ________________________________</text>
+<text x="12" y="270">Decision: A / B / NEITHER. Attach front, reverse and side-light photos.</text>
+<text x="12" y="278" fill="#8c4033">HOLD: 160 mm straight coupon cannot validate full curved diagonal, shrinkage, or fit.</text>
+</g>
+<g stroke="#26352e" stroke-width=".5"><line x1="12" y1="288" x2="112" y2="288"/><line x1="12" y1="285" x2="12" y2="291"/><line x1="112" y1="285" x2="112" y2="291"/></g>
+<text x="119" y="289" font-size="3.1" font-family="Arial,sans-serif" fill="#26352e">100 mm check / print 100%</text>
+</svg>

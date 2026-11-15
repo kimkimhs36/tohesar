@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<title>01 SHADOW — physical ink aspect ratio gauge, NOT production artwork</title>
+<rect width="210" height="297" fill="#fff"/>
+<g font-family="Arial,sans-serif" fill="#111">
+<text x="15" y="19" font-size="6" font-weight="bold">01 SHADOW / INK-BOUND GAUGE R01</text>
+<text x="15" y="27" font-size="3.5">UNAPPROVED • PLACEHOLDER ONLY • NO BRAND ARTWORK</text>
+<text x="15" y="39" font-size="4">PRINT A4 AT 100% / ACTUAL SIZE. NEVER FIT TO PAGE.</text>
+<rect x="15" y="44" width="100" height="4" fill="#111"/>
+<text x="15" y="53" font-size="3.5">Reference bar: exactly 100 mm; measure with ruler first.</text>
+<text x="15" y="68" font-size="4.5" font-weight="bold">INK BOUNDING BOX — 82.000 x 18.629 mm</text>
+<rect x="15" y="75" width="82" height="18.62887012464817" fill="none" stroke="#111" stroke-width=".25" stroke-dasharray="1.5 1"/>
+<line x1="15" y1="84.31443506232408" x2="97" y2="84.31443506232408" stroke="#999" stroke-width=".15"/>
+<text x="15" y="101" font-size="3.5">Width = 82 mm; height = 82 x 565 / 2487 = 18.62887 mm.</text>
+<text x="15" y="107" font-size="3.5">Based on recorded PNG alpha bounding box [4,4,2491,569].</text>
+<text x="15" y="113" font-size="3.5">This is a blank envelope, not an accurate silhouette or supplier proof.</text>
+<text x="15" y="128" font-size="4.5" font-weight="bold">SEPARATE CUT-OUT: SAME ENVELOPE</text>
+<rect x="15" y="135" width="82" height="18.62887012464817" fill="#f5f5f5" stroke="#111" stroke-width=".25" stroke-dasharray="1.5 1"/>
+<text x="15" y="163" font-size="3.5">Place on actual garment: compare wearer-left chest vs center front.</text>
+<text x="15" y="170" font-size="3.5">Do not interpret this as approved placement, size, or print method.</text>
+<text x="15" y="188" font-size="4.5" font-weight="bold">MEASUREMENT RECORD</text>
+<text x="15" y="197" font-size="3.7">Reference bar: ______ mm    Ink envelope: ______ x ______ mm</text>
+<text x="15" y="206" font-size="3.7">Garment size: ______    Placement: LEFT / CENTER / UNDECIDED</text>
+<text x="15" y="215" font-size="3.7">Collar-seam to top ink: ______ mm    Midline offset: ______ mm</text>
+<text x="15" y="224" font-size="3.7">Owner approved? NO / YES    Date: __________</text>
+<text x="15" y="242" font-size="3.4">Caution: 82mm is physical INK width. If vendor scales full 2500px canvas,</text>
+<text x="15" y="248" font-size="3.4">nominal canvas width needs 82 x 2500 / 2487 = 82.4286mm.</text>
+<text x="15" y="254" font-size="3.4">Vendor alpha-trim and actual print behavior are UNVERIFIED.</text>
+<text x="15" y="266" font-size="3.4">NO VENDOR UPLOAD • NO ORDER • NO PRINT APPROVAL</text>
+</g></svg>

@@ -1,0 +1,43 @@
+{
+  "status": "PASS_PDF_GEOMETRY_AND_RENDER_ONLY",
+  "sourceArtSha256": "10eb8c3f582039bca54b8313c0e6a91dad99202e0265c600feef0a73ec75bd07",
+  "sourcePixelDimensions": [
+    2500,
+    575
+  ],
+  "sourceAlphaBoundingBox": [
+    4,
+    4,
+    2491,
+    569
+  ],
+  "pdfSha256": "ddf022595598926ebdd9f94ac3b6a013222f7865f9cff8296120f99228ab7f16",
+  "pdfPages": 1,
+  "pdfA4Millimeters": [
+    210,
+    297
+  ],
+  "nominalWordmarkCanvasMillimeters": [
+    82,
+    18.86
+  ],
+  "paperCutoutMillimeters": [
+    106,
+    49
+  ],
+  "printerRulerMillimeters": 100,
+  "lateralCandidateMillimeters": 120,
+  "verticalPlacementApproved": false,
+  "vendorImageUpload": false,
+  "sampleMade": false,
+  "actualPrinterCheck": "NOT_RUN",
+  "physicalCutAndWearCheck": "NOT_RUN",
+  "rasterPreview": "01-SHADOW-82MM-PAPER-PLACEMENT-GAUGE-R01-20261111.qa-preview.png",
+  "checks": [
+    "PNG SHA and alpha exact",
+    "A4 PDF page geometry",
+    "embedded image art rectangle 82 mm",
+    "PDF text notes",
+    "PyMuPDF raster rendered"
+  ]
+}

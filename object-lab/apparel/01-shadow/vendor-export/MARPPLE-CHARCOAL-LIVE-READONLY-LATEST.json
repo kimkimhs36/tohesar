@@ -1,0 +1,92 @@
+{
+  "checkedAtUtc": "2026-11-09T14:57:31.837Z",
+  "mode": "read-only anonymous",
+  "artUploaded": false,
+  "cart": false,
+  "ordered": false,
+  "contact": false,
+  "products": [
+    {
+      "id": 8178,
+      "model": "Becanvas pigment oversized T-shirt",
+      "purpose": "01 SHADOW",
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=8178",
+      "errors": [],
+      "status": 200,
+      "selectedColor": "차콜",
+      "unitPriceKRW": 15700,
+      "displayedShippingKRW": 3000,
+      "qtyOneText": true,
+      "sizes": [
+        {
+          "size": "S",
+          "soldOut": false
+        },
+        {
+          "size": "M",
+          "soldOut": false
+        },
+        {
+          "size": "L",
+          "soldOut": false
+        },
+        {
+          "size": "XL",
+          "soldOut": false
+        },
+        {
+          "size": "2XL",
+          "soldOut": false
+        },
+        {
+          "size": "3XL",
+          "soldOut": false
+        }
+      ],
+      "cartButtonEnabled": true,
+      "stockReadStable": true,
+      "stockInterpretation": "size controls selectable in browser — final stock unconfirmed"
+    },
+    {
+      "id": 9337,
+      "model": "Becanvas pigment oversized crewneck",
+      "purpose": "07 exploration",
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=9337",
+      "errors": [],
+      "status": 200,
+      "selectedColor": "차콜",
+      "unitPriceKRW": 26900,
+      "displayedShippingKRW": 3000,
+      "qtyOneText": true,
+      "sizes": [
+        {
+          "size": "S",
+          "soldOut": false
+        },
+        {
+          "size": "M",
+          "soldOut": false
+        },
+        {
+          "size": "L",
+          "soldOut": false
+        },
+        {
+          "size": "XL",
+          "soldOut": false
+        },
+        {
+          "size": "2XL",
+          "soldOut": false
+        },
+        {
+          "size": "3XL",
+          "soldOut": false
+        }
+      ],
+      "cartButtonEnabled": true,
+      "stockReadStable": true,
+      "stockInterpretation": "size controls selectable in browser — final stock unconfirmed"
+    }
+  ]
+}

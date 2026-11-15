@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "checkedLocalDate": "2026-11-10",
+  "source": "Live public MARPPLE product size guide in real Chrome, snapshot only; sizes in cm; stock and print feasibility must be checked separately",
+  "measureDefinitions": [
+    "garmentLength",
+    "shoulderWidth",
+    "chestWidthFlat",
+    "sleeveLength"
+  ],
+  "bySku": {
+    "8178": {
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=8178",
+      "sizes": {
+        "S": [
+          68.5,
+          52,
+          55,
+          21
+        ],
+        "M": [
+          71,
+          54,
+          58,
+          21
+        ],
+        "L": [
+          73.5,
+          56,
+          61,
+          22
+        ],
+        "XL": [
+          76,
+          58,
+          64,
+          23
+        ],
+        "2XL": [
+          78.5,
+          61,
+          67,
+          24
+        ],
+        "3XL": [
+          81,
+          64,
+          70,
+          25
+        ]
+      },
+      "materialStatements": [
+        "소재 : 코튼 100%",
+        "두께 : 32수 2합 / 275gsm"
+      ],
+      "sellerNote": "Manufacturer measurement tolerance 1–3 cm (vendor disclosure); not sample physically measured"
+    },
+    "9337": {
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=9337",
+      "sizes": {
+        "S": [
+          69,
+          62,
+          58.5,
+          55
+        ],
+        "M": [
+          71,
+          64,
+          61,
+          56
+        ],
+        "L": [
+          73,
+          66,
+          63.5,
+          57
+        ],
+        "XL": [
+          75,
+          68,
+          66,
+          58
+        ],
+        "2XL": [
+          78,
+          70,
+          68.5,
+          59
+        ],
+        "3XL": [
+          81,
+          72,
+          71,
+          60
+        ]
+      },
+      "materialStatements": [
+        "소재 : 코튼 70% + 폴리 30%"
+      ],
+      "sellerNote": "Manufacturer measurement tolerance 1–3 cm (vendor disclosure); not sample physically measured"
+    },
+    "9362": {
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=9362",
+      "sizes": {
+        "S": [
+          69,
+          62,
+          58.5,
+          55
+        ],
+        "M": [
+          71,
+          64,
+          61,
+          56
+        ],
+        "L": [
+          73,
+          66,
+          63.5,
+          57
+        ],
+        "XL": [
+          75,
+          68,
+          66,
+          58
+        ],
+        "2XL": [
+          78,
+          70,
+          68.5,
+          59
+        ],
+        "3XL": [
+          81,
+          72,
+          71,
+          60
+        ]
+      },
+      "materialStatements": [
+        "소재 : 코튼 70% + 폴리 30%"
+      ],
+      "sellerNote": "Manufacturer measurement tolerance 1–3 cm (vendor disclosure); not sample physically measured"
+    },
+    "9371": {
+      "url": "https://www.marpple.com/kr/product/detail?bp_id=9371",
+      "sizes": {
+        "M": [
+          69,
+          60,
+          59,
+          53
+        ],
+        "L": [
+          71,
+          63,
+          62,
+          54
+        ],
+        "XL": [
+          73,
+          66,
+          65,
+          55
+        ],
+        "2XL": [
+          75,
+          69,
+          68,
+          56
+        ],
+        "3XL": [
+          77,
+          72,
+          71,
+          57
+        ]
+      },
+      "materialStatements": [
+        "소재 : 겉감 - 면 57.2%, 폴리에스터 42.8% / 안감 - 폴리에스터 95.6%, 스판덱스 4.4%"
+      ],
+      "sellerNote": "Manufacturer measurement tolerance 1–3 cm (vendor disclosure); not sample physically measured"
+    }
+  }
+}

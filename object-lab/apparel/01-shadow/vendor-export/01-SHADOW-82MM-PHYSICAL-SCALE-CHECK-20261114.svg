@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="148mm" viewBox="0 0 210 148">
+<title>01 SHADOW | 1:1 printer scale and logo footprint check | NOT vendor-approved</title>
+<desc>Physical measurement reference only. No proprietary wordmark or approved chest placement. Print at actual size, never fit-to-page. Verify 100mm control before using 82mm footprint.</desc>
+<rect width="210" height="148" fill="#fff"/>
+<g fill="#111" font-family="Arial,sans-serif">
+<text x="15" y="15" font-size="5" font-weight="bold">01 SHADOW — PHYSICAL SCALE CONTROL / 1:1</text>
+<text x="15" y="22" font-size="3">NO LOGO · NO APPROVED POSITION · DO NOT UPLOAD TO VENDOR</text>
+<text x="15" y="32" font-size="3.5">100 mm printer calibration — measure this line with a physical ruler:</text>
+</g>
+<g stroke="#111" fill="none" stroke-width=".3">
+<path d="M 15 39 H 115 M 15 36 V 42 M 115 36 V 42"/>
+<path d="M 25 37 V 41 M 35 37 V 41 M 45 37 V 41 M 55 37 V 41 M 65 37 V 41 M 75 37 V 41 M 85 37 V 41 M 95 37 V 41 M 105 37 V 41"/>
+</g>
+<g fill="#111" font-family="Arial,sans-serif" font-size="3"><text x="15" y="47">0</text><text x="109" y="47">100 mm</text><text x="15" y="59">82 mm nominal wordmark image width (no art printed):</text></g>
+<rect x="15" y="65" width="82" height="18.86" fill="none" stroke="#111" stroke-width=".35" stroke-dasharray="2 1"/>
+<path d="M56 62 V87 M12 74.43 H100" stroke="#777" stroke-width=".2" stroke-dasharray="1 1"/>
+<g fill="#111" font-family="Arial,sans-serif" font-size="3">
+<text x="15" y="92">Width 82.00 mm; nominal image ratio 2500:575; height 18.86 mm</text>
+<text x="15" y="101">Printer acceptance: measured control 100.0 mm (suggested +/-0.5 mm).</text>
+<text x="15" y="107">A correct printer scale does NOT prove vendor ink bounds, print position or garment fit.</text>
+<text x="15" y="113">The art PNG has transparent margins; the printed ink footprint is smaller.</text>
+<text x="15" y="122">Source: 2500 x 575 px original ivory PNG. Reference only; owner approval pending.</text>
+<text x="15" y="129">A5 landscape 210 x 148 mm. Print 100%, disable scaling and margins adjustment.</text>
+</g>
+</svg>

@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "product": "TOHEŞAR 01 SHADOW UNIFORM",
+  "checked_date_kst": "2026-11-12",
+  "status": "INDEPENDENT_REAL_PNG_RASTER_ANALYSIS_PASS__NOT_VENDOR_APPROVAL",
+  "source": {
+    "repository": "kimkimhs36/tohesar",
+    "source_commit": "cf5c461169e338f0df27639b2429f8dd4b5362a3",
+    "file": "object-lab/apparel/01-shadow/vendor-export/01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png",
+    "git_blob_sha1": "899d2014d8c247fe7e7774b65b6371c6315f72f9",
+    "byte_count": 44458,
+    "image_type": "PNG",
+    "dimensions_pixels": [
+      2500,
+      575
+    ],
+    "color_type": "RGBA8",
+    "actual_binary_retrieved": true,
+    "decode_method": "Base64 GitHub file bytes; independent pure-JavaScript zlib/DEFLATE decompression and PNG row filter reconstruction",
+    "compressed_deflate_blocks": 2,
+    "decoded_scanline_bytes": 5750575
+  },
+  "actual_pixel_analysis": {
+    "pixels_total": 1437500,
+    "pixels_fully_transparent": 1042488,
+    "pixels_visible": 395012,
+    "pixels_opaque": 379146,
+    "pixels_partial_alpha": 15866,
+    "pixels_opaque_exact_ivory": 379146,
+    "pixels_opaque_wrong_rgb": 0,
+    "pixels_partial_alpha_exact_ivory_rgb": 1393,
+    "pixels_partial_alpha_nonexact_ivory_rgb": 14473,
+    "pixels_partial_alpha_min": 16,
+    "pixels_partial_alpha_max": 240,
+    "pixels_partial_max_absolute_rgb_channel_delta_from_ivory": 13,
+    "opaque_rgb": "#F8F2E7",
+    "distinct_visible_rgb_triplets": 19,
+    "alpha_bbox_pixels": [
+      4,
+      4,
+      2491,
+      569
+    ],
+    "alpha_equivalent_pixels": 387663.58
+  },
+  "confirmed_failure_before_fix": {
+    "original_condition": "all alpha>0 pixels must have RGB exactly (248,242,231)",
+    "original_actual_nonmatching_visible_pixels": 14473,
+    "result": "FAIL on actual source, despite every opaque pixel matching ivory"
+  },
+  "fix": {
+    "committed_python_git_blob": "802c8ed195a68612544e755a6927ee267c49bc15",
+    "opaque_pixels_must_match_exact_ivory": true,
+    "partial_alpha_internal_channel_delta_limit": 16,
+    "actual_source_partial_delta_observed": 13,
+    "independent_equivalent_source_gate_expected": "PASS",
+    "actual_committed_Pillow_gate_executed_on_real_binary": false,
+    "fully_transparent_pixel_rgb_ignored": true
+  },
+  "tests": {
+    "local_python_pillow_regression_cases": 11,
+    "local_python_pillow_regression_passed": 11,
+    "local_code_git_blob_matches_committed_code": true,
+    "actual_github_actions_job_success": "NOT_CONFIRMED",
+    "actual_vendor_print_test": "NOT_RUN"
+  },
+  "release_gates": {
+    "artwork_sent_to_supplier": false,
+    "actual_vendor_print_method_confirmed": false,
+    "white_underbase_confirmed": false,
+    "exact_82mm_position_confirmed": false,
+    "first_sample_size_owner_approved": false,
+    "one_piece_logo_inclusive_quote_confirmed": false,
+    "order_authorized": false,
+    "main_merged": false
+  },
+  "limitations": [
+    "The 16 RGB-channel threshold is an internal PNG anti-alias hygiene criterion, not a MARPPLE color tolerance, print proof or reliable fabric appearance prediction.",
+    "Independent Javascript DEFLATE/PNG analysis did decode the actual tracked GitHub binary; the committed Pillow validator itself was NOT run on the original PNG in this environment.",
+    "Source file unchanged. RGB differences occur in partial-alpha pixels only; opaque interior retained exact ivory.",
+    "No vendor upload, contact, cart, checkout or physical product."
+  ]
+}

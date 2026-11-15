@@ -1,0 +1,154 @@
+{
+  "schema": "TOHESAR-01-PRINT-ZONE-2D-ROBUSTNESS-R01",
+  "date": "2026-11-12",
+  "status": "CONDITIONAL_INTERNAL_GEOMETRY_NOT_VENDOR_APPROVED",
+  "input": {
+    "publishedGeneralPrintZoneMm": [
+      380,
+      480
+    ],
+    "source": "object-lab/apparel/01-shadow/vendor-export/01-SHADOW-8178-PUBLIC-PRINT-AREA-20261111.json",
+    "logoVisibleInkBBoxMm": [
+      82,
+      18.5648
+    ],
+    "zoneOrigin": "hypothetical center of seller print region, NOT collar or seam",
+    "lateralOffset": "positive towards one side, mirror symmetric",
+    "uncertainty": "hypothetical independent max absolute center registration drift in each axis, not seller tolerance"
+  },
+  "formula": "for each axis, worst edge clearance = zoneHalfExtent - abs(artCenterOffset) - artHalfExtent - maxDrift - proposedSafetyMargin",
+  "scenarios": [
+    {
+      "name": "centered",
+      "offsetMm": [
+        0,
+        0
+      ],
+      "driftMm": [
+        0,
+        0
+      ],
+      "safetyMm": [
+        0,
+        0
+      ],
+      "worstMinimumMm": 149,
+      "conditionalPass": true
+    },
+    {
+      "name": "left100",
+      "offsetMm": [
+        100,
+        0
+      ],
+      "driftMm": [
+        0,
+        0
+      ],
+      "safetyMm": [
+        0,
+        0
+      ],
+      "worstMinimumMm": 49,
+      "conditionalPass": true
+    },
+    {
+      "name": "left140",
+      "offsetMm": [
+        140,
+        0
+      ],
+      "driftMm": [
+        0,
+        0
+      ],
+      "safetyMm": [
+        0,
+        0
+      ],
+      "worstMinimumMm": 9,
+      "conditionalPass": true
+    },
+    {
+      "name": "left140_shift10",
+      "offsetMm": [
+        140,
+        0
+      ],
+      "driftMm": [
+        10,
+        0
+      ],
+      "safetyMm": [
+        0,
+        0
+      ],
+      "worstMinimumMm": -1,
+      "conditionalPass": false
+    },
+    {
+      "name": "left100_shift30_safety15",
+      "offsetMm": [
+        100,
+        0
+      ],
+      "driftMm": [
+        30,
+        30
+      ],
+      "safetyMm": [
+        15,
+        15
+      ],
+      "worstMinimumMm": 4,
+      "conditionalPass": true
+    },
+    {
+      "name": "vertical_center225",
+      "offsetMm": [
+        0,
+        225
+      ],
+      "driftMm": [
+        0,
+        0
+      ],
+      "safetyMm": [
+        0,
+        0
+      ],
+      "worstMinimumMm": 5.7176,
+      "conditionalPass": true
+    },
+    {
+      "name": "vertical_center235",
+      "offsetMm": [
+        0,
+        235
+      ],
+      "driftMm": [
+        0,
+        0
+      ],
+      "safetyMm": [
+        0,
+        0
+      ],
+      "worstMinimumMm": -4.2824,
+      "conditionalPass": false
+    }
+  ],
+  "testEvidence": {
+    "localPythonUnittest": "7/7 PASS",
+    "realBrowser": "NOT_RUN_PC_OFFLINE",
+    "physical": "NOT_RUN",
+    "supplierEditor": "NOT_RUN",
+    "calculationType": "Decimal arithmetic with negative and nonfinite input tests"
+  },
+  "criticalFalsification": "At 140mm lateral offset the previously positive 9mm nominal margin becomes -1mm with hypothetical 10mm horizontal registration error. Horizontal-only proof cannot certify real 2D placement.",
+  "vendorCertifiedTolerance": false,
+  "ownerPlacementApproved": false,
+  "externalLogoUpload": false,
+  "order": false,
+  "importantLimitation": "The seller-published 380x480 region's actual center relative to garment seams and collar is unknown. 225mm vertical center coordinate is NOT a proposed collar offset. Do not use these as production instructions."
+}

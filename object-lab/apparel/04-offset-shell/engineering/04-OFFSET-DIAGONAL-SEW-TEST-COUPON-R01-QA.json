@@ -1,0 +1,71 @@
+{
+  "status": "PASS_DIGITAL_SWATCH_GEOMETRY_ONLY",
+  "pdf_sha256": "9f01963ae67210f2d7a5aea2567e5b5117166a084b27b34809206f92a5d53d1a",
+  "size_mm": [
+    210,
+    297
+  ],
+  "pages": 1,
+  "sample_only": true,
+  "not_whole_garment_pattern": true,
+  "join_curve": "x=30+150t; y=20t+6sin(pi*t), t 0..1, mm",
+  "A_stitch_line_mm": 151.9027,
+  "B_stitch_line_mm": 151.9027,
+  "stitch_line_difference_mm": 0.0,
+  "trial_allowance_mm": 10,
+  "notch_fractions_of_walk": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "notch_parameters": [
+    0.2458,
+    0.4948,
+    0.747
+  ],
+  "sampled_allowance_checks": [
+    {
+      "t": 0,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    },
+    {
+      "t": 0.1,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    },
+    {
+      "t": 0.25,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    },
+    {
+      "t": 0.5,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    },
+    {
+      "t": 0.75,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    },
+    {
+      "t": 0.9,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    },
+    {
+      "t": 1,
+      "A_allowance_mm": 10.0,
+      "B_allowance_mm": 10.0
+    }
+  ],
+  "printer_bar_mm": 100,
+  "pdf_rendered": true,
+  "preview": "04-OFFSET-DIAGONAL-SEW-TEST-COUPON-R01.qa-preview.png",
+  "physical_printer_measurement": "NOT_RUN",
+  "sewn_washed_swatch": "NOT_RUN",
+  "maker_approval": false,
+  "sample_cut": false,
+  "vendor_contact": false
+}

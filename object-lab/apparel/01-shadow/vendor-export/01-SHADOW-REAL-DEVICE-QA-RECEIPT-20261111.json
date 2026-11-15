@@ -1,0 +1,92 @@
+{
+  "schema": "TOHESAR-01-SHADOW-REAL-DEVICE-QA-RECEIPT-v1",
+  "recordedAtUtc": "2026-11-11T02:30:27.743382+00:00",
+  "scope": "One actual original 01 SHADOW master, unchanged existing regression code, anonymous vendor editor inspection.",
+  "device": "TEAM-BKIT / Windows / Python 3.12.10",
+  "githubBaselinePr": 38,
+  "githubBaselineHeadWhenPrepared": "e3bbfaecb59ccaf065c7b850845372348207dbd4",
+  "sourceFile": "object-lab/apparel/01-shadow/vendor-export/01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png",
+  "sourceAndScriptGitBlobs": {
+    "png": {
+      "expected": "899d2014d8c247fe7e7774b65b6371c6315f72f9",
+      "actual": "899d2014d8c247fe7e7774b65b6371c6315f72f9",
+      "pass": true
+    },
+    "test": {
+      "expected": "acc7e2460c262ccfc88b7cb1107df1221e3717ba",
+      "actual": "acc7e2460c262ccfc88b7cb1107df1221e3717ba",
+      "pass": true
+    },
+    "gate": {
+      "expected": "f2dc6baddcfd693ae4de4f0de80bac92d00eeb05",
+      "actual": "f2dc6baddcfd693ae4de4f0de80bac92d00eeb05",
+      "pass": true
+    }
+  },
+  "actualSourceRegression": {
+    "pass": true,
+    "exitCode": 0,
+    "checks": [
+      "PASS: actual source preflight",
+      "PASS: modified source rejected (identity and ivory)"
+    ],
+    "stdout": [
+      "PASS: actual source preflight {\"sourceGitBlobSha1\": \"899d2014d8c247fe7e7774b65b6371c6315f72f9\", \"pixelSize\": [2500, 575], \"alphaBBoxExclusive\": [4, 4, 2491, 569], \"requiredFullCanvasWidthMm\": 82.42863}",
+      "PASS: modified source rejected (identity and ivory)",
+      "NOT TESTED: vendor rasterization, real garment, print method, placement, price, wash."
+    ],
+    "stderr": "",
+    "notTested": [
+      "supplier-image acceptance",
+      "real print placement",
+      "fabric wear",
+      "physical sample",
+      "wash durability"
+    ]
+  },
+  "anonymousVendorUi": {
+    "sku": 8178,
+    "sellerObservationAtUtc": "2026-11-11T02:25:26.748Z",
+    "httpStatus": 200,
+    "passAnonymousSmoke": true,
+    "actions": [
+      "OPENED_COLOR",
+      "SELECTED_CHARCOAL",
+      "SELECTED_TEST_M",
+      "GENERIC_BUILTIN_TEXT_ONLY"
+    ],
+    "errors": [],
+    "testSize": "M is QA only, NOT owner approved",
+    "canvasUiPixels": [
+      {
+        "cssWidthPx": 800,
+        "cssHeightPx": 800,
+        "class": "lower-canvas"
+      },
+      {
+        "cssWidthPx": 800,
+        "cssHeightPx": 800,
+        "class": "upper-canvas "
+      }
+    ],
+    "printAreaNotes": "The element class print_area belongs to the seller FAQ page, not proof of a physical print bounding box.",
+    "physical82mmZoneConfirmed": false,
+    "originalLogoUploaded": false,
+    "itemInCart": false,
+    "checkoutOrOrder": false,
+    "actualLogoInclusivePriceVerified": false,
+    "screenshotLocalSha256": "932211288315349f0933931451ab2685aa05baa3cd28d0a58283bb94f5b8495d",
+    "screenshotCommittedToGithub": false
+  },
+  "releaseGates": {
+    "G0OwnerPlacement": "BLOCKED: left-chest versus centered front not approved",
+    "G1PrintZoneAndFile": "NOT VERIFIED; anonymous 800px canvas is not printable mm",
+    "G2ExactOriginalImagePrice": "NOT VERIFIED",
+    "G3OwnerSampleSize": "NOT APPROVED",
+    "G4PrintProcessAndCare": "NOT VERIFIED",
+    "G5PhysicalSample": "NOT RUN"
+  },
+  "nextAction": "Approve whether the 82mm ivory original logo belongs on left chest or center front. After that, establish exact supplier print zone and actual image-inclusive quote; brand upload needs separate approval before any external test.",
+  "overallLocalGatePass": true,
+  "safety": "No logo upload to seller, contact, cart, order, payment, new branch, main merge, or website deploy."
+}

@@ -1,0 +1,66 @@
+name: Object Lab 01 Shadow actual source PNG provenance and raster QA
+on:
+  push:
+    branches:
+      - object-lab/01-shadow-marpple-print-proof-20261109
+    paths:
+      - .github/workflows/object-lab-shadow-actual-png-qa.yml
+      - object-lab/apparel/01-shadow/vendor-export/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-source-binary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image validator
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Verify actual tracked PNG byte identity, pixels and transparency
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd object-lab/apparel/01-shadow/vendor-export
+          python shadow_source_provenance_gate_r02.py --png 01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png --json-out source-provenance-receipt.json
+          python shadow_print_raster_gate_r01.py 01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png --json-out source-raster-receipt.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          provenance=json.loads(Path('source-provenance-receipt.json').read_text())
+          raster=json.loads(Path('source-raster-receipt.json').read_text())
+          assert provenance['source_identity_verified'] is True
+          assert provenance['source_git_blob_sha1']=='899d2014d8c247fe7e7774b65b6371c6315f72f9'
+          assert provenance['dimensions_px']==[2500,575]
+          assert raster['canvas_px']==[2500,575]
+          assert raster['visible_rgb']=='#F8F2E7'
+          assert raster['transparent_background'] is True
+          assert raster['vendor_print_method_verified'] is False
+          assert raster['physical_print_tested'] is False
+          assert raster['vendor_logo_uploaded'] is False
+          print('PASS: real repository binary, source hash, ivory pixels, alpha and no vendor approval claims')
+          PY
+      - name: Verify independently measured original PNG pixel receipt (fail closed)
+        run: |
+          python object-lab/apparel/01-shadow/vendor-export/check_shadow_real_png_receipt_r03.py \
+            object-lab/apparel/01-shadow/vendor-export/source-provenance-receipt.json \
+            object-lab/apparel/01-shadow/vendor-export/source-raster-receipt.json
+      - name: Run exact pixel receipt regression tests
+        run: python -m unittest discover -s object-lab/apparel/01-shadow/vendor-export -p 'test_check_shadow_real_png_receipt_r03.py' -v
+      - name: Run existing raster regression tests
+        run: python -m unittest discover -s object-lab/apparel/01-shadow/vendor-export -p 'test_shadow_print_raster_gate_r01.py' -v
+      - name: Publish non-sensitive QA receipts (not production approval)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shadow-actual-source-binary-qa-not-vendor-approved
+          path: |
+            object-lab/apparel/01-shadow/vendor-export/source-provenance-receipt.json
+            object-lab/apparel/01-shadow/vendor-export/source-raster-receipt.json
+          if-no-files-found: ignore
+          retention-days: 14

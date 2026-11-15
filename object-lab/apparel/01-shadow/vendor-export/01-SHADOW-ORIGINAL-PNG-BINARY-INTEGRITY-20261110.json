@@ -1,0 +1,45 @@
+{
+  "kind": "original-source-png-binary-integrity",
+  "checkedLocalDate": "2026-11-10",
+  "sourceRef": "c0b5b8b35a36b748203a142a29e8fd363f438f9b",
+  "sourcePath": "object-lab/apparel/01-shadow/vendor-export/01-SHADOW-82MM-IVORY-TRANSPARENT-2500PX-UNAPPROVED.png",
+  "gitBlobSha1": "899d2014d8c247fe7e7774b65b6371c6315f72f9",
+  "method": "Fetched actual original PNG base64 from GitHub connector; independently decoded bytes and checked PNG signature, IHDR and CRC32 for every chunk using JavaScript, including IEND and trailing-byte check. No external vendor upload.",
+  "bytes": 44458,
+  "pngSignaturePass": true,
+  "widthPx": 2500,
+  "heightPx": 575,
+  "bitDepth": 8,
+  "colorType": 6,
+  "rgbaPng": true,
+  "chunks": [
+    {
+      "type": "IHDR",
+      "length": 13,
+      "crcPass": true
+    },
+    {
+      "type": "pHYs",
+      "length": 9,
+      "crcPass": true
+    },
+    {
+      "type": "IDAT",
+      "length": 44380,
+      "crcPass": true
+    },
+    {
+      "type": "IEND",
+      "length": 0,
+      "crcPass": true
+    }
+  ],
+  "allChunkCrcPass": true,
+  "noTrailingBytesPass": true,
+  "limitations": [
+    "CRC integrity does not validate decompressed alpha bounding box or opaque ivory colors.",
+    "Pillow preflight on original remains NOT RUN.",
+    "No vendor acceptance, print method, 82mm placement, final quote or sample verified."
+  ],
+  "nextAction": "Run actual original PNG through existing Pillow preflight on a runtime with binary materialization; then obtain owner permission separately before uploading to supplier."
+}

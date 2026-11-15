@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-12",
+  "prior_head": "d4f2efab4e9eb6f84776a973b7de05a1f44937e2",
+  "scope": "R02 independent executable reconciliation gate, does not replace R01 JSON Schema",
+  "critical_findings": [
+    "R01 JSON Schema permits unitPrintedPrice=0, shippingPrice=0, totalPayable=0 and does not enforce total arithmetic",
+    "R01 taxHandling=VAT_SEPARATE_EXPLICITLY_ITEMIZED does not require a numeric VAT amount",
+    "R01 does not require vendor-original-image proof kind"
+  ],
+  "test_count": 10,
+  "tests_passed": 10,
+  "executed": "live JavaScript tool runtime function with synthetic receipt scenarios",
+  "node_test": "NOT RUN until GitHub Actions or independent Node runtime executes committed cjs",
+  "vendor_proof": "NOT RUN",
+  "supplier_artwork_uploaded": false,
+  "order_approved": false,
+  "limitations": "Passing reconciliation is only an internal preflight, not vendor proof authenticity or an order approval"
+}

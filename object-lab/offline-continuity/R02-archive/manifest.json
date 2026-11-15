@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "project": "TOHEŞAR OBJECT LAB / FIRST DROP R02",
+  "source": "Authorized TEAM-BKIT local archive, preserved on GitHub for PC-independent recovery",
+  "source_archive": "TOHESAR-FIRST-DROP-LATEST-R02-BACKUP.zip",
+  "archive_size_bytes": 5822059,
+  "archive_sha256": "f0965ae1cb9cac272880a2e4316cb5ff7e04d4a48b347ac31bc8663a5f8d9e74",
+  "archive_git_blob_sha1": "009be3d6b90168268d824145b67c5a56e7c68c92",
+  "expected_zip_files": 77,
+  "unpacked_bytes": 6637028,
+  "part_count": 12,
+  "parts": [
+    {
+      "file": "parts/R02-SNAPSHOT.part01",
+      "size": 524286,
+      "blob_sha1": "15fd0f02203069fb29d02c2e01e48fe76a308acb"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part02",
+      "size": 524286,
+      "blob_sha1": "3d58a8c9ed835d712e5d4f797cce42268491bb7c"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part03",
+      "size": 524286,
+      "blob_sha1": "d0eba37cabbc19c717dad0d57528a59a98280e7b"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part04",
+      "size": 524286,
+      "blob_sha1": "7745255163848d82f5c7fa03a9db134f21ca6da9"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part05",
+      "size": 524286,
+      "blob_sha1": "f4839543811a31160f1c6f61dcfd5ee564333a31"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part06",
+      "size": 524286,
+      "blob_sha1": "7a5c843a8b47cc1319729a6ac286a3a3dae1507c"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part07",
+      "size": 524286,
+      "blob_sha1": "a3ce8bd2cb202a86f003c3239d9815b8bc68fc12"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part08",
+      "size": 524286,
+      "blob_sha1": "7665db5c783afc34648adf30858fd22cb20fb7fc"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part09",
+      "size": 524286,
+      "blob_sha1": "722bbf277b86abb283a4212acaade504e5fbcc15"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part10",
+      "size": 524286,
+      "blob_sha1": "c6c8648692dd00fe4cf2ffd644ebcc51b57f552a"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part11",
+      "size": 524286,
+      "blob_sha1": "411787afd6262c8a39127cefdee8c59935e05ff3"
+    },
+    {
+      "file": "parts/R02-SNAPSHOT.part12",
+      "size": 54913,
+      "blob_sha1": "f8ece48ce58bb97c4421e2bb666548f8af22c939"
+    }
+  ],
+  "scope_note": "Snapshot is baseline R02 dated 2026-11-09; later Object Lab work 05/06/07, vendor tests and SAMPLE DECISION ROOM are elsewhere on GitHub PRs #36/#37/#38. Do not treat ZIP as newest branch."
+}

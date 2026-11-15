@@ -1,0 +1,73 @@
+{
+  "product": "TOHEŞAR OBJECT LAB sample-room",
+  "testedAtUtc": "2026-11-09T15:25:22.803Z",
+  "source": "real Chrome on authorized Windows PC",
+  "desktopWidth": 1440,
+  "mobileWidth": 390,
+  "browserErrors": 0,
+  "unintendedExternalRequests": 0,
+  "pass": true,
+  "productSwitchTests": [
+    {
+      "viewport": "desktop",
+      "checks": 4,
+      "prices": [
+        {
+          "id": "01",
+          "display": "26,700KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        },
+        {
+          "id": "07",
+          "display": "37,900KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        },
+        {
+          "id": "05A",
+          "display": "46,900KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        },
+        {
+          "id": "05B",
+          "display": "32,600KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        }
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "checks": 4,
+      "prices": [
+        {
+          "id": "01",
+          "display": "26,700KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        },
+        {
+          "id": "07",
+          "display": "37,900KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        },
+        {
+          "id": "05A",
+          "display": "46,900KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        },
+        {
+          "id": "05B",
+          "display": "32,600KRW",
+          "logoPathLength": 7319,
+          "noOverflow": true
+        }
+      ]
+    }
+  ],
+  "notes": "No supplier communication, upload, cart, checkout, order or payment."
+}

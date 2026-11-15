@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-11-10",
+  "archive": "TOHESAR-OBJECT-LAB-POST-R02-DELTA-20261110.zip",
+  "archive_size_bytes": 11990647,
+  "archive_sha256": "d9ad85407a61ba154af5697f92bbcff2c9b8984d7d10a20845c6047827e842a1",
+  "archive_git_blob_sha1": "2b89127781efda387eea33e4a60841155b9199ac",
+  "data_file_count": 145,
+  "files_plus_inventory": 146,
+  "uncompressed_source_bytes": 12846053,
+  "archive_scope": "07 vendor probes + 08 zip hoodie work + sample room and QA; does not replace original R02 baseline or GitHub branches",
+  "part_count": 23,
+  "parts": [
+    {
+      "file": "parts/DELTA-SNAPSHOT.part01",
+      "size": 524286,
+      "blob_sha1": "eef9ddc3a382f1b3da9929f41a6edfdc7ae42964"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part02",
+      "size": 524286,
+      "blob_sha1": "9d9672f744da593743163f5a339f800f4cae4eb0"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part03",
+      "size": 524286,
+      "blob_sha1": "18a26b69368653eb4d2898336bc5cc0cbfd83f90"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part04",
+      "size": 524286,
+      "blob_sha1": "1adc8b657f341207b3fc277c6fc6afa4b57778d9"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part05",
+      "size": 524286,
+      "blob_sha1": "9636f012752eb01839d3e80b72a69bc54473edc8"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part06",
+      "size": 524286,
+      "blob_sha1": "df8c37c27db73e5e6e34fdaf121102455baffa34"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part07",
+      "size": 524286,
+      "blob_sha1": "74ec26a3bcb55734e4af4cc3c7a1ee119dfcbcd0"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part08",
+      "size": 524286,
+      "blob_sha1": "54e425ecd6365eedf1297e97388ad05d74954adf"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part09",
+      "size": 524286,
+      "blob_sha1": "73cdbd587f5baa6955ef7909f230a08c1e47b916"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part10",
+      "size": 524286,
+      "blob_sha1": "8780b2092e220cdb0a1ce28f49ad63e340ff65a6"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part11",
+      "size": 524286,
+      "blob_sha1": "5f4a04517d7b5201b2e490f093e0186fff4ea837"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part12",
+      "size": 524286,
+      "blob_sha1": "3bff32b6db7fc5e21d98afdc090b3dc431118948"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part13",
+      "size": 524286,
+      "blob_sha1": "489045a25e6f6cd980b4301907051e95969dfea5"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part14",
+      "size": 524286,
+      "blob_sha1": "4154ec1e2f0e751c0206df5a67e4dfbf9c22799a"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part15",
+      "size": 524286,
+      "blob_sha1": "9d09edeb521c4a923a3a030dffac323c98656f71"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part16",
+      "size": 524286,
+      "blob_sha1": "1f00cc7ca95f908ee3eadcd953787f1ed7bcf7c6"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part17",
+      "size": 524286,
+      "blob_sha1": "17d5d94d8a93b509d4dec74481edd1b586598658"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part18",
+      "size": 524286,
+      "blob_sha1": "67b55a3765109a671b348af3fc3ed3f773f2bf83"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part19",
+      "size": 524286,
+      "blob_sha1": "0b61bfa1a8874f04e8f23921800c58914936330e"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part20",
+      "size": 524286,
+      "blob_sha1": "7d7e324196dd4d78273f804186d9c294740d7f02"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part21",
+      "size": 524286,
+      "blob_sha1": "cbf9ea7a75ef7d8035a4ffc65132fdb614018440"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part22",
+      "size": 524286,
+      "blob_sha1": "734d030799cb1feb1c189f7503527b6906277abf"
+    },
+    {
+      "file": "parts/DELTA-SNAPSHOT.part23",
+      "size": 456355,
+      "blob_sha1": "9a1a231fde108560d1b4872a213f3ee0685093a2"
+    }
+  ],
+  "expected_zip_files": 146
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOHEŞAR / 01 SHADOW — size decision</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#161718;color:#f1eee7;font:16px/1.55 system-ui,'Noto Sans KR',sans-serif}main{max-width:980px;margin:auto;padding:32px 18px 80px}header{border-bottom:1px solid #555;padding-bottom:28px}h1{font-size:clamp(2rem,6vw,4rem);letter-spacing:-.05em;line-height:1.05;margin:12px 0}h2{font-size:1.1rem;margin:28px 0 12px}small,.muted{color:#b6b6b3}label{display:block;margin:12px 0 5px}input,select{background:#262829;color:#fff;border:1px solid #777;border-radius:4px;padding:12px;width:100%;font:inherit}.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.panel{background:#222425;border:1px solid #555;padding:18px;border-radius:5px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:610px}td,th{text-align:left;padding:10px;border-bottom:1px solid #484848}th{font-size:.85rem;color:#c6c3bd}tr.active{background:#3b403d}output{display:block;font-size:1.3rem;font-weight:700;margin:8px 0}.warn{border-left:3px solid #c5a16c;padding:8px 14px;background:#302b24}button{padding:12px 16px;background:#eee8db;border:0;border-radius:4px;font:inherit;cursor:pointer}footer{margin-top:30px;color:#aaa}@media(max-width:680px){.cols{grid-template-columns:1fr}main{padding-top:22px}}@media print{body{background:#fff;color:#111}.panel{background:#fff;color:#111}input,select{color:#111;background:#fff}button{display:none}small,.muted,footer{color:#444}.warn{background:#fff}}
+</style></head><body><main>
+<header><small>OBJECT LAB / FIRST SAMPLE / INTERNAL — NOT APPROVED</small><h1>01 SHADOW<br>SIZE DECISION</h1><p>차콜 275gsm · MARPPLE SKU 8178 · 원본 TOHEŞAR 82mm 아이보리 마크</p><small>Seller size guide snapshot 2026-11-10 KST · cm · not live inventory or price</small></header>
+<section><h2>01 / 실측 기준 선택</h2><div class="cols">
+<div><label for="size">검토 사이즈 (주문 승인 아님)</label><select id="size"><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option><option value="3XL">3XL</option></select></div>
+<div><label for="chest">착용자 가슴둘레 (cm, 선택)</label><input id="chest" type="number" min="1" max="250" step=".5" placeholder="미입력 가능"></div>
+<div><label for="tolerance">제조 치수 오차 가정</label><select id="tolerance"><option value="3">보수적 ±3cm (평면 폭)</option><option value="1">±1cm (낙관적)</option></select></div>
+</div><p class="muted">입력값은 브라우저 안에서만 계산하며 서버 전송·저장하지 않습니다. 옷의 가슴 단면을 2배해 옷 둘레를 계산합니다. 착용자 가슴둘레는 맨몸 또는 얇은 이너 기준으로 같은 방식으로 측정하세요.</p></section>
+<section class="cols" aria-live="polite">
+<div class="panel"><small>옷 가슴 단면 (표기)</small><output id="flat">58 cm</output><small id="circ">둘레 116 cm</small></div>
+<div class="panel"><small>옷 길이 / 어깨 / 소매</small><output id="dims">71 / 54 / 21 cm</output><small>판매자 표기, 실물 미측정</small></div>
+<div class="panel"><small>가슴 여유량 (둘레)</small><output id="ease">가슴둘레 입력 필요</output><small id="range">오차 범위는 판매자 공차를 보수적으로 적용</small></div>
+</section>
+<section><h2>02 / 모든 사이즈 비교</h2><div class="tablewrap"><table><thead><tr><th>Size</th><th>총장</th><th>어깨</th><th>가슴 단면</th><th>가슴둘레</th><th>소매</th></tr></thead><tbody id="chart"></tbody></table></div></section>
+<section><h2>03 / 생산 전 결정</h2><p class="warn" id="verdict">현재 사이즈는 검토용이며 승인되지 않았습니다.</p><p>핏은 가슴둘레만으로 결정되지 않습니다. 어깨선, 기장, 세탁 후 수축, 실물 원단감과 선호 실루엣을 별도로 확인해야 합니다. 제조 공차 1–3cm는 판매자 고지의 범위이며 각 항목·방향별 정확한 분포가 확인된 것은 아닙니다.</p><button type="button" onclick="window.print()">검토표 인쇄 / PDF 저장</button></section>
+<footer>NO ART UPLOAD · NO CART · NO PAYMENT · NO ORDER · NO PERSONAL DATA STORAGE<br>Original mark preserved; this is a measurement-only tool. Seller chart: https://www.marpple.com/kr/product/detail?bp_id=8178</footer>
+</main><script>
+"use strict";
+const chart={"S":[68.5,52,55,21],"M":[71,54,58,21],"L":[73.5,56,61,22],"XL":[76,58,64,23],"2XL":[78.5,61,67,24],"3XL":[81,64,70,25]};
+const $=id=>document.getElementById(id);
+function calc(size,chest,tol){const a=chart[size];if(!a)throw Error("Unknown size");const circumference=2*a[2];const valid=Number.isFinite(chest)&&chest>0;return {a,circumference,valid,ease:valid?circumference-chest:null,min:valid?circumference-2*tol-chest:null,max:valid?circumference+2*tol-chest:null};}
+function update(){const size=$("size").value,tol=Number($("tolerance").value),raw=$("chest").value.trim(),chest=raw===""?NaN:Number(raw),r=calc(size,chest,tol);
+$("flat").textContent=r.a[2]+" cm";$("circ").textContent="표기 둘레 "+r.circumference+" cm";$("dims").textContent=r.a[0]+" / "+r.a[1]+" / "+r.a[3]+" cm";
+$("ease").textContent=r.valid?r.ease.toFixed(1)+" cm":"가슴둘레 입력 필요";
+$("range").textContent=r.valid?"보수적 여유량 "+r.min.toFixed(1)+" ~ "+r.max.toFixed(1)+" cm":"평면 폭 공차 ±"+tol+"cm → 둘레 ±"+(2*tol)+"cm";
+$("verdict").textContent=!r.valid?"선택 "+size+": 치수 검토만 가능. 샘플 사이즈 미승인.":r.max<0?"선택 "+size+": 공차를 감안해도 옷 가슴둘레가 착용자보다 작습니다. 다른 사이즈 검토 필요.":r.min<0?"선택 "+size+": 제조 공차에 따라 가슴둘레가 착용자보다 작아질 수 있습니다. 실측 후 결정.":"선택 "+size+": 가슴둘레 기준 비음수 여유량 가능. 그러나 원하는 오버핏·기장·어깨 적합성은 미검증, 승인 아님.";
+$("chart").innerHTML=Object.entries(chart).map(([s,a])=>'<tr class="'+(s===size?'active':'')+'"><td>'+s+'</td>'+a.map((n,i)=>'<td>'+n+'</td>'+(i===2?'<td>'+(n*2)+'</td>':'')).join('')+'</tr>').join("");
+}["size","chest","tolerance"].forEach(id=>$(id).addEventListener("input",update));update();
+</script></body></html>
