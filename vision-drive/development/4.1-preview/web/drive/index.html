@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#e6e3da"><title>VISION DRIVE — Driver’s instrument</title><link rel="stylesheet" href="drive.css"><script src="drive.js" defer></script></head>
+<body data-mode="robot">
+<header class="mast"><a class="wordmark" href="../" aria-label="VISION DRIVE 홈">VISION<span>DRIVE</span><i>04</i></a><div class="edition">TOHEŞAR <span>×</span> TEAM BKIT<small>DRIVER’S INSTRUMENT / KS5023</small></div><button id="help" class="text-button">FIELD NOTES <span>사용 안내 ↗</span></button></header>
+<main class="cockpit">
+<div class="status-strip"><span id="mode-label">LOCAL ROBOT / 로봇 직접 연결</span><span class="connection"><i id="link-dot"></i><b id="link-state" role="status">연결 확인 중</b></span><span class="serial">ESP32-CAM · 2WD</span></div>
+<section class="visual" aria-label="카메라와 입력 상태">
+<div class="view-top"><span id="view-name">01 — OPTICAL LINK</span><span id="frame-state">프레임 대기</span></div>
+<div class="viewport" id="viewport">
+<img id="camera" alt="로봇 카메라의 수신 영상" hidden><canvas id="simulation" hidden aria-label="입력에 반응하는 가상 주행장. 실제 카메라 영상이 아닙니다."></canvas>
+<div class="standby" id="standby"><svg viewBox="0 0 380 230" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M20 115h80m180 0h80M190 5v40m0 145v35" stroke-dasharray="3 5"/><path d="M123 53h134v126H123z"/><path d="M143 68h94v93h-94zM135 174h110M148 46h84"/><rect x="105" y="75" width="18" height="72" rx="5"/><rect x="257" y="75" width="18" height="72" rx="5"/><circle cx="190" cy="90" r="24"/><circle cx="190" cy="90" r="15"/><path d="M164 139h52m-26-12v24M40 45h35m230 140h35"/><path d="m190 27-7 12h14z" fill="currentColor"/></g><text x="26" y="205" fill="currentColor" font-size="9" font-family="monospace">KS5023 / OPTICAL PLATFORM</text></svg><p id="standby-title">시야가 연결되면, 준비하세요.</p><span id="standby-detail">영상이 확인되기 전에는 구동할 수 없습니다.</span></div>
+<div id="guides" class="guides" hidden></div><div class="view-corner tl"></div><div class="view-corner br"></div>
+<div class="camera-tools"><button id="mirror" aria-pressed="false">좌우 반전</button><button id="grid" aria-pressed="false">구도선</button><button id="snapshot">사진 저장</button><button id="record">녹화</button><button id="reconnect">영상 재연결</button></div>
+</div>
+<div class="view-bottom"><span><i class="orange-line"></i><b id="direction">NEUTRAL</b><small>요청 방향</small></span><span id="latency">응답 — ms</span><button id="fullscreen" class="text-button">전체 화면 ⤢</button></div>
+</section>
+<aside class="power-panel" aria-label="구동 설정">
+<div class="instrument-title">02 — DRIVE OUTPUT <span>명령 출력</span></div>
+<div class="power-readout"><strong id="power-number">33</strong><span>%<small>PWM LIMIT</small></span></div>
+<div class="power-scale" aria-hidden="true"><i class="selected"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<fieldset id="power-options"><legend>출력 제한 · 측정 속도가 아닙니다</legend><button data-power="85" class="selected" aria-pressed="true">I<small>LOW</small></button><button data-power="170" aria-pressed="false">II<small>MID</small></button><button data-power="255" aria-pressed="false">III<small>HIGH</small></button></fieldset>
+<div class="motor-pair"><span>L <b id="left-output">0</b></span><span>R <b id="right-output">0</b></span><small>모터 PWM 명령 / ±255</small></div>
+<label class="trim-label" for="trim">좌우 수동 보정 <output id="trim-value">0</output></label><input id="trim" type="range" min="-20" max="20" value="0" step="1" aria-describedby="trim-note"><p class="micro" id="trim-note">한쪽 출력을 줄이는 보정 · 자동 직진 아님</p>
+<button id="led" class="led-switch" aria-pressed="false"><span class="lamp-symbol">◉</span> CAMERA LIGHT <b>OFF</b></button>
+</aside>
+<section class="drive-input" aria-label="주행 조작">
+<div class="input-heading"><span>03 — HAND CONTROL</span><p>누르는 동안 이동.<br>손을 놓으면 중립.</p><small>WASD / 방향키 · SPACE 정지</small></div>
+<div class="steering" id="joystick" role="group" aria-label="터치 조이스틱. 위 전진, 아래 후진, 좌우 회전"><div class="ring"></div><div class="joystick-index" aria-hidden="true"></div><div class="axis horizontal"></div><div class="axis vertical"></div><span class="joy-caption top">FWD</span><span class="joy-caption bottom">REV</span><span class="joy-caption left">L</span><span class="joy-caption right">R</span><div class="knob" id="knob"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8v24M8 20h24" stroke="currentColor"/></svg></div></div>
+<div class="direction-keys" aria-label="방향 버튼"><button data-dir="forward" aria-label="전진">↑</button><button data-dir="left" aria-label="좌회전">←</button><button data-dir="backward" aria-label="후진">↓</button><button data-dir="right" aria-label="우회전">→</button></div>
+<div class="safety"><button id="arm" class="arm-button">구동 준비 <span>↗</span></button><button id="stop" class="stop-button"><span>■</span> STOP <small>정지 · 잠금</small></button><p id="safety-note" role="status">잠금 상태 · 처음에는 바퀴를 들어 시험하세요</p></div>
+</section>
+<footer class="foot"><span>STOCK OUTSIDE. FAST INSIDE.</span><span id="safety-spec">명령 만료 350 ms · 재연결 후 수동 준비</span><button id="export" class="text-button">기록 내보내기 ↗</button></footer>
+</main>
+<dialog id="guide-dialog"><div class="dialog-heading"><span>VISION DRIVE / FIELD NOTES</span><button id="close-help" aria-label="안내 닫기">×</button></div><h1>운전하기 전에.</h1><div class="notes-tabs"><button id="notes-tab" class="selected" aria-pressed="true">운전 안내</button><button id="diagnostics-tab" aria-pressed="false">통신 진단</button><button id="report-tab" aria-pressed="false">시운전 기록</button></div><div id="notes-content"><p id="mode-explanation">로봇의 Wi-Fi에 연결하고 http://192.168.4.1 을 여세요. 학교 Wi-Fi와 인터넷은 필요하지 않습니다.</p><ol><li>로봇을 받침대에 올리고 바퀴를 띄우세요.</li><li>영상이 현재 장면인지 직접 확인하세요. LOW부터 시작합니다.</li><li>‘구동 준비’를 누르고 조이스틱이나 방향키를 누르세요.</li><li>STOP·SPACE·ESC는 정지와 잠금입니다. 연결이 끊기면 다시 준비해야 합니다.</li></ol><p>표시는 명령·응답 기준입니다. 속도·배터리·거리 센서는 제공하지 않습니다. 실물 정지 거리와 영상 지연은 현장에서 확인해야 합니다.</p></div><div id="diagnostics-content" hidden><p class="dialog-kicker">LINK CHECK / 모터를 움직이지 않는 시험</p><p>잠금 상태에서 제어 서버의 응답 20회를 측정합니다. 카메라는 계속 수신합니다. 결과는 HTTP 왕복 시간이며 영상 지연·물리 동작 지연이 아닙니다.</p><button id="run-diagnostics" class="diagnostic-button">통신 진단 시작 <span>→</span></button><p id="diagnostic-result" role="status">아직 측정하지 않았습니다.</p><div id="diagnostic-plot" aria-hidden="true"></div></div><div id="report-content" hidden><p class="dialog-kicker">SESSION RECORD / 명령과 관찰</p><dl class="session-stats"><div><dt>제어 응답 표본</dt><dd id="rtt-count">—</dd></div><div><dt>중앙값 / P95</dt><dd id="rtt-summary">—</dd></div></dl><p class="micro">이번 페이지에서 받은 최근 최대 1500개 제어 응답입니다. 실제 움직임을 센서로 확인한 기록이 아닙니다.</p><label for="notes">시운전 메모</label><textarea id="notes" rows="3" placeholder="노면, 바퀴 방향, 출력과 관찰 내용을 적으세요."></textarea><p class="micro">이 기기에만 저장됩니다. 기록을 내보내 보관하세요.</p><div class="report-actions"><button id="save-report" class="diagnostic-button">시운전 보고서 저장 <span>↗</span></button><button id="save-json" class="text-button">원본 JSON ↗</button></div></div></dialog>
+<div id="toast" role="status"></div>
+</body></html>
