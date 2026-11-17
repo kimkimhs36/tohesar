@@ -16,7 +16,7 @@ function direction(){if(!x&&!y)return 'NEUTRAL';if(Math.abs(x)>Math.abs(y))retur
 function render(){
  const [l,r]=armed?vector():[0,0];$('left-output').textContent=l;$('right-output').textContent=r;$('direction').textContent=armed?direction():'NEUTRAL';
  $('knob').style.transform=`translate(${x*45}px,${-y*45}px)`;document.body.classList.toggle('armed',armed);
- $('arm').classList.toggle('is-armed',armed);$('arm').innerHTML=armed?'구동 준비됨 <span>●</span>':arming?'준비 확인 중 <span>…</span>':'구동 준비 <span>↗</span>';
+ $('arm').classList.toggle('is-armed',armed);$('arm').innerHTML=armed?sim?'시뮬레이션 활성 <span>●</span>':'구동 준비됨 <span>●</span>':arming?'준비 확인 중 <span>…</span>':sim?'시뮬레이션 시작 <span>↗</span>':'구동 준비 <span>↗</span>';
  $('arm').disabled=arming || !!stopRequest || (!sim && (!connected||!frameOK||performance.now()-lastFrame>900));
  document.querySelectorAll('[data-power]').forEach(b=>b.disabled=armed||arming);$('trim').disabled=armed||arming;$('led').disabled=!armed;
  $('led').setAttribute('aria-pressed',String(led));$('led').querySelector('b').textContent=led?'ON':'OFF';
@@ -41,7 +41,7 @@ async function arm(){
   if(!sim && (!frameOK||performance.now()-lastFrame>900))throw Error('영상 확인 필요');
   const response=sim?{token:1}:await request('/api/arm',{});
   if(e!==epoch){if(local)sendStop();return;}
-  token=response.token;seq=0;armed=true;arming=false;setStatus(sim?'시뮬레이션 · 조작 중':'로봇 연결 · 구동 준비','armed');setNote('누르는 동안만 이동합니다 · STOP으로 잠금');log('armed');render();ensureSteeringVisible();
+  token=response.token;seq=0;armed=true;arming=false;setStatus(sim?'시뮬레이션 · 조작 중':'로봇 연결 · 구동 준비','armed');setNote(sim?'가상 입력만 표시합니다 · 실제 로봇은 움직이지 않습니다':'누르는 동안만 이동합니다 · STOP으로 잠금');log('armed');render();ensureSteeringVisible();
  }catch(error){if(e!==epoch)return;stop('준비 불가 · 현재 영상과 연결을 확인하세요');}
 }
 function ensureSteeringVisible(){
